@@ -1,0 +1,15 @@
+{
+ "email_service_client": "contact@qosmi.be",
+ "frais_livraison": "6,95 €",
+ "_note": "E-mail affiché sur les pages légales du site. Frais de livraison TTC.",
+ "prix_provisoires": {
+  "envoi_eur": 2,
+  "marge_eur": 5,
+  "tva": 0.21,
+  "_note": "Prix PROVISOIRES des fiches SoleLuna du site Qosmi (03/11/2026), à revoir avec Amine : (achat + envoi + bénéfice) × (1 + TVA), arrondi au ,90."
+ },
+ "delai_dropship_fr": "4 à 7 jours ouvrables",
+ "delai_dropship_nl": "4 tot 7 werkdagen",
+ "statut_nouvelles_fiches": "DRAFT",
+ "_note_statut": "Statut des nouvelles fiches créées par la mise à jour horaire : DRAFT tant que le site n'est pas ouvert, ACTIVE ensuite."
+}

@@ -1,0 +1,80 @@
+name: Qosmi - mise a jour du site
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # toutes les heures à h+17 (heure UTC ; GitHub peut décaler de quelques minutes)
+  workflow_dispatch:
+    inputs:
+      essai:
+        description: "Essai : calculer les changements sans rien envoyer"
+        type: boolean
+        default: false
+
+concurrency:
+  group: qosmi-synchro
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  synchro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - name: Refuser de tourner si le dépôt est public
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          prive=$(gh api "repos/${GITHUB_REPOSITORY}" --jq .private)
+          if [ "$prive" != "true" ]; then
+            echo "::error::Le dépôt est PUBLIC : arrêt. Il doit rester privé."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Reprendre l'état des passages précédents
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            base/.site_synchro_traduit
+            base/.site_synchro_a_traduire
+            stocklists/WHOLESALEFRAGRANCES
+          key: etat-${{ github.run_id }}
+          restore-keys: etat-
+
+      - name: Mise à jour du site
+        env:
+          SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
+          SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
+          SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+          WF_URL: ${{ secrets.WF_URL }}
+        run: |
+          if [ "${{ inputs.essai }}" = "true" ]; then python -u scripts/site_synchro.py --essai; else python -u scripts/site_synchro.py; fi
+          [ -f rapports/site_synchro.log ] && tail -n 5 rapports/site_synchro.log >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Garder l'état pour le prochain passage
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            base/.site_synchro_traduit
+            base/.site_synchro_a_traduire
+            stocklists/WHOLESALEFRAGRANCES
+          key: etat-${{ github.run_id }}
+
+      - name: Journal du passage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: journal-${{ github.run_id }}
+          path: rapports/
+          retention-days: 7
+          if-no-files-found: ignore
