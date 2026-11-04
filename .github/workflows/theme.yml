@@ -1,0 +1,42 @@
+name: Qosmi - theme
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "exporter (lecture seule)"
+        type: choice
+        options: [exporter]
+        default: exporter
+
+permissions:
+  contents: read
+
+jobs:
+  theme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Refuser de tourner si le dépôt est public
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          prive=$(gh api "repos/${GITHUB_REPOSITORY}" --jq .private)
+          if [ "$prive" != "true" ]; then echo "::error::Le dépôt est PUBLIC : arrêt."; exit 1; fi
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Thème
+        env:
+          SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+        run: python -u scripts/site_theme.py --${{ inputs.action }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: theme-${{ github.run_id }}
+          path: rapports/theme/
+          retention-days: 7
+          if-no-files-found: ignore
