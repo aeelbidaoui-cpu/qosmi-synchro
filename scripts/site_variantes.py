@@ -156,6 +156,28 @@ def produit(lignes, r, photos):
             "teintes": teintes, "variantes": variantes}
 
 
+def photos_officielles(produits):
+    """Photos des sites des marques qui l'ont autorisé (config/photos_marques.json, scripts/photos_marques.py) :
+    priorité sur les photos Wholesale-Fragrances. Par EAN, sinon par nom du parfum (testeurs compris)."""
+    chemin = os.path.join(os.path.dirname(sl.SITE), "photos_marques.json")
+    if not os.path.exists(chemin):
+        return 0
+    import photos_marques as pm
+    ph = json.load(open(chemin, encoding="utf-8"))
+    marques = {m.lower() for m in ph.get("marques", [])}
+    n = 0
+    for p in produits:
+        if p["marque"].lower() not in marques:
+            continue
+        titre = p["titre_fr"].split(" — ")[0][len(p["marque"]) + 1:]
+        for v in p["variantes"]:
+            url = ph["par_ean"].get(v["ean"].lstrip("0")) or ph["par_nom"].get(pm.cle_nom(p["marque"], titre))
+            if url:
+                v["photo_source"] = url
+                n += 1
+    return n
+
+
 def preparer(exemples=True):
     if not os.path.exists(sl.SOURCE):
         sys.exit("Liste SoleLuna brute absente (base/soleluna_liste.csv) : lance d'abord « telecharger.py PERFUMEWHOLESALE ».")
@@ -176,6 +198,7 @@ def preparer(exemples=True):
         else:
             groupes[cle_groupe(l)].append(l)
     produits = [produit(g, r, photos) for g in groupes.values()]
+    n_off = photos_officielles(produits)
     # handles uniques
     vus = set()
     for p in sorted(produits, key=lambda p: p["titre_fr"].lower()):
@@ -214,7 +237,8 @@ def preparer(exemples=True):
     print("Liste SoleLuna lue : %d lignes." % len(lignes))
     print("Fiches SoleLuna : %d (au lieu de %d formats séparés), dont %d avec plusieurs formats ou teintes."
           % (len(produits), nv, len(multi)))
-    print("  %d fiches avec photo." % sum(1 for p in produits if any(v["photo_source"] for v in p["variantes"])))
+    print("  %d fiches avec photo, dont %d formats avec la photo officielle de la marque." % (
+        sum(1 for p in produits if any(v["photo_source"] for v in p["variantes"])), n_off))
     if ecart:
         print("  écartées : " + ", ".join("%s %d" % (k, v) for k, v in ecart.items()))
     for p in (sorted(multi, key=lambda p: -len(p["variantes"]))[:3] + multi[:3]) if exemples else []:

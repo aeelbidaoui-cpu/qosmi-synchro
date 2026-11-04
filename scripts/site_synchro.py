@@ -399,6 +399,38 @@ def activer():
     ligne_journal("Fiches actives et publiées sur la boutique en ligne : %d" % len(cibles))
 
 
+def photos_marques():
+    """Remplace sur Shopify les photos des fiches Mancera et Montale par les photos officielles des marques."""
+    from shopify_api import Shopify
+    import site_charger as sc
+    if os.environ.get("SOLELUNA_EMAIL"):
+        listes_serveur()
+    produits = sv.preparer(exemples=False)
+    s = Shopify()
+    lieu_id = sc.lieu(s)
+    boutique, variantes = etat_boutique(s, sc)
+    vs_qs = {v["sku"]: v for v in variantes.values() if (v.get("sku") or "").startswith("QS-")}
+    ph = json.load(open(os.path.join(os.path.dirname(sl.SITE), "photos_marques.json"), encoding="utf-8"))
+    marques = {m.lower() for m in ph["marques"]}
+    officielles = set(ph["par_ean"].values()) | set(ph["par_nom"].values())
+    ok = err = 0
+    for p in produits:
+        if p["marque"].lower() not in marques or not any(v["photo_source"] in officielles for v in p["variantes"]):
+            continue
+        ids = [vs_qs[v["sku"]]["produit"] for v in p["variantes"] if v["sku"] in vs_qs]
+        if not ids:
+            continue
+        pid = collections.Counter(ids).most_common(1)[0][0]
+        e = entree_complete(p, boutique[pid], lieu_id, boutique[pid]["status"])
+        d = s.gql(sc.M_SET, e)["productSet"]
+        if d["userErrors"]:
+            err += 1
+            ligne_journal("  erreur %s : %s" % (p["titre_fr"], json.dumps(d["userErrors"], ensure_ascii=False)[:200]))
+        else:
+            ok += 1
+    ligne_journal("Photos officielles posées : %d fiches (%d erreurs)" % (ok, err))
+
+
 def retirer_depot():
     """Archive les fiches du stock du dépôt (étiquette « en-stock-belgique ») : Qosmi vend uniquement SoleLuna."""
     from shopify_api import Shopify
@@ -430,6 +462,9 @@ def main():
             return 0
         if "--activer" in sys.argv:
             activer()
+            return 0
+        if "--photos-marques" in sys.argv:
+            photos_marques()
             return 0
         try:
             return synchro(essai="--essai" in sys.argv)

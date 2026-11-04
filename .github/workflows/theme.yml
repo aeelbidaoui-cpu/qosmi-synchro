@@ -6,7 +6,7 @@ on:
       action:
         description: "exporter (lecture seule) ou appliquer (copie non publiée)"
         type: choice
-        options: [exporter, appliquer, activer-fiches]
+        options: [exporter, appliquer, activer-fiches, photos-marques]
         default: exporter
 
 permissions:
@@ -32,8 +32,12 @@ jobs:
           SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
           SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
           SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+          SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
+          SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
+          WF_URL: ${{ secrets.WF_URL }}
         run: |
           if [ "${{ inputs.action }}" = "activer-fiches" ]; then python -u scripts/site_synchro.py --activer
+          elif [ "${{ inputs.action }}" = "photos-marques" ]; then python -u scripts/photos_marques.py && python -u scripts/site_synchro.py --photos-marques
           else python -u scripts/site_theme.py --${{ inputs.action }}; fi
       - uses: actions/upload-artifact@v4
         if: always()
