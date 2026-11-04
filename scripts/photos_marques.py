@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Photos officielles des marques qui ont autorisé Qosmi à utiliser les images de leur site (04/11/2026) :
-Mancera et Montale (même groupe). Lit le plan du site (sitemap) puis, sur chaque fiche, les données produit
-(schema.org) : nom, photo, EAN de chaque contenance. Écrit config/photos_marques.json :
+Mancera et Montale (même groupe), Xerjoff.
+- Mancera, Montale (PrestaShop) : plan du site (sitemap), puis sur chaque fiche les données produit (schema.org) :
+  nom, photo, EAN de chaque contenance.
+- Xerjoff (Shopify) : catalogue public /products.json : nom et photo (pas d'EAN publié : rapprochement par le nom,
+  les noms de ligne — JTC, Casamorati, K Collection… — sont ignorés des deux côtés).
+Écrit config/photos_marques.json :
   {"par_ean": {ean: url}, "par_nom": {"marque|nom": url}, "maj": date}
 
   python3 scripts/photos_marques.py
@@ -12,10 +16,20 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 SORTIE = os.path.join(os.path.dirname(ICI), "config", "photos_marques.json")
 AGENT = "Mozilla/5.0 (compatible; QosmiPhotos/1.0)"
 SITES = {"Mancera": "https://www.manceraparfums.com", "Montale": "https://www.montaleparfums.com"}
+SITES_SHOPIFY = {"Xerjoff": "https://www.xerjoff.com/en-eu"}
+LIGNES = {"xerjoff": re.compile(r"^(blends|casamorati 1888|casamorati|coffee break|jtc|join the club|k collection|"
+                                r"oud stars|shooting stars|sans|star musk|xj 17/17|17/17|xj 1861|1861|xj oud|v collection|"
+                                r"spotlight collection|sketchbook|renaissance collection)\s+", re.I)}
+EXCLUS = re.compile(r"sample|gift set|\bkit\b|\bset\b|15\s?ml|calendar|discovery|initiation|signed", re.I)
 
 
 def cle_nom(marque, nom):
-    n = unicodedata.normalize("NFKD", html.unescape(nom or "")).encode("ascii", "ignore").decode().lower()
+    n = html.unescape(nom or "").strip()
+    lignes = LIGNES.get(marque.lower())
+    if lignes:
+        n = lignes.sub("", lignes.sub("", n))
+        n = re.sub(r"\(\d{4}\)", " ", n)
+    n = unicodedata.normalize("NFKD", n).encode("ascii", "ignore").decode().lower()
     n = re.sub(r"\b(eau de parfum|edp|intense edp|parfum|extrait|\d+\s*ml)\b", " ", n)
     return marque.lower() + "|" + " ".join(re.findall(r"[a-z0-9]+", n))
 
@@ -74,9 +88,33 @@ def main():
             par_nom.setdefault(cle_nom(marque, nom), image)
             for e in eans:
                 par_ean[e.lstrip("0")] = image
+    for marque, base in SITES_SHOPIFY.items():
+        produits, page = [], 1
+        while page < 20:
+            try:
+                d = json.loads(lire("%s/products.json?limit=250&page=%d" % (base, page)))
+            except Exception as e:
+                print("%s : catalogue illisible (%s)" % (marque, e))
+                break
+            if not d.get("products"):
+                break
+            produits += d["products"]
+            page += 1
+            time.sleep(0.5)
+        print("%s : %d fiches" % (marque, len(produits)))
+        for p in produits:
+            if p.get("product_type") != "Perfume" or EXCLUS.search(p.get("title", "")) or not p.get("images"):
+                continue
+            image = p["images"][0]["src"].split("?")[0]
+            n += 1
+            par_nom.setdefault(cle_nom(marque, p["title"]), image)
+            for v in p.get("variants", []):
+                e = re.sub(r"\D", "", v.get("barcode") or "")
+                if len(e) >= 8:
+                    par_ean[e.lstrip("0")] = image
     if n < 10:
         sys.exit("Trop peu de photos lues (%d) : fichier inchangé." % n)
-    json.dump({"maj": time.strftime("%Y-%m-%d"), "marques": list(SITES), "par_ean": par_ean, "par_nom": par_nom},
+    json.dump({"maj": time.strftime("%Y-%m-%d"), "marques": list(SITES) + list(SITES_SHOPIFY), "par_ean": par_ean, "par_nom": par_nom},
               open(SORTIE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("Photos officielles : %d parfums, %d EAN" % (len(par_nom), len(par_ean)))
 
