@@ -136,7 +136,19 @@ def listes_serveur():
                                     "Submit": "Log in"}).encode()
     page = ouvreur.open(urllib.request.Request(base + "/login/", data=corps), timeout=60).read().decode("utf-8", "replace")
     if "/logout/" not in page:
-        raise RuntimeError("connexion refusée par wholesale-perfumes.eu (mot de passe changé ? mettre à jour le secret)")
+        email, mdp = os.environ.get("SOLELUNA_EMAIL", ""), os.environ.get("SOLELUNA_PASSWORD", "")
+        indices = []
+        if not email or "@" not in email:
+            indices.append("secret SOLELUNA_EMAIL vide ou sans @")
+        if not mdp:
+            indices.append("secret SOLELUNA_PASSWORD vide")
+        if email != email.strip() or mdp != mdp.strip():
+            indices.append("espace ou retour à la ligne en trop dans un secret")
+        bas = page.lower()
+        if "captcha" in bas or "cf-challenge" in bas or "challenge-platform" in bas:
+            indices.append("le site demande une vérification anti-robot depuis le serveur")
+        raise RuntimeError("connexion refusée par wholesale-perfumes.eu (%s)" % (
+            " ; ".join(indices) or "identifiants refusés : vérifier les secrets SOLELUNA_EMAIL et SOLELUNA_PASSWORD"))
     with ouvreur.open(base + "/export_pricelist/csv", timeout=180) as rep:
         donnees = rep.read()
     if not donnees.decode("utf-8-sig", "replace").lstrip().startswith('"id";"BRAND"'):
