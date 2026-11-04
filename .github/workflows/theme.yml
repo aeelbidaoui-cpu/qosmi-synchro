@@ -6,7 +6,7 @@ on:
       action:
         description: "exporter (lecture seule) ou appliquer (copie non publiée)"
         type: choice
-        options: [exporter, appliquer, activer-fiches, photos-marques]
+        options: [exporter, appliquer, activer-fiches, photos-marques, menu]
         default: exporter
 
 permissions:

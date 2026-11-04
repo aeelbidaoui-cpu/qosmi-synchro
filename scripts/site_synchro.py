@@ -211,6 +211,19 @@ def traduire_fiches(s, sc, fiches):
     return n
 
 
+def selection():
+    """config/selection.json : marques et catégories affichées sur le site (le reste reste en brouillon)."""
+    chemin = os.path.join(os.path.dirname(sl.SITE), "selection.json")
+    if not os.path.exists(chemin):
+        return None
+    d = json.load(open(chemin, encoding="utf-8"))
+    return {m.lower() for m in d.get("marques", [])}, set(d.get("categories", []))
+
+
+def visible(p, sel):
+    return sel is None or (p["marque"].lower() in sel[0] and p["type_fr"] in sel[1])
+
+
 def synchro(essai=False):
     from shopify_api import Shopify
     import site_charger as sc
@@ -229,6 +242,8 @@ def synchro(essai=False):
             return 1
     produits = sv.preparer(exemples=False)
     statut_nouv = reglage("statut_nouvelles_fiches", "DRAFT")
+    sel = selection()
+    statuts = []  # (id, statut) : fiches à afficher ou à masquer selon la sélection
     s = Shopify()
     lieu_id = sc.lieu(s)
     boutique, variantes = etat_boutique(s, sc)
@@ -249,12 +264,15 @@ def synchro(essai=False):
                 i += 1
             handles.add(p["handle"])
             e = sv.entree(p, lieu_id, {"handle": p["handle"]})
-            e["input"]["status"] = statut_nouv
+            e["input"]["status"] = statut_nouv if visible(p, sel) else "DRAFT"
             nouveaux.append(e)
             nouveaux_p.append((e, p))
             continue
         pid = collections.Counter(ids).most_common(1)[0][0]
         existante = boutique[pid]
+        voulu = ("ACTIVE" if statut_nouv == "ACTIVE" else existante["status"]) if visible(p, sel) else "DRAFT"
+        if voulu != existante["status"]:
+            statuts.append((pid, voulu))
         skus_fiche = {v["sku"] for v in existante["variantes"]}
         for v in p["variantes"]:
             vus.add(v["sku"])
@@ -280,9 +298,11 @@ def synchro(essai=False):
                 if sku not in vus and int(v.get("inventoryQuantity") or 0) != 0]
     stocks += disparus
     n_prix = sum(len(x) for x in prix.values())
+    n_aff = sum(1 for _, st in statuts if st == "ACTIVE")
     resume = ("%d formats suivis · %d stocks changés (dont %d sortis de la liste) · %d prix/coûts changés · "
-              "%d fiches complétées · %d nouvelles fiches" % (n_cible, len(stocks), len(disparus), n_prix,
-                                                               len(structurels), len(nouveaux)))
+              "%d fiches complétées · %d nouvelles fiches · %d fiches affichées et %d masquées selon la sélection"
+              % (n_cible, len(stocks), len(disparus), n_prix, len(structurels), len(nouveaux), n_aff,
+                 len(statuts) - n_aff))
     if essai:
         print("ESSAI (rien n'est envoyé) : " + resume)
         for e in nouveaux[:5]:
@@ -327,6 +347,21 @@ def synchro(essai=False):
             publier_fiches(s, ids)
         except Exception as ex:
             ligne_journal("  publication des nouvelles fiches à refaire (%s)" % str(ex)[:150])
+    # 1 bis. fiches affichées / masquées selon la sélection (masquer = brouillon, jamais supprimer)
+    if statuts:
+        if len(statuts) > 40:
+            chemin = os.path.join(sl.RAPPORTS, "site_synchro_statuts.jsonl")
+            with open(chemin, "w", encoding="utf-8") as f:
+                for pid, st in statuts:
+                    f.write(json.dumps({"product": {"id": pid, "status": st}}) + "\n")
+            sc.bilan_resultats(sc.attendre(s, sc.lancer_mutation(s, sc.M_MAJ, chemin, "synchro-statuts"), "synchro-statuts"),
+                               "synchro-statuts")
+        else:
+            for pid, st in statuts:
+                d = s.gql(sc.M_MAJ, {"product": {"id": pid, "status": st}})["productUpdate"]
+                if d["userErrors"]:
+                    erreurs += 1
+        publier_fiches(s, [pid for pid, st in statuts if st == "ACTIVE"]) if len(statuts) <= 40 else None
     # 2. prix et coûts
     if n_prix > 300:
         chemin = os.path.join(sl.RAPPORTS, "site_synchro_prix.jsonl")

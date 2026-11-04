@@ -72,10 +72,8 @@ COLLECTIONS = [  # (handle, titre, colonne, valeurs)
     ("coffrets", "Coffrets", "TYPE", ["Coffrets"]), ("soins", "Soins", "TYPE", SOINS),
     ("maquillage", "Maquillage", "TYPE", ["Maquillage"]),
 ]
-MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes"),
-                                ("Enfant", "parfums-enfants"), ("Orientaux", "orientaux")]),
-        ("Niche", "niche", []), ("Testeurs", "testeurs", []), ("Coffrets", "coffrets", []), ("Soins", "soins", []),
-        ("Maquillage", "maquillage", [])]
+MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes")]),
+        ("Niche", "niche", []), ("Testeurs", "testeurs", [])]  # 04/11/2026 : parfums uniquement (sélection d'Amine)
 LOGOS = ["qosmi-logo.png", "qosmi-logo-blanc.png", "qosmi-favicon.png"]
 
 
@@ -202,8 +200,16 @@ def appliquer():
     print("ÉDITEUR : Admin Shopify → Boutique en ligne → Thèmes → « %s » → Personnaliser" % APERCU)
 
 
+def menu_seul():
+    from shopify_api import Shopify
+    s = Shopify()
+    menu(s, collections(s))
+
+
 if __name__ == "__main__":
-    if "--exporter" in sys.argv:
+    if "--menu" in sys.argv:
+        menu_seul()
+    elif "--exporter" in sys.argv:
         exporter()
     elif "--appliquer" in sys.argv:
         appliquer()
