@@ -313,6 +313,17 @@ def synchro(essai=False):
             ligne_journal("  traductions NL : %d éléments" % n)
         except Exception as ex:
             ligne_journal("  traductions NL non faites (%s)" % str(ex)[:150])
+    if nouveaux and statut_nouv == "ACTIVE":  # nouvelles fiches visibles sur la boutique en ligne
+        try:
+            ids = []
+            for e in nouveaux:
+                d = s.gql("query($h: String!) { productByIdentifier(identifier: {handle: $h}) { id } }",
+                          {"h": e["input"]["handle"]}).get("productByIdentifier")
+                if d:
+                    ids.append(d["id"])
+            publier_fiches(s, ids)
+        except Exception as ex:
+            ligne_journal("  publication des nouvelles fiches à refaire (%s)" % str(ex)[:150])
     # 2. prix et coûts
     if n_prix > 300:
         chemin = os.path.join(sl.RAPPORTS, "site_synchro_prix.jsonl")
@@ -340,6 +351,52 @@ def synchro(essai=False):
             ligne_journal("  erreur stocks : %s" % json.dumps(d["userErrors"], ensure_ascii=False)[:300])
     ligne_journal("OK %s · %d erreur(s) · %d s" % (resume, erreurs, time.time() - debut))
     return 0 if not erreurs else 1
+
+
+M_PUBLIER = """mutation call($id: ID!, $input: [PublicationInput!]!) { publishablePublish(id: $id, input: $input) {
+  userErrors { field message } } }"""
+
+
+def publication_boutique(s):
+    pubs = s.gql("{ publications(first: 20) { nodes { id name } } }")["publications"]["nodes"]
+    return next((p["id"] for p in pubs if p["name"] in ("Online Store", "Boutique en ligne")), None)
+
+
+def publier_fiches(s, ids):
+    """Rend visibles sur la boutique en ligne des fiches déjà ACTIVES (une par une : pour les nouveautés de l'heure)."""
+    pub = publication_boutique(s)
+    for pid in ids if pub else []:
+        s.gql(M_PUBLIER, {"id": pid, "input": [{"publicationId": pub}]})
+
+
+def activer():
+    """Passe en ACTIF toutes les fiches SoleLuna en brouillon et les publie sur la boutique en ligne
+    (décision d'Amine du 04/11/2026 ; la boutique reste protégée par mot de passe)."""
+    from shopify_api import Shopify
+    import site_charger as sc
+    s = Shopify()
+    boutique, _ = etat_boutique(s, sc)
+    cibles = [p["id"] for p in boutique.values()
+              if any((v.get("sku") or "").startswith("QS-") for v in p["variantes"])]
+    brouillons = [p for p in cibles if boutique[p]["status"] == "DRAFT"]
+    ligne_journal("Fiches SoleLuna : %d, dont %d en brouillon à activer" % (len(cibles), len(brouillons)))
+    os.makedirs(sl.RAPPORTS, exist_ok=True)
+    if brouillons:
+        chemin = os.path.join(sl.RAPPORTS, "site_activation_envoi.jsonl")
+        with open(chemin, "w", encoding="utf-8") as f:
+            for pid in brouillons:
+                f.write(json.dumps({"product": {"id": pid, "status": "ACTIVE"}}) + "\n")
+        sc.bilan_resultats(sc.attendre(s, sc.lancer_mutation(s, sc.M_MAJ, chemin, "activation"), "activation"), "activation")
+    pub = publication_boutique(s)
+    if not pub:
+        ligne_journal("Canal « Boutique en ligne » introuvable : fiches actives mais non publiées.")
+        return
+    chemin = os.path.join(sl.RAPPORTS, "site_publication_envoi.jsonl")
+    with open(chemin, "w", encoding="utf-8") as f:
+        for pid in cibles:
+            f.write(json.dumps({"id": pid, "input": [{"publicationId": pub}]}) + "\n")
+    sc.bilan_resultats(sc.attendre(s, sc.lancer_mutation(s, M_PUBLIER, chemin, "publication"), "publication"), "publication")
+    ligne_journal("Fiches actives et publiées sur la boutique en ligne : %d" % len(cibles))
 
 
 def retirer_depot():
@@ -370,6 +427,9 @@ def main():
             return 0
         if "--retirer-depot" in sys.argv:
             retirer_depot()
+            return 0
+        if "--activer" in sys.argv:
+            activer()
             return 0
         try:
             return synchro(essai="--essai" in sys.argv)
