@@ -102,12 +102,15 @@ def entree_complete(p, existante, lieu_id, statut):
             var["id"] = ancien["id"]
             var.pop("inventoryQuantities", None)  # le stock passe par inventorySetQuantities
     noms = [o["name"] for o in inp["productOptions"]]
+    pris = {tuple((x["optionName"], x["name"]) for x in var["optionValues"]) for var in inp["variants"]}
     for sku, v in par_sku.items():
         if sku in cibles:
             continue
         ov = {o["name"]: o["value"] for o in v.get("selectedOptions", [])}
         if any(n not in noms for n in ov):
             continue  # ancien format sans correspondance d'option
+        if tuple((o["name"], ov.get(o["name"]) or "—") for o in inp["productOptions"]) in pris:
+            continue  # même format repris par un nouveau code : l'ancien est remplacé
         valeurs = []
         for o in inp["productOptions"]:
             val = ov.get(o["name"]) or "—"
