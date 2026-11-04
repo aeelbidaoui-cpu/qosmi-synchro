@@ -2,7 +2,7 @@ name: Qosmi - mise a jour du site
 
 on:
   schedule:
-    - cron: "17 * * * *"   # toutes les heures à h+17 (heure UTC ; GitHub peut décaler de quelques minutes)
+    - cron: "17 * * * *"   # toutes les heures à h+17 (heure UTC ; GitHub peut décaler de quelques minutes) - activé par Amine
   workflow_dispatch:
     inputs:
       essai:
