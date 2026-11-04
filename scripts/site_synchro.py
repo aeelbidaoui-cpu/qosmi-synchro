@@ -29,8 +29,6 @@ import site_variantes as sv  # noqa: E402
 
 JOURNAL = os.path.join(sl.RAPPORTS, "site_synchro.log")
 VERROU = os.path.join(sl.BASE, ".site_synchro.lock")
-A_TRADUIRE = os.path.join(sl.BASE, ".site_synchro_a_traduire")
-TRADUIT = os.path.join(sl.BASE, ".site_synchro_traduit")
 
 M_PRIX = """mutation call($productId: ID!, $variants: [ProductVariantsBulkInput!]!) {
   productVariantsBulkUpdate(productId: $productId, variants: $variants) {
@@ -175,6 +173,41 @@ def listes_serveur():
                 ligne_journal("  liste photos non lue (%s)" % str(e)[:120])
 
 
+Q_OPTIONS = "id options { id name optionValues { id name } }"
+Q_TRADUISIBLES = """query($ids: [ID!]!) { translatableResourcesByIds(first: 250, resourceIds: $ids) {
+  nodes { resourceId translatableContent { key value digest } } } }"""
+
+
+def traduire_fiches(s, sc, fiches):
+    """Traductions NL d'une liste de fiches : (« handle » ou « id », valeur, produit préparé)."""
+    n = 0
+    for genre, valeur, p in fiches:
+        if genre == "handle":
+            d = s.gql("query($h: String!) { productByIdentifier(identifier: {handle: $h}) { %s } }" % Q_OPTIONS,
+                      {"h": valeur}).get("productByIdentifier")
+        else:
+            d = s.gql("query($id: ID!) { product(id: $id) { %s } }" % Q_OPTIONS, {"id": valeur}).get("product")
+        if not d:
+            continue
+        ids = [d["id"]] + [o["id"] for o in d["options"]] + [v["id"] for o in d["options"] for v in o["optionValues"]]
+        for nd in s.gql(Q_TRADUISIBLES, {"ids": ids})["translatableResourcesByIds"]["nodes"]:
+            c = {k["key"]: k for k in nd["translatableContent"]}
+            t = []
+            if nd["resourceId"] == d["id"]:
+                for cle, val in (("title", p["titre_nl"]), ("body_html", p["desc_nl"]), ("product_type", p["type_nl"])):
+                    if cle in c and val:
+                        t.append({"locale": "nl", "key": cle, "value": val, "translatableContentDigest": c[cle]["digest"]})
+            elif "name" in c:
+                v = c["name"]["value"]
+                nl = dict(sv.TRAD_OPTIONS).get(v) if "/ProductOption/" in nd["resourceId"] else sv.valeur_nl(v)
+                if nl and nl != v:
+                    t.append({"locale": "nl", "key": "name", "value": nl, "translatableContentDigest": c["name"]["digest"]})
+            if t:
+                s.gql(sc.M_TRAD, {"resourceId": nd["resourceId"], "translations": t})
+                n += len(t)
+    return n
+
+
 def synchro(essai=False):
     from shopify_api import Shopify
     import site_charger as sc
@@ -203,6 +236,7 @@ def synchro(essai=False):
         return 1
     handles = {p["handle"] for p in boutique.values()}
     structurels, nouveaux, prix, stocks, vus = [], [], collections.defaultdict(list), [], set()
+    nouveaux_p, structurels_p = [], []
     for p in produits:
         ids = [vs_qs[v["sku"]]["produit"] for v in p["variantes"] if v["sku"] in vs_qs]
         if not ids:  # nouveau parfum
@@ -214,6 +248,7 @@ def synchro(essai=False):
             e = sv.entree(p, lieu_id, {"handle": p["handle"]})
             e["input"]["status"] = statut_nouv
             nouveaux.append(e)
+            nouveaux_p.append((e, p))
             continue
         pid = collections.Counter(ids).most_common(1)[0][0]
         existante = boutique[pid]
@@ -221,7 +256,9 @@ def synchro(essai=False):
         for v in p["variantes"]:
             vus.add(v["sku"])
         if any(v["sku"] not in skus_fiche for v in p["variantes"]):  # nouveau format
-            structurels.append(entree_complete(p, existante, lieu_id, statut_nouv))
+            e = entree_complete(p, existante, lieu_id, statut_nouv)
+            structurels.append(e)
+            structurels_p.append((e, p))
         for v in p["variantes"]:
             a = vs_qs.get(v["sku"])
             if not a or a["produit"] != pid:
@@ -267,17 +304,15 @@ def synchro(essai=False):
                 if d["userErrors"]:
                     erreurs += 1
                     ligne_journal("  erreur fiche %s : %s" % (e["input"].get("title"), json.dumps(d["userErrors"], ensure_ascii=False)[:200]))
-    # traductions NL des nouvelles fiches : au plus deux fois par jour (c'est une grosse opération)
-    if nouveaux or structurels:
-        open(A_TRADUIRE, "w").close()
-    if os.path.exists(A_TRADUIRE) and time.time() - os.path.getmtime(A_TRADUIRE) > 0 and (
-            not os.path.exists(TRADUIT) or time.time() - os.path.getmtime(TRADUIT) > 12 * 3600):
+    # traductions NL : seulement les fiches créées ou complétées pendant ce passage
+    a_traduire = [("handle", e["input"]["handle"], p_) for e, p_ in nouveaux_p] + \
+                 [("id", e["identifier"]["id"], p_) for e, p_ in structurels_p]
+    if a_traduire:
         try:
-            sv.traduire(s, sc, produits)
-            open(TRADUIT, "w").close()
-            os.replace(A_TRADUIRE, A_TRADUIRE + ".fait")
+            n = traduire_fiches(s, sc, a_traduire)
+            ligne_journal("  traductions NL : %d éléments" % n)
         except Exception as ex:
-            ligne_journal("  traductions NL à refaire au prochain passage (%s)" % str(ex)[:150])
+            ligne_journal("  traductions NL non faites (%s)" % str(ex)[:150])
     # 2. prix et coûts
     if n_prix > 300:
         chemin = os.path.join(sl.RAPPORTS, "site_synchro_prix.jsonl")

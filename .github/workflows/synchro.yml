@@ -41,10 +41,7 @@ jobs:
       - name: Reprendre l'état des passages précédents
         uses: actions/cache/restore@v4
         with:
-          path: |
-            base/.site_synchro_traduit
-            base/.site_synchro_a_traduire
-            stocklists/WHOLESALEFRAGRANCES
+          path: stocklists/WHOLESALEFRAGRANCES
           key: etat-${{ github.run_id }}
           restore-keys: etat-
 
@@ -64,10 +61,7 @@ jobs:
         if: always()
         uses: actions/cache/save@v4
         with:
-          path: |
-            base/.site_synchro_traduit
-            base/.site_synchro_a_traduire
-            stocklists/WHOLESALEFRAGRANCES
+          path: stocklists/WHOLESALEFRAGRANCES
           key: etat-${{ github.run_id }}
 
       - name: Journal du passage
