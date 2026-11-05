@@ -165,7 +165,8 @@ def photos_officielles(produits):
     import photos_marques as pm
     dossier = os.path.dirname(sl.SITE)
     sources = []  # (qualité, par_ean, par_nom, marques limitées ou None)
-    for nom, qualite in (("photos_acquadiparma.json", 4), ("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_marques.json", None)):
+    # photos_acquadiparma.json : acquadiparma.com refuse le téléchargement par Shopify (403) ; à charger nous-mêmes.
+    for nom, qualite in (("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_marques.json", None)):
         chemin = os.path.join(dossier, nom)
         if not os.path.exists(chemin):
             continue
