@@ -157,23 +157,42 @@ def produit(lignes, r, photos):
 
 
 def photos_officielles(produits):
-    """Photos des sites des marques qui l'ont autorisé (config/photos_marques.json, scripts/photos_marques.py) :
-    priorité sur les photos Wholesale-Fragrances. Par EAN, sinon par nom du parfum (testeurs compris)."""
-    chemin = os.path.join(os.path.dirname(sl.SITE), "photos_marques.json")
-    if not os.path.exists(chemin):
-        return 0
+    """Photos autorisées, prioritaires sur celles de Wholesale-Fragrances :
+    - sites des marques (config/photos_marques.json : Mancera, Montale, Xerjoff) ;
+    - revendeurs qui ont donné leur accord : Riklis Karto (config/photos_riklis.json, 2048 px, 05/11/2026)
+      et Skins (config/photos_skins.json, 1200 px, 05/11/2026).
+    Correspondance par EAN d'abord, sinon par nom du parfum (testeurs compris) ; à égalité, la plus grande photo."""
     import photos_marques as pm
-    ph = json.load(open(chemin, encoding="utf-8"))
-    marques = {m.lower() for m in ph.get("marques", [])}
+    dossier = os.path.dirname(sl.SITE)
+    sources = []  # (qualité, par_ean, par_nom, marques limitées ou None)
+    for nom, qualite in (("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_marques.json", None)):
+        chemin = os.path.join(dossier, nom)
+        if not os.path.exists(chemin):
+            continue
+        ph = json.load(open(chemin, encoding="utf-8"))
+        marques = {m.lower() for m in ph["marques"]} if "marques" in ph else None
+        sources.append((qualite, ph.get("par_ean", {}), ph.get("par_nom", {}), marques))
+    if not sources:
+        return 0
     n = 0
     for p in produits:
-        if p["marque"].lower() not in marques:
-            continue
+        m = p["marque"].lower()
         titre = p["titre_fr"].split(" — ")[0][len(p["marque"]) + 1:]
+        cle = pm.cle_nom(p["marque"], titre)
         for v in p["variantes"]:
-            url = ph["par_ean"].get(v["ean"].lstrip("0")) or ph["par_nom"].get(pm.cle_nom(p["marque"], titre))
-            if url:
-                v["photo_source"] = url
+            choix = []
+            for qualite, par_ean, par_nom, marques in sources:
+                if marques is not None and m not in marques:
+                    continue
+                q = qualite if qualite is not None else (1 if m == "xerjoff" else 2)  # photos du site Xerjoff : 590 px
+                u = par_ean.get(v["ean"].lstrip("0"))
+                if u:
+                    choix.append((2, q, u))
+                u = par_nom.get(cle)
+                if u:
+                    choix.append((1, q, u))
+            if choix:
+                v["photo_source"] = max(choix)[2]
                 n += 1
     return n
 

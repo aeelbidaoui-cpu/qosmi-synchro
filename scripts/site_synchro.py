@@ -448,12 +448,21 @@ def photos_marques():
     lieu_id = sc.lieu(s)
     boutique, variantes = etat_boutique(s, sc)
     vs_qs = {v["sku"]: v for v in variantes.values() if (v.get("sku") or "").startswith("QS-")}
-    ph = json.load(open(os.path.join(os.path.dirname(sl.SITE), "photos_marques.json"), encoding="utf-8"))
-    marques = {m.lower() for m in ph["marques"]}
-    officielles = set(ph["par_ean"].values()) | set(ph["par_nom"].values())
+    officielles = set()
+    for nom in ("photos_marques.json", "photos_riklis.json", "photos_skins.json"):
+        chemin = os.path.join(os.path.dirname(sl.SITE), nom)
+        if os.path.exists(chemin):
+            ph = json.load(open(chemin, encoding="utf-8"))
+            officielles |= set(ph["par_ean"].values()) | set(ph["par_nom"].values())
+    # fiches dont une photo autorisée diffère de la photo actuelle sur Shopify
+    deja = {}
+    chemin_etat = os.path.join(sl.RAPPORTS, "site_photos_posees.json")
+    if os.path.exists(chemin_etat):
+        deja = json.load(open(chemin_etat, encoding="utf-8"))
     ok = err = 0
     for p in produits:
-        if p["marque"].lower() not in marques or not any(v["photo_source"] in officielles for v in p["variantes"]):
+        photos = sorted({v["photo_source"] for v in p["variantes"] if v["photo_source"] in officielles})
+        if not photos or deja.get(p["handle"]) == photos:
             continue
         ids = [vs_qs[v["sku"]]["produit"] for v in p["variantes"] if v["sku"] in vs_qs]
         if not ids:
@@ -466,7 +475,10 @@ def photos_marques():
             ligne_journal("  erreur %s : %s" % (p["titre_fr"], json.dumps(d["userErrors"], ensure_ascii=False)[:200]))
         else:
             ok += 1
-    ligne_journal("Photos officielles posées : %d fiches (%d erreurs)" % (ok, err))
+            deja[p["handle"]] = photos
+    os.makedirs(sl.RAPPORTS, exist_ok=True)
+    json.dump(deja, open(chemin_etat, "w", encoding="utf-8"))
+    ligne_journal("Photos autorisées posées : %d fiches (%d erreurs)" % (ok, err))
 
 
 def retirer_depot():
