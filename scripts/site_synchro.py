@@ -449,7 +449,7 @@ def photos_marques():
     boutique, variantes = etat_boutique(s, sc)
     vs_qs = {v["sku"]: v for v in variantes.values() if (v.get("sku") or "").startswith("QS-")}
     officielles = set()
-    for nom in ("photos_marques.json", "photos_riklis.json", "photos_skins.json", "photos_parfumerie.json"):
+    for nom in ("photos_marques.json", "photos_riklis.json", "photos_skins.json", "photos_parfumerie.json", "photos_acquadiparma.json"):
         chemin = os.path.join(os.path.dirname(sl.SITE), nom)
         if os.path.exists(chemin):
             ph = json.load(open(chemin, encoding="utf-8"))
