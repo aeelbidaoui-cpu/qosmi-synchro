@@ -449,7 +449,7 @@ def photos_marques():
     boutique, variantes = etat_boutique(s, sc)
     vs_qs = {v["sku"]: v for v in variantes.values() if (v.get("sku") or "").startswith("QS-")}
     officielles = set()
-    for nom in ("photos_marques.json", "photos_riklis.json", "photos_skins.json"):
+    for nom in ("photos_marques.json", "photos_riklis.json", "photos_skins.json", "photos_parfumerie.json"):
         chemin = os.path.join(os.path.dirname(sl.SITE), nom)
         if os.path.exists(chemin):
             ph = json.load(open(chemin, encoding="utf-8"))
@@ -460,9 +460,13 @@ def photos_marques():
     if os.path.exists(chemin_etat):
         deja = json.load(open(chemin_etat, encoding="utf-8"))
     ok = err = 0
+    essai = os.environ.get("PHOTOS_ESSAI", "")  # ex. « parfumerie.be » : une seule fiche, puis contrôle du téléchargement
+    essai_pid = None
     for p in produits:
         photos = sorted({v["photo_source"] for v in p["variantes"] if v["photo_source"] in officielles})
         if not photos or deja.get(p["handle"]) == photos:
+            continue
+        if essai and (essai_pid or not any(essai in u for u in photos)):
             continue
         ids = [vs_qs[v["sku"]]["produit"] for v in p["variantes"] if v["sku"] in vs_qs]
         if not ids:
@@ -476,6 +480,19 @@ def photos_marques():
         else:
             ok += 1
             deja[p["handle"]] = photos
+            if essai:
+                essai_pid = pid
+                ligne_journal("  essai sur « %s » : %s" % (p["titre_fr"], ", ".join(photos)))
+    if essai_pid:
+        for _ in range(12):
+            time.sleep(10)
+            m = s.gql("""query($id: ID!) { product(id: $id) { media(first: 20) { nodes { status
+                mediaErrors { code details } ... on MediaImage { image { url width height } } } } } }""",
+                      {"id": essai_pid})["product"]["media"]["nodes"]
+            if all(x["status"] in ("READY", "FAILED") for x in m):
+                break
+        for x in m:
+            ligne_journal("  média %s %s %s" % (x["status"], json.dumps(x.get("image"))[:160], x.get("mediaErrors") or ""))
     os.makedirs(sl.RAPPORTS, exist_ok=True)
     json.dump(deja, open(chemin_etat, "w", encoding="utf-8"))
     ligne_journal("Photos autorisées posées : %d fiches (%d erreurs)" % (ok, err))

@@ -159,13 +159,13 @@ def produit(lignes, r, photos):
 def photos_officielles(produits):
     """Photos autorisées, prioritaires sur celles de Wholesale-Fragrances :
     - sites des marques (config/photos_marques.json : Mancera, Montale, Xerjoff) ;
-    - revendeurs qui ont donné leur accord : Riklis Karto (config/photos_riklis.json, 2048 px, 05/11/2026)
-      et Skins (config/photos_skins.json, 1200 px, 05/11/2026).
+    - revendeurs qui ont donné leur accord : Parfumerie.be (config/photos_parfumerie.json, 2000 px, 05/11/2026),
+      Riklis Karto (config/photos_riklis.json, 2048 px, 05/11/2026) et Skins (config/photos_skins.json, 1200 px, 05/11/2026).
     Correspondance par EAN d'abord, sinon par nom du parfum (testeurs compris) ; à égalité, la plus grande photo."""
     import photos_marques as pm
     dossier = os.path.dirname(sl.SITE)
     sources = []  # (qualité, par_ean, par_nom, marques limitées ou None)
-    for nom, qualite in (("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_marques.json", None)):
+    for nom, qualite in (("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_marques.json", None)):
         chemin = os.path.join(dossier, nom)
         if not os.path.exists(chemin):
             continue
