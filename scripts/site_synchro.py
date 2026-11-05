@@ -498,6 +498,40 @@ def photos_marques():
     ligne_journal("Photos autorisées posées : %d fiches (%d erreurs)" % (ok, err))
 
 
+Q_MEDIAS = """{ products(query: "status:active") { edges { node { id title
+  media { edges { node { ... on MediaImage { id status } } } } } } } }"""
+
+
+def controle_medias(s=None):
+    """Compte les photos en échec (FAILED) ou en cours sur les fiches actives, et nomme les fiches concernées."""
+    from shopify_api import Shopify
+    s = s or Shopify()
+    d = s.gql("""mutation($q: String!) { bulkOperationRunQuery(query: $q) { bulkOperation { id } userErrors { message } } }""",
+              {"q": Q_MEDIAS})["bulkOperationRunQuery"]
+    if d["userErrors"]:
+        ligne_journal("Contrôle des photos refusé : %s" % d["userErrors"])
+        return
+    op = d["bulkOperation"]["id"]
+    while True:
+        b = s.gql("query($id: ID!) { bulkOperation(id: $id) { status errorCode url } }", {"id": op})["bulkOperation"]
+        if b["status"] in ("COMPLETED", "FAILED", "CANCELED", "EXPIRED"):
+            break
+        time.sleep(10)
+    titres, statuts, echecs = {}, collections.Counter(), collections.Counter()
+    if b.get("url"):
+        for l in urllib.request.urlopen(b["url"]).read().decode("utf-8").splitlines():
+            x = json.loads(l)
+            if "__parentId" in x:
+                statuts[x.get("status")] += 1
+                if x.get("status") == "FAILED":
+                    echecs[x["__parentId"]] += 1
+            else:
+                titres[x["id"]] = x["title"]
+    ligne_journal("Contrôle des photos (fiches actives) : %s" % dict(statuts))
+    for pid in list(echecs)[:30]:
+        ligne_journal("  photo en échec : %s" % titres.get(pid, pid))
+
+
 def retirer_depot():
     """Archive les fiches du stock du dépôt (étiquette « en-stock-belgique ») : Qosmi vend uniquement SoleLuna."""
     from shopify_api import Shopify
@@ -532,6 +566,11 @@ def main():
             return 0
         if "--photos-marques" in sys.argv:
             photos_marques()
+            if not os.environ.get("PHOTOS_ESSAI"):
+                controle_medias()
+            return 0
+        if "--controle-photos" in sys.argv:
+            controle_medias()
             return 0
         try:
             return synchro(essai="--essai" in sys.argv)
