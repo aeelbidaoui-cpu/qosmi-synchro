@@ -295,7 +295,7 @@ def entree(p, lieu_id, ident):
             if v["photo_source"] not in fichiers:
                 fichiers[v["photo_source"]] = {
                     "originalSource": v["photo_source"], "contentType": "IMAGE", "alt": p["titre_fr"],
-                    "filename": "%s-%d%s" % (p["handle"][:110], len(fichiers) + 1, os.path.splitext(src)[1].lower())}
+                    "filename": "%s-%d%s" % (p["handle"][:110], len(fichiers) + 1, os.path.splitext(src)[1])}
             var["file"] = fichiers[v["photo_source"]]
         variantes.append(var)
     inp = {"handle": p["handle"], "title": p["titre_fr"], "descriptionHtml": p["desc_fr"], "vendor": p["marque"],
