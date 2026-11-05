@@ -171,7 +171,7 @@ def photos_officielles(produits):
             continue
         ph = json.load(open(chemin, encoding="utf-8"))
         marques = {m.lower() for m in ph["marques"]} if "marques" in ph else None
-        sources.append((qualite, ph.get("par_ean", {}), ph.get("par_nom", {}), marques))
+        sources.append((qualite, ph.get("par_ean", {}), ph.get("par_nom", {}), marques, ph.get("par_fiche", {})))
     if not sources:
         return 0
     n = 0
@@ -181,18 +181,25 @@ def photos_officielles(produits):
         cle = pm.cle_nom(p["marque"], titre)
         for v in p["variantes"]:
             choix = []
-            for qualite, par_ean, par_nom, marques in sources:
+            for qualite, par_ean, par_nom, marques, par_fiche in sources:
                 if marques is not None and m not in marques:
                     continue
                 q = qualite if qualite is not None else (1 if m == "xerjoff" else 2)  # photos du site Xerjoff : 590 px
                 u = par_ean.get(v["ean"].lstrip("0"))
                 if u:
                     choix.append((2, q, u))
-                u = par_nom.get(cle)
+                u = par_nom.get(cle) or par_fiche.get(p["handle"])  # par_fiche : même parfum vérifié nom + type
                 if u:
                     choix.append((1, q, u))
             if choix:
                 v["photo_source"] = max(choix)[2]
+                v["_photo_autorisee"] = True
+                n += 1
+        # même parfum dans une autre contenance : les formats sans photo autorisée reprennent celle de la fiche
+        reprise = next((v["photo_source"] for v in p["variantes"] if v.get("_photo_autorisee")), None)
+        for v in p["variantes"]:
+            if not v.pop("_photo_autorisee", False) and reprise and not p["teintes"]:
+                v["photo_source"] = reprise
                 n += 1
     return n
 

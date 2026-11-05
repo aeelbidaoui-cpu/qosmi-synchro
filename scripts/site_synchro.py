@@ -453,7 +453,7 @@ def photos_marques():
         chemin = os.path.join(os.path.dirname(sl.SITE), nom)
         if os.path.exists(chemin):
             ph = json.load(open(chemin, encoding="utf-8"))
-            officielles |= set(ph["par_ean"].values()) | set(ph["par_nom"].values())
+            officielles |= set(ph["par_ean"].values()) | set(ph["par_nom"].values()) | set(ph.get("par_fiche", {}).values())
     # fiches dont une photo autorisée diffère de la photo actuelle sur Shopify
     deja = {}
     chemin_etat = os.path.join(sl.RAPPORTS, "site_photos_posees.json")
