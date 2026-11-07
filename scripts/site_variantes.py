@@ -197,6 +197,7 @@ def photos_officielles(produits):
                 n += 1
         # même parfum dans une autre contenance : les formats sans photo autorisée reprennent celle de la fiche
         reprise = next((v["photo_source"] for v in p["variantes"] if v.get("_photo_autorisee")), None)
+        p["photo_ok"] = bool(reprise)  # sans photo autorisée (photo du grossiste, 220-350 px, ou aucune) : fiche masquée
         for v in p["variantes"]:
             if not v.pop("_photo_autorisee", False) and reprise and not p["teintes"]:
                 v["photo_source"] = reprise

@@ -221,6 +221,10 @@ def selection():
 
 
 def visible(p, sel):
+    """Affichée si la marque et la catégorie sont dans la sélection ET si le parfum a une bonne photo
+    (demande d'Amine du 07/11/2026 : pas de photo ou photo de mauvaise qualité = pas affiché)."""
+    if not p.get("photo_ok", True):
+        return False
     return sel is None or (p["marque"].lower() in sel[0] and p["type_fr"] in sel[1])
 
 
@@ -410,6 +414,9 @@ def publier_fiches(s, ids):
 def activer():
     """Passe en ACTIF toutes les fiches SoleLuna en brouillon et les publie sur la boutique en ligne
     (décision d'Amine du 04/11/2026 ; la boutique reste protégée par mot de passe)."""
+    ligne_journal("Activation en bloc désactivée le 07/11/2026 : elle réafficherait les fiches masquées "
+                  "(marques hors sélection, fiches sans bonne photo). Le passage horaire choisit seul ce qui est affiché.")
+    return
     from shopify_api import Shopify
     import site_charger as sc
     s = Shopify()
@@ -566,11 +573,33 @@ def qualite_photos():
                 fiches.setdefault(x["__parentId"], {"photos": []})["photos"].append(
                     {"url": (im.get("url") or "").split("?")[0], "l": im.get("width"), "h": im.get("height"), "statut": x.get("status")})
             else:
-                fiches.setdefault(x["id"], {"photos": []}).update({"handle": x["handle"], "titre": x["title"], "marque": x["vendor"]})
+                fiches.setdefault(x["id"], {"photos": []}).update({"id": x["id"], "handle": x["handle"], "titre": x["title"], "marque": x["vendor"]})
     os.makedirs(os.path.join(os.path.dirname(ICI), "rapports", "theme"), exist_ok=True)
     json.dump(list(fiches.values()), open(os.path.join(os.path.dirname(ICI), "rapports", "theme", "qualite_photos.json"), "w", encoding="utf-8"),
               ensure_ascii=False)
     ligne_journal("Relevé des photos : %d fiches actives" % len(fiches))
+    if "--masquer-photos-faibles" not in sys.argv:
+        return
+    # demande d'Amine du 07/11/2026 : une fiche sans photo ou avec une photo de mauvaise qualité ne doit pas être affichée
+    import site_charger as sc
+    seuil = int(reglage("photo_min_px", 500))
+    faibles = [f for f in fiches.values()
+               if max((min(p["l"], p["h"]) for p in f["photos"] if p.get("l") and p.get("h")), default=0) < seuil]
+    ok = err = 0
+    par_marque = collections.Counter()
+    for f in faibles:
+        d = s.gql(sc.M_MAJ, {"product": {"id": f["id"], "status": "DRAFT"}})["productUpdate"]
+        if d["userErrors"]:
+            err += 1
+        else:
+            ok += 1
+            par_marque[f.get("marque")] += 1
+    ligne_journal("Fiches masquées (photo absente ou < %d px) : %d (%d erreurs)" % (seuil, ok, err))
+    for m, n in par_marque.most_common():
+        ligne_journal("  %s : %d" % (m, n))
+    json.dump([{"handle": f["handle"], "marque": f.get("marque"), "titre": f.get("titre")} for f in faibles],
+              open(os.path.join(os.path.dirname(ICI), "rapports", "theme", "fiches_masquees_photos.json"), "w", encoding="utf-8"),
+              ensure_ascii=False, indent=0)
 
 
 def textes():
@@ -637,7 +666,7 @@ def main():
         if "--textes" in sys.argv:
             textes()
             return 0
-        if "--qualite-photos" in sys.argv:
+        if "--qualite-photos" in sys.argv or "--masquer-photos-faibles" in sys.argv:
             qualite_photos()
             return 0
         if "--controle-photos" in sys.argv:
