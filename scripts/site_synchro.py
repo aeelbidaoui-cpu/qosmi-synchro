@@ -462,9 +462,15 @@ def photos_marques():
     ok = err = 0
     essai = os.environ.get("PHOTOS_ESSAI", "")  # ex. « parfumerie.be » : une seule fiche, puis contrôle du téléchargement
     essai_pid = None
+    seule = os.environ.get("PHOTOS_FICHE", "")  # une fiche précise renvoyée telle quelle (ex. pour réparer une photo)
     for p in produits:
         photos = sorted({v["photo_source"] for v in p["variantes"] if v["photo_source"] in officielles})
-        if not photos or deja.get(p["handle"]) == photos:
+        if seule:
+            if p["handle"] != seule or essai_pid:
+                continue
+            photos = photos or sorted({v["photo_source"] for v in p["variantes"] if v["photo_source"]})
+            essai = essai or "http"
+        elif not photos or deja.get(p["handle"]) == photos:
             continue
         if essai and (essai_pid or not any(essai in u for u in photos)):
             continue

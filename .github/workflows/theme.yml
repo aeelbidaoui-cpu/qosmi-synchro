@@ -8,6 +8,10 @@ on:
         type: choice
         options: [exporter, exporter-apercu, appliquer, theme-rk, activer-fiches, photos-marques, controle-photos, photos-adp, pages-legales, textes-fiches, menu]
         default: exporter
+      fiche:
+        description: "photos-marques : renvoyer seulement cette fiche (adresse de la fiche)"
+        type: string
+        default: ""
       essai:
         description: "photos-marques : ne traiter qu'une fiche dont la photo vient de ce site (ex. parfumerie.be)"
         type: string
@@ -40,6 +44,7 @@ jobs:
           SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
           WF_URL: ${{ secrets.WF_URL }}
           PHOTOS_ESSAI: ${{ inputs.essai }}
+          PHOTOS_FICHE: ${{ inputs.fiche }}
         run: |
           if [ "${{ inputs.action }}" = "activer-fiches" ]; then python -u scripts/site_synchro.py --activer
           elif [ "${{ inputs.action }}" = "photos-marques" ]; then
