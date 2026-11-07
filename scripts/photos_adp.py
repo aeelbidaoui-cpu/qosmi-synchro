@@ -24,7 +24,7 @@ def adresse_fichier(s, nom):
     return None
 
 
-def envoyer(s, chemin):
+def envoyer(s, chemin, alt="Acqua di Parma"):
     nom = os.path.basename(chemin)
     cible = s.gql("""mutation($i: [StagedUploadInput!]!) { stagedUploadsCreate(input: $i) { stagedTargets { url resourceUrl parameters { name value } } userErrors { message } } }""",
                   {"i": [{"resource": "IMAGE", "filename": nom, "mimeType": "image/jpeg", "httpMethod": "POST"}]})["stagedUploadsCreate"]["stagedTargets"][0]
@@ -36,7 +36,7 @@ def envoyer(s, chemin):
     urllib.request.urlopen(urllib.request.Request(cible["url"], data=corps, method="POST",
                                                   headers={"Content-Type": "multipart/form-data; boundary=" + limite}), timeout=120).read()
     f = s.gql("""mutation($f: [FileCreateInput!]!) { fileCreate(files: $f) { files { id } userErrors { field message } } }""",
-              {"f": [{"originalSource": cible["resourceUrl"], "contentType": "IMAGE", "filename": nom, "alt": "Acqua di Parma"}]})["fileCreate"]
+              {"f": [{"originalSource": cible["resourceUrl"], "contentType": "IMAGE", "filename": nom, "alt": alt}]})["fileCreate"]
     if f["userErrors"]:
         print("  refus Shopify :", nom, f["userErrors"])
         return None
