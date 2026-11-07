@@ -538,6 +538,41 @@ def controle_medias(s=None):
         ligne_journal("  photo en échec : %s" % titres.get(pid, pid))
 
 
+Q_QUALITE = """{ products(query: "status:active") { edges { node { id handle title vendor
+  media { edges { node { ... on MediaImage { id status image { url width height } } } } } } } }"""
+
+
+def qualite_photos():
+    """Relevé des photos des fiches actives (taille, origine) pour juger la qualité par marque : rapports/theme/qualite_photos.json."""
+    from shopify_api import Shopify
+    s = Shopify()
+    d = s.gql("""mutation($q: String!) { bulkOperationRunQuery(query: $q) { bulkOperation { id } userErrors { message } } }""",
+              {"q": Q_QUALITE})["bulkOperationRunQuery"]
+    if d["userErrors"]:
+        ligne_journal("Relevé des photos refusé : %s" % d["userErrors"])
+        return
+    op = d["bulkOperation"]["id"]
+    while True:
+        b = s.gql("query($id: ID!) { bulkOperation(id: $id) { status errorCode url } }", {"id": op})["bulkOperation"]
+        if b["status"] in ("COMPLETED", "FAILED", "CANCELED", "EXPIRED"):
+            break
+        time.sleep(10)
+    fiches = {}
+    if b.get("url"):
+        for l in urllib.request.urlopen(b["url"]).read().decode("utf-8").splitlines():
+            x = json.loads(l)
+            if "__parentId" in x:
+                im = x.get("image") or {}
+                fiches.setdefault(x["__parentId"], {"photos": []})["photos"].append(
+                    {"url": (im.get("url") or "").split("?")[0], "l": im.get("width"), "h": im.get("height"), "statut": x.get("status")})
+            else:
+                fiches.setdefault(x["id"], {"photos": []}).update({"handle": x["handle"], "titre": x["title"], "marque": x["vendor"]})
+    os.makedirs(os.path.join(os.path.dirname(ICI), "rapports", "theme"), exist_ok=True)
+    json.dump(list(fiches.values()), open(os.path.join(RACINE, "rapports", "theme", "qualite_photos.json"), "w", encoding="utf-8"),
+              ensure_ascii=False)
+    ligne_journal("Relevé des photos : %d fiches actives" % len(fiches))
+
+
 def textes():
     """Remet à jour la description (FR + NL) des fiches visibles, par ex. après un changement de délai de livraison."""
     from shopify_api import Shopify
@@ -601,6 +636,9 @@ def main():
             return 0
         if "--textes" in sys.argv:
             textes()
+            return 0
+        if "--qualite-photos" in sys.argv:
+            qualite_photos()
             return 0
         if "--controle-photos" in sys.argv:
             controle_medias()
