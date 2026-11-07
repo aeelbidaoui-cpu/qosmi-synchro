@@ -165,7 +165,7 @@ def photos_officielles(produits):
     import photos_marques as pm
     dossier = os.path.dirname(sl.SITE)
     sources = []  # (qualité, par_ean, par_nom, marques limitées ou None)
-    for nom, qualite in (("photos_acquadiparma.json", 4), ("photos_parfuma.json", 1.5), ("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_marques.json", None)):
+    for nom, qualite in (("photos_bijenkorf.json", 2.5), ("photos_acquadiparma.json", 4), ("photos_parfuma.json", 1.5), ("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_marques.json", None)):
         chemin = os.path.join(dossier, nom)
         if not os.path.exists(chemin):
             continue
@@ -290,11 +290,15 @@ def entree(p, lieu_id, ident):
                "inventoryItem": {"tracked": True, "requiresShipping": True, "cost": v["cout_ht"]},
                "inventoryQuantities": [{"locationId": lieu_id, "name": "available", "quantity": int(v["stock"])}]}
         src = (v.get("photo_source") or "").split("?")[0]
-        if src and os.path.splitext(src)[1]:
+        ext = os.path.splitext(src)[1]
+        if src and not ext:  # ex. De Bijenkorf : …/?reference=…/xxx.jpg
+            m = re.search(r"reference=[^&]*?(\.(?:jpe?g|png|webp))", v["photo_source"], re.I)
+            ext = m.group(1) if m else ""
+        if src and ext:
             if v["photo_source"] not in fichiers:
                 fichiers[v["photo_source"]] = {
                     "originalSource": v["photo_source"], "contentType": "IMAGE", "alt": p["titre_fr"],
-                    "filename": "%s-%d%s" % (p["handle"][:110], len(fichiers) + 1, os.path.splitext(src)[1])}
+                    "filename": "%s-%d%s" % (p["handle"][:110], len(fichiers) + 1, ext)}
             var["file"] = fichiers[v["photo_source"]]
         variantes.append(var)
     inp = {"handle": p["handle"], "title": p["titre_fr"], "descriptionHtml": p["desc_fr"], "vendor": p["marque"],
