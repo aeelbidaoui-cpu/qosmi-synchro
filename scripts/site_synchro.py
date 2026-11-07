@@ -532,6 +532,30 @@ def controle_medias(s=None):
         ligne_journal("  photo en échec : %s" % titres.get(pid, pid))
 
 
+def textes():
+    """Remet à jour la description (FR + NL) des fiches visibles, par ex. après un changement de délai de livraison."""
+    from shopify_api import Shopify
+    import site_charger as sc
+    if os.environ.get("SOLELUNA_EMAIL"):
+        listes_serveur()
+    produits = sv.preparer(exemples=False)
+    s = Shopify()
+    boutique, _ = etat_boutique(s, sc)
+    par_handle = {x.get("handle"): x for x in boutique.values()}
+    sel = selection()
+    vus = [p for p in produits if visible(p, sel) and p["handle"] in par_handle]
+    ok = err = 0
+    for p in vus:
+        d = s.gql(sc.M_MAJ, {"product": {"id": par_handle[p["handle"]]["id"], "descriptionHtml": p["desc_fr"]}})["productUpdate"]
+        if d["userErrors"]:
+            err += 1
+        else:
+            ok += 1
+    ligne_journal("Descriptions FR mises à jour : %d fiches (%d erreurs)" % (ok, err))
+    n = sv.traduire(s, sc, vus)
+    ligne_journal("Traductions NL envoyées : %s" % n)
+
+
 def retirer_depot():
     """Archive les fiches du stock du dépôt (étiquette « en-stock-belgique ») : Qosmi vend uniquement SoleLuna."""
     from shopify_api import Shopify
@@ -568,6 +592,9 @@ def main():
             photos_marques()
             if not os.environ.get("PHOTOS_ESSAI"):
                 controle_medias()
+            return 0
+        if "--textes" in sys.argv:
+            textes()
             return 0
         if "--controle-photos" in sys.argv:
             controle_medias()

@@ -6,7 +6,7 @@ on:
       action:
         description: "exporter (lecture seule) ou appliquer (copie non publiée)"
         type: choice
-        options: [exporter, exporter-apercu, appliquer, theme-rk, activer-fiches, photos-marques, controle-photos, photos-adp, pages-legales, menu]
+        options: [exporter, exporter-apercu, appliquer, theme-rk, activer-fiches, photos-marques, controle-photos, photos-adp, pages-legales, textes-fiches, menu]
         default: exporter
       essai:
         description: "photos-marques : ne traiter qu'une fiche dont la photo vient de ce site (ex. parfumerie.be)"
@@ -45,6 +45,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "photos-marques" ]; then
             if [ -z "$PHOTOS_ESSAI" ]; then python -u scripts/photos_marques.py; fi
             python -u scripts/site_synchro.py --photos-marques
+          elif [ "${{ inputs.action }}" = "textes-fiches" ]; then python -u scripts/site_synchro.py --textes
           elif [ "${{ inputs.action }}" = "pages-legales" ]; then python -u scripts/site_pages.py
           elif [ "${{ inputs.action }}" = "photos-adp" ]; then python -u scripts/photos_adp.py
           elif [ "${{ inputs.action }}" = "controle-photos" ]; then python -u scripts/site_synchro.py --controle-photos
