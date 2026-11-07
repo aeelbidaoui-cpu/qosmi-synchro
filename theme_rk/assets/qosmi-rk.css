@@ -119,7 +119,7 @@
 /* fiche produit : galerie sur fond gris */
 .product-information .product-media-container { background: var(--qk-gris); }
 .product-information .product-media__image { mix-blend-mode: multiply; }
-.qk-titre-produit { margin: 0; font-size: clamp(1.5rem, 2.2vw, 1.875rem); font-weight: 500; line-height: 1.2; }
+.qk-titre-produit { margin: 0; font-size: clamp(1.5rem, 2.2vw, 1.875rem); font-weight: 500; line-height: 1.2; text-transform: none; }
 .qk-type-produit { margin: 2px 0 0; color: var(--qk-doux); font-size: 0.9375rem; }
 .qk-marque-produit { margin: 0 0 2px; color: var(--qk-doux); font-size: 0.9375rem; }
 .qk-rassurance { background: var(--qk-gris); padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; font-size: 0.875rem; }

@@ -103,6 +103,8 @@ def construire(fichiers, marques):
     # ---------- fiche produit ----------
     e, d = lire(fichiers["templates/product.json"])
     main = d["sections"]["main"]
+    if "media-gallery" in main["blocks"]:
+        main["blocks"]["media-gallery"]["settings"].update({"media_columns": "one", "large_first_image": True})
     det = main["blocks"]["product-details"]
     grp_id = next(k for k, b in det["blocks"].items() if b["type"] == "group")
     grp = det["blocks"][grp_id]
