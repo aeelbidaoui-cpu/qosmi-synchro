@@ -19,14 +19,14 @@ Q_CONTENU = """query($id: ID!, $noms: [String!]) { theme(id: $id) { files(filena
   nodes { filename body { ... on OnlineStoreThemeFileBodyText { content } } } } } }"""
 
 
-def exporter():
+def exporter(apercu=False):
     from shopify_api import Shopify
     s = Shopify()
     themes = s.gql(Q_THEMES)["themes"]["nodes"]
     dossier = os.path.join(sl.RAPPORTS, "theme")
     os.makedirs(dossier, exist_ok=True)
     json.dump(themes, open(os.path.join(dossier, "_themes.json"), "w"), indent=1, ensure_ascii=False)
-    main = next(t for t in themes if t["role"] == "MAIN")
+    main = next(t for t in themes if (t["name"] == APERCU if apercu else t["role"] == "MAIN"))
     print("Thème publié :", main["name"], main["id"])
     noms, apres = [], None
     while True:
@@ -36,7 +36,7 @@ def exporter():
             break
         apres = d["pageInfo"]["endCursor"]
     open(os.path.join(dossier, "_fichiers.txt"), "w").write("\n".join(noms) + "\n")
-    voulus = [n for n in noms if n.startswith(("config/", "templates/")) or
+    voulus = [n for n in noms if n.startswith(("config/", "templates/", "blocks/_product-card", "snippets/product-card")) or
               (n.startswith("sections/") and n.endswith(".json")) or n in ("layout/theme.liquid", "locales/fr.json",
                                                                          "locales/nl.json", "locales/en.default.json")]
     for i in range(0, len(voulus), 40):
@@ -209,6 +209,8 @@ def menu_seul():
 if __name__ == "__main__":
     if "--menu" in sys.argv:
         menu_seul()
+    elif "--exporter-apercu" in sys.argv:
+        exporter(apercu=True)
     elif "--exporter" in sys.argv:
         exporter()
     elif "--appliquer" in sys.argv:
