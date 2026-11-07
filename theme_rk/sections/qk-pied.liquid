@@ -1,0 +1,54 @@
+{%- comment -%} Pied de page Qosmi (style Riklis Karto) : lettre d'info, colonnes de liens, mentions. {%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+<footer class="qk-pied">
+  <div class="page-width qk-pied__haut">
+    <div class="qk-pied__lettre">
+      <h2 class="qk-pied__titre">{% if qk_nl %}{{ section.settings.titre_nl }}{% else %}{{ section.settings.titre }}{% endif %}</h2>
+      <p class="qk-pied__texte">{% if qk_nl %}{{ section.settings.texte_nl }}{% else %}{{ section.settings.texte }}{% endif %}</p>
+      {%- form 'customer', id: 'qk-lettre', class: 'qk-pied__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        {%- if form.posted_successfully? -%}
+          <p class="qk-pied__ok" role="status">{% if qk_nl %}Bedankt, je bent ingeschreven.{% else %}Merci, c'est noté.{% endif %}</p>
+        {%- else -%}
+          <label class="visually-hidden" for="qk-lettre-email">E-mail</label>
+          <input id="qk-lettre-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% else %}Ton e-mail{% endif %}">
+          <button type="submit">{% if qk_nl %}Inschrijven{% else %}S'inscrire{% endif %}</button>
+          {%- if form.errors -%}<p class="qk-pied__erreur" role="alert">{{ form.errors | default_errors }}</p>{%- endif -%}
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+    <nav class="qk-pied__col" aria-label="{% if qk_nl %}Parfums{% else %}Parfums{% endif %}">
+      <p class="qk-pied__entete">{% if qk_nl %}Parfum{% else %}Parfums{% endif %}</p>
+      {%- for l in linklists[section.settings.menu_parfums].links -%}<a href="{{ l.url }}">{{ l.title }}</a>{%- endfor -%}
+    </nav>
+    <nav class="qk-pied__col" aria-label="Infos">
+      <p class="qk-pied__entete">{% if qk_nl %}Klantenservice{% else %}Service client{% endif %}</p>
+      {%- for l in linklists[section.settings.menu_infos].links -%}<a href="{{ l.url }}">{{ l.title }}</a>{%- endfor -%}
+      <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+    </nav>
+  </div>
+  <div class="page-width qk-pied__bas">
+    <span>© {{ 'now' | date: '%Y' }} Qosmi · Deway BV</span>
+    <span class="qk-pied__paiement">
+      {%- for type in shop.enabled_payment_types -%}{{ type | payment_type_svg_tag: class: 'qk-paiement' }}{%- endfor -%}
+    </span>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Qosmi · Pied de page",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "titre", "label": "Titre", "default": "Des nouveautés, pas du spam." },
+    { "type": "text", "id": "titre_nl", "label": "Titre (NL)", "default": "Nieuwigheden, geen spam." },
+    { "type": "text", "id": "texte", "label": "Texte", "default": "Un e-mail par mois avec les nouveautés et les offres." },
+    { "type": "text", "id": "texte_nl", "label": "Texte (NL)", "default": "Eén e-mail per maand met nieuwigheden en aanbiedingen." },
+    { "type": "link_list", "id": "menu_parfums", "label": "Menu « Parfums »", "default": "main-menu" },
+    { "type": "link_list", "id": "menu_infos", "label": "Menu « Service client »", "default": "footer" },
+    { "type": "text", "id": "email", "label": "E-mail", "default": "contact@qosmi.be" }
+  ],
+  "presets": [{ "name": "Qosmi · Pied de page" }]
+}
+{% endschema %}

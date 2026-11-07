@@ -200,6 +200,31 @@ def appliquer():
     print("ÉDITEUR : Admin Shopify → Boutique en ligne → Thèmes → « %s » → Personnaliser" % APERCU)
 
 
+def appliquer_rk():
+    """Qosmi façon Riklis Karto (07/11/2026), sur le thème d'aperçu seulement."""
+    from shopify_api import Shopify
+    import theme_rk
+    s = Shopify()
+    themes = s.gql(Q_THEMES)["themes"]["nodes"]
+    apercu = next(t for t in themes if t["name"] == APERCU and t["role"] != "MAIN")
+    actuels = fichiers_theme(s, apercu["id"], theme_rk.FICHIERS)
+    manquants = [n for n in theme_rk.FICHIERS if n not in actuels]
+    if manquants:
+        raise SystemExit("Fichiers introuvables dans l'aperçu : %s" % manquants)
+    marques = json.load(open(os.path.join(os.path.dirname(ICI), "config", "selection.json"), encoding="utf-8"))["marques"]
+    liquides, jsons = theme_rk.construire(actuels, marques)
+    for lot, nom in ((liquides, "sections, style et mise en page"), (jsons, "modèles")):
+        r = s.gql("""mutation($id: ID!, $f: [OnlineStoreThemeFilesUpsertFileInput!]!) { themeFilesUpsert(themeId: $id, files: $f) {
+                     upsertedThemeFiles { filename } userErrors { filename code message } } }""",
+                  {"id": apercu["id"], "f": [{"filename": n, "body": {"type": "TEXT", "value": v}} for n, v in lot.items()]})["themeFilesUpsert"]
+        if r["userErrors"]:
+            print("  REFUS (%s) : %s" % (nom, json.dumps(r["userErrors"], ensure_ascii=False)[:3000]))
+            raise SystemExit(1)
+        print("  %s envoyés : %s" % (nom, ", ".join(f["filename"] for f in r["upsertedThemeFiles"])))
+    num = apercu["id"].rsplit("/", 1)[-1]
+    print("APERÇU : https://qosmi.be/?preview_theme_id=%s" % num)
+
+
 def menu_seul():
     from shopify_api import Shopify
     s = Shopify()
@@ -209,6 +234,8 @@ def menu_seul():
 if __name__ == "__main__":
     if "--menu" in sys.argv:
         menu_seul()
+    elif "--theme-rk" in sys.argv:
+        appliquer_rk()
     elif "--exporter-apercu" in sys.argv:
         exporter(apercu=True)
     elif "--exporter" in sys.argv:

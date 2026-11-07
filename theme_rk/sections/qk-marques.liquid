@@ -1,0 +1,33 @@
+{%- comment -%} Bande des marques qui défile (style Riklis Karto). Liste : une marque par ligne. {%- endcomment -%}
+{%- assign noms = section.settings.liste | newline_to_br | split: '<br />' -%}
+<section class="qk-section qk-marques">
+  <div class="page-width">
+    <h2 class="qk-titre-section">{{ section.settings.titre }}</h2>
+    {%- if section.settings.texte != blank -%}<p class="qk-intro">{{ section.settings.texte }}</p>{%- endif -%}
+  </div>
+  <div class="qk-marques__bande" aria-label="{{ section.settings.titre | escape }}">
+    <div class="qk-marques__piste">
+      {%- for i in (1..2) -%}
+        {%- for n in noms -%}
+          {%- assign nom = n | strip -%}
+          {%- if nom != blank -%}
+            <a class="qk-marque" href="/collections/vendors?q={{ nom | url_encode }}"{% if i == 2 %} aria-hidden="true" tabindex="-1"{% endif %}>{{ nom }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Qosmi · Marques",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "titre", "label": "Titre", "default": "Marques" },
+    { "type": "textarea", "id": "texte", "label": "Texte" },
+    { "type": "textarea", "id": "liste", "label": "Marques (une par ligne)" }
+  ],
+  "presets": [{ "name": "Qosmi · Marques" }]
+}
+{% endschema %}

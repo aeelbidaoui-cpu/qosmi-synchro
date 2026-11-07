@@ -1,0 +1,63 @@
+{%- comment -%} Favoris : titre, texte, onglets par collection, rangée de cartes qui défile (style Riklis Karto). {%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+<section class="qk-section qk-onglets" id="qk-onglets-{{ section.id }}">
+  <div class="page-width">
+    <h2 class="qk-titre-section">{{ section.settings.titre }}</h2>
+    {%- if section.settings.texte != blank -%}<p class="qk-intro">{{ section.settings.texte }}</p>{%- endif -%}
+    <div class="qk-onglets__barre">
+      <div class="qk-onglets__liste" role="tablist">
+        {%- for block in section.blocks -%}
+          <button type="button" role="tab" class="qk-onglet{% if forloop.first %} is-actif{% endif %}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" data-cible="qk-p-{{ block.id }}" {{ block.shopify_attributes }}>{{ block.settings.label | default: block.settings.collection.title }}</button>
+        {%- endfor -%}
+      </div>
+      {%- for block in section.blocks -%}
+        <a class="qk-lien qk-onglets__tout{% unless forloop.first %} is-cache{% endunless %}" data-pour="qk-p-{{ block.id }}" href="{{ block.settings.collection.url }}">{% if qk_nl %}Alles bekijken{% else %}Tout voir{% endif %}</a>
+      {%- endfor -%}
+    </div>
+  </div>
+  {%- for block in section.blocks -%}
+    <div class="qk-rangee{% unless forloop.first %} is-cache{% endunless %}" id="qk-p-{{ block.id }}" role="tabpanel">
+      {%- for product in block.settings.collection.products limit: section.settings.nombre -%}
+        <div class="qk-rangee__item">{% render 'qk-carte', product: product %}</div>
+      {%- endfor -%}
+    </div>
+  {%- endfor -%}
+</section>
+<script>
+  (function () {
+    var s = document.getElementById('qk-onglets-{{ section.id }}');
+    if (!s) return;
+    s.querySelectorAll('.qk-onglet').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var id = b.getAttribute('data-cible');
+        s.querySelectorAll('.qk-onglet').forEach(function (x) { x.classList.toggle('is-actif', x === b); x.setAttribute('aria-selected', x === b); });
+        s.querySelectorAll('.qk-rangee').forEach(function (p) { p.classList.toggle('is-cache', p.id !== id); });
+        s.querySelectorAll('.qk-onglets__tout').forEach(function (a) { a.classList.toggle('is-cache', a.getAttribute('data-pour') !== id); });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Qosmi · Favoris",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "titre", "label": "Titre", "default": "Favoris" },
+    { "type": "textarea", "id": "texte", "label": "Texte" },
+    { "type": "range", "id": "nombre", "label": "Parfums par onglet", "min": 4, "max": 16, "step": 1, "default": 10 }
+  ],
+  "blocks": [
+    {
+      "type": "onglet",
+      "name": "Onglet",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "text", "id": "label", "label": "Nom de l'onglet" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Qosmi · Favoris" }]
+}
+{% endschema %}

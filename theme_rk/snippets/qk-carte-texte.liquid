@@ -1,0 +1,14 @@
+{%- comment -%}
+  Texte sous la photo des cartes produit d'Horizon (collections, recherche, suggestions) : marque + prix, puis le nom.
+  Paramètre : product
+{%- endcomment -%}
+{%- assign qk_t = product.title | split: ' — ' -%}
+{%- assign qk_nom = qk_t[0] | remove_first: product.vendor | strip -%}
+{%- if qk_nom == blank -%}{%- assign qk_nom = qk_t[0] -%}{%- endif -%}
+<a class="qk-carte-texte" href="{{ product.url }}">
+  <span class="qk-carte__ligne">
+    <span class="qk-carte__marque">{{ product.vendor }}</span>
+    <span class="qk-carte__prix">{% if product.price_varies %}{% if request.locale.iso_code == 'nl' %}vanaf {% else %}dès {% endif %}{% endif %}{{ product.price_min | money }}</span>
+  </span>
+  <span class="qk-carte__nom">{{ qk_nom }}</span>
+</a>

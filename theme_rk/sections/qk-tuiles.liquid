@@ -1,0 +1,44 @@
+{%- comment -%} Tuiles de collections, image pleine, nom en bas à gauche (style Riklis Karto). {%- endcomment -%}
+<section class="qk-section qk-tuiles">
+  <div class="page-width">
+    {%- if section.settings.titre != blank -%}<h2 class="qk-titre-section">{{ section.settings.titre }}</h2>{%- endif -%}
+    <div class="qk-tuiles__grille">
+      {%- for block in section.blocks -%}
+        {%- assign c = block.settings.collection -%}
+        {%- assign img = block.settings.image | default: c.featured_image -%}
+        {%- assign produit_img = false -%}
+        {%- if img == blank -%}{%- assign img = c.products.first.featured_image -%}{%- assign produit_img = true -%}{%- endif -%}
+        <a class="qk-tuile{% if produit_img %} qk-tuile--produit{% endif %}" href="{{ c.url }}" {{ block.shopify_attributes }}>
+          {%- if img != blank -%}{{ img | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '400, 800, 1200', sizes: '(min-width: 990px) 33vw, 80vw', alt: c.title }}{%- endif -%}
+          <span class="qk-tuile__texte">
+            <span class="qk-tuile__titre">{{ block.settings.titre | default: c.title }}</span>
+            {%- if block.settings.sous_titre != blank -%}<span class="qk-tuile__sous">{{ block.settings.sous_titre }}</span>{%- endif -%}
+          </span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Qosmi · Tuiles",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "titre", "label": "Titre" }
+  ],
+  "blocks": [
+    {
+      "type": "tuile",
+      "name": "Tuile",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "image_picker", "id": "image", "label": "Image (sinon : celle de la collection)" },
+        { "type": "text", "id": "titre", "label": "Titre" },
+        { "type": "text", "id": "sous_titre", "label": "Sous-titre" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Qosmi · Tuiles" }]
+}
+{% endschema %}

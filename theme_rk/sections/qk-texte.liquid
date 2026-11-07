@@ -1,0 +1,33 @@
+{%- comment -%} Bloc de texte (« À propos », marque sur la fiche produit…). Le texte peut utiliser product.vendor. {%- endcomment -%}
+{%- assign marque = product.vendor -%}
+<section class="qk-section qk-texte qk-texte--{{ section.settings.alignement }}">
+  <div class="page-width qk-texte__boite">
+    {%- if section.settings.surtitre != blank -%}<p class="qk-surtitre">{{ section.settings.surtitre }}</p>{%- endif -%}
+    {%- if section.settings.mode_marque and marque != blank -%}
+      <h2 class="qk-titre-section">{% if request.locale.iso_code == 'nl' %}Ontdek {% else %}Découvre {% endif %}{{ marque }}</h2>
+      <p class="qk-intro">{% if request.locale.iso_code == 'nl' %}Alle parfums van {{ marque }} bij Qosmi, origineel en nieuw.{% else %}Tous les parfums {{ marque }} chez Qosmi, originaux et neufs.{% endif %}</p>
+      <a class="qk-lien" href="/collections/vendors?q={{ marque | url_encode }}">{% if request.locale.iso_code == 'nl' %}Ontdek {{ marque }}{% else %}Découvrir {{ marque }}{% endif %}</a>
+    {%- else -%}
+      {%- if section.settings.titre != blank -%}<h2 class="qk-titre-section">{{ section.settings.titre }}</h2>{%- endif -%}
+      {%- if section.settings.texte != blank -%}<div class="qk-intro">{{ section.settings.texte }}</div>{%- endif -%}
+      {%- if section.settings.lien_texte != blank -%}<a class="qk-lien" href="{{ section.settings.lien }}">{{ section.settings.lien_texte }}</a>{%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Qosmi · Texte",
+  "tag": "div",
+  "settings": [
+    { "type": "checkbox", "id": "mode_marque", "label": "Présenter la marque du produit (fiche produit)", "default": false },
+    { "type": "text", "id": "surtitre", "label": "Surtitre" },
+    { "type": "text", "id": "titre", "label": "Titre" },
+    { "type": "richtext", "id": "texte", "label": "Texte" },
+    { "type": "text", "id": "lien_texte", "label": "Texte du lien" },
+    { "type": "url", "id": "lien", "label": "Lien" },
+    { "type": "select", "id": "alignement", "label": "Alignement", "options": [{ "value": "gauche", "label": "Gauche" }, { "value": "centre", "label": "Centre" }], "default": "centre" }
+  ],
+  "presets": [{ "name": "Qosmi · Texte" }]
+}
+{% endschema %}

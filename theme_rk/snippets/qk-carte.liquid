@@ -1,0 +1,22 @@
+{%- comment -%}
+  Carte produit Qosmi (style Riklis Karto) : photo sur fond gris, marque + prix, nom du parfum.
+  Paramètre : product
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- assign qk_t = product.title | split: ' — ' -%}
+{%- assign qk_nom = qk_t[0] | remove_first: product.vendor | strip -%}
+{%- if qk_nom == blank -%}{%- assign qk_nom = qk_t[0] -%}{%- endif -%}
+<a class="qk-carte" href="{{ product.url }}">
+  <span class="qk-carte__img">
+    {%- if product.featured_image -%}
+      {{ product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title, widths: '300, 450, 700', sizes: '(min-width: 990px) 25vw, 50vw' }}
+    {%- endif -%}
+    {%- if product.tags contains 'Testeurs' -%}<span class="qk-badge">{% if qk_nl %}Tester{% else %}Testeur{% endif %}</span>{%- endif -%}
+  </span>
+  <span class="qk-carte__ligne">
+    <span class="qk-carte__marque">{{ product.vendor }}</span>
+    <span class="qk-carte__prix">{% if product.price_varies %}{% if qk_nl %}vanaf {% else %}dès {% endif %}{% endif %}{{ product.price_min | money }}</span>
+  </span>
+  <span class="qk-carte__nom">{{ qk_nom }}</span>
+</a>
