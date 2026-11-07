@@ -568,7 +568,7 @@ def qualite_photos():
             else:
                 fiches.setdefault(x["id"], {"photos": []}).update({"handle": x["handle"], "titre": x["title"], "marque": x["vendor"]})
     os.makedirs(os.path.join(os.path.dirname(ICI), "rapports", "theme"), exist_ok=True)
-    json.dump(list(fiches.values()), open(os.path.join(RACINE, "rapports", "theme", "qualite_photos.json"), "w", encoding="utf-8"),
+    json.dump(list(fiches.values()), open(os.path.join(os.path.dirname(ICI), "rapports", "theme", "qualite_photos.json"), "w", encoding="utf-8"),
               ensure_ascii=False)
     ligne_journal("Relevé des photos : %d fiches actives" % len(fiches))
 
