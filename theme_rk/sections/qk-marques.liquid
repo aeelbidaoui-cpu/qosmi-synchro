@@ -1,7 +1,7 @@
 {%- comment -%} Bande des marques qui défile (style Riklis Karto). Liste : une marque par ligne. {%- endcomment -%}
 {%- assign noms = section.settings.liste | newline_to_br | split: '<br />' -%}
 <section class="qk-section qk-marques">
-  <div class="page-width">
+  <div class="qk-largeur">
     <h2 class="qk-titre-section">{{ section.settings.titre }}</h2>
     {%- if section.settings.texte != blank -%}<p class="qk-intro">{{ section.settings.texte }}</p>{%- endif -%}
   </div>

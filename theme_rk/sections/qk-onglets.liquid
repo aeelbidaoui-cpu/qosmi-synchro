@@ -2,7 +2,7 @@
 {%- assign qk_nl = false -%}
 {%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
 <section class="qk-section qk-onglets" id="qk-onglets-{{ section.id }}">
-  <div class="page-width">
+  <div class="qk-largeur">
     <h2 class="qk-titre-section">{{ section.settings.titre }}</h2>
     {%- if section.settings.texte != blank -%}<p class="qk-intro">{{ section.settings.texte }}</p>{%- endif -%}
     <div class="qk-onglets__barre">

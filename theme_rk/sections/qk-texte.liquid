@@ -1,7 +1,7 @@
 {%- comment -%} Bloc de texte (« À propos », marque sur la fiche produit…). Le texte peut utiliser product.vendor. {%- endcomment -%}
 {%- assign marque = product.vendor -%}
 <section class="qk-section qk-texte qk-texte--{{ section.settings.alignement }}">
-  <div class="page-width qk-texte__boite">
+  <div class="qk-largeur qk-texte__boite">
     {%- if section.settings.surtitre != blank -%}<p class="qk-surtitre">{{ section.settings.surtitre }}</p>{%- endif -%}
     {%- if section.settings.mode_marque and marque != blank -%}
       <h2 class="qk-titre-section">{% if request.locale.iso_code == 'nl' %}Ontdek {% else %}Découvre {% endif %}{{ marque }}</h2>

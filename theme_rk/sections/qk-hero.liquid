@@ -4,7 +4,7 @@
     {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'qk-hero__img', loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800, 1200, 1600, 2400', alt: section.settings.image.alt }}
   {%- endif -%}
   <div class="qk-hero__voile"></div>
-  <div class="qk-hero__contenu page-width">
+  <div class="qk-hero__contenu qk-largeur">
     <h1 class="qk-hero__titre">{{ section.settings.titre }} {% if section.settings.titre_doux != blank %}<span>{{ section.settings.titre_doux }}</span>{% endif %}</h1>
     {%- if section.settings.texte != blank -%}<p class="qk-hero__texte">{{ section.settings.texte }}</p>{%- endif -%}
     {%- if section.settings.bouton != blank -%}<a class="qk-lien qk-lien--clair" href="{{ section.settings.lien | default: '/collections/all' }}">{{ section.settings.bouton }}</a>{%- endif -%}

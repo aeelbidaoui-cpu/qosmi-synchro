@@ -1,11 +1,11 @@
 {%- comment -%} Tuiles de collections, image pleine, nom en bas à gauche (style Riklis Karto). {%- endcomment -%}
 <section class="qk-section qk-tuiles">
-  <div class="page-width">
+  <div class="qk-largeur">
     {%- if section.settings.titre != blank -%}<h2 class="qk-titre-section">{{ section.settings.titre }}</h2>{%- endif -%}
     <div class="qk-tuiles__grille">
       {%- for block in section.blocks -%}
         {%- assign c = block.settings.collection -%}
-        {%- assign img = block.settings.image | default: c.featured_image -%}
+        {%- assign img = block.settings.image | default: c.image -%}
         {%- assign produit_img = false -%}
         {%- if img == blank -%}{%- assign img = c.products.first.featured_image -%}{%- assign produit_img = true -%}{%- endif -%}
         <a class="qk-tuile{% if produit_img %} qk-tuile--produit{% endif %}" href="{{ c.url }}" {{ block.shopify_attributes }}>
