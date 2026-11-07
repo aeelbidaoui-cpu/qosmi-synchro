@@ -47,6 +47,9 @@ def cartes(noeud):
             ordre = [k for k in noeud.get("block_order", list(b)) if k in b and k != "qk_texte"]
             noeud["block_order"] = ordre + ["qk_texte"]
             noeud.setdefault("settings", {})["product_card_gap"] = 0
+            for x in b.values():  # toutes les photos dans un même cadre 4:5 (sinon chaque carte prend la forme de sa photo)
+                if x.get("type") == "_product-card-gallery":
+                    x.setdefault("settings", {})["image_ratio"] = "portrait"
         for v in list(noeud.values()):
             cartes(v)
     elif isinstance(noeud, list):

@@ -114,6 +114,11 @@
 .card-gallery, .product-card .product-media-container { background: var(--qk-gris); }
 .product-card .product-media__image { mix-blend-mode: multiply; }
 .product-card .product-media-container { padding: 8%; }
+/* même cadre pour toutes les cartes : photo entière, centrée, jamais coupée */
+.product-card .product-media-container { aspect-ratio: 4 / 5 !important; height: auto !important; }
+.product-card .product-media, .product-card .product-media__image { width: 100% !important; height: 100% !important; }
+.product-card .product-media__image { object-fit: contain !important; object-position: center !important; }
+.product-grid, .product-grid__item { align-items: start; }
 .qk-carte-texte { padding-top: 6px; }
 
 /* fiche produit : galerie sur fond gris */
