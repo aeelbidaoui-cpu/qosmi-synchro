@@ -291,14 +291,13 @@ def entree(p, lieu_id, ident):
                "inventoryQuantities": [{"locationId": lieu_id, "name": "available", "quantity": int(v["stock"])}]}
         src = (v.get("photo_source") or "").split("?")[0]
         ext = os.path.splitext(src)[1]
-        if src and not ext:  # ex. De Bijenkorf : …/?reference=…/xxx.jpg
-            m = re.search(r"reference=[^&]*?(\.(?:jpe?g|png|webp))", v["photo_source"], re.I)
-            ext = m.group(1) if m else ""
-        if src and ext:
+        sans_ext = bool(src) and not ext and re.search(r"reference=[^&]*?\.(?:jpe?g|png|webp)", v["photo_source"], re.I)
+        if src and (ext or sans_ext):
             if v["photo_source"] not in fichiers:
-                fichiers[v["photo_source"]] = {
-                    "originalSource": v["photo_source"], "contentType": "IMAGE", "alt": p["titre_fr"],
-                    "filename": "%s-%d%s" % (p["handle"][:110], len(fichiers) + 1, ext)}
+                f = {"originalSource": v["photo_source"], "contentType": "IMAGE", "alt": p["titre_fr"]}
+                if ext:  # sans extension dans l'adresse (De Bijenkorf), Shopify nomme le fichier lui-même
+                    f["filename"] = "%s-%d%s" % (p["handle"][:110], len(fichiers) + 1, ext)
+                fichiers[v["photo_source"]] = f
             var["file"] = fichiers[v["photo_source"]]
         variantes.append(var)
     inp = {"handle": p["handle"], "title": p["titre_fr"], "descriptionHtml": p["desc_fr"], "vendor": p["marque"],
