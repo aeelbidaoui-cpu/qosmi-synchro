@@ -113,7 +113,7 @@
 /* cartes d'Horizon (collections, recherche, suggestions) : même fond gris, photo fondue */
 .card-gallery, .product-card .product-media-container { background: var(--qk-gris); }
 .product-card .product-media__image { mix-blend-mode: multiply; }
-.product-card .product-media-container { padding: 8%; }
+.product-card .product-media-container { padding: 4%; }
 /* même cadre pour toutes les cartes : photo entière, centrée, jamais coupée */
 .product-card .product-media-container { aspect-ratio: 4 / 5 !important; height: auto !important; }
 .product-card .product-media, .product-card .product-media__image { width: 100% !important; height: 100% !important; }
