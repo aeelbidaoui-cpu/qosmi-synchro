@@ -539,7 +539,7 @@ def controle_medias(s=None):
 
 
 Q_QUALITE = """{ products(query: "status:active") { edges { node { id handle title vendor
-  media { edges { node { ... on MediaImage { id status image { url width height } } } } } } } }"""
+  media { edges { node { ... on MediaImage { id status image { url width height } } } } } } } } }"""
 
 
 def qualite_photos():
