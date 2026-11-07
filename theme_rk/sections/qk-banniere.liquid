@@ -1,0 +1,35 @@
+{%- comment -%} Bannière pleine largeur (flacons en rangée), version téléphone séparée, lien vers une collection. {%- endcomment -%}
+{%- assign img = section.settings.image -%}
+{%- assign img_m = section.settings.image_mobile | default: img -%}
+<section class="qk-section qk-banniere">
+  {%- if section.settings.titre != blank -%}
+    <div class="qk-largeur qk-banniere__entete">
+      <h2 class="qk-titre-section">{{ section.settings.titre }}</h2>
+      {%- if section.settings.lien_texte != blank -%}<a class="qk-lien" href="{{ section.settings.lien | default: '/collections/all' }}">{{ section.settings.lien_texte }}</a>{%- endif -%}
+    </div>
+  {%- endif -%}
+  <a class="qk-banniere__lien" href="{{ section.settings.lien | default: '/collections/all' }}" aria-label="{{ section.settings.titre | default: section.settings.lien_texte | escape }}">
+    {%- if img != blank -%}
+      <picture>
+        {%- if img_m != blank -%}<source media="(max-width: 749px)" srcset="{{ img_m | image_url: width: 800 }} 800w, {{ img_m | image_url: width: 1200 }} 1200w, {{ img_m | image_url: width: 2000 }} 2000w" sizes="100vw">{%- endif -%}
+        {{ img | image_url: width: 3840 | image_tag: class: 'qk-banniere__img', loading: 'lazy', sizes: '100vw', widths: '1200, 1600, 1920, 2400, 3200, 3840', alt: section.settings.alt }}
+      </picture>
+    {%- endif -%}
+  </a>
+</section>
+
+{% schema %}
+{
+  "name": "Qosmi · Bannière",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "titre", "label": "Titre" },
+    { "type": "text", "id": "lien_texte", "label": "Texte du lien", "default": "Tout voir" },
+    { "type": "url", "id": "lien", "label": "Lien" },
+    { "type": "image_picker", "id": "image", "label": "Image (large)" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Image pour téléphone" },
+    { "type": "text", "id": "alt", "label": "Description de l'image (accessibilité)" }
+  ],
+  "presets": [{ "name": "Qosmi · Bannière" }]
+}
+{% endschema %}

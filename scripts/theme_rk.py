@@ -83,6 +83,11 @@ def construire(fichiers, marques):
                 "o3": {"type": "onglet", "settings": {"collection": "parfums-homme", "label": "Homme"}},
                 "o4": {"type": "onglet", "settings": {"collection": "testeurs", "label": "Testeurs"}}},
             "block_order": ["o1", "o2", "o3", "o4"]},
+        "qk_banniere": {"type": "qk-banniere", "settings": {
+            "titre": "Les incontournables", "lien_texte": "Voir la niche", "lien": "shopify://collections/niche",
+            "image": "shopify://shop_images/qosmi-banniere-niche.jpg",
+            "image_mobile": "shopify://shop_images/qosmi-banniere-niche-mobile.jpg",
+            "alt": "Parfums de Marly Layton, Maison Francis Kurkdjian Baccarat Rouge 540, Xerjoff Erba Pura, Nishane Hundred Silent Ways et Creed Aventus"}},
         "qk_tuiles": {"type": "qk-tuiles", "settings": {"titre": ""}, "blocks": {
             "t1": {"type": "tuile", "settings": {"collection": "niche", "titre": "Parfums de niche",
                                                  "produit": "parfums-de-marly-layton-eau-de-parfum-mixte",
@@ -104,7 +109,7 @@ def construire(fichiers, marques):
                      "et on te les livre partout en Belgique.</p>",
             "lien_texte": "Voir tous les parfums", "lien": "shopify://collections/parfums", "alignement": "centre"}},
     }
-    d["order"] = ["qk_hero", "qk_favoris", "qk_tuiles", "qk_marques", "qk_apropos"]
+    d["order"] = ["qk_hero", "qk_favoris", "qk_banniere", "qk_tuiles", "qk_marques", "qk_apropos"]
     jsons["templates/index.json"] = ecrire(e, d)
 
     # ---------- fiche produit ----------
