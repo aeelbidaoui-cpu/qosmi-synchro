@@ -11,5 +11,8 @@
  "delai_dropship_fr": "4 à 7 jours ouvrables",
  "delai_dropship_nl": "4 tot 7 werkdagen",
  "statut_nouvelles_fiches": "ACTIVE",
- "_note_statut": "Statut des nouvelles fiches créées par la mise à jour horaire : ACTIVE depuis le 04/11/2026 (Amine : « active-les » ; boutique encore protégée par mot de passe)."
+ "_note_statut": "Statut des nouvelles fiches créées par la mise à jour horaire : ACTIVE depuis le 04/11/2026 (Amine : « active-les » ; boutique encore protégée par mot de passe).",
+ "delai_livraison_fr": "6 à 7 jours ouvrables",
+ "delai_livraison_nl": "6 tot 7 werkdagen",
+ "_note_delai": "Délai total annoncé sur les pages légales (07/11/2026) : commande préparée puis 1 à 2 jours de transport."
 }
