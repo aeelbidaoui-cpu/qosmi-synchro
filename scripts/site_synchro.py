@@ -463,6 +463,10 @@ def photos_marques():
         if os.path.exists(chemin):
             ph = json.load(open(chemin, encoding="utf-8"))
             officielles |= set(ph["par_ean"].values()) | set(ph["par_nom"].values()) | set(ph.get("par_fiche", {}).values())
+    chemin = os.path.join(os.path.dirname(sl.SITE), "photos_cadrees.json")
+    if os.path.exists(chemin):  # photos recadrées : mêmes photos autorisées, flacon remis à la même taille
+        cadrees = json.load(open(chemin, encoding="utf-8"))["par_url"]
+        officielles |= {cadrees[u] for u in officielles if u in cadrees}
     # fiches dont une photo autorisée diffère de la photo actuelle sur Shopify
     deja = {}
     chemin_etat = os.path.join(sl.RAPPORTS, "site_photos_posees.json")

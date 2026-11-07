@@ -6,7 +6,7 @@ on:
       action:
         description: "exporter (lecture seule) ou appliquer (copie non publiée)"
         type: choice
-        options: [exporter, exporter-apercu, appliquer, theme-rk, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-ici, pages-legales, textes-fiches, menu]
+        options: [exporter, exporter-apercu, appliquer, theme-rk, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-ici, photos-cadre, pages-legales, textes-fiches, menu]
         default: exporter
       fiche:
         description: "photos-marques : renvoyer seulement cette fiche (adresse de la fiche)"
@@ -23,7 +23,7 @@ permissions:
 jobs:
   theme:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 150
     steps:
       - name: Refuser de tourner si le dépôt est public
         env:
@@ -53,6 +53,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "textes-fiches" ]; then python -u scripts/site_synchro.py --textes
           elif [ "${{ inputs.action }}" = "pages-legales" ]; then python -u scripts/site_pages.py
           elif [ "${{ inputs.action }}" = "photos-adp" ]; then python -u scripts/photos_adp.py
+          elif [ "${{ inputs.action }}" = "photos-cadre" ]; then pip install -q pillow && python -u scripts/photos_cadre.py
           elif [ "${{ inputs.action }}" = "photos-ici" ]; then python -u scripts/photos_ici.py
           elif [ "${{ inputs.action }}" = "masquer-photos-faibles" ]; then python -u scripts/site_synchro.py --masquer-photos-faibles
           elif [ "${{ inputs.action }}" = "qualite-photos" ]; then python -u scripts/site_synchro.py --qualite-photos

@@ -174,6 +174,9 @@ def photos_officielles(produits):
         sources.append((qualite, ph.get("par_ean", {}), ph.get("par_nom", {}), marques, ph.get("par_fiche", {})))
     if not sources:
         return 0
+    # photos recadrées (même taille de flacon sur toutes les cartes, 07/11/2026) : config/photos_cadrees.json
+    chemin = os.path.join(dossier, "photos_cadrees.json")
+    cadrees = json.load(open(chemin, encoding="utf-8"))["par_url"] if os.path.exists(chemin) else {}
     n = 0
     for p in produits:
         m = p["marque"].lower()
@@ -192,7 +195,8 @@ def photos_officielles(produits):
                 if u:
                     choix.append((1, q, u))
             if choix:
-                v["photo_source"] = max(choix)[2]
+                v["photo_brute"] = max(choix)[2]
+                v["photo_source"] = cadrees.get(v["photo_brute"], v["photo_brute"])
                 v["_photo_autorisee"] = True
                 n += 1
         # même parfum dans une autre contenance : les formats sans photo autorisée reprennent celle de la fiche
