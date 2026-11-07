@@ -47,6 +47,12 @@
 }
 .qk-hero--uni { background: radial-gradient(120% 90% at 70% 20%, #3a3a3a 0%, #141414 60%, #0b0b0b 100%); }
 .qk-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.qk-hero__video--mobile { display: none; }
+@media (max-width: 749px) {
+  .qk-hero__video:has(~ .qk-hero__video--mobile) { display: none; }
+  .qk-hero__video--mobile { display: block; }
+}
+@media (prefers-reduced-motion: reduce) { .qk-hero__video { animation: none; } }
 .qk-hero__voile { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%); }
 .qk-hero__contenu { position: relative; padding-bottom: 72px; width: 100%; }
 .qk-hero__titre {

@@ -1,6 +1,12 @@
 {%- comment -%} Grand bandeau d'accueil, plein écran, texte en bas à gauche (style Riklis Karto). {%- endcomment -%}
-<section class="qk-hero{% if section.settings.image == blank %} qk-hero--uni{% endif %}" style="--qk-hero-h: {{ section.settings.hauteur }}vh;">
-  {%- if section.settings.image != blank -%}
+<section class="qk-hero{% if section.settings.image == blank and section.settings.video == blank %} qk-hero--uni{% endif %}" style="--qk-hero-h: {{ section.settings.hauteur }}vh;">
+  {%- if section.settings.video != blank -%}
+    {%- comment -%} vidéo d'ambiance : muette, en boucle, lancée seule (aussi sur iPhone grâce à playsinline) {%- endcomment -%}
+    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video', image_size: '1920x' }}
+    {%- if section.settings.video_mobile != blank -%}
+      {{ section.settings.video_mobile | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video qk-hero__video--mobile', image_size: '1080x' }}
+    {%- endif -%}
+  {%- elsif section.settings.image != blank -%}
     {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'qk-hero__img', loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800, 1200, 1600, 2400', alt: section.settings.image.alt }}
   {%- endif -%}
   <div class="qk-hero__voile"></div>
@@ -16,7 +22,9 @@
   "name": "Qosmi · Bandeau",
   "tag": "div",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Photo d'ambiance" },
+    { "type": "video", "id": "video", "label": "Vidéo d'ambiance (paysage)", "info": "MP4, sans son, 8 à 15 s qui bouclent, moins de 10 Mo" },
+    { "type": "video", "id": "video_mobile", "label": "Vidéo pour téléphone (portrait, facultatif)" },
+    { "type": "image_picker", "id": "image", "label": "Photo d'ambiance (si pas de vidéo)" },
     { "type": "text", "id": "titre", "label": "Titre", "default": "Ton parfum," },
     { "type": "text", "id": "titre_doux", "label": "Fin du titre (en gris)", "default": "au juste prix." },
     { "type": "text", "id": "texte", "label": "Sous-titre", "default": "Parfums de marque et de niche, 100 % authentiques." },
