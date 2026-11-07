@@ -72,7 +72,8 @@ def construire(fichiers, marques):
         "qk_hero": {"type": "qk-hero", "settings": {
             "titre": "Ton parfum,", "titre_doux": "au juste prix.",
             "texte": "Parfums de marque et de niche, 100 % authentiques.", "bouton": "Découvrir",
-            "lien": "shopify://collections/parfums", "hauteur": 85}},
+            "lien": "shopify://collections/parfums", "hauteur": 85,
+            "image": "shopify://shop_images/qosmi-hero-ingredients.jpg"}},
         "qk_favoris": {"type": "qk-onglets", "settings": {
             "titre": "Favoris", "nombre": 10,
             "texte": "Les parfums qu'on nous demande le plus. Une sélection de grandes maisons et de niche, choisie avec soin."},
