@@ -16,11 +16,13 @@ DOSSIER = os.path.join(RACINE, "assets", "photos_adp")
 
 
 def adresse_fichier(s, nom):
-    n = s.gql("query($q: String!) { files(first: 5, query: $q) { nodes { ... on MediaImage { fileStatus image { url } } } } }",
+    n = s.gql("query($q: String!) { files(first: 20, query: $q) { nodes { ... on MediaImage { fileStatus image { url } } } } }",
               {"q": "filename:%s" % nom})["files"]["nodes"]
     for x in n:
         if x.get("fileStatus") == "READY" and x.get("image"):
-            return x["image"]["url"].split("?")[0]
+            u = x["image"]["url"].split("?")[0]
+            if u.rsplit("/", 1)[-1] == nom:  # la recherche Shopify trouve aussi les noms qui commencent pareil
+                return u
     return None
 
 
