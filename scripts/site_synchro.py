@@ -36,7 +36,7 @@ M_PRIX = """mutation call($productId: ID!, $variants: [ProductVariantsBulkInput!
 M_STOCK = """mutation($input: InventorySetQuantitiesInput!, $cle: String!) {
   inventorySetQuantities(input: $input) @idempotent(key: $cle) {
     inventoryAdjustmentGroup { id } userErrors { code field message } } }"""
-Q_ETAT = """{ products(query: "status:active OR status:draft") { edges { node { id handle status tags
+Q_ETAT = """{ products(query: "status:active OR status:draft") { edges { node { id handle status tags featuredMedia { id }
   variants { edges { node { id sku price inventoryQuantity selectedOptions { name value }
     inventoryItem { id unitCost { amount } } } } } } } } }"""
 
@@ -275,6 +275,8 @@ def synchro(essai=False):
         pid = collections.Counter(ids).most_common(1)[0][0]
         existante = boutique[pid]
         voulu = ("ACTIVE" if statut_nouv == "ACTIVE" else existante["status"]) if visible(p, sel) else "DRAFT"
+        if voulu == "ACTIVE" and existante["status"] != "ACTIVE" and not existante.get("featuredMedia"):
+            voulu = existante["status"]  # pas de photo sur la fiche : elle reste masquée
         if voulu != existante["status"]:
             statuts.append((pid, voulu))
         skus_fiche = {v["sku"] for v in existante["variantes"]}
