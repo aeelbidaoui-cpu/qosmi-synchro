@@ -81,10 +81,13 @@ def construire(fichiers, marques):
             "block_order": ["o1", "o2", "o3", "o4"]},
         "qk_tuiles": {"type": "qk-tuiles", "settings": {"titre": ""}, "blocks": {
             "t1": {"type": "tuile", "settings": {"collection": "niche", "titre": "Parfums de niche",
+                                                 "produit": "parfums-de-marly-layton-eau-de-parfum-mixte",
                                                  "sous_titre": "Xerjoff, Nishane, Initio, Parfums de Marly et plus"}},
             "t2": {"type": "tuile", "settings": {"collection": "testeurs", "titre": "Testeurs",
+                                                 "produit": "xerjoff-erba-pura-eau-de-parfum-mixte",
                                                  "sous_titre": "Le même parfum, sans la boîte, moins cher"}},
             "t3": {"type": "tuile", "settings": {"collection": "parfums-mixtes", "titre": "Parfums mixtes",
+                                                 "produit": "acqua-di-parma-colonia-eau-de-cologne-mixte",
                                                  "sous_titre": "À porter par tout le monde"}}},
             "block_order": ["t1", "t2", "t3"]},
         "qk_marques": {"type": "qk-marques", "settings": {

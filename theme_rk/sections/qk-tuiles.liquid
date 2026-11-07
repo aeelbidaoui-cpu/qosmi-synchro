@@ -7,6 +7,7 @@
         {%- assign c = block.settings.collection -%}
         {%- assign img = block.settings.image | default: c.image -%}
         {%- assign produit_img = false -%}
+        {%- if img == blank and block.settings.produit != blank -%}{%- assign img = block.settings.produit.featured_image -%}{%- assign produit_img = true -%}{%- endif -%}
         {%- if img == blank -%}{%- assign img = c.products.first.featured_image -%}{%- assign produit_img = true -%}{%- endif -%}
         <a class="qk-tuile{% if produit_img %} qk-tuile--produit{% endif %}" href="{{ c.url }}" {{ block.shopify_attributes }}>
           {%- if img != blank -%}{{ img | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '400, 800, 1200', sizes: '(min-width: 990px) 33vw, 80vw', alt: c.title }}{%- endif -%}
@@ -34,6 +35,7 @@
       "settings": [
         { "type": "collection", "id": "collection", "label": "Collection" },
         { "type": "image_picker", "id": "image", "label": "Image (sinon : celle de la collection)" },
+        { "type": "product", "id": "produit", "label": "Sinon : photo de ce parfum" },
         { "type": "text", "id": "titre", "label": "Titre" },
         { "type": "text", "id": "sous_titre", "label": "Sous-titre" }
       ]
