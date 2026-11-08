@@ -74,7 +74,7 @@ def construire(fichiers, marques):
             "texte": "Parfums de marque et de niche, 100 % authentiques.", "bouton": "Découvrir",
             "lien": "shopify://collections/parfums", "hauteur": 85,
             "image": "shopify://shop_images/qosmi-hero-ingredients.jpg",
-            "video": "shopify://files/videos/72773816287556"}},
+            "video": "shopify://files/videos/qosmi-hero-ingredients.mp4"}},
         "qk_favoris": {"type": "qk-onglets", "settings": {
             "titre": "Favoris", "nombre": 10,
             "texte": "Les parfums qu'on nous demande le plus. Une sélection de grandes maisons et de niche, choisie avec soin."},
