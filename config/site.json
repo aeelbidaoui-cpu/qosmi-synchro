@@ -3,10 +3,12 @@
  "frais_livraison": "6,95 €",
  "_note": "E-mail affiché sur les pages légales du site. Frais de livraison TTC.",
  "prix_provisoires": {
-  "envoi_eur": 2,
+  "envoi_eur": 3,
   "marge_eur": 5,
   "tva": 0.21,
-  "_note": "Prix PROVISOIRES des fiches SoleLuna du site Qosmi (03/11/2026), à revoir avec Amine : (achat + envoi + bénéfice) × (1 + TVA), arrondi au ,90."
+  "_note": "Prix des fiches SoleLuna (règle d'Amine du 08/11/2026) : (achat + 3 € envoi + 5 € bénéfice + frais de paiement Shopify Payments, forfait Basic 2 % + 0,25 € en ligne) × 1,21, arrondi au ,90 supérieur ; la livraison (6,95 €) est payée en plus par le client.",
+  "paiement_pct": 0.02,
+  "paiement_fixe": 0.25
  },
  "delai_dropship_fr": "6 à 7 jours ouvrables",
  "delai_dropship_nl": "6 tot 7 werkdagen",
