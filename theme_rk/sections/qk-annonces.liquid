@@ -1,0 +1,31 @@
+{%- comment -%}
+  Bandeau d'annonces qui défile en continu (demande d'Amine du 08/11/2026).
+  Les messages sont dans le réglage « messages », un par ligne (scripts/theme_rk.py, liste ANNONCES).
+{%- endcomment -%}
+{%- assign qk_msgs = section.settings.messages | newline_to_br | split: '<br />' -%}
+<div class="qk-annonces" role="region" aria-label="{{ 'Informations' }}">
+  <div class="qk-annonces__piste" style="--qk-duree: {{ section.settings.duree }}s;">
+    {%- for tour in (1..2) -%}
+      <ul class="qk-annonces__liste"{% if tour == 2 %} aria-hidden="true"{% endif %}>
+        {%- for m in qk_msgs -%}
+          {%- assign t = m | strip -%}
+          {%- if t != blank -%}<li class="qk-annonces__msg">{{ t }}</li>{%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Bandeau qui défile",
+  "tag": "section",
+  "class": "qk-annonces-section",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "textarea", "id": "messages", "label": "Messages (un par ligne)" },
+    { "type": "range", "id": "duree", "label": "Durée d'un tour (secondes)", "min": 10, "max": 90, "step": 5, "default": 45 }
+  ],
+  "presets": [{ "name": "Bandeau qui défile" }]
+}
+{% endschema %}

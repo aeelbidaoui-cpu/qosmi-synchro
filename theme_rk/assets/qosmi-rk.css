@@ -219,3 +219,18 @@ main[data-template="article"] .blog-post-content table { width: 100%; border-col
 main[data-template="article"] .blog-post-content th, main[data-template="article"] .blog-post-content td { border-bottom: 1px solid #E5E5E5; padding: .6rem .5rem; text-align: left; vertical-align: top; }
 main[data-template="article"] .blog-post-content h2 { font-size: clamp(1.35rem, 2vw, 1.8rem); margin: 2.4rem 0 .8rem; }
 main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-transform: none; letter-spacing: 0; }
+
+/* ---------- Bandeau d'annonces qui défile en continu (08/11/2026) ---------- */
+.qk-annonces { overflow: hidden; background: #fff; border-bottom: 1px solid #ECECEC; }
+.qk-annonces__piste { display: flex; width: max-content; animation: qk-defile var(--qk-duree, 45s) linear infinite; }
+.qk-annonces:hover .qk-annonces__piste { animation-play-state: paused; }
+.qk-annonces__liste { display: flex; margin: 0; padding: 0; list-style: none; flex-shrink: 0; }
+.qk-annonces__msg { display: flex; align-items: center; white-space: nowrap; padding: 11px 0; font-size: .75rem;
+  text-transform: uppercase; letter-spacing: .04em; font-family: var(--font-subheading--family); font-weight: var(--font-subheading--weight); color: #111; }
+.qk-annonces__msg::after { content: ""; width: 4px; height: 4px; border-radius: 50%; background: #111; margin: 0 2.5rem; opacity: .5; }
+@keyframes qk-defile { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .qk-annonces__piste { animation: none; width: 100%; justify-content: center; }
+  .qk-annonces__liste[aria-hidden="true"], .qk-annonces__msg:not(:first-child) { display: none; }
+  .qk-annonces__msg::after { display: none; }
+}

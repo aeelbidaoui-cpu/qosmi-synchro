@@ -1,20 +1,22 @@
 {
- "email_service_client": "contact@qosmi.be",
- "frais_livraison": "6,95 €",
- "_note": "E-mail affiché sur les pages légales du site. Frais de livraison TTC.",
- "prix_provisoires": {
-  "envoi_eur": 3,
-  "marge_eur": 5,
-  "tva": 0.21,
-  "_note": "Prix des fiches SoleLuna (règle d'Amine du 08/11/2026) : (achat + 3 € envoi + 5 € bénéfice + frais de paiement Shopify Payments, forfait Basic 2 % + 0,25 € en ligne) × 1,21, arrondi au ,90 supérieur ; la livraison (6,95 €) est payée en plus par le client.",
-  "paiement_pct": 0.02,
-  "paiement_fixe": 0.25
- },
- "delai_dropship_fr": "1 à 2 jours ouvrables",
- "delai_dropship_nl": "1 tot 2 werkdagen",
- "statut_nouvelles_fiches": "ACTIVE",
- "_note_statut": "Statut des nouvelles fiches créées par la mise à jour horaire : ACTIVE depuis le 04/11/2026 (Amine : « active-les » ; boutique encore protégée par mot de passe).",
- "delai_livraison_fr": "1 à 2 jours ouvrables",
- "delai_livraison_nl": "1 tot 2 werkdagen",
- "_note_delai": "Délai total annoncé (08/11/2026) : le fournisseur livre directement le client en 1 à 2 jours ouvrables (confirmé par Amine)."
+  "email_service_client": "contact@qosmi.be",
+  "frais_livraison": "6,95 €",
+  "_note": "E-mail affiché sur les pages légales du site. Frais de livraison TTC.",
+  "prix_provisoires": {
+    "envoi_eur": 3,
+    "marge_eur": 5,
+    "tva": 0.21,
+    "_note": "Prix des fiches SoleLuna (règle d'Amine du 08/11/2026) : (achat + 3 € envoi + 5 € bénéfice + frais de paiement Shopify Payments, forfait Basic 2 % + 0,25 € en ligne) × 1,21, arrondi au ,90 supérieur ; la livraison (6,95 €) est payée en plus par le client.",
+    "paiement_pct": 0.02,
+    "paiement_fixe": 0.25
+  },
+  "delai_dropship_fr": "1 à 2 jours ouvrables",
+  "delai_dropship_nl": "1 tot 2 werkdagen",
+  "statut_nouvelles_fiches": "ACTIVE",
+  "_note_statut": "Statut des nouvelles fiches créées par la mise à jour horaire : ACTIVE depuis le 04/11/2026 (Amine : « active-les » ; boutique encore protégée par mot de passe).",
+  "delai_livraison_fr": "1 à 2 jours ouvrables",
+  "delai_livraison_nl": "1 tot 2 werkdagen",
+  "_note_delai": "Délai total annoncé (08/11/2026) : le fournisseur livre directement le client en 1 à 2 jours ouvrables (confirmé par Amine).",
+  "testeurs_en_suspens": true,
+  "_note_testeurs": "08/11/2026 : testeurs en suspens (question juridique à vérifier avec l'avocat, arrêt CJUE L'Oréal c. eBay C-324/09). true = aucun format testeur sur le site ni sur Google. Remettre false pour les réafficher : le passage horaire recrée alors les formats testeurs."
 }

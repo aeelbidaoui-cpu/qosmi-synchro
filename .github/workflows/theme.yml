@@ -6,7 +6,7 @@ on:
       action:
         description: "exporter (lecture seule) ou appliquer (copie non publiée)"
         type: choice
-        options: [exporter, exporter-apercu, appliquer, theme-rk, publier, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, seo-boutique, controle-boutique, google, politiques, politiques-nl, textes-fiches, menu]
+        options: [exporter, exporter-apercu, appliquer, theme-rk, publier, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, seo-boutique, controle-boutique, google, testeurs-suspens, politiques, politiques-nl, textes-fiches, menu]
         default: exporter
       fiche:
         description: "photos-marques : renvoyer seulement cette fiche (adresse de la fiche)"
@@ -54,6 +54,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "seo-boutique" ]; then python -u scripts/seo_boutique.py
           elif [ "${{ inputs.action }}" = "controle-boutique" ]; then python -u scripts/controle_boutique.py
           elif [ "${{ inputs.action }}" = "google" ]; then python -u scripts/site_synchro.py --google
+          elif [ "${{ inputs.action }}" = "testeurs-suspens" ]; then python -u scripts/site_synchro.py --testeurs-suspens
           elif [ "${{ inputs.action }}" = "politiques-nl" ]; then python -u scripts/site_pages.py --politiques-nl
           elif [ "${{ inputs.action }}" = "politiques" ]; then python -u scripts/site_pages.py --politiques
           elif [ "${{ inputs.action }}" = "pages-legales" ]; then python -u scripts/site_pages.py

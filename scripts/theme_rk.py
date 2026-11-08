@@ -156,7 +156,7 @@ def construire(fichiers, marques):
                 "o1": {"type": "onglet", "settings": {"collection": "niche", "label": "Niche"}},
                 "o2": {"type": "onglet", "settings": {"collection": "parfums-femme", "label": "Femme"}},
                 "o3": {"type": "onglet", "settings": {"collection": "parfums-homme", "label": "Homme"}},
-                "o4": {"type": "onglet", "settings": {"collection": "testeurs", "label": "Testeurs"}}},
+                "o4": {"type": "onglet", "settings": {"collection": "parfums-mixtes", "label": "Mixte"}}},  # testeurs en suspens (08/11)
             "block_order": ["o1", "o2", "o3", "o4"]},
         "qk_banniere": {"type": "qk-banniere", "settings": {
             "titre": "Les incontournables", "lien_texte": "Voir la niche", "lien": "shopify://collections/niche",
@@ -167,9 +167,9 @@ def construire(fichiers, marques):
             "t1": {"type": "tuile", "settings": {"collection": "niche", "titre": "Parfums de niche",
                                                  "produit": "sospiro-vibrato-eau-de-parfum-mixte",
                                                  "sous_titre": "Xerjoff, Nishane, Initio, Parfums de Marly et plus"}},
-            "t2": {"type": "tuile", "settings": {"collection": "testeurs", "titre": "Testeurs",
-                                                 "produit": "tom-ford-private-blend-lost-cherry-eau-de-parfum-mixte",
-                                                 "sous_titre": "Le même parfum, sans la boîte, moins cher"}},
+            "t2": {"type": "tuile", "settings": {"collection": "parfums-homme", "titre": "Parfums homme",  # testeurs en suspens (08/11)
+                                                 "produit": "creed-aventus-eau-de-parfum-pour-homme",
+                                                 "sous_titre": "Creed, Dior, Tom Ford et plus"}},
             "t3": {"type": "tuile", "settings": {"collection": "parfums-mixtes", "titre": "Parfums mixtes",
                                                  "produit": "acqua-di-parma-colonia-eau-de-cologne-mixte",
                                                  "sous_titre": "À porter par tout le monde"}},
@@ -243,16 +243,13 @@ def construire(fichiers, marques):
     for s in d["sections"].values():
         if s["type"] == "header":
             s["settings"].update({"localization_position": "left", "divider_width": 1})
-        if s["type"] == "header-announcements":
-            # bandeau défilant (demande d'Amine du 08/11/2026 : plus de messages)
-            modele = next((b for b in s["blocks"].values() if b["type"] == "_announcement"), {"type": "_announcement", "settings": {}, "blocks": {}})
-            s["blocks"], s["block_order"] = {}, []
-            for i, texte in enumerate(ANNONCES, 1):
-                b = copy.deepcopy(modele)
-                b["settings"]["text"] = texte
-                s["blocks"]["qk_annonce_%d" % i] = b
-                s["block_order"].append("qk_annonce_%d" % i)
-            s["settings"]["speed"] = 4
+    # bandeau d'annonces : section Qosmi qui défile en continu (demande d'Amine du 08/11/2026), à la place de
+    # « header-announcements » de Horizon (diaporama à flèches, texte décentré)
+    for cle in [k for k, s in d["sections"].items() if s["type"] == "header-announcements"]:
+        del d["sections"][cle]
+        d["order"] = [k for k in d["order"] if k != cle]
+    d["sections"]["qk_annonces"] = {"type": "qk-annonces", "settings": {"messages": "\n".join(ANNONCES), "duree": 45}}
+    d["order"] = ["qk_annonces"] + [k for k in d["order"] if k != "qk_annonces"]
     jsons["sections/header-group.json"] = ecrire(e, d)
 
     # ---------- pied de page ----------

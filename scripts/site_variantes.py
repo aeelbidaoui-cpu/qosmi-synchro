@@ -233,9 +233,12 @@ def preparer(exemples=True):
     eans_depot = {l["ean"].lstrip("0") for l in depot}
     photos = sl.photos_wf()
     groupes, ecart = defaultdict(list), defaultdict(int)
+    suspens = json.load(open(sl.SITE, encoding="utf-8")).get("testeurs_en_suspens") if os.path.exists(sl.SITE) else False
     for l in lignes:
         ean = re.sub(r"\D", "", l.get("EAN") or "")
-        if len(ean) < 8:
+        if suspens and (l.get("TESTER") or "").strip() == "1":  # 08/11/2026 : testeurs en suspens (config/site.json)
+            ecart["testeur (en suspens)"] += 1
+        elif len(ean) < 8:
             ecart["sans EAN"] += 1
         elif sl.nombre(l.get("PRICE")) <= 0:
             ecart["prix nul"] += 1

@@ -419,6 +419,54 @@ def publier_fiches(s, ids):
         s.gql(M_PUBLIER, {"id": pid, "input": [{"publicationId": p} for p in pubs]})
 
 
+def testeurs_suspens():
+    """08/11/2026, demande d'Amine : testeurs en suspens (question juridique à vérifier avec son avocat).
+    Retire du site les formats « testeur » déjà présents : une fiche qui n'a QUE des testeurs passe en brouillon ;
+    sur une fiche mixte, les variantes testeur sont supprimées (le passage horaire les recrée si
+    config/site.json « testeurs_en_suspens » repasse à false) et l'étiquette « Testeurs » est retirée."""
+    from shopify_api import Shopify
+    import site_charger as sc
+    if not reglage("testeurs_en_suspens", False):
+        raise SystemExit("config/site.json : testeurs_en_suspens n'est pas à true — rien à faire.")
+    s = Shopify()
+    boutique, _ = etat_boutique(s, sc)
+
+    def est_testeur(v):
+        return any("testeur" in (o.get("value") or "").lower() for o in v.get("selectedOptions") or [])
+    brouillons, mixtes, n_var, erreurs = 0, 0, 0, 0
+    for p in boutique.values():
+        if not any((v.get("sku") or "").startswith("QS-") for v in p["variantes"]):
+            continue
+        tv = [v for v in p["variantes"] if est_testeur(v)]
+        if not tv:
+            continue
+        if len(tv) == len(p["variantes"]):
+            if p["status"] != "DRAFT":
+                e = s.gql(sc.M_MAJ, {"product": {"id": p["id"], "status": "DRAFT"}})["productUpdate"]["userErrors"]
+                erreurs += bool(e)
+                brouillons += 1
+            continue
+        e = s.gql("""mutation($p: ID!, $v: [ID!]!) { productVariantsBulkDelete(productId: $p, variantsIds: $v) {
+                     userErrors { field message } } }""", {"p": p["id"], "v": [v["id"] for v in tv]})["productVariantsBulkDelete"]["userErrors"]
+        if e:
+            erreurs += 1
+            print("  erreur %s : %s" % (p["handle"], e))
+            continue
+        s.gql("""mutation($id: ID!, $t: [String!]!) { tagsRemove(id: $id, tags: $t) { userErrors { message } } }""",
+              {"id": p["id"], "t": ["Testeurs"]})
+        mixtes += 1
+        n_var += len(tv)
+    print("Testeurs en suspens : %d fiches « testeur seul » passées en brouillon, %d formats testeur retirés de %d fiches, %d erreurs"
+          % (brouillons, n_var, mixtes, erreurs))
+    # la collection « Testeurs » est retirée de la boutique en ligne (republier : publishablePublish)
+    col = s.gql('{ collectionByIdentifier(identifier: {handle: "testeurs"}) { id } }').get("collectionByIdentifier")
+    if col:
+        pubs = publications_vente(s)
+        e = s.gql("""mutation($id: ID!, $i: [PublicationInput!]!) { publishableUnpublish(id: $id, input: $i) { userErrors { message } } }""",
+                  {"id": col["id"], "i": [{"publicationId": x} for x in pubs]})["publishableUnpublish"]["userErrors"]
+        print("Collection Testeurs retirée de la boutique : %s" % (e or "ok"))
+
+
 def google():
     """Canal Google & YouTube (08/11/2026) : y publie toutes les fiches SoleLuna (actives ou en brouillon).
     Google ne reçoit que les fiches ACTIVES : une fiche masquée (brouillon) par le passage horaire disparaît aussi de Google."""
@@ -718,6 +766,10 @@ def main():
             return 0
         if "--controle-photos" in sys.argv:
             controle_medias()
+            return 0
+        if "--testeurs-suspens" in sys.argv:
+            testeurs_suspens()
+            textes()  # descriptions sans la phrase sur le format testeur
             return 0
         if "--google" in sys.argv:
             google()
