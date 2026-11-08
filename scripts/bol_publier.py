@@ -19,7 +19,7 @@ Chaque prix garde au moins marge_nette_eur (7 €) net : c'est déjà vérifié 
 Rien n'est écrit sur bol si config/bol.json « publication_active » vaut false (ou avec --essai).
 Rapports internes et confidentiels : rapports/bol_publication.csv / .txt, rapports/bol_commandes.txt.
 """
-import csv, io, json, os, sys, time, urllib.request
+import csv, io, json, os, re, sys, time, urllib.request
 import datetime as dt
 
 ICI = os.path.dirname(os.path.abspath(__file__))
@@ -126,7 +126,7 @@ def main():
     from bol_api import Bol
     bol = Bol()
     en_ligne = offres_en_ligne(bol)
-    refus = lire(REFUS, {})
+    refus = {e: r for e, r in lire(REFUS, {}).items() if "Duplicate Offer" not in r.get("raison", "")}
     maintenant = time.time()
     maxi = int(cfg.get("publication_max_creations", 300))
     journal, a_suivre = [], []
@@ -151,6 +151,11 @@ def main():
             refus.pop(e, None)
         else:
             raison = st.get("errorMessage") or st.get("status") or "inconnue"
+            m = re.search(r"Duplicate found: retailer offer '([0-9a-f-]+)'", raison)
+            if m:  # l'offre existe déjà (l'export bol a quelques minutes de retard) : ce n'est pas un refus
+                journal.append(("déjà en ligne", e, voulues[e], m.group(1)))
+                refus.pop(e, None)
+                continue
             refus[e] = {"t": maintenant, "raison": raison[:300]}
             journal.append(("refusée par bol", e, voulues[e], raison[:200]))
 
@@ -181,7 +186,7 @@ def main():
     invisibles = {}
     if not essai:
         ids = {e: o["offerId"] for e, o in en_ligne.items()}
-        ids.update({e.lstrip("0"): det for action, e, d, det in journal if action == "créée" and det})
+        ids.update({e.lstrip("0"): det for action, e, d, det in journal if action in ("créée", "déjà en ligne") and det})
         for ec, oid in ids.items():
             o = bol.get("/retailer/offers/%s" % oid) or {}
             for r in o.get("notPublishableReasons") or []:
