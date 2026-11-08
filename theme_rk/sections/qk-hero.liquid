@@ -2,7 +2,7 @@
 <section class="qk-hero{% if section.settings.image == blank and section.settings.video == blank %} qk-hero--uni{% endif %}" style="--qk-hero-h: {{ section.settings.hauteur }}vh;">
   {%- if section.settings.video != blank -%}
     {%- comment -%} vidéo d'ambiance : muette, en boucle, lancée seule (aussi sur iPhone grâce à playsinline) {%- endcomment -%}
-    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video', image_size: '1920x' }}
+    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video', image_size: '3840x' }}
     {%- if section.settings.video_mobile != blank -%}
       {{ section.settings.video_mobile | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video qk-hero__video--mobile', image_size: '1080x' }}
     {%- endif -%}
