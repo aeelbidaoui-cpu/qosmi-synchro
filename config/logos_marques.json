@@ -1,5 +1,5 @@
 {
- "source": "Logos des marques relevés sur Fragrantica (fimgs.net) le 08/11/2026, vérifiés un par un (propres, bonne marque) ; demande d'Amine du 08/11/2026. 08/11/2026 soir : +12 marques remises (Guess et Boucheron depuis leur site officiel).",
+ "source": "Logos des marques relevés sur Fragrantica (fimgs.net) le 08/11/2026, vérifiés un par un (propres, bonne marque) ; demande d'Amine du 08/11/2026. 08/11/2026 soir : +12 marques remises (Guess et Boucheron depuis leur site officiel), +8 marques du groupe 1, +6 logos officiels (Chanel, Viktor & Rolf, Ex Nihilo, Boadicea, Marc-Antoine Barrois, Goldfield & Banks).",
  "par_marque": {
   "Acqua di Parma": {
    "slug": "acqua-di-parma",
@@ -926,6 +926,132 @@
    "taille": [
     238,
     262
+   ]
+  },
+  "Memo Paris": {
+   "slug": "memo-paris",
+   "fichier": "qosmi-logo-marque-memo-paris.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.315.jpg",
+   "taille": [
+    896,
+    675
+   ]
+  },
+  "Juliette Has A Gun": {
+   "slug": "juliette-has-a-gun",
+   "fichier": "qosmi-logo-marque-juliette-has-a-gun.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.228.jpg",
+   "taille": [
+    344,
+    261
+   ]
+  },
+  "Penhaligon´s": {
+   "slug": "penhaligon-s",
+   "fichier": "qosmi-logo-marque-penhaligon-s.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.440.jpg",
+   "taille": [
+    336,
+    110
+   ]
+  },
+  "Lorenzo Villoresi": {
+   "slug": "lorenzo-villoresi",
+   "fichier": "qosmi-logo-marque-lorenzo-villoresi.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.588.jpg",
+   "taille": [
+    320,
+    142
+   ]
+  },
+  "Mind Games": {
+   "slug": "mind-games",
+   "fichier": "qosmi-logo-marque-mind-games.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.4921.jpg",
+   "taille": [
+    280,
+    65
+   ]
+  },
+  "Jeroboam": {
+   "slug": "jeroboam",
+   "fichier": "qosmi-logo-marque-jeroboam.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2352.jpg",
+   "taille": [
+    348,
+    118
+   ]
+  },
+  "Caron": {
+   "slug": "caron",
+   "fichier": "qosmi-logo-marque-caron.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.22.jpg",
+   "taille": [
+    341,
+    141
+   ]
+  },
+  "Loewe": {
+   "slug": "loewe",
+   "fichier": "qosmi-logo-marque-loewe.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.293.jpg",
+   "taille": [
+    236,
+    287
+   ]
+  },
+  "Chanel": {
+   "slug": "chanel",
+   "fichier": "qosmi-logo-marque-chanel.jpg",
+   "source": "chanel.com (logo officiel du site, rendu en noir sur blanc)",
+   "taille": [
+    1617,
+    439
+   ]
+  },
+  "Viktor & Rolf": {
+   "slug": "viktor-rolf",
+   "fichier": "qosmi-logo-marque-viktor-rolf.jpg",
+   "source": "viktor-rolf.com (logo officiel du site, rendu en noir sur blanc)",
+   "taille": [
+    1621,
+    368
+   ]
+  },
+  "Ex Nihilo": {
+   "slug": "ex-nihilo",
+   "fichier": "qosmi-logo-marque-ex-nihilo.jpg",
+   "source": "ex-nihilo-paris.com (logo officiel du site, rendu en noir sur blanc)",
+   "taille": [
+    1616,
+    406
+   ]
+  },
+  "Boadicea the Victorious": {
+   "slug": "boadicea-the-victorious",
+   "fichier": "qosmi-logo-marque-boadicea-the-victorious.jpg",
+   "source": "boadiceaperfume.com (logo officiel du site, rendu en noir sur blanc)",
+   "taille": [
+    1624,
+    831
+   ]
+  },
+  "Marc-Antoine Barrois": {
+   "slug": "marc-antoine-barrois",
+   "fichier": "qosmi-logo-marque-marc-antoine-barrois.jpg",
+   "source": "marcantoinebarrois.com (logo officiel du site, rendu en noir sur blanc)",
+   "taille": [
+    853,
+    151
+   ]
+  },
+  "Goldfield & Banks": {
+   "slug": "goldfield-banks",
+   "fichier": "qosmi-logo-marque-goldfield-banks.jpg",
+   "source": "goldfieldandbanks.com (logo officiel du site, rendu en noir sur blanc)",
+   "taille": [
+    438,
+    123
    ]
   }
  }
