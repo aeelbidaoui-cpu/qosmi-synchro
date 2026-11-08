@@ -196,9 +196,51 @@ def snippet_gpsr():
 """
 
 
+
+def snippet_recherche():
+    """Fenêtre de recherche vide (demande d'Amine du 08/11/2026) : au lieu des 4 premiers parfums du catalogue (toujours les
+    Acqua di Parma, ordre alphabétique), 4 grands classiques de DU_JOUR, qui changent chaque jour ; les fiches non disponibles
+    sont sautées. Remplace le snippet d'origine du thème (même balisage, même carte produit)."""
+    liste = ",".join(DU_JOUR)
+    return """{%- comment -%} Généré par scripts/theme_rk.py (snippet_recherche) — ne pas modifier à la main. {%- endcomment -%}
+<div
+  id="predictive-search-results"
+  class="predictive-search-dropdown"
+  role="listbox"
+  aria-expanded="true"
+  style="--color-shadow: rgb(var(--color-foreground-rgb) / {{ shadow_opacity }});"
+>
+  {% if load_empty_state %}
+    <div class="predictive-search-results__inner">
+      <div id="predictive-search-products" class="predictive-search-results__products"{% if products_test_id %} data-testid="{{ products_test_id }}"{% endif %}>
+        <h4 class="predictive-search-results__title">{% if request.locale.iso_code == 'nl' %}Populair{% else %}Les incontournables{% endif %}</h4>
+        <ul class="predictive-search-results__list predictive-search-results__wrapper-products list-unstyled">
+          {%- assign qk_liste = '""" + liste + """' | split: ',' -%}
+          {%- assign qk_jour = 'now' | date: '%j' | times: 1 -%}
+          {%- assign qk_depart = qk_jour | times: 4 | modulo: qk_liste.size -%}
+          {%- assign qk_vus = 0 -%}
+          {%- for i in (0..40) -%}
+            {%- if qk_vus >= 4 -%}{%- break -%}{%- endif -%}
+            {%- assign qk_idx = qk_depart | plus: i | modulo: qk_liste.size -%}
+            {%- assign qk_p = all_products[qk_liste[qk_idx]] -%}
+            {%- if qk_p != blank and qk_p.available and qk_p.featured_image -%}
+              {%- assign qk_vus = qk_vus | plus: 1 -%}
+              <li class="predictive-search-results__card predictive-search-results__card--product" ref="resultsItems[]">
+                {% render 'resource-card', resource_type: 'product', resource: qk_p, image_width: 500, image_hover: true, image_aspect_ratio: '4 / 5', product_view_context: 'search' %}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+</div>
+"""
+
 def construire(fichiers, marques):
     liquides, jsons = fichiers_qk(), {}
     liquides["snippets/qk-gpsr.liquid"] = snippet_gpsr()
+    liquides["snippets/predictive-search-empty-state.liquid"] = snippet_recherche()
 
     # ---------- feuille de style ----------
     lay = fichiers["layout/theme.liquid"]
