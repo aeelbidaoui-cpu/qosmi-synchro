@@ -90,10 +90,10 @@ def construire(fichiers, marques):
             "alt": "Parfums de Marly Layton, Maison Francis Kurkdjian Baccarat Rouge 540, Xerjoff Erba Pura, Nishane Hundred Silent Ways et Creed Aventus"}},
         "qk_tuiles": {"type": "qk-tuiles", "settings": {"titre": ""}, "blocks": {
             "t1": {"type": "tuile", "settings": {"collection": "niche", "titre": "Parfums de niche",
-                                                 "produit": "parfums-de-marly-layton-eau-de-parfum-mixte",
+                                                 "produit": "sospiro-vibrato-eau-de-parfum-mixte",
                                                  "sous_titre": "Xerjoff, Nishane, Initio, Parfums de Marly et plus"}},
             "t2": {"type": "tuile", "settings": {"collection": "testeurs", "titre": "Testeurs",
-                                                 "produit": "xerjoff-erba-pura-eau-de-parfum-mixte",
+                                                 "produit": "tom-ford-private-blend-lost-cherry-eau-de-parfum-mixte",
                                                  "sous_titre": "Le même parfum, sans la boîte, moins cher"}},
             "t3": {"type": "tuile", "settings": {"collection": "parfums-mixtes", "titre": "Parfums mixtes",
                                                  "produit": "acqua-di-parma-colonia-eau-de-cologne-mixte",
