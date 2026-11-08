@@ -10,6 +10,26 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 DOSSIER = os.path.join(os.path.dirname(ICI), "theme_rk")
 FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.json", "templates/collection.json",
             "templates/search.json", "sections/header-group.json", "sections/footer-group.json", "templates/cart.json"]
+ACHETER = """{%- if closest.product.available -%}
+<button type="button" class="qk-acheter" data-qk-acheter>{% if request.locale.iso_code == 'nl' %}Nu kopen{% else %}Acheter maintenant{% endif %}</button>
+<script>
+document.querySelectorAll('[data-qk-acheter]').forEach(function (b) {
+  if (b.dataset.pret) return; b.dataset.pret = '1';
+  b.addEventListener('click', function () {
+    var f = document.querySelector('form[action*="/cart/add"]');
+    var id = f && f.querySelector('[name="id"]');
+    var q = document.querySelector('input[name="quantity"]');
+    if (!id) { window.location.href = (window.Shopify && Shopify.routes ? Shopify.routes.root : '/') + 'cart'; return; }
+    b.disabled = true;
+    var racine = (window.Shopify && Shopify.routes) ? Shopify.routes.root : '/';
+    fetch(racine + 'cart/add.js', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ items: [{ id: +id.value, quantity: Math.max(1, parseInt(q && q.value, 10) || 1) }] }) })
+      .then(function () { window.location.href = racine + 'cart'; })
+      .catch(function () { b.disabled = false; });
+  });
+});
+</script>
+{%- endif -%}"""
 CARTE_TEXTE = "{% render 'qk-carte-texte', product: closest.product %}"
 LIVRAISON = "Livraison en Belgique en 3 à 6 jours ouvrables · 2,95 €, offerte dès 2 articles"
 # « Le parfum du jour » sur l'accueil (demande d'Amine du 08/11/2026) : grandes marques et parfums très connus, prix habituel.
@@ -265,9 +285,12 @@ def construire(fichiers, marques):
         "<span>Parfum original, neuf, avec facture d'achat</span><span>14 jours pour changer d'avis (flacon non ouvert)</span>"
         "<span>Paiement Bancontact, carte ou Apple Pay</span>{% endif %}</div>")
     det["blocks"]["qk_gpsr"] = liquide("{% render 'qk-gpsr', product: closest.product %}")
+    # « Acheter maintenant » (demande d'Amine du 08/11/2026) : remplace « Acheter avec Shop », qui demandait de se connecter.
+    # Ajoute le format choisi au panier et ouvre la page panier. Le bouton Shop Pay est masqué en CSS (.shopify-payment-button).
+    det["blocks"]["qk_acheter"] = liquide(ACHETER)
     ordre = [k for k in det["block_order"] if k in det["blocks"] and not k.startswith("qk_")]
     i = ordre.index(next(k for k in ordre if det["blocks"][k]["type"] == "buy-buttons")) + 1
-    det["block_order"] = ordre[:i] + ["qk_livraison", "qk_rassurance", "qk_gpsr"] + ordre[i:]
+    det["block_order"] = ordre[:i] + ["qk_acheter", "qk_livraison", "qk_rassurance", "qk_gpsr"] + ordre[i:]
     d["sections"]["qk_marque"] = {"type": "qk-texte", "settings": {"mode_marque": True, "alignement": "centre"}}
     d["order"] = [k for k in d["order"] if k != "qk_marque"]
     d["order"].insert(1, "qk_marque")
