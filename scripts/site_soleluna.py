@@ -76,10 +76,20 @@ def reglages():
     return {"envoi_eur": float(p.get("envoi_eur", 2)), "marge_eur": float(p.get("marge_eur", 5)),
             "emballage_eur": float(p.get("emballage_eur", 0)), "marge_sans_concurrent_eur": float(p.get("marge_sans_concurrent_eur", p.get("marge_eur", 5))),
             "marge_max_concurrent_eur": float(p.get("marge_max_concurrent_eur", 0)),
+            "marge_arabes_eur": float(p.get("marge_arabes_eur", p.get("marge_eur", 5))), "arabes": marques_arabes(),
             "concurrent": concurrent(),
             "paiement_pct": float(p.get("paiement_pct", 0)), "paiement_fixe": float(p.get("paiement_fixe", 0)),
             "tva": float(p.get("tva", 0.21)), "delai_fr": s.get("delai_dropship_fr", "4 à 7 jours ouvrables"),
             "delai_nl": s.get("delai_dropship_nl", "4 tot 7 werkdagen")}
+
+
+def marques_arabes():
+    """Maisons de la catégorie « Parfums arabes » (liste unique : site_theme.ARABES), en minuscules."""
+    try:
+        import site_theme
+        return {m.lower() for m in site_theme.ARABES}
+    except Exception:
+        return set()
 
 
 def nombre(v):
@@ -269,7 +279,7 @@ def fiche(l, r, photos):
             "desc_fr": "<p>%s</p>" % html.escape(d_fr.strip(), quote=False),
             "desc_nl": "<p>%s</p>" % html.escape(d_nl.strip(), quote=False),
             "marque": marque, "type_fr": cat_fr, "type_nl": cat_nl, "tags": ", ".join(tags),
-            "prix": "%.2f" % prix_provisoire(achat, r, ean), "stock": str(max(0, int(nombre(l.get("STOCK"))))),
+            "prix": "%.2f" % prix_provisoire(achat, dict(r, marge_eur=r["marge_arabes_eur"]) if marque.lower() in r.get("arabes", ()) else r, ean), "stock": str(max(0, int(nombre(l.get("STOCK"))))),
             "cout_ht": "%.2f" % (achat + r["envoi_eur"] + r.get("emballage_eur", 0)), "photo_source": photos.get(ean.lstrip("0"), "")}
 
 

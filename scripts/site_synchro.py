@@ -221,12 +221,28 @@ def selection():
     return {m.lower() for m in d.get("marques", [])}, set(d.get("categories", []))
 
 
+ARABES, CONC = None, None
+
+
 def visible(p, sel):
     """Affichée si la marque et la catégorie sont dans la sélection ET si le parfum a une bonne photo
-    (demande d'Amine du 07/11/2026 : pas de photo ou photo de mauvaise qualité = pas affiché)."""
+    (demande d'Amine du 07/11/2026 : pas de photo ou photo de mauvaise qualité = pas affiché).
+    Parfums arabes (décision d'Amine du 08/11/2026) : en plus, au moins un format en stock doit être moins cher que chez
+    le concurrent de référence (son prix applique déjà le plancher de 3 € net), ou absent de chez lui."""
+    global ARABES, CONC
     if not p.get("photo_ok", True):
         return False
-    return sel is None or (p["marque"].lower() in sel[0] and p["type_fr"] in sel[1])
+    if not (sel is None or (p["marque"].lower() in sel[0] and p["type_fr"] in sel[1])):
+        return False
+    if ARABES is None:
+        ARABES, CONC = sl.marques_arabes(), sl.concurrent()
+    if p["marque"].lower() in ARABES:
+        for v in p["variantes"]:
+            ref = CONC.get((v.get("ean") or "").lstrip("0"))
+            if int(v.get("stock") or 0) > 0 and (not ref or float(v["prix"]) < float(ref[0]) - 0.004):
+                return True
+        return False
+    return True
 
 
 def synchro(essai=False):

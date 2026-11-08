@@ -11,7 +11,9 @@
     "paiement_pct": 0.02,
     "paiement_fixe": 0.25,
     "_note": "Règle d'Amine du 08/11/2026. Livraison client 2,95 € TTC, offerte dès 2 articles (Bruxelles : livrée par Amine ; ailleurs : point relais). Coût d'un parfum = achat + 3 € (colis SoleLuna de 15 € ÷ ~5 parfums, un colis tous les 2-3 jours) + 0,60 € d'emballage + frais Shopify Payments (2 % du TTC + 0,25 €). Si Deloox vend le même EAN (en stock, config/deloox.json) : le ,90 juste sous Deloox, jamais sous 5 € de bénéfice net, et jamais au-dessus de 10 € net (si on est déjà moins cher, on le reste). Sans prix Deloox : 7 € de bénéfice net. × 1,21 (TVA), arrondi au ,90.",
-    "marge_max_concurrent_eur": 10
+    "marge_max_concurrent_eur": 10,
+    "marge_arabes_eur": 3,
+    "_note_marge_arabes": "Parfums arabes (décision d'Amine du 08/11/2026) : en ligne seulement s'ils sont moins chers que Deloox avec au moins 3 € net (prix juste sous Deloox) ; sans Deloox : règle normale (7 € net)."
   },
   "delai_dropship_fr": "3 à 6 jours ouvrables",
   "delai_dropship_nl": "3 tot 6 werkdagen",
