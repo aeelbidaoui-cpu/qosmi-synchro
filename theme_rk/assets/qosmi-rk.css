@@ -286,3 +286,10 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-dujour__cases { justify-content: space-between; }
   .qk-dujour__case { flex: 1; width: auto; }
 }
+
+/* ---------- fiche : « Acheter maintenant » à la place de « Acheter avec Shop » (08/11/2026) ---------- */
+.shopify-payment-button, shopify-accelerated-checkout, .accelerated-checkout-block { display: none !important; }
+.qk-acheter { display: block; width: 100%; margin-top: 10px; padding: 16px 20px; background: #fff; color: var(--qk-noir);
+  border: 1px solid var(--qk-noir); font: inherit; font-size: 1rem; cursor: pointer; text-align: center; }
+.qk-acheter:hover { background: var(--qk-noir); color: #fff; }
+.qk-acheter[disabled] { opacity: 0.6; cursor: wait; }
