@@ -1,0 +1,824 @@
+{
+ "source": "Logos des marques relevés sur Fragrantica (fimgs.net) le 08/11/2026, vérifiés un par un (propres, bonne marque) ; demande d'Amine du 08/11/2026.",
+ "par_marque": {
+  "Acqua di Parma": {
+   "slug": "acqua-di-parma",
+   "fichier": "qosmi-logo-marque-acqua-di-parma.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.184.jpg",
+   "taille": [
+    321,
+    206
+   ]
+  },
+  "Afnan": {
+   "slug": "afnan",
+   "fichier": "qosmi-logo-marque-afnan.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2048.jpg",
+   "taille": [
+    729,
+    747
+   ]
+  },
+  "Ahmed Al Maghribi": {
+   "slug": "ahmed-al-maghribi",
+   "fichier": "qosmi-logo-marque-ahmed-al-maghribi.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.4274.jpg",
+   "taille": [
+    431,
+    405
+   ]
+  },
+  "Ajmal": {
+   "slug": "ajmal",
+   "fichier": "qosmi-logo-marque-ajmal.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.613.jpg",
+   "taille": [
+    225,
+    330
+   ]
+  },
+  "Al Haramain": {
+   "slug": "al-haramain",
+   "fichier": "qosmi-logo-marque-al-haramain.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.429.jpg",
+   "taille": [
+    474,
+    335
+   ]
+  },
+  "Al Wataniah": {
+   "slug": "al-wataniah",
+   "fichier": "qosmi-logo-marque-al-wataniah.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.4190.jpg",
+   "taille": [
+    328,
+    303
+   ]
+  },
+  "Alghabra": {
+   "slug": "alghabra",
+   "fichier": "qosmi-logo-marque-alghabra.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.3795.jpg",
+   "taille": [
+    1044,
+    324
+   ]
+  },
+  "Amouage": {
+   "slug": "amouage",
+   "fichier": "qosmi-logo-marque-amouage.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.122.jpg",
+   "taille": [
+    474,
+    121
+   ]
+  },
+  "Anfar": {
+   "slug": "anfar",
+   "fichier": "qosmi-logo-marque-anfar.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.6301.jpg",
+   "taille": [
+    1714,
+    1573
+   ]
+  },
+  "Anfar 1950": {
+   "slug": "anfar-1950",
+   "fichier": "qosmi-logo-marque-anfar-1950.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.6805.jpg",
+   "taille": [
+    2945,
+    1500
+   ]
+  },
+  "Arabiyat Prestige": {
+   "slug": "arabiyat-prestige",
+   "fichier": "qosmi-logo-marque-arabiyat-prestige.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1826.jpg",
+   "taille": [
+    177,
+    180
+   ]
+  },
+  "Arabiyat Sugar": {
+   "slug": "arabiyat-sugar",
+   "fichier": "qosmi-logo-marque-arabiyat-sugar.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.7412.jpg",
+   "taille": [
+    2196,
+    1310
+   ]
+  },
+  "Ard Al Zaafaran": {
+   "slug": "ard-al-zaafaran",
+   "fichier": "qosmi-logo-marque-ard-al-zaafaran.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2917.jpg",
+   "taille": [
+    535,
+    612
+   ]
+  },
+  "Armaf": {
+   "slug": "armaf",
+   "fichier": "qosmi-logo-marque-armaf.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2068.jpg",
+   "taille": [
+    290,
+    290
+   ]
+  },
+  "Asdaaf": {
+   "slug": "asdaaf",
+   "fichier": "qosmi-logo-marque-asdaaf.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.4384.jpg",
+   "taille": [
+    145,
+    209
+   ]
+  },
+  "Assala Prime": {
+   "slug": "assala-prime",
+   "fichier": "qosmi-logo-marque-assala-prime.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.6293.jpg",
+   "taille": [
+    328,
+    157
+   ]
+  },
+  "Athoor Al Alam": {
+   "slug": "athoor-al-alam",
+   "fichier": "qosmi-logo-marque-athoor-al-alam.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.6259.jpg",
+   "taille": [
+    926,
+    949
+   ]
+  },
+  "BDK Parfums": {
+   "slug": "bdk-parfums",
+   "fichier": "qosmi-logo-marque-bdk-parfums.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2768.jpg",
+   "taille": [
+    306,
+    203
+   ]
+  },
+  "Blend Oud": {
+   "slug": "blend-oud",
+   "fichier": "qosmi-logo-marque-blend-oud.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2593.jpg",
+   "taille": [
+    598,
+    428
+   ]
+  },
+  "Borntostandout": {
+   "slug": "borntostandout",
+   "fichier": "qosmi-logo-marque-borntostandout.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.5045.jpg",
+   "taille": [
+    399,
+    99
+   ]
+  },
+  "Bvlgari": {
+   "slug": "bvlgari",
+   "fichier": "qosmi-logo-marque-bvlgari.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.14.jpg",
+   "taille": [
+    329,
+    73
+   ]
+  },
+  "By Kilian": {
+   "slug": "by-kilian",
+   "fichier": "qosmi-logo-marque-by-kilian.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.491.jpg",
+   "taille": [
+    285,
+    156
+   ]
+  },
+  "Calvin Klein": {
+   "slug": "calvin-klein",
+   "fichier": "qosmi-logo-marque-calvin-klein.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.18.jpg",
+   "taille": [
+    300,
+    76
+   ]
+  },
+  "Carner Barcelona": {
+   "slug": "carner-barcelona",
+   "fichier": "qosmi-logo-marque-carner-barcelona.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1157.jpg",
+   "taille": [
+    348,
+    119
+   ]
+  },
+  "Giardini Di Toscana": {
+   "slug": "giardini-di-toscana",
+   "fichier": "qosmi-logo-marque-giardini-di-toscana.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.4204.jpg",
+   "taille": [
+    329,
+    314
+   ]
+  },
+  "Giorgio Armani": {
+   "slug": "giorgio-armani",
+   "fichier": "qosmi-logo-marque-giorgio-armani.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.65.jpg",
+   "taille": [
+    338,
+    79
+   ]
+  },
+  "Givenchy": {
+   "slug": "givenchy",
+   "fichier": "qosmi-logo-marque-givenchy.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.66.jpg",
+   "taille": [
+    334,
+    101
+   ]
+  },
+  "Gucci": {
+   "slug": "gucci",
+   "fichier": "qosmi-logo-marque-gucci.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.67.jpg",
+   "taille": [
+    292,
+    90
+   ]
+  },
+  "Guerlain": {
+   "slug": "guerlain",
+   "fichier": "qosmi-logo-marque-guerlain.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.68.jpg",
+   "taille": [
+    331,
+    80
+   ]
+  },
+  "Gulf Orchid": {
+   "slug": "gulf-orchid",
+   "fichier": "qosmi-logo-marque-gulf-orchid.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.5769.jpg",
+   "taille": [
+    574,
+    532
+   ]
+  },
+  "Hamidi": {
+   "slug": "hamidi",
+   "fichier": "qosmi-logo-marque-hamidi.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.5592.jpg",
+   "taille": [
+    562,
+    401
+   ]
+  },
+  "Carolina Herrera": {
+   "slug": "carolina-herrera",
+   "fichier": "qosmi-logo-marque-carolina-herrera.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.20.jpg",
+   "taille": [
+    766,
+    149
+   ]
+  },
+  "Clive Christian": {
+   "slug": "clive-christian",
+   "fichier": "qosmi-logo-marque-clive-christian.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.531.jpg",
+   "taille": [
+    326,
+    169
+   ]
+  },
+  "Creed": {
+   "slug": "creed",
+   "fichier": "qosmi-logo-marque-creed.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.50.jpg",
+   "taille": [
+    343,
+    166
+   ]
+  },
+  "Dior": {
+   "slug": "dior",
+   "fichier": "qosmi-logo-marque-dior.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.160.jpg",
+   "taille": [
+    1248,
+    474
+   ]
+  },
+  "Diptyque": {
+   "slug": "diptyque",
+   "fichier": "qosmi-logo-marque-diptyque.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.421.jpg",
+   "taille": [
+    210,
+    220
+   ]
+  },
+  "Dolce&Gabbana": {
+   "slug": "dolce-gabbana",
+   "fichier": "qosmi-logo-marque-dolce-gabbana.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.56.jpg",
+   "taille": [
+    334,
+    75
+   ]
+  },
+  "Elie Saab": {
+   "slug": "elie-saab",
+   "fichier": "qosmi-logo-marque-elie-saab.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1222.jpg",
+   "taille": [
+    3210,
+    763
+   ]
+  },
+  "Escentric Molecules": {
+   "slug": "escentric-molecules",
+   "fichier": "qosmi-logo-marque-escentric-molecules.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.110.jpg",
+   "taille": [
+    339,
+    169
+   ]
+  },
+  "Etat Libre d´Orange": {
+   "slug": "etat-libre-d-orange",
+   "fichier": "qosmi-logo-marque-etat-libre-d-orange.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.262.jpg",
+   "taille": [
+    335,
+    118
+   ]
+  },
+  "Fragrance World": {
+   "slug": "fragrance-world",
+   "fichier": "qosmi-logo-marque-fragrance-world.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.5856.jpg",
+   "taille": [
+    1350,
+    1266
+   ]
+  },
+  "Frederic Malle": {
+   "slug": "frederic-malle",
+   "fichier": "qosmi-logo-marque-frederic-malle.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.140.jpg",
+   "taille": [
+    343,
+    99
+   ]
+  },
+  "French Avenue": {
+   "slug": "french-avenue",
+   "fichier": "qosmi-logo-marque-french-avenue.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.6258.jpg",
+   "taille": [
+    932,
+    426
+   ]
+  },
+  "Hermes": {
+   "slug": "hermes",
+   "fichier": "qosmi-logo-marque-hermes.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.69.jpg",
+   "taille": [
+    298,
+    190
+   ]
+  },
+  "Histoires de Parfums": {
+   "slug": "histoires-de-parfums",
+   "fichier": "qosmi-logo-marque-histoires-de-parfums.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.512.jpg",
+   "taille": [
+    203,
+    220
+   ]
+  },
+  "Hugo Boss": {
+   "slug": "hugo-boss",
+   "fichier": "qosmi-logo-marque-hugo-boss.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.70.jpg",
+   "taille": [
+    267,
+    122
+   ]
+  },
+  "Initio": {
+   "slug": "initio",
+   "fichier": "qosmi-logo-marque-initio.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2260.jpg",
+   "taille": [
+    264,
+    104
+   ]
+  },
+  "Jean Paul Gaultier": {
+   "slug": "jean-paul-gaultier",
+   "fichier": "qosmi-logo-marque-jean-paul-gaultier.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.72.jpg",
+   "taille": [
+    335,
+    155
+   ]
+  },
+  "Jo Malone": {
+   "slug": "jo-malone",
+   "fichier": "qosmi-logo-marque-jo-malone.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.273.jpg",
+   "taille": [
+    1118,
+    356
+   ]
+  },
+  "Kenzo": {
+   "slug": "kenzo",
+   "fichier": "qosmi-logo-marque-kenzo.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.76.jpg",
+   "taille": [
+    340,
+    105
+   ]
+  },
+  "Khadlaj": {
+   "slug": "khadlaj",
+   "fichier": "qosmi-logo-marque-khadlaj.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.4587.jpg",
+   "taille": [
+    278,
+    240
+   ]
+  },
+  "Khalis": {
+   "slug": "khalis",
+   "fichier": "qosmi-logo-marque-khalis.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2479.jpg",
+   "taille": [
+    1087,
+    1252
+   ]
+  },
+  "Lancôme": {
+   "slug": "lancome",
+   "fichier": "qosmi-logo-marque-lancome.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.80.jpg",
+   "taille": [
+    340,
+    118
+   ]
+  },
+  "Lattafa": {
+   "slug": "lattafa",
+   "fichier": "qosmi-logo-marque-lattafa.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1979.jpg",
+   "taille": [
+    291,
+    368
+   ]
+  },
+  "Le Labo": {
+   "slug": "le-labo",
+   "fichier": "qosmi-logo-marque-le-labo.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.403.jpg",
+   "taille": [
+    315,
+    120
+   ]
+  },
+  "Maison Alhambra": {
+   "slug": "maison-alhambra",
+   "fichier": "qosmi-logo-marque-maison-alhambra.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.4828.jpg",
+   "taille": [
+    702,
+    758
+   ]
+  },
+  "Maison Asrar": {
+   "slug": "maison-asrar",
+   "fichier": "qosmi-logo-marque-maison-asrar.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.5511.jpg",
+   "taille": [
+    330,
+    348
+   ]
+  },
+  "Maison Crivelli": {
+   "slug": "maison-crivelli",
+   "fichier": "qosmi-logo-marque-maison-crivelli.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.3591.jpg",
+   "taille": [
+    322,
+    323
+   ]
+  },
+  "Maison Francis Kurkdjian": {
+   "slug": "maison-francis-kurkdjian",
+   "fichier": "qosmi-logo-marque-maison-francis-kurkdjian.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.770.jpg",
+   "taille": [
+    340,
+    151
+   ]
+  },
+  "Maison Margiela Paris": {
+   "slug": "maison-margiela-paris",
+   "fichier": "qosmi-logo-marque-maison-margiela-paris.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.845.jpg",
+   "taille": [
+    341,
+    109
+   ]
+  },
+  "Mancera": {
+   "slug": "mancera",
+   "fichier": "qosmi-logo-marque-mancera.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1134.jpg",
+   "taille": [
+    305,
+    139
+   ]
+  },
+  "Marc Jacobs": {
+   "slug": "marc-jacobs",
+   "fichier": "qosmi-logo-marque-marc-jacobs.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.165.jpg",
+   "taille": [
+    343,
+    68
+   ]
+  },
+  "Matiere Premiere": {
+   "slug": "matiere-premiere",
+   "fichier": "qosmi-logo-marque-matiere-premiere.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.3862.jpg",
+   "taille": [
+    262,
+    109
+   ]
+  },
+  "Moncler": {
+   "slug": "moncler",
+   "fichier": "qosmi-logo-marque-moncler.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.4474.jpg",
+   "taille": [
+    243,
+    231
+   ]
+  },
+  "Montale": {
+   "slug": "montale",
+   "fichier": "qosmi-logo-marque-montale.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.150.jpg",
+   "taille": [
+    293,
+    79
+   ]
+  },
+  "Narciso Rodriguez": {
+   "slug": "narciso-rodriguez",
+   "fichier": "qosmi-logo-marque-narciso-rodriguez.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.86.jpg",
+   "taille": [
+    335,
+    68
+   ]
+  },
+  "Nasomatto": {
+   "slug": "nasomatto",
+   "fichier": "qosmi-logo-marque-nasomatto.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.488.jpg",
+   "taille": [
+    337,
+    82
+   ]
+  },
+  "Niche Emarati": {
+   "slug": "niche-emarati",
+   "fichier": "qosmi-logo-marque-niche-emarati.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.5661.jpg",
+   "taille": [
+    471,
+    471
+   ]
+  },
+  "Nishane": {
+   "slug": "nishane",
+   "fichier": "qosmi-logo-marque-nishane.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2232.jpg",
+   "taille": [
+    1016,
+    291
+   ]
+  },
+  "Nusuk": {
+   "slug": "nusuk",
+   "fichier": "qosmi-logo-marque-nusuk.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.4362.jpg",
+   "taille": [
+    456,
+    416
+   ]
+  },
+  "Orientica": {
+   "slug": "orientica",
+   "fichier": "qosmi-logo-marque-orientica.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.3702.jpg",
+   "taille": [
+    794,
+    830
+   ]
+  },
+  "Orto Parisi": {
+   "slug": "orto-parisi",
+   "fichier": "qosmi-logo-marque-orto-parisi.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1887.jpg",
+   "taille": [
+    334,
+    75
+   ]
+  },
+  "Paco Rabanne": {
+   "slug": "paco-rabanne",
+   "fichier": "qosmi-logo-marque-paco-rabanne.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.88.jpg",
+   "taille": [
+    320,
+    92
+   ]
+  },
+  "Parfums de Marly": {
+   "slug": "parfums-de-marly",
+   "fichier": "qosmi-logo-marque-parfums-de-marly.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1188.jpg",
+   "taille": [
+    348,
+    86
+   ]
+  },
+  "Pendora Scents": {
+   "slug": "pendora-scents",
+   "fichier": "qosmi-logo-marque-pendora-scents.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.6708.jpg",
+   "taille": [
+    1200,
+    441
+   ]
+  },
+  "Prada": {
+   "slug": "prada",
+   "fichier": "qosmi-logo-marque-prada.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.143.jpg",
+   "taille": [
+    331,
+    90
+   ]
+  },
+  "Rasasi": {
+   "slug": "rasasi",
+   "fichier": "qosmi-logo-marque-rasasi.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.888.jpg",
+   "taille": [
+    1141,
+    557
+   ]
+  },
+  "Riiffs": {
+   "slug": "riiffs",
+   "fichier": "qosmi-logo-marque-riiffs.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.5762.jpg",
+   "taille": [
+    904,
+    711
+   ]
+  },
+  "Risala": {
+   "slug": "risala",
+   "fichier": "qosmi-logo-marque-risala.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.6255.jpg",
+   "taille": [
+    471,
+    472
+   ]
+  },
+  "Risala Elite": {
+   "slug": "risala-elite",
+   "fichier": "qosmi-logo-marque-risala-elite.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.6648.jpg",
+   "taille": [
+    471,
+    331
+   ]
+  },
+  "Sospiro": {
+   "slug": "sospiro",
+   "fichier": "qosmi-logo-marque-sospiro.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1350.jpg",
+   "taille": [
+    716,
+    425
+   ]
+  },
+  "Stéphane Humbert Lucas 777": {
+   "slug": "stephane-humbert-lucas-777",
+   "fichier": "qosmi-logo-marque-stephane-humbert-lucas-777.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1644.jpg",
+   "taille": [
+    202,
+    348
+   ]
+  },
+  "Swiss Arabian": {
+   "slug": "swiss-arabian",
+   "fichier": "qosmi-logo-marque-swiss-arabian.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1104.jpg",
+   "taille": [
+    348,
+    195
+   ]
+  },
+  "The Spirit of Dubai": {
+   "slug": "the-spirit-of-dubai",
+   "fichier": "qosmi-logo-marque-the-spirit-of-dubai.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2229.jpg",
+   "taille": [
+    305,
+    124
+   ]
+  },
+  "Tiziana Terenzi": {
+   "slug": "tiziana-terenzi",
+   "fichier": "qosmi-logo-marque-tiziana-terenzi.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1535.jpg",
+   "taille": [
+    219,
+    315
+   ]
+  },
+  "Tom Ford": {
+   "slug": "tom-ford",
+   "fichier": "qosmi-logo-marque-tom-ford.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.139.jpg",
+   "taille": [
+    348,
+    94
+   ]
+  },
+  "Versace": {
+   "slug": "versace",
+   "fichier": "qosmi-logo-marque-versace.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.97.jpg",
+   "taille": [
+    319,
+    187
+   ]
+  },
+  "Xerjoff": {
+   "slug": "xerjoff",
+   "fichier": "qosmi-logo-marque-xerjoff.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.720.jpg",
+   "taille": [
+    809,
+    228
+   ]
+  },
+  "Yves Saint Laurent": {
+   "slug": "yves-saint-laurent",
+   "fichier": "qosmi-logo-marque-yves-saint-laurent.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.99.jpg",
+   "taille": [
+    464,
+    260
+   ]
+  },
+  "Zadig & Voltaire": {
+   "slug": "zadig-voltaire",
+   "fichier": "qosmi-logo-marque-zadig-voltaire.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1289.jpg",
+   "taille": [
+    309,
+    80
+   ]
+  },
+  "Zimaya": {
+   "slug": "zimaya",
+   "fichier": "qosmi-logo-marque-zimaya.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.5311.jpg",
+   "taille": [
+    1163,
+    498
+   ]
+  }
+ }
+}
