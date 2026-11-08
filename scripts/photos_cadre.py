@@ -18,7 +18,7 @@ sys.path.insert(0, ICI)
 RACINE = os.path.dirname(ICI)
 CONFIG = os.path.join(RACINE, "config")
 SOURCES = ("photos_marques.json", "photos_riklis.json", "photos_skins.json", "photos_parfumerie.json", "photos_acquadiparma.json",
-           "photos_parfuma.json", "photos_ici.json", "photos_elo.json", "photos_creed.json", "photos_ch.json", "photos_puig.json", "photos_notino.json")
+           "photos_parfuma.json", "photos_ici.json", "photos_elo.json", "photos_creed.json", "photos_ch.json", "photos_puig.json", "photos_notino.json", "photos_dg.json", "photos_jm.json")
 AGENT = "Mozilla/5.0 (compatible; QosmiPhotos/1.0)"
 PART_H, PART_L = 0.80, 0.74  # part de la hauteur / de la largeur occupée par le flacon
 SEUIL_FOND, ECART = 232, 22
