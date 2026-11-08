@@ -3,9 +3,12 @@
 signé « L'équipe Qosmi », avec des photos.
 
 Chaque article est un fichier blog/articles/<numéro>-<sujet>.json :
-  {"handle": "...", "date": "AAAA-MM-JJ", "tags": [...], "image": "<handle d'une fiche>",
+  {"handle": "...", "date": "AAAA-MM-JJ", "tags": [...], "image": "<handle d'une fiche>", "couverture": "<fichier>.jpg" (facultatif),
    "fr": {"titre", "resume", "seo_titre", "seo_desc", "corps", "faq": [{"q", "r"}]},
    "nl": {"titre", "handle", "resume", "seo_titre", "seo_desc", "corps", "faq": [...]}}
+Image de couverture (demande d'Amine du 08/11/2026 : les flacons ne doivent pas être coupés dans le Journal) :
+  - "couverture" : image horizontale de blog/couvertures/ (composée avec scripts/entetes_collections.py, flacons détourés) ;
+  - sinon : la photo de la fiche "image", posée entière au centre d'un bandeau blanc 2400 × 1000 (rien n'est coupé).
 Dans "corps" (HTML) :
   [[photo:<handle>]]           photo de la fiche (déjà sur Shopify, photos autorisées) avec lien vers la fiche
   [[photos:<h1>,<h2>,<h3>]]    rangée de photos de fiches
@@ -162,9 +165,10 @@ def main():
         if a["image"] not in fiches:
             raise SystemExit("%s : la fiche de l'image principale (%s) n'est pas en ligne" % (a["_fichier"], a["image"]))
         corps = {l: rendu(a[l]["corps"], fiches, l) + faq_html(a[l]["faq"], l) for l in ("fr", "nl")}
+        couv = couverture(s, a, fiches[a["image"]]["image"])
         champs = {"title": a["fr"]["titre"], "handle": a["handle"], "body": corps["fr"], "summary": "<p>%s</p>" % html.escape(a["fr"]["resume"]),
                   "author": {"name": AUTEUR}, "tags": a.get("tags", []), "isPublished": True,
-                  "image": {"url": fiches[a["image"]]["image"], "altText": fiches[a["image"]]["titre"]},
+                  "image": {"url": couv or fiches[a["image"]]["image"], "altText": a["fr"]["titre"] if couv else fiches[a["image"]]["titre"]},
                   "metafields": [
                       {"namespace": "global", "key": "title_tag", "type": "single_line_text_field", "value": a["fr"]["seo_titre"]},
                       {"namespace": "global", "key": "description_tag", "type": "multi_line_text_field", "value": a["fr"]["seo_desc"]},
@@ -189,6 +193,32 @@ def main():
         t = traduire(s, aid, {"title": nl["titre"], "body_html": corps["nl"], "summary_html": "<p>%s</p>" % html.escape(nl["resume"]),
                               "handle": nl.get("handle") or a["handle"], "meta_title": nl["seo_titre"], "meta_description": nl["seo_desc"]})
         print("  %s %s : https://qosmi.be/blogs/%s/%s — NL : %s" % (a["_fichier"], action, BLOG["handle"], a["handle"], t))
+
+
+def couverture(s, a, url_fiche):
+    """Adresse Shopify de l'image de couverture horizontale de l'article (envoyée une seule fois par nom)."""
+    import tempfile, urllib.request
+    import photos_adp as pa
+    dossier = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "blog", "couvertures")
+    nom = a.get("couverture")
+    if nom:
+        return pa.adresse_fichier(s, nom) or pa.envoyer(s, os.path.join(dossier, nom), alt=a["fr"]["titre"])
+    nom = "qosmi-journal-%s.jpg" % a["handle"]
+    u = pa.adresse_fichier(s, nom)
+    if u or not url_fiche:
+        return u
+    try:
+        from PIL import Image
+    except ImportError:
+        return None
+    from io import BytesIO
+    photo = Image.open(BytesIO(urllib.request.urlopen(url_fiche, timeout=60).read())).convert("RGB")
+    photo.thumbnail((2000, 880), Image.LANCZOS)
+    toile = Image.new("RGB", (2400, 1000), (255, 255, 255))
+    toile.paste(photo, ((2400 - photo.width) // 2, (1000 - photo.height) // 2))
+    chemin = os.path.join(tempfile.mkdtemp(), nom)
+    toile.save(chemin, quality=90)
+    return pa.envoyer(s, chemin, alt=a["fr"]["titre"])
 
 
 if __name__ == "__main__":

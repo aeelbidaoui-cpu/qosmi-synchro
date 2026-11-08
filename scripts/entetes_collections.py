@@ -39,8 +39,14 @@ def masque(im, nom=""):
     return m
 
 def flacon(nom, hauteur, gris):
-    im = Image.open("src/" + nom).convert("RGB")
-    m = masque(im, nom)
+    brut = Image.open("src/" + nom)
+    if brut.mode in ("RGBA", "LA", "P") and nom.endswith(".png"):  # déjà détouré (PNG transparent)
+        brut = brut.convert("RGBA")
+        im, m = Image.new("RGB", brut.size, (255, 255, 255)), brut.getchannel("A")
+        im.paste(brut.convert("RGB"), (0, 0), m)
+    else:
+        im = Image.open("src/" + nom).convert("RGB")
+        m = masque(im, nom)
     bb = m.point(lambda v: 255 if v > 20 else 0).getbbox()
     im, m = im.crop(bb), m.crop(bb)
     f = hauteur / im.height
@@ -117,10 +123,13 @@ JEUX = {
  "parfums-homme": ([("h_hugo-boss-boss-bottled-eau-de-parfum-pou.jpg", 680, False), ("h_giorgio-armani-acqua-di-gio-eau-de-parfu.jpg", 600, True),
                     ("h_jean-paul-gaultier-le-male-eau-de-toilet.jpg", 760, False), ("h_paco-rabanne-1-million-eau-de-toilette-p.jpg", 600, True),
                     ("h_versace-eros-eau-de-parfum-pour-homme.jpg", 600, False)], [0.02, 0.02, 0.02, 0.02]),
+ "journal-erba-pura": ([("j_erba_riklis.png", 760, True)], []),
+ "journal-concentrations": ([("h_jean-paul-gaultier-le-male-eau-de-toilet.jpg", 700, True), ("h_giorgio-armani-acqua-di-gio-eau-de-parfu.jpg", 600, True),
+                             ("n_nishane-ani-extrait-de-parfum-mixte.jpg", 600, True)], [-0.18, -0.18]),
  "niche": ([("n_parfums-de-marly-delina-eau-de-parfum-po.jpg", 620, False), ("n_xerjoff-xj-1861-naxos-eau-de-parfum-mixt.jpg", 650, True),
             ("n_initio-black-gold-project-oud-for-greatn.jpg", 550, False), ("n_tiziana-terenzi-kirke-extrait-de-parfum-.jpg", 520, True),
             ("n_nishane-ani-extrait-de-parfum-mixte.jpg", 560, False)], [-0.07, -0.07, -0.07, -0.07]),
 }
 if __name__ == "__main__":
     for k in (sys.argv[1:] or JEUX):
-        composer(*JEUX[k], "qosmi-entete-%s.jpg" % k)
+        composer(*JEUX[k], ("qosmi-%s.jpg" if k.startswith("journal") else "qosmi-entete-%s.jpg") % k)

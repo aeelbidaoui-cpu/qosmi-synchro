@@ -36,4 +36,4 @@ jobs:
           SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
           SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
           SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
-        run: python -u scripts/blog.py
+        run: pip install -q pillow && python -u scripts/blog.py

@@ -1,8 +1,13 @@
 {
   "handle": "xerjoff-erba-pura-notes-tenue-pour-qui",
   "date": "2026-11-08",
-  "tags": ["Fiches parfum", "Xerjoff", "Niche"],
+  "tags": [
+    "Fiches parfum",
+    "Xerjoff",
+    "Niche"
+  ],
   "image": "xerjoff-erba-pura-eau-de-parfum-mixte",
+  "couverture": "qosmi-journal-erba-pura.jpg",
   "fr": {
     "titre": "Xerjoff Erba Pura : notes, tenue et pour qui ?",
     "resume": "Erba Pura est une eau de parfum mixte de la maison italienne Xerjoff : des agrumes de Sicile et de Calabre, un cœur fruité et un fond de musc blanc, de vanille et d'ambre.",
@@ -10,11 +15,26 @@
     "seo_desc": "Erba Pura de Xerjoff : notes de tête, de cœur et de fond, style, saison et pour qui. Le guide Qosmi de ce parfum de niche mixte.",
     "corps": "<p><strong>En bref :</strong> Erba Pura est une eau de parfum mixte de la maison italienne Xerjoff. Elle s'ouvre sur des agrumes (orange et citron de Sicile, bergamote de Calabre), passe par un cœur de fruits et se pose sur un fond de musc blanc, de vanille de Madagascar et d'ambre. C'est un parfum fruité, lumineux et doux à la fois, réputé pour sa présence.</p>\n[[photo:xerjoff-erba-pura-eau-de-parfum-mixte]]\n<h2>La maison Xerjoff</h2>\n<p>Xerjoff est une maison de parfumerie de niche italienne, née à Turin sous l'impulsion de Sergio Momo. Elle est connue pour ses flacons travaillés et ses compositions riches, souvent construites autour de matières premières mises en avant. Erba Pura fait partie de ses créations les plus connues.</p>\n<h2>Les notes d'Erba Pura</h2>\n<table><thead><tr><th>Étape</th><th>Notes</th></tr></thead><tbody><tr><td>Tête</td><td>Orange de Sicile, citron de Sicile, bergamote de Calabre</td></tr><tr><td>Cœur</td><td>Accord de fruits</td></tr><tr><td>Fond</td><td>Musc blanc, vanille de Madagascar, ambre</td></tr></tbody></table>\n<p>Concrètement, les premières minutes sont pétillantes et acidulées grâce aux agrumes. Le cœur fruité prend ensuite le relais, avant que le musc, la vanille et l'ambre n'installent un fond plus doux et enveloppant, qui reste longtemps.</p>\n<h2>Tenue et sillage</h2>\n<p>Erba Pura est une eau de parfum, et elle est très souvent décrite comme un parfum à fort sillage, qui se remarque et dure. Comme toujours, la tenue réelle dépend de ta peau, du climat et de la quantité. Vu sa réputation, une à trois pulvérisations suffisent en général, surtout dans un espace fermé.</p>\n<h2>Pour qui, et quand ?</h2>\n<ul><li><strong>Pour qui :</strong> c'est un parfum mixte, pensé pour être porté par tout le monde. Il plaira à ceux qui aiment les parfums fruités et lumineux, avec un fond doux et propre, plutôt qu'aux amateurs de boisés secs ou de cuirs.</li><li><strong>Quand :</strong> l'ouverture aux agrumes en fait un bon choix aux beaux jours, et le fond vanillé et ambré le rend aussi agréable en soirée.</li><li><strong>Au bureau :</strong> possible, mais avec la main légère, une ou deux pulvérisations.</li></ul>\n<h2>Formats disponibles chez Qosmi</h2>\n<p>[[produit:xerjoff-erba-pura-eau-de-parfum-mixte|Erba Pura]] est disponible en 50 ml et en 100 ml. Chaque flacon est neuf et livré partout en Belgique.</p>\n<h2>D'autres créations Xerjoff</h2>\n<p>Si tu aimes l'univers de la maison, découvre aussi d'autres parfums Xerjoff de notre sélection :</p>\n[[photos:xerjoff-erba-gold-eau-de-parfum-mixte,xerjoff-xj-1861-naxos-eau-de-parfum-mixte,xerjoff-casamorati-dolce-amalfi-eau-de-parfum-mixte]]\n<p>Tous les parfums de la maison sont sur [[marque:Xerjoff|la page Xerjoff]].</p>",
     "faq": [
-      {"q": "Quelles sont les notes de Xerjoff Erba Pura ?", "r": "En tête : orange et citron de Sicile, bergamote de Calabre. En cœur : un accord de fruits. En fond : musc blanc, vanille de Madagascar et ambre."},
-      {"q": "Erba Pura est-il un parfum pour homme ou pour femme ?", "r": "C'est un parfum mixte : Xerjoff le destine à tout le monde, et il est porté autant par les hommes que par les femmes."},
-      {"q": "Erba Pura tient-il longtemps ?", "r": "C'est une eau de parfum souvent décrite comme très tenace et au sillage marqué. La tenue réelle dépend de la peau, du climat et du nombre de pulvérisations."},
-      {"q": "Quelle est la famille olfactive d'Erba Pura ?", "r": "C'est un parfum fruité, avec une ouverture aux agrumes et un fond musqué, vanillé et ambré."},
-      {"q": "En quelle saison porter Erba Pura ?", "r": "Ses agrumes et ses fruits le rendent agréable au printemps et en été, et son fond vanillé fonctionne aussi le soir, toute l'année."}
+      {
+        "q": "Quelles sont les notes de Xerjoff Erba Pura ?",
+        "r": "En tête : orange et citron de Sicile, bergamote de Calabre. En cœur : un accord de fruits. En fond : musc blanc, vanille de Madagascar et ambre."
+      },
+      {
+        "q": "Erba Pura est-il un parfum pour homme ou pour femme ?",
+        "r": "C'est un parfum mixte : Xerjoff le destine à tout le monde, et il est porté autant par les hommes que par les femmes."
+      },
+      {
+        "q": "Erba Pura tient-il longtemps ?",
+        "r": "C'est une eau de parfum souvent décrite comme très tenace et au sillage marqué. La tenue réelle dépend de la peau, du climat et du nombre de pulvérisations."
+      },
+      {
+        "q": "Quelle est la famille olfactive d'Erba Pura ?",
+        "r": "C'est un parfum fruité, avec une ouverture aux agrumes et un fond musqué, vanillé et ambré."
+      },
+      {
+        "q": "En quelle saison porter Erba Pura ?",
+        "r": "Ses agrumes et ses fruits le rendent agréable au printemps et en été, et son fond vanillé fonctionne aussi le soir, toute l'année."
+      }
     ]
   },
   "nl": {
@@ -25,11 +45,26 @@
     "seo_desc": "Erba Pura van Xerjoff: topnoten, hartnoten en basisnoten, stijl, seizoen en voor wie. De Qosmi-gids over deze unisex nicheparfum.",
     "corps": "<p><strong>Kort gezegd:</strong> Erba Pura is een unisex eau de parfum van het Italiaanse huis Xerjoff. De geur opent met citrus (sinaasappel en citroen uit Sicilië, bergamot uit Calabrië), gaat over in een fruitig hart en eindigt op een basis van witte muskus, vanille uit Madagaskar en amber. Een fruitige, stralende en tegelijk zachte geur, bekend om zijn sterke aanwezigheid.</p>\n[[photo:xerjoff-erba-pura-eau-de-parfum-mixte]]\n<h2>Het huis Xerjoff</h2>\n<p>Xerjoff is een Italiaans nicheparfumhuis, ontstaan in Turijn op initiatief van Sergio Momo. Het staat bekend om zijn verfijnde flessen en rijke composities, vaak opgebouwd rond grondstoffen die centraal staan. Erba Pura is een van zijn bekendste creaties.</p>\n<h2>De noten van Erba Pura</h2>\n<table><thead><tr><th>Fase</th><th>Noten</th></tr></thead><tbody><tr><td>Top</td><td>Sinaasappel uit Sicilië, citroen uit Sicilië, bergamot uit Calabrië</td></tr><tr><td>Hart</td><td>Fruitakkoord</td></tr><tr><td>Basis</td><td>Witte muskus, vanille uit Madagaskar, amber</td></tr></tbody></table>\n<p>Concreet zijn de eerste minuten sprankelend en fris-zuur dankzij de citrus. Daarna neemt het fruitige hart het over, tot muskus, vanille en amber een zachtere, omhullende basis leggen die lang blijft.</p>\n<h2>Houdbaarheid en spoor</h2>\n<p>Erba Pura is een eau de parfum en wordt heel vaak omschreven als een geur met een sterk spoor, die opvalt en lang blijft. Zoals altijd hangt de echte houdbaarheid af van je huid, het klimaat en de hoeveelheid. Gezien die reputatie volstaan één tot drie sprays meestal, zeker in een gesloten ruimte.</p>\n<h2>Voor wie, en wanneer?</h2>\n<ul><li><strong>Voor wie:</strong> het is een unisex parfum, bedoeld voor iedereen. Het past bij wie houdt van fruitige, stralende geuren met een zachte, schone basis, eerder dan bij liefhebbers van droge houtgeuren of leer.</li><li><strong>Wanneer:</strong> de citrusopening maakt het een goede keuze voor zonnige dagen, en de basis van vanille en amber maakt het ook ’s avonds aangenaam.</li><li><strong>Op kantoor:</strong> kan, maar met mate: één of twee sprays.</li></ul>\n<h2>Formaten bij Qosmi</h2>\n<p>[[produit:xerjoff-erba-pura-eau-de-parfum-mixte|Erba Pura]] is verkrijgbaar in 50 ml en 100 ml. Elke fles is nieuw en wordt in heel België geleverd.</p>\n<h2>Andere creaties van Xerjoff</h2>\n<p>Hou je van de stijl van het huis? Ontdek dan ook andere Xerjoff-parfums uit onze selectie:</p>\n[[photos:xerjoff-erba-gold-eau-de-parfum-mixte,xerjoff-xj-1861-naxos-eau-de-parfum-mixte,xerjoff-casamorati-dolce-amalfi-eau-de-parfum-mixte]]\n<p>Alle parfums van het huis vind je op [[marque:Xerjoff|de Xerjoff-pagina]].</p>",
     "faq": [
-      {"q": "Wat zijn de noten van Xerjoff Erba Pura?", "r": "Top: sinaasappel en citroen uit Sicilië, bergamot uit Calabrië. Hart: een fruitakkoord. Basis: witte muskus, vanille uit Madagaskar en amber."},
-      {"q": "Is Erba Pura een parfum voor mannen of voor vrouwen?", "r": "Het is een unisex parfum: Xerjoff bedoelt het voor iedereen, en het wordt zowel door mannen als door vrouwen gedragen."},
-      {"q": "Blijft Erba Pura lang hangen?", "r": "Het is een eau de parfum die vaak omschreven wordt als zeer langdurig, met een duidelijk spoor. De echte houdbaarheid hangt af van je huid, het klimaat en het aantal sprays."},
-      {"q": "Tot welke geurfamilie behoort Erba Pura?", "r": "Het is een fruitige geur, met een citrusopening en een basis van muskus, vanille en amber."},
-      {"q": "In welk seizoen draag je Erba Pura?", "r": "Door de citrus en het fruit is het aangenaam in de lente en de zomer, en de vanillebasis werkt ook ’s avonds, het hele jaar door."}
+      {
+        "q": "Wat zijn de noten van Xerjoff Erba Pura?",
+        "r": "Top: sinaasappel en citroen uit Sicilië, bergamot uit Calabrië. Hart: een fruitakkoord. Basis: witte muskus, vanille uit Madagaskar en amber."
+      },
+      {
+        "q": "Is Erba Pura een parfum voor mannen of voor vrouwen?",
+        "r": "Het is een unisex parfum: Xerjoff bedoelt het voor iedereen, en het wordt zowel door mannen als door vrouwen gedragen."
+      },
+      {
+        "q": "Blijft Erba Pura lang hangen?",
+        "r": "Het is een eau de parfum die vaak omschreven wordt als zeer langdurig, met een duidelijk spoor. De echte houdbaarheid hangt af van je huid, het klimaat en het aantal sprays."
+      },
+      {
+        "q": "Tot welke geurfamilie behoort Erba Pura?",
+        "r": "Het is een fruitige geur, met een citrusopening en een basis van muskus, vanille en amber."
+      },
+      {
+        "q": "In welk seizoen draag je Erba Pura?",
+        "r": "Door de citrus en het fruit is het aangenaam in de lente en de zomer, en de vanillebasis werkt ook ’s avonds, het hele jaar door."
+      }
     ]
   }
 }
