@@ -64,17 +64,25 @@ NICHE = ["Nishane", "Xerjoff", "Parfums de Marly", "Initio", "Mancera", "Montale
          "Carner Barcelona", "Unique'e Luxury", "Zarkoperfume", "Liquides Imaginaires", "Franck Boclet", "Moresque"]
 ORIENTAUX = ["Lattafa", "Armaf", "Al Haramain", "French Avenue", "Afnan", "Rasasi", "Ajmal", "Khadlaj", "Paris Corner",
              "Zimaya", "Maison Alhambra", "Fragrance World", "Ard Al Zaafaran", "Swiss Arabian", "Arabian Oud"]
+# Parfums arabes (catégorie demandée par Amine le 08/11/2026) : maisons des Émirats, d'Arabie saoudite et d'Oman.
+ARABES = sorted(set(ORIENTAUX + [
+    "Amouage", "Al Wataniah", "Ahmed Al Maghribi", "Riiffs", "Emir", "Arabiyat Prestige", "Arabiyat Sugar", "Orientica",
+    "Hamidi", "Nasma", "Grandeur", "Gulf Orchid", "Asdaaf", "Khalis", "Anfar", "Anfar 1950", "Maison Asrar", "Pendora Scents",
+    "Privezarah", "Risala", "Risala Elite", "Nusuk", "Athoor Al Alam", "Azha Perfumes", "Dubai Garden", "Marquisa Dubai",
+    "Niche Emarati", "Al Malakia", "Alghabra", "The Spirit of Dubai", "Dar El Ward", "Assala Prime", "La Fede", "Blend Oud",
+    "House Of Perfumes"]))
 COLLECTIONS = [  # (handle, titre, colonne, valeurs)
     ("parfums", "Parfums", "TYPE", PARFUMS), ("parfums-femme", "Parfums femme", "TYPE", ["Parfums femme"]),
     ("parfums-homme", "Parfums homme", "TYPE", ["Parfums homme"]), ("parfums-mixtes", "Parfums mixtes", "TYPE", ["Parfums mixtes"]),
     ("parfums-enfants", "Parfums enfants", "TYPE", ["Parfums enfants"]), ("niche", "Parfums de niche", "VENDOR", NICHE),
-    ("orientaux", "Parfums orientaux", "VENDOR", ORIENTAUX), ("testeurs", "Testeurs", "TAG", ["Testeurs"]),
+    ("orientaux", "Parfums orientaux", "VENDOR", ORIENTAUX), ("parfums-arabes", "Parfums arabes", "VENDOR", ARABES), ("testeurs", "Testeurs", "TAG", ["Testeurs"]),
     ("coffrets", "Coffrets", "TYPE", ["Coffrets"]), ("soins", "Soins", "TYPE", SOINS),
     ("maquillage", "Maquillage", "TYPE", ["Maquillage"]),
 ]
 MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes")]),
         ("Femme", "parfums-femme", []), ("Homme", "parfums-homme", []),
         ("Niche", "niche", []),  # Testeurs retiré le 08/11/2026 (en suspens, question juridique)
+        ("Parfums arabes", "parfums-arabes", []),  # 08/11/2026 : demande d'Amine
         ("Marques", "page:marques", []),  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
         ("Journal", "blog:journal", [])]  # 08/11/2026 : le blog (scripts/blog.py)
 LOGOS = ["qosmi-logo.png", "qosmi-logo-blanc.png", "qosmi-favicon.png"]

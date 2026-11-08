@@ -188,8 +188,9 @@ def construire(fichiers, marques):
                 "o1": {"type": "onglet", "settings": {"collection": "niche", "label": "Niche"}},
                 "o2": {"type": "onglet", "settings": {"collection": "parfums-femme", "label": "Femme"}},
                 "o3": {"type": "onglet", "settings": {"collection": "parfums-homme", "label": "Homme"}},
-                "o4": {"type": "onglet", "settings": {"collection": "parfums-mixtes", "label": "Mixte"}}},  # testeurs en suspens (08/11)
-            "block_order": ["o1", "o2", "o3", "o4"]},
+                "o4": {"type": "onglet", "settings": {"collection": "parfums-mixtes", "label": "Mixte"}},  # testeurs en suspens (08/11)
+                "o5": {"type": "onglet", "settings": {"collection": "parfums-arabes", "label": "Arabes"}}},  # 08/11/2026
+            "block_order": ["o1", "o2", "o3", "o4", "o5"]},
         "qk_banniere": {"type": "qk-banniere", "settings": {
             "titre": "Les incontournables", "lien_texte": "Voir la niche", "lien": "shopify://collections/niche",
             "image": "shopify://shop_images/qosmi-banniere-niche.jpg",

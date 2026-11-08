@@ -42,6 +42,16 @@ COLLECTIONS = {  # handle: (titre SEO, méta, texte de la page) FR puis NL
               ("Nicheparfums – Xerjoff, Nishane, Initio, Creed | Qosmi",
                "Online nicheparfumerie: Xerjoff, Nishane, Initio, Parfums de Marly, Creed, Sospiro en meer. Originele flessen, geleverd in België binnen 3 tot 6 werkdagen.",
                "<p>De nichemakers waar we van houden: Xerjoff, Nishane, Initio, Parfums de Marly, Creed, Sospiro en andere bijzondere huizen. Origineel, nieuw en geleverd binnen 3 tot 6 werkdagen.</p>")),
+    "parfums-arabes": (("Parfums arabes – Lattafa, Armaf, Al Haramain, Afnan | Qosmi",
+                        "Parfums arabes authentiques : Lattafa, Armaf, Al Haramain, Afnan, Rasasi, Ajmal et d'autres maisons des Émirats. Oud, ambre, épices. Livrés en Belgique.",
+                        "<p>Les grandes maisons de la parfumerie arabe : Lattafa, Armaf, Al Haramain, Afnan, Rasasi, Ajmal, Amouage et bien d'autres. "
+                        "Des sillages généreux autour du oud, de l'ambre, de la rose et des épices, qui tiennent longtemps sur la peau. "
+                        "Chaque flacon est authentique et neuf, livré partout en Belgique.</p>"),
+                       ("Arabische parfums – Lattafa, Armaf, Al Haramain, Afnan | Qosmi",
+                        "Originele Arabische parfums: Lattafa, Armaf, Al Haramain, Afnan, Rasasi, Ajmal en andere huizen uit de Emiraten. Oud, amber, kruiden. Geleverd in België.",
+                        "<p>De grote huizen van de Arabische parfumerie: Lattafa, Armaf, Al Haramain, Afnan, Rasasi, Ajmal, Amouage en vele andere. "
+                        "Rijke geuren rond oud, amber, roos en kruiden, die lang op de huid blijven. "
+                        "Elke fles is origineel en nieuw, geleverd in heel België.</p>")),
     "testeurs": (("Testeurs de parfum authentiques moins chers | Qosmi",
                   "Testeurs de parfum : le même parfum authentique que la version en boîte, dans un emballage simple, moins cher. Livraison en Belgique en 3 à 6 jours.",
                   "<p>Un testeur, c'est le même parfum authentique que la version vendue en boîte, livré dans un emballage simple, parfois sans bouchon. Le contenu est identique, le prix plus doux.</p>"),
@@ -49,6 +59,9 @@ COLLECTIONS = {  # handle: (titre SEO, méta, texte de la page) FR puis NL
                   "Parfumtesters: dezelfde originele parfum als in de doos, in een eenvoudige verpakking en voordeliger. Levering in België binnen 3 tot 6 werkdagen.",
                   "<p>Een tester is dezelfde originele parfum als de versie in de doos, geleverd in een eenvoudige verpakking, soms zonder dop. Dezelfde inhoud, een zachtere prijs.</p>")),
 }
+
+
+TITRES_NL = {"parfums-arabes": "Arabische parfums"}
 
 
 def traduire(s, rid, valeurs):
@@ -85,7 +98,10 @@ def main():
             continue
         r = s.gql("""mutation($c: CollectionInput!) { collectionUpdate(input: $c) { collection { id } userErrors { field message } } }""",
                   {"c": {"id": c["id"], "descriptionHtml": b_fr, "seo": {"title": t_fr, "description": m_fr}}})["collectionUpdate"]
-        nl = traduire(s, c["id"], {"body_html": b_nl, "meta_title": t_nl, "meta_description": m_nl})
+        vals = {"body_html": b_nl, "meta_title": t_nl, "meta_description": m_nl}
+        if h in TITRES_NL:
+            vals["title"] = TITRES_NL[h]
+        nl = traduire(s, c["id"], vals)
         print("  collection %-15s FR : %s · NL : %s" % (h, r["userErrors"] or "ok", nl))
     # --- EAN des fiches actives (Google Shopping)
     q = """{ productVariants(query: "product_status:active") { edges { node { id barcode sku product { id } } } } }"""
