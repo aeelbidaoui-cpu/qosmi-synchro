@@ -41,6 +41,20 @@ DU_JOUR = [
     "yves-saint-laurent-la-nuit-de-l-homme-eau-de-toilette-pour-homme", "gucci-guilty-eau-de-parfum-pour-femme",
 ]
 
+# Mise en avant sur l'accueil (demande d'Amine du 08/11/2026) : seulement les maisons choisies le 04/11 (les plus demandées),
+# pas les marques ajoutées ensuite parce qu'elles avaient de belles photos. Les parfums arabes : les grands succès.
+VEDETTES = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "selection.json"),
+                          encoding="utf-8")).get("vedettes") or []
+ARABES_VEDETTES = ["lattafa-khamrah-eau-de-parfum-mixte", "armaf-club-de-nuit-intense-man-eau-de-parfum-pour-homme",
+                   "lattafa-yara-eau-de-parfum-pour-femme", "lattafa-asad-eau-de-parfum-pour-homme",
+                   "afnan-9pm-eau-de-parfum-pour-homme", "al-haramain-amber-oud-gold-edition-eau-de-parfum-mixte",
+                   "lattafa-khamrah-qahwa-eau-de-parfum-mixte", "armaf-club-de-nuit-woman-eau-de-parfum-pour-femme",
+                   "lattafa-bade-e-al-oud-for-glory-eau-de-parfum-mixte", "rasasi-hawas-eau-de-parfum-pour-homme",
+                   "lattafa-hayaati-eau-de-parfum-mixte", "armaf-club-de-nuit-untold-eau-de-parfum-mixte",
+                   "afnan-supremacy-silver-eau-de-parfum-pour-homme", "lattafa-ana-abiyedh-eau-de-parfum-mixte",
+                   "al-haramain-l-aventure-intense-eau-de-parfum-pour-homme", "lattafa-bade-e-al-oud-sublime-eau-de-parfum-mixte",
+                   "armaf-club-de-nuit-milestone-eau-de-parfum-mixte", "lattafa-qaed-al-fursan-eau-de-parfum-mixte",
+                   "ajmal-evoke-eau-de-parfum-pour-femme", "lattafa-mayar-eau-de-parfum-pour-femme"]
 ANNONCES = ["Livraison offerte dès 2 articles · sinon 2,95 €",
             "Livrée partout en Belgique en 3 à 6 jours ouvrables",
             "Parfums 100 % authentiques et neufs",
@@ -182,14 +196,14 @@ def construire(fichiers, marques):
             # carrousel : 2e image = « Le parfum du jour » (08/11/2026)
             "dujour_titre": "Le parfum du jour", "dujour_compte": "Prochain parfum dans", "produits": DU_JOUR, "duree": 7}},
         "qk_favoris": {"type": "qk-onglets", "settings": {
-            "titre": "Favoris", "nombre": 10,
+            "titre": "Favoris", "nombre": 10, "vedettes": "\n".join(VEDETTES),
             "texte": "Les parfums qu'on nous demande le plus. Une sélection de grandes maisons et de niche, choisie avec soin."},
             "blocks": {
                 "o1": {"type": "onglet", "settings": {"collection": "niche", "label": "Niche"}},
                 "o2": {"type": "onglet", "settings": {"collection": "parfums-femme", "label": "Femme"}},
                 "o3": {"type": "onglet", "settings": {"collection": "parfums-homme", "label": "Homme"}},
                 "o4": {"type": "onglet", "settings": {"collection": "parfums-mixtes", "label": "Mixte"}},  # testeurs en suspens (08/11)
-                "o5": {"type": "onglet", "settings": {"collection": "parfums-arabes", "label": "Arabes"}}},  # 08/11/2026
+                "o5": {"type": "onglet", "settings": {"collection": "parfums-arabes", "label": "Arabes", "produits": ARABES_VEDETTES}}},  # 08/11/2026
             "block_order": ["o1", "o2", "o3", "o4", "o5"]},
         "qk_banniere": {"type": "qk-banniere", "settings": {
             "titre": "Les incontournables", "lien_texte": "Voir la niche", "lien": "shopify://collections/niche",

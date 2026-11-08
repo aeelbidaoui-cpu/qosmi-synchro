@@ -1,4 +1,9 @@
-{%- comment -%} Favoris : titre, texte, onglets par collection, rangée de cartes qui défile (style Riklis Karto). {%- endcomment -%}
+{%- comment -%} Favoris : titre, texte, onglets par collection, rangée de cartes qui défile (style Riklis Karto).
+  Mise en avant (demande d'Amine du 08/11/2026) : seules les maisons « vedettes » (réglage, une par ligne) sont montrées ;
+  un onglet peut aussi avoir sa propre liste de parfums (réglage « produits »), utilisée telle quelle.
+  Les maisons ajoutées plus tard (moins demandées) restent dans les collections mais ne sont pas mises en avant ici. {%- endcomment -%}
+{%- assign qk_vedettes = section.settings.vedettes | newline_to_br | split: '<br />' -%}
+{%- capture qk_vset -%}|{%- for m in qk_vedettes -%}{{ m | strip }}|{%- endfor -%}{%- endcapture -%}
 {%- assign qk_nl = false -%}
 {%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
 <section class="qk-section qk-onglets" id="qk-onglets-{{ section.id }}">
@@ -18,9 +23,26 @@
   </div>
   {%- for block in section.blocks -%}
     <div class="qk-rangee{% unless forloop.first %} is-cache{% endunless %}" id="qk-p-{{ block.id }}" role="tabpanel">
-      {%- for product in block.settings.collection.products limit: section.settings.nombre -%}
-        <div class="qk-rangee__item">{% render 'qk-carte', product: product %}</div>
-      {%- endfor -%}
+      {%- if block.settings.produits.size > 0 -%}
+        {%- assign qk_n = 0 -%}
+        {%- for product in block.settings.produits -%}
+          {%- if qk_n < section.settings.nombre and product.available and product.featured_image -%}
+            {%- assign qk_n = qk_n | plus: 1 -%}
+            <div class="qk-rangee__item">{% render 'qk-carte', product: product %}</div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- assign qk_n = 0 -%}
+        {%- for product in block.settings.collection.products limit: 60 -%}
+          {%- assign qk_cle = '|' | append: product.vendor | append: '|' -%}
+          {%- if qk_n < section.settings.nombre and product.featured_image -%}
+            {%- if qk_vset == '|' or qk_vset contains qk_cle -%}
+              {%- assign qk_n = qk_n | plus: 1 -%}
+              <div class="qk-rangee__item">{% render 'qk-carte', product: product %}</div>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   {%- endfor -%}
 </section>
@@ -46,7 +68,8 @@
   "settings": [
     { "type": "text", "id": "titre", "label": "Titre", "default": "Favoris" },
     { "type": "textarea", "id": "texte", "label": "Texte" },
-    { "type": "range", "id": "nombre", "label": "Parfums par onglet", "min": 4, "max": 16, "step": 1, "default": 10 }
+    { "type": "range", "id": "nombre", "label": "Parfums par onglet", "min": 4, "max": 16, "step": 1, "default": 10 },
+    { "type": "textarea", "id": "vedettes", "label": "Maisons mises en avant (une par ligne ; vide = toutes)" }
   ],
   "blocks": [
     {
@@ -54,7 +77,8 @@
       "name": "Onglet",
       "settings": [
         { "type": "collection", "id": "collection", "label": "Collection" },
-        { "type": "text", "id": "label", "label": "Nom de l'onglet" }
+        { "type": "text", "id": "label", "label": "Nom de l'onglet" },
+        { "type": "product_list", "id": "produits", "label": "Parfums à montrer (sinon : la collection)", "limit": 24 }
       ]
     }
   ],
