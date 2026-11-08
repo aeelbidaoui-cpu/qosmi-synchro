@@ -12,6 +12,35 @@ FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.js
             "templates/search.json", "sections/header-group.json", "sections/footer-group.json"]
 CARTE_TEXTE = "{% render 'qk-carte-texte', product: closest.product %}"
 LIVRAISON = "Livraison partout en Belgique en 1 à 2 jours ouvrables · 6,95 €"
+# « Le parfum du jour » sur l'accueil (demande d'Amine du 08/11/2026) : grandes marques et parfums très connus, prix habituel.
+# Un par jour à tour de rôle ; ceux qui ne sont pas en ligne, en stock et avec photo sont sautés automatiquement.
+DU_JOUR = [
+    "dior-sauvage-eau-de-toilette-pour-homme", "lancome-la-vie-est-belle-eau-de-parfum-pour-femme",
+    "chanel-bleu-de-chanel-eau-de-parfum-pour-homme", "carolina-herrera-good-girl-eau-de-parfum-pour-femme",
+    "creed-aventus-eau-de-parfum-pour-homme", "yves-saint-laurent-libre-eau-de-parfum-pour-femme",
+    "giorgio-armani-acqua-di-gio-eau-de-parfum-pour-homme", "dior-j-adore-eau-de-parfum-pour-femme",
+    "paco-rabanne-1-million-eau-de-toilette-pour-homme", "chanel-coco-mademoiselle-eau-de-parfum-pour-femme",
+    "jean-paul-gaultier-le-male-eau-de-toilette-pour-homme", "lancome-idole-eau-de-parfum-pour-femme",
+    "parfums-de-marly-layton-eau-de-parfum-mixte", "giorgio-armani-my-way-eau-de-parfum-pour-femme",
+    "versace-eros-eau-de-toilette-pour-homme", "chanel-chance-eau-de-parfum-pour-femme",
+    "dior-sauvage-elixir-parfum-pour-homme", "yves-saint-laurent-mon-paris-eau-de-parfum-pour-femme",
+    "paco-rabanne-invictus-eau-de-toilette-pour-homme", "mugler-angel-eau-de-parfum-pour-femme",
+    "hermes-terre-d-hermes-eau-de-toilette-pour-homme", "viktor-rolf-flowerbomb-eau-de-parfum-pour-femme",
+    "yves-saint-laurent-y-eau-de-parfum-pour-homme", "dolce-gabbana-light-blue-eau-de-toilette-pour-femme",
+    "xerjoff-erba-pura-eau-de-parfum-mixte", "gucci-bloom-eau-de-parfum-pour-femme",
+    "dolce-gabbana-the-one-eau-de-parfum-pour-homme", "jean-paul-gaultier-scandal-eau-de-parfum-pour-femme",
+    "chanel-allure-homme-sport-eau-extreme-eau-de-parfum-pour-homme", "lancome-la-nuit-tresor-eau-de-parfum-pour-femme",
+    "paco-rabanne-phantom-eau-de-toilette-pour-homme", "givenchy-l-interdit-eau-de-parfum-pour-femme",
+    "nishane-hacivat-extrait-de-parfum-mixte", "guerlain-shalimar-eau-de-parfum-pour-femme",
+    "hugo-boss-boss-bottled-eau-de-parfum-pour-homme", "paco-rabanne-olympea-eau-de-parfum-pour-femme",
+    "dior-fahrenheit-eau-de-toilette-pour-homme", "marc-jacobs-daisy-eau-de-toilette-pour-femme",
+    "tom-ford-ombre-leather-eau-de-parfum-mixte", "dior-hypnotic-poison-eau-de-parfum-pour-femme",
+    "carolina-herrera-bad-boy-eau-de-toilette-pour-homme", "burberry-her-eau-de-parfum-pour-femme",
+    "parfums-de-marly-pegasus-eau-de-parfum-pour-homme", "tom-ford-black-orchid-eau-de-parfum-pour-femme",
+    "giorgio-armani-code-eau-de-toilette-pour-homme", "jean-paul-gaultier-la-belle-eau-de-parfum-pour-femme",
+    "yves-saint-laurent-la-nuit-de-l-homme-eau-de-toilette-pour-homme", "gucci-guilty-eau-de-parfum-pour-femme",
+]
+
 ANNONCES = ["Livraison en Belgique en 1 à 2 jours ouvrables · 6,95 €",
             "Parfums 100 % authentiques et neufs",
             "Plus de 60 maisons, des grands classiques à la niche",
@@ -149,6 +178,8 @@ def construire(fichiers, marques):
             "lien": "shopify://collections/parfums", "hauteur": 85,
             "image": "shopify://shop_images/qosmi-hero-ingredients.jpg",
             "video": "shopify://files/videos/qosmi-hero-ingredients-4k.mp4"}},
+        "qk_du_jour": {"type": "qk-du-jour", "settings": {
+            "titre": "Le parfum du jour", "compte_texte": "Prochain parfum dans", "produits": DU_JOUR, "couleur": "#111111"}},
         "qk_favoris": {"type": "qk-onglets", "settings": {
             "titre": "Favoris", "nombre": 10,
             "texte": "Les parfums qu'on nous demande le plus. Une sélection de grandes maisons et de niche, choisie avec soin."},
@@ -187,7 +218,7 @@ def construire(fichiers, marques):
                      "et on te les livre partout en Belgique.</p>",
             "lien_texte": "Voir tous les parfums", "lien": "shopify://collections/parfums", "alignement": "centre"}},
     }
-    d["order"] = ["qk_hero", "qk_favoris", "qk_banniere", "qk_tuiles", "qk_marques", "qk_apropos"]
+    d["order"] = ["qk_hero", "qk_du_jour", "qk_favoris", "qk_banniere", "qk_tuiles", "qk_marques", "qk_apropos"]
     jsons["templates/index.json"] = ecrire(e, d)
 
     # ---------- fiche produit ----------
