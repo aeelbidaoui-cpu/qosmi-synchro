@@ -65,16 +65,16 @@ DU_JOUR = [
 # pas les marques ajoutées ensuite parce qu'elles avaient de belles photos. Les parfums arabes : les grands succès.
 VEDETTES = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "selection.json"),
                           encoding="utf-8")).get("vedettes") or []
-ARABES_VEDETTES = ["lattafa-khamrah-eau-de-parfum-mixte", "armaf-club-de-nuit-intense-man-eau-de-parfum-pour-homme",
-                   "lattafa-yara-eau-de-parfum-pour-femme", "lattafa-asad-eau-de-parfum-pour-homme",
-                   "afnan-9pm-eau-de-parfum-pour-homme", "al-haramain-amber-oud-gold-edition-eau-de-parfum-mixte",
-                   "lattafa-khamrah-qahwa-eau-de-parfum-mixte", "armaf-club-de-nuit-woman-eau-de-parfum-pour-femme",
-                   "lattafa-bade-e-al-oud-for-glory-eau-de-parfum-mixte", "rasasi-hawas-eau-de-parfum-pour-homme",
-                   "lattafa-hayaati-eau-de-parfum-mixte", "armaf-club-de-nuit-untold-eau-de-parfum-mixte",
-                   "afnan-supremacy-silver-eau-de-parfum-pour-homme", "lattafa-ana-abiyedh-eau-de-parfum-mixte",
-                   "al-haramain-l-aventure-intense-eau-de-parfum-pour-homme", "lattafa-bade-e-al-oud-sublime-eau-de-parfum-mixte",
-                   "armaf-club-de-nuit-milestone-eau-de-parfum-mixte", "lattafa-qaed-al-fursan-eau-de-parfum-mixte",
-                   "ajmal-evoke-eau-de-parfum-pour-femme", "lattafa-mayar-eau-de-parfum-pour-femme"]
+ARABES_VEDETTES = [  # 08/11/2026 : grands succès arabes réellement en ligne (moins chers que Deloox avec 3 € net) ; les fiches masquées ne s'affichent pas
+    "armaf-club-de-nuit-intense-man-eau-de-parfum-pour-homme", "lattafa-qaed-al-fursan-eau-de-parfum-mixte",
+    "al-haramain-amber-oud-gold-edition-eau-de-parfum-mixte", "armaf-club-de-nuit-precieux-i-extrait-de-parfum-mixte",
+    "afnan-supremacy-in-heaven-eau-de-parfum-pour-homme", "rasasi-hawas-fire-eau-de-parfum-pour-homme",
+    "al-haramain-l-aventure-intense-eau-de-parfum-pour-homme", "lattafa-eclaire-eau-de-parfum-pour-femme",
+    "armaf-club-de-nuit-milestone-eau-de-parfum-mixte", "afnan-turathi-brown-eau-de-parfum-pour-homme",
+    "al-haramain-amber-oud-tobacco-edition-eau-de-parfum-mixte", "armaf-odyssey-eau-de-parfum-pour-homme",
+    "armaf-club-de-nuit-untold-eau-de-parfum-mixte", "hamidi-the-lost-paradise-sublime-cherry-eau-de-parfum-mixte",
+    "amouage-existence-eau-de-parfum-mixte", "lattafa-khamrah-eau-de-parfum-mixte", "lattafa-yara-eau-de-parfum-pour-femme",
+    "rasasi-hawas-eau-de-parfum-pour-homme", "afnan-9pm-eau-de-parfum-pour-homme", "lattafa-asad-eau-de-parfum-pour-homme"]
 ANNONCES = ["Livraison offerte dès 2 articles · sinon 2,95 €",
             "Livraison suivie partout en Belgique",
             "Parfums 100 % authentiques et neufs",
@@ -225,9 +225,9 @@ def construire(fichiers, marques):
                 "o1": {"type": "onglet", "settings": {"collection": "niche", "label": "Niche"}},
                 "o2": {"type": "onglet", "settings": {"collection": "parfums-femme", "label": "Femme"}},
                 "o3": {"type": "onglet", "settings": {"collection": "parfums-homme", "label": "Homme"}},
-                "o4": {"type": "onglet", "settings": {"collection": "parfums-mixtes", "label": "Mixte"}}},  # testeurs en suspens (08/11)
-            # onglet « Arabes » (ARABES_VEDETTES) : ajouté quand les parfums arabes seront en ligne
-            "block_order": ["o1", "o2", "o3", "o4"]},
+                "o4": {"type": "onglet", "settings": {"collection": "parfums-mixtes", "label": "Mixte"}},  # testeurs en suspens (08/11)
+                "o5": {"type": "onglet", "settings": {"collection": "parfums-arabes", "label": "Arabes", "produits": ARABES_VEDETTES}}},
+            "block_order": ["o1", "o2", "o3", "o4", "o5"]},
         "qk_banniere": {"type": "qk-banniere", "settings": {
             "titre": "Les incontournables", "lien_texte": "Voir la niche", "lien": "shopify://collections/niche",
             "image": "shopify://shop_images/qosmi-banniere-niche.jpg",

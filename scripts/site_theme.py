@@ -82,7 +82,7 @@ COLLECTIONS = [  # (handle, titre, colonne, valeurs)
 MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes")]),
         ("Femme", "parfums-femme", []), ("Homme", "parfums-homme", []),
         ("Niche", "niche", []),  # Testeurs retiré le 08/11/2026 (en suspens, question juridique)
-        # ("Parfums arabes", "parfums-arabes", []),  # 08/11/2026 : à activer quand les parfums arabes seront en ligne
+        ("Parfums arabes", "parfums-arabes", []),  # 08/11/2026 : activé (174 parfums arabes en ligne)
         ("Marques", "page:marques", []),  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
         ("Journal", "blog:journal", [])]  # 08/11/2026 : le blog (scripts/blog.py)
 LOGOS = ["qosmi-logo.png", "qosmi-logo-blanc.png", "qosmi-favicon.png"]
