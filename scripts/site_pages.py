@@ -111,5 +111,53 @@ def envoyer():
     print("Menu du bas de page :", "ok (%d liens)" % len(garder + nouveaux) if not r["userErrors"] else r["userErrors"])
 
 
+POLITIQUES = {  # politiques Shopify (pied de la page de paiement) ← nos pages légales
+    "TERMS_OF_SERVICE": "conditions-generales-de-vente",
+    "SHIPPING_POLICY": "livraison",
+    "REFUND_POLICY": "retours",
+    "PRIVACY_POLICY": "confidentialite",
+    "LEGAL_NOTICE": "mentions-legales",
+}
+
+
+def politiques():
+    """Remplit les politiques de Shopify (Paramètres → Politiques), affichées au paiement, avec nos textes FR + NL.
+    Coordonnées (obligatoire) : raison sociale, adresse, e-mail, numéros d'entreprise et de TVA."""
+    from shopify_api import Shopify
+    c = cfg()
+    par = {p["handle"]: p for p in PAGES}
+    contenus = {}
+    for typ, h in POLITIQUES.items():
+        contenus[typ] = (remplir(par[h]["fr"], c), remplir(par[h]["nl"], c, nl=True))
+    e = ENTREPRISE
+    contenus["CONTACT_INFORMATION"] = (
+        "<p><strong>%s</strong><br>%s<br>E-mail : <a href=\"mailto:%s\">%s</a><br>Numéro d'entreprise (BCE) : %s<br>TVA : %s</p>"
+        % (e["raison"], e["adresse"], c["email_service_client"], c["email_service_client"], e["bce"], e["tva"]),
+        "<p><strong>%s</strong><br>%s<br>E-mail: <a href=\"mailto:%s\">%s</a><br>Ondernemingsnummer (KBO): %s<br>Btw: %s</p>"
+        % (e["raison"], e["adresse_nl"], c["email_service_client"], c["email_service_client"], e["bce"], e["tva"]))
+    for fr, nl in contenus.values():
+        for mot in INTERDITS:
+            if mot in (fr + nl).lower():
+                raise SystemExit("Contrôle de confidentialité : « %s ». Rien n'est envoyé." % mot)
+    s = Shopify()
+    for typ, (fr, nl) in contenus.items():
+        r = s.gql("""mutation($p: ShopPolicyInput!) { shopPolicyUpdate(shopPolicy: $p) { shopPolicy { id url } userErrors { field message } } }""",
+                  {"p": {"type": typ, "body": fr}})["shopPolicyUpdate"]
+        if r["userErrors"]:
+            print("  %-20s ERREUR %s" % (typ, r["userErrors"]))
+            continue
+        pid = r["shopPolicy"]["id"]
+        tr = s.gql("query($id: ID!) { translatableResource(resourceId: $id) { translatableContent { key digest } } }",
+                   {"id": pid})["translatableResource"]
+        dig = {x["key"]: x["digest"] for x in (tr or {}).get("translatableContent", [])}
+        t = [{"locale": "nl", "key": "body", "value": nl, "translatableContentDigest": dig["body"]}] if "body" in dig else []
+        err = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
+                         userErrors { field message } } }""", {"id": pid, "t": t})["translationsRegister"]["userErrors"] if t else "pas de champ traduisible"
+        print("  %-20s ok (%s), NL : %s" % (typ, r["shopPolicy"]["url"], "ok" if not err else err))
+
+
 if __name__ == "__main__":
-    apercu() if "--apercu" in sys.argv else envoyer()
+    if "--politiques" in sys.argv:
+        politiques()
+    else:
+        apercu() if "--apercu" in sys.argv else envoyer()
