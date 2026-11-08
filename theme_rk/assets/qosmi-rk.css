@@ -217,3 +217,5 @@ main[data-template="article"] .image-block[class*="blog-post-image"] { max-width
 main[data-template="article"] .blog-post-content { max-width: 760px; margin-inline: auto; }
 main[data-template="article"] .blog-post-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .95rem; }
 main[data-template="article"] .blog-post-content th, main[data-template="article"] .blog-post-content td { border-bottom: 1px solid #E5E5E5; padding: .6rem .5rem; text-align: left; vertical-align: top; }
+main[data-template="article"] .blog-post-content h2 { font-size: clamp(1.35rem, 2vw, 1.8rem); margin: 2.4rem 0 .8rem; }
+main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-transform: none; letter-spacing: 0; }
