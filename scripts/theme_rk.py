@@ -10,6 +10,14 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 DOSSIER = os.path.join(os.path.dirname(ICI), "theme_rk")
 FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.json", "templates/collection.json",
             "templates/search.json", "sections/header-group.json", "sections/footer-group.json", "templates/cart.json"]
+
+def logos_slugs():
+    """Marques dont le logo est dans les Fichiers Shopify (config/logos_marques.json), une par ligne (nom simplifié).
+    Sert aux pages de marque et à la bande des marques de l'accueil (logos cliquables, demande d'Amine du 08/11/2026)."""
+    chemin = os.path.join(os.path.dirname(ICI), "config", "logos_marques.json")
+    logos = json.load(open(chemin, encoding="utf-8"))["par_marque"] if os.path.exists(chemin) else {}
+    return "\n".join(sorted(v["slug"] for v in logos.values()))
+
 ACHETER = """{%- if closest.product.available -%}
 <button type="button" class="qk-acheter" data-qk-acheter>{% if request.locale.iso_code == 'nl' %}Nu kopen{% else %}Acheter maintenant{% endif %}</button>
 <script>
@@ -248,7 +256,7 @@ def construire(fichiers, marques):
                                                  "sous_titre": "Chanel, Dior, Guerlain et plus"}}},
             "block_order": ["t1", "t2", "t3", "t4"]},
         "qk_marques": {"type": "qk-marques", "settings": {
-            "titre": "Marques", "liste": "\n".join(marques),
+            "titre": "Marques", "liste": "\n".join(marques), "logos": logos_slugs(),
             "texte": "Des parfums originaux et neufs, des grandes maisons aux créateurs de niche."}},
         "qk_apropos": {"type": "qk-texte", "settings": {
             "surtitre": "À propos", "titre": "Qosmi",

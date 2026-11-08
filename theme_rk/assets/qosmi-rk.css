@@ -164,6 +164,12 @@ img.qk-hero__img { animation: qk-zoom 28s ease-in-out infinite alternate; transf
 @media (prefers-reduced-motion: reduce) { .qk-marques__piste { animation: none; flex-wrap: wrap; width: auto; } }
 .qk-marque { padding: 26px 34px; font-size: 1.125rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--qk-noir); text-decoration: none; white-space: nowrap; }
 .qk-marque:hover { color: var(--qk-doux); }
+/* logos dans la bande (08/11/2026) : même hauteur pour tous, alignés au centre */
+.qk-marque--logo { display: flex; align-items: center; justify-content: center; padding: 18px 30px; }
+.qk-marque--logo img { display: block; height: 56px; width: auto; max-width: 180px; object-fit: contain; mix-blend-mode: multiply; transition: opacity .2s; }
+.qk-marque--logo:hover img { opacity: .65; }
+.qk-marques__piste { align-items: center; }
+@media (max-width: 749px) { .qk-marque--logo { padding: 14px 20px; } .qk-marque--logo img { height: 42px; max-width: 130px; } }
 @keyframes qk-defile { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ---------- texte ---------- */

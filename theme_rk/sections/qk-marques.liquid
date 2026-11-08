@@ -1,17 +1,41 @@
-{%- comment -%} Bande des marques qui défile (style Riklis Karto). Liste : une marque par ligne. {%- endcomment -%}
+{%- comment -%}
+  Bande des marques qui défile (style Riklis Karto). Liste : une marque par ligne.
+  08/11/2026 (demande d'Amine) : logo de la marque quand il existe (Fichiers Shopify « qosmi-logo-marque-<nom simplifié>.jpg »,
+  liste « logos »), sinon le nom ; défilement plus lent, vitesse calculée sur le nombre de marques.
+{%- endcomment -%}
 {%- assign noms = section.settings.liste | newline_to_br | split: '<br />' -%}
+{%- assign qk_logos = section.settings.logos | newline_to_br | split: '<br />' -%}
+{%- assign qk_liste_logos = '' -%}
+{%- for l in qk_logos -%}{%- assign l2 = l | strip -%}{%- assign qk_liste_logos = qk_liste_logos | append: '|' | append: l2 -%}{%- endfor -%}
+{%- assign qk_liste_logos = qk_liste_logos | append: '|' -%}
+{%- assign qk_n = 0 -%}
+{%- for n in noms -%}{%- assign nom = n | strip -%}{%- if nom != blank -%}{%- assign qk_n = qk_n | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- assign qk_duree = qk_n | times: section.settings.secondes_par_marque | default: 240 -%}
 <section class="qk-section qk-marques">
   <div class="qk-largeur">
     <h2 class="qk-titre-section">{{ section.settings.titre }}</h2>
     {%- if section.settings.texte != blank -%}<p class="qk-intro">{{ section.settings.texte }}</p>{%- endif -%}
   </div>
   <div class="qk-marques__bande" aria-label="{{ section.settings.titre | escape }}">
-    <div class="qk-marques__piste">
+    <div class="qk-marques__piste" style="animation-duration: {{ qk_duree }}s;">
       {%- for i in (1..2) -%}
         {%- for n in noms -%}
           {%- assign nom = n | strip -%}
           {%- if nom != blank -%}
-            <a class="qk-marque" href="/collections/vendors?q={{ nom | url_encode }}"{% if i == 2 %} aria-hidden="true" tabindex="-1"{% endif %}>{{ nom }}</a>
+            {%- assign slug = nom | replace: "'", "-" | replace: "’", "-" | replace: "´", "-" | handleize -%}
+            {%- assign cle = '|' | append: slug | append: '|' -%}
+            {%- assign img = nil -%}
+            {%- if qk_liste_logos contains cle -%}
+              {%- assign fichier = 'qosmi-logo-marque-' | append: slug | append: '.jpg' -%}
+              {%- assign img = images[fichier] -%}
+            {%- endif -%}
+            <a class="qk-marque{% if img %} qk-marque--logo{% endif %}" href="/collections/vendors?q={{ nom | url_encode }}"{% if i == 2 %} aria-hidden="true" tabindex="-1"{% endif %}>
+              {%- if img -%}
+                {{ img | image_url: width: 360 | image_tag: alt: nom, loading: 'lazy', widths: '180, 360', sizes: '180px' }}
+              {%- else -%}
+                {{ nom }}
+              {%- endif -%}
+            </a>
           {%- endif -%}
         {%- endfor -%}
       {%- endfor -%}
@@ -26,7 +50,9 @@
   "settings": [
     { "type": "text", "id": "titre", "label": "Titre", "default": "Marques" },
     { "type": "textarea", "id": "texte", "label": "Texte" },
-    { "type": "textarea", "id": "liste", "label": "Marques (une par ligne)" }
+    { "type": "textarea", "id": "liste", "label": "Marques (une par ligne)" },
+    { "type": "textarea", "id": "logos", "label": "Marques avec logo (nom simplifié, une par ligne)" },
+    { "type": "range", "id": "secondes_par_marque", "label": "Lenteur du défilement (secondes par marque)", "min": 1, "max": 6, "step": 0.5, "default": 2.5 }
   ],
   "presets": [{ "name": "Qosmi · Marques" }]
 }
