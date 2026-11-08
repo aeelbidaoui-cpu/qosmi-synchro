@@ -1,0 +1,91 @@
+name: Qosmi - bol.com
+
+on:
+  schedule:
+    - cron: "41 */6 * * *"   # toutes les 6 heures (UTC) : relevé bol + décisions (lecture seule tant que publication_active = false)
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Que faire ?"
+        type: choice
+        default: analyse
+        options: [analyse, test-connexion, recalculer]
+      maxi:
+        description: "Nombre maximum d'EAN à relever (vide = tous, dans la limite de durée)"
+        required: false
+        default: ""
+
+concurrency:
+  group: qosmi-bol
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  bol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - name: Refuser de tourner si le dépôt est public
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          prive=$(gh api "repos/${GITHUB_REPOSITORY}" --jq .private)
+          if [ "$prive" != "true" ]; then echo "::error::Le dépôt est PUBLIC : arrêt."; exit 1; fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Vérifier que l'accès bol est enregistré
+        env:
+          BOL_CLIENT_ID: ${{ secrets.BOL_CLIENT_ID }}
+        run: |
+          if [ -z "$BOL_CLIENT_ID" ]; then
+            echo "::warning::Secrets BOL_CLIENT_ID / BOL_CLIENT_SECRET absents : lancer « 31 - bol - Copier l'acces bol pour GitHub » sur le Mac."
+            echo "ABSENT=1" >> "$GITHUB_ENV"
+          fi
+
+      - name: Reprendre les relevés précédents
+        if: env.ABSENT != '1'
+        uses: actions/cache/restore@v4
+        with:
+          path: base/bol_marche.json
+          key: bol-${{ github.run_id }}
+          restore-keys: bol-
+
+      - name: bol
+        if: env.ABSENT != '1'
+        env:
+          BOL_CLIENT_ID: ${{ secrets.BOL_CLIENT_ID }}
+          BOL_CLIENT_SECRET: ${{ secrets.BOL_CLIENT_SECRET }}
+          SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
+          SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
+        run: |
+          A="${{ inputs.action }}"; [ -z "$A" ] && A=analyse
+          M="${{ inputs.maxi }}"
+          if [ "$A" = "test-connexion" ]; then python -u scripts/bol_api.py --test
+          elif [ "$A" = "recalculer" ]; then python -u scripts/bol_analyse.py --sans-releve
+          elif [ -n "$M" ]; then python -u scripts/bol_analyse.py --max "$M"
+          else python -u scripts/bol_analyse.py; fi
+
+      - name: Garder les relevés pour le prochain passage
+        if: always() && env.ABSENT != '1'
+        uses: actions/cache/save@v4
+        with:
+          path: base/bol_marche.json
+          key: bol-${{ github.run_id }}
+
+      - name: Rapport (interne, confidentiel)
+        if: always() && env.ABSENT != '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: bol-analyse-${{ github.run_id }}
+          path: |
+            rapports/bol_analyse.csv
+            rapports/bol_analyse.txt
+          retention-days: 14
+          if-no-files-found: ignore
