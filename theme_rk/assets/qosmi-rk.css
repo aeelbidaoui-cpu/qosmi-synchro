@@ -50,7 +50,8 @@
 img.qk-hero__img { animation: qk-zoom 28s ease-in-out infinite alternate; transform-origin: 70% 40%; }
 @keyframes qk-zoom { from { transform: scale(1); } to { transform: scale(1.08); } }
 @media (prefers-reduced-motion: reduce) { img.qk-hero__img { animation: none; } }
-@media (max-width: 749px) { img.qk-hero__img { object-position: 72% center; } }
+@media (max-width: 749px) { img.qk-hero__img, video.qk-hero__img, .qk-hero__video video { object-position: 72% center; } }
+.qk-hero__video video { width: 100%; height: 100%; object-fit: cover; }
 .qk-hero__video--mobile { display: none; }
 @media (max-width: 749px) {
   .qk-hero__video:has(~ .qk-hero__video--mobile) { display: none; }
