@@ -22,6 +22,7 @@ SOURCES = ("photos_marques.json", "photos_riklis.json", "photos_skins.json", "ph
 AGENT = "Mozilla/5.0 (compatible; QosmiPhotos/1.0)"
 PART_H, PART_L = 0.80, 0.74  # part de la hauteur / de la largeur occupée par le flacon
 SEUIL_FOND, ECART = 232, 22
+VERSION = "2"  # v2 (08/11/2026) : fonds gris clairs passés au blanc ; nouveau nom de fichier pour ne pas reprendre l'ancien
 
 
 def toutes_les_photos():
@@ -32,6 +33,23 @@ def toutes_les_photos():
             ph = json.load(open(chemin, encoding="utf-8"))
             urls |= set(ph.get("par_ean", {}).values()) | set(ph.get("par_nom", {}).values()) | set(ph.get("par_fiche", {}).values())
     return sorted(u for u in urls if u)
+
+
+FOND_GRIS_MIN, FOND_ECART_MAX = 195, 8  # fond uni gris clair (ex. photos Creed) : passé au blanc avant recadrage
+
+
+def blanchir(im, t0=4.0, t1=46.0):
+    """Fond uni gris clair -> blanc, sans détourage destructif (08/11/2026, photos Creed).
+    Alpha = écart à la couleur du fond (lissé entre t0 et t1) ; ce qui ressemble au fond glisse vers le blanc,
+    le flacon (alpha 1) n'est pas touché ; le verre laisse voir le nouveau fond ; l'ombre douce reste. Aucun rééchantillonnage."""
+    import numpy as np
+    from PIL import Image
+    a = np.asarray(im.convert("RGB")).astype(np.float32)
+    coins = np.concatenate([a[:20, :20].reshape(-1, 3), a[:20, -20:].reshape(-1, 3),
+                            a[-20:, :20].reshape(-1, 3), a[-20:, -20:].reshape(-1, 3)])
+    bg = np.median(coins, axis=0)
+    alpha = np.clip((np.abs(a - bg).max(axis=2) - t0) / (t1 - t0), 0, 1)[..., None]
+    return Image.fromarray(np.clip(a + (1 - alpha) * (255.0 - bg), 0, 255).round().astype(np.uint8))
 
 
 def recadrer(donnees):
@@ -47,11 +65,17 @@ def recadrer(donnees):
     im = im.convert("RGB")
     l, h = im.size
     coins = [im.getpixel(p) for p in ((0, 0), (l - 1, 0), (0, h - 1), (l - 1, h - 1), (l // 2, 0), (l // 2, h - 1))]
+    bas, haut = min(min(c) for c in coins), max(max(c) for c in coins)
+    ecart = ECART
+    if FOND_GRIS_MIN <= bas < SEUIL_FOND and haut - bas <= FOND_ECART_MAX:  # fond gris clair uni : passé au blanc
+        im = blanchir(im)
+        ecart = 40  # l'ombre portée, devenue gris très clair, ne compte pas dans le cadrage
+        coins = [im.getpixel(p) for p in ((0, 0), (l - 1, 0), (0, h - 1), (l - 1, h - 1), (l // 2, 0), (l // 2, h - 1))]
     if min(min(c) for c in coins) < SEUIL_FOND:
         return None
     teinte0 = tuple(sorted(c[i] for c in coins)[len(coins) // 2] for i in range(3))
     gris = ImageChops.difference(im, Image.new("RGB", im.size, teinte0)).convert("L")
-    masque = gris.point(lambda v: 255 if v > ECART else 0)
+    masque = gris.point(lambda v: 255 if v > ecart else 0)
     boite = masque.getbbox()
     if not boite:
         return None
@@ -107,7 +131,7 @@ def main():
             with verrou:
                 bilan["laissées (fond foncé)"] += 1
             return u, u, None
-        nom = "qosmi-c-%s.jpg" % hashlib.sha1(u.encode()).hexdigest()[:16]
+        nom = "qosmi-c%s-%s.jpg" % (VERSION, hashlib.sha1(u.encode()).hexdigest()[:16])
         chemin = os.path.join(dossier, nom)
         open(chemin, "wb").write(jpeg)
         with verrou:

@@ -59,7 +59,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "politiques" ]; then python -u scripts/site_pages.py --politiques
           elif [ "${{ inputs.action }}" = "pages-legales" ]; then python -u scripts/site_pages.py
           elif [ "${{ inputs.action }}" = "photos-adp" ]; then python -u scripts/photos_adp.py
-          elif [ "${{ inputs.action }}" = "photos-cadre" ]; then pip install -q pillow && python -u scripts/photos_cadre.py
+          elif [ "${{ inputs.action }}" = "photos-cadre" ]; then pip install -q pillow numpy && python -u scripts/photos_cadre.py
           elif [ "${{ inputs.action }}" = "photos-hero" ]; then python -u scripts/photos_hero.py
           elif [ "${{ inputs.action }}" = "photos-ici" ]; then python -u scripts/photos_ici.py
           elif [ "${{ inputs.action }}" = "masquer-photos-faibles" ]; then python -u scripts/site_synchro.py --masquer-photos-faibles
