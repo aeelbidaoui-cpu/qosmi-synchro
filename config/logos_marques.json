@@ -1,5 +1,5 @@
 {
- "source": "Logos des marques relevés sur Fragrantica (fimgs.net) le 08/11/2026, vérifiés un par un (propres, bonne marque) ; demande d'Amine du 08/11/2026.",
+ "source": "Logos des marques relevés sur Fragrantica (fimgs.net) le 08/11/2026, vérifiés un par un (propres, bonne marque) ; demande d'Amine du 08/11/2026. 08/11/2026 soir : +12 marques remises (Guess et Boucheron depuis leur site officiel).",
  "par_marque": {
   "Acqua di Parma": {
    "slug": "acqua-di-parma",
@@ -818,6 +818,114 @@
    "taille": [
     1163,
     498
+   ]
+  },
+  "Atelier des Ors": {
+   "slug": "atelier-des-ors",
+   "fichier": "qosmi-logo-marque-atelier-des-ors.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2178.jpg",
+   "taille": [
+    341,
+    295
+   ]
+  },
+  "Boucheron": {
+   "slug": "boucheron",
+   "fichier": "qosmi-logo-marque-boucheron.jpg",
+   "source": "boucheron.com (logo officiel du site)",
+   "taille": [
+    524,
+    156
+   ]
+  },
+  "Cartier": {
+   "slug": "cartier",
+   "fichier": "qosmi-logo-marque-cartier.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.24.jpg",
+   "taille": [
+    343,
+    129
+   ]
+  },
+  "Chopard": {
+   "slug": "chopard",
+   "fichier": "qosmi-logo-marque-chopard.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.36.jpg",
+   "taille": [
+    344,
+    139
+   ]
+  },
+  "Franck Boclet": {
+   "slug": "franck-boclet",
+   "fichier": "qosmi-logo-marque-franck-boclet.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1637.jpg",
+   "taille": [
+    529,
+    173
+   ]
+  },
+  "Guess": {
+   "slug": "guess",
+   "fichier": "qosmi-logo-marque-guess.jpg",
+   "source": "https://content.guess.com/guesseurope/content/Logo/Guess-LOGO-BLK-RGB.png (site officiel)",
+   "taille": [
+    2311,
+    731
+   ]
+  },
+  "Kajal": {
+   "slug": "kajal",
+   "fichier": "qosmi-logo-marque-kajal.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2339.jpg",
+   "taille": [
+    461,
+    386
+   ]
+  },
+  "Kayali": {
+   "slug": "kayali",
+   "fichier": "qosmi-logo-marque-kayali.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.3526.jpg",
+   "taille": [
+    340,
+    317
+   ]
+  },
+  "Liquides Imaginaires": {
+   "slug": "liquides-imaginaires",
+   "fichier": "qosmi-logo-marque-liquides-imaginaires.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.1824.jpg",
+   "taille": [
+    348,
+    112
+   ]
+  },
+  "Lorenzo Pazzaglia": {
+   "slug": "lorenzo-pazzaglia",
+   "fichier": "qosmi-logo-marque-lorenzo-pazzaglia.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.4465.jpg (inversé : foncé sur blanc)",
+   "taille": [
+    720,
+    267
+   ]
+  },
+  "Unique'e Luxury": {
+   "slug": "unique-e-luxury",
+   "fichier": "qosmi-logo-marque-unique-e-luxury.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.3410.jpg",
+   "taille": [
+    305,
+    285
+   ]
+  },
+  "V Canto": {
+   "slug": "v-canto",
+   "fichier": "qosmi-logo-marque-v-canto.jpg",
+   "source": "https://fimgs.net/mdimg/dizajneri/o.2237.jpg",
+   "taille": [
+    238,
+    262
    ]
   }
  }
