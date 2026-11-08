@@ -53,12 +53,17 @@ jobs:
         if: env.ABSENT != '1'
         uses: actions/cache/restore@v4
         with:
-          path: |
-            base/bol_marche.json
-            base/bol_decisions.json
-            base/bol_refus.json
+          path: base/bol_marche.json
           key: bol-${{ github.run_id }}
           restore-keys: bol-
+
+      - name: Reprendre l'état de la publication (refus bol)
+        if: env.ABSENT != '1'
+        uses: actions/cache/restore@v4
+        with:
+          path: base/bol_refus.json
+          key: bolpub-${{ github.run_id }}
+          restore-keys: bolpub-
 
       - name: bol
         if: env.ABSENT != '1'
@@ -68,6 +73,7 @@ jobs:
           SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
           SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
         run: |
+          mkdir -p base; [ -f base/bol_refus.json ] || echo '{}' > base/bol_refus.json
           A="${{ inputs.action }}"; [ -z "$A" ] && A=analyse
           M="${{ inputs.maxi }}"
           if [ "$A" = "test-connexion" ]; then python -u scripts/bol_api.py --test
@@ -81,11 +87,15 @@ jobs:
         if: always() && env.ABSENT != '1'
         uses: actions/cache/save@v4
         with:
-          path: |
-            base/bol_marche.json
-            base/bol_decisions.json
-            base/bol_refus.json
+          path: base/bol_marche.json
           key: bol-${{ github.run_id }}
+
+      - name: Garder l'état de la publication
+        if: always() && env.ABSENT != '1'
+        uses: actions/cache/save@v4
+        with:
+          path: base/bol_refus.json
+          key: bolpub-${{ github.run_id }}
 
       - name: Rapport (interne, confidentiel)
         if: always() && env.ABSENT != '1'
