@@ -203,3 +203,13 @@ img.qk-hero__img { animation: qk-zoom 28s ease-in-out infinite alternate; transf
 .qk-gpsr summary::after { content: "+"; }
 .qk-gpsr[open] summary::after { content: "−"; }
 .qk-gpsr p { margin: 10px 0 0; color: var(--qk-doux); line-height: 1.5; }
+
+/* ---------- Journal (blog) : photos de fiches et FAQ dans les articles (08/11/2026) ---------- */
+.qk-fig { margin: 2rem auto; max-width: 420px; text-align: center; }
+.qk-fig img { display: block; width: 100%; height: auto; background: #F4F4F4; border-radius: 4px; }
+.qk-fig figcaption { margin-top: .6rem; font-size: .9rem; color: #555; }
+.qk-fig figcaption a, .qk-fig a { text-decoration: none; color: inherit; }
+.qk-sel { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 2rem 0; }
+.qk-sel .qk-fig { margin: 0; max-width: none; }
+.qk-faq { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #E5E5E5; }
+.qk-faq h3 { margin: 1.4rem 0 .4rem; font-size: 1.05rem; }

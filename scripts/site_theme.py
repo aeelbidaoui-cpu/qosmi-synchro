@@ -75,7 +75,8 @@ COLLECTIONS = [  # (handle, titre, colonne, valeurs)
 MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes")]),
         ("Femme", "parfums-femme", []), ("Homme", "parfums-homme", []),
         ("Niche", "niche", []), ("Testeurs", "testeurs", []),
-        ("Marques", "page:marques", [])]  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
+        ("Marques", "page:marques", []),  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
+        ("Journal", "blog:journal", [])]  # 08/11/2026 : le blog (scripts/blog.py)
 LOGOS = ["qosmi-logo.png", "qosmi-logo-blanc.png", "qosmi-favicon.png"]
 
 
@@ -145,7 +146,11 @@ def menu(s, ids):
     m = next((x for x in menus if x["handle"] == "main-menu"), None)
     pages = {"page:marques": page_marques(s)} if any(h == "page:marques" for _, h, _ in MENU) else {}
 
+    blogs = {b["handle"]: b["id"] for b in s.gql("{ blogs(first: 20) { nodes { id handle } } }")["blogs"]["nodes"]}
+
     def entree(t, h, sous=()):
+        if h.startswith("blog:"):
+            return {"title": t, "type": "BLOG", "resourceId": blogs[h[5:]], "items": []}
         if h.startswith("page:"):
             return {"title": t, "type": "PAGE", "resourceId": pages[h], "items": []}
         return {"title": t, "type": "COLLECTION", "resourceId": ids[h], "items": [entree(st, sh) for st, sh in sous]}

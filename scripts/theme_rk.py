@@ -34,6 +34,16 @@ PARTAGE = """    {%- comment -%}qk-partage{%- endcomment -%}
 """
 
 
+FAQ_LD = """    {%- comment -%}qk-faq-ld{%- endcomment -%}
+    {%- if template.name == 'article' and article -%}
+      {%- if request.locale.iso_code == 'nl' -%}{%- assign qk_faq = article.metafields.qosmi.faq_nl.value -%}{%- else -%}{%- assign qk_faq = article.metafields.qosmi.faq_fr.value -%}{%- endif -%}
+      {%- if qk_faq and qk_faq.size > 0 -%}
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{%- for f in qk_faq -%}{"@type":"Question","name":{{ f.q | json }},"acceptedAnswer":{"@type":"Answer","text":{{ f.r | json }}}}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]}</script>
+      {%- endif -%}
+    {%- endif -%}
+"""
+
+
 def lire(texte):
     i = texte.find("{")
     return texte[:i], json.loads(texte[i:])
@@ -125,6 +135,9 @@ def construire(fichiers, marques):
     # image de partage (réseaux sociaux, WhatsApp) quand la page n'a pas d'image propre (demande d'Amine du 08/11/2026)
     if "qk-partage" not in lay:
         lay = lay.replace("</head>", PARTAGE + "  </head>", 1)
+    # FAQ des articles du Journal en données structurées (08/11/2026)
+    if "qk-faq-ld" not in lay:
+        lay = lay.replace("</head>", FAQ_LD + "  </head>", 1)
     liquides["layout/theme.liquid"] = lay
 
     # ---------- accueil ----------
