@@ -369,3 +369,4 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-entete-coll--logo .qk-entete-coll__logo { order: -1; align-self: center; }
   .qk-entete-coll__logo img { max-width: 200px; max-height: 100px; }
 }
+.qk-pied__bas a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }

@@ -29,7 +29,7 @@
     </nav>
   </div>
   <div class="qk-largeur qk-pied__bas">
-    <span>© {{ 'now' | date: '%Y' }} Qosmi · Deway BV</span>
+    <span>© {{ 'now' | date: '%Y' }} Qosmi · Deway BV · <a href="#" class="qk-pied__cookies" onclick="if(window.privacyBanner){window.privacyBanner.showPreferences();}return false;">{% if qk_nl %}Cookievoorkeuren{% else %}Préférences cookies{% endif %}</a></span>
     <span class="qk-pied__paiement">
       {%- for type in shop.enabled_payment_types -%}{{ type | payment_type_svg_tag: class: 'qk-paiement' }}{%- endfor -%}
     </span>

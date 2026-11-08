@@ -320,6 +320,7 @@ CONFIDENTIALITE = {
 <tr><td>Lettre d'information (si vous vous inscrivez)</td><td>Votre e-mail et la date de votre accord.</td><td>Vous envoyer notre lettre mensuelle.</td><td>Consentement (art. 6.1.a), retirable à tout moment</td></tr>
 <tr><td>Fonctionnement et sécurité du site</td><td>Données techniques (adresse IP, navigateur), cookies strictement nécessaires.</td><td>Faire fonctionner le panier et la caisse, sécuriser le site.</td><td>Intérêt légitime (art. 6.1.f)</td></tr>
 <tr><td>Mesure d'audience (seulement si vous l'acceptez)</td><td>Pages vues, interactions, données de cookies d'analyse.</td><td>Comprendre l'usage du site pour l'améliorer.</td><td>Consentement (art. 6.1.a)</td></tr>
+<tr><td>Publicité sur Facebook et Instagram (seulement si vous acceptez les cookies marketing)</td><td>Pages et produits consultés, ajouts au panier, achats (produits, montant), identifiants de cookies, adresse IP et navigateur. Lors d'un achat, votre e-mail et votre téléphone sont envoyés sous forme chiffrée (hachée), jamais en clair.</td><td>Mesurer les résultats de nos publicités et les montrer aux personnes susceptibles d'être intéressées.</td><td>Consentement (art. 6.1.a), retirable à tout moment avec le lien « Préférences cookies »</td></tr>
 </tbody>
 </table>
 <p>Nous ne prenons aucune décision automatisée qui produit des effets juridiques à votre égard, à l'exception de l'analyse antifraude automatique du prestataire de paiement, qui peut bloquer un paiement suspect. Vous pouvez alors nous contacter pour un examen humain.</p>
@@ -328,9 +329,10 @@ CONFIDENTIALITE = {
 <li><strong>Shopify</strong>, qui héberge la boutique, traite les paiements et envoie les e-mails de commande (Shopify International Limited, Irlande, et ses sous-traitants) ;</li>
 <li><strong>le transporteur</strong> qui livre votre colis (nom, adresse, e-mail ou téléphone pour l'avis de livraison) ;</li>
 <li><strong>notre partenaire logistique établi dans l'Union européenne</strong>, qui prépare et expédie les commandes (nom et adresse de livraison seulement) ;</li>
-<li><strong>notre comptable</strong> et, si la loi l'exige, les autorités.</li>
+<li><strong>notre comptable</strong> et, si la loi l'exige, les autorités ;</li>
+<li><strong>Meta Platforms Ireland Limited</strong> (Facebook, Instagram), seulement si vous acceptez les cookies marketing. Pour la collecte de ces données sur notre site, Meta et nous sommes responsables conjoints ; Meta est seul responsable de ce qu'il en fait ensuite, selon sa <a href="https://www.facebook.com/privacy/policy">politique de confidentialité</a>. Vous pouvez aussi gérer ces données dans les paramètres « Activité en dehors des technologies Meta » de votre compte Facebook ou Instagram.</li>
 </ul>
-<p>Certains sous-traitants de Shopify traitent des données hors de l'Union européenne, notamment au Canada (pays reconnu comme offrant une protection adéquate) et aux États-Unis. Ces transferts sont encadrés par les garanties prévues par le RGPD (décision d'adéquation ou clauses contractuelles types).</p>
+<p>Certains sous-traitants de Shopify traitent des données hors de l'Union européenne, notamment au Canada (pays reconnu comme offrant une protection adéquate) et aux États-Unis. Ces transferts sont encadrés par les garanties prévues par le RGPD (décision d'adéquation ou clauses contractuelles types). Meta peut transférer des données aux États-Unis dans le cadre du EU-U.S. Data Privacy Framework.</p>
 <h2>4. Combien de temps ?</h2>
 <ul>
 <li>Données de commande et factures : pendant les délais légaux de conservation des documents comptables et fiscaux ;</li>
@@ -343,7 +345,7 @@ CONFIDENTIALITE = {
 <p>Vous pouvez demander l'accès à vos données, leur rectification, leur effacement, la limitation du traitement et la portabilité, et vous opposer à un traitement fondé sur notre intérêt légitime. Vous pouvez retirer votre consentement à tout moment, sans effet sur ce qui a été fait avant. Écrivez à <a href="mailto:{email}">{email}</a> ; nous répondons dans un délai d'un mois. Nous pouvons vous demander de prouver votre identité.</p>
 <p>Vous pouvez aussi introduire une plainte auprès de l'<strong>Autorité de protection des données</strong>, rue de la Presse 35, 1000 Bruxelles, <a href="https://www.autoriteprotectiondonnees.be">autoriteprotectiondonnees.be</a>.</p>
 <h2>6. Modifications</h2>
-<p>Nous mettons cette politique à jour si nos pratiques changent (par exemple l'ajout d'un outil de mesure d'audience). La date de version figure en haut de la page.</p>
+<p>Nous mettons cette politique à jour si nos pratiques changent (par exemple l'ajout d'un nouvel outil de mesure ou de publicité). La date de version figure en haut de la page.</p>
 """,
     "nl": """
 <p><em>Versie van {date_nl}.</em></p>
@@ -362,6 +364,7 @@ CONFIDENTIALITE = {
 <tr><td>Nieuwsbrief (als u zich inschrijft)</td><td>Uw e-mail en de datum van uw toestemming.</td><td>U onze maandelijkse nieuwsbrief sturen.</td><td>Toestemming (art. 6.1.a), altijd intrekbaar</td></tr>
 <tr><td>Werking en beveiliging van de website</td><td>Technische gegevens (IP-adres, browser), strikt noodzakelijke cookies.</td><td>Het winkelmandje en het afrekenen laten werken, de website beveiligen.</td><td>Gerechtvaardigd belang (art. 6.1.f)</td></tr>
 <tr><td>Bezoekersstatistieken (enkel als u dat aanvaardt)</td><td>Bekeken pagina's, interacties, gegevens van analytische cookies.</td><td>Het gebruik van de website begrijpen om ze te verbeteren.</td><td>Toestemming (art. 6.1.a)</td></tr>
+<tr><td>Reclame op Facebook en Instagram (enkel als u marketingcookies aanvaardt)</td><td>Bekeken pagina's en producten, toevoegingen aan het winkelmandje, aankopen (producten, bedrag), cookie-ID's, IP-adres en browser. Bij een aankoop worden uw e-mail en telefoon versleuteld (gehasht) verstuurd, nooit leesbaar.</td><td>De resultaten van onze advertenties meten en ze tonen aan mensen die er interesse voor kunnen hebben.</td><td>Toestemming (art. 6.1.a), altijd intrekbaar via de link „Cookievoorkeuren”</td></tr>
 </tbody>
 </table>
 <p>Wij nemen geen geautomatiseerde beslissingen met rechtsgevolgen voor u, behalve de automatische fraudecontrole van de betaaldienst, die een verdachte betaling kan blokkeren. U kunt ons dan contacteren voor een menselijke beoordeling.</p>
@@ -370,9 +373,10 @@ CONFIDENTIALITE = {
 <li><strong>Shopify</strong>, dat de winkel host, de betalingen verwerkt en de bestelmails verstuurt (Shopify International Limited, Ierland, en zijn verwerkers);</li>
 <li><strong>de vervoerder</strong> die uw pakket levert (naam, adres, e-mail of telefoon voor het leveringsbericht);</li>
 <li><strong>onze logistieke partner in de Europese Unie</strong>, die de bestellingen klaarmaakt en verzendt (enkel naam en leveradres);</li>
-<li><strong>onze boekhouder</strong> en, als de wet het vereist, de overheid.</li>
+<li><strong>onze boekhouder</strong> en, als de wet het vereist, de overheid;</li>
+<li><strong>Meta Platforms Ireland Limited</strong> (Facebook, Instagram), enkel als u marketingcookies aanvaardt. Voor het verzamelen van die gegevens op onze website zijn Meta en wij gezamenlijk verantwoordelijk; wat Meta er daarna mee doet, valt onder zijn eigen verantwoordelijkheid en zijn <a href="https://www.facebook.com/privacy/policy">privacybeleid</a>. U kunt die gegevens ook beheren via de instelling „Activiteit buiten Meta-technologieën” van uw Facebook- of Instagram-account.</li>
 </ul>
-<p>Sommige verwerkers van Shopify verwerken gegevens buiten de Europese Unie, onder meer in Canada (land met een erkend passend beschermingsniveau) en in de Verenigde Staten. Die doorgiften gebeuren met de waarborgen van de AVG (adequaatheidsbesluit of modelcontractbepalingen).</p>
+<p>Sommige verwerkers van Shopify verwerken gegevens buiten de Europese Unie, onder meer in Canada (land met een erkend passend beschermingsniveau) en in de Verenigde Staten. Die doorgiften gebeuren met de waarborgen van de AVG (adequaatheidsbesluit of modelcontractbepalingen). Meta kan gegevens doorgeven aan de Verenigde Staten binnen het EU-U.S. Data Privacy Framework.</p>
 <h2>4. Hoe lang?</h2>
 <ul>
 <li>Bestelgegevens en facturen: gedurende de wettelijke bewaartermijnen voor boekhoudkundige en fiscale documenten;</li>
@@ -385,7 +389,7 @@ CONFIDENTIALITE = {
 <p>U kunt inzage, verbetering of wissing van uw gegevens vragen, de beperking van de verwerking en overdraagbaarheid, en u kunt bezwaar maken tegen een verwerking op grond van ons gerechtvaardigd belang. U kunt uw toestemming altijd intrekken, zonder gevolg voor wat daarvoor gebeurde. Schrijf naar <a href="mailto:{email}">{email}</a>; wij antwoorden binnen een maand. Wij kunnen u vragen uw identiteit aan te tonen.</p>
 <p>U kunt ook klacht indienen bij de <strong>Gegevensbeschermingsautoriteit</strong>, Drukpersstraat 35, 1000 Brussel, <a href="https://www.gegevensbeschermingsautoriteit.be">gegevensbeschermingsautoriteit.be</a>.</p>
 <h2>6. Wijzigingen</h2>
-<p>Wij passen dit beleid aan als onze werkwijze verandert (bijvoorbeeld als wij een tool voor bezoekersstatistieken toevoegen). De versiedatum staat bovenaan de pagina.</p>
+<p>Wij passen dit beleid aan als onze werkwijze verandert (bijvoorbeeld als wij een nieuwe meet- of reclametool toevoegen). De versiedatum staat bovenaan de pagina.</p>
 """,
 }
 
@@ -411,9 +415,11 @@ COOKIES = {
 <tr><td>__Host-Http-shop_binding</td><td>Connexion avec Shop (si vous l'utilisez)</td><td>Nécessaire</td><td>3 heures</td></tr>
 <tr><td>_shopify_analytics</td><td>Statistiques de visite de la boutique et de la caisse</td><td>Analyse (avec votre accord)</td><td>1 an</td></tr>
 <tr><td>_shopify_marketing</td><td>Données marketing de la boutique et de la caisse</td><td>Marketing (avec votre accord)</td><td>1 an</td></tr>
+<tr><td>_fbp</td><td>Pixel Meta : reconnaît votre navigateur pour mesurer nos publicités Facebook et Instagram</td><td>Marketing (avec votre accord)</td><td>3 mois</td></tr>
+<tr><td>_fbc</td><td>Pixel Meta : mémorise que vous êtes arrivé par une de nos publicités</td><td>Marketing (avec votre accord)</td><td>3 mois</td></tr>
 </tbody>
 </table>
-<p>Ces cookies sont déposés par Shopify, la plateforme qui héberge notre boutique. Le prestataire de paiement peut aussi utiliser, pendant le paiement, des cookies nécessaires à la prévention de la fraude. Nous n'utilisons aujourd'hui aucun outil de publicité ni de réseau social (pas de pixel Meta, TikTok ou Google Ads). Si cela change, cette page et la bannière seront mises à jour avant.</p>
+<p>Les cookies « _shopify » et du panier sont déposés par Shopify, la plateforme qui héberge notre boutique. Les cookies « _fbp » et « _fbc » sont ceux du pixel de Meta (Facebook, Instagram) ; ils ne sont déposés, et aucune donnée n'est envoyée à Meta depuis le site, que si vous acceptez les cookies marketing. Le prestataire de paiement peut aussi utiliser, pendant le paiement, des cookies nécessaires à la prévention de la fraude. Si nous ajoutons un autre outil, cette page et la bannière seront mises à jour avant.</p>
 <h2>Bloquer les cookies dans votre navigateur</h2>
 <p>Vous pouvez aussi supprimer ou bloquer les cookies dans les réglages de votre navigateur. Sans les cookies nécessaires, le panier et la caisse ne fonctionnent pas.</p>
 <p>Questions : <a href="mailto:{email}">{email}</a>. Voir aussi notre <a href="/pages/confidentialite">politique de confidentialité</a>.</p>
@@ -437,9 +443,11 @@ COOKIES = {
 <tr><td>__Host-Http-shop_binding</td><td>Aanmelden met Shop (als u dat gebruikt)</td><td>Noodzakelijk</td><td>3 uur</td></tr>
 <tr><td>_shopify_analytics</td><td>Bezoekersstatistieken van de winkel en het afrekenen</td><td>Analytisch (met uw toestemming)</td><td>1 jaar</td></tr>
 <tr><td>_shopify_marketing</td><td>Marketinggegevens van de winkel en het afrekenen</td><td>Marketing (met uw toestemming)</td><td>1 jaar</td></tr>
+<tr><td>_fbp</td><td>Meta-pixel: herkent uw browser om onze advertenties op Facebook en Instagram te meten</td><td>Marketing (met uw toestemming)</td><td>3 maanden</td></tr>
+<tr><td>_fbc</td><td>Meta-pixel: onthoudt dat u via een van onze advertenties kwam</td><td>Marketing (met uw toestemming)</td><td>3 maanden</td></tr>
 </tbody>
 </table>
-<p>Deze cookies worden geplaatst door Shopify, het platform dat onze winkel host. De betaaldienst kan tijdens de betaling ook cookies gebruiken die nodig zijn om fraude te voorkomen. Wij gebruiken vandaag geen reclame- of socialemediatools (geen pixel van Meta, TikTok of Google Ads). Verandert dat, dan worden deze pagina en de banner vooraf aangepast.</p>
+<p>De „_shopify”- en winkelmandjecookies worden geplaatst door Shopify, het platform dat onze winkel host. De cookies „_fbp” en „_fbc” zijn die van de Meta-pixel (Facebook, Instagram); ze worden enkel geplaatst, en de website stuurt pas gegevens naar Meta, als u marketingcookies aanvaardt. De betaaldienst kan tijdens de betaling ook cookies gebruiken die nodig zijn om fraude te voorkomen. Voegen wij een andere tool toe, dan worden deze pagina en de banner vooraf aangepast.</p>
 <h2>Cookies blokkeren in uw browser</h2>
 <p>U kunt cookies ook wissen of blokkeren in de instellingen van uw browser. Zonder de noodzakelijke cookies werken het winkelmandje en het afrekenen niet.</p>
 <p>Vragen: <a href="mailto:{email}">{email}</a>. Zie ook ons <a href="/pages/confidentialite">privacybeleid</a>.</p>
