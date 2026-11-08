@@ -14,7 +14,8 @@
   {%- assign qk_img = images[qk_nom] -%}
 {%- else -%}
   {%- comment -%} page d'une marque (/collections/vendors?q=…) : son logo, s'il est dans la liste « logos » (une marque par ligne) {%- endcomment -%}
-  {%- assign qk_marque = qk_c.title | handleize -%}
+  {%- comment -%} apostrophes = séparateurs, comme dans le script qui nomme les logos (« Unique'e Luxury » → unique-e-luxury) {%- endcomment -%}
+  {%- assign qk_marque = qk_c.title | replace: "'", "-" | replace: "’", "-" | replace: "´", "-" | handleize -%}
   {%- assign qk_logos = section.settings.logos | newline_to_br | split: '<br />' -%}
   {%- for l in qk_logos -%}
     {%- assign l2 = l | strip -%}
