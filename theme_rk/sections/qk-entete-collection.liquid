@@ -1,11 +1,11 @@
 {%- comment -%}
   En-tête des pages de catégorie (demande d'Amine du 08/11/2026) : titre et texte à gauche, image à droite.
-  L'image est un fichier Shopify nommé « qosmi-entete-<handle de la collection>.jpg » (Contenu → Fichiers),
+  L'image est un fichier Shopify nommé « qosmi-entete-<handle de la collection>-v2.jpg » (Contenu → Fichiers),
   composée avec les flacons les plus connus de la catégorie (scripts/entetes_collections.py).
   Sans image pour cette catégorie : le titre et le texte seuls, comme avant.
 {%- endcomment -%}
 {%- assign qk_c = collection | default: closest.collection -%}
-{%- assign qk_nom = 'qosmi-entete-' | append: qk_c.handle | append: '.jpg' -%}
+{%- assign qk_nom = 'qosmi-entete-' | append: qk_c.handle | append: '-v2.jpg' -%}
 {%- assign qk_img = images[qk_nom] -%}
 <div class="section-background"></div>
 <div class="section section--page-width">

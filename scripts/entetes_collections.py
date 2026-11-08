@@ -113,13 +113,13 @@ def composer(flacons, chev, sortie):
 JEUX = {
  "parfums-femme": ([("f_carolina-herrera-good-girl-eau-de-parfum.jpg", 690, False), ("f_giorgio-armani-my-way-eau-de-parfum-pour.jpg", 600, True),
                     ("f_yves-saint-laurent-libre-eau-de-parfum-p.jpg", 720, False), ("f_viktor-rolf-flowerbomb-eau-de-parfum-pou.jpg", 560, True),
-                    ("f_gucci-bloom-eau-de-parfum-pour-femme.jpg", 545, False)], [0.10, 0.10, 0.10, 0.10]),
+                    ("f_gucci-bloom-eau-de-parfum-pour-femme.jpg", 545, False)], [0.04, 0.04, 0.04, 0.04]),
  "parfums-homme": ([("h_hugo-boss-boss-bottled-eau-de-parfum-pou.jpg", 680, False), ("h_giorgio-armani-acqua-di-gio-eau-de-parfu.jpg", 600, True),
                     ("h_jean-paul-gaultier-le-male-eau-de-toilet.jpg", 760, False), ("h_paco-rabanne-1-million-eau-de-toilette-p.jpg", 600, True),
-                    ("h_versace-eros-eau-de-parfum-pour-homme.jpg", 600, False)], [0.10, 0.10, 0.10, 0.10]),
- "niche": ([("n_parfums-de-marly-delina-eau-de-parfum-po.jpg", 660, False), ("n_xerjoff-xj-1861-naxos-eau-de-parfum-mixt.jpg", 700, True),
-            ("n_initio-black-gold-project-oud-for-greatn.jpg", 600, False), ("n_tiziana-terenzi-kirke-extrait-de-parfum-.jpg", 560, True),
-            ("n_nishane-ani-extrait-de-parfum-mixte.jpg", 600, False)], [0.10, 0.10, 0.10, 0.10]),
+                    ("h_versace-eros-eau-de-parfum-pour-homme.jpg", 600, False)], [0.02, 0.02, 0.02, 0.02]),
+ "niche": ([("n_parfums-de-marly-delina-eau-de-parfum-po.jpg", 620, False), ("n_xerjoff-xj-1861-naxos-eau-de-parfum-mixt.jpg", 650, True),
+            ("n_initio-black-gold-project-oud-for-greatn.jpg", 550, False), ("n_tiziana-terenzi-kirke-extrait-de-parfum-.jpg", 520, True),
+            ("n_nishane-ani-extrait-de-parfum-mixte.jpg", 560, False)], [-0.07, -0.07, -0.07, -0.07]),
 }
 if __name__ == "__main__":
     for k in (sys.argv[1:] or JEUX):
