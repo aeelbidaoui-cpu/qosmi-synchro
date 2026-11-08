@@ -74,6 +74,7 @@ def reglages():
         s = {}
     p = s.get("prix_provisoires") or {}
     return {"envoi_eur": float(p.get("envoi_eur", 2)), "marge_eur": float(p.get("marge_eur", 5)),
+            "paiement_pct": float(p.get("paiement_pct", 0)), "paiement_fixe": float(p.get("paiement_fixe", 0)),
             "tva": float(p.get("tva", 0.21)), "delai_fr": s.get("delai_dropship_fr", "4 à 7 jours ouvrables"),
             "delai_nl": s.get("delai_dropship_nl", "4 tot 7 werkdagen")}
 
@@ -111,7 +112,10 @@ def contenance(v):
 
 
 def prix_provisoire(achat, r):
-    ttc = (achat + r["envoi_eur"] + r["marge_eur"]) * (1 + r["tva"])
+    # (achat + envoi + bénéfice + frais de paiement) × (1 + TVA). Les frais de paiement (% + fixe) sont prélevés
+    # sur le prix payé TTC : on les inclut pour que le bénéfice reste entier (règle d'Amine du 08/11/2026).
+    ht_net = achat + r["envoi_eur"] + r["marge_eur"] + r.get("paiement_fixe", 0)
+    ttc = ht_net * (1 + r["tva"]) / (1 - (1 + r["tva"]) * r.get("paiement_pct", 0))
     cents = math.ceil(ttc * 100 - 1e-6)
     euros = cents // 100
     if euros * 100 + 90 < cents:
