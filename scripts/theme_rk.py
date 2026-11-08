@@ -11,7 +11,7 @@ DOSSIER = os.path.join(os.path.dirname(ICI), "theme_rk")
 FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.json", "templates/collection.json",
             "templates/search.json", "sections/header-group.json", "sections/footer-group.json"]
 CARTE_TEXTE = "{% render 'qk-carte-texte', product: closest.product %}"
-LIVRAISON = "Livraison partout en Belgique en 6 à 7 jours ouvrables · 6,95 €"
+LIVRAISON = "Livraison partout en Belgique en 1 à 2 jours ouvrables · 6,95 €"
 
 
 def lire(texte):
@@ -173,7 +173,7 @@ def construire(fichiers, marques):
     for k in ("qosmi_livraison", "qosmi_garanties"):
         det["blocks"].pop(k, None)
     det["blocks"]["qk_livraison"] = liquide(
-        "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Levering in heel België binnen 6 tot 7 werkdagen · 6,95 €"
+        "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Levering in heel België binnen 1 tot 2 werkdagen · 6,95 €"
         "{% else %}" + LIVRAISON + "{% endif %}</p>")
     det["blocks"]["qk_rassurance"] = liquide(
         "<div class=\"qk-rassurance\">{% if request.locale.iso_code == 'nl' %}"

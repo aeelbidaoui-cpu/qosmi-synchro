@@ -41,7 +41,7 @@ PAGES = [
 
 <h2>4. Livraison</h2>
 <p>4.1 Nous livrons <strong>uniquement en Belgique</strong>. Les frais de livraison sont de <strong>{frais_livraison} TVA comprise par commande</strong>, quel que soit le montant.</p>
-<p>4.2 Délai de livraison : <strong>{delai_total}</strong> à compter de la confirmation du paiement. Une fois le colis remis au transporteur, il est livré en 1 à 2 jours ouvrables. Le délai de votre commande vous est confirmé dans l'e-mail de confirmation de commande. Sauf autre délai convenu, la livraison a lieu au plus tard 30 jours après la conclusion du contrat.</p>
+<p>4.2 Délai de livraison : <strong>{delai_total}</strong> à compter de la confirmation du paiement. Le délai de votre commande vous est confirmé dans l'e-mail de confirmation de commande. Sauf autre délai convenu, la livraison a lieu au plus tard 30 jours après la conclusion du contrat.</p>
 <p>4.3 En cas de retard au-delà du délai convenu, vous pouvez nous demander de livrer dans un délai supplémentaire raisonnable ; à défaut, vous pouvez annuler la commande et être remboursé sans délai.</p>
 <p>4.4 Le colis est remis par un transporteur avec suivi, à l'adresse que vous indiquez. Vérifiez-la bien : un colis retourné pour adresse erronée ou non retiré peut être réexpédié contre de nouveaux frais de livraison.</p>
 <p>4.5 Le risque de perte ou d'endommagement vous est transféré quand vous, ou une personne que vous désignez autre que le transporteur, prenez physiquement possession du colis. Un colis visiblement abîmé doit si possible être refusé ou accepté avec réserves, et nous être signalé rapidement avec des photos.</p>
@@ -94,7 +94,7 @@ PAGES = [
 
 <h2>4. Levering</h2>
 <p>4.1 Wij leveren <strong>enkel in België</strong>. De verzendkosten bedragen <strong>{frais_livraison_nl} inclusief btw per bestelling</strong>, ongeacht het bedrag.</p>
-<p>4.2 Levertermijn: <strong>{delai_total_nl}</strong> na bevestiging van de betaling. Zodra het pakket aan de vervoerder is overhandigd, wordt het binnen 1 tot 2 werkdagen geleverd. De termijn van uw bestelling wordt bevestigd in de bevestigingsmail van uw bestelling. Tenzij anders overeengekomen, wordt uiterlijk 30 dagen na het sluiten van de overeenkomst geleverd.</p>
+<p>4.2 Levertermijn: <strong>{delai_total_nl}</strong> na bevestiging van de betaling. De termijn van uw bestelling wordt bevestigd in de bevestigingsmail van uw bestelling. Tenzij anders overeengekomen, wordt uiterlijk 30 dagen na het sluiten van de overeenkomst geleverd.</p>
 <p>4.3 Bij vertraging na de overeengekomen termijn kunt u ons vragen binnen een redelijke bijkomende termijn te leveren; gebeurt dat niet, dan kunt u de bestelling annuleren en wordt u meteen terugbetaald.</p>
 <p>4.4 Het pakket wordt geleverd door een vervoerder met track-and-trace, op het adres dat u opgeeft. Controleer het goed: een pakket dat terugkomt wegens een fout adres of omdat het niet werd afgehaald, kan opnieuw worden verzonden tegen nieuwe verzendkosten.</p>
 <p>4.5 Het risico van verlies of beschadiging gaat op u over wanneer u, of een door u aangewezen persoon andere dan de vervoerder, het pakket fysiek in bezit neemt. Een zichtbaar beschadigd pakket weigert u best of aanvaardt u onder voorbehoud, en meldt u ons snel met foto's.</p>
@@ -129,7 +129,7 @@ PAGES = [
         "fr": """
 <p><strong>Livraison partout en Belgique : {frais_livraison} par commande</strong>, quel que soit le montant. Nous ne livrons pas en dehors de la Belgique pour le moment.</p>
 <h2>Délais</h2>
-<p><strong>Livraison en {delai_total}</strong> à compter de la confirmation du paiement. Une fois votre colis remis au transporteur, il arrive chez vous en 1 à 2 jours ouvrables.</p>
+<p><strong>Livraison en {delai_total}</strong> à compter de la confirmation du paiement.</p>
 <p>Le délai de votre commande vous est confirmé dans l'e-mail de confirmation de commande.</p>
 <h2>Suivi</h2>
 <p>Dès l'expédition, vous recevez un e-mail avec le lien de suivi du colis.</p>
@@ -139,7 +139,7 @@ PAGES = [
         "nl": """
 <p><strong>Levering in heel België: {frais_livraison_nl} per bestelling</strong>, ongeacht het bedrag. Wij leveren voorlopig niet buiten België.</p>
 <h2>Termijnen</h2>
-<p><strong>Levering binnen {delai_total_nl}</strong> na bevestiging van de betaling. Zodra uw pakket aan de vervoerder is overhandigd, is het binnen 1 tot 2 werkdagen bij u.</p>
+<p><strong>Levering binnen {delai_total_nl}</strong> na bevestiging van de betaling.</p>
 <p>De termijn van uw bestelling wordt bevestigd in de bevestigingsmail van uw bestelling.</p>
 <h2>Track-and-trace</h2>
 <p>Zodra uw pakket vertrekt, ontvangt u een e-mail met de trackinglink.</p>
