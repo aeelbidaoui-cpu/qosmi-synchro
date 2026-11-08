@@ -13,12 +13,14 @@
   },
   "Acqua di Parma S.r.l.": {
    "name": "Acqua di Parma S.r.l.",
-   "street": "Via Morimondo",
-   "houseNumber": "26",
-   "postalCode": "20143",
+   "street": "Via Giovanni Spadolini",
+   "houseNumber": "7",
+   "postalCode": "20141",
    "city": "Milano",
    "country": "IT",
-   "emailAddress": "customercare@acquadiparma.it"
+   "emailAddress": "customercare@acquadiparma.it",
+   "phoneNumber": "+39 02 3601 0958",
+   "_source_contact": "https://www.acquadiparma.com/it/it/faq-page/ ; https://www.acquadiparma.com/en-lu/privacy-policy"
   },
   "L'Oréal – Lancôme Parfums et Beauté & Cie": {
    "name": "L'Oréal – Lancôme Parfums et Beauté & Cie",
@@ -54,7 +56,9 @@
    "postalCode": "75008",
    "city": "Paris",
    "country": "FR",
-   "emailAddress": "parfums@marcantoinebarrois.com"
+   "emailAddress": "parfums@marcantoinebarrois.com",
+   "phoneNumber": "+33 9 83 72 78 60",
+   "_source_contact": "https://marcantoinebarrois.com/en/policies/legal-notice"
   },
   "Hermès Parfums": {
    "name": "Hermès Parfums",
@@ -72,7 +76,9 @@
    "postalCode": "2260",
    "city": "Oevel (Westerlo)",
    "country": "BE",
-   "emailAddress": "contactmanufacturer@elcompanies.com"
+   "emailAddress": "contactmanufacturer@elcompanies.com",
+   "phoneNumber": "+32 2 588 26 42",
+   "_source_contact": "https://www.cremedelamer.co.uk/contact-manufacturer"
   },
   "Initio Parfums Privés – Artessence Paris": {
    "name": "Initio Parfums Privés – Artessence Paris",
@@ -85,12 +91,14 @@
   },
   "Xerjoff Group S.p.A.": {
    "name": "Xerjoff Group S.p.A.",
-   "street": "Via Leonardo da Vinci",
+   "street": "Via Carlo Tenivelli",
    "houseNumber": "29",
-   "postalCode": "10095",
-   "city": "Grugliasco (TO)",
+   "postalCode": "10024",
+   "city": "Moncalieri",
    "country": "IT",
-   "emailAddress": "customer@xerjoff.com"
+   "emailAddress": "customer@xerjoff.com",
+   "phoneNumber": "+39 331 633 2177",
+   "_source_contact": "https://www.xerjoff.com/pages/faq ; https://www.xerjoff.com/policies/legal-notice"
   },
   "Euroitalia S.r.l.": {
    "name": "Euroitalia S.r.l.",
@@ -99,7 +107,10 @@
    "postalCode": "20873",
    "city": "Cavenago di Brianza (MB)",
    "country": "IT",
-   "_site": "https://www.versace.com"
+   "_site": "https://www.versace.com",
+   "emailAddress": "privacy@euroitalia.it",
+   "phoneNumber": "+39 02 959161",
+   "_source_contact": "https://www.euroitalia.it/contatti/ ; https://www.euroitalia.it/privacy-policy/"
   },
   "Diptyque SAS": {
    "name": "Diptyque SAS",
@@ -108,7 +119,10 @@
    "postalCode": "75001",
    "city": "Paris",
    "country": "FR",
-   "_site": "https://www.diptyqueparis.com"
+   "_site": "https://www.diptyqueparis.com",
+   "emailAddress": "serviceclient@diptyqueparis.com",
+   "phoneNumber": "+33 1 56 81 17 00",
+   "_source_contact": "https://diptyqueparis.com/fr-fr/policies/legal-notice"
   },
   "Antonio Puig, S.A.": {
    "name": "Antonio Puig, S.A.",
@@ -126,7 +140,10 @@
    "postalCode": "00187",
    "city": "Roma",
    "country": "IT",
-   "_site": "https://www.bulgari.com"
+   "_site": "https://www.bulgari.com",
+   "emailAddress": "it.cs@bulgari.com",
+   "phoneNumber": "+39 06 9480 1941",
+   "_source_contact": "https://www.bulgari.com/it-it/contact-us--info.html"
   },
   "Ecomundo": {
    "name": "Ecomundo",
@@ -157,12 +174,14 @@
   },
   "Cereria Terenzi": {
    "name": "Cereria Terenzi",
-   "street": "Via dei Faggi",
-   "houseNumber": "101",
-   "postalCode": "47842",
-   "city": "San Giovanni in Marignano (RN)",
+   "street": "Via Bizet",
+   "houseNumber": "snc",
+   "postalCode": "47841",
+   "city": "Cattolica",
    "country": "IT",
-   "emailAddress": "info@cereriaterenzi.com"
+   "emailAddress": "info@cereriaterenzi.com",
+   "phoneNumber": "+39 0541 820311",
+   "_source_contact": "https://www.cereriaterenzi.com/"
   },
   "LVMH Fragrance Brands": {
    "name": "LVMH Fragrance Brands",
@@ -180,7 +199,9 @@
    "postalCode": "75008",
    "city": "Paris",
    "country": "FR",
-   "emailAddress": "info@stephanehumbertlucas.com"
+   "emailAddress": "info@stephanehumbertlucas.com",
+   "phoneNumber": "+33 4 13 94 13 98",
+   "_source_contact": "https://www.stephanehumbertlucas.com/policies/legal-notice ; https://www.stephanehumbertlucas.com/policies/contact-information"
   },
   "Goldfield & Banks": {
    "name": "Goldfield & Banks",
@@ -202,12 +223,15 @@
   },
   "Nobilis Group": {
    "name": "Nobilis Group",
-   "street": "Abraham-Lincoln-Straße",
-   "houseNumber": "22",
-   "postalCode": "65189",
+   "street": "Rheingaustraße",
+   "houseNumber": "32",
+   "postalCode": "65201",
    "city": "Wiesbaden",
    "country": "DE",
-   "_site": "https://www.nishane.com"
+   "_site": "https://www.nishane.com",
+   "emailAddress": "info@nobilis-group.com",
+   "phoneNumber": "+49 611 944920",
+   "_source_contact": "https://www.nobilis-group.com/impressum"
   },
   "Editions des Sens SAS": {
    "name": "Editions des Sens SAS",
@@ -216,7 +240,10 @@
    "postalCode": "75003",
    "city": "Paris",
    "country": "FR",
-   "_site": "https://www.etatlibredorange.com (page Contact)"
+   "_site": "https://www.etatlibredorange.com (page Contact)",
+   "emailAddress": "shop@etatlibredorange.com",
+   "phoneNumber": "+33 1 71 27 47 83",
+   "_source_contact": "https://www.etatlibredorange.com/policies/contact-information"
   },
   "Parfums Francis Kurkdjian": {
    "name": "Parfums Francis Kurkdjian",
@@ -225,7 +252,10 @@
    "postalCode": "75001",
    "city": "Paris",
    "country": "FR",
-   "_site": "https://www.franciskurkdjian.com"
+   "_site": "https://www.franciskurkdjian.com",
+   "emailAddress": "dpo@franciskurkdjian.com",
+   "phoneNumber": "+33 1 72 95 09 89",
+   "_source_contact": "https://www.franciskurkdjian.com/eu-fr/contact-us"
   },
   "Dolce & Gabbana Beauty S.r.l.": {
    "name": "Dolce & Gabbana Beauty S.r.l.",
@@ -234,7 +264,10 @@
    "postalCode": "20129",
    "city": "Milano",
    "country": "IT",
-   "_site": "https://www.dolcegabbana.com"
+   "_site": "https://www.dolcegabbana.com",
+   "emailAddress": "amministrazionedgbeauty@dolcegabbana.it",
+   "phoneNumber": "+39 02 2110 1111",
+   "_source_contact": "https://world.dolcegabbana.com/information-processing-personal-data-beauty-customers-photo-boot-service"
   },
   "Amouage Europe": {
    "name": "Amouage Europe",
@@ -252,7 +285,10 @@
    "postalCode": "75008",
    "city": "Paris",
    "country": "FR",
-   "_site": "https://www.guerlain.com (page Contact)"
+   "_site": "https://www.guerlain.com (page Contact)",
+   "emailAddress": "dpo@guerlain.fr",
+   "phoneNumber": "+33 1 47 48 80 79",
+   "_source_contact": "https://www.guerlain.com/fr/fr-fr/c/terms-of-sales.html"
   },
   "The Fragrance Designers": {
    "name": "The Fragrance Designers",
@@ -261,7 +297,10 @@
    "postalCode": "75002",
    "city": "Paris",
    "country": "FR",
-   "_site": "https://matiere-premiere.com/"
+   "_site": "https://matiere-premiere.com/",
+   "emailAddress": "wsylvestre@matiere-premiere.com",
+   "phoneNumber": "+33 6 67 91 23 15",
+   "_source_contact": "https://matiere-premiere.com/policies/legal-notice"
   },
   "Puig France SAS": {
    "name": "Puig France SAS",
@@ -467,5 +506,6 @@
   "Lalique": "pas trouvé",
   "Afnan": "pas trouvé",
   "Furla": "pas trouvé"
- }
+ },
+ "_note_contacts": "09/11/2026 : e-mail et téléphone (obligatoires chez bol) relevés sur les sites officiels des fabricants. Sans les deux → leurs marques passent sur Deway BV."
 }
