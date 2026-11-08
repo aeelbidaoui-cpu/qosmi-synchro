@@ -325,7 +325,16 @@ def construire(fichiers, marques):
     if "templates/cart.json" in fichiers:
         e, d = lire(fichiers["templates/cart.json"])
         d["sections"]["qk_panier_livraison"] = {"type": "qk-panier-livraison", "settings": {}}
-        d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k != "qk_panier_livraison"]
+        # panier en français et suggestions variées (demande d'Amine du 08/11/2026) : titre « Panier » ; la liste
+        # « You may also like » du thème (4 premiers produits du catalogue, tous pareils) est remplacée par qk-suggestions
+        for sec in d["sections"].values():
+            for b in sec.get("blocks", {}).values():
+                if b.get("type") == "_cart-title":
+                    b["settings"]["title"] = "Panier"
+        for k in [k for k, sec in d["sections"].items() if sec.get("type") == "product-list"]:
+            del d["sections"][k]
+        d["sections"]["qk_suggestions"] = {"type": "qk-suggestions", "settings": {"titre": "Tu aimeras aussi", "produits": DU_JOUR, "nombre": 8}}
+        d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_suggestions")] + ["qk_suggestions"]
         jsons["templates/cart.json"] = ecrire(e, d)
 
     e, d = lire(fichiers["sections/header-group.json"])

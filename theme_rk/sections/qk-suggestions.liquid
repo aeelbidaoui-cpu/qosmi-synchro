@@ -1,0 +1,49 @@
+{%- comment -%}
+  Suggestions du panier (demande d'Amine du 08/11/2026 : en français, et des parfums variés).
+  Remplace la liste « You may also like » du thème, qui montrait les 4 premiers produits du catalogue (tous pareils).
+  Parfums tirés de la liste « produits » (grands succès), en stock, avec photo, pas déjà dans le panier ;
+  le point de départ change chaque jour pour varier.
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- capture qk_panier -%}|{%- for item in cart.items -%}{{ item.product.handle }}|{%- endfor -%}{%- endcapture -%}
+{%- assign qk_total = section.settings.produits.size -%}
+{%- if qk_total > 0 -%}
+  {%- assign qk_depart = 'now' | date: '%s' | divided_by: 86400 | times: 5 | modulo: qk_total -%}
+<section class="qk-section qk-onglets qk-suggestions">
+  <div class="qk-largeur">
+    <div class="qk-onglets__barre">
+      <h2 class="qk-titre-section">{% if qk_nl %}Misschien vind je dit ook mooi{% else %}{{ section.settings.titre }}{% endif %}</h2>
+      <a class="qk-lien qk-onglets__tout" href="{{ routes.collections_url }}/parfums">{% if qk_nl %}Alle parfums{% else %}Voir tous les parfums{% endif %}</a>
+    </div>
+  </div>
+  <div class="qk-rangee">
+    {%- assign qk_n = 0 -%}
+    {%- for tour in (1..2) -%}
+      {%- for product in section.settings.produits -%}
+        {%- assign qk_i = forloop.index0 -%}
+        {%- if tour == 1 and qk_i < qk_depart -%}{%- continue -%}{%- endif -%}
+        {%- if tour == 2 and qk_i >= qk_depart -%}{%- break -%}{%- endif -%}
+        {%- assign qk_cle = '|' | append: product.handle | append: '|' -%}
+        {%- if qk_n < section.settings.nombre and product.available and product.featured_image -%}
+          {%- unless qk_panier contains qk_cle -%}
+            {%- assign qk_n = qk_n | plus: 1 -%}
+            <div class="qk-rangee__item">{% render 'qk-carte', product: product %}</div>
+          {%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Qosmi – suggestions",
+  "settings": [
+    { "type": "text", "id": "titre", "label": "Titre", "default": "Tu aimeras aussi" },
+    { "type": "product_list", "id": "produits", "label": "Parfums", "limit": 50 },
+    { "type": "range", "id": "nombre", "label": "Nombre", "min": 4, "max": 12, "step": 1, "default": 8 }
+  ]
+}
+{% endschema %}
