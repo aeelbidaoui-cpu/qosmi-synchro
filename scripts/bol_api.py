@@ -61,13 +61,13 @@ class Bol:
         self.expire = time.time() + int(d.get("expires_in", 299))
         return self.token
 
-    def appel(self, methode, chemin, params=None, corps=None):
+    def appel(self, methode, chemin, params=None, corps=None, accept=None):
         url = API + chemin + ("?" + urllib.parse.urlencode(params) if params else "")
         donnees = json.dumps(corps).encode() if corps is not None else None
         for essai in range(8):
-            h = {"Authorization": "Bearer " + self._jeton(), "Accept": ACCEPT}
+            h = {"Authorization": "Bearer " + self._jeton(), "Accept": accept or ACCEPT}
             if donnees is not None:
-                h["Content-Type"] = ACCEPT
+                h["Content-Type"] = accept or ACCEPT
             req = urllib.request.Request(url, data=donnees, method=methode, headers=h)
             try:
                 self.appels += 1

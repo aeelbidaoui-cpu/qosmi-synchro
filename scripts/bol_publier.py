@@ -85,15 +85,62 @@ def offres_en_ligne(bol):
             continue
         prix = l.get("bundlePricesPrice") or l.get("price") or ""
         stock = l.get("stockAmount") or l.get("correctedStock") or "0"
-        out[ean] = {"offerId": l.get("offerId"), "prix": float(prix.replace(",", ".") or 0), "stock": int(float(stock or 0))}
+        out[ean] = {"offerId": l.get("offerId"), "prix": float(prix.replace(",", ".") or 0), "stock": int(float(stock or 0)),
+                    "eo": l.get("economicOperatorId") or "", "delai": l.get("fulfilmentDeliveryCode") or l.get("deliveryCode") or ""}
     return out
 
 
-def corps_offre(ean, d, cfg):
-    return {"ean": ean, "condition": {"name": "NEW"}, "reference": "QOSMI", "onHoldByRetailer": False,
+
+EO = "application/vnd.economic-operator.v1+json"
+OPERATEURS = os.path.join(RACINE, "config", "bol_operateurs.json")
+
+
+def operateurs(bol, essai=False):
+    """Crée sur bol les opérateurs économiques de config/bol_operateurs.json qui n'existent pas encore
+    (reconnus par externalReference) et renvoie ({clé: id bol}, {marque: clé}, {clé: statut}).
+    Un opérateur sans e-mail ET téléphone (obligatoires chez bol) n'est pas créé : ses marques passent sur DEWAY."""
+    conf = lire(OPERATEURS, {})
+    ops, par_marque = conf.get("operateurs", {}), dict(conf.get("par_marque", {}))
+    existants, page = {}, 1
+    while page <= 20:
+        d = bol.appel("GET", "/retailer/economic-operators", {"page": page}, accept=EO) or {}
+        lst = d.get("operators") or []
+        for o in lst:
+            existants[o.get("externalReference") or o["id"]] = o
+        if len(lst) < 50:
+            break
+        page += 1
+    ids, statuts, incomplets = {}, {}, []
+    for cle, o in ops.items():
+        ref = ("QOSMI-" + re.sub(r"[^A-Za-z0-9]+", "-", cle))[:100]
+        if ref in existants:
+            ids[cle], statuts[cle] = existants[ref]["id"], existants[ref].get("status")
+            continue
+        if not (o.get("emailAddress") and o.get("phoneNumber")):
+            incomplets.append(cle)
+            continue
+        corps = {"externalReference": ref, "name": o["name"][:100],
+                 "address": {k: o[k] for k in ("street", "houseNumber", "postalCode", "city", "country")},
+                 "contactInformation": {"emailAddress": o["emailAddress"], "phoneNumber": o["phoneNumber"]}}
+        if essai:
+            statuts[cle] = "à créer (essai)"
+            continue
+        r = bol.appel("POST", "/retailer/economic-operator", corps=corps, accept=EO) or {}
+        if r.get("id"):
+            ids[cle], statuts[cle] = r["id"], r.get("status")
+    for m, cle in list(par_marque.items()):
+        if cle not in ids:
+            par_marque[m] = "DEWAY"
+    return ids, par_marque, statuts, incomplets
+
+def corps_offre(ean, d, cfg, eo=None):
+    c = {"ean": ean, "condition": {"name": "NEW"}, "reference": "QOSMI", "onHoldByRetailer": False,
             "pricing": {"bundlePrices": [{"quantity": 1, "unitPrice": round(d["prix"], 2)}]},
             "stock": {"amount": int(d["stock"]), "managedByRetailer": False},
             "fulfilment": {"method": "FBR", "deliveryCode": cfg.get("delai_livraison", "1-8d")}}
+    if eo:
+        c["economicOperatorId"] = eo
+    return c
 
 
 def commandes_ouvertes(bol):
@@ -126,6 +173,8 @@ def main():
     from bol_api import Bol
     bol = Bol()
     en_ligne = offres_en_ligne(bol)
+    eo_ids, eo_marque, eo_statuts, eo_incomplets = operateurs(bol, essai)
+    eo_de = lambda d: eo_ids.get(eo_marque.get((d or {}).get("marque") or "", "DEWAY")) or eo_ids.get("DEWAY")
     refus = {e: r for e, r in lire(REFUS, {}).items() if "Duplicate Offer" not in r.get("raison", "")}
     maintenant = time.time()
     maxi = int(cfg.get("publication_max_creations", 300))
@@ -139,7 +188,7 @@ def main():
         if essai:
             journal.append(("à créer (essai)", e, d, "")); continue
         try:
-            r = bol.post("/retailer/offers", corps_offre(e, d, cfg))
+            r = bol.post("/retailer/offers", corps_offre(e, d, cfg, eo_de(d)))
             a_suivre.append((e, (r or {}).get("processStatusId")))
         except RuntimeError as err:
             refus[e] = {"t": maintenant, "raison": str(err)[:300]}
@@ -165,6 +214,12 @@ def main():
     for ec, o in en_ligne.items():
         e = par_court.get(ec, ec)
         d = voulues.get(e)
+        eo = eo_de(d or dec_court.get(ec))
+        if eo and o.get("eo") != eo and o.get("offerId"):
+            if not essai:
+                bol.put("/retailer/offers/%s" % o["offerId"], {"onHoldByRetailer": False, "economicOperatorId": eo,
+                        "fulfilment": {"method": "FBR", "deliveryCode": o.get("delai") or cfg.get("delai_livraison", "1-8d")}})
+            journal.append(("opérateur lié", e, d or dec_court.get(ec, {}), eo))
         if d:
             if abs(o["prix"] - d["prix"]) > 0.004:
                 if not essai:
@@ -214,6 +269,8 @@ def main():
     txt += ["%-25s %5d" % kv for kv in sorted(compte.items(), key=lambda kv: -kv[1])]
     if raisons:
         txt += ["", "Raisons des refus bol :"] + ["  %3d × %s" % (n, r) for r, n in sorted(raisons.items(), key=lambda kv: -kv[1])]
+    txt += ["", "Opérateurs économiques : %d sur bol (%s)%s" % (len(eo_ids), ", ".join("%s %s" % (k[:25], v) for k, v in eo_statuts.items() if v != "VALID") or "tous VALID",
+            ("" if not eo_incomplets else " ; sans e-mail ou téléphone, remplacés par DEWAY : " + ", ".join(eo_incomplets)))]
     if invisibles:
         txt += ["", "Offres en ligne mais NON visibles sur bol (raison donnée par bol) :"] + \
                ["  %3d × %s" % (len(v), k) for k, v in sorted(invisibles.items(), key=lambda kv: -len(kv[1]))]
