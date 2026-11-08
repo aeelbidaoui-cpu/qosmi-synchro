@@ -315,3 +315,17 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-favoris__actions { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
 .qk-favoris__retirer { background: none; border: 0; padding: 4px; color: var(--qk-doux); font: inherit; font-size: 0.85rem; text-decoration: underline; cursor: pointer; }
 @media (max-width: 749px) { .qk-favoris__grille { grid-template-columns: 1fr 1fr; gap: 20px 12px; } }
+
+/* En-tête des catégories : texte à gauche, image des flacons à droite (08/11/2026) */
+.qk-entete-coll { padding-block: max(20px, calc(var(--spacing-scale, 1) * 48px)); display: flex; flex-direction: column; gap: 12px; }
+.qk-entete-coll h1 { margin: 0; }
+.qk-entete-coll__desc { max-width: 34rem; }
+.qk-entete-coll__desc p { margin: 0; }
+.qk-entete-coll__image img { display: block; width: 100%; height: auto; }
+@media (min-width: 990px) {
+  .qk-entete-coll--image { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: center; gap: clamp(24px, 4vw, 64px); padding-block: 24px; }
+  .qk-entete-coll__texte { display: flex; flex-direction: column; gap: 12px; }
+}
+@media (max-width: 989px) {
+  .qk-entete-coll__image { margin-top: 12px; margin-inline: calc(-1 * var(--page-margin, 16px)); }
+}

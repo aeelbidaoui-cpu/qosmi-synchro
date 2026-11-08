@@ -1,0 +1,34 @@
+{%- comment -%}
+  En-tête des pages de catégorie (demande d'Amine du 08/11/2026) : titre et texte à gauche, image à droite.
+  L'image est un fichier Shopify nommé « qosmi-entete-<handle de la collection>.jpg » (Contenu → Fichiers),
+  composée avec les flacons les plus connus de la catégorie (scripts/entetes_collections.py).
+  Sans image pour cette catégorie : le titre et le texte seuls, comme avant.
+{%- endcomment -%}
+{%- assign qk_c = collection | default: closest.collection -%}
+{%- assign qk_nom = 'qosmi-entete-' | append: qk_c.handle | append: '.jpg' -%}
+{%- assign qk_img = images[qk_nom] -%}
+<div class="section-background"></div>
+<div class="section section--page-width">
+  <div class="qk-entete-coll{% if qk_img %} qk-entete-coll--image{% endif %}">
+    <div class="qk-entete-coll__texte">
+      <div class="text-block h2"><h1>{{ qk_c.title }}</h1></div>
+      {%- if qk_c.description != blank -%}
+        <div class="qk-entete-coll__desc rte">{{ qk_c.description }}</div>
+      {%- endif -%}
+    </div>
+    {%- if qk_img -%}
+      <div class="qk-entete-coll__image">
+        {{ qk_img | image_url: width: 2400 | image_tag: alt: qk_c.title, loading: 'eager', fetchpriority: 'high',
+           widths: '600, 900, 1200, 1600, 2000, 2400', sizes: '(min-width: 990px) 55vw, 100vw' }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Qosmi – en-tête de catégorie",
+  "class": "qk-entete-coll-section",
+  "settings": []
+}
+{% endschema %}

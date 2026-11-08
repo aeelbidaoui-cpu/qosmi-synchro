@@ -310,6 +310,14 @@ def construire(fichiers, marques):
     for nom in ("templates/collection.json", "templates/search.json"):
         e, d = lire(fichiers[nom])
         cartes(d)
+        if nom == "templates/collection.json":
+            # en-tête Qosmi : titre et texte à gauche, image des flacons à droite (demande d'Amine du 08/11/2026) ;
+            # l'en-tête d'origine est gardé mais désactivé
+            d["sections"]["qk_entete"] = {"type": "qk-entete-collection", "settings": {}}
+            for k, s in d["sections"].items():
+                if k != "qk_entete" and s.get("type") == "section":
+                    s["disabled"] = True
+            d["order"] = ["qk_entete"] + [k for k in d["order"] if k != "qk_entete"]
         jsons[nom] = ecrire(e, d)
 
     # ---------- en-tête ----------
