@@ -1,0 +1,529 @@
+{
+ "Acqua di Parma": {
+  "fabricant": "Acqua di Parma S.r.l. (groupe LVMH)",
+  "adresse": "Via Morimondo 26, 20143 Milano, Italie",
+  "contact": "customercare@acquadiparma.it",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/3000029094",
+  "confiance": "moyenne"
+ },
+ "Amouage": {
+  "fabricant": "Amouage Europe",
+  "adresse": "250B boulevard Saint-Germain, 75007 Paris, France",
+  "contact": "https://www.amouage.com",
+  "role": "personne responsable UE",
+  "source": "https://www.niche-beauty.com/en-us/products/amouage-decision/783-037",
+  "confiance": "moyenne",
+  "remarque": "Fabricant hors UE (Oman/Dubaï ; Breuninger affiche Amouage, PO Box 127378, Dubai Design District). L'e-mail affiché est nominatif : demander à Amouage une adresse générique avant publication."
+ },
+ "BDK Parfums": {
+  "fabricant": "Parfums BDK",
+  "adresse": "120 boulevard Maurice Barrès, 92200 Neuilly-sur-Seine, France",
+  "contact": "https://www.bdkparfums.com",
+  "role": "fabricant",
+  "source": "https://www.niche-beauty.com/en-us/products/bdk-parfums-gris-charnel/873-008",
+  "confiance": "moyenne",
+  "remarque": "Le registre INSEE montre la société EDITORIAL PARIS (SIRET 919 759 589 00014, fabrication de parfums) à la même adresse ; c'est probablement l'entité juridique de BDK, à confirmer. https://api-avis-situation-sirene.insee.fr/identification/pdf/91975958900014"
+ },
+ "Borntostandout": {
+  "fabricant": "Showroom Romeo (représentant UE de Borntostandout)",
+  "adresse": "18 rue Ferdinand Duval, 75004 Paris, France",
+  "contact": "https://www.borntostandout.com",
+  "role": "personne responsable UE",
+  "source": "https://www.niche-beauty.com/en-us/products/borntostandout-mary-jane/752-016",
+  "confiance": "faible",
+  "remarque": "Seule source : Niche Beauty. Entité juridique du fabricant non confirmée ; à vérifier sur l'emballage."
+ },
+ "Bvlgari": {
+  "fabricant": "Bvlgari Italia S.p.A. (groupe LVMH)",
+  "adresse": "Via dei Condotti 10, 00187 Roma, Italie",
+  "contact": "https://www.bulgari.com",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/3001005125",
+  "confiance": "moyenne",
+  "remarque": "L'e-mail affiché par Douglas est celui du service client allemand ; pour la Belgique, préférer le formulaire de contact de bulgari.com."
+ },
+ "By Kilian": {
+  "fabricant": "Whitman LBS NV (groupe Estée Lauder Companies)",
+  "adresse": "Nijverheidsstraat 15, 2260 Oevel (Westerlo), Belgique",
+  "contact": "contactmanufacturer@elcompanies.com",
+  "role": "personne responsable UE",
+  "source": "https://www.douglas.de/de/p/5011928041",
+  "confiance": "haute",
+  "remarque": "Confirmé par Douglas (Kilian Paris) et par la page officielle « Contact manufacturer » du groupe Estée Lauder (esteelauder.co.uk/contact-manufacturer : Whitman LBS NV pour l'Europe continentale)."
+ },
+ "Calvin Klein": {
+  "fabricant": "Coty (entité française du groupe Coty)",
+  "adresse": "14 rue du Quatre Septembre, 75002 Paris, France",
+  "contact": "contact@cotyconsumeraffairs.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/3000032590",
+  "confiance": "faible",
+  "remarque": "Licence parfums Calvin Klein détenue par Coty. Bloc Coty confirmé sur Douglas pour Marc Jacobs, Gucci et Hugo Boss ; pas trouvé de fiche Calvin Klein avec bloc fabricant."
+ },
+ "Carner Barcelona": {
+  "fabricant": "Carner Barcelona S.L.",
+  "adresse": "C/ Diputació 266, local 2, 08007 Barcelona, Espagne",
+  "contact": "contact@carnerbarcelona.com",
+  "role": "fabricant",
+  "source": "https://carnerbarcelona.com/pages/contact",
+  "confiance": "moyenne",
+  "remarque": "Raison sociale et e-mail tirés de la page Contact officielle ; l'adresse est celle de la boutique. Siège social non vérifié dans le registre espagnol."
+ },
+ "Carolina Herrera": {
+  "fabricant": "Antonio Puig, S.A. (groupe Puig)",
+  "adresse": "Plaza Europa 46-48, 08902 L'Hospitalet de Llobregat (Barcelona), Espagne",
+  "contact": "https://www.carolinaherrera.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/3001044085",
+  "confiance": "moyenne"
+ },
+ "Chanel": {
+  "fabricant": "Chanel Parfums Beauté",
+  "adresse": "135 avenue Charles de Gaulle, 92200 Neuilly-sur-Seine, France",
+  "contact": "https://www.chanel.com",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/3001042367",
+  "confiance": "moyenne",
+  "remarque": "Douglas affiche « CHANEL » ; l'entité qui commercialise les parfums est Chanel Parfums Beauté (même adresse)."
+ },
+ "Clive Christian": {
+  "fabricant": "Clive Christian (distributeur UE, Varsovie)",
+  "adresse": "ul. Kasprzaka 31A/82, 01-234 Warszawa, Pologne",
+  "contact": "anna@annelltd.com",
+  "role": "personne responsable UE",
+  "source": "https://www.douglas.de/de/p/5010517020",
+  "confiance": "faible",
+  "remarque": "Fabricant hors UE (Royaume-Uni). L'adresse et l'e-mail renvoient à un distributeur polonais (domaine annelltd.com) ; entité juridique non confirmée."
+ },
+ "Creed": {
+  "fabricant": "Ecomundo (personne responsable UE pour Creed)",
+  "adresse": "195 rue Jean-Jacques Rousseau, 92130 Issy-les-Moulineaux, France",
+  "contact": "info@fragrances-production.fr",
+  "role": "personne responsable UE",
+  "source": "https://www.niche-beauty.com/en-de/products/creed-royal-water/117-010",
+  "confiance": "moyenne",
+  "remarque": "Sources divergentes : Niche Beauty et Breuninger citent Ecomundo comme responsable UE (fabricant : Creed, Rudheath, Cheshire CW9 7RA, Royaume-Uni, customerservice@fontainegroup.com) ; Shop Apotheke cite Kering SA, 40 rue de Sèvres, 75007 Paris. Creed a été racheté par L'Oréal (accord 2025). Vérifier sur l'emballage. Aus Liebe zum Duft affiche aussi Ecomundo (https://ausliebezumduft.de/en/products/creed-aventus)."
+ },
+ "Dior": {
+  "fabricant": "Parfums Christian Dior (groupe LVMH)",
+  "adresse": "33 avenue Hoche, 75008 Paris, France",
+  "contact": "https://www.dior.com",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/3001042193",
+  "confiance": "moyenne"
+ },
+ "Diptyque": {
+  "fabricant": "Diptyque SAS",
+  "adresse": "5 avenue de l'Opéra, 75001 Paris, France",
+  "contact": "https://www.diptyqueparis.com",
+  "role": "fabricant",
+  "source": "https://www.niche-beauty.com/en-us/products/diptyque-do-son/302-051",
+  "confiance": "moyenne"
+ },
+ "Dolce&Gabbana": {
+  "fabricant": "Dolce & Gabbana Beauty S.r.l.",
+  "adresse": "Via Carlo Goldoni 10, 20129 Milano, Italie",
+  "contact": "https://www.dolcegabbana.com",
+  "role": "fabricant",
+  "source": "https://www.shop-apotheke.com/beauty/upmPWLKTW/dolce-gabbana-the-one-e-d-p-nat-spray.htm",
+  "confiance": "moyenne",
+  "remarque": "Shop Apotheke cite aussi Dolce & Gabbana S.r.l. comme personne responsable UE."
+ },
+ "Elie Saab": {
+  "fabricant": "Give Back Beauty GmbH",
+  "adresse": "Darmstädter Landstraße 116, 4e étage, 60598 Frankfurt am Main, Allemagne",
+  "contact": "info@givebackbeauty.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/3001042035",
+  "confiance": "moyenne",
+  "remarque": "Vu sur la fiche « In White ». Les anciens stocks Elie Saab (ex-licence Shiseido/BPI) peuvent porter une autre mention sur l'emballage."
+ },
+ "Escentric Molecules": {
+  "fabricant": "Nobilis Group (représentant d'Escentric Molecules)",
+  "adresse": "Abraham-Lincoln-Straße 22, 65189 Wiesbaden, Allemagne",
+  "contact": "https://www.escentric.com",
+  "role": "personne responsable UE",
+  "source": "https://www.niche-beauty.com/en-us/products/escentric-molecules-molecule-01/695-002",
+  "confiance": "faible",
+  "remarque": "Fabricant hors UE (Royaume-Uni). Nobilis est le distributeur en Allemagne ; entité juridique exacte (Nobilis Group GmbH ?) non confirmée."
+ },
+ "Etat Libre d´Orange": {
+  "fabricant": "Editions des Sens SAS",
+  "adresse": "69 rue des Archives, 75003 Paris, France",
+  "contact": "https://www.etatlibredorange.com (page Contact)",
+  "role": "fabricant",
+  "source": "https://gleanmark.com/owner/editionsdessens",
+  "confiance": "moyenne",
+  "remarque": "Editions des Sens détient les marques ETAT LIBRE D'ORANGE (données USPTO). Aucune fiche produit avec bloc GPSR consultée ; vérifier sur l'emballage."
+ },
+ "Ex Nihilo": {
+  "fabricant": "non confirmé",
+  "adresse": "non confirmé",
+  "contact": "non confirmé",
+  "role": "fabricant",
+  "source": "https://us.ex-nihilo-paris.com/fr/etc/legal-information",
+  "confiance": "faible",
+  "remarque": "NON CONFIRMÉ. Les mentions légales consultées sont celles du site américain (Maison EX NIHILO USA Inc, New York). La marque est parisienne (boutique 352 rue Saint-Honoré) mais l'entité française n'a pas été identifiée. Fiches Notino, Breuninger et Galeries Lafayette non lisibles."
+ },
+ "Frederic Malle": {
+  "fabricant": "Whitman LBS NV (groupe Estée Lauder Companies)",
+  "adresse": "Nijverheidsstraat 15, 2260 Oevel (Westerlo), Belgique",
+  "contact": "contactmanufacturer@elcompanies.com",
+  "role": "personne responsable UE",
+  "source": "https://www.esteelauder.co.uk/contact-manufacturer",
+  "confiance": "faible",
+  "remarque": "Déduit du groupe Estée Lauder. Le site fredericmalle.eu cite « ELCO SAS – Frederic Malle » (entité française du groupe) : l'emballage peut indiquer cette entité. À vérifier."
+ },
+ "Fugazzi": {
+  "fabricant": "Fugazzi Fragrances B.V.",
+  "adresse": "Waterloseweg 41, 7311 JG Apeldoorn, Pays-Bas",
+  "contact": "https://www.fugazzifragrances.com",
+  "role": "fabricant",
+  "source": "https://www.niche-beauty.com/en-us/products/fugazzi-parfum-1/577-002",
+  "confiance": "moyenne"
+ },
+ "Giardini Di Toscana": {
+  "fabricant": "Giardini di Toscana Srl",
+  "adresse": "Via XXVIII Agosto 7, 52011 Bibbiena (AR), Italie",
+  "contact": "https://www.giardiniditoscana.com",
+  "role": "fabricant",
+  "source": "https://www.giardiniditoscana.com/en/pages/company-profile",
+  "confiance": "haute",
+  "remarque": "Source officielle (page Company Profile, TVA IT02264320512). L'e-mail affiché est une PEC (courrier certifié) : pour le contact consommateur, mieux vaut la page Contacts du site."
+ },
+ "Giorgio Armani": {
+  "fabricant": "L'Oréal – Giorgio Armani Parfums (licence L'Oréal Luxe)",
+  "adresse": "14 rue Royale, 75008 Paris, France",
+  "contact": "https://www.armanibeauty.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/5010452001",
+  "confiance": "moyenne",
+  "remarque": "Douglas affiche « Rue Royale, 75008 Paris » sans numéro ; le 14 rue Royale est le siège de L'Oréal. L'e-mail est le contact consommateurs L'Oréal Allemagne."
+ },
+ "Givenchy": {
+  "fabricant": "LVMH Fragrance Brands (SIREN 572 082 253)",
+  "adresse": "1 rue Pasquier, 92300 Levallois-Perret, France",
+  "contact": "dpo@parfumsgivenchy.fr",
+  "role": "fabricant",
+  "source": "https://api-avis-situation-sirene.insee.fr/identification/pdf/57208225300145",
+  "confiance": "haute",
+  "remarque": "INSEE : LVMH Fragrance Brands, siège 1 rue Pasquier, 92300 Levallois-Perret, enseignes Givenchy Parfums et Kenzo Parfums. Douglas affiche une adresse « LVMH, 7 av. Montaigne, 60000 Beauvais » qui semble erronée ; l'e-mail vient de Douglas."
+ },
+ "Goldfield & Banks": {
+  "fabricant": "Goldfield & Banks (représentation UE)",
+  "adresse": "62 rue de Clichy, 75009 Paris, France",
+  "contact": "nicolas@goldfieldandbanks.com",
+  "role": "personne responsable UE",
+  "source": "https://www.niche-beauty.com/en-us/products/goldfield-banks-silky-woods/719-017",
+  "confiance": "faible",
+  "remarque": "Fabricant hors UE (Australie). E-mail nominatif ; entité juridique non confirmée."
+ },
+ "Gucci": {
+  "fabricant": "Coty (entité française du groupe Coty)",
+  "adresse": "14 rue du Quatre Septembre, 75002 Paris, France",
+  "contact": "contact@cotyconsumeraffairs.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/3001038253",
+  "confiance": "moyenne",
+  "remarque": "Licence Coty ; L'Oréal a acquis les droits beauté Gucci (accord Kering 2025) : les nouveaux lots peuvent porter une mention L'Oréal. Vérifier sur l'emballage."
+ },
+ "Guerlain": {
+  "fabricant": "Guerlain (groupe LVMH)",
+  "adresse": "68 avenue des Champs-Élysées, 75008 Paris, France",
+  "contact": "https://www.guerlain.com (page Contact)",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/3001029976",
+  "confiance": "moyenne"
+ },
+ "Hermes": {
+  "fabricant": "Hermès Parfums (groupe Hermès)",
+  "adresse": "23 rue Boissy d'Anglas, 75008 Paris, France",
+  "contact": "https://www.hermes.com",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/2001005322",
+  "confiance": "moyenne",
+  "remarque": "Douglas affiche « Hermès » ; l'entité qui fabrique les parfums est Hermès Parfums."
+ },
+ "Histoires de Parfums": {
+  "fabricant": "Histoires de Parfums",
+  "adresse": "66 rue des Lombards, 75001 Paris, France",
+  "contact": "https://www.histoiresdeparfums.com",
+  "role": "fabricant",
+  "source": "https://www.niche-beauty.com/en-us/products/histoires-de-parfums-blue-16/841-017",
+  "confiance": "moyenne"
+ },
+ "Hugo Boss": {
+  "fabricant": "Coty (entité française du groupe Coty)",
+  "adresse": "14 rue du Quatre Septembre, 75002 Paris, France",
+  "contact": "contact@cotyconsumeraffairs.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/5002559004",
+  "confiance": "moyenne"
+ },
+ "Initio": {
+  "fabricant": "Initio Parfums Privés – Artessence Paris",
+  "adresse": "17 rue de la Paix, 75002 Paris, France",
+  "contact": "https://www.initioparfums.com/pages/contact",
+  "role": "fabricant",
+  "source": "https://www.niche-beauty.com/fr-fr/produits/initio-psychedelic-love/653-008",
+  "confiance": "moyenne"
+ },
+ "Jean Paul Gaultier": {
+  "fabricant": "Antonio Puig, S.A. (groupe Puig, propriétaire de Jean Paul Gaultier)",
+  "adresse": "Plaza Europa 46-48, 08902 L'Hospitalet de Llobregat (Barcelona), Espagne",
+  "contact": "https://www.jeanpaulgaultier.com",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/5010700222",
+  "confiance": "moyenne",
+  "remarque": "Douglas affiche « Jean Paul Gaultier SA, Plaza Europa 46-48, 08902 Barcelona »."
+ },
+ "Jo Malone": {
+  "fabricant": "Whitman LBS NV (groupe Estée Lauder Companies)",
+  "adresse": "Nijverheidsstraat 15, 2260 Oevel (Westerlo), Belgique",
+  "contact": "contactmanufacturer@elcompanies.com",
+  "role": "personne responsable UE",
+  "source": "https://www.esteelauder.co.uk/contact-manufacturer",
+  "confiance": "moyenne",
+  "remarque": "Déduit : Whitman LBS NV est l'entité UE du groupe Estée Lauder (page officielle du groupe, et Douglas pour Tom Ford et Kilian). Pas de fiche Jo Malone avec bloc fabricant trouvée."
+ },
+ "Kenzo": {
+  "fabricant": "LVMH Fragrance Brands (SIREN 572 082 253)",
+  "adresse": "1 rue Pasquier, 92300 Levallois-Perret, France",
+  "contact": "dpo@parfumsgivenchy.fr",
+  "role": "fabricant",
+  "source": "https://api-avis-situation-sirene.insee.fr/identification/pdf/57208225300145",
+  "confiance": "haute",
+  "remarque": "INSEE : enseigne Kenzo Parfums de LVMH Fragrance Brands. Douglas (Flower by Kenzo) affiche « LVMH, 7 av. Montaigne, 60000 Beauvais, dpo@parfumsgivenchy.fr » (adresse incohérente)."
+ },
+ "Lancôme": {
+  "fabricant": "L'Oréal – Lancôme Parfums et Beauté & Cie",
+  "adresse": "14 rue Royale, 75008 Paris, France",
+  "contact": "https://www.lancome.be",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/3000056790",
+  "confiance": "moyenne",
+  "remarque": "Douglas affiche « LANCOME PARIS, Rue Royale, 75008 Paris »."
+ },
+ "Le Labo": {
+  "fabricant": "Whitman LBS NV (groupe Estée Lauder Companies)",
+  "adresse": "Nijverheidsstraat 15, 2260 Oevel (Westerlo), Belgique",
+  "contact": "contactmanufacturer@elcompanies.com",
+  "role": "personne responsable UE",
+  "source": "https://www.esteelauder.co.uk/contact-manufacturer",
+  "confiance": "moyenne",
+  "remarque": "Déduit du groupe Estée Lauder (comme Jo Malone). Pas de fiche Le Labo avec bloc fabricant trouvée."
+ },
+ "Maison Crivelli": {
+  "fabricant": "Maison Crivelli SAS",
+  "adresse": "280 rue Saint-Honoré, 75001 Paris, France",
+  "contact": "https://maisoncrivelli.com/",
+  "role": "fabricant",
+  "source": "https://www.niche-beauty.com/en-us/products/maison-crivelli-tubereuse-astrale/151-037",
+  "confiance": "moyenne"
+ },
+ "Maison Francis Kurkdjian": {
+  "fabricant": "Parfums Francis Kurkdjian (groupe LVMH)",
+  "adresse": "41 rue Étienne Marcel, 75001 Paris, France",
+  "contact": "https://www.franciskurkdjian.com",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/3001037679",
+  "confiance": "moyenne",
+  "remarque": "Douglas écrit « legal@franciskurkdijan.com » (coquille probable, corrigée ici) ; vérifier l'adresse e-mail avant publication."
+ },
+ "Maison Margiela Paris": {
+  "fabricant": "L'Oréal – Maison Margiela Parfums (licence L'Oréal Luxe)",
+  "adresse": "14 rue Royale, 75008 Paris, France",
+  "contact": "https://www.maisonmargiela-fragrances.com",
+  "role": "licencié",
+  "source": "https://douglas.de/D%C3%BCfte-Herrend%C3%BCfte-D%C3%BCfte-Maison-Margiela-Replica-Jazz-Club_productbrand_3000072166.html",
+  "confiance": "moyenne",
+  "remarque": "Douglas affiche « 75018 Paris », coquille pour 75008. Adresse corrigée en 75008 (14 rue Royale, L'Oréal Luxe)."
+ },
+ "Mancera": {
+  "fabricant": "Inter Development Diffusion SA",
+  "adresse": "Cours de Rive 10, 1204 Genève, Suisse",
+  "contact": "https://www.manceraparfums.com",
+  "role": "fabricant",
+  "source": "https://www.niche-beauty.com/en-us/products/mancera-paris-cherry-cherry/910-010",
+  "confiance": "faible",
+  "remarque": "Fabricant établi en Suisse (hors UE) : il faut une personne responsable UE, non trouvée. À relever sur l'emballage ou à demander au fournisseur."
+ },
+ "Marc Jacobs": {
+  "fabricant": "Coty (entité française du groupe Coty)",
+  "adresse": "14 rue du Quatre Septembre, 75002 Paris, France",
+  "contact": "contact@cotyconsumeraffairs.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/3000032590",
+  "confiance": "moyenne"
+ },
+ "Marc-Antoine Barrois": {
+  "fabricant": "CPH Parfums SAS (RCS Paris 814 326 518)",
+  "adresse": "14 rue du Faubourg Saint-Honoré, 75008 Paris, France",
+  "contact": "parfums@marcantoinebarrois.com",
+  "role": "fabricant",
+  "source": "https://marcantoinebarrois.com/en/policies/legal-notice",
+  "confiance": "haute"
+ },
+ "Matiere Premiere": {
+  "fabricant": "The Fragrance Designers",
+  "adresse": "15 rue Monsigny, 75002 Paris, France",
+  "contact": "https://matiere-premiere.com/",
+  "role": "fabricant",
+  "source": "https://www.niche-beauty.com/en-us/products/matiere-premiere-radical-rose-extrait/813-051",
+  "confiance": "moyenne"
+ },
+ "Moncler": {
+  "fabricant": "Interparfums SA",
+  "adresse": "4 Rond-Point des Champs-Élysées, 75008 Paris, France",
+  "contact": "contact@interparfums.fr",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/5010347110",
+  "confiance": "moyenne"
+ },
+ "Montale": {
+  "fabricant": "Creation Luxe Design (CLD)",
+  "adresse": "68 rue Pierre Charron, 75008 Paris, France",
+  "contact": "https://www.montaleparfums.com",
+  "role": "fabricant",
+  "source": "https://ausliebezumduft.de/en/products/montale-rendez-vous-a-paris",
+  "confiance": "moyenne"
+ },
+ "Narciso Rodriguez": {
+  "fabricant": "Beauté Prestige International (groupe Shiseido)",
+  "adresse": "56A rue du Faubourg Saint-Honoré, 75008 Paris, France",
+  "contact": "https://www.narcisorodriguez.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/5010468114",
+  "confiance": "moyenne"
+ },
+ "Nasomatto": {
+  "fabricant": "Nasomatto B.V. (KvK 34376162)",
+  "adresse": "Veemarkt 40, 1019 DD Amsterdam, Pays-Bas",
+  "contact": "office@ortoparisi.com",
+  "role": "fabricant",
+  "source": "https://www.liza.nl/en/34376162/nasomatto",
+  "confiance": "moyenne",
+  "remarque": "Adresse confirmée par le registre néerlandais (via liza.nl). L'e-mail vient du bloc fabricant d'Orto Parisi (même adresse, même créateur) chez Aus Liebe zum Duft."
+ },
+ "Nishane": {
+  "fabricant": "Nobilis Group (représentant de Nishane)",
+  "adresse": "Abraham-Lincoln-Straße 22, 65189 Wiesbaden, Allemagne",
+  "contact": "info@msstar.eu",
+  "role": "personne responsable UE",
+  "source": "https://www.niche-beauty.com/en-us/products/nishane-sultan-vetiver/673-003",
+  "confiance": "faible",
+  "remarque": "Fabricant hors UE (Nishane, Istanbul). Nobilis est le distributeur en Allemagne ; l'e-mail affiché (msstar.eu) ne correspond pas à Nobilis. À confirmer."
+ },
+ "Orto Parisi": {
+  "fabricant": "Orto Parisi (Nasomatto B.V., même adresse)",
+  "adresse": "Veemarkt 40, 1019 DD Amsterdam, Pays-Bas",
+  "contact": "office@ortoparisi.com",
+  "role": "fabricant",
+  "source": "https://ausliebezumduft.de/en/products/orto-parisi-boccanera",
+  "confiance": "moyenne",
+  "remarque": "Le revendeur affiche « Orto Parisi » ; l'adresse est celle de Nasomatto B.V. (KvK 34376162). Entité exacte non confirmée."
+ },
+ "Paco Rabanne": {
+  "fabricant": "Puig France SAS (groupe Puig)",
+  "adresse": "65-67 avenue des Champs-Élysées, 75008 Paris, France",
+  "contact": "http://www.rabanne.com",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/5012010093",
+  "confiance": "moyenne"
+ },
+ "Parfums de Marly": {
+  "fabricant": "L.N.C (Parfums de Marly)",
+  "adresse": "17 rue de la Paix, 75002 Paris, France",
+  "contact": "https://www.parfums-de-marly.com",
+  "role": "fabricant",
+  "source": "https://www.niche-beauty.com/en-us/products/parfums-de-marly-oajan/651-014",
+  "confiance": "moyenne"
+ },
+ "Prada": {
+  "fabricant": "L'Oréal – Prada Parfums (licence L'Oréal Luxe)",
+  "adresse": "14 rue Royale, 75008 Paris, France",
+  "contact": "https://www.prada-beauty.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/5010687030",
+  "confiance": "moyenne"
+ },
+ "Sospiro": {
+  "fabricant": "non confirmé (piste : Sospiro International)",
+  "adresse": "non confirmé",
+  "contact": "https://sospirointernational.com",
+  "role": "fabricant",
+  "source": "https://fragranze.pittimmagine.com/en/exhibitors/S/sospiro-international",
+  "confiance": "faible",
+  "remarque": "NON CONFIRMÉ. Marque italienne ; un exposant « Sospiro International » est listé au salon Pitti Fragranze, sans adresse. À relever sur l'emballage ou à demander au fournisseur."
+ },
+ "Stéphane Humbert Lucas 777": {
+  "fabricant": "Stéphane Humbert Lucas",
+  "adresse": "25 rue de Ponthieu, 75008 Paris, France",
+  "contact": "info@stephanehumbertlucas.com",
+  "role": "fabricant",
+  "source": "https://ausliebezumduft.de/en/products/stephane-humbert-lucas-777-black-gemstone",
+  "confiance": "moyenne",
+  "remarque": "Raison sociale exacte non affichée (nom de marque seulement)."
+ },
+ "Tiziana Terenzi": {
+  "fabricant": "Cereria Terenzi (Tiziana Terenzi)",
+  "adresse": "Via dei Faggi 101, 47842 San Giovanni in Marignano (RN), Italie",
+  "contact": "info@cereriaterenzi.com",
+  "role": "fabricant",
+  "source": "https://www.douglas.de/de/p/5000185039",
+  "confiance": "moyenne",
+  "remarque": "Douglas affiche « Tiziana Terenzi » ; l'e-mail renvoie à Cereria Terenzi, la société qui fabrique la marque. Raison sociale exacte non confirmée."
+ },
+ "Tom Ford": {
+  "fabricant": "Whitman LBS NV (groupe Estée Lauder Companies)",
+  "adresse": "Nijverheidsstraat 15, 2260 Oevel (Westerlo), Belgique",
+  "contact": "contactmanufacturer@elcompanies.com",
+  "role": "personne responsable UE",
+  "source": "https://www.douglas.de/de/p/3001012536",
+  "confiance": "haute",
+  "remarque": "Confirmé par Douglas (Noir Extreme, coffret Noir Extreme) et par la page officielle « Contact manufacturer » du groupe Estée Lauder."
+ },
+ "Versace": {
+  "fabricant": "Euroitalia S.r.l.",
+  "adresse": "Via Galileo Galilei 5, 20873 Cavenago di Brianza (MB), Italie",
+  "contact": "https://www.versace.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/3000062841",
+  "confiance": "moyenne",
+  "remarque": "L'e-mail affiché est celui du service vie privée ; demander un contact consommateurs à Euroitalia si possible."
+ },
+ "Viktor & Rolf": {
+  "fabricant": "L'Oréal – Viktor & Rolf Parfums (licence L'Oréal Luxe)",
+  "adresse": "14 rue Royale, 75008 Paris, France",
+  "contact": "https://www.viktor-rolf.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/3000026191",
+  "confiance": "moyenne"
+ },
+ "Xerjoff": {
+  "fabricant": "Xerjoff Group S.p.A.",
+  "adresse": "Via Leonardo da Vinci 29, 10095 Grugliasco (TO), Italie",
+  "contact": "customer@xerjoff.com",
+  "role": "fabricant",
+  "source": "https://www.niche-beauty.com/en-us/products/xerjoff-naxos/691-075",
+  "confiance": "moyenne"
+ },
+ "Yves Saint Laurent": {
+  "fabricant": "L'Oréal – YSL Beauté (licence L'Oréal Luxe)",
+  "adresse": "281 rue Saint-Honoré, 75008 Paris, France",
+  "contact": "https://www.yslbeauty.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/5000005003",
+  "confiance": "moyenne",
+  "remarque": "Adresse affichée par Douglas ; les autres marques L'Oréal Luxe affichent le 14 rue Royale, 75008 Paris."
+ },
+ "Zadig & Voltaire": {
+  "fabricant": "Beauté Prestige International (groupe Shiseido)",
+  "adresse": "56A rue du Faubourg Saint-Honoré, 75008 Paris, France",
+  "contact": "https://www.zadig-et-voltaire.com",
+  "role": "licencié",
+  "source": "https://www.douglas.de/de/p/5011808001",
+  "confiance": "moyenne"
+ }
+}
