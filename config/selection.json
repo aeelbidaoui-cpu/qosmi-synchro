@@ -130,7 +130,17 @@
     "Liquides Imaginaires",
     "Lorenzo Pazzaglia",
     "Unique'e Luxury",
-    "V Canto"
+    "V Canto",
+    "Memo Paris",
+    "Juliette Has A Gun",
+    "Penhaligon´s",
+    "Boadicea the Victorious",
+    "Lorenzo Villoresi",
+    "Mind Games",
+    "Jeroboam",
+    "Jeroboam_",
+    "Caron",
+    "Loewe"
   ],
   "retirees_photos_2026_11_07": [],
   "vedettes": [
@@ -199,5 +209,6 @@
   "_note_vedettes": "08/11/2026 : maisons mises en avant sur l'accueil (onglets Favoris) = les 61 choisies par Amine le 04/11. Les marques ajoutées ensuite (photos Notino) sont en vente mais pas mises en avant.",
   "_note_arabes": "08/11/2026 : maisons des Parfums arabes ajoutées (liste site_theme.ARABES) ; une fiche arabe n'est affichée que si elle est moins chère que Deloox avec 3 € net minimum (site_synchro.visible).",
   "_note_rosendo": "08/11/2026 : Rosendo Mateu remis (photos Fragrantica trouvées, demande d'Amine).",
-  "_note_retirees": "08/11/2026 : les 12 marques retirées le 07/11 faute de photos sont remises (photos Notino + Fragrantica vérifiées, config/photos_retirees.json). Les parfums sans bonne photo restent masqués un par un."
+  "_note_retirees": "08/11/2026 : les 12 marques retirées le 07/11 faute de photos sont remises (photos Notino + Fragrantica vérifiées, config/photos_retirees.json). Les parfums sans bonne photo restent masqués un par un.",
+  "_note_groupe1": "08/11/2026 21 h : Amine ajoute les marques dont on a déjà de bonnes photos (Memo Paris, Juliette Has A Gun, Penhaligon's, Boadicea the Victorious, Lorenzo Villoresi, Mind Games, Jeroboam, Caron, Loewe) ; seuls les parfums avec bonne photo s'affichent."
 }
