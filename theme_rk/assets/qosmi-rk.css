@@ -329,3 +329,8 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 @media (max-width: 989px) {
   .qk-entete-coll__image { margin-top: 12px; margin-inline: calc(-1 * var(--page-margin, 16px)); }
 }
+/* le cœur des favoris occupe le coin haut droit des cartes : le badge (« Épuisé », promo) passe en haut à gauche */
+.product-badges--top-right { right: auto !important; left: 8px !important; }
+@media (max-width: 989px) {
+  .qk-entete-coll { padding-block: 16px 0; }
+}
