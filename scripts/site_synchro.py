@@ -227,8 +227,7 @@ ARABES, CONC = None, None
 def visible(p, sel):
     """Affichée si la marque et la catégorie sont dans la sélection ET si le parfum a une bonne photo
     (demande d'Amine du 07/11/2026 : pas de photo ou photo de mauvaise qualité = pas affiché).
-    Parfums arabes (décision d'Amine du 08/11/2026) : en plus, au moins un format en stock doit être moins cher que chez
-    le concurrent de référence (son prix applique déjà le plancher de 3 € net), ou absent de chez lui."""
+    Parfums arabes : affichés comme les autres depuis le 08/11/2026 21 h 27 (au moins 5 € net, même plus cher que le concurrent)."""
     global ARABES, CONC
     if not p.get("photo_ok", True):
         return False
@@ -236,12 +235,8 @@ def visible(p, sel):
         return False
     if ARABES is None:
         ARABES, CONC = sl.marques_arabes(), sl.concurrent()
-    if p["marque"].lower() in ARABES:
-        for v in p["variantes"]:
-            ref = CONC.get((v.get("ean") or "").lstrip("0"))
-            if int(v.get("stock") or 0) > 0 and (not ref or float(v["prix"]) < float(ref[0]) - 0.004):
-                return True
-        return False
+    # 08/11/2026 21 h 27 : Amine lève la condition « moins cher que le concurrent » ; les parfums arabes s'affichent comme
+    # les autres, au prix qui garde au moins 5 € net (marge_arabes_eur), même s'il est plus cher que le concurrent.
     return True
 
 
