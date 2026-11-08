@@ -37,6 +37,7 @@ M_STOCK = """mutation($input: InventorySetQuantitiesInput!, $cle: String!) {
   inventorySetQuantities(input: $input) @idempotent(key: $cle) {
     inventoryAdjustmentGroup { id } userErrors { code field message } } }"""
 Q_ETAT = """{ products(query: "status:active OR status:draft") { edges { node { id handle status tags featuredMedia { id }
+  dujour: metafield(namespace: "qosmi", key: "du_jour") { value }
   variants { edges { node { id sku price inventoryQuantity selectedOptions { name value }
     inventoryItem { id unitCost { amount } } } } } } } } }"""
 
@@ -258,6 +259,7 @@ def synchro(essai=False):
         return 1
     handles = {p["handle"] for p in boutique.values()}
     structurels, nouveaux, prix, stocks, vus = [], [], collections.defaultdict(list), [], set()
+    conc, dujour = sl.concurrent(), []  # prix du concurrent (interne) ; marques « parfum du jour » à changer
     nouveaux_p, structurels_p = [], []
     for p in produits:
         ids = [vs_qs[v["sku"]]["produit"] for v in p["variantes"] if v["sku"] in vs_qs]
@@ -286,6 +288,16 @@ def synchro(essai=False):
             e = entree_complete(p, existante, lieu_id, statut_nouv)
             structurels.append(e)
             structurels_p.append((e, p))
+        # « Le parfum du jour » : le format en stock le plus avantageux face au concurrent (prix sous le sien), sinon rien
+        meilleur, ecart_max = "", 0.0
+        for v in p["variantes"]:
+            a = vs_qs.get(v["sku"])
+            ref = conc.get((v.get("ean") or "").lstrip("0"))
+            if a and a["produit"] == pid and ref and int(v["stock"]) > 0 and float(v["prix"]) < float(ref[0]) - 0.004:
+                if float(ref[0]) - float(v["prix"]) > ecart_max:
+                    meilleur, ecart_max = a["id"], float(ref[0]) - float(v["prix"])
+        if meilleur != ((existante.get("dujour") or {}).get("value") or ""):
+            dujour.append((pid, meilleur))
         for v in p["variantes"]:
             a = vs_qs.get(v["sku"])
             if not a or a["produit"] != pid:
@@ -393,6 +405,20 @@ def synchro(essai=False):
         if d["userErrors"]:
             erreurs += 1
             ligne_journal("  erreur stocks : %s" % json.dumps(d["userErrors"], ensure_ascii=False)[:300])
+    # 4. « Le parfum du jour » : métachamp qosmi.du_jour = format moins cher que le concurrent (vide sinon). Jamais le prix du concurrent.
+    for i in range(0, len(dujour), 25):
+        mf = [{"ownerId": pid, "namespace": "qosmi", "key": "du_jour", "type": "single_line_text_field", "value": val}
+              for pid, val in dujour[i:i + 25] if val]
+        vides = [pid for pid, val in dujour[i:i + 25] if not val]
+        if mf:
+            d = s.gql("mutation($m: [MetafieldsSetInput!]!) { metafieldsSet(metafields: $m) { userErrors { message } } }", {"m": mf})
+            if d["metafieldsSet"]["userErrors"]:
+                erreurs += 1
+        if vides:
+            s.gql("mutation($m: [MetafieldIdentifierInput!]!) { metafieldsDelete(metafields: $m) { userErrors { message } } }",
+                  {"m": [{"ownerId": pid, "namespace": "qosmi", "key": "du_jour"} for pid in vides]})
+    if dujour:
+        resume += " · %d marques « parfum du jour » mises à jour" % len(dujour)
     ligne_journal("OK %s · %d erreur(s) · %d s" % (resume, erreurs, time.time() - debut))
     return 0 if not erreurs else 1
 

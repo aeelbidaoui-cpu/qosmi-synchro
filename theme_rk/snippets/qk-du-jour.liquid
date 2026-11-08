@@ -3,6 +3,8 @@
   Un grand parfum par jour, à tour de rôle dans la liste « produits », au prix habituel ; compte à rebours jusqu'au changement
   (minuit, heure de Bruxelles). Le rang du jour se calcule sur la liste complète (stable même si un parfum sort de stock) ;
   si ce parfum n'est pas en ligne, en stock et avec photo, on prend le suivant.
+  Seuls comptent les parfums plus avantageux que chez le concurrent de référence (demande d'Amine du 08/11/2026) :
+  le passage horaire met dans le métachamp qosmi.du_jour l'identifiant du format concerné (vide sinon).
   Le choix est fait côté serveur (date UTC) puis recalé dans le navigateur sur la date de Bruxelles (page en cache).
   Paramètres : produits (liste de produits), titre, compte_texte, uid
 {%- endcomment -%}
@@ -15,7 +17,7 @@
 {%- if qk_total > 0 -%}
   {%- assign qk_cible = 'now' | date: '%s' | divided_by: 86400 | modulo: qk_total -%}
   {%- for p in produits -%}
-    {%- if p.available and p.featured_image -%}
+    {%- if p.available and p.featured_image and p.metafields.qosmi.du_jour != blank -%}
       {%- assign qk_n = qk_n | plus: 1 -%}
       {%- if qk_premier < 0 -%}{%- assign qk_premier = forloop.index0 -%}{%- endif -%}
       {%- if qk_choix < 0 and forloop.index0 >= qk_cible -%}{%- assign qk_choix = forloop.index0 -%}{%- endif -%}
@@ -28,8 +30,13 @@
      role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="{% if qk_nl %}Parfum van de dag{% else %}{{ titre }}{% endif %}">
   <div class="qk-largeur qk-dujour__cadre">
     {%- for p in produits -%}
-      {%- if p.available and p.featured_image -%}
+      {%- if p.available and p.featured_image and p.metafields.qosmi.du_jour != blank -%}
         {%- assign v = p.selected_or_first_available_variant -%}
+        {%- assign qk_gid = p.metafields.qosmi.du_jour.value -%}
+        {%- for vv in p.variants -%}
+          {%- assign qk_vg = 'gid://shopify/ProductVariant/' | append: vv.id -%}
+          {%- if qk_vg == qk_gid and vv.available -%}{%- assign v = vv -%}{%- endif -%}
+        {%- endfor -%}
         {%- assign qk_t = p.title | split: ' — ' -%}
         {%- assign qk_nom = qk_t[0] | remove_first: p.vendor | strip -%}
         {%- if qk_nom == blank -%}{%- assign qk_nom = qk_t[0] -%}{%- endif -%}
