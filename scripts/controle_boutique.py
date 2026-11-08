@@ -14,6 +14,8 @@ def main():
         methodDefinitions(first: 20) { nodes { name active description
           rateProvider { ... on DeliveryRateDefinition { price { amount currencyCode } } }
           methodConditions { field operator conditionCriteria { ... on MoneyV2 { amount } ... on Weight { value unit } } } } } } } } } } }"""
+    for th in s.gql("{ themes(first: 20) { nodes { name role } } }")["themes"]["nodes"]:
+        print("thème : %s (%s)" % (th["name"], th["role"]))
     try:
         d = s.gql(q)
         print(json.dumps(d, ensure_ascii=False, indent=1)[:6000])
