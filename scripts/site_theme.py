@@ -73,7 +73,9 @@ COLLECTIONS = [  # (handle, titre, colonne, valeurs)
     ("maquillage", "Maquillage", "TYPE", ["Maquillage"]),
 ]
 MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes")]),
-        ("Niche", "niche", []), ("Testeurs", "testeurs", [])]  # 04/11/2026 : parfums uniquement (sélection d'Amine)
+        ("Femme", "parfums-femme", []), ("Homme", "parfums-homme", []),
+        ("Niche", "niche", []), ("Testeurs", "testeurs", []),
+        ("Marques", "page:marques", [])]  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
 LOGOS = ["qosmi-logo.png", "qosmi-logo-blanc.png", "qosmi-favicon.png"]
 
 
@@ -113,12 +115,41 @@ def collections(s):
     return ids
 
 
+def page_marques(s):
+    """Page « Marques » : toutes les marques de la sélection, de A à Z, chacune vers ses parfums."""
+    import html as _h, urllib.parse as _u
+    marques = sorted(json.load(open(os.path.join(os.path.dirname(ICI), "config", "selection.json"), encoding="utf-8"))["marques"],
+                     key=lambda m: m.lower())
+    groupes = {}
+    for m in marques:
+        l = m[0].upper() if m[0].isalpha() else "#"
+        groupes.setdefault(l, []).append(m)
+    corps = ["<p>Toutes les maisons que nous proposons, des grands classiques aux créateurs de niche.</p>"]
+    for l in sorted(groupes):
+        liens = " · ".join('<a href="/collections/vendors?q=%s">%s</a>' % (_u.quote(m), _h.escape(m)) for m in groupes[l])
+        corps.append("<h2>%s</h2><p>%s</p>" % (l, liens))
+    champs = {"title": "Marques", "handle": "marques", "body": "\n".join(corps), "isPublished": True}
+    d = s.gql('query($q: String!) { pages(first: 1, query: $q) { nodes { id } } }', {"q": "handle:marques"})["pages"]["nodes"]
+    if d:
+        r = erreurs(s.gql("mutation($id: ID!, $p: PageUpdateInput!) { pageUpdate(id: $id, page: $p) { page { id } userErrors { field message } } }",
+                          {"id": d[0]["id"], "p": champs}), "pageUpdate")
+    else:
+        r = erreurs(s.gql("mutation($p: PageCreateInput!) { pageCreate(page: $p) { page { id } userErrors { field message } } }",
+                          {"p": champs}), "pageCreate")
+    print("  page Marques OK (%d marques)" % len(marques))
+    return r["page"]["id"]
+
+
 def menu(s, ids):
     menus = s.gql("{ menus(first: 20) { nodes { id handle title } } }")["menus"]["nodes"]
     m = next((x for x in menus if x["handle"] == "main-menu"), None)
-    items = [{"title": t, "type": "COLLECTION", "resourceId": ids[h],
-              "items": [{"title": st, "type": "COLLECTION", "resourceId": ids[sh], "items": []} for st, sh in sous]}
-             for t, h, sous in MENU]
+    pages = {"page:marques": page_marques(s)} if any(h == "page:marques" for _, h, _ in MENU) else {}
+
+    def entree(t, h, sous=()):
+        if h.startswith("page:"):
+            return {"title": t, "type": "PAGE", "resourceId": pages[h], "items": []}
+        return {"title": t, "type": "COLLECTION", "resourceId": ids[h], "items": [entree(st, sh) for st, sh in sous]}
+    items = [entree(t, h, sous) for t, h, sous in MENU]
     if m:
         erreurs(s.gql("""mutation($id: ID!, $t: String!, $h: String, $i: [MenuItemUpdateInput!]!) { menuUpdate(id: $id, title: $t, handle: $h, items: $i) { menu { id } userErrors { field message } } }""",
                       {"id": m["id"], "t": m["title"], "h": "main-menu", "i": items}), "menuUpdate")
