@@ -5,8 +5,13 @@
   Sans image pour cette catégorie : le titre et le texte seuls, comme avant.
 {%- endcomment -%}
 {%- assign qk_c = collection | default: closest.collection -%}
-{%- assign qk_nom = 'qosmi-entete-' | append: qk_c.handle | append: '-v2.jpg' -%}
-{%- assign qk_img = images[qk_nom] -%}
+{%- comment -%} seules ces catégories ont une image (sinon images[] renvoie un objet vide et image_url plante) {%- endcomment -%}
+{%- assign qk_avec = 'parfums,parfums-femme,parfums-homme,parfums-mixtes,niche' | split: ',' -%}
+{%- assign qk_img = nil -%}
+{%- if qk_avec contains qk_c.handle -%}
+  {%- assign qk_nom = 'qosmi-entete-' | append: qk_c.handle | append: '-v2.jpg' -%}
+  {%- assign qk_img = images[qk_nom] -%}
+{%- endif -%}
 <div class="section-background"></div>
 <div class="section section--page-width">
   <div class="qk-entete-coll{% if qk_img %} qk-entete-coll--image{% endif %}">
