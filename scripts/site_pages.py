@@ -156,8 +156,44 @@ def politiques():
         print("  %-20s ok (%s), NL : %s" % (typ, r["shopPolicy"]["url"], "ok" if not err else err))
 
 
+def politiques_nl():
+    """Traduction NL des politiques Shopify (remplies en FR dans l'admin le 08/11/2026)."""
+    from shopify_api import Shopify
+    c = cfg()
+    par = {p["handle"]: p for p in PAGES}
+    e = ENTREPRISE
+    nl = {t: remplir(par[h]["nl"], c, nl=True) for t, h in POLITIQUES.items()}
+    nl["CONTACT_INFORMATION"] = ("<p><strong>%s</strong><br>%s<br>E-mail: <a href=\"mailto:%s\">%s</a><br>Ondernemingsnummer (KBO): %s<br>Btw: %s</p>"
+                                 % (e["raison"], e["adresse_nl"], c["email_service_client"], c["email_service_client"], e["bce"], e["tva"]))
+    s = Shopify()
+    res = s.gql("""{ translatableResources(first: 20, resourceType: SHOP_POLICY) { nodes { resourceId
+                     translatableContent { key value digest } } } }""")["translatableResources"]["nodes"]
+    for r in res:
+        body = next((x for x in r["translatableContent"] if x["key"] == "body"), None)
+        if not body:
+            continue
+        typ = next((t for t in nl if t != "CONTACT_INFORMATION" and _meme(body["value"], remplir(par[POLITIQUES[t]]["fr"], c))), None)
+        if typ is None and "Numéro d'entreprise (BCE)" in body["value"] and len(body["value"]) < 400:
+            typ = "CONTACT_INFORMATION"
+        if typ is None:
+            print("  politique non reconnue :", r["resourceId"], body["value"][:60])
+            continue
+        err = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
+                         userErrors { field message } } }""",
+                    {"id": r["resourceId"], "t": [{"locale": "nl", "key": "body", "value": nl[typ], "translatableContentDigest": body["digest"]}]})
+        print("  %-20s NL : %s" % (typ, err["translationsRegister"]["userErrors"] or "ok"))
+
+
+def _meme(a, b):
+    import re as _re
+    n = lambda x: _re.sub(r"\s+", " ", _re.sub(r"<[^>]+>", " ", x)).strip()[:120]
+    return n(a) == n(b)
+
+
 if __name__ == "__main__":
-    if "--politiques" in sys.argv:
+    if "--politiques-nl" in sys.argv:
+        politiques_nl()
+    elif "--politiques" in sys.argv:
         politiques()
     else:
         apercu() if "--apercu" in sys.argv else envoyer()

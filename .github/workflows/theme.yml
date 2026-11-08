@@ -6,7 +6,7 @@ on:
       action:
         description: "exporter (lecture seule) ou appliquer (copie non publiée)"
         type: choice
-        options: [exporter, exporter-apercu, appliquer, theme-rk, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, politiques, textes-fiches, menu]
+        options: [exporter, exporter-apercu, appliquer, theme-rk, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, politiques, politiques-nl, textes-fiches, menu]
         default: exporter
       fiche:
         description: "photos-marques : renvoyer seulement cette fiche (adresse de la fiche)"
@@ -51,6 +51,7 @@ jobs:
             if [ -z "$PHOTOS_ESSAI" ]; then python -u scripts/photos_marques.py; fi
             python -u scripts/site_synchro.py --photos-marques
           elif [ "${{ inputs.action }}" = "textes-fiches" ]; then python -u scripts/site_synchro.py --textes
+          elif [ "${{ inputs.action }}" = "politiques-nl" ]; then python -u scripts/site_pages.py --politiques-nl
           elif [ "${{ inputs.action }}" = "politiques" ]; then python -u scripts/site_pages.py --politiques
           elif [ "${{ inputs.action }}" = "pages-legales" ]; then python -u scripts/site_pages.py
           elif [ "${{ inputs.action }}" = "photos-adp" ]; then python -u scripts/photos_adp.py
