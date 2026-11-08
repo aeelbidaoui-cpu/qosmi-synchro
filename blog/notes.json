@@ -1,0 +1,45 @@
+{
+ "_note": "Photos d'ingrédients pour la pyramide olfactive du Journal ([[notes:...]]). Source : Unsplash (licence Unsplash : usage commercial autorisé, sans attribution obligatoire). Fichier Shopify : qosmi-note-<clé>.jpg",
+ "orange-sicile": {
+  "fr": "Orange de Sicile",
+  "nl": "Sinaasappel uit Sicilië",
+  "fichier": "qosmi-note-orange-sicile.jpg",
+  "source": "https://unsplash.com/photos/1644751291719-574ef771ba30"
+ },
+ "citron": {
+  "fr": "Citron",
+  "nl": "Citroen",
+  "fichier": "qosmi-note-citron.jpg",
+  "source": "https://unsplash.com/photos/1771231590819-e9f94dfa8d64"
+ },
+ "bergamote": {
+  "fr": "Bergamote",
+  "nl": "Bergamot",
+  "fichier": "qosmi-note-bergamote.jpg",
+  "source": "https://unsplash.com/photos/1528632735386-3bb3ead106f3"
+ },
+ "fruits": {
+  "fr": "Fruits",
+  "nl": "Fruit",
+  "fichier": "qosmi-note-fruits.jpg",
+  "source": "https://unsplash.com/photos/1639588473831-dd9d014646ae"
+ },
+ "musc-blanc": {
+  "fr": "Musc blanc",
+  "nl": "Witte muskus",
+  "fichier": "qosmi-note-musc-blanc.jpg",
+  "source": "https://unsplash.com/photos/1705147293352-3e81c1b8ab5b"
+ },
+ "vanille": {
+  "fr": "Vanille",
+  "nl": "Vanille",
+  "fichier": "qosmi-note-vanille.jpg",
+  "source": "https://unsplash.com/photos/1682482198446-4cbf92f85a4b"
+ },
+ "ambre": {
+  "fr": "Ambre",
+  "nl": "Amber",
+  "fichier": "qosmi-note-ambre.jpg",
+  "source": "https://unsplash.com/photos/1686043626878-9e391a70632d"
+ }
+}

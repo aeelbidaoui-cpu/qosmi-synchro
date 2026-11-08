@@ -13,6 +13,9 @@ Dans "corps" (HTML) :
   [[photo:<handle>]]           photo de la fiche (déjà sur Shopify, photos autorisées) avec lien vers la fiche
   [[photos:<h1>,<h2>,<h3>]]    rangée de photos de fiches
   [[produit:<handle>|texte]]   lien vers la fiche (texte facultatif : sinon le nom du parfum)
+  [[notes:tete=<clé>|texte,…;coeur=…;fond=…]]  pyramide olfactive illustrée (photos rondes des ingrédients, blog/notes.json ;
+                               texte facultatif : sinon le nom de l'ingrédient dans la langue de l'article)
+  [[concentrations]]           visuel des concentrations (eau de Cologne → extrait)
   [[collection:<handle>|texte]] lien vers une collection (adresse NL traduite si elle existe)
   [[marque:<nom>|texte]]       lien vers tous les parfums d'une marque
 Les liens NL pointent vers l'adresse néerlandaise de la fiche. Une fiche qui n'est pas en ligne n'est jamais liée.
@@ -113,7 +116,60 @@ def rendu(corps, fiches, langue):
             return '<a href="%s/collections/%s">%s</a>' % (prefixe, h, html.escape(texte.strip() or cle))
         return '<a href="%s/collections/vendors?q=%s">%s</a>' % (prefixe, urllib.parse.quote(cle), html.escape(texte.strip() or cle))
     corps = re.sub(r"\[\[(collection|marque):([^\]]+)\]\]", autres, corps)
+    corps = re.sub(r"\[\[notes:([^\]]+)\]\]", lambda m: notes_html(m.group(1), langue), corps)
+    corps = corps.replace("[[concentrations]]", concentrations_html(langue))
     return re.sub(r"\[\[(photo|photos|produit):([^\]]+)\]\]", remplace, corps)
+
+
+RACINE_BLOG = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "blog")
+NOTES_URL = {}  # clé d'ingrédient → adresse Shopify de sa photo
+
+
+def notes_citees(a):
+    cles = set()
+    for langue in ("fr", "nl"):
+        for m in re.finditer(r"\[\[notes:([^\]]+)\]\]", a[langue]["corps"]):
+            for etage in m.group(1).split(";"):
+                cles |= {x.split("|")[0].strip() for x in etage.partition("=")[2].split(",") if x.strip()}
+    return cles
+
+
+def notes_html(spec, langue):
+    conf = json.load(open(os.path.join(RACINE_BLOG, "notes.json"), encoding="utf-8"))
+    titres = {"tete": ("Notes de tête", "Topnoten"), "coeur": ("Notes de cœur", "Hartnoten"), "fond": ("Notes de fond", "Basisnoten")}
+    etages = []
+    for etage in spec.split(";"):
+        nom, _, liste = etage.partition("=")
+        nom = nom.strip()
+        items = []
+        for x in liste.split(","):
+            cle, _, texte = x.partition("|")
+            cle = cle.strip()
+            if not cle:
+                continue
+            texte = texte.strip() or conf.get(cle, {}).get(langue, cle)
+            u = NOTES_URL.get(cle)
+            img = ('<img src="%s?width=360" alt="%s" loading="lazy" width="180" height="180">' % (u, html.escape(texte))) if u else ""
+            items.append('<figure class="qk-note">%s<figcaption>%s</figcaption></figure>' % (img, html.escape(texte)))
+        t = titres.get(nom, (nom, nom))[0 if langue == "fr" else 1]
+        etages.append('<div class="qk-notes__etage"><p class="qk-notes__titre">%s</p><div class="qk-notes__liste">%s</div></div>' % (t, "".join(items)))
+    return '<div class="qk-notes">%s</div>' % "".join(etages)
+
+
+def concentrations_html(langue):
+    lignes = [("Eau de Cologne", 2, 5, "Fraîche, quelques heures", "Fris, enkele uren"),
+              ("Eau de Toilette", 5, 15, "Lumineuse, en journée", "Licht, overdag"),
+              ("Eau de Parfum", 10, 20, "Plus ronde, la plus vendue", "Voller, de bestseller"),
+              ("Extrait de Parfum", 15, 30, "Dense, très tenace", "Rijk, zeer lang"),]
+    maxi = 35.0
+    titre = "Part de concentré parfumé (repères)" if langue == "fr" else "Aandeel parfumconcentraat (richtcijfers)"
+    out = []
+    for nom, a, b, fr, nl in lignes:
+        out.append('<div class="qk-conc__ligne"><span class="qk-conc__nom">%s</span><span class="qk-conc__piste">'
+                   '<span class="qk-conc__barre" style="left:%.1f%%;width:%.1f%%"></span></span>'
+                   '<span class="qk-conc__val">%d–%d %%</span><span class="qk-conc__desc">%s</span></div>'
+                   % (nom, a / maxi * 100, (b - a) / maxi * 100, a, b, fr if langue == "fr" else nl))
+    return '<div class="qk-conc"><p class="qk-conc__titre">%s</p>%s</div>' % (titre, "".join(out))
 
 
 def faq_html(faq, langue):
@@ -164,6 +220,11 @@ def main():
                          "handle_nl": next((t["value"] for t in p["translations"] if t["key"] == "handle"), None)}
         if a["image"] not in fiches:
             raise SystemExit("%s : la fiche de l'image principale (%s) n'est pas en ligne" % (a["_fichier"], a["image"]))
+        import photos_adp as pa
+        for cle in sorted(notes_citees(a)):
+            if cle not in NOTES_URL:
+                nom = "qosmi-note-%s.jpg" % cle
+                NOTES_URL[cle] = pa.adresse_fichier(s, nom) or pa.envoyer(s, os.path.join(RACINE_BLOG, "notes", nom), alt=cle)
         corps = {l: rendu(a[l]["corps"], fiches, l) + faq_html(a[l]["faq"], l) for l in ("fr", "nl")}
         couv = couverture(s, a, fiches[a["image"]]["image"])
         champs = {"title": a["fr"]["titre"], "handle": a["handle"], "body": corps["fr"], "summary": "<p>%s</p>" % html.escape(a["fr"]["resume"]),
