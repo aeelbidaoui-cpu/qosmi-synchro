@@ -75,6 +75,7 @@ def reglages():
     p = s.get("prix_provisoires") or {}
     return {"envoi_eur": float(p.get("envoi_eur", 2)), "marge_eur": float(p.get("marge_eur", 5)),
             "emballage_eur": float(p.get("emballage_eur", 0)), "marge_sans_concurrent_eur": float(p.get("marge_sans_concurrent_eur", p.get("marge_eur", 5))),
+            "marge_max_concurrent_eur": float(p.get("marge_max_concurrent_eur", 0)),
             "concurrent": concurrent(),
             "paiement_pct": float(p.get("paiement_pct", 0)), "paiement_fixe": float(p.get("paiement_fixe", 0)),
             "tva": float(p.get("tva", 0.21)), "delai_fr": s.get("delai_dropship_fr", "4 à 7 jours ouvrables"),
@@ -136,8 +137,10 @@ def prix_provisoire(achat, r, ean=""):
     """Règle d'Amine du 08/11/2026 (livraison client 2,95 € ; colis SoleLuna de 15 € pour ~5 parfums, soit envoi_eur 3 €) :
     - coût = achat + envoi + emballage ; les frais de paiement (% du TTC + fixe) sont inclus pour que le bénéfice reste entier ;
     - plancher = coût + frais + marge_eur (5 € net minimum), × 1,21, arrondi au ,90 supérieur ;
-    - si le concurrent de référence vend ce même EAN (en stock) : le prix en ,90 juste sous le sien, jamais sous le plancher ;
-    - sinon : coût + frais + marge_sans_concurrent_eur (10 €)."""
+    - si le concurrent de référence vend ce même EAN (en stock) : le prix en ,90 juste sous le sien, jamais sous le plancher,
+      et (choix d'Amine du 08/11/2026) jamais au-dessus du prix à marge_max_concurrent_eur (10 €) : si on est déjà nettement
+      moins cher que lui, on le reste ;
+    - sinon : coût + frais + marge_sans_concurrent_eur (7 €)."""
     k = 1 / (1 + r["tva"]) - r.get("paiement_pct", 0)
     base = achat + r["envoi_eur"] + r.get("emballage_eur", 0) + r.get("paiement_fixe", 0)
     plancher = arrondi_90_haut((base + r["marge_eur"]) / k)
@@ -147,6 +150,8 @@ def prix_provisoire(achat, r, ean=""):
         cible = math.floor(d - 0.90 + 1e-9) + 0.90
         if cible >= d - 1e-9:
             cible -= 1
+        if r.get("marge_max_concurrent_eur"):
+            cible = min(cible, arrondi_90_haut((base + r["marge_max_concurrent_eur"]) / k))
         return max(round(cible, 2), plancher)
     return arrondi_90_haut((base + r.get("marge_sans_concurrent_eur", r["marge_eur"])) / k)
 
