@@ -55,7 +55,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "controle-boutique" ]; then python -u scripts/controle_boutique.py
           elif [ "${{ inputs.action }}" = "google" ]; then python -u scripts/site_synchro.py --google
           elif [ "${{ inputs.action }}" = "page-favoris" ]; then python -u scripts/page_favoris.py
-          elif [ "${{ inputs.action }}" = "livraison-2-95" ]; then python -u scripts/livraison_tarif.py 6.95 2.95 && python -u scripts/livraison_offerte.py
+          elif [ "${{ inputs.action }}" = "livraison-2-95" ]; then python -u scripts/livraison_tarif.py 7 2.95
           elif [ "${{ inputs.action }}" = "photos-m3" ]; then python -u scripts/photos_dossier.py m3
           elif [ "${{ inputs.action }}" = "photos-m2" ]; then python -u scripts/photos_dossier.py m2
           elif [ "${{ inputs.action }}" = "photos-tt" ]; then python -u scripts/photos_dossier.py tt
