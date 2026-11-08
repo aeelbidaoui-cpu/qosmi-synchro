@@ -35,7 +35,7 @@ def toutes_les_photos():
     return sorted(u for u in urls if u)
 
 
-FOND_GRIS_MIN, FOND_ECART_MAX = 195, 8  # fond uni gris clair (ex. photos Creed) : passé au blanc avant recadrage
+FOND_GRIS_MIN, FOND_ECART_MAX = 195, 24  # fond uni gris clair (ex. photos Creed) : passé au blanc avant recadrage
 
 
 def blanchir(im, t0=4.0, t1=46.0):
