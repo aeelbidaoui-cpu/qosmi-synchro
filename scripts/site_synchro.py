@@ -609,7 +609,7 @@ def qualite_photos():
 
 
 def textes():
-    """Remet à jour la description (FR + NL) des fiches visibles, par ex. après un changement de délai de livraison."""
+    """Remet à jour la description, le titre et la méta-description Google (FR + NL) des fiches visibles."""
     from shopify_api import Shopify
     import site_charger as sc
     if os.environ.get("SOLELUNA_EMAIL"):
@@ -622,7 +622,8 @@ def textes():
     vus = [p for p in produits if visible(p, sel) and p["handle"] in par_handle]
     ok = err = 0
     for p in vus:
-        d = s.gql(sc.M_MAJ, {"product": {"id": par_handle[p["handle"]]["id"], "descriptionHtml": p["desc_fr"]}})["productUpdate"]
+        d = s.gql(sc.M_MAJ, {"product": {"id": par_handle[p["handle"]]["id"], "descriptionHtml": p["desc_fr"],
+                                         "seo": {"title": p["seo_titre_fr"], "description": p["seo_desc_fr"]}}})["productUpdate"]
         if d["userErrors"]:
             err += 1
         else:

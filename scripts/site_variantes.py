@@ -151,9 +151,24 @@ def produit(lignes, r, photos):
         v.update({"format_fr": f_fr, "format_nl": f_nl, "teinte": teinte, "_achat": l.get("PRICE")})
         vus[cle] = v
         variantes.append(v)
+    seo = seo_textes(t_fr, t_nl, r)
     return {"handle": sl.slug(t_fr)[:200], "titre_fr": t_fr, "titre_nl": t_nl, "desc_fr": d_fr, "desc_nl": d_nl,
             "marque": marque, "type_fr": cat_fr, "type_nl": cat_nl, "tags": ", ".join(tags),
-            "teintes": teintes, "variantes": variantes}
+            "teintes": teintes, "variantes": variantes, **seo}
+
+
+def seo_textes(t_fr, t_nl, r):
+    """Titre (≤ 70 caractères) et méta-description (≤ 160) pour Google, FR + NL (08/11/2026)."""
+    def titre(t):
+        t = t.replace(" — ", " ")
+        return t + " | Qosmi" if len(t) + 8 <= 70 else (t if len(t) <= 70 else t[:71].rsplit(" ", 1)[0])
+
+    def coupe(d):
+        return d if len(d) <= 160 else d[:157].rsplit(" ", 1)[0] + "…"
+    n_fr, n_nl = t_fr.replace(" — ", ", ").replace("— ", ""), t_nl.replace(" — ", ", ").replace("— ", "")
+    return {"seo_titre_fr": titre(t_fr), "seo_titre_nl": titre(t_nl),
+            "seo_desc_fr": coupe("%s, 100 %% authentique et neuf. Livraison en Belgique en %s. Paiement Bancontact." % (n_fr, r["delai_fr"])),
+            "seo_desc_nl": coupe("%s, 100%% origineel en nieuw. Levering in België binnen %s. Betalen met Bancontact." % (n_nl, r["delai_nl"]))}
 
 
 def photos_officielles(produits):
@@ -412,7 +427,8 @@ def traduire(s, sc, produits):
                     p = par_handle.get((c.get("handle") or {}).get("value"))
                     if not p:
                         continue
-                    for cle, val in (("title", p["titre_nl"]), ("body_html", p["desc_nl"]), ("product_type", p["type_nl"])):
+                    for cle, val in (("title", p["titre_nl"]), ("body_html", p["desc_nl"]), ("product_type", p["type_nl"]),
+                                     ("meta_title", p.get("seo_titre_nl")), ("meta_description", p.get("seo_desc_nl"))):
                         if cle in c and val:
                             t.append({"locale": "nl", "key": cle, "value": val, "translatableContentDigest": c[cle]["digest"]})
                 else:
