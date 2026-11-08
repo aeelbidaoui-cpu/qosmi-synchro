@@ -108,5 +108,6 @@ jobs:
             rapports/bol_publication.csv
             rapports/bol_publication.txt
             rapports/bol_commandes.txt
+            rapports/bol_invisibles.json
           retention-days: 14
           if-no-files-found: ignore

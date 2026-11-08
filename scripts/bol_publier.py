@@ -176,6 +176,18 @@ def main():
             journal.append(("retirée (stock 0)", e, dec_court.get(ec, {}), (dec_court.get(ec) or {}).get("decision", "hors sélection")))
     ecrire(REFUS, refus)
 
+    # 2 bis. visibilité réelle sur bol : une offre acceptée peut rester invisible (droits de vente, contenu) ;
+    # bol donne alors des « notPublishableReasons » (vérifié à chaque passage, 08/11/2026)
+    invisibles = {}
+    if not essai:
+        ids = {e: o["offerId"] for e, o in en_ligne.items()}
+        ids.update({e.lstrip("0"): det for action, e, d, det in journal if action == "créée" and det})
+        for ec, oid in ids.items():
+            o = bol.get("/retailer/offers/%s" % oid) or {}
+            for r in o.get("notPublishableReasons") or []:
+                cle = "%s %s" % (r.get("code", ""), (r.get("description") or "")[:80])
+                invisibles.setdefault(cle, []).append(ec)
+
     # 3. rapports internes
     os.makedirs(RAPPORTS, exist_ok=True)
     with open(os.path.join(RAPPORTS, "bol_publication.csv"), "w", newline="", encoding="utf-8-sig") as f:
@@ -197,6 +209,12 @@ def main():
     txt += ["%-25s %5d" % kv for kv in sorted(compte.items(), key=lambda kv: -kv[1])]
     if raisons:
         txt += ["", "Raisons des refus bol :"] + ["  %3d × %s" % (n, r) for r, n in sorted(raisons.items(), key=lambda kv: -kv[1])]
+    if invisibles:
+        txt += ["", "Offres en ligne mais NON visibles sur bol (raison donnée par bol) :"] + \
+               ["  %3d × %s" % (len(v), k) for k, v in sorted(invisibles.items(), key=lambda kv: -len(kv[1]))]
+        ecrire(os.path.join(RAPPORTS, "bol_invisibles.json"), invisibles)
+    elif not essai:
+        txt += ["", "Toutes les offres en ligne sont publiables (aucune raison de blocage donnée par bol)."]
     if len(creations) > maxi:
         txt += ["", "%d créations reportées au prochain passage (limite %d par passage)." % (len(creations) - maxi, maxi)]
     # 4. commandes ouvertes à passer chez le fournisseur
