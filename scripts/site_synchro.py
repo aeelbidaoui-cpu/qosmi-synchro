@@ -419,6 +419,34 @@ def publier_fiches(s, ids):
         s.gql(M_PUBLIER, {"id": pid, "input": [{"publicationId": p} for p in pubs]})
 
 
+def photos_manquantes():
+    """Liste des parfums masqués faute de photo autorisée de bonne qualité (marque et catégorie dans la sélection) :
+    rapports/theme/photos_manquantes.csv (marque, nom, formats, EAN, handle), par marque. Sert à chercher les photos."""
+    import csv
+    if os.environ.get("SOLELUNA_EMAIL"):
+        listes_serveur()
+    produits = sv.preparer(exemples=False)
+    sel = selection()
+    lignes = []
+    for p in produits:
+        if p.get("photo_ok", True) or (sel and not (p["marque"].lower() in sel[0] and p["type_fr"] in sel[1])):
+            continue
+        lignes.append({"marque": p["marque"], "nom": p["titre_fr"], "formats": " / ".join(v["format_fr"] for v in p["variantes"]),
+                       "ean": " ".join(sorted({v["ean"] for v in p["variantes"] if v.get("ean")})), "handle": p["handle"],
+                       "stock": sum(int(v.get("stock") or 0) for v in p["variantes"])})
+    lignes.sort(key=lambda x: (x["marque"].lower(), x["nom"].lower()))
+    dossier = os.path.join(os.path.dirname(ICI), "rapports", "theme")
+    os.makedirs(dossier, exist_ok=True)
+    with open(os.path.join(dossier, "photos_manquantes.csv"), "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(lignes[0].keys()) if lignes else ["marque"], delimiter=";")
+        w.writeheader()
+        w.writerows(lignes)
+    par = collections.Counter(x["marque"] for x in lignes)
+    print("Parfums masqués faute de photo : %d" % len(lignes))
+    for m, n in par.most_common(30):
+        print("  %s : %d" % (m, n))
+
+
 def testeurs_suspens():
     """08/11/2026, demande d'Amine : testeurs en suspens (question juridique à vérifier avec son avocat).
     Retire du site les formats « testeur » déjà présents : une fiche qui n'a QUE des testeurs passe en brouillon ;
@@ -766,6 +794,9 @@ def main():
             return 0
         if "--controle-photos" in sys.argv:
             controle_medias()
+            return 0
+        if "--photos-manquantes" in sys.argv:
+            photos_manquantes()
             return 0
         if "--testeurs-suspens" in sys.argv:
             testeurs_suspens()
