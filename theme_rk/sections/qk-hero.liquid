@@ -1,20 +1,85 @@
-{%- comment -%} Grand bandeau d'accueil, plein écran, texte en bas à gauche (style Riklis Karto). {%- endcomment -%}
-<section class="qk-hero{% if section.settings.image == blank and section.settings.video == blank %} qk-hero--uni{% endif %}" style="--qk-hero-h: {{ section.settings.hauteur }}vh;">
-  {%- if section.settings.video != blank -%}
-    {%- comment -%} vidéo d'ambiance : muette, en boucle, lancée seule (aussi sur iPhone grâce à playsinline) {%- endcomment -%}
-    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video', image_size: '3840x' }}
-    {%- if section.settings.video_mobile != blank -%}
-      {{ section.settings.video_mobile | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video qk-hero__video--mobile', image_size: '1080x' }}
-    {%- endif -%}
-  {%- elsif section.settings.image != blank -%}
-    {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'qk-hero__img', loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800, 1200, 1600, 2400', alt: section.settings.image.alt }}
-  {%- endif -%}
-  <div class="qk-hero__voile"></div>
-  <div class="qk-hero__contenu qk-largeur">
-    <h1 class="qk-hero__titre">{{ section.settings.titre }} {% if section.settings.titre_doux != blank %}<span>{{ section.settings.titre_doux }}</span>{% endif %}</h1>
-    {%- if section.settings.texte != blank -%}<p class="qk-hero__texte">{{ section.settings.texte }}</p>{%- endif -%}
-    {%- if section.settings.bouton != blank -%}<a class="qk-lien qk-lien--clair" href="{{ section.settings.lien | default: '/collections/all' }}">{{ section.settings.bouton }}</a>{%- endif -%}
+{%- comment -%}
+  Grand bandeau d'accueil en carrousel (demande d'Amine du 08/11/2026) :
+  1) la vidéo d'ambiance avec le titre (style Riklis Karto), 2) « Le parfum du jour » (snippets/qk-du-jour.liquid).
+  Défile tout seul (réglage « duree »), se met en pause au survol, au clavier et quand l'onglet est caché ;
+  on peut aussi glisser du doigt, cliquer sur les flèches ou les points.
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+<section class="qk-carrousel" id="qk-carrousel-{{ section.id }}" aria-roledescription="carrousel" aria-label="{% if qk_nl %}Uitgelicht{% else %}À la une{% endif %}"
+         style="--qk-hero-h: {{ section.settings.hauteur }}vh;" data-qk-duree="{{ section.settings.duree }}">
+  <div class="qk-carrousel__piste">
+    <div class="qk-hero qk-carrousel__slide{% if section.settings.image == blank and section.settings.video == blank %} qk-hero--uni{% endif %}"
+         role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="Qosmi">
+      {%- if section.settings.video != blank -%}
+        {%- comment -%} vidéo d'ambiance : muette, en boucle, lancée seule (aussi sur iPhone grâce à playsinline) {%- endcomment -%}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video', image_size: '3840x' }}
+        {%- if section.settings.video_mobile != blank -%}
+          {{ section.settings.video_mobile | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video qk-hero__video--mobile', image_size: '1080x' }}
+        {%- endif -%}
+      {%- elsif section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'qk-hero__img', loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800, 1200, 1600, 2400', alt: section.settings.image.alt }}
+      {%- endif -%}
+      <div class="qk-hero__voile"></div>
+      <div class="qk-hero__contenu qk-largeur">
+        <h1 class="qk-hero__titre">{{ section.settings.titre }} {% if section.settings.titre_doux != blank %}<span>{{ section.settings.titre_doux }}</span>{% endif %}</h1>
+        {%- if section.settings.texte != blank -%}<p class="qk-hero__texte">{{ section.settings.texte }}</p>{%- endif -%}
+        {%- if section.settings.bouton != blank -%}<a class="qk-lien qk-lien--clair" href="{{ section.settings.lien | default: '/collections/all' }}">{{ section.settings.bouton }}</a>{%- endif -%}
+      </div>
+    </div>
+    {%- render 'qk-du-jour', produits: section.settings.produits, titre: section.settings.dujour_titre, compte_texte: section.settings.dujour_compte, uid: section.id -%}
   </div>
+  <button type="button" class="qk-carrousel__fleche qk-carrousel__fleche--prec" aria-label="{% if qk_nl %}Vorige{% else %}Précédent{% endif %}" hidden>
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+  </button>
+  <button type="button" class="qk-carrousel__fleche qk-carrousel__fleche--suiv" aria-label="{% if qk_nl %}Volgende{% else %}Suivant{% endif %}" hidden>
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+  </button>
+  <div class="qk-carrousel__points" hidden></div>
+  <script>
+    (function () {
+      var c = document.getElementById('qk-carrousel-{{ section.id }}');
+      if (!c) return;
+      var piste = c.querySelector('.qk-carrousel__piste');
+      var slides = piste.querySelectorAll(':scope > .qk-carrousel__slide');
+      var n = slides.length;
+      if (n < 2) return;
+      var points = c.querySelector('.qk-carrousel__points'), boutons = [];
+      for (var k = 0; k < n; k++) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'qk-carrousel__point';
+        b.setAttribute('aria-label', (k + 1) + ' / ' + n);
+        b.addEventListener('click', (function (j) { return function () { aller(j); pause(12000); }; })(k));
+        points.appendChild(b); boutons.push(b);
+      }
+      points.hidden = false;
+      c.querySelectorAll('.qk-carrousel__fleche').forEach(function (f) { f.hidden = false; });
+      var cur = 0;
+      function aller(i) { i = (i + n) % n; piste.scrollTo({ left: i * piste.clientWidth, behavior: 'smooth' }); }
+      function maj() {
+        cur = Math.round(piste.scrollLeft / Math.max(1, piste.clientWidth));
+        boutons.forEach(function (b, j) { b.setAttribute('aria-current', j === cur ? 'true' : 'false'); });
+        slides.forEach(function (s, j) { s.setAttribute('aria-hidden', j === cur ? 'false' : 'true'); });
+      }
+      piste.addEventListener('scroll', function () { clearTimeout(piste._t); piste._t = setTimeout(maj, 80); }, { passive: true });
+      c.querySelector('.qk-carrousel__fleche--prec').addEventListener('click', function () { aller(cur - 1); pause(12000); });
+      c.querySelector('.qk-carrousel__fleche--suiv').addEventListener('click', function () { aller(cur + 1); pause(12000); });
+      // défilement automatique
+      var duree = (+c.getAttribute('data-qk-duree') || 7) * 1000, survol = false, jusqua = 0;
+      function pause(ms) { jusqua = Date.now() + ms; }
+      c.addEventListener('mouseenter', function () { survol = true; });
+      c.addEventListener('mouseleave', function () { survol = false; });
+      c.addEventListener('focusin', function () { survol = true; });
+      c.addEventListener('focusout', function () { survol = false; });
+      piste.addEventListener('touchstart', function () { pause(12000); }, { passive: true });
+      setInterval(function () {
+        if (survol || document.hidden || Date.now() < jusqua) return;
+        aller(cur + 1);
+      }, duree);
+      window.addEventListener('resize', function () { piste.scrollTo({ left: cur * piste.clientWidth }); });
+      maj();
+    })();
+  </script>
 </section>
 
 {% schema %}
@@ -30,7 +95,12 @@
     { "type": "text", "id": "texte", "label": "Sous-titre", "default": "Parfums de marque et de niche, 100 % authentiques." },
     { "type": "text", "id": "bouton", "label": "Lien", "default": "Découvrir" },
     { "type": "url", "id": "lien", "label": "Adresse du lien" },
-    { "type": "range", "id": "hauteur", "label": "Hauteur (% de l'écran)", "min": 50, "max": 100, "step": 5, "default": 85 }
+    { "type": "range", "id": "hauteur", "label": "Hauteur (% de l'écran)", "min": 50, "max": 100, "step": 5, "default": 85 },
+    { "type": "header", "content": "Parfum du jour (2e image du carrousel)" },
+    { "type": "text", "id": "dujour_titre", "label": "Titre", "default": "Le parfum du jour" },
+    { "type": "text", "id": "dujour_compte", "label": "Texte au-dessus du compte à rebours", "default": "Prochain parfum dans" },
+    { "type": "product_list", "id": "produits", "label": "Parfums possibles (un par jour, à tour de rôle)", "limit": 50 },
+    { "type": "range", "id": "duree", "label": "Temps par image (secondes)", "min": 4, "max": 15, "step": 1, "default": 7 }
   ],
   "presets": [{ "name": "Qosmi · Bandeau" }]
 }

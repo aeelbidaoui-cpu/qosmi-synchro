@@ -1,0 +1,92 @@
+{%- comment -%}
+  « Le parfum du jour » (demande d'Amine du 08/11/2026), affiché comme 2e image du carrousel d'accueil (sections/qk-hero.liquid).
+  Un grand parfum par jour, à tour de rôle dans la liste « produits », au prix habituel ; compte à rebours jusqu'au changement
+  (minuit, heure de Bruxelles). Le rang du jour se calcule sur la liste complète (stable même si un parfum sort de stock) ;
+  si ce parfum n'est pas en ligne, en stock et avec photo, on prend le suivant.
+  Le choix est fait côté serveur (date UTC) puis recalé dans le navigateur sur la date de Bruxelles (page en cache).
+  Paramètres : produits (liste de produits), titre, compte_texte, uid
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- assign qk_total = produits.size -%}
+{%- assign qk_n = 0 -%}
+{%- assign qk_premier = -1 -%}
+{%- assign qk_choix = -1 -%}
+{%- if qk_total > 0 -%}
+  {%- assign qk_cible = 'now' | date: '%s' | divided_by: 86400 | modulo: qk_total -%}
+  {%- for p in produits -%}
+    {%- if p.available and p.featured_image -%}
+      {%- assign qk_n = qk_n | plus: 1 -%}
+      {%- if qk_premier < 0 -%}{%- assign qk_premier = forloop.index0 -%}{%- endif -%}
+      {%- if qk_choix < 0 and forloop.index0 >= qk_cible -%}{%- assign qk_choix = forloop.index0 -%}{%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if qk_choix < 0 -%}{%- assign qk_choix = qk_premier -%}{%- endif -%}
+{%- endif -%}
+{%- if qk_n > 0 -%}
+<div class="qk-hero qk-hero--uni qk-carrousel__slide qk-dujour" id="qk-dujour-{{ uid }}" data-qk-total="{{ qk_total }}"
+     role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="{% if qk_nl %}Parfum van de dag{% else %}{{ titre }}{% endif %}">
+  <div class="qk-largeur qk-dujour__cadre">
+    {%- for p in produits -%}
+      {%- if p.available and p.featured_image -%}
+        {%- assign v = p.selected_or_first_available_variant -%}
+        {%- assign qk_t = p.title | split: ' — ' -%}
+        {%- assign qk_nom = qk_t[0] | remove_first: p.vendor | strip -%}
+        {%- if qk_nom == blank -%}{%- assign qk_nom = qk_t[0] -%}{%- endif -%}
+        {%- assign qk_type = qk_t[1] | remove: ' pour femme' | remove: ' pour homme' | remove: ' mixte' | remove: ' voor dames' | remove: ' voor heren' | remove: ' unisex' | strip -%}
+        {%- assign qk_prix = v.price | money_without_currency | split: ',' -%}
+        <a class="qk-dujour__produit{% if forloop.index0 != qk_choix %} is-cache{% endif %}" data-qk-rang="{{ forloop.index0 }}" href="{{ v.url | default: p.url }}">
+          <span class="qk-dujour__img">
+            {{ p.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: p.title, widths: '400, 600, 900', sizes: '(min-width: 750px) 40vw, 80vw' }}
+          </span>
+          <span class="qk-dujour__texte">
+            <span class="qk-dujour__titre">{% if qk_nl %}Parfum van de dag{% else %}{{ titre }}{% endif %}</span>
+            <span class="qk-dujour__marque">{{ p.vendor }}</span>
+            <span class="qk-dujour__ligne">{{ qk_nom }}</span>
+            {%- if qk_type != blank -%}<span class="qk-dujour__ligne qk-dujour__ligne--doux">{{ qk_type }}{% unless v.title == 'Default Title' %} · {{ v.title }}{% endunless %}</span>{%- endif -%}
+            <span class="qk-dujour__prix" aria-label="{{ v.price | money }}">{{ qk_prix[0] }}{% if qk_prix[1] %},<sup>{{ qk_prix[1] }}</sup>{% endif %}<small> €</small></span>
+            <span class="qk-lien qk-lien--clair qk-dujour__voir">{% if qk_nl %}Bekijken{% else %}Voir le parfum{% endif %}</span>
+          </span>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+    <div class="qk-dujour__compte">
+      <span class="qk-dujour__compte-titre">{% if qk_nl %}Volgende parfum over{% else %}{{ compte_texte }}{% endif %}</span>
+      <span class="qk-dujour__cases">
+        <span class="qk-dujour__case"><b data-qk-h>--</b><span>{% if qk_nl %}uur{% else %}heures{% endif %}</span></span>
+        <span class="qk-dujour__case"><b data-qk-m>--</b><span>{% if qk_nl %}minuten{% else %}minutes{% endif %}</span></span>
+        <span class="qk-dujour__case"><b data-qk-s>--</b><span>{% if qk_nl %}seconden{% else %}secondes{% endif %}</span></span>
+      </span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var racine = document.getElementById('qk-dujour-{{ uid }}');
+      if (!racine) return;
+      var produits = racine.querySelectorAll('.qk-dujour__produit');
+      var n = produits.length, total = +racine.getAttribute('data-qk-total') || n, actuel = -1;
+      function bruxelles() {
+        var parts = {};
+        new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Brussels', year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' })
+          .formatToParts(new Date()).forEach(function (x) { parts[x.type] = x.value; });
+        return parts;
+      }
+      function deux(x) { return (x < 10 ? '0' : '') + x; }
+      function tic() {
+        var b = bruxelles();
+        var jour = Math.floor(Date.UTC(+b.year, +b.month - 1, +b.day) / 86400000);
+        var cible = jour % total, i = 0;
+        for (var k = 0; k < n; k++) { if (+produits[k].getAttribute('data-qk-rang') >= cible) { i = k; break; } }
+        if (i !== actuel) { for (k = 0; k < n; k++) produits[k].classList.toggle('is-cache', k !== i); actuel = i; }
+        var reste = 86400 - (+b.hour * 3600 + +b.minute * 60 + +b.second);
+        racine.querySelector('[data-qk-h]').textContent = deux(Math.floor(reste / 3600));
+        racine.querySelector('[data-qk-m]').textContent = deux(Math.floor(reste % 3600 / 60));
+        racine.querySelector('[data-qk-s]').textContent = deux(reste % 60);
+      }
+      tic();
+      setInterval(tic, 1000);
+    })();
+  </script>
+</div>
+{%- endif -%}

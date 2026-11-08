@@ -177,9 +177,9 @@ def construire(fichiers, marques):
             "texte": "Parfums de marque et de niche, 100 % authentiques.", "bouton": "Découvrir",
             "lien": "shopify://collections/parfums", "hauteur": 85,
             "image": "shopify://shop_images/qosmi-hero-ingredients.jpg",
-            "video": "shopify://files/videos/qosmi-hero-ingredients-4k.mp4"}},
-        "qk_du_jour": {"type": "qk-du-jour", "settings": {
-            "titre": "Le parfum du jour", "compte_texte": "Prochain parfum dans", "produits": DU_JOUR, "couleur": "#111111"}},
+            "video": "shopify://files/videos/qosmi-hero-ingredients-4k.mp4",
+            # carrousel : 2e image = « Le parfum du jour » (08/11/2026)
+            "dujour_titre": "Le parfum du jour", "dujour_compte": "Prochain parfum dans", "produits": DU_JOUR, "duree": 7}},
         "qk_favoris": {"type": "qk-onglets", "settings": {
             "titre": "Favoris", "nombre": 10,
             "texte": "Les parfums qu'on nous demande le plus. Une sélection de grandes maisons et de niche, choisie avec soin."},
@@ -218,7 +218,7 @@ def construire(fichiers, marques):
                      "et on te les livre partout en Belgique.</p>",
             "lien_texte": "Voir tous les parfums", "lien": "shopify://collections/parfums", "alignement": "centre"}},
     }
-    d["order"] = ["qk_hero", "qk_du_jour", "qk_favoris", "qk_banniere", "qk_tuiles", "qk_marques", "qk_apropos"]
+    d["order"] = ["qk_hero", "qk_favoris", "qk_banniere", "qk_tuiles", "qk_marques", "qk_apropos"]
     jsons["templates/index.json"] = ecrire(e, d)
 
     # ---------- fiche produit ----------
