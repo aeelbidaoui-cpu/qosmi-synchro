@@ -201,12 +201,12 @@ def appliquer():
 
 
 def appliquer_rk():
-    """Qosmi façon Riklis Karto (07/11/2026), sur le thème d'aperçu seulement."""
+    """Qosmi façon Riklis Karto (07/11/2026) : thème « Qosmi A (aperçu) », publié le 08/11/2026 après accord d'Amine."""
     from shopify_api import Shopify
     import theme_rk
     s = Shopify()
     themes = s.gql(Q_THEMES)["themes"]["nodes"]
-    apercu = next(t for t in themes if t["name"] == APERCU and t["role"] != "MAIN")
+    apercu = next(t for t in themes if t["name"] == APERCU)  # publié le 08/11/2026 : c'est désormais le thème du site
     actuels = fichiers_theme(s, apercu["id"], theme_rk.FICHIERS)
     manquants = [n for n in theme_rk.FICHIERS if n not in actuels]
     if manquants:
@@ -225,6 +225,22 @@ def appliquer_rk():
     print("APERÇU : https://qosmi.be/?preview_theme_id=%s" % num)
 
 
+def publier():
+    """Publie le thème « Qosmi A (aperçu) » (accord d'Amine du 08/11/2026). L'ancien thème reste dans la bibliothèque."""
+    from shopify_api import Shopify
+    s = Shopify()
+    themes = s.gql(Q_THEMES)["themes"]["nodes"]
+    t = next(t for t in themes if t["name"] == APERCU)
+    if t["role"] == "MAIN":
+        print("Déjà publié : %s" % t["name"])
+        return
+    ancien = next(x for x in themes if x["role"] == "MAIN")
+    r = s.gql("mutation($id: ID!) { themePublish(id: $id) { theme { id name role } userErrors { field message } } }", {"id": t["id"]})["themePublish"]
+    if r["userErrors"]:
+        raise SystemExit("Refus : %s" % r["userErrors"])
+    print("Publié : %s (l'ancien thème « %s » reste disponible dans Boutique en ligne → Thèmes)" % (r["theme"]["name"], ancien["name"]))
+
+
 def menu_seul():
     from shopify_api import Shopify
     s = Shopify()
@@ -232,7 +248,9 @@ def menu_seul():
 
 
 if __name__ == "__main__":
-    if "--menu" in sys.argv:
+    if "--publier" in sys.argv:
+        publier()
+    elif "--menu" in sys.argv:
         menu_seul()
     elif "--theme-rk" in sys.argv:
         appliquer_rk()
