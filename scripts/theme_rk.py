@@ -31,7 +31,7 @@ document.querySelectorAll('[data-qk-acheter]').forEach(function (b) {
 </script>
 {%- endif -%}"""
 CARTE_TEXTE = "{% render 'qk-carte-texte', product: closest.product %}"
-LIVRAISON = "Livraison en Belgique en 3 à 6 jours ouvrables · 2,95 €, offerte dès 2 articles"
+LIVRAISON = "Livraison offerte dès 2 articles · sinon 2,95 €"  # sans délai (demande d'Amine du 08/11/2026 : le délai est donné au paiement et dans les pages légales)
 # « Le parfum du jour » sur l'accueil (demande d'Amine du 08/11/2026) : grandes marques et parfums très connus, prix habituel.
 # Un par jour à tour de rôle ; ceux qui ne sont pas en ligne, en stock et avec photo sont sautés automatiquement.
 DU_JOUR = [
@@ -76,7 +76,7 @@ ARABES_VEDETTES = ["lattafa-khamrah-eau-de-parfum-mixte", "armaf-club-de-nuit-in
                    "armaf-club-de-nuit-milestone-eau-de-parfum-mixte", "lattafa-qaed-al-fursan-eau-de-parfum-mixte",
                    "ajmal-evoke-eau-de-parfum-pour-femme", "lattafa-mayar-eau-de-parfum-pour-femme"]
 ANNONCES = ["Livraison offerte dès 2 articles · sinon 2,95 €",
-            "Livrée partout en Belgique en 3 à 6 jours ouvrables",
+            "Livraison suivie partout en Belgique",
             "Parfums 100 % authentiques et neufs",
             "Plus de 60 maisons, des grands classiques à la niche",
             "Paiement sécurisé : Bancontact, carte, Apple Pay",
@@ -280,7 +280,7 @@ def construire(fichiers, marques):
     for k in ("qosmi_livraison", "qosmi_garanties"):
         det["blocks"].pop(k, None)
     det["blocks"]["qk_livraison"] = liquide(
-        "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Levering in België binnen 3 tot 6 werkdagen · 2,95 €, gratis vanaf 2 artikelen"
+        "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Gratis levering vanaf 2 artikelen · anders 2,95 €"
         "{% else %}" + LIVRAISON + "{% endif %}</p>")
     det["blocks"]["qk_rassurance"] = liquide(
         "<div class=\"qk-rassurance\">{% if request.locale.iso_code == 'nl' %}"

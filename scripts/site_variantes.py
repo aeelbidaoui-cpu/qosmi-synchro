@@ -127,8 +127,8 @@ def produit(lignes, r, photos):
         if abimes:
             d_fr += " Format « boîte abîmée » : boîte d'origine abîmée, le produit lui-même est neuf et intact."
             d_nl += " Formaat „beschadigde doos”: originele doos beschadigd, het product zelf is nieuw en onbeschadigd."
-        d_fr += " Produit authentique, neuf. Livraison partout en Belgique en %s." % r["delai_fr"]
-        d_nl += " Origineel en nieuw product. Levering in heel België binnen %s." % r["delai_nl"]
+        d_fr += " Produit authentique, neuf. Livraison partout en Belgique."
+        d_nl += " Origineel en nieuw product. Levering in heel België."
         d_fr = "<p>%s</p>" % html.escape(d_fr.strip(), quote=False)
         d_nl = "<p>%s</p>" % html.escape(d_nl.strip(), quote=False)
     t_fr, t_nl = re.sub(r"\s+", " ", t_fr).strip(), re.sub(r"\s+", " ", t_nl).strip()
@@ -167,8 +167,8 @@ def seo_textes(t_fr, t_nl, r):
         return d if len(d) <= 160 else d[:157].rsplit(" ", 1)[0] + "…"
     n_fr, n_nl = t_fr.replace(" — ", ", ").replace("— ", ""), t_nl.replace(" — ", ", ").replace("— ", "")
     return {"seo_titre_fr": titre(t_fr), "seo_titre_nl": titre(t_nl),
-            "seo_desc_fr": coupe("%s, 100 %% authentique et neuf. Livraison en Belgique en %s. Paiement Bancontact." % (n_fr, r["delai_fr"])),
-            "seo_desc_nl": coupe("%s, 100%% origineel en nieuw. Levering in België binnen %s. Betalen met Bancontact." % (n_nl, r["delai_nl"]))}
+            "seo_desc_fr": coupe("%s, 100 %% authentique et neuf. Livraison partout en Belgique. Paiement Bancontact." % (n_fr,)),
+            "seo_desc_nl": coupe("%s, 100%% origineel en nieuw. Levering in heel België. Betalen met Bancontact." % (n_nl,))}
 
 
 def photos_officielles(produits):
