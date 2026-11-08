@@ -117,7 +117,8 @@
     "Risala Elite",
     "Swiss Arabian",
     "The Spirit of Dubai",
-    "Zimaya"
+    "Zimaya",
+    "Rosendo Mateu"
   ],
   "retirees_photos_2026_11_07": [
     "Atelier des Ors",
@@ -130,7 +131,6 @@
     "Kayali",
     "Liquides Imaginaires",
     "Lorenzo Pazzaglia",
-    "Rosendo Mateu",
     "Unique'e Luxury",
     "V Canto"
   ],
@@ -198,5 +198,6 @@
     "Zadig & Voltaire"
   ],
   "_note_vedettes": "08/11/2026 : maisons mises en avant sur l'accueil (onglets Favoris) = les 61 choisies par Amine le 04/11. Les marques ajoutées ensuite (photos Notino) sont en vente mais pas mises en avant.",
-  "_note_arabes": "08/11/2026 : maisons des Parfums arabes ajoutées (liste site_theme.ARABES) ; une fiche arabe n'est affichée que si elle est moins chère que Deloox avec 3 € net minimum (site_synchro.visible)."
+  "_note_arabes": "08/11/2026 : maisons des Parfums arabes ajoutées (liste site_theme.ARABES) ; une fiche arabe n'est affichée que si elle est moins chère que Deloox avec 3 € net minimum (site_synchro.visible).",
+  "_note_rosendo": "08/11/2026 : Rosendo Mateu remis (photos Fragrantica trouvées, demande d'Amine)."
 }
