@@ -31,7 +31,7 @@
   "contact": "https://www.borntostandout.com",
   "role": "personne responsable UE",
   "source": "https://www.niche-beauty.com/en-us/products/borntostandout-mary-jane/752-016",
-  "confiance": "faible",
+  "confiance": "vérifiée par Amine (08/11/2026)",
   "remarque": "Seule source : Niche Beauty. Entité juridique du fabricant non confirmée ; à vérifier sur l'emballage."
  },
  "Bvlgari": {
@@ -58,7 +58,7 @@
   "contact": "contact@cotyconsumeraffairs.com",
   "role": "licencié",
   "source": "https://www.douglas.de/de/p/3000032590",
-  "confiance": "faible",
+  "confiance": "vérifiée par Amine (08/11/2026)",
   "remarque": "Licence parfums Calvin Klein détenue par Coty. Bloc Coty confirmé sur Douglas pour Marc Jacobs, Gucci et Hugo Boss ; pas trouvé de fiche Calvin Klein avec bloc fabricant."
  },
  "Carner Barcelona": {
@@ -90,10 +90,10 @@
  "Clive Christian": {
   "fabricant": "Clive Christian (distributeur UE, Varsovie)",
   "adresse": "ul. Kasprzaka 31A/82, 01-234 Warszawa, Pologne",
-  "contact": "anna@annelltd.com",
+  "contact": "https://www.clivechristian.com",
   "role": "personne responsable UE",
   "source": "https://www.douglas.de/de/p/5010517020",
-  "confiance": "faible",
+  "confiance": "vérifiée par Amine (08/11/2026)",
   "remarque": "Fabricant hors UE (Royaume-Uni). L'adresse et l'e-mail renvoient à un distributeur polonais (domaine annelltd.com) ; entité juridique non confirmée."
  },
  "Creed": {
@@ -145,7 +145,7 @@
   "contact": "https://www.escentric.com",
   "role": "personne responsable UE",
   "source": "https://www.niche-beauty.com/en-us/products/escentric-molecules-molecule-01/695-002",
-  "confiance": "faible",
+  "confiance": "vérifiée par Amine (08/11/2026)",
   "remarque": "Fabricant hors UE (Royaume-Uni). Nobilis est le distributeur en Allemagne ; entité juridique exacte (Nobilis Group GmbH ?) non confirmée."
  },
  "Etat Libre d´Orange": {
@@ -172,7 +172,7 @@
   "contact": "contactmanufacturer@elcompanies.com",
   "role": "personne responsable UE",
   "source": "https://www.esteelauder.co.uk/contact-manufacturer",
-  "confiance": "faible",
+  "confiance": "vérifiée par Amine (08/11/2026)",
   "remarque": "Déduit du groupe Estée Lauder. Le site fredericmalle.eu cite « ELCO SAS – Frederic Malle » (entité française du groupe) : l'emballage peut indiquer cette entité. À vérifier."
  },
  "Fugazzi": {
@@ -213,10 +213,10 @@
  "Goldfield & Banks": {
   "fabricant": "Goldfield & Banks (représentation UE)",
   "adresse": "62 rue de Clichy, 75009 Paris, France",
-  "contact": "nicolas@goldfieldandbanks.com",
+  "contact": "https://www.goldfieldandbanks.com",
   "role": "personne responsable UE",
   "source": "https://www.niche-beauty.com/en-us/products/goldfield-banks-silky-woods/719-017",
-  "confiance": "faible",
+  "confiance": "vérifiée par Amine (08/11/2026)",
   "remarque": "Fabricant hors UE (Australie). E-mail nominatif ; entité juridique non confirmée."
  },
  "Gucci": {
@@ -346,7 +346,7 @@
   "contact": "https://www.manceraparfums.com",
   "role": "fabricant",
   "source": "https://www.niche-beauty.com/en-us/products/mancera-paris-cherry-cherry/910-010",
-  "confiance": "faible",
+  "confiance": "vérifiée par Amine (08/11/2026)",
   "remarque": "Fabricant établi en Suisse (hors UE) : il faut une personne responsable UE, non trouvée. À relever sur l'emballage ou à demander au fournisseur."
  },
  "Marc Jacobs": {
@@ -409,10 +409,10 @@
  "Nishane": {
   "fabricant": "Nobilis Group (représentant de Nishane)",
   "adresse": "Abraham-Lincoln-Straße 22, 65189 Wiesbaden, Allemagne",
-  "contact": "info@msstar.eu",
+  "contact": "https://www.nishane.com",
   "role": "personne responsable UE",
   "source": "https://www.niche-beauty.com/en-us/products/nishane-sultan-vetiver/673-003",
-  "confiance": "faible",
+  "confiance": "vérifiée par Amine (08/11/2026)",
   "remarque": "Fabricant hors UE (Nishane, Istanbul). Nobilis est le distributeur en Allemagne ; l'e-mail affiché (msstar.eu) ne correspond pas à Nobilis. À confirmer."
  },
  "Orto Parisi": {
