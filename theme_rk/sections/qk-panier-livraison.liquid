@@ -1,0 +1,23 @@
+{%- comment -%}
+  Rappel en haut du panier (demande d'Amine du 08/11/2026) : livraison 2,95 €, offerte dès 2 articles (réduction automatique Shopify).
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if cart.item_count > 0 -%}
+<div class="qk-largeur qk-panier-livraison{% if cart.item_count >= 2 %} is-ok{% endif %}">
+  {%- if cart.item_count == 1 -%}
+    {% if qk_nl %}Voeg een 2e artikel toe: de verzending is dan <strong>gratis</strong>.{% else %}Ajoute un 2<sup>e</sup> article : la livraison est <strong>offerte</strong>.{% endif %}
+  {%- else -%}
+    {% if qk_nl %}✓ Gratis verzending voor deze bestelling.{% else %}✓ La livraison est offerte pour cette commande.{% endif %}
+  {%- endif -%}
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Qosmi · Livraison panier",
+  "tag": "section",
+  "settings": [],
+  "presets": [{ "name": "Qosmi · Livraison panier" }]
+}
+{% endschema %}

@@ -9,9 +9,9 @@ import copy, json, os
 ICI = os.path.dirname(os.path.abspath(__file__))
 DOSSIER = os.path.join(os.path.dirname(ICI), "theme_rk")
 FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.json", "templates/collection.json",
-            "templates/search.json", "sections/header-group.json", "sections/footer-group.json"]
+            "templates/search.json", "sections/header-group.json", "sections/footer-group.json", "templates/cart.json"]
 CARTE_TEXTE = "{% render 'qk-carte-texte', product: closest.product %}"
-LIVRAISON = "Livraison partout en Belgique en 1 à 2 jours ouvrables · 6,95 €"
+LIVRAISON = "Livraison en Belgique en 3 à 6 jours ouvrables · 2,95 €, offerte dès 2 articles"
 # « Le parfum du jour » sur l'accueil (demande d'Amine du 08/11/2026) : grandes marques et parfums très connus, prix habituel.
 # Un par jour à tour de rôle ; ceux qui ne sont pas en ligne, en stock et avec photo sont sautés automatiquement.
 DU_JOUR = [
@@ -41,7 +41,8 @@ DU_JOUR = [
     "yves-saint-laurent-la-nuit-de-l-homme-eau-de-toilette-pour-homme", "gucci-guilty-eau-de-parfum-pour-femme",
 ]
 
-ANNONCES = ["Livraison en Belgique en 1 à 2 jours ouvrables · 6,95 €",
+ANNONCES = ["Livraison offerte dès 2 articles · sinon 2,95 €",
+            "Livrée partout en Belgique en 3 à 6 jours ouvrables",
             "Parfums 100 % authentiques et neufs",
             "Plus de 60 maisons, des grands classiques à la niche",
             "Paiement sécurisé : Bancontact, carte, Apple Pay",
@@ -240,7 +241,7 @@ def construire(fichiers, marques):
     for k in ("qosmi_livraison", "qosmi_garanties"):
         det["blocks"].pop(k, None)
     det["blocks"]["qk_livraison"] = liquide(
-        "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Levering in heel België binnen 1 tot 2 werkdagen · 6,95 €"
+        "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Levering in België binnen 3 tot 6 werkdagen · 2,95 €, gratis vanaf 2 artikelen"
         "{% else %}" + LIVRAISON + "{% endif %}</p>")
     det["blocks"]["qk_rassurance"] = liquide(
         "<div class=\"qk-rassurance\">{% if request.locale.iso_code == 'nl' %}"
@@ -270,6 +271,13 @@ def construire(fichiers, marques):
         jsons[nom] = ecrire(e, d)
 
     # ---------- en-tête ----------
+    # ---------- panier : rappel « livraison offerte dès 2 articles » (08/11/2026) ----------
+    if "templates/cart.json" in fichiers:
+        e, d = lire(fichiers["templates/cart.json"])
+        d["sections"]["qk_panier_livraison"] = {"type": "qk-panier-livraison", "settings": {}}
+        d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k != "qk_panier_livraison"]
+        jsons["templates/cart.json"] = ecrire(e, d)
+
     e, d = lire(fichiers["sections/header-group.json"])
     for s in d["sections"].values():
         if s["type"] == "header":

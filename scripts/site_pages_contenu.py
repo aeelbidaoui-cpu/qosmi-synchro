@@ -40,7 +40,7 @@ PAGES = [
 <p>3.6 La facture est envoyée par e-mail. Les produits restent notre propriété jusqu'au paiement complet.</p>
 
 <h2>4. Livraison</h2>
-<p>4.1 Nous livrons <strong>uniquement en Belgique</strong>. Les frais de livraison sont de <strong>{frais_livraison} TVA comprise par commande</strong>, quel que soit le montant.</p>
+<p>4.1 Nous livrons <strong>uniquement en Belgique</strong>. Les frais de livraison sont de <strong>{frais_livraison} TVA comprise par commande</strong>. Ils sont <strong>offerts dès 2 articles</strong> dans la même commande.</p>
 <p>4.2 Délai de livraison : <strong>{delai_total}</strong> à compter de la confirmation du paiement. Le délai de votre commande vous est confirmé dans l'e-mail de confirmation de commande. Sauf autre délai convenu, la livraison a lieu au plus tard 30 jours après la conclusion du contrat.</p>
 <p>4.3 En cas de retard au-delà du délai convenu, vous pouvez nous demander de livrer dans un délai supplémentaire raisonnable ; à défaut, vous pouvez annuler la commande et être remboursé sans délai.</p>
 <p>4.4 Le colis est remis par un transporteur avec suivi, à l'adresse que vous indiquez. Vérifiez-la bien : un colis retourné pour adresse erronée ou non retiré peut être réexpédié contre de nouveaux frais de livraison.</p>
@@ -93,7 +93,7 @@ PAGES = [
 <p>3.6 De factuur wordt per e-mail verstuurd. De producten blijven onze eigendom tot de volledige betaling.</p>
 
 <h2>4. Levering</h2>
-<p>4.1 Wij leveren <strong>enkel in België</strong>. De verzendkosten bedragen <strong>{frais_livraison_nl} inclusief btw per bestelling</strong>, ongeacht het bedrag.</p>
+<p>4.1 Wij leveren <strong>enkel in België</strong>. De verzendkosten bedragen <strong>{frais_livraison_nl} inclusief btw per bestelling</strong>. Ze zijn <strong>gratis vanaf 2 artikelen</strong> in dezelfde bestelling.</p>
 <p>4.2 Levertermijn: <strong>{delai_total_nl}</strong> na bevestiging van de betaling. De termijn van uw bestelling wordt bevestigd in de bevestigingsmail van uw bestelling. Tenzij anders overeengekomen, wordt uiterlijk 30 dagen na het sluiten van de overeenkomst geleverd.</p>
 <p>4.3 Bij vertraging na de overeengekomen termijn kunt u ons vragen binnen een redelijke bijkomende termijn te leveren; gebeurt dat niet, dan kunt u de bestelling annuleren en wordt u meteen terugbetaald.</p>
 <p>4.4 Het pakket wordt geleverd door een vervoerder met track-and-trace, op het adres dat u opgeeft. Controleer het goed: een pakket dat terugkomt wegens een fout adres of omdat het niet werd afgehaald, kan opnieuw worden verzonden tegen nieuwe verzendkosten.</p>
@@ -127,7 +127,7 @@ PAGES = [
         "handle": "livraison", "handle_nl": "levering",
         "titre": "Livraison", "titre_nl": "Levering",
         "fr": """
-<p><strong>Livraison partout en Belgique : {frais_livraison} par commande</strong>, quel que soit le montant. Nous ne livrons pas en dehors de la Belgique pour le moment.</p>
+<p><strong>Livraison partout en Belgique : {frais_livraison} par commande, offerte dès 2 articles.</strong> Nous ne livrons pas en dehors de la Belgique pour le moment.</p>
 <h2>Délais</h2>
 <p><strong>Livraison en {delai_total}</strong> à compter de la confirmation du paiement.</p>
 <p>Le délai de votre commande vous est confirmé dans l'e-mail de confirmation de commande.</p>
@@ -137,7 +137,7 @@ PAGES = [
 <p>Colis abîmé, en retard ou incomplet : écrivez-nous à <a href="mailto:{email}">{email}</a> avec votre numéro de commande et, si possible, des photos. Les détails figurent dans nos <a href="/pages/conditions-generales-de-vente">conditions générales de vente</a> (article 4).</p>
 """,
         "nl": """
-<p><strong>Levering in heel België: {frais_livraison_nl} per bestelling</strong>, ongeacht het bedrag. Wij leveren voorlopig niet buiten België.</p>
+<p><strong>Levering in heel België: {frais_livraison_nl} per bestelling, gratis vanaf 2 artikelen.</strong> Wij leveren voorlopig niet buiten België.</p>
 <h2>Termijnen</h2>
 <p><strong>Levering binnen {delai_total_nl}</strong> na bevestiging van de betaling.</p>
 <p>De termijn van uw bestelling wordt bevestigd in de bevestigingsmail van uw bestelling.</p>

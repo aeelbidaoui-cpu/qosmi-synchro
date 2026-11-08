@@ -286,3 +286,7 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-dujour__cases { justify-content: space-between; }
   .qk-dujour__case { flex: 1; width: auto; }
 }
+
+/* ---------- panier : livraison offerte dès 2 articles (08/11/2026) ---------- */
+.qk-panier-livraison { margin-top: 24px; margin-bottom: 8px; padding-top: 14px; padding-bottom: 14px; background: var(--qk-gris); text-align: center; font-size: 0.95rem; }
+.qk-panier-livraison.is-ok { background: #eef6ee; }
