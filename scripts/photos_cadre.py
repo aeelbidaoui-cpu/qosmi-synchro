@@ -65,12 +65,14 @@ def recadrer(donnees):
     im = im.convert("RGB")
     l, h = im.size
     coins = [im.getpixel(p) for p in ((0, 0), (l - 1, 0), (0, h - 1), (l - 1, h - 1), (l // 2, 0), (l // 2, h - 1))]
+    if min(min(c) for c in coins[:4]) >= SEUIL_FOND and min(min(c) for c in coins[4:]) < SEUIL_FOND:
+        coins = coins[:4]  # photo cadrée au ras du flacon (ex. Notino) : seuls les 4 coins montrent le fond
     bas, haut = min(min(c) for c in coins), max(max(c) for c in coins)
     ecart = ECART
     if FOND_GRIS_MIN <= bas < 253 and haut - bas <= FOND_ECART_MAX:  # fond gris clair ou blanc cassé uni : passé au blanc pur
         im = blanchir(im)
         ecart = 40 if bas < SEUIL_FOND else ECART  # l'ombre portée, devenue gris très clair, ne compte pas dans le cadrage
-        coins = [im.getpixel(p) for p in ((0, 0), (l - 1, 0), (0, h - 1), (l - 1, h - 1), (l // 2, 0), (l // 2, h - 1))]
+        coins = [im.getpixel(p) for p in ((0, 0), (l - 1, 0), (0, h - 1), (l - 1, h - 1))]
     if min(min(c) for c in coins) < SEUIL_FOND:
         return None
     teinte0 = tuple(sorted(c[i] for c in coins)[len(coins) // 2] for i in range(3))
