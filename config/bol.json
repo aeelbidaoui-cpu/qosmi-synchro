@@ -24,8 +24,15 @@
   "_note_testeurs": "à vérifier avec bol : vente des testeurs en « neuf ». Désactivé tant que ce n'est pas confirmé.",
   "rescan_heures": 24,
   "duree_max_minutes": 300,
-  "publication_active": false,
-  "_note_publication_active": "false = analyse seulement, rien n'est publié sur bol. Passe à true quand Amine a validé la première analyse.",
+  "publication_active": true,
+  "_note_publication_active": "true depuis le 08/11/2026 23 h 37 (accord d'Amine) : la publication crée et met à jour les offres de la sélection (scripts/bol_publier.py).",
   "mon_retailer_id": "1862791",
-  "ean_exclus": []
+  "ean_exclus": [],
+  "selection": {
+    "koopblok": true,
+    "seul_vendeur_avec_marche": true,
+    "plus_cher_ecart_max": 0.1
+  },
+  "_note_selection": "Choix d'Amine du 08/11/2026 : koopblok gagnable (ou à nous) + seul vendeur avec prix de marché connu + plus cher que le koopblok d'au plus 10 %. Les autres « oui » (plus chers, ou sans aucune donnée de marché) ne sont pas publiés.",
+  "publication_max_creations": 300
 }

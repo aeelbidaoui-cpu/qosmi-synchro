@@ -193,10 +193,15 @@ def decider_tout(cfg, refs, marche, bol=None):
             dict(regle.decider(ref, {"existe": True, "offres": [], "bornes": {}}, cfg), decision="pas encore relevé", prix=None)
         if m and d.get("prix"):
             m["prix_vise"] = d["prix"]
-        decisions[e] = {k: d.get(k) for k in ("prix", "stock", "decision", "net", "etoiles")}
         nl = [o for o in (m or {}).get("offres", []) if o["pays"] == "NL"]
         be = [o for o in (m or {}).get("offres", []) if o["pays"] == "BE"]
         kb = lambda l: min([o["prix"] for o in l if o["koopblok"]] or [None]) if any(o["koopblok"] for o in l) else ""
+        decisions[e] = {k: d.get(k) for k in ("prix", "stock", "decision", "net", "etoiles")}
+        # pour la publication (08/11/2026) : prix du koopblok le plus bas (NL/BE) et prix de marché connu ou non
+        kbs = [x for x in (kb(nl), kb(be)) if x]
+        decisions[e]["koopblok"] = min(kbs) if kbs else None
+        decisions[e]["marche_connu"] = bool(kbs or (m or {}).get("bornes") or d.get("etoiles"))
+        decisions[e]["nom"] = ref["nom"]
         b = (m or {}).get("bornes", {})
         lignes.append({"decision": d["decision"], "ean": e, "nom": ref["nom"], "stock_fournisseur": ref["stock"],
                        "achat": ref["achat"], "cout_total_ht": round(regle.cout_ht(ref["achat"], cfg), 2),
