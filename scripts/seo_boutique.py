@@ -7,9 +7,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ACCUEIL = {
     "fr": ("Qosmi – Parfums de marque et de niche 100 % authentiques en Belgique",
-           "Parfumerie en ligne belge : Xerjoff, Creed, Chanel, Dior, Tom Ford et plus de 60 maisons. Parfums authentiques et neufs, livrés partout en Belgique."),
+           "Parfumerie en ligne belge : Xerjoff, Creed, Chanel, Dior, Tom Ford et plus de 100 maisons. Parfums authentiques et neufs, livrés partout en Belgique."),
     "nl": ("Qosmi – Merk- en nicheparfums, 100% origineel, in België",
-           "Belgische online parfumerie: Xerjoff, Creed, Chanel, Dior, Tom Ford en meer dan 60 huizen. Originele, nieuwe parfums, geleverd in heel België."),
+           "Belgische online parfumerie: Xerjoff, Creed, Chanel, Dior, Tom Ford en meer dan 100 huizen. Originele, nieuwe parfums, geleverd in heel België."),
 }
 COLLECTIONS = {  # handle: (titre SEO, méta, texte de la page) FR puis NL
     "parfums": (("Parfums de marque et de niche | Qosmi",

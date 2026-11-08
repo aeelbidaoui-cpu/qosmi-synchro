@@ -31,7 +31,7 @@ document.querySelectorAll('[data-qk-acheter]').forEach(function (b) {
 </script>
 {%- endif -%}"""
 CARTE_TEXTE = "{% render 'qk-carte-texte', product: closest.product %}"
-LIVRAISON = "Livraison offerte dès 2 articles · sinon 2,95 €"  # sans délai (demande d'Amine du 08/11/2026 : le délai est donné au paiement et dans les pages légales)
+LIVRAISON = "Livraison 2,95 € · offerte dès 2 articles"  # formulation sans « sinon » (demande d'Amine du 08/11/2026, 22 h) ; sans délai (demande d'Amine du 08/11/2026 : le délai est donné au paiement et dans les pages légales)
 # « Le parfum du jour » sur l'accueil (demande d'Amine du 08/11/2026) : grandes marques et parfums très connus, prix habituel.
 # Un par jour à tour de rôle ; ceux qui ne sont pas en ligne, en stock et avec photo sont sautés automatiquement.
 DU_JOUR = [
@@ -75,10 +75,10 @@ ARABES_VEDETTES = [  # 08/11/2026 : grands succès arabes réellement en ligne (
     "armaf-club-de-nuit-untold-eau-de-parfum-mixte", "hamidi-the-lost-paradise-sublime-cherry-eau-de-parfum-mixte",
     "amouage-existence-eau-de-parfum-mixte", "lattafa-khamrah-eau-de-parfum-mixte", "lattafa-yara-eau-de-parfum-pour-femme",
     "rasasi-hawas-eau-de-parfum-pour-homme", "afnan-9pm-eau-de-parfum-pour-homme", "lattafa-asad-eau-de-parfum-pour-homme"]
-ANNONCES = ["Livraison offerte dès 2 articles · sinon 2,95 €",
+ANNONCES = ["Livraison offerte dès 2 articles",
             "Livraison suivie partout en Belgique",
             "Parfums 100 % authentiques et neufs",
-            "Plus de 60 maisons, des grands classiques à la niche",
+            "Plus de 100 maisons, des grands classiques à la niche",
             "Paiement sécurisé : Bancontact, carte, Apple Pay",
             "14 jours pour changer d'avis"]
 
@@ -280,7 +280,7 @@ def construire(fichiers, marques):
     for k in ("qosmi_livraison", "qosmi_garanties"):
         det["blocks"].pop(k, None)
     det["blocks"]["qk_livraison"] = liquide(
-        "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Gratis levering vanaf 2 artikelen · anders 2,95 €"
+        "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Verzending € 2,95 · gratis vanaf 2 artikelen"
         "{% else %}" + LIVRAISON + "{% endif %}</p>")
     det["blocks"]["qk_rassurance"] = liquide(
         "<div class=\"qk-rassurance\">{% if request.locale.iso_code == 'nl' %}"
