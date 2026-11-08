@@ -1,0 +1,55 @@
+{%- comment -%} Page « Mes favoris » (08/11/2026) : affiche les parfums gardés dans le navigateur (assets/qk-favoris.js). {%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+<section class="qk-section qk-favoris">
+  <div class="qk-largeur">
+    <h1 class="qk-titre-section">{% if qk_nl %}Mijn favorieten{% else %}Mes favoris{% endif %}</h1>
+    <p class="qk-intro" data-qk-fav-vide hidden>{% if qk_nl %}Je hebt nog geen favorieten. Tik op het hartje bij een parfum om het hier te bewaren.{% else %}Tu n'as pas encore de favoris. Touche le cœur d'un parfum pour le garder ici.{% endif %}
+      <br><a class="qk-lien" href="{{ routes.collections_url }}/parfums">{% if qk_nl %}Parfums bekijken{% else %}Voir les parfums{% endif %}</a></p>
+    <div class="qk-favoris__grille" data-qk-fav-grille></div>
+  </div>
+  <script>
+    (function () {
+      var nl = {{ qk_nl | json }};
+      var racine = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+      var grille = document.querySelector('[data-qk-fav-grille]'), vide = document.querySelector('[data-qk-fav-vide]');
+      function euros(c) { return (c / 100).toFixed(2).replace('.', ',') + ' €'; }
+      function dessiner() {
+        var l = (window.qkFavoris ? qkFavoris.lire() : []);
+        vide.hidden = l.length > 0;
+        grille.innerHTML = '';
+        l.forEach(function (h) {
+          fetch(racine + 'products/' + h + '.js').then(function (r) { return r.ok ? r.json() : null; }).then(function (p) {
+            if (!p) return;
+            var v = (p.variants || []).filter(function (x) { return x.available; })[0] || p.variants[0];
+            var t = (p.title || '').split(' — '), nom = t[0].replace(p.vendor, '').trim() || t[0];
+            var d = document.createElement('div'); d.className = 'qk-favoris__item';
+            d.innerHTML = '<a class="qk-carte" href="' + p.url + '"><span class="qk-carte__img">' +
+              (p.featured_image ? '<img loading="lazy" alt="" src="' + p.featured_image + '&width=600">' : '') + '</span>' +
+              '<span class="qk-carte__ligne"><span class="qk-carte__marque"></span><span class="qk-carte__prix">' +
+              (p.price_varies ? (nl ? 'vanaf ' : 'dès ') : '') + euros(p.price_min) + '</span></span><span class="qk-carte__nom"></span></a>' +
+              '<div class="qk-favoris__actions"><button type="button" class="qk-acheter qk-favoris__panier"' + (v && v.available ? '' : ' disabled') + '>' +
+              (v && v.available ? (nl ? 'In winkelmand' : 'Ajouter au panier') : (nl ? 'Uitverkocht' : 'Épuisé')) + '</button>' +
+              '<button type="button" class="qk-favoris__retirer" data-qk-fav="' + h + '">' + (nl ? 'Verwijderen' : 'Retirer') + '</button></div>';
+            d.querySelector('.qk-carte__marque').textContent = p.vendor;
+            d.querySelector('.qk-carte__nom').textContent = nom;
+            var b = d.querySelector('.qk-favoris__panier');
+            b.addEventListener('click', function () {
+              b.disabled = true;
+              fetch(racine + 'cart/add.js', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ items: [{ id: v.id, quantity: 1 }] }) })
+                .then(function () { b.textContent = nl ? 'Toegevoegd ✓' : 'Ajouté ✓'; });
+            });
+            grille.appendChild(d);
+          });
+        });
+      }
+      document.addEventListener('qk:favoris', dessiner);
+      if (window.qkFavoris) dessiner(); else document.addEventListener('DOMContentLoaded', dessiner);
+    })();
+  </script>
+</section>
+
+{% schema %}
+{ "name": "Qosmi · Favoris (page)", "tag": "div", "settings": [] }
+{% endschema %}

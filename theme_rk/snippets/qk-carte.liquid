@@ -12,6 +12,7 @@
     {%- if product.featured_image -%}
       {{ product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title, widths: '300, 450, 700', sizes: '(min-width: 990px) 25vw, 50vw' }}
     {%- endif -%}
+    {% render 'qk-favori', product: product, classe: 'qk-fav--carte' %}
     {%- if product.tags contains 'Testeurs' -%}<span class="qk-badge">{% if qk_nl %}Tester{% else %}Testeur{% endif %}</span>{%- endif -%}
   </span>
   <span class="qk-carte__ligne">

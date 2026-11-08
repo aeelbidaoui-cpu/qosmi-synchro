@@ -296,3 +296,22 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   border: 1px solid var(--qk-noir); font: inherit; font-size: 1rem; cursor: pointer; text-align: center; }
 .qk-acheter:hover { background: var(--qk-noir); color: #fff; }
 .qk-acheter[disabled] { opacity: 0.6; cursor: wait; }
+
+/* ---------- favoris (08/11/2026) ---------- */
+.qk-fav { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%;
+  background: rgba(255,255,255,0.9); color: var(--qk-noir); cursor: pointer; }
+.qk-fav svg path { fill: transparent; transition: fill .15s; }
+.qk-fav.is-on svg path { fill: #c0392b; stroke: #c0392b; }
+.qk-fav:hover svg path { stroke: #c0392b; }
+.qk-fav--carte { position: absolute; top: 8px; right: 8px; z-index: 2; }
+.qk-carte__img { position: relative; }
+.qk-fav--grille { position: absolute; top: 8px; right: 8px; z-index: 3; }
+.qk-fav--fiche { width: 44px; height: 44px; border: 1px solid var(--qk-trait); background: #fff; flex: 0 0 auto; }
+.qk-titre-ligne { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.qk-fav-entete { position: relative; display: inline-flex; align-items: center; justify-content: center; color: inherit; }
+.qk-fav-compte { position: absolute; top: -2px; right: -6px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px;
+  background: var(--qk-noir); color: #fff; font-size: 10px; line-height: 16px; text-align: center; }
+.qk-favoris__grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 28px 20px; margin-top: 24px; }
+.qk-favoris__actions { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+.qk-favoris__retirer { background: none; border: 0; padding: 4px; color: var(--qk-doux); font: inherit; font-size: 0.85rem; text-decoration: underline; cursor: pointer; }
+@media (max-width: 749px) { .qk-favoris__grille { grid-template-columns: 1fr 1fr; gap: 20px 12px; } }

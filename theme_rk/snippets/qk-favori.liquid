@@ -1,0 +1,8 @@
+{%- comment -%}
+  Cœur « favoris » (demande d'Amine du 08/11/2026) : la liste est gardée dans le navigateur du client (sans compte).
+  Paramètres : product, classe (facultatif)
+{%- endcomment -%}
+<button type="button" class="qk-fav {{ classe }}" data-qk-fav="{{ product.handle }}" aria-pressed="false"
+        aria-label="{% if request.locale.iso_code == 'nl' %}Toevoegen aan favorieten{% else %}Ajouter aux favoris{% endif %}">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.4 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.6 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+</button>

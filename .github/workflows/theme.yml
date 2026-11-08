@@ -6,7 +6,7 @@ on:
       action:
         description: "exporter (lecture seule) ou appliquer (copie non publiée)"
         type: choice
-        options: [exporter, exporter-apercu, appliquer, theme-rk, publier, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, seo-boutique, controle-boutique, google, testeurs-suspens, photos-manquantes, photos-jm, photos-mm, photos-tfi, photos-ck, photos-tt, photos-lvmh, photos-m2, photos-m3, livraison-2-95, politiques, politiques-nl, textes-fiches, menu]
+        options: [exporter, exporter-apercu, appliquer, theme-rk, publier, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, seo-boutique, controle-boutique, google, testeurs-suspens, photos-manquantes, photos-jm, photos-mm, photos-tfi, photos-ck, photos-tt, photos-lvmh, photos-m2, photos-m3, livraison-2-95, page-favoris, politiques, politiques-nl, textes-fiches, menu]
         default: exporter
       fiche:
         description: "photos-marques : renvoyer seulement cette fiche (adresse de la fiche)"
@@ -54,6 +54,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "seo-boutique" ]; then python -u scripts/seo_boutique.py
           elif [ "${{ inputs.action }}" = "controle-boutique" ]; then python -u scripts/controle_boutique.py
           elif [ "${{ inputs.action }}" = "google" ]; then python -u scripts/site_synchro.py --google
+          elif [ "${{ inputs.action }}" = "page-favoris" ]; then python -u scripts/page_favoris.py
           elif [ "${{ inputs.action }}" = "livraison-2-95" ]; then python -u scripts/livraison_tarif.py 6.95 2.95 && python -u scripts/livraison_offerte.py
           elif [ "${{ inputs.action }}" = "photos-m3" ]; then python -u scripts/photos_dossier.py m3
           elif [ "${{ inputs.action }}" = "photos-m2" ]; then python -u scripts/photos_dossier.py m2

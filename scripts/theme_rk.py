@@ -194,6 +194,9 @@ def construire(fichiers, marques):
 
     # ---------- feuille de style ----------
     lay = fichiers["layout/theme.liquid"]
+    # favoris (08/11/2026) : cœurs sur les cartes et la fiche, page /pages/favoris, liste gardée dans le navigateur
+    if "qk-favoris.js" not in lay:
+        lay = lay.replace("</head>", "    <script src=\"{{ 'qk-favoris.js' | asset_url }}\" defer></script>\n  </head>", 1)
     if "qosmi-rk.css" not in lay:
         lay = lay.replace("</head>", "    {{ 'qosmi-rk.css' | asset_url | stylesheet_tag }}\n  </head>", 1)
     # image de partage (réseaux sociaux, WhatsApp) quand la page n'a pas d'image propre (demande d'Amine du 08/11/2026)
@@ -270,7 +273,8 @@ def construire(fichiers, marques):
     grp["blocks"]["qk_titre"] = liquide(
         "{%- assign t = closest.product.title | split: ' — ' -%}{%- assign n = t[0] | remove_first: closest.product.vendor | strip -%}"
         "{%- if n == blank -%}{%- assign n = t[0] -%}{%- endif -%}"
-        "<p class=\"qk-marque-produit\">{{ closest.product.vendor }}</p><h1 class=\"qk-titre-produit\">{{ n }}</h1>"
+        "<p class=\"qk-marque-produit\">{{ closest.product.vendor }}</p><div class=\"qk-titre-ligne\"><h1 class=\"qk-titre-produit\">{{ n }}</h1>"
+        "{% render 'qk-favori', product: closest.product, classe: 'qk-fav--fiche' %}</div>"
         "{%- if t[1] -%}<p class=\"qk-type-produit\">{{ t[1] }}</p>{%- endif -%}")
     grp["block_order"] = ["qk_titre"] + [k for k in grp.get("block_order", grp["blocks"]) if k in grp["blocks"] and k != "qk_titre"]
     for k in ("qosmi_livraison", "qosmi_garanties"):
