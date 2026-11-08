@@ -247,6 +247,7 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-dujour__marque { font-weight: 700; font-size: clamp(1rem, 1.4vw, 1.25rem); }
 .qk-dujour__ligne { font-weight: 300; font-size: clamp(0.95rem, 1.4vw, 1.25rem); }
 .qk-dujour__prix { align-self: end; font-size: clamp(2.6rem, 5.5vw, 4.5rem); font-weight: 700; line-height: 1; white-space: nowrap; }
+.qk-dujour__prix small { font-size: 0.35em; font-weight: 500; margin-left: 0.15em; }
 .qk-dujour__prix sup { font-size: 0.45em; vertical-align: top; position: relative; top: 0.15em; }
 .qk-dujour__produit:hover .qk-dujour__marque { text-decoration: underline; }
 .qk-dujour__compte { margin-top: clamp(16px, 2.5vw, 30px); }
@@ -259,7 +260,9 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-dujour__produit { grid-template-columns: 42% 1fr; grid-template-areas: "img texte" "img prix"; }
   .qk-dujour__img { grid-area: img; }
   .qk-dujour__texte { grid-area: texte; padding-top: 0; }
-  .qk-dujour__prix { grid-area: prix; justify-self: start; margin-top: 10px; }
+  .qk-dujour__prix { grid-area: prix; justify-self: start; margin-top: 10px; font-size: 2.4rem; }
+  .qk-dujour__titre { font-size: 1.35rem; margin-bottom: 6px; }
+  .qk-dujour__ligne, .qk-dujour__marque { font-size: 0.95rem; }
   .qk-dujour__cases { justify-content: space-between; }
   .qk-dujour__case { flex: 1; width: auto; }
 }

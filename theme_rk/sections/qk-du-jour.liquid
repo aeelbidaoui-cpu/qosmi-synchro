@@ -7,20 +7,27 @@
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
 {%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
-{%- assign qk_liste = '' -%}
+{%- comment -%} Le rang du jour se calcule sur la liste complète (stable même si un parfum sort de stock) ;
+     s'il n'est pas disponible, on prend le suivant disponible. {%- endcomment -%}
+{%- assign qk_total = section.settings.produits.size -%}
 {%- assign qk_n = 0 -%}
-{%- for p in section.settings.produits -%}
-  {%- if p.available and p.featured_image -%}
-    {%- assign qk_n = qk_n | plus: 1 -%}
-  {%- endif -%}
-{%- endfor -%}
+{%- assign qk_premier = -1 -%}
+{%- assign qk_choix = -1 -%}
+{%- if qk_total > 0 -%}
+  {%- assign qk_cible = 'now' | date: '%s' | divided_by: 86400 | modulo: qk_total -%}
+  {%- for p in section.settings.produits -%}
+    {%- if p.available and p.featured_image -%}
+      {%- assign qk_n = qk_n | plus: 1 -%}
+      {%- if qk_premier < 0 -%}{%- assign qk_premier = forloop.index0 -%}{%- endif -%}
+      {%- if qk_choix < 0 and forloop.index0 >= qk_cible -%}{%- assign qk_choix = forloop.index0 -%}{%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if qk_choix < 0 -%}{%- assign qk_choix = qk_premier -%}{%- endif -%}
+{%- endif -%}
 {%- if qk_n > 0 -%}
-{%- assign qk_jour = 'now' | date: '%s' | divided_by: 86400 -%}
-{%- assign qk_choix = qk_jour | modulo: qk_n -%}
-<section class="qk-section qk-dujour-section" id="qk-dujour-{{ section.id }}">
+<section class="qk-section qk-dujour-section" id="qk-dujour-{{ section.id }}" data-qk-total="{{ qk_total }}">
   <div class="qk-largeur">
     <div class="qk-dujour" style="--qk-dujour-fond: {{ section.settings.couleur }};">
-      {%- assign qk_i = 0 -%}
       {%- for p in section.settings.produits -%}
         {%- if p.available and p.featured_image -%}
           {%- assign v = p.selected_or_first_available_variant -%}
@@ -28,7 +35,7 @@
           {%- assign qk_nom = qk_t[0] | remove_first: p.vendor | strip -%}
           {%- if qk_nom == blank -%}{%- assign qk_nom = qk_t[0] -%}{%- endif -%}
           {%- assign qk_type = qk_t[1] | remove: ' pour femme' | remove: ' pour homme' | remove: ' mixte' | remove: ' voor dames' | remove: ' voor heren' | remove: ' unisex' | strip -%}
-          <a class="qk-dujour__produit{% if qk_i != qk_choix %} is-cache{% endif %}" data-qk-i="{{ qk_i }}" href="{{ v.url | default: p.url }}">
+          <a class="qk-dujour__produit{% if forloop.index0 != qk_choix %} is-cache{% endif %}" data-qk-rang="{{ forloop.index0 }}" href="{{ v.url | default: p.url }}">
             <span class="qk-dujour__img">
               {{ p.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: p.title, widths: '300, 450, 600', sizes: '(min-width: 750px) 300px, 45vw' }}
             </span>
@@ -40,9 +47,8 @@
               {%- unless v.title == 'Default Title' -%}<span class="qk-dujour__ligne">{{ v.title }}</span>{%- endunless -%}
             </span>
             {%- assign qk_prix = v.price | money_without_currency | split: ',' -%}
-            <span class="qk-dujour__prix" aria-label="{{ v.price | money }}">{{ qk_prix[0] }}{% if qk_prix[1] %},<sup>{{ qk_prix[1] }}</sup>{% endif %}</span>
+            <span class="qk-dujour__prix" aria-label="{{ v.price | money }}">{{ qk_prix[0] }}{% if qk_prix[1] %},<sup>{{ qk_prix[1] }}</sup>{% endif %}<small> €</small></span>
           </a>
-          {%- assign qk_i = qk_i | plus: 1 -%}
         {%- endif -%}
       {%- endfor -%}
       <div class="qk-dujour__compte" data-qk-compte>
@@ -60,7 +66,7 @@
       var racine = document.getElementById('qk-dujour-{{ section.id }}');
       if (!racine) return;
       var produits = racine.querySelectorAll('.qk-dujour__produit');
-      var n = produits.length;
+      var n = produits.length, total = +racine.getAttribute('data-qk-total') || n;
       // heure de Bruxelles, quel que soit le fuseau du visiteur
       function bruxelles() {
         var parts = {};
@@ -74,9 +80,10 @@
       function tic() {
         var b = bruxelles();
         var jour = Math.floor(Date.UTC(+b.year, +b.month - 1, +b.day) / 86400000);
-        var i = jour % n;
+        var cible = jour % total, i = 0;
+        for (var k = 0; k < n; k++) { if (+produits[k].getAttribute('data-qk-rang') >= cible) { i = k; break; } }
         if (i !== actuel) {
-          for (var k = 0; k < n; k++) produits[k].classList.toggle('is-cache', k !== i);
+          for (k = 0; k < n; k++) produits[k].classList.toggle('is-cache', k !== i);
           actuel = i;
         }
         var reste = 86400 - (+b.hour * 3600 + +b.minute * 60 + +b.second);
