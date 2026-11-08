@@ -37,7 +37,7 @@ def exporter(apercu=False):
         apres = d["pageInfo"]["endCursor"]
     open(os.path.join(dossier, "_fichiers.txt"), "w").write("\n".join(noms) + "\n")
     voulus = [n for n in noms if n.startswith(("config/", "templates/", "blocks/_product-card", "snippets/product-card")) or
-              (n.startswith("sections/") and n.endswith(".json")) or n in ("layout/theme.liquid", "locales/fr.json",
+              (n.startswith("sections/") and n.endswith(".json")) or "search" in n or n in ("layout/theme.liquid", "locales/fr.json",
                                                                          "locales/nl.json", "locales/en.default.json")]
     for i in range(0, len(voulus), 40):
         d = s.gql(Q_CONTENU, {"id": main["id"], "noms": voulus[i:i + 40]})["theme"]["files"]["nodes"]
