@@ -22,7 +22,7 @@ SOURCES = ("photos_marques.json", "photos_riklis.json", "photos_skins.json", "ph
 AGENT = "Mozilla/5.0 (compatible; QosmiPhotos/1.0)"
 PART_H, PART_L = 0.80, 0.74  # part de la hauteur / de la largeur occupée par le flacon
 SEUIL_FOND, ECART = 232, 22
-VERSION = "2"  # v2 (08/11/2026) : fonds gris clairs passés au blanc ; nouveau nom de fichier pour ne pas reprendre l'ancien
+VERSION = "3"  # v2 (08/11/2026) : fonds gris clairs passés au blanc ; nouveau nom de fichier pour ne pas reprendre l'ancien
 
 
 def toutes_les_photos():
@@ -67,9 +67,9 @@ def recadrer(donnees):
     coins = [im.getpixel(p) for p in ((0, 0), (l - 1, 0), (0, h - 1), (l - 1, h - 1), (l // 2, 0), (l // 2, h - 1))]
     bas, haut = min(min(c) for c in coins), max(max(c) for c in coins)
     ecart = ECART
-    if FOND_GRIS_MIN <= bas < SEUIL_FOND and haut - bas <= FOND_ECART_MAX:  # fond gris clair uni : passé au blanc
+    if FOND_GRIS_MIN <= bas < 253 and haut - bas <= FOND_ECART_MAX:  # fond gris clair ou blanc cassé uni : passé au blanc pur
         im = blanchir(im)
-        ecart = 40  # l'ombre portée, devenue gris très clair, ne compte pas dans le cadrage
+        ecart = 40 if bas < SEUIL_FOND else ECART  # l'ombre portée, devenue gris très clair, ne compte pas dans le cadrage
         coins = [im.getpixel(p) for p in ((0, 0), (l - 1, 0), (0, h - 1), (l - 1, h - 1), (l // 2, 0), (l // 2, h - 1))]
     if min(min(c) for c in coins) < SEUIL_FOND:
         return None
