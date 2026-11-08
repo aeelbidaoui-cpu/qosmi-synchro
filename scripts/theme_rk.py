@@ -19,6 +19,21 @@ ANNONCES = ["Livraison en Belgique en 1 à 2 jours ouvrables · 6,95 €",
             "14 jours pour changer d'avis"]
 
 
+PARTAGE = """    {%- comment -%}qk-partage{%- endcomment -%}
+    {%- unless page_image -%}
+      {%- assign qk_partage = images['qosmi-partage.jpg'] -%}
+      {%- if qk_partage -%}
+        <meta property="og:image" content="https:{{ qk_partage | image_url: width: 1200 }}">
+        <meta property="og:image:secure_url" content="https:{{ qk_partage | image_url: width: 1200 }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="Qosmi, parfums de marque et de niche">
+        <meta name="twitter:image" content="https:{{ qk_partage | image_url: width: 1200 }}">
+      {%- endif -%}
+    {%- endunless -%}
+"""
+
+
 def lire(texte):
     i = texte.find("{")
     return texte[:i], json.loads(texte[i:])
@@ -107,6 +122,9 @@ def construire(fichiers, marques):
     lay = fichiers["layout/theme.liquid"]
     if "qosmi-rk.css" not in lay:
         lay = lay.replace("</head>", "    {{ 'qosmi-rk.css' | asset_url | stylesheet_tag }}\n  </head>", 1)
+    # image de partage (réseaux sociaux, WhatsApp) quand la page n'a pas d'image propre (demande d'Amine du 08/11/2026)
+    if "qk-partage" not in lay:
+        lay = lay.replace("</head>", PARTAGE + "  </head>", 1)
     liquides["layout/theme.liquid"] = lay
 
     # ---------- accueil ----------
