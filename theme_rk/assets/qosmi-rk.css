@@ -196,3 +196,10 @@ img.qk-hero__img { animation: qk-zoom 28s ease-in-out infinite alternate; transf
 .qk-banniere__entete { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 20px; }
 .qk-banniere__lien { display: block; background: #e6e6e5; }
 .qk-banniere__img { display: block; width: 100%; height: auto; }
+
+/* ---------- sécurité du produit (GPSR) ---------- */
+.qk-gpsr { border-top: 1px solid var(--qk-trait); border-bottom: 1px solid var(--qk-trait); padding: 12px 0; font-size: 0.875rem; }
+.qk-gpsr summary { cursor: pointer; font-weight: 500; list-style: none; display: flex; justify-content: space-between; }
+.qk-gpsr summary::after { content: "+"; }
+.qk-gpsr[open] summary::after { content: "−"; }
+.qk-gpsr p { margin: 10px 0 0; color: var(--qk-doux); line-height: 1.5; }

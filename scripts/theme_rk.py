@@ -57,8 +57,46 @@ def cartes(noeud):
             cartes(v)
 
 
+def snippet_gpsr():
+    """Mention GPSR (règlement (UE) 2023/988, art. 19) sur chaque fiche : fabricant ou personne responsable de la marque
+    (config/gpsr.json, vérifié par Amine) + consignes de sécurité. Marque absente du fichier : consignes seules."""
+    import html
+    chemin = os.path.join(os.path.dirname(ICI), "config", "gpsr.json")
+    data = json.load(open(chemin, encoding="utf-8")) if os.path.exists(chemin) else {}
+    cas = []
+    for marque, d in sorted(data.items()):
+        if not d.get("fabricant") or d.get("confiance") == "faible":
+            continue
+        contact = d.get("contact", "")
+        lien = ('<a href="%s" rel="nofollow">%s</a>' % (html.escape(contact if contact.startswith("http") else "mailto:" + contact),
+                                                           html.escape(contact.replace("mailto:", "")))) if contact else ""
+        cas.append("{%% when %s %%}<p><strong>{{ t_fab }}</strong> : %s, %s%s</p>" % (
+            json.dumps(marque), html.escape(d["fabricant"]), html.escape(d["adresse"]), (" · " + lien) if lien else ""))
+    return """{%- comment -%} Généré par scripts/theme_rk.py depuis config/gpsr.json — ne pas modifier à la main. {%- endcomment -%}
+{%- liquid
+  if request.locale.iso_code == 'nl'
+    assign t_titre = 'Productveiligheid'
+    assign t_fab = 'Fabrikant / verantwoordelijke persoon'
+    assign t_avert = 'Ontvlambaar. Buiten bereik van kinderen houden. Niet in de ogen of op geïrriteerde huid sprayen. Uitsluitend voor uitwendig gebruik. Bewaren op een koele plaats, uit de buurt van warmte, vlammen en zonlicht. Lees de ingrediëntenlijst op de verpakking als u allergisch bent.'
+  else
+    assign t_titre = 'Sécurité du produit'
+    assign t_fab = 'Fabricant / personne responsable'
+    assign t_avert = "Inflammable. Tenir hors de portée des enfants. Ne pas vaporiser dans les yeux ni sur une peau irritée. Usage externe uniquement. Conserver au frais, à l'abri de la chaleur, des flammes et de la lumière. En cas d'allergie, consultez la liste des ingrédients sur l'emballage."
+  endif
+-%}
+<details class="qk-gpsr">
+  <summary>{{ t_titre }}</summary>
+  {%- case product.vendor -%}
+""" + "\n".join("    " + c for c in cas) + """
+  {%- endcase -%}
+  <p>{{ t_avert }}</p>
+</details>
+"""
+
+
 def construire(fichiers, marques):
     liquides, jsons = fichiers_qk(), {}
+    liquides["snippets/qk-gpsr.liquid"] = snippet_gpsr()
 
     # ---------- feuille de style ----------
     lay = fichiers["layout/theme.liquid"]
@@ -143,9 +181,10 @@ def construire(fichiers, marques):
         "<span>Betalen met Bancontact, kaart of Apple Pay</span>{% else %}"
         "<span>Parfum original, neuf, avec facture d'achat</span><span>14 jours pour changer d'avis (flacon non ouvert)</span>"
         "<span>Paiement Bancontact, carte ou Apple Pay</span>{% endif %}</div>")
+    det["blocks"]["qk_gpsr"] = liquide("{% render 'qk-gpsr', product: closest.product %}")
     ordre = [k for k in det["block_order"] if k in det["blocks"] and not k.startswith("qk_")]
     i = ordre.index(next(k for k in ordre if det["blocks"][k]["type"] == "buy-buttons")) + 1
-    det["block_order"] = ordre[:i] + ["qk_livraison", "qk_rassurance"] + ordre[i:]
+    det["block_order"] = ordre[:i] + ["qk_livraison", "qk_rassurance", "qk_gpsr"] + ordre[i:]
     d["sections"]["qk_marque"] = {"type": "qk-texte", "settings": {"mode_marque": True, "alignement": "centre"}}
     d["order"] = [k for k in d["order"] if k != "qk_marque"]
     d["order"].insert(1, "qk_marque")
