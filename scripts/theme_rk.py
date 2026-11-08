@@ -98,8 +98,11 @@ def construire(fichiers, marques):
                                                  "sous_titre": "Le même parfum, sans la boîte, moins cher"}},
             "t3": {"type": "tuile", "settings": {"collection": "parfums-mixtes", "titre": "Parfums mixtes",
                                                  "produit": "acqua-di-parma-colonia-eau-de-cologne-mixte",
-                                                 "sous_titre": "À porter par tout le monde"}}},
-            "block_order": ["t1", "t2", "t3"]},
+                                                 "sous_titre": "À porter par tout le monde"}},
+            "t4": {"type": "tuile", "settings": {"collection": "parfums-femme", "titre": "Parfums femme",
+                                                 "produit": "chanel-coco-mademoiselle-eau-de-parfum-pour-femme",
+                                                 "sous_titre": "Chanel, Dior, Guerlain et plus"}}},
+            "block_order": ["t1", "t2", "t3", "t4"]},
         "qk_marques": {"type": "qk-marques", "settings": {
             "titre": "Marques", "liste": "\n".join(marques),
             "texte": "Des parfums originaux et neufs, des grandes maisons aux créateurs de niche."}},

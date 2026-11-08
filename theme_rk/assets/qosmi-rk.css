@@ -144,7 +144,7 @@ img.qk-hero__img { animation: qk-zoom 28s ease-in-out infinite alternate; transf
 .qk-livraison { text-align: center; font-size: 0.875rem; margin: 0; }
 
 /* ---------- tuiles ---------- */
-.qk-tuiles__grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.qk-tuiles__grille { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 @media (max-width: 989px) { .qk-tuiles__grille { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 599px) { .qk-tuiles__grille { grid-auto-flow: column; grid-auto-columns: 80%; grid-template-columns: none; overflow-x: auto; } }
 .qk-tuile { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: #1a1a1a; color: #fff; text-decoration: none; }
