@@ -406,11 +406,51 @@ def publication_boutique(s):
     return next((p["id"] for p in pubs if p["name"] in ("Online Store", "Boutique en ligne")), None)
 
 
+def publications_vente(s):
+    """Boutique en ligne + Google & YouTube (installé le 08/11/2026) : les canaux où une fiche active doit apparaître."""
+    pubs = s.gql("{ publications(first: 20) { nodes { id name } } }")["publications"]["nodes"]
+    return [p["id"] for p in pubs if p["name"] in ("Online Store", "Boutique en ligne") or "google" in p["name"].lower()]
+
+
 def publier_fiches(s, ids):
-    """Rend visibles sur la boutique en ligne des fiches déjà ACTIVES (une par une : pour les nouveautés de l'heure)."""
-    pub = publication_boutique(s)
-    for pid in ids if pub else []:
-        s.gql(M_PUBLIER, {"id": pid, "input": [{"publicationId": pub}]})
+    """Rend visibles sur la boutique en ligne et sur Google des fiches déjà ACTIVES (une par une : pour les nouveautés de l'heure)."""
+    pubs = publications_vente(s)
+    for pid in ids if pubs else []:
+        s.gql(M_PUBLIER, {"id": pid, "input": [{"publicationId": p} for p in pubs]})
+
+
+def google():
+    """Canal Google & YouTube (08/11/2026) : y publie toutes les fiches SoleLuna (actives ou en brouillon).
+    Google ne reçoit que les fiches ACTIVES : une fiche masquée (brouillon) par le passage horaire disparaît aussi de Google."""
+    from shopify_api import Shopify
+    import site_charger as sc
+    s = Shopify()
+    pubs = s.gql("{ publications(first: 20) { nodes { id name } } }")["publications"]["nodes"]
+    print("Canaux : %s" % ", ".join(p["name"] for p in pubs))
+    g = next((p["id"] for p in pubs if "google" in p["name"].lower()), None)
+    if not g:
+        raise SystemExit("Canal Google & YouTube introuvable")
+
+    def compte():
+        for p in pubs:
+            try:
+                n = s.gql("query($p: ID!) { publishedProductsCount(publicationId: $p) { count } }", {"p": p["id"]})
+                print("  publiées sur %s : %s" % (p["name"], n["publishedProductsCount"]["count"]))
+            except Exception as e:
+                print("  %s : comptage impossible (%s)" % (p["name"], str(e)[:120]))
+    compte()
+    boutique, _ = etat_boutique(s, sc)
+    cibles = [p["id"] for p in boutique.values() if any((v.get("sku") or "").startswith("QS-") for v in p["variantes"])]
+    actives = sum(1 for p in cibles if boutique[p]["status"] == "ACTIVE")
+    print("Fiches SoleLuna : %d (dont %d actives) à publier sur Google & YouTube" % (len(cibles), actives))
+    os.makedirs(sl.RAPPORTS, exist_ok=True)
+    chemin = os.path.join(sl.RAPPORTS, "site_publication_google.jsonl")
+    with open(chemin, "w", encoding="utf-8") as f:
+        for pid in cibles:
+            f.write(json.dumps({"id": pid, "input": [{"publicationId": g}]}) + "\n")
+    sc.bilan_resultats(sc.attendre(s, sc.lancer_mutation(s, M_PUBLIER, chemin, "publication-google"), "publication-google"),
+                       "publication-google")
+    compte()
 
 
 def activer():
@@ -678,6 +718,9 @@ def main():
             return 0
         if "--controle-photos" in sys.argv:
             controle_medias()
+            return 0
+        if "--google" in sys.argv:
+            google()
             return 0
         try:
             return synchro(essai="--essai" in sys.argv)
