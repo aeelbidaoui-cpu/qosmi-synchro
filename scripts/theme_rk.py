@@ -313,7 +313,10 @@ def construire(fichiers, marques):
         if nom == "templates/collection.json":
             # en-tête Qosmi : titre et texte à gauche, image des flacons à droite (demande d'Amine du 08/11/2026) ;
             # l'en-tête d'origine est gardé mais désactivé
-            d["sections"]["qk_entete"] = {"type": "qk-entete-collection", "settings": {}}
+            # pages de marque : logo de la maison (config/logos_marques.json, logos Fragrantica vérifiés à la main, 08/11/2026)
+            chemin_logos = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "logos_marques.json")
+            logos = json.load(open(chemin_logos, encoding="utf-8"))["par_marque"] if os.path.exists(chemin_logos) else {}
+            d["sections"]["qk_entete"] = {"type": "qk-entete-collection", "settings": {"logos": "\n".join(sorted(v["slug"] for v in logos.values()))}}
             for k, s in d["sections"].items():
                 if k != "qk_entete" and s.get("type") == "section":
                     s["disabled"] = True

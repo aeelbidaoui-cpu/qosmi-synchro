@@ -8,13 +8,25 @@
 {%- comment -%} seules ces catégories ont une image (sinon images[] renvoie un objet vide et image_url plante) {%- endcomment -%}
 {%- assign qk_avec = 'parfums,parfums-femme,parfums-homme,parfums-mixtes,niche' | split: ',' -%}
 {%- assign qk_img = nil -%}
+{%- assign qk_logo = nil -%}
 {%- if qk_avec contains qk_c.handle -%}
   {%- assign qk_nom = 'qosmi-entete-' | append: qk_c.handle | append: '-v2.jpg' -%}
   {%- assign qk_img = images[qk_nom] -%}
+{%- else -%}
+  {%- comment -%} page d'une marque (/collections/vendors?q=…) : son logo, s'il est dans la liste « logos » (une marque par ligne) {%- endcomment -%}
+  {%- assign qk_marque = qk_c.title | handleize -%}
+  {%- assign qk_logos = section.settings.logos | newline_to_br | split: '<br />' -%}
+  {%- for l in qk_logos -%}
+    {%- assign l2 = l | strip -%}
+    {%- if l2 == qk_marque -%}
+      {%- assign qk_nom = 'qosmi-logo-marque-' | append: qk_marque | append: '.jpg' -%}
+      {%- assign qk_logo = images[qk_nom] -%}
+    {%- endif -%}
+  {%- endfor -%}
 {%- endif -%}
 <div class="section-background"></div>
 <div class="section section--page-width">
-  <div class="qk-entete-coll{% if qk_img %} qk-entete-coll--image{% endif %}">
+  <div class="qk-entete-coll{% if qk_img %} qk-entete-coll--image{% endif %}{% if qk_logo %} qk-entete-coll--logo{% endif %}">
     <div class="qk-entete-coll__texte">
       <div class="text-block h2"><h1>{{ qk_c.title }}</h1></div>
       {%- if qk_c.description != blank -%}
@@ -27,6 +39,11 @@
            widths: '600, 900, 1200, 1600, 2000, 2400', sizes: '(min-width: 990px) 55vw, 100vw' }}
       </div>
     {%- endif -%}
+    {%- if qk_logo -%}
+      <div class="qk-entete-coll__logo">
+        {{ qk_logo | image_url: width: 800 | image_tag: alt: qk_c.title, loading: 'eager', widths: '300, 500, 800', sizes: '320px' }}
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -34,6 +51,8 @@
 {
   "name": "Qosmi – en-tête",
   "class": "qk-entete-coll-section",
-  "settings": []
+  "settings": [
+    { "type": "textarea", "id": "logos", "label": "Marques avec logo (une par ligne, nom simplifié)" }
+  ]
 }
 {% endschema %}

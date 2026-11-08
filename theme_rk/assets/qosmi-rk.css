@@ -353,3 +353,11 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-conc__val { grid-area: val; font-size: .88rem; text-align: right; white-space: nowrap; }
 .qk-conc__desc { grid-area: desc; font-size: .84rem; color: #6b6b6b; }
 @media (max-width: 600px) { .qk-conc__ligne { grid-template-columns: 1fr 4rem; grid-template-areas: "nom val" "piste piste" "desc desc"; } }
+/* pages de marque : logo de la maison à droite du titre (08/11/2026) */
+.qk-entete-coll--logo { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 32px; }
+.qk-entete-coll__logo { flex: 0 0 auto; }
+.qk-entete-coll__logo img { display: block; max-width: 300px; max-height: 150px; width: auto; height: auto; object-fit: contain; }
+@media (max-width: 749px) {
+  .qk-entete-coll--logo { flex-direction: column-reverse; align-items: flex-start; gap: 16px; }
+  .qk-entete-coll__logo img { max-width: 200px; max-height: 100px; }
+}
