@@ -168,8 +168,8 @@ def construire(fichiers, marques):
                                                  "produit": "sospiro-vibrato-eau-de-parfum-mixte",
                                                  "sous_titre": "Xerjoff, Nishane, Initio, Parfums de Marly et plus"}},
             "t2": {"type": "tuile", "settings": {"collection": "parfums-homme", "titre": "Parfums homme",  # testeurs en suspens (08/11)
-                                                 "produit": "creed-aventus-eau-de-parfum-pour-homme",
-                                                 "sous_titre": "Creed, Dior, Tom Ford et plus"}},
+                                                 "produit": "dior-sauvage-elixir-parfum-pour-homme",
+                                                 "sous_titre": "Dior, Chanel, Tom Ford et plus"}},
             "t3": {"type": "tuile", "settings": {"collection": "parfums-mixtes", "titre": "Parfums mixtes",
                                                  "produit": "acqua-di-parma-colonia-eau-de-cologne-mixte",
                                                  "sous_titre": "À porter par tout le monde"}},
