@@ -1,10 +1,10 @@
 {
  "_note": "Photos d'ingrédients pour la pyramide olfactive du Journal ([[notes:...]]). Source : Unsplash (licence Unsplash : usage commercial autorisé, sans attribution obligatoire). Fichier Shopify : qosmi-note-<clé>.jpg",
- "orange-sicile": {
-  "fr": "Orange de Sicile",
-  "nl": "Sinaasappel uit Sicilië",
-  "fichier": "qosmi-note-orange-sicile.jpg",
-  "source": "https://unsplash.com/photos/1644751291719-574ef771ba30"
+ "orange": {
+  "fr": "Orange",
+  "nl": "Sinaasappel",
+  "fichier": "qosmi-note-orange.jpg",
+  "source": "https://unsplash.com/photos/1591206369811-4eeb2f03bc95"
  },
  "citron": {
   "fr": "Citron",
