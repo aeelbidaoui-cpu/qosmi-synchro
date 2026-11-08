@@ -180,7 +180,7 @@ def photos_officielles(produits):
     import photos_marques as pm
     dossier = os.path.dirname(sl.SITE)
     sources = []  # (qualité, par_ean, par_nom, marques limitées ou None)
-    for nom, qualite in (("photos_elo.json", 4), ("photos_creed.json", 4), ("photos_ch.json", 4), ("photos_puig.json", 3.5), ("photos_notino.json", 3), ("photos_dg.json", 4), ("photos_jm.json", 3.5), ("photos_mm.json", 3.5), ("photos_tfi.json", 3.5), ("photos_ck.json", 3.5), ("photos_tt.json", 3.5), ("photos_lvmh.json", 3.5), ("photos_m2.json", 3.5), ("photos_m3.json", 3.5), ("photos_ici.json", 2.5), ("photos_bijenkorf.json", 2.5), ("photos_acquadiparma.json", 4), ("photos_parfuma.json", 1.5), ("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_marques.json", None)):
+    for nom, qualite in (("photos_elo.json", 4), ("photos_creed.json", 4), ("photos_ch.json", 4), ("photos_puig.json", 3.5), ("photos_notino.json", 3), ("photos_dg.json", 4), ("photos_jm.json", 3.5), ("photos_mm.json", 3.5), ("photos_tfi.json", 3.5), ("photos_ck.json", 3.5), ("photos_tt.json", 3.5), ("photos_lvmh.json", 3.5), ("photos_m2.json", 3.5), ("photos_m3.json", 3.5), ("photos_rosendo.json", 3.5), ("photos_ici.json", 2.5), ("photos_bijenkorf.json", 2.5), ("photos_acquadiparma.json", 4), ("photos_parfuma.json", 1.5), ("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_marques.json", None)):
         chemin = os.path.join(dossier, nom)
         if not os.path.exists(chemin):
             continue
