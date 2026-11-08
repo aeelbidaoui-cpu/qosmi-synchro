@@ -256,7 +256,7 @@ def construire(fichiers, marques):
                                                  "sous_titre": "Chanel, Dior, Guerlain et plus"}}},
             "block_order": ["t1", "t2", "t3", "t4"]},
         "qk_marques": {"type": "qk-marques", "settings": {
-            "titre": "Marques", "liste": "\n".join(marques), "logos": logos_slugs(),
+            "titre": "Marques", "liste": "\n".join(m for m in marques if not m.endswith("_")), "logos": logos_slugs(),
             "texte": "Des parfums originaux et neufs, des grandes maisons aux créateurs de niche."}},
         "qk_apropos": {"type": "qk-texte", "settings": {
             "surtitre": "À propos", "titre": "Qosmi",
