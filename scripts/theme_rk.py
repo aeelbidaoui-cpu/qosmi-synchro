@@ -12,6 +12,11 @@ FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.js
             "templates/search.json", "sections/header-group.json", "sections/footer-group.json"]
 CARTE_TEXTE = "{% render 'qk-carte-texte', product: closest.product %}"
 LIVRAISON = "Livraison partout en Belgique en 1 à 2 jours ouvrables · 6,95 €"
+ANNONCES = ["Livraison en Belgique en 1 à 2 jours ouvrables · 6,95 €",
+            "Parfums 100 % authentiques et neufs",
+            "Plus de 60 maisons, des grands classiques à la niche",
+            "Paiement sécurisé : Bancontact, carte, Apple Pay",
+            "14 jours pour changer d'avis"]
 
 
 def lire(texte):
@@ -208,9 +213,15 @@ def construire(fichiers, marques):
         if s["type"] == "header":
             s["settings"].update({"localization_position": "left", "divider_width": 1})
         if s["type"] == "header-announcements":
-            for b in s["blocks"].values():
-                if b["type"] == "_announcement":
-                    b["settings"]["text"] = "Livraison partout en Belgique · Parfums 100 % authentiques"
+            # bandeau défilant (demande d'Amine du 08/11/2026 : plus de messages)
+            modele = next((b for b in s["blocks"].values() if b["type"] == "_announcement"), {"type": "_announcement", "settings": {}, "blocks": {}})
+            s["blocks"], s["block_order"] = {}, []
+            for i, texte in enumerate(ANNONCES, 1):
+                b = copy.deepcopy(modele)
+                b["settings"]["text"] = texte
+                s["blocks"]["qk_annonce_%d" % i] = b
+                s["block_order"].append("qk_annonce_%d" % i)
+            s["settings"]["speed"] = 4
     jsons["sections/header-group.json"] = ecrire(e, d)
 
     # ---------- pied de page ----------
