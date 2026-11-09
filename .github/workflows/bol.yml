@@ -9,7 +9,7 @@ on:
         description: "Que faire ?"
         type: choice
         default: analyse
-        options: [analyse, test-connexion, recalculer, publier, essai-publication]
+        options: [analyse, test-connexion, recalculer, publier, essai-publication, contenu-diag]
       maxi:
         description: "Nombre maximum d'EAN à relever (vide = tous, dans la limite de durée)"
         required: false
@@ -79,6 +79,7 @@ jobs:
           if [ "$A" = "test-connexion" ]; then python -u scripts/bol_api.py --test
           elif [ "$A" = "recalculer" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py
           elif [ "$A" = "publier" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py
+          elif [ "$A" = "contenu-diag" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_contenu.py --diag
           elif [ "$A" = "essai-publication" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py --essai
           elif [ -n "$M" ]; then python -u scripts/bol_analyse.py --max "$M" && python -u scripts/bol_publier.py
           else python -u scripts/bol_analyse.py && python -u scripts/bol_publier.py; fi
@@ -109,5 +110,6 @@ jobs:
             rapports/bol_publication.txt
             rapports/bol_commandes.txt
             rapports/bol_invisibles.json
+            rapports/bol_contenu_diag.json
           retention-days: 14
           if-no-files-found: ignore

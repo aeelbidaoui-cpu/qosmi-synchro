@@ -1,38 +1,42 @@
 {
-  "_note": "Règle bol d'Amine (08/11/2026) : on ne met en vente sur bol QUE les références où l'on gagne au moins marge_nette_eur une fois tout payé. Le client paie tout : achat, part du colis fournisseur, emballage, envoi au client, commission bol, provision retours, TVA. Envois : fournisseur → Amine (colis groupé) → client, en Belgique ET aux Pays-Bas ; une offre bol a un seul prix pour les deux pays, donc on compte l'envoi le plus cher. On liste même si on est plus cher que le koopblok (aucune perte possible), mais jamais au-dessus de la borne 2 étoiles (au-dessus, bol masque l'offre). Délai promis : le plus long accepté par bol (1-8d). Les montants marqués « à vérifier » sont des hypothèses à remplacer par les vrais tarifs.",
-  "pays": [
-    "NL",
-    "BE"
-  ],
-  "tva": 0.21,
-  "marge_nette_eur": 7.0,
-  "envoi_fournisseur_eur": 3.0,
-  "emballage_eur": 0.6,
-  "envoi_client_ht": {
-    "BE": 6.72,
-    "NL": 8.75
-  },
-  "_note_envoi_client_ht": "Tarifs pro PostNL Belgique 2026 (0-500 colis/an), livraison à domicile, donnés par Amine le 08/11/2026 : BE 6,72 €, NL 8,75 € (point PostNL : 6,02 € / 8,50 €). Supposés HT (tarifs professionnels).",
-  "provision_retours_eur": 1.0,
-  "_note_provision_retours_eur": "à vérifier : provision par article vendu pour les retours (frais de retour, colis abîmés). À ajuster avec les vrais chiffres après quelques semaines.",
-  "etoiles_min": 3,
-  "_note_etoiles_min": "Sans concurrent : prix le plus haut qui garde au moins 3 étoiles de prix (un peu au-dessus du marché), jamais sous notre plancher. 2 = le plus cher encore affiché par bol.",
-  "delai_livraison": "1-8d",
-  "stock_max": 3,
-  "_note_stock_max": "Stock annoncé sur bol = stock fournisseur plafonné à cette valeur (dropshipping : on ne promet pas plus que ce qu'on peut suivre).",
-  "testeurs": false,
-  "_note_testeurs": "à vérifier avec bol : vente des testeurs en « neuf ». Désactivé tant que ce n'est pas confirmé.",
-  "rescan_heures": 24,
-  "duree_max_minutes": 300,
-  "publication_active": true,
-  "_note_publication_active": "true depuis le 08/11/2026 23 h 37 (accord d'Amine) : la publication crée et met à jour les offres de la sélection (scripts/bol_publier.py).",
-  "mon_retailer_id": "1862791",
-  "ean_exclus": [],
-  "selection": {
-    "koopblok": true,
-    "seul_vendeur_avec_marche": true,
-    "plus_cher_ecart_max": 0.1
-  },
-  "_note_selection": "Choix d'Amine du 08/11/2026 : koopblok gagnable (ou à nous) + seul vendeur avec prix de marché connu + plus cher que le koopblok d'au plus 10 %. Les autres « oui » (plus chers, ou sans aucune donnée de marché) ne sont pas publiés.",
-  "publication_max_creations": 300
+ "_note": "Règle bol d'Amine (08/11/2026) : on ne met en vente sur bol QUE les références où l'on gagne au moins marge_nette_eur une fois tout payé. Le client paie tout : achat, part du colis fournisseur, emballage, envoi au client, commission bol, provision retours, TVA. Envois : fournisseur → Amine (colis groupé) → client, en Belgique ET aux Pays-Bas ; une offre bol a un seul prix pour les deux pays, donc on compte l'envoi le plus cher. On liste même si on est plus cher que le koopblok (aucune perte possible), mais jamais au-dessus de la borne 2 étoiles (au-dessus, bol masque l'offre). Délai promis : le plus long accepté par bol (1-8d). Les montants marqués « à vérifier » sont des hypothèses à remplacer par les vrais tarifs.",
+ "pays": [
+  "NL",
+  "BE"
+ ],
+ "tva": 0.21,
+ "marge_nette_eur": 7.0,
+ "envoi_fournisseur_eur": 3.0,
+ "emballage_eur": 0.6,
+ "envoi_client_ht": {
+  "BE": 6.72,
+  "NL": 8.75
+ },
+ "_note_envoi_client_ht": "Tarifs pro PostNL Belgique 2026 (0-500 colis/an), livraison à domicile, donnés par Amine le 08/11/2026 : BE 6,72 €, NL 8,75 € (point PostNL : 6,02 € / 8,50 €). Supposés HT (tarifs professionnels).",
+ "provision_retours_eur": 1.0,
+ "_note_provision_retours_eur": "à vérifier : provision par article vendu pour les retours (frais de retour, colis abîmés). À ajuster avec les vrais chiffres après quelques semaines.",
+ "etoiles_min": 3,
+ "_note_etoiles_min": "Sans concurrent : prix le plus haut qui garde au moins 3 étoiles de prix (un peu au-dessus du marché), jamais sous notre plancher. 2 = le plus cher encore affiché par bol.",
+ "delai_livraison": "1-8d",
+ "stock_max": 3,
+ "_note_stock_max": "Stock annoncé sur bol = stock fournisseur plafonné à cette valeur (dropshipping : on ne promet pas plus que ce qu'on peut suivre).",
+ "testeurs": false,
+ "_note_testeurs": "à vérifier avec bol : vente des testeurs en « neuf ». Désactivé tant que ce n'est pas confirmé.",
+ "rescan_heures": 24,
+ "duree_max_minutes": 300,
+ "publication_active": true,
+ "_note_publication_active": "true depuis le 08/11/2026 23 h 37 (accord d'Amine) : la publication crée et met à jour les offres de la sélection (scripts/bol_publier.py).",
+ "mon_retailer_id": "1862791",
+ "ean_exclus": [
+  "3147758034905",
+  "3760361770826"
+ ],
+ "selection": {
+  "koopblok": true,
+  "seul_vendeur_avec_marche": true,
+  "plus_cher_ecart_max": 0.1
+ },
+ "_note_selection": "Choix d'Amine du 08/11/2026 : koopblok gagnable (ou à nous) + seul vendeur avec prix de marché connu + plus cher que le koopblok d'au plus 10 %. Les autres « oui » (plus chers, ou sans aucune donnée de marché) ne sont pas publiés.",
+ "publication_max_creations": 300,
+ "_note_ean_exclus": "09/11/2026 : offres refusées par bol pour « prix trop haut » (4000). Décision d'Amine : on ne baisse pas nos marges, on retire l'offre (stock 0)."
 }
