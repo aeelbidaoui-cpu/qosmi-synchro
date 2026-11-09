@@ -6,7 +6,7 @@
     {%- if section.settings.mode_marque and marque != blank -%}
       <h2 class="qk-titre-section">{% if request.locale.iso_code == 'nl' %}Ontdek {% else %}Découvre {% endif %}{{ marque }}</h2>
       <p class="qk-intro">{% if request.locale.iso_code == 'nl' %}Alle parfums van {{ marque }} bij Qosmi, origineel en nieuw.{% else %}Tous les parfums {{ marque }} chez Qosmi, originaux et neufs.{% endif %}</p>
-      <a class="qk-lien" href="/collections/vendors?q={{ marque | url_encode }}">{% if request.locale.iso_code == 'nl' %}Ontdek {{ marque }}{% else %}Découvrir {{ marque }}{% endif %}</a>
+      {%- assign qk_h = shop.metafields.qosmi.marques.value[marque] -%}<a class="qk-lien" href="{% if qk_h != blank %}{{ routes.collections_url }}/{{ qk_h }}{% else %}/collections/vendors?q={{ marque | url_encode }}{% endif %}">{% if request.locale.iso_code == 'nl' %}Ontdek {{ marque }}{% else %}Découvrir {{ marque }}{% endif %}</a>
     {%- else -%}
       {%- if section.settings.titre != blank -%}<h2 class="qk-titre-section">{{ section.settings.titre }}</h2>{%- endif -%}
       {%- if section.settings.texte != blank -%}<div class="qk-intro">{{ section.settings.texte }}</div>{%- endif -%}

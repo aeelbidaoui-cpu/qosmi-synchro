@@ -10,6 +10,17 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 DOSSIER = os.path.join(os.path.dirname(ICI), "theme_rk")
 FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.json", "templates/collection.json",
             "templates/search.json", "sections/header-group.json", "sections/footer-group.json", "templates/cart.json"]
+OPTIONNELS = ["snippets/meta-tags.liquid"]  # 09/11/2026 : titre Google de l'accueil FR (lu s'il existe)
+
+# 09/11/2026 (SEO) : l'accueil FR n'avait que « Qosmi » comme titre et aucune méta-description (le NL était bon).
+ACCUEIL_FR = ("{%- if request.page_type == 'index' and request.locale.iso_code == 'fr' -%}"
+              "{%- assign page_title = 'Qosmi – Parfums de marque et de niche en Belgique' -%}"
+              "{%- assign page_description = 'Parfumerie en ligne belge : Creed, Xerjoff, Chanel, Dior, Tom Ford et plus de 100 maisons. "
+              "Parfums 100 % authentiques et neufs, livrés partout en Belgique.' -%}"
+              "{%- endif -%}\n")
+# 09/11/2026 (SEO) : la boutique en données structurées, avec sa politique de retour (Google la lit au niveau de la boutique).
+ORG_LD = """    {%- if request.page_type == 'index' -%}<script type="application/ld+json" id="qk-org-ld">{"@context":"https://schema.org","@type":"OnlineStore","@id":"https://qosmi.be/#org","name":"Qosmi","url":"https://qosmi.be/","email":"contact@qosmi.be","vatID":"BE1040851867","legalName":"Deway BV","areaServed":"BE","hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","applicableCountry":"BE","returnPolicyCountry":"BE","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":14,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/ReturnShippingFees","merchantReturnLink":"https://qosmi.be/pages/retours"}}</script>{%- endif -%}
+"""
 
 def logos_slugs():
     """Marques dont le logo est dans les Fichiers Shopify (config/logos_marques.json), une par ligne (nom simplifié).
@@ -255,6 +266,16 @@ def construire(fichiers, marques):
     # FAQ des articles du Journal en données structurées (08/11/2026)
     if "qk-faq-ld" not in lay:
         lay = lay.replace("</head>", FAQ_LD + "  </head>", 1)
+    if "qk-org-ld" not in lay:
+        lay = lay.replace("</head>", ORG_LD + "  </head>", 1)
+    # titre et méta-description de l'accueil FR : dans le fichier qui écrit <title>
+    if "Parfums de marque et de niche en Belgique" not in lay + fichiers.get("snippets/meta-tags.liquid", ""):
+        if "<title" in fichiers.get("snippets/meta-tags.liquid", ""):
+            liquides["snippets/meta-tags.liquid"] = ACCUEIL_FR + fichiers["snippets/meta-tags.liquid"]
+        elif "<title" in lay:
+            lay = ACCUEIL_FR + lay
+        else:
+            print("  (titre de l'accueil : balise <title> introuvable, rien changé)")
     liquides["layout/theme.liquid"] = lay
 
     # ---------- accueil ----------

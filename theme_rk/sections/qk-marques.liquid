@@ -29,7 +29,7 @@
               {%- assign fichier = 'qosmi-logo-marque-' | append: slug | append: '.jpg' -%}
               {%- assign img = images[fichier] -%}
             {%- endif -%}
-            <a class="qk-marque{% if img %} qk-marque--logo{% endif %}" href="/collections/vendors?q={{ nom | url_encode }}"{% if i == 2 %} aria-hidden="true" tabindex="-1"{% endif %}>
+            {%- assign qk_h = shop.metafields.qosmi.marques.value[nom] -%}<a class="qk-marque{% if img %} qk-marque--logo{% endif %}" href="{% if qk_h != blank %}{{ routes.collections_url }}/{{ qk_h }}{% else %}/collections/vendors?q={{ nom | url_encode }}{% endif %}"{% if i == 2 %} aria-hidden="true" tabindex="-1"{% endif %}>
               {%- if img -%}
                 {{ img | image_url: width: 360 | image_tag: alt: nom, loading: 'lazy', widths: '180, 360', sizes: '180px' }}
               {%- else -%}

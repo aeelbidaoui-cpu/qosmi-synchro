@@ -151,24 +151,37 @@ def produit(lignes, r, photos):
         v.update({"format_fr": f_fr, "format_nl": f_nl, "teinte": teinte, "_achat": l.get("PRICE")})
         vus[cle] = v
         variantes.append(v)
-    seo = seo_textes(t_fr, t_nl, r)
+    seo = seo_textes(t_fr, t_nl, r, vols)
     return {"handle": sl.slug(t_fr)[:200], "titre_fr": t_fr, "titre_nl": t_nl, "desc_fr": d_fr, "desc_nl": d_nl,
             "marque": marque, "type_fr": cat_fr, "type_nl": cat_nl, "tags": ", ".join(tags),
             "teintes": teintes, "variantes": variantes, **seo}
 
 
-def seo_textes(t_fr, t_nl, r):
-    """Titre (≤ 70 caractères) et méta-description (≤ 160) pour Google, FR + NL (08/11/2026)."""
+def seo_textes(t_fr, t_nl, r, vols=None):
+    """Titre (≤ 60 caractères) et méta-description (≤ 155) pour Google, FR + NL.
+    09/11/2026 : plus de « | Qosmi » à la fin : Google Shopping reprend ce titre tel quel (et Google ajoute déjà
+    le nom du site dans ses résultats). Trop long : on enlève « pour homme/femme », puis EDP/EDT, puis on coupe au mot."""
+    import re as _re
+
     def titre(t):
-        t = t.replace(" — ", " ")
-        return t + " | Qosmi" if len(t) + 8 <= 70 else (t if len(t) <= 70 else t[:71].rsplit(" ", 1)[0])
+        t = t.replace(" — ", " ").replace("— ", "")
+        if len(t) <= 60:
+            return t
+        t2 = _re.sub(r" (pour (homme|femme|enfant)s?|mixte|voor (heren|dames|kinderen)|unisex)$", "", t)
+        if len(t2) <= 60:
+            return t2
+        t3 = t2.replace("Eau de Parfum", "EDP").replace("Eau de Toilette", "EDT")
+        return t3 if len(t3) <= 60 else t3[:61].rsplit(" ", 1)[0]
 
     def coupe(d):
-        return d if len(d) <= 160 else d[:157].rsplit(" ", 1)[0] + "…"
+        return d if len(d) <= 155 else d[:152].rsplit(" ", 1)[0] + "…"
     n_fr, n_nl = t_fr.replace(" — ", ", ").replace("— ", ""), t_nl.replace(" — ", ", ").replace("— ", "")
+    v = sorted(set(vols or []), key=lambda x: float(_re.sub(r"[^0-9,.]", "", x).replace(",", ".") or 0))
+    f_fr = (", " + joli_liste(v, "et")) if v else ""
+    f_nl = (", " + joli_liste(v, "en")) if v else ""
     return {"seo_titre_fr": titre(t_fr), "seo_titre_nl": titre(t_nl),
-            "seo_desc_fr": coupe("%s, 100 %% authentique et neuf. Livraison partout en Belgique. Paiement Bancontact." % (n_fr,)),
-            "seo_desc_nl": coupe("%s, 100%% origineel en nieuw. Levering in heel België. Betalen met Bancontact." % (n_nl,))}
+            "seo_desc_fr": coupe("%s%s. 100 %% authentique et neuf, livré partout en Belgique. Paiement Bancontact." % (n_fr, f_fr)),
+            "seo_desc_nl": coupe("%s%s. 100%% origineel en nieuw, geleverd in heel België. Betalen met Bancontact." % (n_nl, f_nl))}
 
 
 def photos_officielles(produits):

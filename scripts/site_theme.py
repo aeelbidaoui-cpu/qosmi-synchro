@@ -133,9 +133,13 @@ def page_marques(s):
     for m in marques:
         l = m[0].upper() if m[0].isalpha() else "#"
         groupes.setdefault(l, []).append(m)
+    # 09/11/2026 : liens vers les vraies pages marques (scripts/seo_marques.py, métachamp qosmi.marques) quand elles existent
+    mf = s.gql('{ shop { metafield(namespace: "qosmi", key: "marques") { value } } }')["shop"]["metafield"]
+    pages_m = json.loads(mf["value"]) if mf else {}
+    lien = lambda m: ("/collections/%s" % pages_m[m]) if m in pages_m else "/collections/vendors?q=%s" % _u.quote(m)
     corps = ["<p>Toutes les maisons que nous proposons, des grands classiques aux créateurs de niche.</p>"]
     for l in sorted(groupes):
-        liens = " · ".join('<a href="/collections/vendors?q=%s">%s</a>' % (_u.quote(m), _h.escape(m)) for m in groupes[l])
+        liens = " · ".join('<a href="%s">%s</a>' % (lien(m), _h.escape(m)) for m in groupes[l])
         corps.append("<h2>%s</h2><p>%s</p>" % (l, liens))
     champs = {"title": "Marques", "handle": "marques", "body": "\n".join(corps), "isPublished": True}
     d = s.gql('query($q: String!) { pages(first: 1, query: $q) { nodes { id } } }', {"q": "handle:marques"})["pages"]["nodes"]
@@ -251,7 +255,7 @@ def appliquer_rk():
     s = Shopify()
     themes = s.gql(Q_THEMES)["themes"]["nodes"]
     apercu = next(t for t in themes if t["name"] == APERCU)  # publié le 08/11/2026 : c'est désormais le thème du site
-    actuels = fichiers_theme(s, apercu["id"], theme_rk.FICHIERS)
+    actuels = fichiers_theme(s, apercu["id"], theme_rk.FICHIERS + getattr(theme_rk, "OPTIONNELS", []))
     manquants = [n for n in theme_rk.FICHIERS if n not in actuels]
     if manquants:
         raise SystemExit("Fichiers introuvables dans l'aperçu : %s" % manquants)
