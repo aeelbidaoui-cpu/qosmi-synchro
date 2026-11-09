@@ -32,6 +32,40 @@ def fete(sur, titre_html, texte_html, droite):
                  fond=NOIR, couleur="#ffffff")]
 
 
+def conseil_photos(titre_html, gestes, fin_titre, fin_texte, sur="Le conseil", pied_txt="Le conseil Qosmi", glisse="Glisse →"):
+    """Comme conseil(), mais chaque geste a sa photo : (titre, texte, image mat/, position, légende de la photo)."""
+    n = len(gestes) + 2
+    sl = [page(f"""
+<div class="haut"><span class="sur" style="color:inherit">{sur}</span><span class="logo">QOSMI</span></div>
+<div style="margin-top:70px;position:relative"><div class="t" style="font-size:92px">{titre_html}</div></div>
+<div style="position:absolute;left:80px;right:80px;bottom:150px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+{''.join(f'<img src="{MAT % g[2]}" style="width:100%;aspect-ratio:1;object-fit:cover;object-position:{g[3]}">' for g in gestes[:6])}
+</div>
+<div style="margin-top:auto;position:relative;display:flex;justify-content:space-between;align-items:center">{points(n, 0)}<span class="sur">{glisse}</span></div>""", fond="#ffffff")]
+    for i, (titre, texte, img, pos, leg) in enumerate(gestes, 1):
+        sl.append(page(f"""
+<img src="{MAT % img}" style="position:absolute;left:0;top:0;width:100%;height:640px;object-fit:cover;object-position:{pos}">
+<div class="haut" style="position:relative"><span></span><span class="logo">QOSMI</span></div>
+<div style="position:absolute;left:80px;top:590px;background:{NOIR};color:#fff;padding:12px 20px" class="sur">{leg}</div>
+<div style="height:560px;flex:none"></div>
+<div style="margin:auto 0;position:relative">
+  <div style="display:flex;align-items:baseline;gap:30px"><div style="font-size:150px;font-weight:300;line-height:1">0{i}</div>
+  <div class="t" style="font-size:80px">{e(titre)}</div></div>
+  <div class="notes" style="font-size:40px;line-height:1.42;max-width:900px;margin-top:28px">{e(texte)}</div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;position:relative">{points(n, i)}<span class="sur">{pied_txt}</span></div>""",
+                       fond="#ffffff" if i % 2 else GRIS))
+    sl.append(page(f"""
+<div class="haut"><span></span><span class="logo">QOSMI</span></div>
+<div style="margin:auto 0">
+  <div class="t" style="font-size:92px">{fin_titre}</div>
+  <div class="notes" style="font-size:40px;margin-top:30px;line-height:1.4">{fin_texte}</div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:flex-end">{points(n, n - 1)}<span class="sur">qosmi.be</span></div>""",
+                   fond=NOIR, couleur="#ffffff"))
+    return sl
+
+
 P = {}
 P["01-sel-lui"] = selection("3 cadeaux<br>de dernière<br>minute<br>pour lui", [
     ("spicebomb", "Viktor&Rolf", "Spicebomb", "Pamplemousse, safran, piment, cannelle", "Un flacon en forme de grenade, pour un parfum épicé qui ne passe pas inaperçu.", "2012 · Olivier Polge"),
@@ -95,13 +129,13 @@ P["16-sel-reveillon"] = selection("3 parfums<br>pour le<br>réveillon", [
     "Prêt pour<br>minuit ?", "Dis-nous lequel<br>tu portes ce soir.", sur="Spécial réveillon")
 P["17-fete-annee"] = fete("Bonne année", "Bonne<br>année<br>2027", "Merci d'avoir été là en 2026.<br>On se retrouve demain.", "01 · 01")
 P["18-pdj-neroli"] = pdj("neroli", "Tom Ford · 2007", "Neroli Portofino", "Bergamote, néroli, fleur d'oranger, ambre", "Rodrigo Flores-Roux", taille=96)
-P["19-conseil-familles"] = conseil("Les grandes<br>familles<br>olfactives", [
-    ("Hespéridée", "Les agrumes : citron, bergamote, orange. Frais et pétillant."),
-    ("Florale", "Rose, jasmin, tubéreuse… La famille la plus vaste."),
-    ("Boisée", "Cèdre, santal, vétiver. Sec ou crémeux, toujours élégant."),
-    ("Ambrée", "On dit aussi orientale : vanille, épices, résines. Chaude et enveloppante."),
-    ("Chyprée", "Bergamote, mousse de chêne, patchouli. Son nom vient de Chypre, un parfum de Coty de 1917."),
-    ("Fougère", "Lavande, coumarine, mousse de chêne. Le grand classique des parfums pour homme.")],
+P["19-conseil-familles"] = conseil_photos("Les grandes<br>familles<br>olfactives", [
+    ("Hespéridée", "Les agrumes : citron, bergamote, orange. Frais et pétillant.", "bergamote", "50% 50%", "La bergamote"),
+    ("Florale", "Rose, jasmin, tubéreuse… La famille la plus vaste.", "rose", "50% 45%", "La rose"),
+    ("Boisée", "Cèdre, santal, vétiver. Sec ou crémeux, toujours élégant.", "santal", "50% 50%", "Le santal"),
+    ("Ambrée", "On dit aussi orientale : vanille, épices, résines. Chaude et enveloppante.", "vanille", "50% 50%", "La vanille"),
+    ("Chyprée", "Bergamote, mousse de chêne, patchouli. Son nom vient de Chypre, un parfum de Coty de 1917.", "patchouli", "50% 45%", "Le patchouli"),
+    ("Fougère", "Lavande, coumarine, mousse de chêne. Le grand classique des parfums pour homme.", "tonka", "50% 55%", "La fève tonka, riche en coumarine")],
     "Et toi ?", "Tu es plutôt<br>quelle famille ?")
 P["20-mat-patchouli"] = matiere("Le patchouli", "Terre, bois et camphre", "patchouli", "50% 45%", "D'où vient le patchouli ?",
     "Une plante tropicale cultivée surtout en Indonésie. Ses feuilles fraîches ne sentent presque rien : c'est le séchage puis la distillation qui révèlent son odeur.",

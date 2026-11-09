@@ -68,7 +68,17 @@ def choisir(lot, etat, aujourd_hui):
 
 
 def legende(p):
-    """Légende publiée : texte FR, puis texte NL s'il existe (lot 2 et suivants), puis hashtags."""
+    """Légende publiée.
+    - « langue » = "nl" : texte NL seul + hashtags NL (lot 2 : un jour FR, le lendemain NL) ;
+    - « langue » = "fr" : texte FR seul + hashtags ;
+    - sans « langue » (lot 1) : texte FR, puis texte NL s'il existe, puis hashtags."""
+    langue = p.get("langue")
+    if langue == "nl":
+        t = p["txt_nl"]
+        tags = p.get("tags_nl") or p.get("tags")
+        return t + ("\n\n" + tags if tags else "")
+    if langue == "fr":
+        return p["txt"] + ("\n\n" + p["tags"] if p.get("tags") else "")
     t = p["txt"]
     if p.get("txt_nl") and CFG.get("bilingue", True):
         t += "\n\n— NL —\n\n" + p["txt_nl"]
@@ -129,7 +139,7 @@ def urls_publiques(p):
             tmp = os.path.join("/tmp", nom)
             with open(os.path.join(dossier, n + ".jpg"), "rb") as src, open(tmp, "wb") as dst:
                 dst.write(src.read())
-            u = pa.envoyer(s, tmp, alt="Qosmi · " + p["titre"])
+            u = pa.envoyer(s, tmp, alt="Qosmi · " + (p.get("titre_nl") if p.get("langue") == "nl" else None or p["titre"]))
         if not u:
             raise RuntimeError("visuel %s non envoyé dans Shopify" % n)
         out.append(u)
