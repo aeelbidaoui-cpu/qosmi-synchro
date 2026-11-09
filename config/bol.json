@@ -38,9 +38,11 @@
  "selection": {
   "koopblok": true,
   "seul_vendeur_avec_marche": true,
-  "plus_cher_ecart_max": 0.1
+  "plus_cher_ecart_max": 0.1,
+  "seul_vendeur_sans_marche": true
  },
  "_note_selection": "Choix d'Amine du 08/11/2026 : koopblok gagnable (ou à nous) + seul vendeur avec prix de marché connu + plus cher que le koopblok d'au plus 10 %. Les autres « oui » (plus chers, ou sans aucune donnée de marché) ne sont pas publiés.",
- "publication_max_creations": 300,
- "_note_ean_exclus": "09/11/2026 : offres refusées par bol pour « prix trop haut » (4000). Décision d'Amine : on ne baisse pas nos marges, on retire l'offre (stock 0). 09/11/2026 : Kenneth Cole Black et Clean Rain retirés (formule US avec Lilial, interdit dans l'UE)."
+ "publication_max_creations": 500,
+ "_note_ean_exclus": "09/11/2026 : offres refusées par bol pour « prix trop haut » (4000). Décision d'Amine : on ne baisse pas nos marges, on retire l'offre (stock 0). 09/11/2026 : Kenneth Cole Black et Clean Rain retirés (formule US avec Lilial, interdit dans l'UE).",
+ "_note_selection_elargie": "09/11/2026 (demande d'Amine « fais 3 et 4 ») : on ajoute les parfums dont nous serions le seul vendeur sur bol, même sans repère de prix bol (≈2 000 réf., gain net ≥ 7 € garanti par la règle). Créées par lots de 500 par passage. Une offre que bol juge « prix trop haut » est retirée automatiquement."
 }

@@ -59,7 +59,8 @@ def selection(decisions, cfg):
         if not dec.startswith("oui"):
             continue
         if (dec.startswith("oui : koopblok") and sel.get("koopblok", True)) or \
-           (dec.startswith("oui : seul vendeur") and sel.get("seul_vendeur_avec_marche", True) and d.get("marche_connu")) or \
+           (dec.startswith("oui : seul vendeur") and ((sel.get("seul_vendeur_avec_marche", True) and d.get("marche_connu"))
+                                                or sel.get("seul_vendeur_sans_marche"))) or \
            (dec.startswith("oui : plus cher") and d.get("koopblok") and d["prix"] <= d["koopblok"] * (1 + ecart)):
             out[e] = d
     return out
