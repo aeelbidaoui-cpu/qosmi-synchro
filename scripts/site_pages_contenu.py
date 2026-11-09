@@ -49,7 +49,7 @@ PAGES = [
 <h2>5. Droit de rétractation</h2>
 <p>5.1 Vous disposez de <strong>14 jours calendrier</strong> pour vous rétracter, sans justification ni pénalité. Ce délai court à partir du jour où vous, ou une personne que vous désignez autre que le transporteur, prenez physiquement possession du produit ; pour une commande livrée en plusieurs colis, à partir de la réception du dernier.</p>
 <p>5.2 Pour exercer ce droit, informez-nous de votre décision avant la fin du délai par une déclaration claire, par e-mail à <a href="mailto:{email}">{email}</a> ou par courrier, par exemple au moyen du formulaire de la page <a href="/pages/retours">Retours</a> (son usage n'est pas obligatoire).</p>
-<p>5.3 Renvoyez les produits sans retard excessif, au plus tard 14 jours après nous avoir communiqué votre décision, à l'adresse : <strong>Qosmi – Deway BV, Ijsbergstraat 73, 1701 Dilbeek, Belgique</strong>. <strong>Les frais de renvoi sont à votre charge.</strong> Les produits voyagent sous votre responsabilité ; un envoi avec suivi est recommandé.</p>
+<p>5.3 Renvoyez les produits sans retard excessif, au plus tard 14 jours après nous avoir communiqué votre décision, à l'adresse indiquée à l'article 1.1. <strong>Les frais de renvoi sont à votre charge.</strong> Les produits voyagent sous votre responsabilité ; un envoi avec suivi est recommandé.</p>
 <p>5.4 Nous remboursons tous les paiements reçus, y compris les frais de livraison initiaux, au plus tard 14 jours après avoir été informés de votre rétractation, avec le moyen de paiement utilisé, sans frais pour vous. Nous pouvons différer le remboursement jusqu'à la réception des produits ou jusqu'à la preuve de leur expédition, la date la plus proche étant retenue.</p>
 <p>5.5 <strong>Exception : produits descellés.</strong> Pour des raisons d'hygiène et de protection de la santé, le droit de rétractation ne s'applique pas aux produits scellés (film plastique, opercule ou autre scellé) dont vous avez retiré le scellé après la livraison (article VI.53, 5° du Code de droit économique).</p>
 <p>5.6 <strong>Testeurs et produits non scellés.</strong> Le droit de rétractation s'applique. Ne manipulez le produit que dans la mesure nécessaire pour en établir la nature et les caractéristiques. Un produit vaporisé ou entamé perd de sa valeur : vous êtes alors responsable de cette dépréciation, qui peut aller jusqu'à la valeur totale du produit et est déduite du remboursement.</p>
@@ -102,7 +102,7 @@ PAGES = [
 <h2>5. Herroepingsrecht</h2>
 <p>5.1 U hebt <strong>14 kalenderdagen</strong> om de overeenkomst te herroepen, zonder opgave van redenen en zonder boete. Die termijn loopt vanaf de dag waarop u, of een door u aangewezen persoon andere dan de vervoerder, het product fysiek in bezit neemt; bij levering in meerdere pakketten vanaf de ontvangst van het laatste.</p>
 <p>5.2 Om dit recht uit te oefenen, meldt u ons uw beslissing vóór het einde van de termijn met een duidelijke verklaring, per e-mail aan <a href="mailto:{email}">{email}</a> of per brief, bijvoorbeeld met het formulier op de pagina <a href="/pages/retours">Retourneren</a> (het gebruik ervan is niet verplicht).</p>
-<p>5.3 Stuur de producten zonder onredelijke vertraging terug, uiterlijk 14 dagen nadat u ons uw beslissing hebt meegedeeld, naar: <strong>Qosmi – Deway BV, Ijsbergstraat 73, 1701 Dilbeek, België</strong>. <strong>De kosten van terugzending zijn voor uw rekening.</strong> De producten reizen op uw verantwoordelijkheid; een zending met track-and-trace is aangeraden.</p>
+<p>5.3 Stuur de producten zonder onredelijke vertraging terug, uiterlijk 14 dagen nadat u ons uw beslissing hebt meegedeeld, naar het adres vermeld in artikel 1.1. <strong>De kosten van terugzending zijn voor uw rekening.</strong> De producten reizen op uw verantwoordelijkheid; een zending met track-and-trace is aangeraden.</p>
 <p>5.4 Wij betalen alle ontvangen bedragen terug, inclusief de oorspronkelijke verzendkosten, uiterlijk 14 dagen nadat wij van uw herroeping op de hoogte zijn, met hetzelfde betaalmiddel, zonder kosten voor u. Wij mogen de terugbetaling uitstellen tot wij de producten hebben ontvangen of tot u aantoont dat u ze hebt teruggestuurd, naargelang wat eerst gebeurt.</p>
 <p>5.5 <strong>Uitzondering: verzegelde producten.</strong> Om redenen van hygiëne en gezondheidsbescherming geldt het herroepingsrecht niet voor verzegelde producten (folie, zegel of andere verzegeling) waarvan u de verzegeling na de levering hebt verbroken (artikel VI.53, 5° van het Wetboek van economisch recht).</p>
 <p>5.6 <strong>Testers en niet-verzegelde producten.</strong> Het herroepingsrecht is van toepassing. Behandel het product enkel voor zover nodig om de aard en de kenmerken ervan vast te stellen. Een verstoven of aangebroken product verliest waarde: u bent dan aansprakelijk voor die waardevermindering, die kan oplopen tot de volledige waarde van het product en van de terugbetaling wordt afgetrokken.</p>
@@ -156,7 +156,7 @@ PAGES = [
 <h2>Comment retourner un produit</h2>
 <ol>
 <li>Écrivez-nous à <a href="mailto:{email}">{email}</a> avec votre numéro de commande et le ou les produits concernés (ou envoyez le formulaire ci-dessous).</li>
-<li>Renvoyez le colis dans les 14 jours qui suivent, à vos frais, à : <strong>Qosmi – Deway BV, Ijsbergstraat 73, 1701 Dilbeek, Belgique</strong>. Un envoi avec suivi est recommandé.</li>
+<li>Renvoyez le colis dans les 14 jours qui suivent, à vos frais, à l'adresse indiquée dans le formulaire ci-dessous. Un envoi avec suivi est recommandé.</li>
 <li>Nous vous remboursons, frais de livraison initiaux compris, au plus tard 14 jours après votre demande, dès réception du colis ou de la preuve de son envoi.</li>
 </ol>
 <h2>À savoir</h2>
@@ -181,7 +181,7 @@ Date :</p>
 <h2>Hoe stuurt u een product terug?</h2>
 <ol>
 <li>Schrijf ons op <a href="mailto:{email}">{email}</a> met uw bestelnummer en het product of de producten (of stuur het formulier hieronder).</li>
-<li>Stuur het pakket binnen de 14 dagen daarna op eigen kosten terug naar: <strong>Qosmi – Deway BV, Ijsbergstraat 73, 1701 Dilbeek, België</strong>. Een zending met track-and-trace is aangeraden.</li>
+<li>Stuur het pakket binnen de 14 dagen daarna op eigen kosten terug naar het adres in het formulier hieronder. Een zending met track-and-trace is aangeraden.</li>
 <li>Wij betalen u terug, inclusief de oorspronkelijke verzendkosten, uiterlijk 14 dagen na uw aanvraag, zodra wij het pakket of het bewijs van verzending hebben ontvangen.</li>
 </ol>
 <h2>Goed om te weten</h2>
@@ -209,7 +209,7 @@ Datum:</p>
         "fr": """
 <p><em>Version du {date}.</em></p>
 <h2>Responsable du traitement</h2>
-<p>Deway BV, Ijsbergstraat 73, 1701 Dilbeek, Belgique, numéro d'entreprise {bce}. Contact : <a href="mailto:{email}">{email}</a>.</p>
+<p>Deway BV, numéro d'entreprise {bce}. Contact : <a href="mailto:{email}">{email}</a>.</p>
 <h2>Quelles données, pourquoi, sur quelle base</h2>
 <ul>
 <li><strong>Commande et livraison</strong> : nom, adresse, e-mail, téléphone, produits achetés, montant. Base : l'exécution du contrat.</li>
@@ -237,7 +237,7 @@ Datum:</p>
         "nl": """
 <p><em>Versie van {date_nl}.</em></p>
 <h2>Verwerkingsverantwoordelijke</h2>
-<p>Deway BV, Ijsbergstraat 73, 1701 Dilbeek, België, ondernemingsnummer {bce}. Contact: <a href="mailto:{email}">{email}</a>.</p>
+<p>Deway BV, ondernemingsnummer {bce}. Contact: <a href="mailto:{email}">{email}</a>.</p>
 <h2>Welke gegevens, waarom, op welke grond</h2>
 <ul>
 <li><strong>Bestelling en levering</strong>: naam, adres, e-mail, telefoon, gekochte producten, bedrag. Grond: de uitvoering van de overeenkomst.</li>
@@ -307,7 +307,7 @@ CONFIDENTIALITE = {
 <p><em>Version du {date}.</em></p>
 <p>Nous ne collectons que les données nécessaires pour vous vendre et vous livrer nos produits, et pour respecter la loi. Nous ne vendons jamais vos données.</p>
 <h2>1. Qui est responsable de vos données ?</h2>
-<p>Deway BV (Qosmi), Ijsbergstraat 73, 1701 Dilbeek, Belgique, numéro d'entreprise {bce}. Pour toute question sur vos données : <a href="mailto:{email}">{email}</a>.</p>
+<p>Deway BV (Qosmi), numéro d'entreprise {bce}. Pour toute question sur vos données : <a href="mailto:{email}">{email}</a>.</p>
 <h2>2. Quelles données, pourquoi et sur quelle base légale ?</h2>
 <table>
 <thead><tr><th scope="col">Situation</th><th scope="col">Données</th><th scope="col">Pourquoi</th><th scope="col">Base légale (RGPD)</th></tr></thead>
@@ -351,7 +351,7 @@ CONFIDENTIALITE = {
 <p><em>Versie van {date_nl}.</em></p>
 <p>Wij verzamelen enkel de gegevens die nodig zijn om u onze producten te verkopen en te leveren, en om de wet na te leven. Wij verkopen uw gegevens nooit.</p>
 <h2>1. Wie is verantwoordelijk voor uw gegevens?</h2>
-<p>Deway BV (Qosmi), Ijsbergstraat 73, 1701 Dilbeek, België, ondernemingsnummer {bce}. Voor elke vraag over uw gegevens: <a href="mailto:{email}">{email}</a>.</p>
+<p>Deway BV (Qosmi), ondernemingsnummer {bce}. Voor elke vraag over uw gegevens: <a href="mailto:{email}">{email}</a>.</p>
 <h2>2. Welke gegevens, waarom en op welke rechtsgrond?</h2>
 <table>
 <thead><tr><th scope="col">Situatie</th><th scope="col">Gegevens</th><th scope="col">Waarom</th><th scope="col">Rechtsgrond (AVG)</th></tr></thead>
