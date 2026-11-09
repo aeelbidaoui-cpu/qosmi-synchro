@@ -29,6 +29,62 @@
    "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité UE : fiches GPSR Shop Apotheke (Davidoff Hot Water https://www.shop-apotheke.com/beauty/upmXLCFPU/davidoff-hot-water-eau-de-toilette.h",
    "confiance": "moyenne"
   },
+  "adolfo dominguez": {
+   "marque": "Adolfo Dominguez",
+   "fabricant_nom": "Antonio Puig, S.A.",
+   "fabricant_adresse": {
+    "rue": "Plaça d'Europa",
+    "numero": "46",
+    "code_postal": "08902",
+    "ville": "L'Hospitalet de Llobregat (Barcelona)",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "info@puig.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/adolfo-dominguez-agua-fresca-citrus-cedro-eau-de-toilette-200-ml-man_z848688/",
+   "confiance": "moyenne"
+  },
+  "afnan rosella": {
+   "marque": "Afnan Rosella",
+   "fabricant_nom": "AFNAN EUROPE s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Dandova",
+    "numero": "2619/13",
+    "code_postal": "193 00",
+    "ville": "Praha 9 - Horní Počernice",
+    "pays": "Tchéquie"
+   },
+   "fabricant_email": "compliance@afnan.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/afnan-dehn-al-oudh-abiyad-eau-de-parfum-100-ml-unisex_z832717/",
+   "confiance": "moyenne"
+  },
+  "ajmal": {
+   "marque": "Ajmal",
+   "fabricant_nom": "Ajmal Europe GmbH",
+   "fabricant_adresse": {
+    "rue": "Königsallee",
+    "numero": "27",
+    "code_postal": "40212",
+    "ville": "Düsseldorf",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "info@ajmalgermany.de",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/ajmal-majestica-eau-de-parfum-100-ml-woman_z861764/",
+   "confiance": "moyenne"
+  },
+  "akro": {
+   "marque": "AKRO FRAGRANCES",
+   "fabricant_nom": "Les Influenceurs SAS (AKRO)",
+   "fabricant_adresse": {
+    "rue": "rue de Montenotte",
+    "numero": "5 et 5bis",
+    "code_postal": "75017",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "hello@akrofragrances.com",
+   "source": "https://akrofragrances.com/ (politique de confidentialité)",
+   "confiance": "haute"
+  },
   "alcina": {
    "marque": "ALCINA",
    "fabricant_nom": "Dr. Kurt Wolff GmbH & Co. KG",
@@ -41,6 +97,20 @@
    },
    "fabricant_email": "kw-info@drwolffgroup.com",
    "source": "https://www.alcina.com/de-de/impressum",
+   "confiance": "haute"
+  },
+  "alexandre j": {
+   "marque": "Alexandre.J",
+   "fabricant_nom": "Création Réalisation Marketing Paris (CRM Paris)",
+   "fabricant_adresse": {
+    "rue": "avenue de l'Opéra",
+    "numero": "32",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@crmfragrance.com",
+   "source": "https://www.alexandre-j.com/ (CGV et politique de confidentialité)",
    "confiance": "haute"
   },
   "alfaparf": {
@@ -57,6 +127,62 @@
    "source": "https://www.alfaparfmilano.com/it-it/privacy-policy",
    "confiance": "haute"
   },
+  "alghabra jamaican": {
+   "marque": "Alghabra Jamaican",
+   "fabricant_nom": "Elnes Cosmetic Consulting Kft. (personne responsable UE)",
+   "fabricant_adresse": {
+    "rue": "Wesselényi u. (fszt. 1)",
+    "numero": "66",
+    "code_postal": "1077",
+    "ville": "Budapest",
+    "pays": "Hongrie"
+   },
+   "fabricant_email": "elnes@elnescosmetic.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/alghabra-peruvian-tobacco-extrait-de-parfum-50-ml-unisex_z1025411/",
+   "confiance": "moyenne"
+  },
+  "alterna": {
+   "marque": "Alterna",
+   "fabricant_nom": "Henkel AG & Co. KGaA",
+   "fabricant_adresse": {
+    "rue": "Henkelstraße",
+    "numero": "67",
+    "code_postal": "40589",
+    "ville": "Düsseldorf",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "corporate.communications@henkel.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/alterna-caviar-anti-aging-restructuring-bond-repair-shampoo-250-ml_z851702/ ; adresse et e-mail officiels : https://www.henkel.de/impressum",
+   "confiance": "moyenne"
+  },
+  "alyssa ashley": {
+   "marque": "Alyssa Ashley",
+   "fabricant_nom": "Perris Distribution SRL (personne responsable UE)",
+   "fabricant_adresse": {
+    "rue": "Strada Malaspina",
+    "numero": "12",
+    "code_postal": "20090",
+    "ville": "San Felice Segrate (MI)",
+    "pays": "Italie"
+   },
+   "fabricant_email": null,
+   "source": "https://www.alyssaashley.com/ (conditions générales de vente : « European Responsible Person »)",
+   "confiance": "haute"
+  },
+  "american crew": {
+   "marque": "American Crew",
+   "fabricant_nom": "Beautyge, S.L. (groupe Revlon)",
+   "fabricant_adresse": {
+    "rue": "Carrer Tirso de Molina",
+    "numero": "40",
+    "code_postal": "08940",
+    "ville": "Cornellà de Llobregat (Barcelona)",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "contact@americancrew.com",
+   "source": "https://www.americancrew.com/ (privacy policy : « Revlon Law Department, C/ Tirso de Molina, no. 40, 08940 Cornellá de Llobregat ») ; fiche Parfum-Centrum https://www.parfum-centrum.com/american-crew-",
+   "confiance": "moyenne"
+  },
   "amouage": {
    "marque": "Amouage",
    "fabricant_nom": "Amouage Europe",
@@ -69,6 +195,34 @@
    },
    "fabricant_email": null,
    "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "aquolina": {
+   "marque": "Aquolina",
+   "fabricant_nom": "Selectiva S.p.A.",
+   "fabricant_adresse": {
+    "rue": "Via G. Pastore",
+    "numero": "4",
+    "code_postal": "15033",
+    "ville": "Casale Monferrato (AL)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@selectiva-spa.it",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/pink-sugar-berry-blast-bodyspray-236-ml-woman_z848362/ ; existence de la société : https://selectiva-spa.it/it (site en maintenance, P.IVA 018935100",
+   "confiance": "moyenne"
+  },
+  "ariana grande": {
+   "marque": "Ariana Grande",
+   "fabricant_nom": "LUXE Brands France",
+   "fabricant_adresse": {
+    "rue": "Rue Saint-Honoré",
+    "numero": "320",
+    "code_postal": "75001",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "consumeraffairs@luxebrands.com",
+   "source": "Personne responsable : fiche Parfum-Centrum https://www.parfum-centrum.com/ariana-grande-god-is-a-woman-eau-de-parfum-100-ml-woman_z864891/ ; e-mail officiel : https://luxebrands.com/ (contact)",
    "confiance": "moyenne"
   },
   "artdeco": {
@@ -85,6 +239,20 @@
    "source": "https://artdeco.de/policies/legal-notice",
    "confiance": "haute"
   },
+  "atashi": {
+   "marque": "Atashi",
+   "fabricant_nom": "Laboratorios Phergal, S.A.",
+   "fabricant_adresse": {
+    "rue": "Calle Hierro",
+    "numero": "79",
+    "code_postal": "28850",
+    "ville": "Torrejón de Ardoz (Madrid)",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "info@phergal.com",
+   "source": "https://www.phergal.com/ (aviso legal, contact) ; adresse : fiche Parfum-Centrum https://www.parfum-centrum.com/atashi-k-bioferment-therapy-cream-50-ml_z880988/",
+   "confiance": "moyenne"
+  },
   "azzaro": {
    "marque": "Azzaro",
    "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
@@ -98,6 +266,20 @@
    "fabricant_email": "info.conso@be.loreal.com",
    "source": "https://www.loreal.com/en/belgium/ (siège Benelux + service consommateurs Belgique) ; entité : https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr",
    "confiance": "moyenne"
+  },
+  "baldessarini ambre": {
+   "marque": "Baldessarini Ambré",
+   "fabricant_nom": "Mäurer & Wirtz GmbH & Co. KG",
+   "fabricant_adresse": {
+    "rue": "Zweifaller Straße",
+    "numero": "120",
+    "code_postal": "52224",
+    "ville": "Stolberg",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "info@m-w.de",
+   "source": "https://www.m-w.de/ (mentions et protection des données) ; fiche Parfum-Centrum https://www.parfum-centrum.com/baldessarini-bella-eau-de-parfum-50-ml-woman_z861814/",
+   "confiance": "haute"
   },
   "batiste": {
    "marque": "Batiste",
@@ -155,6 +337,34 @@
    "source": "https://www.bioderma.fr/pages-legales/mentions-legales ; https://www.bioderma.fr/pages-legales/conditions-generales-vente ; https://www.bioderma.fr/pages-legales/livraisons-et-retours",
    "confiance": "haute"
   },
+  "biolage": {
+   "marque": "Biolage",
+   "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
+   "fabricant_adresse": {
+    "rue": "Scorpius",
+    "numero": "141",
+    "code_postal": "2132 LR",
+    "ville": "Hoofddorp",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "info.conso@be.loreal.com",
+   "source": "Entité Benelux du groupe (recherche précédente) ; fiche Parfum-Centrum https://www.parfum-centrum.com/biolage-bond-therapy-intensive-treatment-150-ml_z932627/",
+   "confiance": "moyenne"
+  },
+  "biorepair": {
+   "marque": "Biorepair",
+   "fabricant_nom": "Coswell S.p.A.",
+   "fabricant_adresse": {
+    "rue": "Via P. Gobetti",
+    "numero": "4",
+    "code_postal": "40050",
+    "ville": "Funo di Argelato (BO)",
+    "pays": "Italie"
+   },
+   "fabricant_email": null,
+   "source": "https://www.biorepair.it/it ; https://www.biorepair.it/it-privacy-policy",
+   "confiance": "haute"
+  },
   "biotherm": {
    "marque": "Biotherm",
    "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
@@ -167,6 +377,48 @@
    },
    "fabricant_email": "info.conso@be.loreal.com",
    "source": "https://www.loreal.com/en/belgium/ (siège Benelux + service consommateurs Belgique) ; entité : https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr",
+   "confiance": "moyenne"
+  },
+  "boadicea": {
+   "marque": "Boadicea the",
+   "fabricant_nom": "Boadicea the Victorious",
+   "fabricant_adresse": {
+    "rue": "Corkstraat",
+    "numero": "46",
+    "code_postal": "3047",
+    "ville": "Rotterdam",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "info@boadiceathevictorious.com",
+   "source": "Personne responsable : fiche Parfum-Centrum https://www.parfum-centrum.com/boadicea-the-victorious-aqua-sapphire-pure-perfume-100-ml-unisex_z846047/ ; e-mail confirmé : https://boadiceaperfume.com/pol",
+   "confiance": "moyenne"
+  },
+  "boadicea victorious": {
+   "marque": "Boadicea the Victorious",
+   "fabricant_nom": "Boadicea the Victorious",
+   "fabricant_adresse": {
+    "rue": "Corkstraat",
+    "numero": "46",
+    "code_postal": "3047",
+    "ville": "Rotterdam",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "info@boadiceathevictorious.com",
+   "source": "Personne responsable : fiche Parfum-Centrum https://www.parfum-centrum.com/boadicea-the-victorious-aqua-sapphire-pure-perfume-100-ml-unisex_z846047/ ; e-mail confirmé : https://boadiceaperfume.com/pol",
+   "confiance": "moyenne"
+  },
+  "bohoboco": {
+   "marque": "BohoBoco",
+   "fabricant_nom": "MGL Sp. z o.o.",
+   "fabricant_adresse": {
+    "rue": "Tychów",
+    "numero": "46",
+    "code_postal": "97-318",
+    "ville": "Czarnocin",
+    "pays": "Pologne"
+   },
+   "fabricant_email": "mgl@mgltechnika.pl",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/bohoboco-sea-salt-caramel-parfum-unisex-50-ml-unisex_z866848/",
    "confiance": "moyenne"
   },
   "borntostandout": {
@@ -253,6 +505,20 @@
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
   },
+  "canto": {
+   "marque": "Canto",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via dei Faggi",
+    "numero": "101",
+    "code_postal": "47842",
+    "ville": "San Giovanni in Marignano (RN)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@cereriaterenzi.com",
+   "source": "https://cereriaterenzi.com/ (contatti, privacy) ; fiche Parfum-Centrum https://www.parfum-centrum.com/v-canto-p-d-f-extrait-de-parfum-100-ml-unisex_z889380/",
+   "confiance": "haute"
+  },
   "carner barcelona": {
    "marque": "Carner Barcelona",
    "fabricant_nom": "Carner Barcelona S.L.",
@@ -280,6 +546,20 @@
    "fabricant_email": null,
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
+  },
+  "cerave": {
+   "marque": "CeraVe",
+   "fabricant_nom": "L'Oréal France (division L'Oréal Beauté Dermatologique)",
+   "fabricant_adresse": {
+    "rue": "rue d'Alsace",
+    "numero": "30",
+    "code_postal": "92300",
+    "ville": "Levallois-Perret",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@cerave.fr",
+   "source": "https://www.cerave.fr/conditions-generales-dutilisation ; https://www.cerave.fr/",
+   "confiance": "haute"
   },
   "chanel": {
    "marque": "Chanel",
@@ -309,6 +589,20 @@
    "source": "https://www.clarins.fr/legal_notices.html (section 3 « Entité responsable de la mise sur le marché ») ; contact : https://www.clarins.fr/service-client",
    "confiance": "haute"
   },
+  "clean": {
+   "marque": "Clean",
+   "fabricant_nom": "MSL Solution Providers Limited (personne responsable UE)",
+   "fabricant_adresse": {
+    "rue": "Upper Pembroke Street (Suite 5385)",
+    "numero": "26",
+    "code_postal": "D02 X361",
+    "ville": "Dublin 2",
+    "pays": "Irlande"
+   },
+   "fabricant_email": "info@msl.io",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/clean-reserve-radiant-nectar-eau-de-parfum-100-ml-unisex_z834483/",
+   "confiance": "moyenne"
+  },
   "clive christian": {
    "marque": "Clive Christian",
    "fabricant_nom": "Clive Christian",
@@ -321,6 +615,62 @@
    },
    "fabricant_email": null,
    "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "cocosolis": {
+   "marque": "Cocosolis",
+   "fabricant_nom": "PURMERUL LTD",
+   "fabricant_adresse": {
+    "rue": "Vapcarov Blvd.",
+    "numero": "53V",
+    "code_postal": "1407",
+    "ville": "Sofia (Hladilnika)",
+    "pays": "Bulgarie"
+   },
+   "fabricant_email": "info@cocosolis.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/cocosolis-solis-dark-self-tanning-foam-200-ml_z864376/",
+   "confiance": "moyenne"
+  },
+  "corega": {
+   "marque": "Corega",
+   "fabricant_nom": "Haleon France",
+   "fabricant_adresse": {
+    "rue": "rue François Jacob",
+    "numero": "23",
+    "code_postal": "92500",
+    "ville": "Rueil-Malmaison",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "Entité Haleon : https://www.parodontax.fr/ (mentions) ; fiche Parfum-Centrum https://www.parfum-centrum.com/corega-power-max-fixing-sealing-40-g_z924022/",
+   "confiance": "moyenne"
+  },
+  "courreges": {
+   "marque": "Courreges",
+   "fabricant_nom": "Groupe Courrèges (Courrèges Parfums)",
+   "fabricant_adresse": {
+    "rue": "rue François 1er",
+    "numero": "40",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@courreges.com",
+   "source": "https://www.courreges.com/ (mentions légales, CGV, politique de confidentialité) ; fiche Parfum-Centrum https://www.parfum-centrum.com/andre-courreges-seconde-peau-eau-de-parfum-100-ml-unisex_z900424/",
+   "confiance": "haute"
+  },
+  "crazy bull": {
+   "marque": "Crazy Bull",
+   "fabricant_nom": "Crazy Bull Hair Products Ltd.",
+   "fabricant_adresse": {
+    "rue": "Stravolou",
+    "numero": "275C",
+    "code_postal": "2048",
+    "ville": "Nicosia",
+    "pays": "Chypre"
+   },
+   "fabricant_email": "support@crazybull.co.uk",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/crazybull-c4-curl-cream-150-ml_z1141343/",
    "confiance": "moyenne"
   },
   "creed": {
@@ -337,6 +687,20 @@
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
   },
+  "cristiano ronaldo": {
+   "marque": "Cristiano Ronaldo",
+   "fabricant_nom": "Eden Parfums (Ireland) Ltd.",
+   "fabricant_adresse": {
+    "rue": "Harcourt Street",
+    "numero": "20",
+    "code_postal": "D02 H364",
+    "ville": "Dublin 2",
+    "pays": "Irlande"
+   },
+   "fabricant_email": "contact@edenparfums.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/cristiano-ronaldo-cr7-origins-eau-de-toilette-50-ml-man_z850124/ ; licencié : https://www.edenparfums.com/",
+   "confiance": "moyenne"
+  },
   "cuba": {
    "marque": "Cuba",
    "fabricant_nom": "New Brand Perfumes BV",
@@ -349,6 +713,20 @@
    },
    "fabricant_email": "info@newbrandperfumes.com",
    "source": "Personne responsable : fiche GPSR Parfum-Centrum https://www.parfum-centrum.com/cuba-orange-eau-de-toilette-35-ml-man_z1535 ; adresse du siège : registre officiel BCE/KBO (n° 0870.138.203) https://kbo",
+   "confiance": "moyenne"
+  },
+  "david beckham": {
+   "marque": "David Beckham",
+   "fabricant_nom": "Coty S.A.S.",
+   "fabricant_adresse": {
+    "rue": "rue du Quatre Septembre",
+    "numero": "14",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité : https://www.coty.com/nl-be/privacy-notice ; fiche Parfum-Centrum https://www.parfum-centrum.com/david-beckham-refined-woods-eau-de-p",
    "confiance": "moyenne"
   },
   "davidoff": {
@@ -379,6 +757,48 @@
    "source": "https://www.dermacol.com/contacts/",
    "confiance": "haute"
   },
+  "di angelo": {
+   "marque": "Di Angelo Cosmetics",
+   "fabricant_nom": "Di Angelo Cosmetics, s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Varšavská",
+    "numero": "715/36",
+    "code_postal": "120 00",
+    "ville": "Praha 2",
+    "pays": "Tchéquie"
+   },
+   "fabricant_email": "info@diangelocosmetics.com",
+   "source": "https://www.diangelocosmetics.com/",
+   "confiance": "haute"
+  },
+  "diadermine": {
+   "marque": "Diadermine",
+   "fabricant_nom": "Henkel AG & Co. KGaA",
+   "fabricant_adresse": {
+    "rue": "Henkelstraße",
+    "numero": "67",
+    "code_postal": "40589",
+    "ville": "Düsseldorf",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "corporate.communications@henkel.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/diadermine-laboratoires-expert-anti-wrinkle-patches-12-pcs_z931528/ ; numéro de rue : https://www.schwarzkopf-professional.com/com/en/imprint.html",
+   "confiance": "moyenne"
+  },
+  "diadermine age": {
+   "marque": "Diadermine Age",
+   "fabricant_nom": "Henkel AG & Co. KGaA",
+   "fabricant_adresse": {
+    "rue": "Henkelstraße",
+    "numero": "67",
+    "code_postal": "40589",
+    "ville": "Düsseldorf",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "corporate.communications@henkel.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/diadermine-laboratoires-expert-anti-wrinkle-patches-12-pcs_z931528/ ; numéro de rue : https://www.schwarzkopf-professional.com/com/en/imprint.html",
+   "confiance": "moyenne"
+  },
   "dior": {
    "marque": "Dior",
    "fabricant_nom": "Parfums Christian Dior",
@@ -407,6 +827,34 @@
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
   },
+  "disney": {
+   "marque": "Disney",
+   "fabricant_nom": "Desire Fragrances B.V.",
+   "fabricant_adresse": {
+    "rue": "Rooijakkersstraat",
+    "numero": "2",
+    "code_postal": "5652 BB",
+    "ville": "Eindhoven",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "customer@desirefragrances.net",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/disney-frozen-elsa-eau-de-toilette-100-ml_z1003043/ ; adresse et e-mail officiels : https://desireholding.com/ (contacts)",
+   "confiance": "moyenne"
+  },
+  "disney princess": {
+   "marque": "Disney Princess",
+   "fabricant_nom": "Desire Fragrances B.V.",
+   "fabricant_adresse": {
+    "rue": "Rooijakkersstraat",
+    "numero": "2",
+    "code_postal": "5652 BB",
+    "ville": "Eindhoven",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "customer@desirefragrances.net",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/disney-frozen-elsa-eau-de-toilette-100-ml_z1003043/ ; adresse et e-mail officiels : https://desireholding.com/ (contacts)",
+   "confiance": "moyenne"
+  },
   "dolce gabbana": {
    "marque": "Dolce&Gabbana",
    "fabricant_nom": "Dolce & Gabbana Beauty S.r.l.",
@@ -421,6 +869,20 @@
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
   },
+  "dove": {
+   "marque": "Dove",
+   "fabricant_nom": "Unilever Europe B.V.",
+   "fabricant_adresse": {
+    "rue": "Weena",
+    "numero": "455",
+    "code_postal": "3013 AL",
+    "ville": "Rotterdam",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "contact@unilever.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/dove-original-beauty-cream-bar-90-g_z864220/",
+   "confiance": "moyenne"
+  },
   "dr hauschka": {
    "marque": "Dr. Hauschka",
    "fabricant_nom": "WALA Heilmittel GmbH",
@@ -433,6 +895,20 @@
    },
    "fabricant_email": "info@drhauschka.de",
    "source": "https://www.drhauschka.de/kontakt/ ; https://www.drhauschka.de/datenschutz/",
+   "confiance": "haute"
+  },
+  "dsquared2": {
+   "marque": "Dsquared2",
+   "fabricant_nom": "EuroItalia S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Galileo Galilei",
+    "numero": "5",
+    "code_postal": "20873",
+    "ville": "Cavenago di Brianza (MB)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "privacy@euroitalia.it",
+   "source": "https://www.euroitalia.it/ (contatti, privacy policy, marques) ; fiche Parfum-Centrum https://www.parfum-centrum.com/dsquared2-original-wood-eau-de-parfum-30-ml-man_z849560/",
    "confiance": "haute"
   },
   "dunhill": {
@@ -463,6 +939,34 @@
    "source": "https://ecodenta.lt/en/contacts/",
    "confiance": "haute"
   },
+  "eisenberg": {
+   "marque": "Eisenberg",
+   "fabricant_nom": "José Eisenberg S.A.",
+   "fabricant_adresse": {
+    "rue": "avenue Princesse Grace",
+    "numero": "24",
+    "code_postal": "98000",
+    "ville": "Monte-Carlo",
+    "pays": "Monaco"
+   },
+   "fabricant_email": "customerservice@eisenberg.com",
+   "source": "https://eisenberg.com/pages/company-and-imprint ; https://eisenberg.com/policies/privacy-policy",
+   "confiance": "haute"
+  },
+  "electimuss": {
+   "marque": "Electimuss",
+   "fabricant_nom": "Electimuss Limited",
+   "fabricant_adresse": {
+    "rue": "St John Street",
+    "numero": "82",
+    "code_postal": "EC1M 4JN",
+    "ville": "London",
+    "pays": "Royaume-Uni"
+   },
+   "fabricant_email": "hello@electimuss.com",
+   "source": "https://www.electimuss.com/ (conditions générales et politique de confidentialité)",
+   "confiance": "haute"
+  },
   "elie saab": {
    "marque": "Elie Saab",
    "fabricant_nom": "Give Back Beauty GmbH",
@@ -477,6 +981,20 @@
    "source": "config/gpsr.json",
    "confiance": "moyenne"
   },
+  "escada": {
+   "marque": "Escada",
+   "fabricant_nom": "Coty S.A.S.",
+   "fabricant_adresse": {
+    "rue": "rue du Quatre Septembre",
+    "numero": "14",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité : https://www.coty.com/nl-be/privacy-notice ; fiche Parfum-Centrum https://www.parfum-centrum.com/escada-show-me-love-eau-de-parfum-10",
+   "confiance": "moyenne"
+  },
   "escentric molecules": {
    "marque": "Escentric Molecules",
    "fabricant_nom": "Nobilis Group",
@@ -489,6 +1007,34 @@
    },
    "fabricant_email": "info@nobilis-group.com",
    "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "esla italy": {
+   "marque": "ESLA Italy",
+   "fabricant_nom": "H.S.A. Hair Styling Applications S.p.A.",
+   "fabricant_adresse": {
+    "rue": "Via Privata Fratelli Gabba",
+    "numero": "5",
+    "code_postal": "20121",
+    "ville": "Milano",
+    "pays": "Italie"
+   },
+   "fabricant_email": "hsa@hsacosmetics.com",
+   "source": "https://eslabeauty.com/ ; https://www.hsacosmetics.com/it ; e-mail : fiche Parfum-Centrum https://www.parfum-centrum.com/esla-italy-thick-hair-daily-mask-250-ml_z1023757/",
+   "confiance": "haute"
+  },
+  "essence": {
+   "marque": "Essence Cosmetics",
+   "fabricant_nom": "CDRI GERMANY GmbH (personne responsable UE)",
+   "fabricant_adresse": {
+    "rue": "Am Kronberger Hang",
+    "numero": "2",
+    "code_postal": "65824",
+    "ville": "Schwalbach am Taunus",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "eu.cs@cdri.pro",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/frudia-my-orchard-pineapple-hand-cream-30-g_z941251/ ; rôle de CDRI : https://cdri.pro",
    "confiance": "moyenne"
   },
   "estee lauder": {
@@ -533,6 +1079,20 @@
    "source": "https://www.eucerin.de/meta-pages/impressum",
    "confiance": "haute"
   },
+  "eyebrow enhancers": {
+   "marque": "Eyebrow Enhancers",
+   "fabricant_nom": "Barry M Cosmetics Limited",
+   "fabricant_adresse": {
+    "rue": "Bittacy Business Centre, Bittacy Hill (Unit 1)",
+    "numero": "1",
+    "code_postal": "NW7 1BA",
+    "ville": "London",
+    "pays": "Royaume-Uni"
+   },
+   "fabricant_email": "customerservice@barrym.com",
+   "source": "https://barrym.com/ (politique de confidentialité, conditions) ; personne responsable UE : fiche Parfum-Centrum https://www.parfum-centrum.com/barry-m-dazzle-define-metallic-crayons-orchid-flower-whit",
+   "confiance": "haute"
+  },
   "ferragamo": {
    "marque": "Ferragamo",
    "fabricant_nom": "Interparfums SA",
@@ -545,6 +1105,62 @@
    },
    "fabricant_email": "contact@interparfums.fr",
    "source": "Personne responsable : fiche GPSR Parfum-Centrum https://www.parfum-centrum.com/ferragamo-signorina-eau-de-parfum-30-ml-woman_z1024232 ; adresse/e-mail officiels : https://www.annickgoutal.com/policie",
+   "confiance": "moyenne"
+  },
+  "fila": {
+   "marque": "Fila",
+   "fabricant_nom": "The Premiere Group, LLC (personne responsable UE : ICCS)",
+   "fabricant_adresse": {
+    "rue": "Upper Pembroke Street",
+    "numero": "27",
+    "code_postal": "D02 X361",
+    "ville": "Dublin 2",
+    "pays": "Irlande"
+   },
+   "fabricant_email": "info@iccsltd.eu",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/fila-fila-for-men-eau-de-toilette-100-ml-man_z1221080/",
+   "confiance": "moyenne"
+  },
+  "francesca bianchi": {
+   "marque": "Francesca Bianchi Perfumes",
+   "fabricant_nom": "Francesca Bianchi Perfumes B.V.",
+   "fabricant_adresse": {
+    "rue": "Frans van Mierisstraat",
+    "numero": "40H",
+    "code_postal": "1071 RV",
+    "ville": "Amsterdam",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "info@francescabianchiperfumes.com",
+   "source": "https://www.francescabianchiperfumes.com/ (conditions générales, « Company Information »)",
+   "confiance": "haute"
+  },
+  "franck boclet": {
+   "marque": "Franck Boclet",
+   "fabricant_nom": "Fragrance Collection",
+   "fabricant_adresse": {
+    "rue": "rue des Champs Corneille",
+    "numero": "8",
+    "code_postal": "28100",
+    "ville": "Dreux",
+    "pays": "France"
+   },
+   "fabricant_email": "info@franckboclet.com",
+   "source": "https://franckboclet.com/mentions-legales/ ; https://franckboclet.com/contact/",
+   "confiance": "haute"
+  },
+  "franck olivier": {
+   "marque": "Franck Olivier",
+   "fabricant_nom": "SODIP",
+   "fabricant_adresse": {
+    "rue": "Boulevard Montmartre",
+    "numero": "21",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@sodip.fr",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/franck-olivier-pure-femme-eau-de-parfum-100-ml-woman_z861227/",
    "confiance": "moyenne"
   },
   "frederic malle": {
@@ -575,6 +1191,20 @@
    "source": "config/gpsr.json",
    "confiance": "moyenne"
   },
+  "gabriella salvete": {
+   "marque": "Gabriella Salvete",
+   "fabricant_nom": "Gabriella Salvete s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Radlická (Avenir Business Park, bât. A)",
+    "numero": "714/113a",
+    "code_postal": "158 00",
+    "ville": "Praha 5",
+    "pays": "Tchéquie"
+   },
+   "fabricant_email": "info@gabriellasalvete.com",
+   "source": "https://www.gabriellasalvete.cz/kontakt/",
+   "confiance": "haute"
+  },
   "giardini di toscana": {
    "marque": "Giardini Di Toscana",
    "fabricant_nom": "Giardini di Toscana Srl",
@@ -587,6 +1217,20 @@
    },
    "fabricant_email": null,
    "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "giardino benessere": {
+   "marque": "Giardino Benessere",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via dei Faggi",
+    "numero": "101",
+    "code_postal": "47842",
+    "ville": "San Giovanni in Marignano (RN)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@cereriaterenzi.com",
+   "source": "https://cereriaterenzi.com/ (contatti, privacy) ; fiche Parfum-Centrum https://www.parfum-centrum.com/giardino-benessere-iperione-extrait-de-parfum-100-ml-unisex_z862046/",
    "confiance": "moyenne"
   },
   "gillette": {
@@ -715,6 +1359,20 @@
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
   },
+  "guess seductive": {
+   "marque": "GUESS Seductive",
+   "fabricant_nom": "Interparfums SA",
+   "fabricant_adresse": {
+    "rue": "rue de Solferino",
+    "numero": "10",
+    "code_postal": "75007",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@interparfums.fr",
+   "source": "Personne responsable : fiche Parfum-Centrum https://www.parfum-centrum.com/guess-seductive-red-eau-de-toilette-75-ml-woman_z830490/ ; adresse/e-mail officiels : https://www.interparfums.fr/fr/mentions",
+   "confiance": "moyenne"
+  },
   "halloween": {
    "marque": "Halloween",
    "fabricant_nom": "Perfumes y Diseño",
@@ -771,6 +1429,20 @@
    "source": "config/gpsr.json",
    "confiance": "moyenne"
   },
+  "house of oud": {
+   "marque": "The House of Oud",
+   "fabricant_nom": "HIC S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Privata Cadore",
+    "numero": "10",
+    "code_postal": "20098",
+    "ville": "San Giuliano Milanese (MI)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@hicmilano.com",
+   "source": "https://hicmilano.it/ (contact, P.IVA IT08553750962) ; fiche Parfum-Centrum https://www.parfum-centrum.com/the-house-of-oud-up-to-the-moon-eau-de-parfum-75-ml-unisex_z835111/",
+   "confiance": "moyenne"
+  },
   "hugo boss": {
    "marque": "Hugo Boss",
    "fabricant_nom": "Coty",
@@ -783,6 +1455,34 @@
    },
    "fabricant_email": "contact@cotyconsumeraffairs.com",
    "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "inebrya": {
+   "marque": "Inebrya",
+   "fabricant_nom": "IDW S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Trieste",
+    "numero": "32",
+    "code_postal": "35121",
+    "ville": "Padova",
+    "pays": "Italie"
+   },
+   "fabricant_email": "customercare@inebrya.it",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/inebrya-shecare-repair-shampoo-300-ml_z858072/",
+   "confiance": "moyenne"
+  },
+  "inebrya perm": {
+   "marque": "Inebrya Perm",
+   "fabricant_nom": "IDW S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Trieste",
+    "numero": "32",
+    "code_postal": "35121",
+    "ville": "Padova",
+    "pays": "Italie"
+   },
+   "fabricant_email": "customercare@inebrya.it",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/inebrya-shecare-repair-shampoo-300-ml_z858072/",
    "confiance": "moyenne"
   },
   "initio": {
@@ -953,6 +1653,20 @@
    "source": "Fiche GPSR Shop Apotheke Juvena MasterCream : https://www.shop-apotheke.com/beauty/upm7UWH4K/juvena-of-switzerland-mastercare-mastercream.htm",
    "confiance": "moyenne"
   },
+  "kajal": {
+   "marque": "Kajal",
+   "fabricant_nom": "Kajal Perfumes Paris",
+   "fabricant_adresse": {
+    "rue": "avenue des Champs-Élysées",
+    "numero": "66",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "info@kajalperfumes.com",
+   "source": "https://kajalperfumes.com/ (contact) ; fiche Parfum-Centrum https://www.parfum-centrum.com/kajal-faris-eau-de-parfum-100-ml-unisex_z889402/",
+   "confiance": "haute"
+  },
   "kallos": {
    "marque": "Kallos Cosmetics",
    "fabricant_nom": "Kallos Cosmetics Kft.",
@@ -1009,6 +1723,20 @@
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
   },
+  "korres": {
+   "marque": "Korres",
+   "fabricant_nom": "Korres S.A. Natural Products",
+   "fabricant_adresse": {
+    "rue": "Drosini St.",
+    "numero": "3",
+    "code_postal": "144 52",
+    "ville": "Metamorfosi (Athènes)",
+    "pays": "Grèce"
+   },
+   "fabricant_email": "support@korres.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/korres-white-tea-eau-de-toilette-50-ml-unisex_z830977/ ; e-mail : https://www.korres.com/",
+   "confiance": "moyenne"
+  },
   "l oreal": {
    "marque": "L'Oréal Paris",
    "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
@@ -1021,6 +1749,34 @@
    },
    "fabricant_email": "info.conso@be.loreal.com",
    "source": "https://www.loreal.com/en/belgium/ (siège Benelux + service consommateurs Belgique) ; entité : https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr",
+   "confiance": "moyenne"
+  },
+  "lakme": {
+   "marque": "Lakme",
+   "fabricant_nom": "Lakmé Cosmetics S.L.U.",
+   "fabricant_adresse": {
+    "rue": "Narcís Monturiol",
+    "numero": "27",
+    "code_postal": "08960",
+    "ville": "Sant Just Desvern",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "info@lakme.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/lakme-k-beauty-top-ten-style-care-balm-150-ml_z1059517/",
+   "confiance": "moyenne"
+  },
+  "lancaster": {
+   "marque": "Lancaster",
+   "fabricant_nom": "Coty S.A.S.",
+   "fabricant_adresse": {
+    "rue": "rue du Quatre Septembre",
+    "numero": "14",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité : https://www.coty.com/nl-be/privacy-notice ; fiche Parfum-Centrum https://www.parfum-centrum.com/lancaster-skin-life-hydra-serum-30-m",
    "confiance": "moyenne"
   },
   "lancome": {
@@ -1051,6 +1807,34 @@
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
   },
+  "liquides imaginaires": {
+   "marque": "Liquides Imaginaires",
+   "fabricant_nom": "Liquides Imaginaires SAS",
+   "fabricant_adresse": {
+    "rue": "rue du Faubourg Saint-Honoré",
+    "numero": "91",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "customercare@liquidesimaginaires.com",
+   "source": "https://www.liquidesimaginaires.com/ (politique de confidentialité)",
+   "confiance": "haute"
+  },
+  "listerine": {
+   "marque": "Listerine",
+   "fabricant_nom": "Johnson & Johnson GmbH (Kenvue)",
+   "fabricant_adresse": {
+    "rue": "Johnson & Johnson Platz",
+    "numero": "2",
+    "code_postal": "41470",
+    "ville": "Neuss",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "consumer-de-at@kenvue.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/listerine-mouthwash-mentol-500-ml_z906409/",
+   "confiance": "moyenne"
+  },
   "londa": {
    "marque": "Londa Professional",
    "fabricant_nom": "Wella Germany GmbH",
@@ -1065,6 +1849,20 @@
    "source": "https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
    "confiance": "haute"
   },
+  "lorenzo pazzaglia": {
+   "marque": "Lorenzo Pazzaglia",
+   "fabricant_nom": "PAX s.r.l.",
+   "fabricant_adresse": {
+    "rue": "Strada Cagli - Pergola",
+    "numero": "78",
+    "code_postal": "61043",
+    "ville": "Cagli (PU)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@lorenzopazzaglia.com",
+   "source": "https://www.lorenzopazzaglia.com/ (pied de page : « PAX s.r.l, P.Iva IT02778090411, Sede: Strada Cagli - Pergola 78 - Cagli (PU) »)",
+   "confiance": "moyenne"
+  },
   "lorenzo villoresi": {
    "marque": "Lorenzo Villoresi",
    "fabricant_nom": "Lorenzo Villoresi (P.IVA 05276890489)",
@@ -1078,6 +1876,62 @@
    "fabricant_email": "info@lorenzovilloresi.it",
    "source": "https://www.lorenzovilloresi.it/us_en/privacy-policy/ ; https://www.lorenzovilloresi.it/us_en/contact/",
    "confiance": "haute"
+  },
+  "lykkegaard sun": {
+   "marque": "Lykkegaard Sun",
+   "fabricant_nom": "Lykkegaard",
+   "fabricant_adresse": {
+    "rue": "Vester Alle",
+    "numero": "7",
+    "code_postal": "8000",
+    "ville": "Aarhus C",
+    "pays": "Danemark"
+   },
+   "fabricant_email": null,
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/lykkegaard-sun-body-oil-spf-20-145-ml_z1041641/",
+   "confiance": "moyenne"
+  },
+  "m micallef": {
+   "marque": "M. Micallef",
+   "fabricant_nom": "Grasse Iconic Notes SAS (Parfums M. Micallef)",
+   "fabricant_adresse": {
+    "rue": "chemin Saint Marc",
+    "numero": "133",
+    "code_postal": "06130",
+    "ville": "Grasse",
+    "pays": "France"
+   },
+   "fabricant_email": "customer@mmicallef.com",
+   "source": "https://parfumsmicallef.com/ (contact et CGV)",
+   "confiance": "moyenne"
+  },
+  "m micallef ylang": {
+   "marque": "M.Micallef Ylang",
+   "fabricant_nom": "Grasse Iconic Notes SAS (Parfums M. Micallef)",
+   "fabricant_adresse": {
+    "rue": "chemin Saint Marc",
+    "numero": "133",
+    "code_postal": "06130",
+    "ville": "Grasse",
+    "pays": "France"
+   },
+   "fabricant_email": "customer@mmicallef.com",
+   "source": "https://parfumsmicallef.com/ (contact et CGV)",
+   "confiance": "moyenne"
+  },
+  "ma nyo bifida": {
+   "marque": "ma:nyo Bifida",
+   "fabricant_nom": "BIORIUS EU (personne responsable UE)",
+   "fabricant_adresse": {
+    "rue": "Avenue Léonard de Vinci",
+    "numero": "14",
+    "code_postal": "1300",
+    "ville": "Wavre",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "info@biorius.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/ma-nyo-bifida-biome-aqua-barrier-cream-80-ml_z974677/",
+   "confiance": "moyenne"
   },
   "maison crivelli": {
    "marque": "Maison Crivelli",
@@ -1120,6 +1974,20 @@
    "fabricant_email": null,
    "source": "config/gpsr.json",
    "confiance": "moyenne"
+  },
+  "maison matine": {
+   "marque": "Maison Matine",
+   "fabricant_nom": "Maison Matine SAS",
+   "fabricant_adresse": {
+    "rue": "rue Saint-Fiacre",
+    "numero": "17-21",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@maisonmatine.com",
+   "source": "https://maisonmatine.com/ (conditions générales de vente)",
+   "confiance": "haute"
   },
   "mancera": {
    "marque": "Mancera",
@@ -1191,6 +2059,20 @@
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
   },
+  "matrix": {
+   "marque": "Matrix",
+   "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
+   "fabricant_adresse": {
+    "rue": "Scorpius",
+    "numero": "141",
+    "code_postal": "2132 LR",
+    "ville": "Hoofddorp",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "info.conso@be.loreal.com",
+   "source": "Entité Benelux du groupe : https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr (repris de la recherche précédente) ; fiche Parfum-Centrum https://www.parfum-centru",
+   "confiance": "moyenne"
+  },
   "max factor": {
    "marque": "Max Factor",
    "fabricant_nom": "Coty Beauty Germany GmbH",
@@ -1218,6 +2100,62 @@
    "fabricant_email": "customerservice@incc-group.com",
    "source": "Fiche GPSR Parfum-Centrum : https://www.parfum-centrum.com/mercedes-benz-select-eau-de-toilette-100-ml-man_z715722",
    "confiance": "moyenne"
+  },
+  "merkloos": {
+   "marque": "Merkloos",
+   "fabricant_nom": "Roja Parfums Holdings Limited",
+   "fabricant_adresse": {
+    "rue": "New England Street",
+    "numero": "41",
+    "code_postal": "BN1 4GQ",
+    "ville": "Brighton",
+    "pays": "Royaume-Uni"
+   },
+   "fabricant_email": "customer-services@rojalondon.com",
+   "source": "https://rojalondon.com/pages/terms-conditions ; https://rojalondon.com/pages/contact-us",
+   "confiance": "haute"
+  },
+  "michael kors": {
+   "marque": "Michael Kors",
+   "fabricant_nom": "EuroItalia S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Galileo Galilei",
+    "numero": "5",
+    "code_postal": "20873",
+    "ville": "Cavenago di Brianza (MB)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "privacy@euroitalia.it",
+   "source": "https://www.euroitalia.it/ ; fiche Parfum-Centrum https://www.parfum-centrum.com/michael-kors-extreme-journey-eau-de-toilette-50-ml-man_z830725/",
+   "confiance": "moyenne"
+  },
+  "millefiori": {
+   "marque": "millefiori",
+   "fabricant_nom": "Home Fragrance Italia S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Del Commercio",
+    "numero": "28",
+    "code_postal": "20881",
+    "ville": "Bernareggio (MB)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@millefiorimilano.com",
+   "source": "https://millefiorimilano.com/ (privacy policy)",
+   "confiance": "haute"
+  },
+  "miller harris": {
+   "marque": "Miller Harris",
+   "fabricant_nom": "Miller Harris Ltd",
+   "fabricant_adresse": {
+    "rue": "New Street Square (12th Floor)",
+    "numero": "6",
+    "code_postal": "EC4A 3BF",
+    "ville": "London",
+    "pays": "Royaume-Uni"
+   },
+   "fabricant_email": "customerservices@millerharris.com",
+   "source": "https://www.millerharris.com/ (politique de confidentialité et conditions)",
+   "confiance": "haute"
   },
   "missoni": {
    "marque": "Missoni",
@@ -1317,6 +2255,20 @@
    "source": "https://de.moroccanoil.com/pages/impressum ; https://de.moroccanoil.com/policies/terms-of-service",
    "confiance": "haute"
   },
+  "morph": {
+   "marque": "Morph",
+   "fabricant_nom": "Drean S.r.l. (Morph)",
+   "fabricant_adresse": {
+    "rue": "Via dei Mille",
+    "numero": "40",
+    "code_postal": "80121",
+    "ville": "Napoli",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@morphparfum.com",
+   "source": "https://morphparfum.com/ (pied de page, P.IVA 06751121218) ; e-mail : fiche Parfum-Centrum https://www.parfum-centrum.com/morph-kolonaki-eau-de-parfum-intense-100-ml-woman_z862343/",
+   "confiance": "moyenne"
+  },
   "moschino": {
    "marque": "Moschino",
    "fabricant_nom": "Euroitalia S.r.l.",
@@ -1344,6 +2296,20 @@
    "fabricant_email": "sales@joyfragrances.it",
    "source": "https://mrandmrsfragrance.com/ (pied de page)",
    "confiance": "haute"
+  },
+  "mugler angel": {
+   "marque": "Mugler Angel",
+   "fabricant_nom": "Mugler Beauté (groupe L'Oréal)",
+   "fabricant_adresse": {
+    "rue": "rue Royale",
+    "numero": "14",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@loreal.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/mugler-alien-eau-de-parfum-refillable-15-ml-woman_z845744/",
+   "confiance": "moyenne"
   },
   "mustela": {
    "marque": "Mustela",
@@ -1387,6 +2353,48 @@
    "source": "config/gpsr.json",
    "confiance": "moyenne"
   },
+  "new brand": {
+   "marque": "New Brand",
+   "fabricant_nom": "New Brand Perfumes BV",
+   "fabricant_adresse": {
+    "rue": "de Limburg Stirumlaan",
+    "numero": "250",
+    "code_postal": "1780",
+    "ville": "Wemmel",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "info@newbrandperfumes.com",
+   "source": "Recherche précédente (entrée « Cuba ») : registre BCE/KBO n° 0870.138.203 https://kbopub.economie.fgov.be/ ; e-mail : fiche Parfum-Centrum https://www.parfum-centrum.com/cuba-orange-eau-de-toilette-35",
+   "confiance": "moyenne"
+  },
+  "nioxin": {
+   "marque": "NIOXIN",
+   "fabricant_nom": "Wella Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65-65a",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "wella@wella.com",
+   "source": "https://www.nioxin.com/de-DE/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
+   "confiance": "haute"
+  },
+  "nioxin density": {
+   "marque": "Nioxin Density",
+   "fabricant_nom": "Wella Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65-65a",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "wella@wella.com",
+   "source": "https://www.nioxin.com/de-DE/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
+   "confiance": "haute"
+  },
   "nishane": {
    "marque": "Nishane",
    "fabricant_nom": "Nobilis Group",
@@ -1415,6 +2423,76 @@
    "source": "https://www.nivea.de/ueber-uns/impressum",
    "confiance": "haute"
   },
+  "novexpert": {
+   "marque": "Novexpert",
+   "fabricant_nom": "Laboratoire d'Innovation Cosmétique et Dermatologique (L.I.C.D) S.A.S.",
+   "fabricant_adresse": {
+    "rue": "Zone Artisanale de Montvoisin",
+    "numero": "74",
+    "code_postal": "91400",
+    "ville": "Gometz-la-Ville",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@novexpert-lab.com",
+   "source": "https://novexpert-lab.com/ (mentions légales / CGV)",
+   "confiance": "haute"
+  },
+  "omorovicza complexion": {
+   "marque": "Omorovicza Complexion",
+   "fabricant_nom": "Omorovicza Kft.",
+   "fabricant_adresse": {
+    "rue": "Andrássy út",
+    "numero": "45",
+    "code_postal": "1061",
+    "ville": "Budapest",
+    "pays": "Hongrie"
+   },
+   "fabricant_email": "customerservice@omorovicza.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/omorovicza-complexion-perfector-spf-20-dark-50-ml_z849955/ ; e-mail confirmé : https://www.omorovicza.com/",
+   "confiance": "moyenne"
+  },
+  "opalescence": {
+   "marque": "OPALESCENCE",
+   "fabricant_nom": "Ultradent Products GmbH",
+   "fabricant_adresse": {
+    "rue": "Am Westhover Berg",
+    "numero": "30",
+    "code_postal": "51149",
+    "ville": "Köln",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "Privacyde@Ultradent.com",
+   "source": "https://www.opalescence.eu/ (pied de page et politique de confidentialité)",
+   "confiance": "haute"
+  },
+  "organicals shape": {
+   "marque": "Organicals Shape",
+   "fabricant_nom": "Organicals S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via della Croce Rossa",
+    "numero": "42",
+    "code_postal": "35129",
+    "ville": "Padova (PD)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@organicals.it",
+   "source": "https://organicals.it/ (contatti, privacy policy)",
+   "confiance": "haute"
+  },
+  "ormonde jayne": {
+   "marque": "Ormonde Jayne",
+   "fabricant_nom": "Ormonde Jayne",
+   "fabricant_adresse": {
+    "rue": "Kennelsfort Road, Palmerstown",
+    "numero": "142",
+    "code_postal": "D20 YH01",
+    "ville": "Dublin",
+    "pays": "Irlande"
+   },
+   "fabricant_email": "customerservices@ormondejayne.com",
+   "source": "Personne responsable : fiche Parfum-Centrum https://www.parfum-centrum.com/ormonde-jayne-arabesque-eau-de-parfum-88-ml-unisex_z922933/ ; e-mail confirmé : https://ormondejayne.com/",
+   "confiance": "moyenne"
+  },
   "orto parisi": {
    "marque": "Orto Parisi",
    "fabricant_nom": "Orto Parisi",
@@ -1427,6 +2505,20 @@
    },
    "fabricant_email": "office@ortoparisi.com",
    "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "oscar": {
+   "marque": "Oscar de",
+   "fabricant_nom": "Interparfums SA",
+   "fabricant_adresse": {
+    "rue": "rue de Solferino",
+    "numero": "10",
+    "code_postal": "75007",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@interparfums.fr",
+   "source": "Personne responsable : fiche Parfum-Centrum https://www.parfum-centrum.com/oscar-de-la-renta-alibi-eau-de-parfum-100-ml-woman_z835444/ ; adresse/e-mail officiels : https://www.interparfums.fr/fr/menti",
    "confiance": "moyenne"
   },
   "paco rabanne": {
@@ -1443,6 +2535,34 @@
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
   },
+  "palmolive": {
+   "marque": "Palmolive",
+   "fabricant_nom": "CP GABA GmbH (Colgate-Palmolive)",
+   "fabricant_adresse": {
+    "rue": "Beim Strohhause",
+    "numero": "17",
+    "code_postal": "20097",
+    "ville": "Hamburg",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": null,
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/palmolive-anti-dandruff-shampoo-350-ml_z912317/",
+   "confiance": "moyenne"
+  },
+  "parodontax": {
+   "marque": "Parodontax",
+   "fabricant_nom": "Haleon France",
+   "fabricant_adresse": {
+    "rue": "rue François Jacob",
+    "numero": "23",
+    "code_postal": "92500",
+    "ville": "Rueil-Malmaison",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "https://www.parodontax.fr/",
+   "confiance": "haute"
+  },
   "pasta del capitano": {
    "marque": "Pasta Del Capitano",
    "fabricant_nom": "Farmaceutici Dott. Ciccarelli S.p.A.",
@@ -1456,6 +2576,48 @@
    "fabricant_email": "info@ciccarelli.it",
    "source": "https://pastadelcapitano.it/en/contacts",
    "confiance": "haute"
+  },
+  "pernoire": {
+   "marque": "pernoire",
+   "fabricant_nom": "pernoire AG",
+   "fabricant_adresse": {
+    "rue": "Hochbergerstrasse",
+    "numero": "158",
+    "code_postal": "4057",
+    "ville": "Basel",
+    "pays": "Suisse"
+   },
+   "fabricant_email": "support@pernoire.com",
+   "source": "https://pernoire.com/ (Legal Notice / Impressum)",
+   "confiance": "haute"
+  },
+  "perricone md": {
+   "marque": "Perricone MD",
+   "fabricant_nom": "The Hut.com (Poland) Sp. z o.o. (groupe THG)",
+   "fabricant_adresse": {
+    "rue": "ul. Magazynowa",
+    "numero": "1",
+    "code_postal": "55-040",
+    "ville": "Magnice",
+    "pays": "Pologne"
+   },
+   "fabricant_email": null,
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/perricone-md-essential-fx-acyl-glutathione-rejuvenating-moisturizer-30-ml_z837723/",
+   "confiance": "moyenne"
+  },
+  "piz buin": {
+   "marque": "Piz Buin",
+   "fabricant_nom": "Johnson & Johnson GmbH (Kenvue)",
+   "fabricant_adresse": {
+    "rue": "Johnson & Johnson Platz",
+    "numero": "2",
+    "code_postal": "41470",
+    "ville": "Neuss",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "consumer-de-at@kenvue.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/piz-buin-allergy-sun-sensitive-skin-lotion-spf-50-400-ml_z870044/",
+   "confiance": "moyenne"
   },
   "police": {
    "marque": "Police",
@@ -1499,6 +2661,20 @@
    "source": "https://proraso.com/fr/contacts/ ; https://proraso.com/fr/privacy-policy/",
    "confiance": "haute"
   },
+  "ralph lauren": {
+   "marque": "Ralph Lauren",
+   "fabricant_nom": "Les Parfums Ralph Lauren (groupe L'Oréal)",
+   "fabricant_adresse": {
+    "rue": "Place Vendôme",
+    "numero": "16",
+    "code_postal": "75001",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "customerassistance@ralphlauren.eu",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/ralph-lauren-ralph-s-club-parfum-100-ml-man_z863643/",
+   "confiance": "moyenne"
+  },
   "redken": {
    "marque": "Redken",
    "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
@@ -1511,6 +2687,20 @@
    },
    "fabricant_email": "info.conso@be.loreal.com",
    "source": "https://www.loreal.com/en/belgium/ (siège Benelux + service consommateurs Belgique) ; entité : https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr",
+   "confiance": "moyenne"
+  },
+  "repetto": {
+   "marque": "Repetto",
+   "fabricant_nom": "Interparfums SA",
+   "fabricant_adresse": {
+    "rue": "rue de Solferino",
+    "numero": "10",
+    "code_postal": "75007",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@interparfums.fr",
+   "source": "Personne responsable : fiche Parfum-Centrum https://www.parfum-centrum.com/repetto-so-repetto-eau-de-toilette-50-ml-woman_z845675/ ; adresse/e-mail officiels : https://www.interparfums.fr/fr/mentions-",
    "confiance": "moyenne"
   },
   "revlon": {
@@ -1541,6 +2731,20 @@
    "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité UE : fiches GPSR Shop Apotheke (Davidoff Hot Water https://www.shop-apotheke.com/beauty/upmXLCFPU/davidoff-hot-water-eau-de-toilette.h",
    "confiance": "moyenne"
   },
+  "roc": {
+   "marque": "RoC",
+   "fabricant_nom": "RoC Opco LLC",
+   "fabricant_adresse": {
+    "rue": "Madison Avenue (16th Floor)",
+    "numero": "261",
+    "code_postal": "NY 10016",
+    "ville": "New York",
+    "pays": "États-Unis"
+   },
+   "fabricant_email": "roc@rocskincare.com",
+   "source": "https://rocskincare.fr/ (politique de confidentialité, mentions)",
+   "confiance": "moyenne"
+  },
   "rochas": {
    "marque": "Rochas",
    "fabricant_nom": "Interparfums SA",
@@ -1554,6 +2758,48 @@
    "fabricant_email": "contact@interparfums.fr",
    "source": "https://www.interparfums.fr/fr/ (marque Rochas au portefeuille) ; https://www.interparfums.fr/fr/mentions-legales/ (e-mail, recherche antérieure)",
    "confiance": "haute"
+  },
+  "roja": {
+   "marque": "Roja Parfums",
+   "fabricant_nom": "Roja Parfums Holdings Limited",
+   "fabricant_adresse": {
+    "rue": "New England Street",
+    "numero": "41",
+    "code_postal": "BN1 4GQ",
+    "ville": "Brighton",
+    "pays": "Royaume-Uni"
+   },
+   "fabricant_email": "customer-services@rojalondon.com",
+   "source": "https://rojalondon.com/pages/terms-conditions ; https://rojalondon.com/pages/contact-us",
+   "confiance": "haute"
+  },
+  "rosendo mateu": {
+   "marque": "Rosendo Mateu",
+   "fabricant_nom": "PRFM Olfactive Expressions SL",
+   "fabricant_adresse": {
+    "rue": "Calle Camí del Mig (1r piso)",
+    "numero": "25",
+    "code_postal": "08349",
+    "ville": "Cabrera de Mar",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "info@rosendomateu.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/rosendo-mateu-olfactive-expressions-2010-eau-de-parfum-100-ml-unisex_z1001962/",
+   "confiance": "moyenne"
+  },
+  "rue broca": {
+   "marque": "Rue Broca",
+   "fabricant_nom": "Rue Broca Perfumes & Cosmetics",
+   "fabricant_adresse": {
+    "rue": "rue de Buzenval",
+    "numero": "71",
+    "code_postal": "75020",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "Fiches Parfum-Centrum https://www.parfum-centrum.com/rue-broca-touche-pour-femme-eau-de-parfum-100-ml-woman_z832725/",
+   "confiance": "moyenne"
   },
   "sachajuan": {
    "marque": "Sachajuan",
@@ -1597,6 +2843,20 @@
    "source": "https://www.schwarzkopf-professional.com/com/en/imprint.html",
    "confiance": "haute"
   },
+  "sensilis": {
+   "marque": "SENSILIS",
+   "fabricant_nom": "Dermofarm S.A.U.",
+   "fabricant_adresse": {
+    "rue": "C/ Leonardo Da Vinci (Parc Can Sant Joan)",
+    "numero": "16-22",
+    "code_postal": "08191",
+    "ville": "Rubí (Barcelona)",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "dpo@dermofarm.com",
+   "source": "https://sensilis.com/en ; fiche Parfum-Centrum https://www.parfum-centrum.com/sensilis-photocorrection-d-pigment-make-up-spf-50-01-natural-rose-10-g_z1034167/",
+   "confiance": "haute"
+  },
   "sensodyne": {
    "marque": "Sensodyne",
    "fabricant_nom": "Haleon Germany GmbH",
@@ -1609,6 +2869,20 @@
    },
    "fabricant_email": null,
    "source": "Fiche Shop Apotheke Sensodyne MultiCare (rubrique « Herstellerdaten ») : https://www.shop-apotheke.com/hygiene/8120890/sensodyne-multicare-zahnfleischschutz-zahnpasta.htm",
+   "confiance": "moyenne"
+  },
+  "sergio tacchini": {
+   "marque": "Sergio Tacchini",
+   "fabricant_nom": "Desire Fragrances B.V.",
+   "fabricant_adresse": {
+    "rue": "Rooijakkersstraat",
+    "numero": "2",
+    "code_postal": "5652 BB",
+    "ville": "Eindhoven",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "customer@desirefragrances.net",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/sergio-tacchini-ocean-s-club-eau-de-toilette-100-ml-man_z845834/ ; adresse et e-mail officiels : https://desireholding.com/",
    "confiance": "moyenne"
   },
   "shiseido": {
@@ -1653,6 +2927,20 @@
    "source": "config/gpsr.json + bol_operateurs.json",
    "confiance": "moyenne"
   },
+  "strivectin": {
+   "marque": "StriVectin",
+   "fabricant_nom": "Revance Therapeutics, Inc.",
+   "fabricant_adresse": {
+    "rue": "Demonbreun St. (20th Floor)",
+    "numero": "1222",
+    "code_postal": "TN 37203",
+    "ville": "Nashville",
+    "pays": "États-Unis"
+   },
+   "fabricant_email": "care@strivectin.com",
+   "source": "https://strivectin.com/ (Terms of Use)",
+   "confiance": "moyenne"
+  },
   "swissdent": {
    "marque": "Swissdent",
    "fabricant_nom": "SWISSDENT Cosmetics GmbH (représentant UE)",
@@ -1665,6 +2953,20 @@
    },
    "fabricant_email": null,
    "source": "https://www.swissdent.ch/datenschutzerklaerung ; https://www.swissdent.ch/kontakt",
+   "confiance": "haute"
+  },
+  "tauer": {
+   "marque": "Tauer Perfumes",
+   "fabricant_nom": "Tauer GmbH",
+   "fabricant_adresse": {
+    "rue": "Limmattalstrasse",
+    "numero": "63",
+    "code_postal": "8049",
+    "ville": "Zürich",
+    "pays": "Suisse"
+   },
+   "fabricant_email": "hello@tauerperfumes.com",
+   "source": "https://tauerperfumes.com/ (Impressum)",
    "confiance": "haute"
   },
   "ted baker": {
@@ -1695,6 +2997,20 @@
    "source": "https://www.tepe.com/global (pied de page « Production »)",
    "confiance": "haute"
   },
+  "thameen": {
+   "marque": "Thameen",
+   "fabricant_nom": "CE.way Regulatory Consultants Ltd (personne responsable UE)",
+   "fabricant_adresse": {
+    "rue": "Upper Baggot Street",
+    "numero": "13",
+    "code_postal": "D04 W7K5",
+    "ville": "Dublin 4",
+    "pays": "Irlande"
+   },
+   "fabricant_email": "info@ceway.eu",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/thameen-cullinan-diamond-extrait-de-parfum-50-ml-unisex_z832691/",
+   "confiance": "moyenne"
+  },
   "tiziana terenzi": {
    "marque": "Tiziana Terenzi",
    "fabricant_nom": "Cereria Terenzi",
@@ -1721,6 +3037,76 @@
    },
    "fabricant_email": "contactmanufacturer@elcompanies.com",
    "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "tommy hilfiger": {
+   "marque": "Tommy Hilfiger",
+   "fabricant_nom": "Give Back Beauty S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Corso Italia",
+    "numero": "3",
+    "code_postal": "20122",
+    "ville": "Milano",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@givebackbeauty.com",
+   "source": "Personne responsable : fiche Parfum-Centrum https://www.parfum-centrum.com/tommy-hilfiger-impact-spark-eau-de-toilette-50-ml-man_z851356/ ; adresse et e-mail officiels : https://www.givebackbeauty.com",
+   "confiance": "moyenne"
+  },
+  "ultra": {
+   "marque": "Ultra",
+   "fabricant_nom": "Barry M Cosmetics Limited",
+   "fabricant_adresse": {
+    "rue": "Bittacy Business Centre, Bittacy Hill (Unit 1)",
+    "numero": "1",
+    "code_postal": "NW7 1BA",
+    "ville": "London",
+    "pays": "Royaume-Uni"
+   },
+   "fabricant_email": "customerservice@barrym.com",
+   "source": "https://barrym.com/ (politique de confidentialité, conditions) ; personne responsable UE : fiche Parfum-Centrum https://www.parfum-centrum.com/barry-m-dazzle-define-metallic-crayons-orchid-flower-whit",
+   "confiance": "haute"
+  },
+  "unique e luxury": {
+   "marque": "Unique'e Luxury",
+   "fabricant_nom": "Elnes Cosmetic Consulting Kft. (personne responsable UE)",
+   "fabricant_adresse": {
+    "rue": "Wesselényi u. (fszt. 1)",
+    "numero": "66",
+    "code_postal": "1077",
+    "ville": "Budapest",
+    "pays": "Hongrie"
+   },
+   "fabricant_email": "elnes@elnescosmetic.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/unique-e-luxury-mashumaro-extrait-de-parfum-100-ml-unisex_z889413/ ; fabricant : https://uniqueeluxury.com/ (contact)",
+   "confiance": "moyenne"
+  },
+  "uniquee luxury": {
+   "marque": "Unique’e Luxury",
+   "fabricant_nom": "Elnes Cosmetic Consulting Kft. (personne responsable UE)",
+   "fabricant_adresse": {
+    "rue": "Wesselényi u. (fszt. 1)",
+    "numero": "66",
+    "code_postal": "1077",
+    "ville": "Budapest",
+    "pays": "Hongrie"
+   },
+   "fabricant_email": "elnes@elnescosmetic.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/unique-e-luxury-mashumaro-extrait-de-parfum-100-ml-unisex_z889413/ ; fabricant : https://uniqueeluxury.com/ (contact)",
+   "confiance": "moyenne"
+  },
+  "vanessium": {
+   "marque": "Vanessium",
+   "fabricant_nom": "Vanessium Suncare S.L.",
+   "fabricant_adresse": {
+    "rue": "Calle Velázquez (piso 2 IZ)",
+    "numero": "109",
+    "code_postal": "28006",
+    "ville": "Madrid",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "info@vanessium.com",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/vanessium-suncare-glow-effect-lift-skin-sun-cream-spf-15-50-ml_z1084072/ ; e-mail confirmé : https://vanessium.com/",
    "confiance": "moyenne"
   },
   "versace": {
@@ -1751,6 +3137,20 @@
    "source": "config/gpsr.json",
    "confiance": "moyenne"
   },
+  "vt": {
+   "marque": "VT Cosmetics",
+   "fabricant_nom": "CDRI GERMANY GmbH (personne responsable UE)",
+   "fabricant_adresse": {
+    "rue": "Am Kronberger Hang",
+    "numero": "2",
+    "code_postal": "65824",
+    "ville": "Schwalbach am Taunus",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "eu.cs@cdri.pro",
+   "source": "Fiche Parfum-Centrum https://www.parfum-centrum.com/vt-cosmetics-hydrop-reedle-shot-100-hl-50-ml_z1014573/ ; rôle de CDRI : https://cdri.pro",
+   "confiance": "moyenne"
+  },
   "wella": {
    "marque": "Wella Professionals",
    "fabricant_nom": "Wella Germany GmbH",
@@ -1764,6 +3164,20 @@
    "fabricant_email": "wella@wella.com",
    "source": "https://www.wella.com/professional/de-DE/impressum",
    "confiance": "haute"
+  },
+  "woods collection": {
+   "marque": "The Woods Collection",
+   "fabricant_nom": "The Woods Collection",
+   "fabricant_adresse": {
+    "rue": "Place Vendôme",
+    "numero": "28",
+    "code_postal": "75001",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "concierge@thewoodscollection.com",
+   "source": "https://www.thewoodscollection.com/contact ; fiche Parfum-Centrum https://www.parfum-centrum.com/the-woods-collection-timeless-sands-eau-de-parfum-100-ml-unisex_z849128/",
+   "confiance": "moyenne"
   },
   "xerjoff": {
    "marque": "Xerjoff",
