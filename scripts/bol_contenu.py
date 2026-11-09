@@ -206,13 +206,16 @@ def auto(essai=False):
                 envoi += [a for a in attributs(dict(f, inci=None)) if a["id"].startswith("Manufacturer")]
             else:
                 sans_fabricant.setdefault(marque or nom.split(" ")[0], []).append([ean, nom])
-        if any("(Ingredients)" in t for _, t in textes):
+        inci_manuel = (manuel.get(ean) or {}).get("inci") if (manuel.get(ean) or {}).get("inci_statut") in ("trouve", "partiel") else None
+        if inci_manuel and any("(Ingredients)" in t or "missing content (Cosmetics)" in t for _, t in textes):
+            envoi.append({"id": "Ingredients", "values": [{"value": inci_manuel.strip()}]})
+        elif any("(Ingredients)" in t for _, t in textes):
             propre = nettoyer_inci(attrs.get("Ingredients"))
             if propre and propre != attrs.get("Ingredients"):
                 envoi.append({"id": "Ingredients", "values": [{"value": propre}]})
             else:
                 inci_a_chercher.append([ean, nom, (attrs.get("Ingredients") or "")[:120]])
-        if any("missing content (Cosmetics)" in t for _, t in textes) and not attrs.get("Ingredients"):
+        if any("missing content (Cosmetics)" in t for _, t in textes) and not attrs.get("Ingredients") and not inci_manuel:
             inci_a_chercher.append([ean, nom, ""])
         if envoi:
             a_envoyer[ean] = envoi

@@ -784,9 +784,9 @@
   {
    "ean": "8429421444118",
    "titre": "Shampoo Lakmé Teknia Hair",
-   "inci": null,
-   "inci_statut": "introuvable",
-   "inci_source": null,
+   "inci": "Aqua (Water), Disodium Laureth Sulfosuccinate, Sodium Lauryl Sulfoacetate, Coco-Glucoside, Cocamidopropyl Betaine, Betaine, Fragrance (Parfum), Glycol Distearate, Caprylyl/Capryl Glucoside, Glycerin, Polyquaternium-10, Cananga Odorata Flower Oil, Citric Acid, Trisodium Ethylenediamine Disuccinate, Benzyl Alcohol, Helianthus Annuus (Sunflower) Seed Oil, Salvia Hispanica Seed Extract, Methylchloroisothiazolinone, Methylisothiazolinone",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/lakme-teknia-frizz-control-shampoo",
    "fabricant_nom": "Lakmé Cosmetics S.L.",
    "fabricant_adresse": {
     "rue": "Calle Narcís Monturiol",
@@ -797,7 +797,7 @@
    },
    "fabricant_email": null,
    "fabricant_source": "https://infonif.economia3.com/ficha-empresa/lakme-cosmetics-sl",
-   "remarque": "Produit non identifié : 'Shampoo Lakmé Teknia Hair' 1000 ml sans nom de variante (Teknia compte une dizaine de shampooings : Full Defense, Deep Care, Color Stay, Frizz Control, Argan Oil…) et EAN introuvable en ligne → impossible de choisir le bon INCI. La liste actuelle ('Paraben-Free / Vegan…') n'est pas un INCI. Fabricant : Lakmé Cosmetics S.L. (NIF B61208476), domicile social selon un annuaire d'entreprises espagnol (pas le site Lakmé) ; ville corrigée : Sant Just Desvern et non Barcelone. E-mail info@lakme.com non confirmé."
+   "remarque": "Produit non identifié : 'Shampoo Lakmé Teknia Hair' 1000 ml sans nom de variante (Teknia compte une dizaine de shampooings : Full Defense, Deep Care, Color Stay, Frizz Control, Argan Oil…) et EAN introuvable en ligne → impossible de choisir le bon INCI. La liste actuelle ('Paraben-Free / Vegan…') n'est pas un INCI. Fabricant : Lakmé Cosmetics S.L. (NIF B61208476), domicile social selon un annuaire d'entreprises espagnol (pas le site Lakmé) ; ville corrigée : Sant Just Desvern et non Barcelone. E-mail info@lakme.com non confirmé. | INCI 09/11 : INCIDecoder (base INCI publique), fiche « Lakme Te"
   },
   {
    "ean": "8436550507584",
@@ -1076,8 +1076,8 @@
   {
    "ean": "3380810584127",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "AQUA/WATER/EAU, HYDROGENATED POLYISOBUTENE, ISONONYL ISONONANOATE, DIMETHICONE, CETEARYL ALCOHOL, CAPRYLIC/CAPRIC TRIGLYCERIDE, ALCOHOL, BETAINE, CAFFEINE, BUTYLENE GLYCOL, HYDROGENATED DIDECENE, PARFUM/FRAGRANCE, CETEARYL GLUCOSIDE, PHENOXYETHANOL, GLYCERIN, POTASSIUM CETYL PHOSPHATE, MENTHYL PCA, CARBOMER, ESCIN, ETHYLHEXYLGLYCERIN, MENTHOL, SODIUM ACRYLATES COPOLYMER, SODIUM POLYACRYLATE, PAPAVER RHOEAS EXTRACT, SODIUM CETEARYL SULFATE, SODIUM LAURYL SULFATE, SODIUM HYDROXIDE, DIMETHICONOL, PHOSPHOLIPIDS, POLYGLYCERYL-10 STEARATE, HELIANTHUS ANNUUS (SUNFLOWER) SEED OIL, HIBISCUS SABDARIFFA FLOWER EXTRACT, PYRUS CYDONIA FRUIT EXTRACT, METHYLSILANOL MANNURONATE, BENZYL ALCOHOL, SORBIC ACID, TOCOPHEROL, DEHYDROACETIC ACID",
+   "inci_statut": "trouve",
    "fabricant_nom": "Clarins SAS",
    "fabricant_adresse": {
     "rue": "rue du Commandant Pilot",
@@ -1087,7 +1087,9 @@
     "pays": "France"
    },
    "fabricant_email": null,
-   "fabricant_source": "4004 09/11 : https://www.clarins.fr/legal_notices.html (section 3 « Entité responsable de la mise sur le marché ») ; contact : https://www.clarins.fr/service-client"
+   "fabricant_source": "4004 09/11 : https://www.clarins.fr/legal_notices.html (section 3 « Entité responsable de la mise sur le marché ») ; contact : https://www.clarins.fr/service-client",
+   "inci_source": "https://www.lifepharmacy.com/product/clarins-body-shaping-cream-200ml",
+   "remarque": "INCI 09/11 : Life Pharmacy (distributeur, Body Shaping Cream 200 ml). Code lot [C2192A] retiré."
   },
   {
    "ean": "3380810581102",
@@ -1108,8 +1110,8 @@
   {
    "ean": "7622500728647",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "AQUA (WATER), GLYCERIN, HYDROGENATED POLYISOBUTENE, MYRISTYL LACTATE, BUTYROSPERMUM PARKII (SHEA) BUTTER, GLYCERYL STEARATE CITRATE, BUTYLENE GLYCOL, HYDROGENATED COCO-GLYCERIDES, PENTYLENE GLYCOL, CETEARYL ALCOHOL, PROPYLHEPTYL CAPRYLATE, GLYCERYL BEHENATE, PEG-30 STEARATE, BUTYL METHOXYDIBENZOYLMETHANE, LAUROYL LYSINE, OCTYLDODECANOL, CITRUS MEDICA LIMONUM (LEMON) FRUIT EXTRACT, FUMARIA OFFICINALIS FLOWER/LEAF/STEM EXTRACT, HIBISCUS ABELMOSCHUS SEED EXTRACT, LEPIDIUM SATIVUM SPROUT EXTRACT, PANTHENOL, TOCOPHERYL ACETATE, SERICA (SILK) POWDER, HYDROGENATED PHOSPHATIDYLCHOLINE, CAFFEINE, ARGININE, LECITHIN, SODIUM HYALURONATE, RUTIN, CHITOSAN, SOLUBLE COLLAGEN, SQUALANE, ASCORBYL PALMITATE, CALCIUM PANTOTHENATE, FOLIC ACID, GLYCINE, HISTIDINE, LYSINE HCL, SERINE, SODIUM CHONDROITIN SULFATE, THREONINE, TRYPTOPHAN, CERAMIDE NP, GLYCINE SOJA (SOYBEAN) OIL, TOCOPHEROL, HYDROGENATED LECITHIN, DECAPEPTIDE-4, PROPYLENE GLYCOL, AMMONIUM ACRYLOYLDIMETHYLTAURATE/VP COPOLYMER, CAPRYLIC/CAPRIC TRIGLYCERIDE, GALACTOARABINAN, XANTHAN GUM, POLOXAMER 188, SODIUM PHOSPHATE, TETRASODIUM GLUTAMATE DIACETATE, SORBITOL, POLYSORBATE 80, CALCIUM CHLORIDE, GLUCOSE, MAGNESIUM SULFATE, POTASSIUM CHLORIDE, SODIUM CHLORIDE, DISODIUM EDTA, SODIUM OLEATE, ETHYLHEXYLGLYCERIN, PARFUM (FRAGRANCE), BENZYL SALICYLATE, HEXYL CINNAMAL, BENZYL ALCOHOL, GERANIOL, LINALOOL, HYDROXYCITRONELLAL, FUMARIC ACID, CITRIC ACID, SODIUM HYDROXIDE, PHENOXYETHANOL, CI 15985 (YELLOW 6)",
+   "inci_statut": "trouve",
    "fabricant_nom": "Troll Cosmetics GmbH (personne responsable UE)",
    "fabricant_adresse": {
     "rue": "Weidachstraße",
@@ -1119,7 +1121,9 @@
     "pays": "Autriche"
    },
    "fabricant_email": null,
-   "fabricant_source": "4004 09/11 : Fiche GPSR Shop Apotheke Juvena MasterCream : https://www.shop-apotheke.com/beauty/upm7UWH4K/juvena-of-switzerland-mastercare-mastercream.htm"
+   "fabricant_source": "4004 09/11 : Fiche GPSR Shop Apotheke Juvena MasterCream : https://www.shop-apotheke.com/beauty/upm7UWH4K/juvena-of-switzerland-mastercare-mastercream.htm",
+   "inci_source": "https://www.parfumdreams.ie/Juvena/Skin-care/Master-Care/Master-Cream/index_26737.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (MasterCream 75 ml) ; EAN affiché 9007867728642 (nouveau préfixe Juvena, mêmes chiffres finaux que notre EAN 7622500728647)."
   },
   {
    "ean": "3331438550308",
@@ -1236,8 +1240,8 @@
   {
    "ean": "7622500731296",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "AQUA (WATER), CAPRYLIC/CAPRIC TRIGLYCERIDE, GLYCERIN, BEHENYL ALCOHOL, METHYL GLUCOSE SESQUISTEARATE, BUTYLENE GLYCOL, GLYCERYL STEARATE, POLYLACTIC ACID, HELIANTHUS ANNUUS (SUNFLOWER) SEED OIL, LIMNANTHES ALBA (MEADOWFOAM) SEED OIL, SORBITAN STEARATE, SQUALANE, PROPYLENE GLYCOL, PENTYLENE GLYCOL, BAMBUSA ARUNDINACEA STEM EXTRACT, HIBISCUS ESCULENTUS SEED EXTRACT, NYMPHAEA ALBA (WATER LILY) FLOWER EXTRACT, PANTHENOL, TOCOPHERYL ACETATE, NIACINAMIDE, CALCIUM PANTOTHENATE, LECITHIN, SODIUM ASCORBYL PHOSPHATE, ASCORBYL PALMITATE, PYRIDOXINE HCL, TOCOPHEROL, POLYSORBATE 40, DIPROPYLENE GLYCOL, GLYCERYL CAPRYLATE, SODIUM PALMITOYL PROLINE, ETHYLHEXYLGLYCERIN, XANTHAN GUM, TETRASODIUM GLUTAMATE DIACETATE, SODIUM STARCH OCTENYLSUCCINATE, MALTODEXTRIN, SILICA, LIMONENE, PARFUM (FRAGRANCE), LINALOOL, BENZYL SALICYLATE, ALPHA-ISOMETHYL IONONE, CITRAL, HYDROXYCITRONELLAL, BENZYL BENZOATE, BENZYL ALCOHOL, AMYL CINNAMAL, EUGENOL, CITRIC ACID, SODIUM HYDROXIDE, PHENOXYETHANOL",
+   "inci_statut": "trouve",
    "fabricant_nom": "Troll Cosmetics GmbH (personne responsable UE)",
    "fabricant_adresse": {
     "rue": "Weidachstraße",
@@ -1247,13 +1251,15 @@
     "pays": "Autriche"
    },
    "fabricant_email": null,
-   "fabricant_source": "4004 09/11 : Fiche GPSR Shop Apotheke Juvena MasterCream : https://www.shop-apotheke.com/beauty/upm7UWH4K/juvena-of-switzerland-mastercare-mastercream.htm"
+   "fabricant_source": "4004 09/11 : Fiche GPSR Shop Apotheke Juvena MasterCream : https://www.shop-apotheke.com/beauty/upm7UWH4K/juvena-of-switzerland-mastercare-mastercream.htm",
+   "inci_source": "https://www.parfumdreams.ie/Juvena/Skin-care/Pure-Cleansing/Refining-Peeling/index_26688.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Pure Cleansing Refining Peeling 100 ml) ; EAN affiché 9007867731291 (nouveau préfixe Juvena)."
   },
   {
    "ean": "7622500737977",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "AQUA (WATER), GLYCERIN, CETEARYL ETHYLHEXANOATE, ALCOHOL DENAT., HYDROGENATED POLYISOBUTENE, DICAPRYLYL CARBONATE, DIVINYLDIMETHICONE/DIMETHICONE COPOLYMER, PEG-100 STEARATE, CETEARYL ALCOHOL, LIMNANTHES ALBA (MEADOWFOAM) SEED OIL, BUTYROSPERMUM PARKII (SHEA) BUTTER, PARFUM (FRAGRANCE), BEHENYL ALCOHOL, HIBISCUS ESCULENTUS SEED EXTRACT, PUNICA GRANATUM FRUIT EXTRACT, PANTHENOL, TOCOPHERYL ACETATE, TOCOPHEROL, MEL (HONEY) EXTRACT, SODIUM PHYTATE, LECITHIN, ASCORBYL PALMITATE, MENTHYL LACTATE, SODIUM ACRYLATE/SODIUM ACRYLOYL DIMETHYLTAURATE COPOLYMER, POLYISOBUTENE, GLYCERYL CAPRYLATE, CARBOMER, C12-13 PARETH-3, C12-13 PARETH-23, CAPRYLYL GLYCOL, ETHYL LINOLEATE, XANTHAN GUM, SODIUM POLYSTYRENE SULFONATE, SORBITAN OLEATE, CAPRYLYL/CAPRYL GLUCOSIDE, PROPYLENE GLYCOL, ALCOHOL, ALPHA-ISOMETHYL IONONE, BENZYL SALICYLATE, LIMONENE, LINALOOL, CITRONELLOL, SODIUM HYDROXIDE, PHENOXYETHANOL, CI 77019 (MICA), CI 77891 (TITANIUM DIOXIDE), CI 15985 (YELLOW 6), CI 16035 (RED 40)",
+   "inci_statut": "trouve",
    "fabricant_nom": "Troll Cosmetics GmbH (personne responsable UE)",
    "fabricant_adresse": {
     "rue": "Weidachstraße",
@@ -1263,7 +1269,9 @@
     "pays": "Autriche"
    },
    "fabricant_email": null,
-   "fabricant_source": "4004 09/11 : Fiche GPSR Shop Apotheke Juvena MasterCream : https://www.shop-apotheke.com/beauty/upm7UWH4K/juvena-of-switzerland-mastercare-mastercream.htm"
+   "fabricant_source": "4004 09/11 : Fiche GPSR Shop Apotheke Juvena MasterCream : https://www.shop-apotheke.com/beauty/upm7UWH4K/juvena-of-switzerland-mastercare-mastercream.htm",
+   "inci_source": "https://www.parfumdreams.ie/Juvena/Skin-care/Body-Care/Smoothing-and-Firming-Body-Lotion/index_26692.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Smoothing and Firming Body Lotion 200 ml) ; EAN affiché 9007867737972 (nouveau préfixe Juvena)."
   },
   {
    "ean": "4045787020113",
@@ -1348,8 +1356,8 @@
   {
    "ean": "4015600082918",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Stearyl Alcohol, Cetyl Alcohol, Glycerin, Stearamidopropyl Dimethylamine, Panthenol, Dimethicone, Parfum, Phenoxyethanol, Benzyl Alcohol, Dicetyldimonium Chloride, Glutamic Acid, Bis-Aminopropyl Dimethicone, Methylparaben, Propylparaben, Propylene Glycol, EDTA, Limonene, Hexylene Glycol, Sodium Chloride, Benzyl Salicylate, Linalool, Benzyl Benzoate, Hexyl Cinnamal, Glucose, Fructose, Citric Acid, Urea, Sucrose, Dextrin, CI 19140, Hexyl Nicotinate, Aspartic Acid, Alanine, CI 17200",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -1359,7 +1367,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://lyko.com/en/wella-professionals/wella-sp-hydrate-mask-400ml",
+   "remarque": "INCI 09/11 : Lyko (fiche Wella SP Hydrate Mask 400 ml) ; EAN non affiché sur la page (recherche par EAN), vérifier la correspondance. Avertissement final retiré."
   },
   {
    "ean": "4015600082857",
@@ -1492,8 +1502,8 @@
   {
    "ean": "3380813061106",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua/Water/Eau, Glycerin, Butylene Glycol, Propanediol, Parfum/Fragrance, Sodium Polyacrylate Starch, Propylene Glycol, Dimethicone, Xylitylglucoside, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Ammonium Acryloyldimethyltaurate/VP Copolymer, Anhydroxylitol, Ethylhexylglycerin, Xylitol, Disodium EDTA, Dimethiconol, Decylene Glycol, Gymnema Sylvestre Leaf Extract, Glucose, Kalanchoe Pinnata Leaf Extract, Zinc Gluconate, Marrubium Vulgare Extract, Sempervivum Tectorum Extract, Citric Acid, Hierochloe Odorata Extract, Phenethyl Alcohol, Furcellaria Lumbricalis Extract, Sodium Benzoate, Potassium Sorbate, Cl 42090 Blue 1, Lapsana Communis Flower/Leaf/Stem Extract, Maris Sal/Sea Salt/Sel Marin",
+   "inci_statut": "trouve",
    "fabricant_nom": "Clarins SAS",
    "fabricant_adresse": {
     "rue": "rue du Commandant Pilot",
@@ -1503,7 +1513,9 @@
     "pays": "France"
    },
    "fabricant_email": null,
-   "fabricant_source": "4004 09/11 : https://www.clarins.fr/legal_notices.html (section 3 « Entité responsable de la mise sur le marché ») ; contact : https://www.clarins.fr/service-client"
+   "fabricant_source": "4004 09/11 : https://www.clarins.fr/legal_notices.html (section 3 « Entité responsable de la mise sur le marché ») ; contact : https://www.clarins.fr/service-client",
+   "inci_source": "https://incidecoder.com/products/clarins-men-super-moisturize-gel",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Clarins Men Super Moisturize Gel » publiée le 2024-07-04 ; EAN non affiché par la source."
   },
   {
    "ean": "0719346158657",
@@ -1636,8 +1648,8 @@
   {
    "ean": "5998889511425",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Sodium Laureth Sulfate, Sodium Chloride, Glycerin, Cocamidopropyl Betaine, Cocamide DEA, Coco-Glucoside, Parfum, Polyquaternium-7, Cocos Nucifera Oil, Olea Europaea Oil, PEG-4 Distearyl Ether, Distearyl Ether, Citric Acid, Dicaprylyl Ether, Hydrolyzed Keratin, Soluble Collagen, Sodium Hyaluronate, Amodimethicone, Cetrimonium Chloride, Trideceth-12, Panthenol, Propylene Glycol, Sodium Benzoate, Benzyl Alcohol, Methylchloroisothiazolinone, Methylisothiazolinone",
+   "inci_statut": "trouve",
    "fabricant_nom": "Kallos Cosmetics Kft.",
    "fabricant_adresse": {
     "rue": "Soroksári út",
@@ -1647,7 +1659,9 @@
     "pays": "Hongrie"
    },
    "fabricant_email": "info@kallos.com",
-   "fabricant_source": "4004 09/11 : https://kallos.com/pages/contactus ; confirmé par https://agora.mfa.gr/component/agora/company/6279"
+   "fabricant_source": "4004 09/11 : https://kallos.com/pages/contactus ; confirmé par https://agora.mfa.gr/component/agora/company/6279",
+   "inci_source": "https://incidecoder.com/products/kallos-kjmn-hair-pro-tox-shampoo-with-keratin-collagen-hyaluronic-acid",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Kallos KJMN Hair Pro-Tox Shampoo With Keratin, Collagen & Hyaluronic Acid » publiée le 2022-08-16 ; EAN non affiché par la source. Même liste pour les formats 500 ml et 1000 ml."
   },
   {
    "ean": "3607348064441",
@@ -1780,8 +1794,8 @@
   {
    "ean": "4015600136581",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua/Water/Eau, Sodium Laureth Sulfate, Sodium Lauryl Sulfate, Glycol Distearate, Cocamide MEA, Cocamidopropyl Betaine, Sodium Benzoate, Parfum/Fragrance, Dimethicone, Guar Hydroxypropyltrimonium Chloride, Sodium Chloride, Salicylic Acid, Citric Acid, Tetrasodium EDTA, Glycerin, Methylparaben, Propylene Glycol, Linalool, Hexyl Cinnamal, Tetramethyl Acetyloctahydronaphthalenes, Citronellol, Linalyl Acetate, Hydrochloric Acid, Citrus Aurantium Peel Oil, Limonene, Mangifera Indica (Mango) Fruit Extract, Mel/Honey/Miel, Magnesium Nitrate, Lactic Acid, Potassium Sorbate, Methylchloroisothiazolinone, Magnesium Chloride, Sodium Citrate, Methylisothiazolinone, Sodium Xylenesulfonate",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -1791,7 +1805,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://en.parfumdreams.de/Londa-Professional/Hair-care/Deep-Moisture/Shampoo/index_67326.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Deep Moisture Shampoo 250 ml, EAN affiché 8005610605159 : nouveau code du même 250 ml)."
   },
   {
    "ean": "4015600136406",
@@ -1876,8 +1892,8 @@
   {
    "ean": "4015600136673",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Sodium Laureth Sulfate, Sodium Lauryl Sulfate, Sodium Chloride, Sodium Xylenesulfonate, Cocamidopropyl Betaine, Sodium Citrate, Sodium Benzoate, Citric Acid, Parfum, Salicylic Acid, Tetrasodium EDTA, Methylparaben, Hydroxypropyl Methylcellulose, Alpha-Isomethyl Ionone, Propylene Glycol, Hexyl Cinnamal, Cymbopogon Citratus Extract, Cereus Grandiflorus Flower Extract, Bambusa Vulgaris Leaf/Stem Extract, Phenoxyethanol, Potassium Sorbate, Propylparaben, Ethylparaben, Butylparaben",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -1887,7 +1903,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://incidecoder.com/products/londa-professional-impressive-volume",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Londa Professional Impressive Volume » publiée le 2023-09-22 ; EAN non affiché par la source."
   },
   {
    "ean": "8595567812477",
@@ -1908,8 +1926,8 @@
   {
    "ean": "8028544101757",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "ALCOHOL DENAT. (SD ALCOHOL 39-B), PARFUM (FRAGRANCE), AQUA (WATER), ALPHA-ISOMETHYL IONONE, ANISE ALCOHOL, BENZYL ALCOHOL, BENZYL BENZOATE, BENZYL SALICYLATE, CITRAL, CITRONELLOL, COUMARIN, LIMONENE, EUGENOL, FARNESOL, GERANIOL, HYDROXYCITRONELLAL, ISOEUGENOL, LINALOOL, EVERNIA PRUNASTRI (EXTRACT)",
+   "inci_statut": "trouve",
    "fabricant_nom": "Lorenzo Villoresi (P.IVA 05276890489)",
    "fabricant_adresse": {
     "rue": "Via de' Bardi",
@@ -1919,7 +1937,9 @@
     "pays": "Italie"
    },
    "fabricant_email": "info@lorenzovilloresi.it",
-   "fabricant_source": "4004 09/11 : https://www.lorenzovilloresi.it/us_en/privacy-policy/ ; https://www.lorenzovilloresi.it/us_en/contact/"
+   "fabricant_source": "4004 09/11 : https://www.lorenzovilloresi.it/us_en/privacy-policy/ ; https://www.lorenzovilloresi.it/us_en/contact/",
+   "inci_source": "https://lorenzovilloresi.it/eu_en/alamut-p103-27",
+   "remarque": "INCI 09/11 : Site officiel Lorenzo Villoresi (Alamut EDT). Séparateurs « | » remplacés par des virgules ; avertissement retiré."
   },
   {
    "ean": "4052136005202",
@@ -1940,8 +1960,8 @@
   {
    "ean": "4015600082611",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Cetyl Alcohol, Stearamidopropyl Dimethylamine, Glycerin, Stearyl Alcohol, Quaternium-18, Panthenol, Parfum, Benzyl Alcohol, Cetearyl Alcohol, Phenoxyethanol, Hydroxypropyl Guar, Aminopropyl Dimethicone, Glyceryl Stearate, Oleyl Alcohol, Methylparaben, Propylparaben, Polysorbate 60, EDTA, Citric Acid, Limonene, Hexylene Glycol, Benzyl Salicylate, Linalool, Benzyl Benzoate, Hexyl Cinnamal, Fructose, Glucose, Dextrin, Sucrose, Urea, Ci 15510, Alanine, Aspartic Acid, Glutamic Acid, Hexyl Nicotinate, Ci 47005",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -1951,7 +1971,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://incidecoder.com/products/wella-professionals-sp-hydrate-conditioner",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Wella Professionals Sp Hydrate Conditioner » publiée le 2023-06-12 ; EAN non affiché par la source."
   },
   {
    "ean": "4056800066841",
@@ -1972,8 +1994,8 @@
   {
    "ean": "3770000002010",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Alcohol Denat., Parfum/Fragrance, Aqua/Water/Eau, Tetramethyl Acetyloctahydronaphthalenes, Ethylhexyl Methoxycinnamate, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, BHT, Linalyl Acetate, Citronellol, Pogostemon Cablin Oil, Acetyl Cedrene, Hydroxycitronellal, Linalool, Geraniol, Citrus Aurantium Bergamia (Bergamot) Peel Oil, Alpha-Isomethyl Ionone, Geranyl Acetate, Limonene, Citrus Limon (Lemon) Peel Oil, Rose Flower Oil/Extract, Beta-Caryophyllene, Pinene, Lavandula Oil/Extract, Farnesol, Rose ketones, Vanillin, Pelargonium Graveolens Flower Oil, Citral, Eugenol, Dimethyl Phenethyl Acetate, Camphor, Citrus Aurantium Peel Oil, Terpinolene",
+   "inci_statut": "trouve",
    "fabricant_nom": "JULIETTE HAS A GUN (SAS)",
    "fabricant_adresse": {
     "rue": "rue de Richelieu",
@@ -1983,7 +2005,9 @@
     "pays": "France"
    },
    "fabricant_email": "hey@juliettehasagun.com",
-   "fabricant_source": "4004 09/11 : https://www.juliettehasagun.com/policies/terms-of-sale ; https://www.juliettehasagun.com/pages/nous-contacter"
+   "fabricant_source": "4004 09/11 : https://www.juliettehasagun.com/policies/terms-of-sale ; https://www.juliettehasagun.com/pages/nous-contacter",
+   "inci_source": "https://www.juliettehasagun.com/products/lady-vengeance-parfum",
+   "remarque": "INCI 09/11 : Site officiel Juliette Has A Gun (Lady Vengeance EDP 100/50/7,5 ml)."
   },
   {
    "ean": "3607341044624",
@@ -2164,8 +2188,8 @@
   {
    "ean": "4084500641563",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Alcohol Denat., Butane, Propane, Isobutane, Tapioca Starch, Aqua, Silica, Polymethylsilsesquioxane, Parfum, Linalool, Hexyl Cinnamal, Geraniol, Limonene, Citronellol, Alpha-Isomethyl Ionone",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -2175,7 +2199,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://lyko.com/en/wella-professionals/wella-professionals-eimi-dry-me-180ml",
+   "remarque": "INCI 09/11 : Lyko (fiche trouvée par recherche EAN, EAN non affiché sur la page : vérifier). Avertissement final retiré."
   },
   {
    "ean": "4084500587595",
@@ -2468,8 +2494,8 @@
   {
    "ean": "4084500584648",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Alcohol Denat, Propane, Butane, Polyquaternium-11, Isobutane, Phenoxyethanol, Panthenol, Laureth-4, Parfum, Methylparaben, Cetrimonium Chloride, Caprylyl Glycol, Isopropyl Alcohol, Linalool, Hexyl Cinnamal, Geraniol, Citric Acid, Limonene, Citronellol, Alpha-Isomethyl Ionone",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -2479,7 +2505,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://incidecoder.com/products/wella-professionals-care-eimi-extra-volume-strong-hold-mousse",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Wella Professionals Care EIMI Extra-Volume Strong Hold Mousse » publiée le 2021-06-24 ; EAN non affiché par la source."
   },
   {
    "ean": "4084500584709",
@@ -2516,8 +2544,8 @@
   {
    "ean": "4015400978466",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Stearyl Alcohol, Behentrimonium Chloride, Cetyl Alcohol, Bis-Aminopropyl Dimethicone, Panthenol, Isopropyl Alcohol, Phenoxyethanol, Benzyl Alcohol, Parfum, PEG-2M, Methylparaben, Tocopheryl Acetate, Propylparaben, Disodium EDTA, Hexyl Cinnamal, Benzyl Salicylate, Limonene, Silica, Citric Acid, Argania Spinosa Kernel Oil, CI 19140, BHT, CI 17200",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -2527,7 +2555,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://parfumdreams.ie/Londa-Professional/Hair-care/Velvet-Oil/Treatment/index_67387.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Velvet Oil Treatment 750 ml, EAN affiché 8005610563541 : nouveau code du même produit)."
   },
   {
    "ean": "4015400978527",
@@ -2580,8 +2610,8 @@
   {
    "ean": "4084500782327",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Cetyl Alcohol, Stearamidopropyl Dimethylamine, Stearyl Alcohol, Quaternium-18, Bis-Aminopropyl Dimethicone, Phenoxyethanol, Benzyl Alcohol, Cetearyl Alcohol, Hydroxypropyl Guar, Parfum, Oleyl Alcohol, Glyceryl Stearate, Methylparaben, Propylparaben, Polysorbate 60, EDTA, Citric Acid, Propylene Glycol, Linalool, Hexyl Cinnamal, Citronellol, Mangifera Indica Fruit Extract, Mel, Ethylparaben, Butylparaben",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -2591,7 +2621,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://incidecoder.com/products/londa-professional-deep-moisture-conditioner",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Londa Professional Deep Moisture Conditioner » publiée le 2023-12-07 ; EAN non affiché par la source."
   },
   {
    "ean": "4084500779174",
@@ -2612,8 +2644,8 @@
   {
    "ean": "4084500781771",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua/Water/Eau, Sodium Lauryl Sulfate, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Glycol Distearate, Cocamide MEA, Phenoxyethanol, Sodium Chloride, Sodium Benzoate, Parfum/Fragrance, Citric Acid, Trisodium Ethylenediamine Disuccinate, Glycerin, Guar Hydroxypropyltrimonium Chloride, Linalool, Citrus Aurantium Peel Oil, Limonene, Linalyl Acetate, Citronellol, Hydrochloric Acid, Geraniol, Magnesium Nitrate, Methylchloroisothiazolinone, Magnesium Chloride, Sodium Citrate, Methylisothiazolinone, Sodium Xylenesulfonate",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -2623,7 +2655,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://www.parfumdreams.ie/Londa-Professional/Hair-care/Specialist/Intensive-Cleanser-Shampoo/index_67373.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Specialist Intensive Cleanser Shampoo 1000 ml, EAN affiché 8005610605357 : nouveau code du même produit)."
   },
   {
    "ean": "4084500781634",
@@ -2740,8 +2774,8 @@
   {
    "ean": "4084500932340",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, VP/VA Copolymer, Acrylates/Ceteth-20 Itaconate Copolymer, Propylene Glycol, Aminomethyl Propanol, Benzyl Alcohol, PEG-40 Hydrogenated Castor Oil, Methylparaben, Parfum, Disodium EDTA, Sodium Lauryl Sulfate, Benzyl Salicylate, Hexyl Cinnamal, Linalool, Citronellol, Limonene, CI 60730, CI 42090, CI 19140",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -2751,7 +2785,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://www.parfumdreams.ie/Londa-Professional/Styling/Men/Solidify-It/index_67371.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Men Solidify It 100 ml, EAN affiché 8005610606941 : nouveau code) ; liste identique sur glamot.com."
   },
   {
    "ean": "4015600983406",
@@ -2820,8 +2856,8 @@
   {
    "ean": "7702018065363",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Palmitic Acid, Triethanolamine, Isopentane, Glyceryl Oleate, Stearic Acid, Isobutane, Sorbitol, Hydroxyethylcellulose, PEG-90M, PEG-23M, Myristic Acid, BHT, Lavandula Angustifolia Oil, Lauric Acid, Eucalyptus Globulus Leaf Oil, Silica",
+   "inci_statut": "trouve",
    "fabricant_nom": "Procter & Gamble Distribution Company (Europe) BV",
    "fabricant_adresse": {
     "rue": "Temselaan",
@@ -2831,13 +2867,15 @@
     "pays": "Belgique"
    },
    "fabricant_email": "pgprivacyofficer.im@pg.com",
-   "fabricant_source": "4004 09/11 : https://privacypolicy.pg.com/nl-BE/ (tableau des responsables de traitement par pays, ligne België)"
+   "fabricant_source": "4004 09/11 : https://privacypolicy.pg.com/nl-BE/ (tableau des responsables de traitement par pays, ligne België)",
+   "inci_source": "https://incidecoder.com/products/gillette-satin-care-lavender-touch",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Gillette Satin Care Lavender Touch » publiée le 2022-01-07 ; EAN non affiché par la source."
   },
   {
    "ean": "5998889503567",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Alcohol, VP/VA Copolymer, Sodium Laneth-40 Maleate/Styrene Sulfonate Copolymer, Propylene Glycol, PEG-40 Hydrogenated Castor Oil, PPG-26-Buteth-26, Parfum, 2-Bromo-2-Nitropropane-1, 3-Diol",
+   "inci_statut": "trouve",
    "fabricant_nom": "Kallos Cosmetics Kft.",
    "fabricant_adresse": {
     "rue": "Soroksári út",
@@ -2847,7 +2885,9 @@
     "pays": "Hongrie"
    },
    "fabricant_email": "info@kallos.com",
-   "fabricant_source": "4004 09/11 : https://kallos.com/pages/contactus ; confirmé par https://agora.mfa.gr/component/agora/company/6279"
+   "fabricant_source": "4004 09/11 : https://kallos.com/pages/contactus ; confirmé par https://agora.mfa.gr/component/agora/company/6279",
+   "inci_source": "https://incidecoder.com/products/kallos-kjmn-flat-iron-spray",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Kallos KJMN Flat Iron Spray » publiée le 2022-08-16 ; EAN non affiché par la source."
   },
   {
    "ean": "5998889515362",
@@ -2868,8 +2908,8 @@
   {
    "ean": "3380810111200",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Corylus Avellana (Hazel) Seed Oil, Santalum Album (Sandalwood) Oil, Elettaria Cardamomum Seed Oil, Carum Petroselinum (Parsley) Seed Oil, Lavandula Angustifolia (Lavender) Oil, Linalool, Limonene, Parfum/Fragrance, Geraniol, Alpha-Isomethyl Ionone, Citral, Farnesol",
+   "inci_statut": "trouve",
    "fabricant_nom": "Clarins SAS",
    "fabricant_adresse": {
     "rue": "rue du Commandant Pilot",
@@ -2879,7 +2919,9 @@
     "pays": "France"
    },
    "fabricant_email": null,
-   "fabricant_source": "4004 09/11 : https://www.clarins.fr/legal_notices.html (section 3 « Entité responsable de la mise sur le marché ») ; contact : https://www.clarins.fr/service-client"
+   "fabricant_source": "4004 09/11 : https://www.clarins.fr/legal_notices.html (section 3 « Entité responsable de la mise sur le marché ») ; contact : https://www.clarins.fr/service-client",
+   "inci_source": "https://incidecoder.com/products/clarins-santal-treatment-oil",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Clarins Santal Treatment Oil » publiée le 2026-03-28 ; EAN non affiché par la source."
   },
   {
    "ean": "3380810112207",
@@ -2948,8 +2990,8 @@
   {
    "ean": "3430750000666",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Alcohol Denat., Aqua (Water), Parfum (Fragrance), Tetramethyl Acetyloctahydronaphthalenes, Hexamethylindanopyran, Hydroxycitronellal, Ethylhexyl Methoxycinnamate, Dimethyl Phenethyl Acetate, Trimethylbenzenepropanol, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Linalyl Acetate, Pelargonium Graveolens Flower Oil, Hexyl Cinnamal, Hexadecanolactone, Benzyl Salicylate, Alpha-Isomethyl Ionone, Rose Ketones, Geraniol, Linalool, CI 14700 (Red 4), CI 17200 (Red 33)",
+   "inci_statut": "trouve",
    "fabricant_nom": "Groupe Arthes S.A.",
    "fabricant_adresse": {
     "rue": "Parc Industriel des Bois de Grasse, BP 91006",
@@ -2959,13 +3001,15 @@
     "pays": "France"
    },
    "fabricant_email": "contact@groupe-arthes.com",
-   "fabricant_source": "4004 09/11 : https://www.jeanne-arthes.com/pages/mentions-legales"
+   "fabricant_source": "4004 09/11 : https://www.jeanne-arthes.com/pages/mentions-legales",
+   "inci_source": "https://www.jeanne-arthes.com/products/cassandra",
+   "remarque": "INCI 09/11 : Site officiel Jeanne Arthes (Cassandra EDT). Mention de conformité au règlement 2023/1545 retirée."
   },
   {
    "ean": "5998889503581",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Cetearyl Alcohol, Propylene Glycol, Cetrimonium Chloride, Parfum, Hydrogenated Polyisobutene, Panthenol, Cyclopentasiloxane, Dimethiconol, Citric Acid, Hydrolyzed Milk Protein, Benzyl Alcohol, Methylchloroisothiazolinone, Methylisothiazolinone",
+   "inci_statut": "trouve",
    "fabricant_nom": "Kallos Cosmetics Kft.",
    "fabricant_adresse": {
     "rue": "Soroksári út",
@@ -2975,13 +3019,15 @@
     "pays": "Hongrie"
    },
    "fabricant_email": "info@kallos.com",
-   "fabricant_source": "4004 09/11 : https://kallos.com/pages/contactus ; confirmé par https://agora.mfa.gr/component/agora/company/6279"
+   "fabricant_source": "4004 09/11 : https://kallos.com/pages/contactus ; confirmé par https://agora.mfa.gr/component/agora/company/6279",
+   "inci_source": "https://incidecoder.com/products/kallos-kjmn-nourishing-hair-conditioner",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Kallos KJMN Nourishing Hair Conditioner » publiée le 2022-08-17 ; EAN non affiché par la source. Contient du Cyclopentasiloxane (D5) en fin de liste : restreint dans l'UE (≥ 0,1 %) ; vérifier la formule actuelle."
   },
   {
    "ean": "5998889515072",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Sodium Laureth Sulfate, Maris Sal, Glycerin, Cocamidopropyl Betaine, Cocamide DEA, Parfum, Polyquaternium-7, Coco-Glucoside, PEG-40 Hydrogenated Castor Oil, PEG-7 Glyceryl Cocoate, PEG/Ppg-120/10 Trimethylolpropane Trioleate, Helianthus Annuus Seed Oil, Cocos Nucifera Oil, Linum Usitatissimum Seed Oil, Persea Gratissima Oil, Argania Spinosa Kernel Oil, Macadamia Ternifolia Seed Oil, Olea Europaea Oil, Rosmarinus Officinalis Leaf Extract, Panthenol, Glycol Distearate, Glyceryl Oleate, Glyceryl Stearate, Propylene Glycol, Propanediol, Lycium Barbarum Fruit Extract, Fragaria Ananassa Fruit Extract, Rubus Idaeus Fruit Extract, Rubus Fruticosus Fruit Extract, Niacinamide, Calcium Pantothenate, Sodium Ascorbyl Phosphate, Tocopheryl Acetate, Pyridoxine Hydrochloride, Maltodextrin, Sodium Starch Octenylsuccinate, Citric Acid, Benzyl Alcohol, Methylchloroisothiazolinone, Methylisothiazolinone",
+   "inci_statut": "trouve",
    "fabricant_nom": "Kallos Cosmetics Kft.",
    "fabricant_adresse": {
     "rue": "Soroksári út",
@@ -2991,7 +3037,9 @@
     "pays": "Hongrie"
    },
    "fabricant_email": "info@kallos.com",
-   "fabricant_source": "4004 09/11 : https://kallos.com/pages/contactus ; confirmé par https://agora.mfa.gr/component/agora/company/6279"
+   "fabricant_source": "4004 09/11 : https://kallos.com/pages/contactus ; confirmé par https://agora.mfa.gr/component/agora/company/6279",
+   "inci_source": "https://incidecoder.com/products/kallos-botaniq-superfruits-shampoo",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Kallos Botaniq Superfruits Shampoo » publiée le 2022-08-23 ; EAN non affiché par la source."
   },
   {
    "ean": "4045787429732",
@@ -3076,8 +3124,8 @@
   {
    "ean": "4008666390066",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Urea, Pentylene Glycol, Cetyl Alcohol, Glyceryl Stearate SE, Octyldodecanol, Stearic Acid, Palmitic Acid, Glycerin, Cetearyl Ethylhexanoate, Isopropyl Myristate, Tocopheryl Acetate, Panthenol, Dimethicone, Tromethamine, Allantoin, Hydrolyzed Keratin, Disodium EDTA, Ubiquinone, Phenoxyethanol, Methylparaben, Ethylparaben, Propylparaben, Sorbic Acid, Parfum, Limonene, Geraniol, Coumarin",
+   "inci_statut": "trouve",
    "fabricant_nom": "Dr. Kurt Wolff GmbH & Co. KG",
    "fabricant_adresse": {
     "rue": "Johanneswerkstraße",
@@ -3087,7 +3135,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "kw-info@drwolffgroup.com",
-   "fabricant_source": "4004 09/11 : https://www.alcina.com/de-de/impressum"
+   "fabricant_source": "4004 09/11 : https://www.alcina.com/de-de/impressum",
+   "inci_source": "https://incidecoder.com/products/alcina-cashmere-handbalm",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Alcina Cashmere Handbalm » publiée le 2024-01-01 ; EAN non affiché par la source. Nom source « Handbalm » (baume mains) ; vérifier qu'il s'agit bien de notre crème mains Cashmere 50 ml."
   },
   {
    "ean": "4008666342751",
@@ -3556,8 +3606,8 @@
   {
    "ean": "5011321336094",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Sodium Laureth Sulfate, Sodium Xylenesulfonate, Cocamidopropyl Betaine, Sodium Citrate, Parfum, Citric Acid, Cocamide MEA, Glycol Distearate, Piroctone Olamine, Dimethiconol, Menthol, Sodium Chloride, Guar Hydroxypropyltrimonium Chloride, Dimethicone, Sodium Benzoate, Tea-Dodecylbenzenesulfonate, Sodium Salicylate, Tetrasodium EDTA, Sodium Hydroxide, Trideceth-10, Glycerin, Hexyl Cinnamal, Linalool, Niacinamide, Panthenol, Tocopheryl Acetate, Acetic Acid, Benzyl Alcohol, Triethylene Glycol, Propylene Glycol, Ci 42090, Ci 17200",
+   "inci_statut": "trouve",
    "fabricant_nom": "Procter & Gamble Distribution Company (Europe) BV",
    "fabricant_adresse": {
     "rue": "Temselaan",
@@ -3567,7 +3617,9 @@
     "pays": "Belgique"
    },
    "fabricant_email": "pgprivacyofficer.im@pg.com",
-   "fabricant_source": "4004 09/11 : https://privacypolicy.pg.com/nl-BE/ (tableau des responsables de traitement par pays, ligne België)"
+   "fabricant_source": "4004 09/11 : https://privacypolicy.pg.com/nl-BE/ (tableau des responsables de traitement par pays, ligne België)",
+   "inci_source": "https://incidecoder.com/products/head-shoulders-menthol-fresh",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Head & Shoulders Menthol Fresh » publiée le 2025-04-01 ; EAN non affiché par la source."
   },
   {
    "ean": "5011321336049",
@@ -3620,8 +3672,8 @@
   {
    "ean": "4008666114884",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Sodium Chloride, Sodium Lauroyl Glutamate, Panthenol, Silicone Quaternium-22, Citric Acid, PEG-200 Hydrogenated Glyceryl Palmate, Coco-Glucoside, Glyceryl Oleate, Dipropylene Glycol, Polyglyceryl-3 Caprate, Polyquaternium-7, Propylene Glycol, PEG-7 Glyceryl Cocoate, Polyquaternium-10, Glycerin, Sodium Hyaluronate, Palmitamidopropyltrimonium Chloride, Ethylhexylglycerin, Opuntia Ficus-Indica Stem Extract, Sodium Benzoate, Potassium Sorbate, Phenoxyethanol, Parfum, Alpha-Isomethyl Ionone, Geraniol, Citronellol",
+   "inci_statut": "trouve",
    "fabricant_nom": "Dr. Kurt Wolff GmbH & Co. KG",
    "fabricant_adresse": {
     "rue": "Johanneswerkstraße",
@@ -3631,7 +3683,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "kw-info@drwolffgroup.com",
-   "fabricant_source": "4004 09/11 : https://www.alcina.com/de-de/impressum"
+   "fabricant_source": "4004 09/11 : https://www.alcina.com/de-de/impressum",
+   "inci_source": "https://incidecoder.com/products/alcina-hyaluron-2-0-shampoo",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Alcina Hyaluron 2.0 Shampoo » publiée le 2023-11-14 ; EAN non affiché par la source."
   },
   {
    "ean": "0729238160453",
@@ -3668,8 +3722,8 @@
   {
    "ean": "3504105035426",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua/Water/Eau, Glycerin, Sodium Benzoate, PEG-40 Hydrogenated Castor Oil, 1, 2-Hexanediol, Allantoin, Caprylyl Glycol, Parfum (Fragrance), Tartaric Acid, Sodium Hydroxide, Aloe Barbadensis Leaf Juice Powder, Persea Gratissima (Avocado) Fruit Extract, Propylene Glycol, Saponaria Officinalis Leaf/Root Extract",
+   "inci_statut": "trouve",
    "fabricant_nom": "Laboratoires Expanscience SAS",
    "fabricant_adresse": {
     "rue": "Place des Saisons",
@@ -3679,7 +3733,9 @@
     "pays": "France"
    },
    "fabricant_email": "consomustela@expanscience.com",
-   "fabricant_source": "4004 09/11 : https://www.mustela.fr/pages/conditions-generales-de-vente"
+   "fabricant_source": "4004 09/11 : https://www.mustela.fr/pages/conditions-generales-de-vente",
+   "inci_source": "https://incidecoder.com/products/mustela-no-rinse-cleansing-water-or-physiobebe",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Mustela No-Rinse Cleansing Water (Or Physiobébé) » publiée le 2020-06-02 ; EAN non affiché par la source. Fiche ancienne (2020) : à confronter à l'emballage."
   },
   {
    "ean": "8022297064932",
@@ -3700,8 +3756,8 @@
   {
    "ean": "3380810288094",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua/Water/Eau, Diisopropyl Sebacate, Glyceryl Stearate Se, Glycerin, Isononyl Isononanoate, Butylene Glycol, Dimethicone, C12-15 Alkyl Benzoate, Parfum/Fragrance, Sesamum Indicum (Sesame) Seed Oil, Cetyl Alcohol, Stearyl Alcohol, Talc, Propylene Glycol, Xylitylglucoside, Caprylyl Glycol, Potassium Cetyl Phosphate, Anhydroxylitol, Carbomer, Ethylhexylglycerin, Xylitol, Disodium Edta, Sodium Hydroxide, Gymnema Sylvestre Leaf Extract, Glucose, Kalanchoe Pinnata Leaf Extract, Marrubium Vulgare Extract, Sempervivum Tectorum Extract, Citric Acid, Hierochloe Odorata Extract, Phenethyl Alcohol, Furcellaria Lumbricalis Extract, Sodium Benzoate, Potassium Sorbate, Lapsana Communis Flower/Leaf/Stem Extract, Maris Sal/Sea Salt/Sel Marin, Ci 42090/Blue 1",
+   "inci_statut": "trouve",
    "fabricant_nom": "Clarins SAS",
    "fabricant_adresse": {
     "rue": "rue du Commandant Pilot",
@@ -3711,13 +3767,15 @@
     "pays": "France"
    },
    "fabricant_email": null,
-   "fabricant_source": "4004 09/11 : https://www.clarins.fr/legal_notices.html (section 3 « Entité responsable de la mise sur le marché ») ; contact : https://www.clarins.fr/service-client"
+   "fabricant_source": "4004 09/11 : https://www.clarins.fr/legal_notices.html (section 3 « Entité responsable de la mise sur le marché ») ; contact : https://www.clarins.fr/service-client",
+   "inci_source": "https://lyko.com/en/clarins/clarins-men-men-face-care-men-super-moisture-balm-50ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Points séparateurs remplacés par des virgules ; code lot [V3229B] et avertissement retirés. (L'ancienne liste Escentual contenait du Lilial ; celle-ci non.)"
   },
   {
    "ean": "4770001334591",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua, Glycerin, Hydrated Silica, Calcium Hydroxyapatite, Xanthan Gum, Vaccinium Myrtillus (Blueberry) Extract, Rubus Idaeus (Raspberry) Extract, Cellulose Gum, Aroma, Sodium Cocoyl Glutamate, Sodium Fluoride, Sodium Saccharin, CI 16255",
+   "inci_statut": "trouve",
    "fabricant_nom": "UAB „BIOK laboratorija“",
    "fabricant_adresse": {
     "rue": "Ukmergės g.",
@@ -3727,7 +3785,9 @@
     "pays": "Lituanie"
    },
    "fabricant_email": "biok@bioklab.com",
-   "fabricant_source": "4004 09/11 : https://ecodenta.lt/en/contacts/"
+   "fabricant_source": "4004 09/11 : https://ecodenta.lt/en/contacts/",
+   "inci_source": "https://lyko.com/en/ecodenta/ecodenta-raspberry-flavoured-toothpaste-for-kids-75ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Astérisques (origine naturelle), mention de teneur « (498 ppm F ?) » et note finale retirés."
   },
   {
    "ean": "8005610289298",
@@ -3780,8 +3840,8 @@
   {
    "ean": "4064666244648",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Aqua/Water/Eau, Stearyl Alcohol, Bis-Aminopropyl Dimethicone, Behentrimonium Chloride, Cetyl Alcohol, Parfum/Fragrance, Panthenol, Isopropyl Alcohol, Benzyl Alcohol, Phenoxyethanol, Methylparaben, Limonene, Citrus Aurantium Peel Oil, Propylparaben, Disodium EDTA, Linalool, Citronellol, Citrus Limon Peel Oil, Hexamethylindanopyran, Menthol, Tetramethyl Acetyloctahydronaphthalenes, Pinene, Citric Acid, Alanine, Glycine, Hydrolyzed Keratin, Sorbic Acid",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -3791,13 +3851,15 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://www.parfumdreams.ie/Londa-Professional/Hair-care/Fiber/Reconstructive-Treatment/index_89153.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams, EAN identique (Fiber Reconstructive Treatment 200 ml)."
   },
   {
    "ean": "8005610415932",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Water/Eau, Bis-Aminopropyl Dimethicone, Stearyl Alcohol, Behentrimonium Chloride, Cetyl Alcohol, Fragrance/Parfum, Isopropyl Alcohol, Phenoxyethanol, Benzyl Alcohol, Methylparaben, Propylparaben, Disodium EDTA, Hexyl Cinnamal, Linalool, Benzyl Salicylate, Limonene, Histidine, Glycine, Citric Acid, Alanine, Alpha-Isomethyl Ionone, Silk Amino Acids",
+   "inci_statut": "trouve",
    "fabricant_nom": "Wella Germany GmbH",
    "fabricant_adresse": {
     "rue": "Berliner Allee",
@@ -3807,7 +3869,9 @@
     "pays": "Allemagne"
    },
    "fabricant_email": "wella@wella.com",
-   "fabricant_source": "4004 09/11 : https://www.wella.com/professional/de-DE/impressum"
+   "fabricant_source": "4004 09/11 : https://www.wella.com/professional/de-DE/impressum",
+   "inci_source": "https://incidecoder.com/products/wella-professionals-fusion-intense-repair-mask-2",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Wella Professionals Fusion Intense Repair Mask » publiée le 2021-11-12 ; EAN non affiché par la source. Fiche « Fusion Intense Repair Mask »."
   },
   {
    "ean": "8005610416007",
@@ -3892,8 +3956,8 @@
   {
    "ean": "7805562222906",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Water\\Aqua\\Eau, Glycereth-26, Bis-PEG-18 Methyl Ether Dimethyl Silane, Polysorbate 20, Sucrose, Nymphaea Alba (Water Lily) Flower Extract, Sodium Hyaluronate, Trehalose, Dipotassium Glycyrrhizate, Caffeine, Glutamic Acid, Aspartic Acid, Serine, Leucine, Alanine, Lysine, Arginine, Tyrosine, Phenylalanine, Proline, Threonine, Valine, Isoleucine, Histidine, Glycine, Squalane, Passiflora Incarnata Flower Extract, Leontopodium Alpinum Extract, Lythrum Salicaria Extract, Hordeum Vulgare Extract\\Extrait D'Orge, Triticum Vulgare (Wheat) Germ Extract, Tocopherol, Sodium PCA, Linoleic Acid, Glycerin, Butylene Glycol, Urea, Sodium Palmitoyl Proline, Cholesterol, Sodium Levulinate, Dipropylene Glycol, Citric Acid, Polyvinyl Acetate, Triacetin, BHT, Sodium Citrate, Sodium Benzoate, Potassium Sorbate, Chlorphenesin, Sorbic Acid, Disodium EDTA, Polyquaternium-51, Tromethamine, Carbomer, Fragrance (Parfum), Phenoxyethanol, Ethylhexylglycerin",
+   "inci_statut": "trouve",
    "fabricant_nom": "Whitman LBS NV (The Estée Lauder Companies)",
    "fabricant_adresse": {
     "rue": "Nijverheidstraat",
@@ -3903,7 +3967,9 @@
     "pays": "Belgique"
    },
    "fabricant_email": "contactmanufacturer@elcompanies.com",
-   "fabricant_source": "4004 09/11 : https://www.cremedelamer.co.uk/contact-manufacturer"
+   "fabricant_source": "4004 09/11 : https://www.cremedelamer.co.uk/contact-manufacturer",
+   "inci_source": "https://incidecoder.com/products/estee-lauder-soft-clean-infusion-hydrating-essence-treatment-lotion",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Estée Lauder Soft Clean Infusion Hydrating Essence Treatment Lotion » publiée le 2022-08-22 ; EAN non affiché par la source."
   },
   {
    "ean": "3616301641186",
@@ -3956,8 +4022,8 @@
   {
    "ean": "8002140032707",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "AQUA, PROPYLENE GLYCOL, POLYSORBATE 20, PEG-40 HYDROGENATED CASTOR OIL, SODIUM BENZOATE, AROMA, LACTIC ACID, SODIUM LACTATE, SODIUM BICARBONATE, SODIUM FLUORIDE, 2-BROMO-2-NITROPROPANE-1, 3-DIOL, ZINC CITRATE, SODIUM SACCHARIN, EUGENOL, ZINC COCO-SULFATE, CENTELLA ASIATICA EXTRACT, LIMONENE, GERANIOL, CI 42051, CI 47005",
+   "inci_statut": "trouve",
    "fabricant_nom": "Farmaceutici Dott. Ciccarelli S.p.A.",
    "fabricant_adresse": {
     "rue": "Via Clemente Prudenzio",
@@ -3967,7 +4033,9 @@
     "pays": "Italie"
    },
    "fabricant_email": "info@ciccarelli.it",
-   "fabricant_source": "4004 09/11 : https://pastadelcapitano.it/en/contacts"
+   "fabricant_source": "4004 09/11 : https://pastadelcapitano.it/en/contacts",
+   "inci_source": "https://www.rohlik.cz/en-CZ/1466113-pasta-del-capitano-plaque-remover-mouthwash",
+   "remarque": "INCI 09/11 : Rohlik.cz (supermarché en ligne). Astérisque et note « contiene menta da agricoltura biologica » retirés."
   },
   {
    "ean": "5000386018366",
@@ -4308,8 +4376,8 @@
   {
    "ean": "0783320952074",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Limonene, Linalool, Citronellol, Pentaerythrityl Tetra-Di-T-Butyl Hydroxyhydrocinnamate, Citral, Ci 60730 (Ext. Violet 2)",
+   "inci_statut": "trouve",
    "fabricant_nom": "Bvlgari Italia S.p.A.",
    "fabricant_adresse": {
     "rue": "Via dei Condotti",
@@ -4319,7 +4387,9 @@
     "pays": "Italie"
    },
    "fabricant_email": "it.cs@bulgari.com",
-   "fabricant_source": "gpsr.json / bol_operateurs.json"
+   "fabricant_source": "gpsr.json / bol_operateurs.json",
+   "inci_source": "https://escentual.com/products/bvlgari-omnia-amethyste-eau-de-toilette-spray",
+   "remarque": "INCI 09/11 : Escentual (Omnia Amethyste EDT), EAN non affiché."
   },
   {
    "ean": "3349668022304",
@@ -4420,8 +4490,8 @@
   {
    "ean": "3346131403042",
    "titre": "",
-   "inci": null,
-   "inci_statut": null,
+   "inci": "ALCOHOL, PARFUM (FRAGRANCE), AQUA/WATER/EAU, TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES, JUNIPERUS VIRGINIANA OIL, CITRUS AURANTIUM BERGAMIA PEEL OIL, LIMONENE, LINALYL ACETATE, POGOSTEMON CABLIN OIL, HYDROXYCITRONELLAL, ETHYLHEXYL METHOXYCINNAMATE, CITRONELLOL, HEXYL CINNAMAL, PINENE, CITRUS AURANTIUM PEEL OIL, CEDRUS ATLANTICA OIL/EXTRACT, LINALOOL, ETHYLHEXYL SALICYLATE, BHT, BETA-CARYOPHYLLENE, BUTYL METHOXYDIBENZOYLMETHANE, EVERNIA PRUNASTRI (OAKMOSS) EXTRACT, PELARGONIUM GRAVEOLENS FLOWER OIL, GERANIOL, TERPINOLENE, TERPINEOL, CITRAL, GERANYL ACETATE, FARNESOL, VANILLIN, ALPHA-TERPINENE, BENZYL BENZOATE",
+   "inci_statut": "trouve",
    "fabricant_nom": "Hermès Parfums",
    "fabricant_adresse": {
     "rue": "rue Boissy d'Anglas",
@@ -4431,7 +4501,9 @@
     "pays": "France"
    },
    "fabricant_email": null,
-   "fabricant_source": "gpsr.json / bol_operateurs.json"
+   "fabricant_source": "gpsr.json / bol_operateurs.json",
+   "inci_source": "https://en.parfumdreams.de/Hermes/Mens-fragrances/Terre-dHermes/Eau-de-Toilette-Spray/index_118414.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Terre d'Hermès EDT ; le 30 ml y porte l'EAN 3346130009702, notre EAN est l'ancien code du 30 ml). Séparateurs « ; » remplacés par des virgules, code lot #0200501A retiré, espaces parasites corrigés (BETA-CARYOPHYLLENE, ALPHA-TERPINENE)."
   },
   {
    "ean": "3346470114890",
@@ -5520,6 +5592,1238 @@
    },
    "fabricant_email": null,
    "fabricant_source": "config/gpsr.json"
+  },
+  {
+   "ean": "3050070000162",
+   "titre": "Mont St Michel Fraîcheur Intense Eau de Cologne 500 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., AQUA (WATER), PARFUM (FRAGRANCE), PEG-40 HYDROGENATED CASTOR OIL, BENZOPHENONE-1, LINALOOL, LIMONENE, GERANIOL, CITRAL, EUGENOL, CITRONELLOL, COUMARIN, BENZYL ALCOHOL, CI 47005, CI 42090",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfum-centrum.com/mont-st-michel-fraicheur-intense-eau-de-cologne-500-ml-unisex_z849130",
+   "remarque": "INCI 09/11 : Parfum-Centrum (distributeur), EAN identique ; même liste sur herabeauty.ca (250 ml)."
+  },
+  {
+   "ean": "3050070006447",
+   "titre": "Mont St Michel Naturelle Classique Eau de Cologne 500 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., AQUA, PARFUM, PEG-40 HYDROGENATED CASTOR OIL, LIMONENE, LINALOOL, BENZOPHENONE-1, TOCOPHERYL ACETATE, HEXYL CINNAMAL, CITRAL, ALPHA-ISOMETHYL IONONE, CITRONELLOL, EUGENOL, BENZYL ALCOHOL, BENZYL BENZOATE, GERANIOL, CI 47005",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfum-centrum.com/mont-st-michel-naturelle-classique-eau-de-cologne-500-ml-unisex_z849131/",
+   "remarque": "INCI 09/11 : Parfum-Centrum (distributeur), fiche Naturelle Classique EDC 500 ml ; liste identique sur herabeauty.ca (250 ml)."
+  },
+  {
+   "ean": "3178041309745",
+   "titre": "Mont St Michel Jardin Merveilleux Eau de Cologne 250 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., AQUA, PARFUM, PEG-40 HYDROGENATED CASTOR OIL, HEXYL CINNAMAL, BENZOPHENONE-1, LINALOOL, LIMONENE, BENZYL SALICYLATE, CITRONELLOL, BENZYL ALCOHOL, GERANIOL, CITRAL, CI 14700, CI 17200",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfum-centrum.com/mont-st-michel-jardin-merveilleux-eau-de-cologne-250-ml-unisex_z924433",
+   "remarque": "INCI 09/11 : Parfum-Centrum (distributeur), EAN identique."
+  },
+  {
+   "ean": "3178041309752",
+   "titre": "Mont St Michel Instant Ensoleillé Eau de Cologne 250 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., AQUA, PARFUM, PEG-40 HYDROGENATED CASTOR OIL, LINALOOL, BENZOPHENONE-1, LIMONENE, CITRONELLOL, BENZYL ALCOHOL, GERANIOL, CITRAL, CI 19140, CI 16035",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfum-centrum.com/mont-st-michel-instant-ensoleille-eau-de-cologne-250-ml-unisex_z924417",
+   "remarque": "INCI 09/11 : Parfum-Centrum (distributeur), EAN identique ; liste identique sur ferwer.com."
+  },
+  {
+   "ean": "3178041315142",
+   "titre": "Mont St Michel Apres l 'Orage Eau de Cologne 250 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., AQUA, PARFUM, PEG-40 HYDROGENATED CASTOR OIL, BENZOPHENONE-1, LINALOOL, LIMONENE, CITRONELLOL, GERANIOL, BENZYL ALCOHOL, ALPHA-ISOMETHYL IONONE, CI 19140, CI 42090",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfum-centrum.com/mont-st-michel-apres-l-orage-eau-de-cologne-250-ml-unisex_z924418",
+   "remarque": "INCI 09/11 : Parfum-Centrum (distributeur), EAN identique."
+  },
+  {
+   "ean": "3178041348447",
+   "titre": "Mont St Michel Naturelle Classique Eau de Cologne 250 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., AQUA, PARFUM, PEG-40 HYDROGENATED CASTOR OIL, LIMONENE, LINALOOL, BENZOPHENONE-1, TOCOPHERYL ACETATE, HEXYL CINNAMAL, CITRAL, ALPHA-ISOMETHYL IONONE, CITRONELLOL, EUGENOL, BENZYL ALCOHOL, BENZYL BENZOATE, GERANIOL, CI 47005",
+   "inci_statut": "trouve",
+   "inci_source": "https://herabeauty.ca/products/mont-st-michel-eau-de-cologne-naturelle-classique-8-45oz",
+   "remarque": "INCI 09/11 : Hera Beauté (fiche Naturelle Classique EDC 250 ml, EAN affiché 3050070006454) ; même liste sur Parfum-Centrum (500 ml)."
+  },
+  {
+   "ean": "3259550753950",
+   "titre": "Eisenberg Instant Smoothing Exfoliator Peeling 75 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "AQUA (WATER), QUARTZ POWDER, GLYCERIN, PROPYLENE GLYCOL, TEA-LAURYL SULFATE, CARBOMER, COCAMIDOPROPYL BETAINE, PHENOXYETHANOL, SODIUM HYDROXIDE, POTASSIUM SORBATE, SACCHARIDE ISOMERATE, SODIUM CHLORIDE, PPG-26-BUTETH-26, MENTHYL LACTATE, PANTHENOL, ETHYLHEXYLGLYCERIN, PEG-40 HYDROGENATED CASTOR OIL, MANNITOL, DISODIUM EDTA, PARFUM (FRAGRANCE), VOLCANIC SAND, MICROCRYSTALLINE CELLULOSE, BENZOIC ACID, DISODIUM COCOAMPHODIACETATE, FAGUS SYLVATICA BUD EXTRACT, LIMONENE, BACILLUS FERMENT, CI 77891 (TITANIUM DIOXIDE), CITRIC ACID, SODIUM CITRATE, CEPHALINS, CI 77491 (IRON OXIDES), RETINYL PALMITATE, TOCOPHERYL ACETATE, LACTOSE, BENZYL ALCOHOL, CAPRYLIC/CAPRIC TRIGLYCERIDE, HYDROXYPROPYL METHYLCELLULOSE, CAPRYLYL GLYCOL, LACTIS PROTEINUM (WHEY PROTEIN), PVP, HEXYLENE GLYCOL, LACTIC ACID",
+   "inci_statut": "trouve",
+   "inci_source": "https://intl.eisenberg.com/products/instant-smoothing-exfoliator",
+   "remarque": "INCI 09/11 : Site officiel Eisenberg (Exfoliant Lissant Express). Séparateurs « - » remplacés par des virgules ; code lot de fin (I022BD) retiré."
+  },
+  {
+   "ean": "3259551503998",
+   "titre": "Eisenberg Hydrating Velvet Make-Up Remover Face Cleansers 150 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "AQUA (WATER), GLYCERIN, CAPRYLIC/CAPRIC TRIGLYCERIDE, C12-20 ACID PEG-8 ESTER, BUTYLENE GLYCOL, 1, 2-HEXANEDIOL, FAGUS SYLVATICA BUD EXTRACT, WHEY PROTEIN, BACILLUS FERMENT, GLYCINE SOJA (SOYBEAN) OIL, PERSEA GRATISSIMA (AVOCADO) OIL, PRUNUS ARMENIACA (APRICOT) KERNEL OIL, BISABOLOL, MALVA SYLVESTRIS (MALLOW) FLOWER/LEAF/STEM EXTRACT, RUBUS IDAEUS LEAF CELL CULTURE, ETHYLHEXYLGLYCERIN, LACTIC ACID, POTASSIUM CETYL PHOSPHATE, CETYL ALCOHOL, DICAPRYLYL ETHER, DISODIUM COCOAMPHODIACETATE, SACCHARIDE ISOMERATE, LACTOSE, CARBOMER, SORBITAN CAPRYLATE, SODIUM HYDROXIDE, DISODIUM EDTA, SODIUM CHLORIDE, SODIUM GLYCOLATE, TOCOPHEROL, CITRIC ACID, ASCORBYL PALMITATE, SODIUM CITRATE, ASCORBIC ACID, PROPYLENE GLYCOL, PEG-8, PHENOXYETHANOL, BENZYL ALCOHOL, POTASSIUM SORBATE, SODIUM BENZOATE, BENZOIC ACID, PARFUM (FRAGRANCE), BENZYL SALICYLATE, LINALYL ACETATE, ALPHA-ISOMETHYL IONONE",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.eisenberg.com/pr227/soin-veloute-demaquillant-hydratant",
+   "remarque": "INCI 09/11 : Site officiel Eisenberg (Soin Velouté Démaquillant Hydratant). Séparateurs « - » de la source remplacés par des virgules ; code lot de fin (I018BB) retiré."
+  },
+  {
+   "ean": "3259551504001",
+   "titre": "Eisenberg Toning Lotion Facial Lotion and Spray 150 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Butylene Glycol, Rosa Damascena Flower Water, Hamamelis Virginiana (Witch Hazel) Bark/Leaf/Twig Extract, Phenoxyethanol, PPG-26-Buteth-26, PEG-40 Hydrogenated Castor Oil, Alcohol, Ethylhexylglycerin, Propylene Glycol, Benzophenone-4, Limonene, Benzyl Alcohol, Citrus Aurantium Dulcis (Orange) Peel Oil, Citrus Limon (Lemon) Peel Oil, Pentadecalactone, Glycerin, Chlorhexidine Digluconate, Fagus Sylvatica Bud Extract, Glycyrrhiza Glabra (Licorice) Root Extract, Sodium Hydroxide, Ruscus Aculeatus Root Extract, Dehydroacetic Acid, Bacillus Ferment, Citral, Lactose, Lactis Proteinum (Whey Protein), Potassium Sorbate, Ci 14700 (Red 4), Lactic Acid, Benzoic Acid, Ci 19140 (Yellow 5)",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/eisenberg-toning-lotion",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Eisenberg Toning Lotion » publiée le 2020-01-19 ; EAN non affiché par la source. Fiche ancienne (2020) : à confronter à l'emballage."
+  },
+  {
+   "ean": "3274872464100",
+   "titre": "KENZO Flower By Kenzo L'Absolue Eau de Parfum 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol, Parfum (Fragrance), Aqua (Water), Linalool, Citronellol, Butyl Methoxydibenzoylmethane, Limonene, Benzyl Salicylate, Hydroxycitronellal, Geraniol, Methyl Anthranilate, Diethylamino Hydroxybenzoyl Hexyl Benzoate, Alpha-Isomethyl Ionone, Coumarin, Farnesol, Citral, Isoeugenol, Methyl 2-Octynoate, Benzyl Benzoate, CI 14700, CI 47005, CI 60730",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.ferwer.com/flower-by-kenzo-l-absolue-eau-de-parfum-for-women",
+   "remarque": "INCI 09/11 : Ferwer (fiche Flower by Kenzo L'Absolue EDP 30 ml, EAN 3274872441774 ; nous vendons le 50 ml, même parfum)."
+  },
+  {
+   "ean": "3274872496439",
+   "titre": "Givenchy Gentleman Society Ambrée Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol, Parfum (Fragrance), Aqua (Water), Linalool, Coumarin, Limonene, Alpha-Isomethyl Ionone, Butyl Methoxydibenzoylmethane, Benzyl Benzoate, Isoeugenol, Cinnamyl Alcohol, Cinnamal, Benzyl Cinnamate, Eugenol, Geraniol, Citronellol, Benzyl Alcohol",
+   "inci_statut": "trouve",
+   "inci_source": "https://escentual.com/products/givenchy-gentleman-society-ambree-eau-de-parfum-spray",
+   "remarque": "INCI 09/11 : Escentual ; liste identique sur Parfumdreams. Les deux affichent l'EAN 3274872480810 pour le 100 ml (notre EAN 3274872496439 diffère) : même parfum, vérifier le conditionnement."
+  },
+  {
+   "ean": "3346470144170",
+   "titre": "Guerlain Aqua Allegoria Flora Cherrysia Refill Eau de Toilette 200 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol, Aqua (Water), Parfum (Fragrance), Limonene, Butyl Methoxydibenzoylmethane, Linalool, Citral, Coumarin, Pentaerythrityl Tetra-Di-T-Butyl Hydroxyhydrocinnamate, Citronellol, Geraniol, Ci 14700 (Red 4), Ci 19140 (Yellow 5), Ci 60730 (Ext. Violet 2)",
+   "inci_statut": "trouve",
+   "inci_source": "https://cultbeauty.co.uk/p/guerlain-aqua-allegoria-flora-cherrysia-eau-de-toilette-refill-200ml/13904116",
+   "remarque": "INCI 09/11 : Cult Beauty (Flora Cherrysia EDT recharge 200 ml)."
+  },
+  {
+   "ean": "3423470475340",
+   "titre": "Jean Paul Gaultier Le Male Aftershave Balm 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Butylene Glycol, Cetearyl Ethylhexanoate, Isononyl Isononanoate, Dicaprylyl Carbonate, Parfum (Fragrance), Glycerin, Dimethicone, Polyacrylate-13, Sorbitol, Polyisobutene, Caprylyl Glycol, 1, 2-Hexanediol, Glyceryl Oleate, Propylene Glycol, Panthenol, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Palmitic Acid, Stearic Acid, Bisabolol, Coumarin, Disodium Edta, Tocopheryl Acetate, Linalool, Polysorbate 20, Sodium Hydroxide, Limonene, Alpha-Isomethyl Ionone, Hydroxycitronellal, Geraniol, Citral",
+   "inci_statut": "trouve",
+   "inci_source": "https://escentual.com/products/jean-paul-gaultier-le-male-soothing-after-shave-balm-100ml",
+   "remarque": "INCI 09/11 : Escentual (EAN affiché 8435415012782, nouveau code du même baume 100 ml) ; liste identique sur Lookfantastic."
+  },
+  {
+   "ean": "3430750406444",
+   "titre": "Jeanne Arthes Boum Do Brasil Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Aqua (Water), Parfum (Fragrance), Vanillin, Hexyl Cinnamal, Coumarin, Linalool, Hydroxycitronellal, Limonene, Dimethyl Phenethyl Acetate, Cinnamyl Alcohol, Citrus Aurantium Peel Oil, Linalyl Acetate, Rose Ketones, Pinene, Pogostemon Cablin Oil, Citronellol",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.jeanne-arthes.com/products/boum-do-brasil",
+   "remarque": "INCI 09/11 : Site officiel Jeanne Arthes (Boum Do Brasil EDP). Mention de conformité au règlement 2023/1545 retirée."
+  },
+  {
+   "ean": "3614273185929",
+   "titre": "Maison Margiela Paris Replica Springtime in a Park Eau de Toilette 30 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL, PARFUM / FRAGRANCE, AQUA / WATER, ETHYLHEXYL SALICYLATE, BUTYL METHOXYDIBENZOYLMETHANE, LIMONENE, CITRONELLOL, HYDROXYCITRONELLAL, LINALOOL, BENZYL ALCOHOL, ALPHA-ISOMETHYL IONONE, CINNAMYL ALCOHOL, GERANIOL, FARNESOL, CITRAL, TRIS(TETRAMETHYLHYDROXYPIPERIDINOL) CITRATE, BENZYL BENZOATE, BENZYL SALICYLATE, EUGENOL, CI 14700 / RED 4, CI 60730 / EXT. VIOLET 2",
+   "inci_statut": "trouve",
+   "inci_source": "https://parfumdreams.ie/Maison-Margiela/Unisex-fragrances/Replica/Eau-de-Toilette-Spray/index_86724.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Replica Springtime in a Park EDT, fiche 100 ml EAN 3614272661264 ; nous vendons le 30 ml). Puces « • » remplacées par des virgules ; référence (F.I.L. ...) retirée."
+  },
+  {
+   "ean": "3616303393069",
+   "titre": "BOURJOIS Paris Mon Bourjois La Formidable Eau de Parfum 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Aqua/Water/Eau, Parfum/Fragrance, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Limonene, Geraniol, Linalool, Citronellol, Coumarin, Alcohol, Tris(Tetramethylhydroxypiperidinol) Citrate, Citral, Yellow 6 (CI 15985), Yellow 5 (CI 19140)",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.ferwer.com/product/17887",
+   "remarque": "INCI 09/11 : Ferwer (distributeur), EAN identique."
+  },
+  {
+   "ean": "3616305187949",
+   "titre": "ESCADA Bali Paradise Eau de Toilette 10 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., AQUA/WATER/EAU, PARFUM/FRAGRANCE, LIMONENE, BENZYL SALICYLATE, LINALOOL, ALPHA-ISOMETHYL IONONE, HYDROXYCITRONELLAL, GERANIOL, CITRAL, CITRONELLOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.shop-apotheke.com/beauty/upmKUE2HG/escada-bali-paradise-edt-nat-spray.htm",
+   "remarque": "INCI 09/11 : Shop Apotheke (Bali Paradise EDT, EAN affiché 3616305187925 = autre contenance ; nous vendons le 10 ml)."
+  },
+  {
+   "ean": "3661467000803",
+   "titre": "Novexpert Polyphenols Booster Serum Skin Serum 30 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Butylene Glycol, Glycerin, Lactobacillus Ferment, Pentylene Glycol, Simmondsia Chinensis (Jojoba) Seed Oil, Polyglyceryl-6 Distearate, Glyceryl Oleate Citrate, Epigallocatechin Gallatyl Glucoside, Hydrolyzed Wheat Flour, Aloe Barbadensis Leaf Juice Powder, Balanites Roxburghii Seed Oil, Dictyopteris Polypodioides Extract, Pancratium Maritimum Extract, Schizandra Sphenanthera Fruit Extract, Bisabolol, Jojoba Esters, Glyceryl Caprylate, Lauroyl Lysine, Lysolecithin, Sclerotium Gum, Cetyl Alcohol, Polyglyceryl-3 Beeswax, Pullulan, Xanthan Gum, Calcium Alginate, Galactaric Acid, Algin, Phytic Acid, Silica, Microcrystalline Cellulose, Arginine, Parfum (Fragrance), Citric Acid, Maltodextrin, Coffea Arabica (Coffee) Seed Extract",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/novexpert-booster-serum-with-green-tea-polyphenols",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Novexpert Booster Serum With Green Tea Polyphenols » publiée le 2023-06-05 ; EAN non affiché par la source."
+  },
+  {
+   "ean": "3700135012455",
+   "titre": "Frederic Malle Carnal Flower Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Fragrance (Parfum), Water\\Aqua\\Eau, Benzyl Salicylate, Linalool, Limonene, Anise Alcohol, Benzyl Benzoate, Isoeugenol, Farnesol, Benzyl Alcohol, Eugenol, Geraniol, Citral, Pentaerythrityl Tetra-Di-T-Butyl Hydroxyhydrocinnamate",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.cultbeauty.co.uk/p/frederic-malle-carnal-flower-eau-de-parfum/13319986/",
+   "remarque": "INCI 09/11 : Cult Beauty (fiche Carnal Flower EDP 50 ml ; même parfum, nous vendons le 100 ml)."
+  },
+  {
+   "ean": "3700227206274",
+   "titre": "Akro Haze Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum (Fragrance), Limonene, Linalool, Coumarin, BHT, Citral, Farnesol, Benzyl benzoate, Geraniol, Benzyl salicylate, Eugenol, Isoeugenol, Citronellol, Benzyl alcohol, Aqua (Water)",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.akrofragrances.com/products/haze-100ml",
+   "remarque": "INCI 09/11 : Site officiel Akro (Haze EDP 100 ml). Mentions « Natural » accolées à certains allergènes (indication d'origine) retirées."
+  },
+  {
+   "ean": "3700550222699",
+   "titre": "By Kilian The Narcotics A Kiss from a Rose Eau de Parfum 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Fragrance (Parfum), Water\\Aqua\\Eau, Alpha-Isomethyl Ionone, Citronellol, Linalool, Geraniol, Farnesol, Cinnamyl Alcohol, Benzyl Alcohol, Limonene, Hydroxycitronellal, Benzyl Benzoate, Citral, Eugenol, Benzyl Salicylate, Tocopherol, Dilauryl Thiodipropionate, Bht",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.libertylondon.com/uk/kiss-from-a-rose-eau-de-parfum-50ml-000762973.html",
+   "remarque": "INCI 09/11 : Liberty London (A Kiss From a Rose EDP 50 ml rechargeable)."
+  },
+  {
+   "ean": "3700578505811",
+   "titre": "Parfums de Marly Haltane Eau de Parfum 200 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water/Eau), Tetramethyl Acetyloctahydronaphthalenes, Citrus Aurantium Bergamia (Bergamot) Peel Oil, Pogostemon Cablin Oil, Juniperus Virginiana Oil, Limonene, Linalyl Acetate, Linalool, Pinene, Benzyl Salicylate, Coumarin, Beta-Caryophyllene, Alpha-Isomethyl Ionone, Pelargonium Graveolens Flower Oil, Eugenol, Lavandula Oil/Extract, Citronellol, Geranyl Acetate, Citral, Terpinolene, Terpineol, Vanillin, Geraniol, Camphor, Alpha-Terpinene",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfums-de-marly.com/products/haltane",
+   "remarque": "INCI 09/11 : Site officiel Parfums de Marly, EAN identique (Haltane EDP 200 ml)."
+  },
+  {
+   "ean": "3700583501297",
+   "titre": "Sospiro Basso Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum/Fragrance, Limonene, Aqua/Water, Linalool, Hexyl Cinnamal, Hydroxycitronellal, Citronellol, Citral, Geraniol, Eugenol, Isoeugenol, Benzyl Benzoate",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfuma.com/en/product/detail/sospiro-basso-eau-de-parfum-100ml-spray-0001052636",
+   "remarque": "INCI 09/11 : Parfuma (distributeur), même produit Basso EDP 100 ml mais EAN affiché différent (3700583503055) : vérifier le conditionnement."
+  },
+  {
+   "ean": "3701129801345",
+   "titre": "BIODERMA ABCDerm Cold-Cream   Face & Body Body Cream 45 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua/Water/Eau, Paraffinum Liquidum/Mineral Oil/Huile Minerale, Glycerin, Dicaprylyl Carbonate, Cera Alba/Beeswax/Cire D'Abeille, Behenyl Alcohol, Prunus Amygdalus Dulcis (Sweet Almond) Oil, Sucrose Stearate, Sucrose Tetrastearate Triacetate, Pentylene Glycol, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, 1, 2-Hexanediol, Caprylyl Glycol, Sodium Citrate, Xanthan Gum, Sodium Hydroxide, Tocopherol, Fragrance (Parfum)",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/bioderma-abcderm-cold-cream-face-and-body",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Bioderma Abcderm Cold-cream Face And Body » publiée le 2024-11-12 ; EAN non affiché par la source."
+  },
+  {
+   "ean": "3760285901467",
+   "titre": "State Of Mind Butterfly Mind Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT, PARFUM (FRAGRANCE), AQUA (WATER), BHT, LIMONENE, CITRAL, LINALOOL, CITRONELLOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://scentissime.com/en/197-butterfly-mind-3770009208086.html",
+   "remarque": "INCI 09/11 : Scentissime (Butterfly Mind EDP, EAN affiché 3770009208086, différent du nôtre) : même parfum, vérifier le conditionnement."
+  },
+  {
+   "ean": "3760303360092",
+   "titre": "Liquides Imaginaires Fleuve Tendre Eau de Parfum 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol denat., Parfum [Fragrance], Aqua [Water], Limonene, Hexyl cinnamal, Citronellol, Linalool, Coumarin, Hydroxycitronellal, Geraniol, Citral, Benzyl benzoate, Farnesol",
+   "inci_statut": "trouve",
+   "inci_source": "https://dermstore.com/p/liquides-imaginaires-les-eaux-de-l-ame-fleuve-tendre-eau-de-parfum-100ml/13154677",
+   "remarque": "INCI 09/11 : Dermstore (fiche Fleuve Tendre EDP 100 ml ; même parfum, nous vendons le 50 ml)."
+  },
+  {
+   "ean": "3760372460587",
+   "titre": "Matiere Premiere Encens Suave Perfume Extract 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., PARFUM (FRAGRANCE), WATER (AQUA), COUMARIN, FARNESOL, BHT, LIMONENE, BENZYL CINNAMATE, LINALOOL, BENZYL BENZOATE, GERANIOL, CITRAL",
+   "inci_statut": "trouve",
+   "inci_source": "https://matiere-premiere.com/en/products/encens-suave-extrait-de-parfum",
+   "remarque": "INCI 09/11 : Site officiel Matière Première, EAN identique."
+  },
+  {
+   "ean": "3760394880257",
+   "titre": "Maison Crivelli Safran Secret Perfume Extract 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum, Aqua, Tetramethyl Acetyloctahydronaphthalenes, Vanillin, Juniperus Virginiana Oil, Pogostemon Cablin Oil, Ethylhexyl Salicylate, Coumarin, Butyl Methoxydibenzoylmethane, Pinene, Linalool, Cinnamomum Zeylanicum Bark Oil, Beta Caryophyllene, Cinnamal, Eugenol, Limonene, Cinnamyl Alcohol, Eugenia Caryophyllus Oil, Lavandula Oil/Extract, Rose Ketones, Benzyl Benzoate, Camphor, Geranyl Acetate, Linalyl Acetate, Terpinolene, Alpha-Terpinene, Terpineol, Eugenyl Acetate, Geraniol, Isoeugenol, Benzaldehyde",
+   "inci_statut": "trouve",
+   "inci_source": "https://maisoncrivelli.com/en-gb/products/safran-secret",
+   "remarque": "INCI 09/11 : Site officiel Maison Crivelli, EAN identique (50 ml)."
+  },
+  {
+   "ean": "3760404070159",
+   "titre": "Marc-Antoine Barrois Aldebaran Eau de Parfum 30 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., PARFUM (FRAGRANCE), AQUA (WATER), METHYL BENZOATE, BENZYL SALICYLATE, COUMARIN, BETA-CARYOPHYLLENE, TERPINOLENE, LIMONENE, PINENE, BENZYL BENZOATE, ALPHA-TERPINENE, BENZYL ALCOHOL, LINALOOL, METHYL SALICYLATE, TERPINEOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.marcantoinebarrois.com/products/aldebaran",
+   "remarque": "INCI 09/11 : Site officiel Marc-Antoine Barrois, EAN identique (30 ml)."
+  },
+  {
+   "ean": "3770009763813",
+   "titre": "Sospiro Pasticcio Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum/Fragrance, Aqua/Water, Limonene, Coumarin, Linalool, Hydroxycitronellal, Citral, Cinnamal, Eugenol, Geraniol, Benzyl Benzoate, Benzyl Cinnamate, Citronellol, Isoeugenol",
+   "inci_statut": "trouve",
+   "inci_source": "https://parfumaweb.tilroy.com/en/sospiro-pasticcio-eau-de-parfum-23-pasticcioedp",
+   "remarque": "INCI 09/11 : Parfuma (parfumerie belge), EAN identique. Coquille de la source corrigée : « Benzyl Cinnamte » → Benzyl Cinnamate."
+  },
+  {
+   "ean": "3770010279020",
+   "titre": "Maison Crivelli Bois Datchaï Eau de Parfum 30 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum, Aqua, Tetramethyl Acetyloctahydronaphthalenes, Juniperus Virginiana Oil, Alpha-Isomethyl Ionone, Citrus Aurantium Bergamia Peel Oil, Pogostemon Cablin Oil, Limonene, Linalyl Acetate, Linalool, Ethylhexyl Salicylate, Pinene, Beta-Caryophyllene, Cananga Odorata Oil/Extract, Santalol, Cinnamomum Zeylanicum Bark Oil, Butyl Methoxydibenzoylmethane, Cinnamal, Diethylhexyl Syringylidenemalonate, Terpineol, Rose Ketones, Benzyl Benzoate, Geranyl Acetate, Terpinolene, Citral, Benzyl Salicylate, Alpha-Terpinene, Farnesol, Geraniol, Eugenol, Isoeugenol, BHT",
+   "inci_statut": "trouve",
+   "inci_source": "https://maisoncrivelli.com/en-gb/products/bois-datchai",
+   "remarque": "INCI 09/11 : Site officiel Maison Crivelli, EAN identique (30 ml)."
+  },
+  {
+   "ean": "3770010279174",
+   "titre": "Maison Crivelli Rose SaltifOlia Eau de Parfum 30 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum, Aqua, Trimethylbenzenepropanol, Limonene, Tetramethyl Acetyloctahydronaphthalenes, Geranyl Acetate, Hexamethylindanopyran, Geraniol, Farnesol, Citrus Aurantium Bergamia Peel Oil, Benzyl Salicylate, Citrus Aurantium Peel Oil, Linalyl Acetate, Pinene, Citronellol, Ethylhexyl Salicylate, Linalool, Lavandula Oil/Extract, Amyl Salicylate, Butyl Methoxydibenzoylmethane, Diethylhexyl Syringylidenemalonate, Citral, Beta-Caryophyllene, Laurus Nobilis Leaf Oil, Rose Flower Oil/Extract, Terpineol, Terpinolene, Rose Ketones, Camphor, Eugenol, Carvone, Coumarin, Alpha-Terpinene, BHT",
+   "inci_statut": "trouve",
+   "inci_source": "https://maisoncrivelli.com/en-gb/products/rose-saltifolia",
+   "remarque": "INCI 09/11 : Site officiel Maison Crivelli ; le site affiche l'EAN 3760394881391 pour le 30 ml (notre EAN = ancien code), même parfum."
+  },
+  {
+   "ean": "3770010279273",
+   "titre": "Maison Crivelli Citrus Batikanga Eau de Parfum 30 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Aqua, Parfum, Tetramethyl Acetyloctahydronaphthalenes, Citrus Aurantium Bergamia Peel Oil, Limonene, Linalool, Linalyl Acetate, Hydroxycitronellal, Acetylcedrene, Juniperus Virginiana Oil, Ethylhexyl Methoxycinnamate, Pinene, Cinnamomum Zeylanicum Bark Oil, Eugenol, Terpineol, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Mentha Piperita Oil, Menthol, Citral, Terpinolene, Benzyl Benzoate, Geranyl Acetate, Beta-Caryophyllene, Eugenyl Acetate, Cinnamal, Geraniol, Rose Ketones, Benzyl Cinnamate, Citronellol, BHT",
+   "inci_statut": "trouve",
+   "inci_source": "https://maisoncrivelli.com/en-gb/products/citrus-batikanga",
+   "remarque": "INCI 09/11 : Site officiel Maison Crivelli, EAN identique (30 ml)."
+  },
+  {
+   "ean": "3770010279327",
+   "titre": "Maison Crivelli Papyrus Moléculaire Eau de Parfum 30 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum, Aqua, Tetramethyl Acetyloctahydronaphthalenes, Acetylcedrene, Alpha-Isomethyl Ionone, Limonene, Ethylhexyl Methoxycinnamate, Linalool, Pinene, Coumarin, Hydroxycitronellal, Santalol, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Beta-Caryophyllene, Farnesol, Eucalyptus Globulus Oil, Geraniol, Geranyl Acetate, Cedrus Atlantica Oil/Extract, Vanillin, Terpineol, Camphor, Linalyl Acetate, Alpha-Terpinene, Terpinolene, Citral",
+   "inci_statut": "trouve",
+   "inci_source": "https://maisoncrivelli.com/en-gb/products/papyrus-moleculaire",
+   "remarque": "INCI 09/11 : Site officiel Maison Crivelli, EAN identique (30 ml)."
+  },
+  {
+   "ean": "3770010279334",
+   "titre": "Maison Crivelli Papyrus Moléculaire Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum, Aqua, Tetramethyl Acetyloctahydronaphthalenes, Acetylcedrene, Alpha-Isomethyl Ionone, Limonene, Ethylhexyl Methoxycinnamate, Linalool, Pinene, Coumarin, Hydroxycitronellal, Santalol, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Beta-Caryophyllene, Farnesol, Eucalyptus Globulus Oil, Geraniol, Geranyl Acetate, Cedrus Atlantica Oil/Extract, Vanillin, Terpineol, Camphor, Linalyl Acetate, Alpha-Terpinene, Terpinolene, Citral",
+   "inci_statut": "trouve",
+   "inci_source": "https://maisoncrivelli.com/en-gb/products/papyrus-moleculaire",
+   "remarque": "INCI 09/11 : Site officiel Maison Crivelli ; le site affiche l'EAN 3760394881292 pour le 100 ml (notre EAN = ancien code du 100 ml), même parfum."
+  },
+  {
+   "ean": "3770014291288",
+   "titre": "Maison Matine Arashi No Umi Eau de Parfum 15 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., PARFUM (FRAGRANCE), TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES, AQUA (WATER), JUNIPERUS VIRGINIANA OIL, LINALYL ACETATE, ALPHA-ISOMETHYL IONONE, LINALOOL, CITRONELLOL, HYDROXYCITRONELLAL, HEXYL CINNAMAL, CITRUS AURANTIUM PEEL OIL, LIMONENE, TOCOPHEROL, ROSE KETONES, DIMETHYL PHENETHYL ACETATE, GERANIOL, ROSE FLOWER OIL/EXTRACT, BETA-CARYOPHYLLENE, VANILLIN, GERANYL ACETATE, CANANGA ODORATA OIL/EXTRACT, METHYL BENZOATE",
+   "inci_statut": "trouve",
+   "inci_source": "https://maisonmatine.com/products/arashi-no-umi-15ml",
+   "remarque": "INCI 09/11 : Site officiel Maison Matine, EAN identique (15 ml)."
+  },
+  {
+   "ean": "3770014291295",
+   "titre": "Maison Matine Tu Te Calmes Eau de Parfum 15 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., PARFUM (FRAGRANCE), AQUA (WATER), TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES, LINALYL ACETATE, LINALOOL, JUNIPERUS VIRGINIANA OIL, LIMONENE, CITRUS LIMON (LEMON) PEEL OIL, COUMARIN, GERANYL ACETATE, ALPHA-ISOMETHYL IONONE, GERANIOL, PINENE, VANILLIN, ISOEUGENYL ACETATE, TERPINEOL, ROSE KETONES, TOCOPHEROL, CITRAL, BETA-CARYOPHYLLENE, TERPINOLENE, ALPHA-TERPINENE, BENZYL BENZOATE, ISOEUGENOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://maisonmatine.com/products/tu-te-calmes-15ml",
+   "remarque": "INCI 09/11 : Site officiel Maison Matine, EAN identique (15 ml) ; liste publiée sur deux lignes, recollée (TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES)."
+  },
+  {
+   "ean": "4064666219677",
+   "titre": "Londa Professional P.U.R.E Conditioner 1000 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua/Water/Eau, PEG-60 Hydrogenated Castor Oil, Polyquaternium-37, Alcohol Denat., Panthenol, Polysorbate 20, Phenoxyethanol, Parfum/Fragrance, Citric Acid, Polyquaternium-7, Sodium Citrate, Benzophenone-4, Ethylhexylglycerin, Disodium EDTA, Isopropyl Alcohol, Limonene, Trisodium Ethylenediamine Disuccinate, Benzyl Salicylate, Hexyl Cinnamal, Linalool, Hydroxycitronellal, Alpha-Isomethyl Ionone, Sodium Benzoate, Butyrospermum Parkii (Shea) Butter, Tetrasodium EDTA, Tocopherol",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfumdreams.ie/Londa-Professional/Hair-care/PURE/Conditioner/index_84830.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (P.U.R.E. Conditioner, fiche 250 ml EAN 4064666219684 ; nous vendons le 1000 ml)."
+  },
+  {
+   "ean": "4064666578439",
+   "titre": "Wella Professionals Blondor Multi Blonde 7 Hair Color 400 g",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Potassium Persulfate, Sodium Silicate, Magnesium Carbonate Hydroxide, Mineral Oil/Huile Minérale, Ammonium Persulfate, Sodium Stearate, Xanthan Gum, Oryza Sativa (Rice) Starch, Algin, Disodium EDTA, Ultramarines, Silica",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/wella-professionals-blondor-multi-blonde-hair-lightener-powder",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Wella Professionals Blondor Multi Blonde Hair Lightener Powder » publiée le 2023-09-08 ; EAN non affiché par la source."
+  },
+  {
+   "ean": "4064666579986",
+   "titre": "Wella Professionals Ultimate Repair Conditioner Refill Conditioner 500 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua/Water/Eau, Cetyl Alcohol, Malic Acid, Paraffinum Liquidum/ Mineral Oil/ Huile Minerale, Isopropyl Myristate, Ceteareth-25, Cetrimonium Chloride, Sodium Hydroxide, Phenoxyethanol, Glyceryl Oleate, Isopropyl Alcohol, Parfum/Fragrance, Coco-Glucoside, Behentrimonium Chloride, Amodimethicone, Tocopheryl Acetate, Polyquaternium-37, Squalane, Guar Hydroxypropyltrimonium Chloride, Disodium EDTA, Oleic Acid, Ethylhexylglycerin, Propylene Glycol Dicaprylate/Dicaprate, Linalool, Citric Acid, Trideceth-12, PPG-1 Trideceth-6, Citronellol, Histidine, Acrylates/Stearyl Methacrylate Copolymer, Sorbitan Oleate, Sodium Benzoate, Tocopherol, EDTA, Hydrogenated Palm Glycerides Citrate, Lecithin, Ascorbyl Palmitate",
+   "inci_statut": "trouve",
+   "inci_source": "https://parfumdreams.ie/Wella/Professionals-Care/Ultimate-Repair/Conditioner/index_122350.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Ultimate Repair Conditioner 200/500 ml ; EAN voisin 4064666579993 pour 500 ml, le nôtre est la recharge 500 ml) : même formule supposée, vérifier l'emballage."
+  },
+  {
+   "ean": "4064666583877",
+   "titre": "Wella Professionals Elements Renewing Mask Hair Mask 75 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua/Water/Eau, Stearyl Alcohol, Hydrogenated Ethylhexyl Olivate, Cetyl Alcohol, Behentrimonium Chloride, Parfum/Fragrance, Phenoxyethanol, Isopropyl Alcohol, Sodium Benzoate, Hydrogenated Olive Oil Unsaponifiables, Tocopheryl Acetate, Citric Acid, Ethylhexylglycerin, Aloe Barbadensis Leaf Juice, Tocopherol, Potassium Sorbate, Sodium Sulfite",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/wella-professionals-elements-renewing-mask",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Wella Professionals Elements Renewing Mask » publiée le 2022-05-15 ; EAN non affiché par la source."
+  },
+  {
+   "ean": "4064666842868",
+   "titre": "Nioxin System 3 Scalp + Hair Conditioner Conditioner 300 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua/Water/Eau, Stearyl Alcohol, Behentrimonium Chloride, Cetyl Alcohol, Isopropyl Alcohol, Benzyl Alcohol, Mentha Arvensis Leaf Oil, Mentha Piperita (Peppermint) Oil, Phenoxyethanol, Propylene Glycol, Quaternium-80, Methylparaben, Propylparaben, EDTA, Limonene, Camellia Sinensis Leaf Extract, Polysorbate 20, Niacinamide, Panthenol, Biotin, Lecithin, Tocopheryl Acetate, Foeniculum Vulgare (Fennel) Fruit Extract, Acer Saccharum (Sugar Maple) Extract, Citrus Limon (Lemon) Peel Extract, Saccharum Officinarum/Sugar Cane Extract/Extrait De Canne À Sucre, Vaccinium Myrtillus Leaf Extract, Faex Extract/Yeast Extract/Extrait De Levure, Hydrolyzed Silk, Citrus Aurantium Dulcis (Orange) Fruit Extract, Aleurites Moluccanus Seed Oil, Maltodextrin, Potassium Sorbate, Sodium Benzoate",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/nioxin-scalp-and-hair-thickening-system-3-conditioner-for-coloured-dry-and-damaged-hair-with-light-thinning",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Nioxin Scalp And Hair Thickening System 3 Conditioner For Coloured Dry And Damaged Hair With Light Thinning » publiée le 2025-07-02 ; EAN non affiché par la source."
+  },
+  {
+   "ean": "5019301053375",
+   "titre": "Barry M Ultra Brow 2-in-1 Defining Browliner & Nourishing Serum Eyebrow Pencil 1,7 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Silica, Alcohol Denat, Styrene/Acrylates/Ammonium Methacrylate Copolymer, Propanediol, Butylene Glycol, Sodium Polymethacrylate, Sorbitol, C12-15 Alkyl Benzoate, Phenoxyethanol, Arginine, Ethylhexylglycerin, Phyllanthus Emblica Extract, Sodium Hyaluronate, Caffeine, Caprylic/Capric Triglyceride, Sodium Laureth-12 Sulfate, Panax Ginseng Root Extract, Pistacia Lentiscus Gum, Xanthan Gum, Ammonium Hydroxide, Eriobotrya Japonica Leaf Extract, Tocopherol, Titanium Dioxide (CI 77891), Iron Oxides (CI 77491, CI 77492, CI 77499)",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/barry-m/barry-m-ultra-brow-2-in-1-defining-browliner---nourishing-se5",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Teinte Black. Avertissement final retiré."
+  },
+  {
+   "ean": "5019301053382",
+   "titre": "Barry M Ultra Liner 2-in-1 Eyeliner & Lash Enhancing Serum Eye Line 1,7 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Alcohol Denat., Styrene/Acrylates/Ammonium Methacrylate Copolymer, Propanediol, Butylene Glycol, Silica, Sodium Polymethacrylate, Sorbitol, C12-15 Alkyl Benzoate, Phenoxyethanol, Arginine, Ethylhexylglycerin, Phyllanthus Emblica Extract, Sodium Hyaluronate, Caffeine, Caprylic/Capric Triglyceride, Sodium Laureth-12 Sulfate, Panax Ginseng Root Extract, Pistacia Lentiscus (Mastic) Gum, Xanthan Gum, Ammonium Hydroxide, Eriobotrya Japonica Leaf Extract, Tocopherol, Iron Oxide (CI 77499)",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/barry-m/barry-m-ultra-liner-2-in-1-eyeliner---lash-enhancing-serum-w",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Teinte White. Avertissement final retiré."
+  },
+  {
+   "ean": "5051198586673",
+   "titre": "Miller Harris Poirier d'un Soir Eau de Parfum 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Diisopropyl Adipate, Benzophenone-3, Limonene, Linalool, Citronellol, Citral, Farnesol, Geraniol, Benzyl Benzoate",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.millerharris.com/products/poirier-dun-soir-eau-de-parfum",
+   "remarque": "INCI 09/11 : Site officiel Miller Harris (Poirier d'un Soir EDP)."
+  },
+  {
+   "ean": "5051198740082",
+   "titre": "Miller Harris Secret Gardenia Eau de Parfum 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Linalool, Benzyl Salicylate, Limonene, Alpha-Isomethyl Ionone, Citronellol, Isoeugenol, Citral, Methyl 2-Octynoate, Benzyl Benzoate, Geraniol, Benzyl Alcohol",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.millerharris.com/products/secret-gardenia-eau-de-parfum",
+   "remarque": "INCI 09/11 : Site officiel Miller Harris (Secret Gardenia EDP)."
+  },
+  {
+   "ean": "5054563036100",
+   "titre": "Corega Power Max Fixing + Sealing Fixative Cream 40 g",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Calcium/Sodium PVM/MA copolymer, Petrolatum, Cellulose gum, Paraffinum liquidum",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.sezamo.ro/44482-corega-max-fixation-sealing-adhesive-cream-for-dentures",
+   "remarque": "INCI 09/11 : Sezamo.ro (groupe Rohlik), Corega Max Fixation + Sealing 40 g. Mention de variante retirée."
+  },
+  {
+   "ean": "5054563119698",
+   "titre": "Sensodyne Complete Protection+ Whitening Toothpaste 75 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Sorbitol, Hydrated Silica, Glycerin, Pentasodium Triphosphate, Potassium Nitrate, PEG-6, Sodium Lauryl Sulfate, Silica, Aroma, Xanthan Gum, Cocamidopropyl Betaine, Titanium Dioxide, Sodium Hydroxide, Sodium Fluoride, Sodium Saccharin, Limonene",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.rohlik.cz/en-CZ/1439260-sensodyne-complete-protection-whitening-toothpaste",
+   "remarque": "INCI 09/11 : Rohlik.cz (supermarché en ligne), Sensodyne Complete Protection + Whitening. Deux virgules parasites de la source corrigées (« Pentasodium, Triphosphate » → Pentasodium Triphosphate ; « Xanthan, Gum » → Xanthan Gum)."
+  },
+  {
+   "ean": "5054563206275",
+   "titre": "Parodontax Gum Strengthen & Protect Whitening Toothpaste 75 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Hydrated Silica, Sorbitol, Glycerin, PEG-6, Sodium Citrate, Sodium Lauryl Sulfate, Aroma, Xanthan Gum, Zinc Chloride, Carrageenan, Sodium Fluoride, Sodium Saccharin, Citric Acid, o-cymen-5-ol, Sodium Hyaluronate, Limonene, CI 74160, CI 74260",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.sezamo.ro/en-RO/29190-parodontax-gum-strengthen-protect-whitening-toothpaste-with-hyaluronic-acid",
+   "remarque": "INCI 09/11 : Sezamo.ro (groupe Rohlik). Mention de teneur en fluor retirée."
+  },
+  {
+   "ean": "5054563206299",
+   "titre": "Parodontax Gum Strengthen & Protect Fresh Mint Toothpaste 75 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Hydrated Silica, Sorbitol, Glycerin, PEG-6, Sodium Citrate, Sodium Lauryl Sulfate, Aroma, Xanthan Gum, Zinc Chloride, Sodium Fluoride, Carrageenan, Sodium Saccharin, Citric Acid, o-cymen-5-ol, Sodium Hyaluronate, Limonene, CI 74160, CI 74260",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.sezamo.ro/en-RO/29189-parodontax-gum-strengthen-protect-fresh-mint-hyaluronic-acid-toothpaste",
+   "remarque": "INCI 09/11 : Sezamo.ro (groupe Rohlik). Mention de teneur en fluor retirée."
+  },
+  {
+   "ean": "5054563219305",
+   "titre": "Sensodyne Pronamel Junior 6-12 Years Toothpaste 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Sorbitol, Hydrated Silica, Glycerin, PEG-6, Cocamidopropyl Betaine, Xanthan Gum, Aroma, Sodium Saccharin, Sodium Fluoride, Limonene, Sodium Hydroxide, CI 42090",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.sezamo.ro/en-RO/29188-sensodyne-pronamel-junior-6-12-years-toothpaste-for-children",
+   "remarque": "INCI 09/11 : Sezamo.ro (supermarché en ligne, groupe Rohlik), fiche Pronamel Junior 6-12 ans. Mention de teneur en fluor retirée."
+  },
+  {
+   "ean": "5054563219534",
+   "titre": "Sensodyne Pronamel Kids 0-6 Years Toothpaste 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Sorbitol, Hydrated Silica, Glycerin, PEG-6, Cocamidopropyl Betaine, Xanthan Gum, Aroma, Sodium Saccharin, Sodium Fluoride, Limonene, Sodium Hydroxide, CI 73360",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.rohlik.cz/en-CZ/1462462-sensodyne-kids-toothpaste-for-children-0-6-years",
+   "remarque": "INCI 09/11 : Rohlik.cz (Sensodyne Kids 0-6 ans) ; liste identique sur kifli.hu (Pronamel Kids 0-6)."
+  },
+  {
+   "ean": "5054563949103",
+   "titre": "Parodontax Herbal Fresh Toothpaste 75 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Sodium Bicarbonate, Aqua, Glycerin, Sodium Lauryl Sulfate, Aroma, Xanthan Gum, Cocamidopropyl Betaine, Sodium Fluoride, Sodium Saccharin, Titanium Dioxide, Steviol Glycosides, Limonene, CI 77492, CI 74160",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.kifli.hu/en-HU/98330-",
+   "remarque": "INCI 09/11 : Kifli.hu (groupe Rohlik), fiche Parodontax Herbal Fresh (duopack 2 x 75 ml, même tube). Mention de teneur en fluor retirée."
+  },
+  {
+   "ean": "5056663800285",
+   "titre": "Roja Parfums 51 Eau de Parfum 75 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat, Parfum (Fragrance), Limonene, Benzyl Salicylate, Alpha-Isomethyl Ionone, Benzyl Benzoate, Linalool, Benzyl Alcohol, Amyl Cinnamal, Citral, Farnesol, Hydroxycitronellal, Eugenol, Benzyl Cinnamate, Citronellol, Geraniol, Hexyl Cinnamal, Isoeugenol",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/roja-parfums/roja-51-essence-de-parfum-75-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Fiche « 51 Essence de Parfum 75 ml ». Virgule parasite corrigée (« Alphaisomethyl, Ionone » → Alpha-Isomethyl Ionone). Avertissement retiré."
+  },
+  {
+   "ean": "5425017733621",
+   "titre": "Cuba City Las Vegas Eau de Toilette 35 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT, AQUA, PARFUM, CINNAMAL, LIMONENE, CITRAL, LINALOOL, HYDROXYCITRONELLAL",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfum-centrum.com/cuba-city-las-vegas-for-men-eau-de-toilette-35-ml-man_z625873",
+   "remarque": "INCI 09/11 : Parfum-Centrum (distributeur), EAN identique."
+  },
+  {
+   "ean": "5425017736837",
+   "titre": "Cuba Wild Heart Deodorant 200 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "BUTANE, ISOBUTANE, PROPANE, ALCOHOL DENAT, PARFUM, PROPYLENE GLYCOL, ALPHA-ISOMETHYL IONONE, CITRAL, LIMONENE, LINALOOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfum-centrum.com/cuba-wildheart-deodorant-vapo-200-ml-man_z696312",
+   "remarque": "INCI 09/11 : Parfum-Centrum (distributeur), EAN identique."
+  },
+  {
+   "ean": "5425039222073",
+   "titre": "Cuba Authentic Tasty Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT, AQUA, PARFUM, CITRAL, CITRONELLOL, COUMARIN, GERANIOL, ALPHA-ISOMETHYL IONONE, LIMONENE, LINALOOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfum-centrum.com/cuba-authentic-tasty-eau-de-parfum-100-ml-woman_z875723",
+   "remarque": "INCI 09/11 : Parfum-Centrum (distributeur), EAN identique."
+  },
+  {
+   "ean": "5998889507398",
+   "titre": "Kallos Cosmetics Gogo Indulging Shower Gel 200 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Sodium Laureth Sulfate, Sodium Chloride, Sodium Laureth-5 Carboxylate, Cocamide DEA, Cocamidopropyl Betaine, Glycerin, PEG-200 Hydrogenated Glyceryl Palmate, PEG-7 Glyceryl Cocoate, Propylene Glycol, Parfum, Citric Acid, Benzyl Alcohol, Methylchloroisothiazolinone, Methylisothiazolinone",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.ferwer.com/kallos-gogo-indulging-shower-gel",
+   "remarque": "INCI 09/11 : Ferwer (distributeur), EAN identique."
+  },
+  {
+   "ean": "5998889510909",
+   "titre": "Kallos Cosmetics Lab 35 For Volume And Gloss Shampoo 500 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Sodium Laureth Sulfate, Glycerin, Cocamide DEA, Cocamidopropyl Betaine, Methoxy PEG/PPG-7/3 Aminopropyl Dimethicone, Sodium Chloride, Parfum, Glycol Distearate, Polyquaternium-10, Coco-Glucoside, Polyquaternium-7, Laureth-4, PEG-4 Distearyl Ether, Citric Acid, Distearyl Ether, Dicaprylyl Ether, Panthenol, Amodimethicone, Cetrimonium Chloride, Trideceth-12, Silicone Quaternium-16, Undeceth-11, Butyloctanol, Undeceth-5, Lactis Lipida, Ceramide 3, Sodium Hyaluronate, Soluble Collagen, Propylene Glycol, Benzyl Alcohol, Sodium Benzoate, Methylchloroisothiazolinone, Methylisothiazolinone",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/kallos-lab-35-shampoo-for-volume-and-gloss",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Kallos LAB 35 Shampoo For Volume And Gloss » publiée le 2022-08-22 ; EAN non affiché par la source."
+  },
+  {
+   "ean": "5998889511494",
+   "titre": "Kallos Cosmetics Hair Pro-Tox Shampoo 500 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Sodium Laureth Sulfate, Sodium Chloride, Glycerin, Cocamidopropyl Betaine, Cocamide DEA, Coco-Glucoside, Parfum, Polyquaternium-7, Cocos Nucifera Oil, Olea Europaea Oil, PEG-4 Distearyl Ether, Distearyl Ether, Citric Acid, Dicaprylyl Ether, Hydrolyzed Keratin, Soluble Collagen, Sodium Hyaluronate, Amodimethicone, Cetrimonium Chloride, Trideceth-12, Panthenol, Propylene Glycol, Sodium Benzoate, Benzyl Alcohol, Methylchloroisothiazolinone, Methylisothiazolinone",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/kallos-kjmn-hair-pro-tox-shampoo-with-keratin-collagen-hyaluronic-acid",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Kallos KJMN Hair Pro-Tox Shampoo With Keratin, Collagen & Hyaluronic Acid » publiée le 2022-08-16 ; EAN non affiché par la source. Même liste pour les formats 500 ml et 1000 ml."
+  },
+  {
+   "ean": "5998889517663",
+   "titre": "Kallos Cosmetics Multivitamin Hair Mask 500 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Cetearyl Alcohol, Cetrimonium Chloride, Persea Gratissima Oil, Parfum, Citrus Sinensis Extract, Citrus Limon Fruit Extract, Panax Ginseng Root Extract, Citric Acid, Cyclopentasiloxane, Dimethiconol, Propylene Glycol, Niacinamide, Calcium Pantothenate, Sodium Ascorbyl Phosphate, Tocopheryl Acetate, Pyridoxine Hcl, Maltodextrin, Sodium Starch Octenylsuccinate, Silica, Benzyl Alcohol, Methylchloroisothiazolinone, Methylisothiazolinone",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/kallos-kjmn-multivitamin-energising-hair-mask",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Kallos KJMN Multivitamin Energising Hair Mask » publiée le 2022-08-28 ; EAN non affiché par la source. Contient du Cyclopentasiloxane (D5) : restreint dans l'UE (≥ 0,1 %) ; vérifier la formule actuelle."
+  },
+  {
+   "ean": "6289885998730",
+   "titre": "Paris Corner Zodiac Solmaris Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat, Parfum, Alpha-Isomethyl Ionone, Limonene, Linalool, Citral, Geraniol, Eugenol, Methyl 2-Octynoate, Coumarin",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/paris-corner/paris-corner-zodiac-solmaris-edp-u-100-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Corrections de forme : mention « (80%Vol) » retirée, « Alpha -Isomethyl » → Alpha-Isomethyl, « Methyl Z- Octynoate » → Methyl 2-Octynoate (coquille)."
+  },
+  {
+   "ean": "6290171010166",
+   "titre": "Rue Broca Pride Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat, Aqua (Dm Water), Parfums, Alpha-Isomethyl Ionone, Benzyl Salicylate, Cinnamal, Citral, Citronellol, Coumarin, D-Limonene, Eugenol, Evernia Prunastri (Oakmoss) Extract",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/rue-broca/rue-broca-pride-pour-homme-edp-m-100-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Fiche « Pride Pour Homme ». Liste conservée telle que publiée (« Aqua (Dm Water) », « Parfums », « D-Limonene » : formulations non standard, à harmoniser si bol refuse)."
+  },
+  {
+   "ean": "6290171010197",
+   "titre": "Rue Broca Touche Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat, Aqua (Dm Water), Parfum, Alpha-Isomethyl Ionone, Benzyl Benzoate, Citral, Citronellol, D-Limonene, Hexyl Cinnamal, Geraniol, Linalool",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/rue-broca/rue-broca-touche-homme-edp-m-100-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Fiche « Touche Homme ». Liste conservée telle que publiée (« Aqua (Dm Water) », « D-Limonene » non standard, à harmoniser si bol refuse)."
+  },
+  {
+   "ean": "6295199805664",
+   "titre": "Armaf Odyssey Eau de Montagne Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Fragrance (Parfum), Aqua (Water), Limonene, Linalool, Citronellol, Hydroxycitronellal, Geraniol, Benzyl Salicylate, Alpha-Isomethyl Ionone, Coumarin, Citral, Eugenol, Cinnamyl Alcohol, Cinnamal, Benzyl Benzoate, Benzyl Alcohol, Isoeugenol, Cinnamaldehyde",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/armaf/armaf-odyssey-eau-de-montagne-edp-100-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Liste telle que publiée (Cinnamal et Cinnamaldehyde tous deux cités)."
+  },
+  {
+   "ean": "0651473715054",
+   "titre": "Perricone MD No Makeup Lip Oil Lip Oil 5,5 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Hydrogenated Poly(C6-14 Olefin), Polybutene, Mango Butter Dimer Dilinoleyl Esters/Dimer Dilinoleate Copolymer, Ethylene/Propylene/Styrene Copolymer, Simmondsia Chinensis (Jojoba) Seed Oil, Squalane, Ethylhexyl Palmitate, Argania Spinosa Kernel Oil, Persea Gratissima (Avocado) Oil, Punica Granatum Seed Oil, Rosa Canina Fruit Oil, Helianthus Annuus (Sunflower) Seed Oil, Cetearyl Ethylhexanoate, Punica Granatum Flower Extract, Mangifera Indica (Mango) Seed Butter, Polyglyceryl-3 Diisostearate, Phenoxyethanol, Aroma (Flavor), Butylene/Ethylene/Styrene Copolymer, Tribehenin, Sorbitan Isostearate, Synthetic Wax, Tocopheryl Acetate, Butyrospermum Parkii (Shea) Butter, Ethylhexylglycerin, Rubus Idaeus (Raspberry) Fruit Extract, Portulaca Pilosa Extract, Silica Dimethyl Silylate, Pentaerythrityl Tetra-Di-T-Butyl Hydroxyhydrocinnamate, Water/Aqua/Eau, Lactic Acid, Butylene Glycol, Pentylene Glycol, Isopropyl Titanium Triisostearate, Sucrose Cocoate, Rosmarinus Officinalis (Rosemary) Leaf Extract, Sodium Hyaluronate, Alcohol, Palmitoyl Tripeptide-1, Palmitoyl Tripeptide-38, Tocopherol, Citric Acid, Benzyl Benzoate, Blue 1 Lake (Ci 42090), Red 6 (Ci 15850), Red 7 Lake (Ci 15850), Red 33 (Ci 17200), Yellow 5 Lake (Ci 19140), Red 30 Lake (Ci 73360), Iron Oxides (Ci 77491, Ci 77492, Ci 77499), Titanium Dioxide (Ci 77891)",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/perricone-md-no-makeup-lip-oil",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Perricone MD No Makeup Lip Oil » publiée le 2024-04-30 ; EAN non affiché par la source."
+  },
+  {
+   "ean": "0669259003516",
+   "titre": "ECRU Marine Thickening Balm Leave-in Hair Care 148 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Water/Aqua/Eau, Glycerin, VP/VA Copolymer, Dimethicone PEG-7 Phosphate, Aminomethyl Propanol, Anthemis Nobilis Flower Extract, Benzophenone-4, Butylene Glycol, Caprylyl Glycol, Carbomer, Chlorphenesin, Chondrus Crispus (Carrageenan), Citric Acid, Dimethicone, Dimethiconol, Disodium EDTA, Hydrolyzed Silk, Keratin Amino Acids, Panthenol, PEG-12 Dimethicone, PEG-40 Hydrogenated Castor Oil, Phenoxyethanol, PVP, Sodium Chloride, Sodium Metabisulfite, Sodium PCA, Solanum Tuberosum (Potato) Starch, Tapioca Starch, Tilia Cordata Flower Extract, Triglycereth-7 Citrate, Wheat Amino Acids, Fragrance (Parfum), Linalool, Alpha-Isomethyl Ionone, Hexyl Cinnamal, Limonene, Hydroxycitronellal, Benzyl Benzoate, Citronellol, Coumarin, CI 42090 (Blue 1), CI 60730 (Ext. Violet 2)",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.ecrunewyork.com/shop/product/marine-thickening-balm",
+   "remarque": "INCI 09/11 : Site officiel ECRU New York (Marine Thickening Balm)."
+  },
+  {
+   "ean": "0669259003691",
+   "titre": "ECRU Dry Texture Spray Hair Spray 225 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Hydrofluorocarbon 152a, Butane, Octylacrylamide/Acrylates/Butylaminoethyl Methacrylate Copolymer, Aqua/Water/Eau, Aminomethyl Propanol, C12-15 Alkyl Benzoate, Parfum/Fragrance, Glycerin, Acetyl Triethyl Citrate, Methyl Methacrylate Crosspolymer, Hydrolyzed Silk, Alpha-Isomethyl Ionone, Citronellol, Hexyl Cinnamal, Limonene",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.ecrunewyork.com/shop/product/dry-texture-spray",
+   "remarque": "INCI 09/11 : Site officiel ECRU New York (Dry Texture Spray)."
+  },
+  {
+   "ean": "0711658871408",
+   "titre": "Houbigant Iris des Champs Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "alcohol denat. (alcohol), parfum (fragrance), aqua (water), ethylhexyl methoxycinnamate, butyl methoxydibenzoylmethane, ethylhexyl salicylate, alpha-isomethyl ionone, benzyl alcohol, benzyl benzoate, benzyl salicylate, citral, citronellol, coumarin, eugenol, farnesol, geraniol, hydroxycitronellal, limonene, linalool",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.houbigant-parfum.com/products/iris-des-champs-eau-de-parfum",
+   "remarque": "INCI 09/11 : Site officiel Houbigant (Iris des Champs EDP 100 ml)."
+  },
+  {
+   "ean": "7350016334648",
+   "titre": "Sachajuan Ocean Mist Volume Shampoo Shampoo 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "AQUA (WATER) (EAU), SODIUM LAURETH SULFATE, COCAMIDOPROPYL BETAINE, PEG-4 RAPESEEDAMIDE, GLYCERIN, HYDROLYZED WHEAT PROTEIN, PARFUM (FRAGRANCE), SODIUM CHLORIDE, SODIUM BENZOATE, PEG-7 GLYCERYL COCOATE, CITRIC ACID, DISODIUM EDTA, PEG-150 PENTAERYTHRITYL TETRASTEARATE, PEG-6 CAPRYLIC/CAPRIC GLYCERIDES, LINALOOL, TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES, LIMONENE, BENZYL SALICYLATE, HEXYL CINNAMAL, HEXAMETHYLINDANOPYRAN, HYDROLYZED RHODOPHYCEAE (RED ALGAE) EXTRACT, PHENOXYETHANOL, CI 42090 (BLUE 1), SODIUM SULFATE",
+   "inci_statut": "trouve",
+   "inci_source": "https://shop.sachajuan.com/products/ocean-mist-volume-shampoo-50ml",
+   "remarque": "INCI 09/11 : Site officiel Sachajuan, EAN identique (50 ml)."
+  },
+  {
+   "ean": "7350016334655",
+   "titre": "Sachajuan Ocean Mist Volume Conditioner Conditioner 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "AQUA (WATER) (EAU), CETYL ALCOHOL, GLYCERYL STEARATE, STEARAMIDOPROPYL DIMETHYLAMINE, STEARYL ALCOHOL, HYDROLYZED WHEAT PROTEIN, DICAPRYLYL ETHER, PHENOXYETHANOL, LACTIC ACID, PARFUM (FRAGRANCE), PEG-40 HYDROGENATED CASTOR OIL, DISODIUM EDTA, ETHYLHEXYLGLYCERIN, LINALOOL, TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES, SODIUM BENZOATE, LIMONENE, BENZYL SALICYLATE, HEXYL CINNAMAL, HYDROLYZED RHODOPHYCEA (RED ALGAE) EXTRACT, CI 42090 (BLUE 1), TOCOPHEROL, SODIUM SULFATE, SODIUM CHLORIDE",
+   "inci_statut": "trouve",
+   "inci_source": "https://shop.sachajuan.com/products/ocean-mist-volume-conditioner-50ml",
+   "remarque": "INCI 09/11 : Site officiel Sachajuan, EAN identique (50 ml)."
+  },
+  {
+   "ean": "7350016334679",
+   "titre": "Sachajuan Clarifying Conditioner Conditioner 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "AQUA (WATER) (EAU), CETYL ALCOHOL, STEARYL ALCOHOL, BUTYLENE GLYCOL, BEHENTRIMONIUM CHLORIDE, PARFUM (FRAGRANCE), SALICYLIC ACID, DIOLEOYLETHYL HYDROXYETHYLMONIUM METHOSULFATE, DIMETHICONE, GLYCERETH-2 COCOATE, CETEARYL ETHYLHEXANOATE, ISOPROPYL ALCOHOL, SODIUM BENZOATE, PIROCTONE OLAMINE, HEXAMETHYLINDANOPYRAN, PROPYLENE GLYCOL, TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES, LINALOOL, LIMONENE, PEG-40 HYDROGENATED CASTOR OIL, SODIUM CHLORIDE, LINALYL ACETATE, CITRUS AURANTIUM PEEL OIL, CITRIC ACID, ISOPROPYL MYRISTATE, PINENE, CITRUS LIMON PEEL OIL, GERANYL ACETATE, CITRONELLOL, GERANIOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://shop.sachajuan.com/products/clarifying-conditioner-50ml",
+   "remarque": "INCI 09/11 : Site officiel Sachajuan, EAN identique (50 ml). Virgule manquante entre PINENE et CITRUS LIMON PEEL OIL rétablie (liste en deux lignes)."
+  },
+  {
+   "ean": "7350016334693",
+   "titre": "Sachajuan Scalp Conditioner Conditioner 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "AQUA (WATER), CETYL ALCOHOL, STEARYL ALCOHOL, ISOPROPYL MYRISTATE, BEHENTRIMONIUM CHLORIDE, PROPYLENE GLYCOL, DIOLEOYLETHYL HYDROXYETHYLMONIUM METHOSULFATE, CHONDRUS CRISPUS (CARRAGEENAN) EXTRACT, DIMETHICONE, GLYCERETH-2 COCOATE, CLIMBAZOLE, PIROCTONE OLAMINE, ISOPROPYL ALCOHOL, HYDROLYZED WHEAT PROTEIN, LACTIC ACID, PEG-40 HYDROGENATED CASTOR OIL, SODIUM CHLORIDE, BUTYLENE GLYCOL, AVENA SATIVA (OAT) KERNEL OIL, GLYCERIN, C12-13 PARETH-3, C12-13 PARETH-23, ZINGIBER OFFICINALE ROOT EXTRACT, POLYSORBATE 20, ROSMARINUS OFFICINALIS (ROSEMARY) LEAF OIL, MENTHOL, SALICYLIC ACID, PARFUM (FRAGRANCE), SODIUM BENZOATE, POTASSIUM SORBATE, SORBIC ACID",
+   "inci_statut": "trouve",
+   "inci_source": "https://shop.sachajuan.com/products/scalp-conditioner",
+   "remarque": "INCI 09/11 : Site officiel Sachajuan (fiche Scalp Conditioner 100/250/990 ml) ; même produit, nous vendons le 50 ml."
+  },
+  {
+   "ean": "7350016334709",
+   "titre": "Sachajuan Moisturizing Shampoo Shampoo 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "AQUA (WATER) (EAU), SODIUM LAURETH SULFATE, COCAMIDOPROPYLBETAINE, PEG-7 GLYCERYL COCOATE, GLYCERIN, PEG-4 RAPESEEDAMIDE, PARFUM (FRAGRANCE), SODIUM BENZOATE, HYDROXYPROPYL GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE, COCO-GLUCOSIDE, GLYCERYL OLEATE, CITRIC ACID, SODIUM CHLORIDE, PEG-150 PENTAERYTHRITYL TETRASTEARATE, LINALOOL, PEG-6 CAPRYLIC/CAPRIC GLYCERIDES, TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES, ARAGAN SPINOSA KERNEL OIL, LIMONENE, BENZYL SALICYLATE, HEXYL CINNAMAL, HEXAMETHYLINDANOPYRAN, CHONDRUS CRISPUS EXTRACT, CITRONELLOL, TOCOPHEROL, HYDROGENATED VEGETABLE GLYCERIDES CITRATE",
+   "inci_statut": "trouve",
+   "inci_source": "https://shop.sachajuan.com/products/moisturizing-shampoo-50ml",
+   "remarque": "INCI 09/11 : Site officiel Sachajuan, EAN identique (50 ml) ; liste actuelle sans Lilial. Orthographe de la source conservée (COCAMIDOPROPYLBETAINE, ARAGAN)."
+  },
+  {
+   "ean": "7350016334716",
+   "titre": "Sachajuan Moisturizing Conditioner Conditioner 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "AQUA (WATER) (EAU), CETYL ALCOHOL, PROPYLENE GLYCOL, STEARYL ALCOHOL, GLYCERIN, BEHENTRIMONIUM CHLORIDE, DIOLEOYLETHYL HYDROXYETHYLMONIUM METHOSULFATE, DIMETHICONE, CETEARYL ETHYLHEXANOATE, PARFUM (FRAGRANCE), GLYCERETH-2 COCOATE, PERSEA GRATISSIMA OIL, ISOPROPYL ALCOHOL, SODIUM BENZOATE, PEG-40 HYDROGENATED CASTOR OIL, CITRIC ACID, SODIUM CHLORIDE, ARGANIA SPINOSA KERNEL OIL, ISOPROPYL MYRISTATE, LINALOOL, TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES, CHONDRUS CRISPUS(CARRAGEENAN)EXTRACT, LIMONENE, BENZYL SALICYLATE, HEXYL CINNAMAL",
+   "inci_statut": "trouve",
+   "inci_source": "https://shop.sachajuan.com/products/moisturizing-conditioner-50ml",
+   "remarque": "INCI 09/11 : Site officiel Sachajuan, EAN identique (50 ml)."
+  },
+  {
+   "ean": "7640147050792",
+   "titre": "Tauer Perfumes Cologne Du Maghreb 2021 Eau de Cologne 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol denat., Parfum, 3-Propylidenephthalide, 6-Methyl Coumarin, Acetyl Cedrene, Alpha-Isomethyl Ionone, Alpha-Terpinene, Amyl Cinnamal, Amyl Salicylate, Amylcinnamyl Alcohol, Anethole, Anise Alcohol, Benzaldehyde, Benzyl Alcohol, Benzyl Benzoate, Benzyl Cinnamate, Benzyl Salicylate, Beta-Caryophyllene, Camphor, Cananga Odorata Oil/Extract, Carvone, Cedrus Atlantica Oil/Extract, Cinnamal, Cinnamomum Cassia Leaf Oil, Cinnamomum Zeylanicum Bark Oil, Cinnamyl Alcohol, Citral, Citronellol, Citrus Aurantium Bergamia Peel Oil, Citrus Aurantium Flower Oil, Citrus Aurantium Peel Oil, Citrus Limon Peel Oil, Coumarin, Dimethyl Phenethyl Acetate, Eucalyptus Globulus Oil, Eugenia Caryophyllus Oil, Eugenol, Eugenyl Acetate, Evernia Furfuracea Extract, Evernia Prunastri Extract, Farnesol, Geraniol, Geranyl Acetate, Hexadecanolactone, Hexamethylindanopyran, Hexyl Cinnamal, Hydroxycitronellal, Isoeugenol, Isoeugenyl Acetate, Jasmine Oil/Extract, Juniperus Virginiana Oil, Laurus Nobilis Leaf Oil, Lavandula Oil/Extract, Lemongrass Oil, Limonene, Linalool, Linalyl Acetate, Lippia Citriodora Absolute, Mentha Piperita Oil, Mentha Viridis Leaf Oil, Menthol, Methyl 2-Octynoate, Methyl Salicylate, Myroxylon Pereirae Oil/Extract, Narcissus Extract, Pelargonium Graveolens Flower Oil, Pinene, Pinus Mugo, Pinus Pumila, Pogostemon Cablin Oil, Rose Flower Oil/Extract, Rose Ketones, Salicylaldehyde, Santalol, Santalum Album Oil, Sclareol, Terpineol, Terpinolene, Tetramethyl Acetyloctahydronaphthalenes, Trimethylbenzenepropanol, Trimethylcyclopentenyl Methylisopentenol, Turpentine, Vanillin",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.tauerperfumes.com/products/cologne-du-maghreb",
+   "remarque": "INCI 09/11 : Site officiel Tauer Perfumes, EAN identique. Liste publiée en ordre alphabétique après Alcohol denat. et Parfum ; séparateurs « ; » remplacés par des virgules."
+  },
+  {
+   "ean": "7640171193205",
+   "titre": "Jaguar For Men Oud Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., PARFUM (FRAGRANCE), AQUA (WATER), LINALOOL, COUMARIN, LIMONENE, ALPHA-ISOMETHYL IONONE, EUGENOL, BENZYL BENZOATE, BENZYL ALCOHOL, HEXYL CINNAMAL, CITRAL, GERANIOL, ISOEUGENOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfum-centrum.com/jaguar-for-men-oud-eau-de-parfum-100-ml-man_z782611",
+   "remarque": "INCI 09/11 : Parfum-Centrum (distributeur), EAN identique."
+  },
+  {
+   "ean": "8011003893911",
+   "titre": "Dsquared2 Green Wood Eau de Toilette 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., PARFUM (FRAGRANCE), WATER (AQUA), OCTINOXATE, BUTYL METHOXYDIBENZOYLMETHANE, ETHYLHEXYL SALICYLATE, LINALOOL, LIMONENE, CITRONELLOL, GERANIOL, CITRAL, ISOEUGENOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfumdreams.ie/Dsquared2/Mens-fragrances/Green-Wood/Eau-de-Toilette-Spray/index_89029.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Green Wood EDT ; 100 ml affiché sous l'EAN 8011003852741, différent du nôtre) : même parfum, vérifier le conditionnement."
+  },
+  {
+   "ean": "8016741092701",
+   "titre": "Tiziana Terenzi Torpe Perfume Extract 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum, Limonene, Linalool, Citronellol, Geraniol, Citral, Hydroxycitronellal, Eugenol, Amyl Cinnamal",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfumdreams.ie/Tiziana-Terenzi/Collections/Classic-Collection/Extrait-de-Parfum/index_130731.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams, EAN identique."
+  },
+  {
+   "ean": "8016741202711",
+   "titre": "Tiziana Terenzi Luna Collection Pisces Perfume Extract 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum, Citronellol, Linalool, Geraniol, Limonene, Hydroxycitronellal, Citral, Eugenol, Alpha-Isomethyl Ionone, Benzyl Alcohol",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfumdreams.ie/Tiziana-Terenzi/Collections/Luna-Collection/Extrait-de-Parfum/index_133700.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams, EAN identique."
+  },
+  {
+   "ean": "8017331054345",
+   "titre": "Biorepair Plus Parodontgel Toothpaste 75 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Zinc Hydroxyapatite, Glycerin, Sorbitol, Hydrated Silica, Silica, Cocamidopropyl Betaine, Cellulose Gum, Aroma, Lactoferrin, Sodium Myristoyl Sarcosinate, Sodium Methyl Cocoyl Taurate, Hamamelis Virginiana Leaf Extract, Spirulina Platensis Extract, Calendula Officinalis Flower Extract, Zinc PCA, Sodium Hyaluronate, Tocopheryl Acetate, Retinyl Palmitate, Sodium Saccharin, Phenoxyethanol, Benzyl Alcohol, Sodium Benzoate, Potassium Sorbate, Limonene, CI 77891",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.doz.pl/p/biorepair-plus-parodontgel-pasta-do-zebow-75-ml-139130",
+   "remarque": "INCI 09/11 : DOZ.pl (pharmacie en ligne), EAN identique. Astérisque après Zinc Hydroxyapatite retiré ; virgule parasite corrigée (« Calendula Officinalis, Flower Extract »)."
+  },
+  {
+   "ean": "8028544101337",
+   "titre": "Lorenzo Villoresi Acqua di Colonia Eau de Toilette 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT. (SD ALCOHOL 39-B), PARFUM (FRAGRANCE), AQUA (WATER), CITRAL, CITRONELLOL, LIMONENE, EUGENOL, GERANIOL, LINALOOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://lorenzovilloresi.it/eu_en/acqua-di-colonia-p101-014",
+   "remarque": "INCI 09/11 : Site officiel Lorenzo Villoresi (Acqua di Colonia). Séparateurs « | » remplacés par des virgules ; avertissement retiré."
+  },
+  {
+   "ean": "8028713000294",
+   "titre": "Acqua di Parma Colonia Eau de Cologne 500 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "alcohol denat., aqua (water), parfum (fragrance), limonene, hydroxycitronellal, linalool, citral, benzyl salicylate, coumarin, eugenol, alpha-isomethyl ionone, geraniol, amyl cinnamal, evernia prunastri (oakmoss) extract, citronellol, benzyl benzoate, bht, benzyl alcohol, farnesol",
+   "inci_statut": "trouve",
+   "inci_source": "https://en.parfumdreams.de/Acqua-di-Parma/Unisex-fragrances/Colonia/Eau-de-Cologne-Spray/index_13764.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams (Colonia EDC 50/100/180 ml ; nous vendons le flacon 500 ml, même eau de Cologne). Code « 11667/A : » en tête retiré."
+  },
+  {
+   "ean": "8033488155469",
+   "titre": "Xerjoff XJ 17/17 XXY Perfume 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Linalyl Acetate, Limonene, Pogostemon Cablin Oil, Linalool, Tetramethyl Acetyloctahydronaphthalenes, Vanillin, Bht, Alpha-Terpinene, Benzyl Alcohol, Benzyl Benzoate, Cananga Odorata Oil/Extract, Benzyl Salicylate, Citrus Aurantium Peel Oil, Citrus Limon Peel Oil, Eugenol, Eugenyl Acetate, Camphor, Carvone, Farnesol, Geraniol, Geranyl Acetate, Citral, Citronellol, Isoeugenol, Isoeugenyl Acetate, Alpha-Isomethyl Ionone, Terpineol, Pinene, Terpinolene, Beta-Caryophyllene",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.xerjoff.com/products/xxy-parfum",
+   "remarque": "INCI 09/11 : Site officiel Xerjoff, EAN identique (XXY Parfum 100 ml)."
+  },
+  {
+   "ean": "8051277318666",
+   "titre": "The House Of Oud The Time Eau de Parfum 75 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum [Fragrance], Aqua [Water], Benzyl Salicylate, Limonene, Linalool, BHT, Citral, Benzyl Benzoate, Geraniol",
+   "inci_statut": "trouve",
+   "inci_source": "https://parfumaweb.tilroy.com/en/the-house-of-oud-the-time-eau-de-parfum-23-thetimeedp",
+   "remarque": "INCI 09/11 : Parfuma (parfumerie belge), EAN identique."
+  },
+  {
+   "ean": "8052464896301",
+   "titre": "Ferragamo Signorina Unica Eau de Parfum 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum, Aqua, Bht, Alpha-Isomethyl Ionone, Benzyl Salicylate, Citral, Citronellol, Coumarin, Geraniol, Hydroxycitronellal, Limonene, Linalool",
+   "inci_statut": "trouve",
+   "inci_source": "https://escentual.com/products/ferragamo-signorina-unica-eau-de-parfum-spray",
+   "remarque": "INCI 09/11 : Escentual (Signorina Unica EDP ; EAN affichés 8052464896073/080/097, le nôtre 8052464896301 non listé) : même parfum, vérifier le conditionnement."
+  },
+  {
+   "ean": "8052464898879",
+   "titre": "Ferragamo Uomo Signature Eau de Parfum 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum, Aqua, Coumarin, Limonene, Ethylhexyl Methoxycinnamate, Alpha-Isomethyl Ionone, Citronellol, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Cinnamyl Alcohol, Geraniol, Linalool, Isoeugenol, Citral, Farnesol, Cinnamal, Eugenol, CI 60730, CI 19140, Bht",
+   "inci_statut": "trouve",
+   "inci_source": "https://escentual.com/products/ferragamo-uomo-signature-eau-de-parfum-spray",
+   "remarque": "INCI 09/11 : Escentual (Uomo Signature EDP, EAN affiché 8056860210754, différent du nôtre) : même parfum, vérifier. Balise HTML parasite retirée ; « Cl » (L) laissé tel que publié pour CI 60730 / CI 19140 corrigé en « CI »."
+  },
+  {
+   "ean": "8054320900757",
+   "titre": "Xerjoff K Collection Hayat Perfume 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Tetramethyl Acetyloctahydronaphthalenes, Pogostemon Cablin Oil, Bht, Benzyl Benzoate, Citrus Aurantium Peel Oil, Camphor, Cinnamal, Cinnamomum Zeylanicum Bark Oil, Geraniol, Geranyl Acetate, Lavandula Oil/Extract, Citral, Eugenol, Limonene, Linalool, Linalyl Acetate, Pinene, Sclareol, Terpineol, Beta-Caryophyllene",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.xerjoff.com/products/hayat-parfum",
+   "remarque": "INCI 09/11 : Site officiel Xerjoff, EAN identique (Hayat Parfum 50 ml)."
+  },
+  {
+   "ean": "8054320900993",
+   "titre": "Xerjoff K Collection Tempest Perfume 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum (Fragrance), Tetramethyl Acetyloctahydronaphthalenes, Aqua (Water), Limonene, Acetyl Cedrene, Vanillin, Bht, 3-Propylidenephthalide, Alpha-Terpinene, Benzyl Benzoate, Benzyl Alcohol, Cedrus Atlantica Oil/Extract, Lavandula Oil/Extract, Citral, Citronellol, Citrus Aurantium Bergamia Peel Oil, Citrus Aurantium Peel Oil, Citrus Limon Peel Oil, Citrus Aurantium Flower Oil, Eugenol, Farnesol, Jasmine Oil/Extract, Linalool, Linalyl Acetate, Geraniol, Geranyl Acetate, Hydroxycitronellal, Camphor, Carvone, Methyl 2-Octynoate, Pogostemon Cablin Oil, Alpha-Isomethyl Ionone, Rose Flower Oil/Extract, Terpineol, Pinene, Terpinolene, Beta-Caryophyllene, Rose Ketones",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.xerjoff.com/products/tempest-parfum",
+   "remarque": "INCI 09/11 : Site officiel Xerjoff (Tempest Parfum 50 ml), EAN identique."
+  },
+  {
+   "ean": "8054320902072",
+   "titre": "Xerjoff K Collection Astaral Perfume 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Tetramethyl Acetyloctahydronaphthalenes, Alpha-Isomethyl Ionone, Bht, Vanillin, Alpha-Terpinene, Amyl Salicylate, Benzyl Benzoate, Rose Ketones, Cinnamal, Cinnamomum Zeylanicum Bark Oil, Pogostemon Cablin Oil, Citral, Citronellol, Citrus Limon Peel Oil, Hexadecanolactone, Cinnamyl Alcohol, Eugenol, Farnesol, Geraniol, Geranyl Acetate, Pelargonium Graveolens Flower Oil, Isoeugenol, Limonene, Linalool, Linalyl Acetate, Benzyl Salicylate, Santalol, Terpineol, Pinene, Terpinolene, Beta-Caryophyllene, Rose Flower Oil/Extract",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.xerjoff.com/products/astaral-parfum",
+   "remarque": "INCI 09/11 : Site officiel Xerjoff, EAN identique (Astaral Parfum 100 ml)."
+  },
+  {
+   "ean": "8055773545564",
+   "titre": "The House Of Oud Wabisabi Eau de Parfum 75 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum [Fragrance], Aqua [Water], Benzyl Salicylate, Linalool, Limonene, Citronellol, Citral, Hydroxycitronellal, Geraniol, Benzyl Benzoate, Eugenol",
+   "inci_statut": "trouve",
+   "inci_source": "https://parfumaweb.tilroy.com/en/the-house-of-oud-wabisabi-eau-de-parfum-23-wabisabiedp",
+   "remarque": "INCI 09/11 : Parfuma (parfumerie belge, boutique parfumaweb), EAN identique."
+  },
+  {
+   "ean": "0810912033672",
+   "titre": "Sol De Janeiro Strengthening + Smoothing Shampoo Shampoo 90 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Water (Aqua), Sodium C14-16 Olefin Sulfonate, Cocamidopropyl Betaine, Sodium Cocoyl Isethionate, Glycerin, Fragrance, Glycol Distearate, Cocamide MIPA, Sodium Lauroyl Sarcosinate, Sodium Chloride, Bertholletia Excelsa (Brazil Nut) Seed Oil, Cocos Nucifera (Coconut) Oil, Theobroma Grandiflorum (Cupuaçu) Seed Butter, Mauritia Flexuosa (Buriti) Fruit Oil, Euterpe Oleracea (Açaí) Fruit Oil, Chamomilla Recutita Flower Extract, Gardenia Jasminoides Fruit Extract, Caprylic/Capric Triglyceride, Coco-Glucoside, Coconut Acid, Isopropanolamine, Polyquaternium-7, Algin, Chitosan, Xanthan Gum, Carrageenan, Tetrasodium Glutamate Diacetate, Sodium Isethionate, Sodium Formate, Sodium Glycolate, Maltodextrin, Sodium Hydroxide, Sodium Benzoate, Sodium Sulfate, Guar Hydroxypropyltrimonium Chloride, Sorbitan Oleate, Citric Acid, Ethylhexylglycerin, Phenoxyethanol, Benzyl Salicylate, Coumarin, Geraniol, Hydroxycitronellal, Limonene, Linalool",
+   "inci_statut": "trouve",
+   "inci_source": "https://soldejaneiro.com/products/brazilian-joia-strengthening-smoothing-shampoo",
+   "remarque": "INCI 09/11 : Site officiel Sol de Janeiro, EAN identique (90 ml). Mention « Contains nuts » retirée."
+  },
+  {
+   "ean": "8410436414289",
+   "titre": "Diadermine Lift+ Phytoretinol Anti-Age Advanced Cream 30+ Day Cream 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water, Eau), Caprylic/Capric Triglyceride, Glycerin, Hexanediol, Coco-Caprylate, Arachidyl Alcohol, Pentylene Glycol, Hydrogenated Coco-Glycerides, Behenyl Alcohol, Butyrospermum Parkii (Shea) Butter, Xylitylglucoside, Sodium Hyaluronate, Tocopherol, Crithmum Maritimum Extract, Mineral Salts, Mannose, Mannitol, Saccharide Isomerate, Arachidyl Glucoside, Anhydroxylitol, Bisabolol, Panthenol, Cellulose, Xanthan Gum, Sclerotium Gum, Caffeine, Xylitol, Glucose, Hydrogenated Palm Glycerides Citrate, Ethylhexylglycerin, Bis-Ethylhexyl Hydroxydimethoxy Benzylmalonate, Hydroxyacetophenone, Carbomer, Sodium Hydroxide, Parfum (Fragrance)",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/diadermine-lift-phytoretinol-anti-aging-day-cream",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Diadermine Lift+ Phytoretinol Anti-Aging Day Cream » publiée le 2021-05-12 ; EAN non affiché par la source. Nom source « Lift+ Phytoretinol Anti-Aging Day Cream » ; vérifier la correspondance avec « Anti-Age Advanced Cream 30+ »."
+  },
+  {
+   "ean": "0841317002895",
+   "titre": "Histoires de Parfums This Is Not A Blue Bottle 1.7 Eau de Parfum 60 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Denat. Alcohol, Fragrance, Benzyl Salicylate, Geraniol, Alpha-Isomethyl Ionone, Coumarin, Citral, Benzyl Alcohol, Citronellol, Benzyl Benzoate, Limonene, Linalool, Water",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfumdreams.ie/Histoires-de-Parfums/Collections/This-Is-Not-A-Blue-Bottle/Eau-de-Parfum-Spray/index_131888.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams, fiche « Blue 1.7 » EDP (60/115/15 ml), EAN non affiché."
+  },
+  {
+   "ean": "0841317005964",
+   "titre": "Histoires de Parfums This Is Not A Blue Bottle 1.3 Eau de Parfum 115 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., PARFUM (FRAGRANCE), AQUA (WATER), TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES, POGOSTEMON CABLIN OIL, BENZYL SALICYLATE, LIMONENE, LINALYL ACETATE, ROSE FLOWER OIL/EXTRACT, BENZYL ALCOHOL, HYDROXYCITRONELLAL, CITRONELLOL, PINENE, LINALOOL, BETA-CARYOPHYLLENE, CINNAMYL ALCOHOL, GERANIOL, CITRUS LIMON PEEL OIL, LAVANDULA OIL/EXTRACT, ALPHA-TERPINENE, ROSE KETONES, TERPINEOL, GERANYL ACETATE, PELARGONIUM GRAVEOLENS FLOWER OIL, CITRAL, EUGENOL, TERPINOLENE, FARNESOL, CITRUS AURANTIUM PEEL OIL, BENZALDEHYDE",
+   "inci_statut": "trouve",
+   "inci_source": "https://histoiresdeparfums.com/products/perfume-this-is-not-a-blue-bottle-1-3",
+   "remarque": "INCI 09/11 : Site officiel Histoires de Parfums (fiche 1/.3, 15/60/115 ml). Liste sans Lilial (la version Escentual, plus ancienne, en contenait)."
+  },
+  {
+   "ean": "0841317005971",
+   "titre": "Histoires de Parfums This Is Not A Blue Bottle 1.4 Eau de Parfum 115 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., PARFUM (FRAGRANCE), AQUA (WATER), LIMONENE, LINALOOL, GERANIOL, COUMARIN, BENZYL BENZOATE, EUGENOL, CINNAMAL, CITRONELLOL, ANISE ALCOHOL, CITRAL, FARNESOL, BENZYL ALCOHOL, BENZYL SALICYLATE, ISOEUGENOL, BENZYL CINNAMATE",
+   "inci_statut": "trouve",
+   "inci_source": "https://en.parfumdreams.de/Histoires-de-Parfums/Collections/This-Is-Not-A-Blue-Bottle/Eau-de-Parfum-Spray/index_115546.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams, fiche « Blue 1.4 » EDP (15/60/120 ml), EAN non affiché."
+  },
+  {
+   "ean": "0841317005995",
+   "titre": "Histoires de Parfums This Is Not A Blue Bottle 1.6 Eau de Parfum 115 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "ALCOHOL DENAT., PARFUM (FRAGRANCE), AQUA (WATER), GERANIOL, COUMARIN, CITRONELLOL, LINALOOL, BENZYL ALCOHOL",
+   "inci_statut": "trouve",
+   "inci_source": "https://en.parfumdreams.de/Histoires-de-Parfums/Collections/This-Is-Not-A-Blue-Bottle/Eau-de-Parfum-Spray/index_115231.aspx",
+   "remarque": "INCI 09/11 : Parfumdreams, fiche « Blue 1.6 » EDP (15/60/120 ml), EAN non affiché."
+  },
+  {
+   "ean": "8429421443425",
+   "titre": "Lakmé Teknia Scalp Care Pure Mask Hair Mask 250 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Cetearyl Alcohol, Glycerin, Illite, Ceteareth-33, Fragrance (Parfum), Stearyl Stearate, Copernicia Cerifera Cera, Rhus Verniciflua Peel Cera, Phenoxyethanol, Inulin, Zinc PCA, Chlorphenesin, Alpha-Glucan Oligosaccharide, Simmondsia Chinensis (Jojoba) Seed Oil, Avena Sativa (Oat) Kernel Oil",
+   "inci_statut": "trouve",
+   "inci_source": "https://checkout.ozhairandbeauty.com/products/lakme-teknia-pure-mask-250ml",
+   "remarque": "INCI 09/11 : Oz Hair & Beauty (distributeur Lakmé en Australie), EAN identique. Espace manquant de la source corrigé (« (Jojoba)Seed Oil » → « (Jojoba) Seed Oil »)."
+  },
+  {
+   "ean": "8429421444415",
+   "titre": "Lakmé Teknia Frizz Control Treatment Hair Mask 1000 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Cetearyl Alcohol, Behentrimonium Chloride, Quaternium-87, Ceteareth-33, Fragrance (Parfum), Bis-Cetearyl Amodimethicone, Glyceryl Stearate, Glycerin, Propylene Glycol, Helianthus Annuus (Sunflower) Seed Oil, Lauryl Alcohol, Coconut (Cocos Nucifera) Oil, Tiare (Gardenia Taitensis) Flower, Phenoxyethanol, Isohexadecane, Myristyl Alcohol, Cananga Odorata Flower Oil, Chlorphenesin, Ceteareth-25, Ceteareth-7, Salvia Hispanica Seed Extract, Ethylhexyl Cocoate, Hydrolyzed Hyaluronic Acid, Trisodium Ethylenediamine Disuccinate, Sodium Hyaluronate, Lactic Acid, Lecithin, Tocopherol, Ceramide 3",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/lakme/lakm--teknia-frizz-control-treatment-1000-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Fiche Teknia Frizz Control Treatment 1000 ml ; séparateurs « ; » remplacés par des virgules."
+  },
+  {
+   "ean": "8429421449311",
+   "titre": "Lakmé Teknia Full Defense Treatment Hair Mask 1000 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua, Cetearyl Alcohol, Ceteareth-33, Quaternium-87, Cetrimonium Chloride, Hydroxypropyl Starch Phosphate, Methoxy Peg/Ppg-7/3 Aminopropyl Dimethicone, Stearyl Stearate, Coconut (Cocos Nucifera) Oil, Fragrance (Parfum), Tiare (Gardenia Taitensis) Flower, Propylene Glycol, Panthenol, Copernicia Cerifera (Carnauba) Cera, Rhus Verniciflua Peel Cera, Isohexadecane, Phenoxyethanol, Dipropylene Glycol, Polysilicone-29, Chlorphenesin, Eucalyptus Globulus Leaf/Twig Oil, Ethylhexyl Cocoate, Dimethylpabamidopropyl Laurdimonium Tosylate, Lactic Acid",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/lakme/lakm--teknia-full-defense-treatment-1000-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Fiche Teknia Full Defense Treatment 1000 ml ; séparateurs « ; » remplacés par des virgules."
+  },
+  {
+   "ean": "8429421455220",
+   "titre": "Lakmé L2 Classic Instant Detangling Conditioner Conditioner 300 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Dimethicone, Fragrance (Parfum), Cetrimonium Chloride, Peg-40 Sorbitan Peroleate, Isopropyl Alcohol, Phenoxyethanol, Peg-40 Hydrogenated Castor Oil, Polyquaternium-16, Peg/Ppg-18/18 Dimethicone, Chlorphenesin, Lactic Acid, Glycereth-7, Peg-7 Glyceryl Cocoate, Ppg-2 Methyl Ether, Glycerin, D&C Green No. 5 (Ci 61570), D&C Yellow No. 10 (Ci 47005)",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/lakme/lakm--l2-classic-300-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Fiche L2 Classic 300 ml."
+  },
+  {
+   "ean": "8429421455428",
+   "titre": "Lakmé L2 Blonde Instant Detangling Conditioner Conditioner 300 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Dimethicone, Polyimide-1, Fragrance (Parfum), Cetrimonium Chloride, Peg-40 Sorbitan Peroleate, Isopropyl Alcohol, Phenoxyethanol, Peg-40 Hydrogenated Castor Oil, Polyquaternium-16, Peg/Ppg-18/18 Dimethicone, Chlorphenesin, Lactic Acid, Glycereth-7, Peg-7 Glyceryl Cocoate, Ppg-2 Methyl Ether, Glycerin, D&C Orange No. 4 (Ci 15510), Fd&C Red No. 40 (Ci 16035)",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/lakme/lakm--l2-blonde-300-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Fiche L2 Blonde 300 ml (description de la page reprend par erreur le texte de L2 Curls : vérifier les colorants sur l'emballage)."
+  },
+  {
+   "ean": "8429421455527",
+   "titre": "Lakmé L2 Care Instant Detangling Conditioner Conditioner 300 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Dimethicone, Dipropylene Glycol, Fragrance (Parfum), Cetrimonium Chloride, Peg-40 Sorbitan Peroleate, Polysilicone-29, Isopropyl Alcohol, Phenoxyethanol, Peg-40 Hydrogenated Castor Oil, Polyquaternium-16, Peg/Ppg-18/18 Dimethicone, Chlorphenesin, Lactic Acid, Glycereth-7, Peg-7 Glyceryl Cocoate, Ppg-2 Methyl Ether, Glycerin, Fd&C Red No. 40 (Ci 16035), Ext. D&C Violet No. 2 (Ci 60730)",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/lakme/lakm--l2-care-300-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Fiche L2 Care 300 ml."
+  },
+  {
+   "ean": "8429421458528",
+   "titre": "Lakmé Teknia Metal Remover Hydra-Shampoo Shampoo 300 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Sodium Laureth Sulfate, Cocamidopropyl Betaine, Coco-Glucoside, Fragrance (Parfum), Peg-40 Hydrogenated Castor Oil, Peg-200 Hydrogenated Glyceryl Palmate, Cocamidopropylamine Oxide, Methoxy Peg/Ppg-7/3 Aminopropyl Dimethicone, Polyquaternium-44, Peg-7 Glyceryl Cocoate, Pyrus Malus (Apple) Fruit Extract, Tartaric Acid, Hydroxypropyl Guar Hydroxypropyltrimonium Chloride, Citrus Limon (Lemon) Fruit Extract, Trisodium Ethylenediamine Disuccinate, Lactic Acid, Sodium Benzoate, Citric Acid, Triticum Vulgare (Wheat) Bran Extract, Vitis Vinifera (Grape) Skin Extract, Cucumis Sativus Fruit Extract, Malus Domestica Fruit Extract, Glycereth-7, Triethylene Glycol, Ppg-2 Methyl Ether, Benzyl Alcohol, Phenoxyethanol, Algin, Propylene Glycol, Disodium Edta, Ethylhexylglycerin, Magnesium Nitrate, Magnesium Chloride, Potassium Sorbate, Methylchloroisothiazolinone, Methylisothiazolinone",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/lakme/lakm--teknia-metal-remover-hydra-shampoo-300-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Fiche Teknia Metal Remover Hydra-Shampoo 300 ml ; numéros CAS intercalés par la source retirés (seuls les noms INCI conservés)."
+  },
+  {
+   "ean": "8429421458535",
+   "titre": "Lakmé Teknia Metal Remover Pre-Shampoo Shampoo 150 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Sodium Polyitaconate, Sodium Citrate, Phenoxyethanol, Trisodium Ethylenediamine Disuccinate, Pyrus Malus (Apple) Fruit Extract, Sodium Hydroxide, Tartaric Acid, Peg-40 Hydrogenated Castor Oil, Citrus Limon (Lemon) Fruit Extract, Citric Acid, Sapindus Mukorossi Fruit Extract, Chlorphenesin, Fragrance (Parfum), Triticum Vulgare (Wheat) Bran Extract, Vitis Vinifera (Grape) Skin Extract, Glycereth-7, Peg-7 Glyceryl Cocoate, Ppg-2 Methyl Ether, Cucumis Sativus Fruit Extract, Glycerin, Malus Domestica Fruit Extract, Algin, Disodium Edta, Sodium Benzoate, Potassium Sorbate, Ethylhexylglycerin",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.ozhairandbeauty.com/products/teknia-metal-remover-pre-shampoo-150ml",
+   "remarque": "INCI 09/11 : Oz Hair & Beauty (distributeur Lakmé en Australie), EAN identique."
+  },
+  {
+   "ean": "8429421458542",
+   "titre": "Lakmé Teknia Metal Remover Hydra-Conditioner Conditioner 300 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water), Quaternium-87, C14-22 Alcohols, Cetearyl Alcohol, Behentrimonium Chloride, Hydroxypropyl Starch Phosphate, Propylene Glycol, Crambe Abyssinica Seed Oil Phytosterol Esters, Fragrance (Parfum), Bis-Cetearyl Amodimethicone, Glyceryl Stearate, C12-20 Alkyl Glucoside, Phenoxyethanol, Lauryl Alcohol, Trisodium Ethylenediamine Disuccinate, Myristyl Alcohol, Chlorphenesin, Citrus Limon (Lemon) Fruit Extract, Ceteareth-7, Cucumis Sativus Fruit Extract, Malus Domestica Fruit Extract, Pyrus Malus (Apple) Fruit Extract, Tartaric Acid, Ceteareth-25, Algin, Citric Acid, Disodium Edta, Tocopherol, Triticum Vulgare (Wheat) Bran Extract, Vitis Vinifera (Grape) Skin Extract, Glycerin, Ethylhexylglycerin, Sodium Benzoate, Potassium Sorbate",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.ozhairandbeauty.com/products/teknia-metal-remover-hydra-conditioner-300ml",
+   "remarque": "INCI 09/11 : Oz Hair & Beauty (distributeur Lakmé en Australie), EAN identique."
+  },
+  {
+   "ean": "8429449104353",
+   "titre": "Atashi K-Bioferment Therapy Cream Day Cream 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Purified Water), Hydrogenated Polydecene, Butylene Glycol Cocoate, Cetearyl Alcohol, Propanediol, Arachidyl Alcohol, Porphyra Umbilicalis Extract, Creatine, Pentaclethra Macroloba Seed Oil, Alpha-Glucan Oligosaccharide, Tocopheryl Acetate, Jojoba Esters, Lactobacillus Ferment, Panicum Miliaceum Seed Extract, Ganoderma Lucidum Stem Extract, Biosaccharide Gum-1, Helianthus Annuus Seed Wax, Hydrolyzed Hyaluronic Acid, Ascorbyl Tetraisopalmitate, Polymnia Sonchifolia Root Juice, Tocopherol, Ubiquinone, Lactobacillus, Behenyl Alcohol, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Squalane, Myristyl Alcohol, Arachidyl Glucoside, Glycerin, Potassium Cetyl Phosphate, Myristyl Glucoside, Alcohol, Glyceryl Stearate, Polysorbate 60, Lecithin, Sodium Stearoyl Glutamate, Caprylic/Capric Triglyceride, Sorbitan Isostearate, Glyceryl Caprylate, Maltodextrin, Diisopropyl Adipate, Polyglycerin-3, Dimethicone, Citric Acid, Lactic Acid, Parfum, Sodium Benzoate, Potassium Sorbate, Sodium Levulinate, Sodium Anisate",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/atashi-cellular-cosmetics-k-bioferment-therapy-cream",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « Atashi Cellular Cosmetics K-bioferment Therapy Cream » publiée le 2024-03-17 ; EAN non affiché par la source."
+  },
+  {
+   "ean": "0850034671185",
+   "titre": "Mind Games Gardez Perfume Extract 100 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Fragrance (Parfum), Terpinolene, Alpha-Isomethyl Ionone, Hexamethylindanopyran, Water (Aqua/Eau), Ethylhexyl Methoxycinnamate, BHT, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Limonene, Rose Ketones, Pinene, Vanillin, Citral, Linalyl Acetate, Beta-Caryophyllene, Isoeugenol",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.mindgamesfragrance.com/products/gardez",
+   "remarque": "INCI 09/11 : Site officiel Mind Games (Gardez 100 ml)."
+  },
+  {
+   "ean": "8683608071324",
+   "titre": "Nishane Shinanay Perfume Extract 30 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Alcohol Denat., Parfum, Limonene, Benzyl Salicylate, Hydroxycitronellal, Benzyl Benzoate, Eugenol, Amyl Cinnamal, Linalool, Evernia Prunastri Extract, Cinnamyl Alcohol, Citral, Hexyl Cinnamal, Coumarin, Isoeugenol, Farnesol, Geraniol, Benzyl Alcohol, Citronellol, Benzyl Cinnamate, Bht",
+   "inci_statut": "trouve",
+   "inci_source": "https://lyko.com/en/nishane/nishane-shinanay-eau-de-parfum-30-ml",
+   "remarque": "INCI 09/11 : Lyko (distributeur), EAN identique. Fiche Nishane Shinanay 30 ml."
+  },
+  {
+   "ean": "8720039307384",
+   "titre": "Diadermine Lift+ Booster Radiant Skin Strengthening Day Cream Day Cream 50 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Aqua (Water, Eau), Caprylic/Capric Triglyceride, Hexanediol, Glycerin, Dicaprylyl Carbonate, Arachidyl Alcohol, Hydrogenated Coco-Glycerides, Betaine, Butyrospermum Parkii (Shea) Butter, Behenyl Alcohol, Hydroxyethyl Urea, Neopentyl Glycol Diethylhexanoate, Quassia Amara Wood Extract, Hydrolyzed Soy Protein, Acmella Oleracea Extract, Sodium Hyaluronate, Panthenol, Caffeine, Urea, Bisabolol, Tocopherol, Hydroxyacetophenone, Arachidyl Glucoside, Carbomer, Sodium Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, C15-C19 Alkane, Butylene Glycol, Pentylene Glycol, Polyglyceryl-6 Laurate, Sodium Hydroxide, Ammonium Lactate, Polyglycerin-6, Ethanolamine, Glycine Soja (Soybean) Oil, Sorbitan Oleate, Sorbitan Isostearate, Parfum (Fragrance), Methyl Benzoate",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.primor.eu/es_ea/diadermine-booster-radiante-crema-de-dia-120071.html",
+   "remarque": "INCI 09/11 : Primor (parfumerie espagnole), fiche « Lift+ Booster Radiante Crema de Día » (= Lift+ Booster Radiant Day Cream), EAN non affiché. Puces remplacées par des virgules ; séparation erronée « Butyrospermum • Parkii (Shea) Butter » recollée."
+  },
+  {
+   "ean": "8809874685083",
+   "titre": "APLB PDRN Vitamin C Ampoule Serum Skin Serum 40 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Centella Asiatica Leaf Water, Aqua(Water), Butylene Glycol, Propanediol, 1, 2-Hexanediol, Glycerin, Diethoxyethyl Succinate, Panthenol, Hydroxyacetophenone, Sodium Polyacryloyldimethyl Taurate, Allantoin, Cellulose Gum, Disodium EDTA, Citric Acid, Dipotassium Glycyrrhizate, Xanthan Gum, Inulin, Glyceryl Acrylate/Acrylic Acid Copolymer, Cellulose, Fructose, Glucose, Ascorbic Acid, Dipropylene Glycol, Squalane, C12-14 Alketh-12, Asiaticoside, Madecassic Acid, Asiatic Acid, Sodium Hyaluronate, Melaleuca Alternifolia (Tea Tree) Leaf Extract, Hippophae Rhamnoides Fruit Extract, Hydrolyzed Collagen, Beta-Glucan, Caprylyl Glycol, Nelumbium Speciosum Flower Extract, Artemisia Annua Extract, Oryza Sativa (Rice) Extract, Saccharomyces Ferment, Solanum Melongena (Eggplant) Fruit Extract, Sodium Dna",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/aplb-pdrn-vitamin-c-ampoule-serum",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « APLB PDRN Vitamin C Ampoule Serum » publiée le 2024-12-25 ; EAN non affiché par la source."
+  },
+  {
+   "ean": "8809874685274",
+   "titre": "APLB Spicule Collagen Shot 300 Serum Skin Serum 40 ml",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "inci": "Water, Butylene Glycol, Propanediol, Glycerin, Diethoxyethyl Succinate, 1, 2-Hexanediol, Panthenol, Hydroxyacetophenone, Sodium Polyacryloyldimethyl Taurate, Centella Asiatica Leaf Water, Allantoin, Cellulose Gum, Disodium EDTA, Citric Acid, Dipotassium Glycyrrhizate, Xanthan Gum, Inulin, Glyceryl Acrylate/Acrylic Acid Copolymer, Cellulose, Fructose, Glucose, Hydrolyzed Collagen, Caprylyl Glycol, Dipropylene Glycol, Squalane, C12-14 Alketh-12, Asiaticoside, Madecassic Acid, Hydrolyzed Sponge, Asiatic Acid, Sodium Hyaluronate, Melaleuca Alternifolia (Tea Tree) Leaf Extract, Hippophae Rhamnoides Fruit Extract, Beta-Glucan, Nelumbium Speciosum Flower Extract, Artemisia Annua Extract, Oryza Sativa (Rice) Extract, Saccharomyces Ferment, Solanum Melongena (Eggplant) Fruit Extract",
+   "inci_statut": "trouve",
+   "inci_source": "https://incidecoder.com/products/aplb-spicule-collagen-shot-300-serum",
+   "remarque": "INCI 09/11 : INCIDecoder (base INCI publique), fiche « APLB Spicule Collagen Shot 300 Serum » publiée le 2025-06-14 ; EAN non affiché par la source."
   }
  ]
 }
