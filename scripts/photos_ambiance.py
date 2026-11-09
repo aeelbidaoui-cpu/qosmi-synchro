@@ -2,7 +2,7 @@
 """Photos d'ambiance du site (validées par Amine le 09/11/2026) : 8 photos gratuites Unsplash (licence Unsplash :
 usage commercial libre), envoyées dans Contenu → Fichiers sous le nom qosmi-ambiance-<n>.jpg, recadrées en 4:5.
 Utilisées par la section qk-ambiance (scripts/theme_rk.py)."""
-import os, sys, time
+import os, sys, time, urllib.request, uuid
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,9 +28,20 @@ def main():
             print("  %s déjà là (%s)" % (nom, deja[0]["fileStatus"]))
             continue
         url = "https://images.unsplash.com/photo-%s?w=1600&h=2000&fit=crop&crop=entropy&q=82&fm=jpg" % pid
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; QosmiAmbiance/1.0)"})
+        donnees = urllib.request.urlopen(req, timeout=120).read()
+        cible = s.gql("""mutation($i: [StagedUploadInput!]!) { stagedUploadsCreate(input: $i) { stagedTargets { url resourceUrl parameters { name value } } userErrors { message } } }""",
+                      {"i": [{"resource": "IMAGE", "filename": nom, "mimeType": "image/jpeg", "httpMethod": "POST"}]})["stagedUploadsCreate"]["stagedTargets"][0]
+        limite = "----qosmi" + uuid.uuid4().hex
+        corps = b"".join(("--%s\r\nContent-Disposition: form-data; name=\"%s\"\r\n\r\n%s\r\n" % (limite, p["name"], p["value"])).encode()
+                         for p in cible["parameters"])
+        corps += ("--%s\r\nContent-Disposition: form-data; name=\"file\"; filename=\"%s\"\r\nContent-Type: image/jpeg\r\n\r\n" % (limite, nom)).encode()
+        corps += donnees + ("\r\n--%s--\r\n" % limite).encode()
+        urllib.request.urlopen(urllib.request.Request(cible["url"], data=corps, method="POST",
+                                                      headers={"Content-Type": "multipart/form-data; boundary=" + limite}), timeout=120).read()
         r = s.gql("""mutation($f: [FileCreateInput!]!) { fileCreate(files: $f) { files { id fileStatus } userErrors { field message } } }""",
-                  {"f": [{"originalSource": url, "contentType": "IMAGE", "filename": nom, "alt": alt}]})["fileCreate"]
-        print("  %s : %s" % (nom, r["userErrors"] or r["files"][0]["fileStatus"]))
+                  {"f": [{"originalSource": cible["resourceUrl"], "contentType": "IMAGE", "filename": nom, "alt": alt}]})["fileCreate"]
+        print("  %s : %d Ko, %s" % (nom, len(donnees) // 1024, r["userErrors"] or r["files"][0]["fileStatus"]))
     time.sleep(20)
     for n in PHOTOS:
         nom = "qosmi-ambiance-%d.jpg" % n
