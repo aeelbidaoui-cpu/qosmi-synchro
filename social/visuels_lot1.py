@@ -211,7 +211,7 @@ P["07-bio-kurkdjian"] = bio("Francis<br>Kurkdjian", "f2361-francis-kurkdjian-par
 P["08-sel-noel-elle"] = selection("3 cadeaux<br>pour elle", [
     ("libre", "Yves Saint Laurent", "Libre", "Lavande, fleur d'oranger, vanille", "Élégant, sans jamais être sage.", "Eau de parfum"),
     ("lveb", "Lancôme", "La Vie est Belle", "Poire, iris, praline, vanille", "Le gourmand qu'on ne présente plus.", "2012"),
-    ("delinaex", "Parfums de Marly", "Delina Exclusif", "Rose de Damas, encens, touche d'oud", "La version la plus intense de Delina.", "2018 · Quentin Bisch")],
+    ("flowerbomb", "Viktor&Rolf", "Flowerbomb", "Thé, jasmin, orchidée, rose, patchouli", "Le tout premier parfum de la maison, en forme de grenade.", "2005")],
     "Sous le sapin ?", "Dis-nous lequel<br>en commentaire.", sur="Spécial Noël")
 P["09-mat-vanille"] = matiere("La vanille", "Le fruit d'une orchidée", "vanille", "50% 50%", "D'où vient la vanille ?",
     "Le fruit d'une orchidée. Originaire du Mexique, elle pousse aujourd'hui surtout à Madagascar et à La Réunion.",
@@ -238,7 +238,7 @@ P["14-bio-bisch"] = bio("Quentin<br>Bisch", "f166-quentin-bisch", "Parfumeur · 
      "Trop faible en sciences pour les écoles de parfumerie, il fait un master en arts du spectacle, puis écrit aux grandes maisons.",
      "Assistant à Grasse, il est ensuite formé chez Givaudan."],
     ("Il se souvient encore du parfum de chacun de ses professeurs.", "Sa mémoire olfactive"),
-    [("delina", "Delina", "Parfums de Marly · 2017"), ("delinaex", "Delina Exclusif", "Parfums de Marly · 2018"), ("verygoodgirl", "Very Good Girl", "Carolina Herrera")])
+    [("delina", "Delina", "Parfums de Marly · 2017"), ("valaya", "Valaya", "Parfums de Marly · 2023"), ("verygoodgirl", "Very Good Girl", "Carolina Herrera")])
 P["15-conseil-concentrations"] = conseil("Eau de toilette,<br>eau de parfum,<br>extrait : quelle<br>différence ?", [
     ("Eau de toilette", "En général 5 à 15 % de concentré de parfum. Plus légère, plus fraîche."),
     ("Eau de parfum", "Autour de 15 à 20 %. Plus de tenue, un sillage plus présent."),
@@ -251,7 +251,7 @@ P["17-mat-rose"] = matiere("La rose", "La reine des fleurs", "rose", "50% 40%", 
     "Deux grandes roses : la centifolia, ou rose de mai, cultivée en France et au Maroc, et la rose de Damas, en Bulgarie et en Turquie.",
     "Distillée, la rose de Damas donne une huile fraîche, presque citronnée. La centifolia donne une absolue plus chaude et miellée.",
     "On compose des parfums à la rose depuis l'Antiquité.",
-    [("delinaex", "Parfums de Marly", "Delina Exclusif"), ("coco", "Chanel", "Coco Mademoiselle")])
+    [("delina", "Parfums de Marly", "Delina"), ("coco", "Chanel", "Coco Mademoiselle")])
 P["18-sel-mixtes"] = selection("3 parfums<br>à partager<br>à deux", [
     ("ckone", "Calvin Klein", "CK One", "Agrumes, thé vert, muscs", "Pensé pour elle et pour lui, dès 1994.", "1994 · Alberto Morillas"),
     ("colonia", "Acqua di Parma", "Colonia", "Agrumes, lavande, vétiver", "L'eau de Cologne qui a fondé la maison.", "1916"),

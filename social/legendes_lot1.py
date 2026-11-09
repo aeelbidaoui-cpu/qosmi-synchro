@@ -85,13 +85,13 @@ Le Male, Aqua Universalis et Gentle Fluidity Gold sont sur qosmi.be
 
 #franciskurkdjian #parfumeur #mfk #lemale #qosmi"""))
 
-L.append(("08-sel-noel-elle", "Carrousel · spécial Noël", "3 cadeaux pour elle", [("La Vie est Belle", "/parfum/la-vie-est-belle"), ("Delina Exclusif", "/parfum/parfums-de-marly-delina-exclusif")], """Tu cherches quoi lui offrir ? 3 parfums qui font plaisir à coup sûr :
+L.append(("08-sel-noel-elle", "Carrousel · spécial Noël", "3 cadeaux pour elle", [("La Vie est Belle", "/parfum/la-vie-est-belle"), ("Flowerbomb", "/parfum/flowerbomb")], """Tu cherches quoi lui offrir ? 3 parfums qui font plaisir à coup sûr :
 
 1. Yves Saint Laurent Libre : la lavande rencontre la fleur d'oranger, sur un fond de vanille. Élégant, sans jamais être sage.
 
 2. Lancôme La Vie est Belle : poire, iris, praline et vanille. Le gourmand qu'on ne présente plus, sorti en 2012.
 
-3. Parfums de Marly Delina Exclusif : la version la plus intense de Delina, avec de l'encens et une touche d'oud autour de la rose.
+3. Viktor&Rolf Flowerbomb : thé, jasmin, orchidée et rose sur un fond de patchouli. Le tout premier parfum de la maison, en 2005, dans son flacon en forme de grenade.
 
 Lequel finira sous le sapin ? Dis-le nous en commentaire.
 
@@ -153,11 +153,11 @@ Disponible sur qosmi.be
 
 #terredhermes #hermes #jeanclaudeellena #parfumhomme #qosmi"""))
 
-L.append(("14-bio-bisch", "Carrousel · le parfumeur", "Quentin Bisch", [("Quentin Bisch", "/parfumeur/quentin-bisch")], """À 11 ans, Quentin Bisch annonce à un professeur qu'il sera parfumeur. Le problème : il est nul en sciences, et les écoles de parfumerie demandent de la chimie.
+L.append(("14-bio-bisch", "Carrousel · le parfumeur", "Quentin Bisch", [("Quentin Bisch", "/parfumeur/quentin-bisch"), ("Valaya", "/parfum/parfums-de-marly-valaya")], """À 11 ans, Quentin Bisch annonce à un professeur qu'il sera parfumeur. Le problème : il est nul en sciences, et les écoles de parfumerie demandent de la chimie.
 
 Il fait donc un master en arts du spectacle… puis écrit aux grandes maisons. Il devient assistant parfumeur à Grasse, avant d'être formé chez Givaudan.
 
-On lui doit entre autres Delina et Delina Exclusif de Parfums de Marly, et Very Good Girl de Carolina Herrera. Sa mémoire olfactive est telle qu'il se souvient encore du parfum de chacun de ses professeurs.
+On lui doit entre autres Delina et Valaya de Parfums de Marly, et Very Good Girl de Carolina Herrera. Sa mémoire olfactive est telle qu'il se souvient encore du parfum de chacun de ses professeurs.
 
 Ses créations sont sur qosmi.be
 
@@ -194,7 +194,7 @@ En parfumerie, on travaille surtout deux roses : la rose centifolia, aussi appel
 
 La rose de Damas est distillée pour obtenir une huile essentielle fraîche, presque citronnée. La centifolia donne une absolue plus chaude, miellée, presque épicée.
 
-À sentir : Delina Exclusif, construit autour de la rose de Damas, et Coco Mademoiselle, où la rose rencontre le jasmin. Sur qosmi.be
+À sentir : Delina, construit autour de la rose de Damas, et Coco Mademoiselle, où la rose rencontre le jasmin. Sur qosmi.be
 
 #rose #matierepremiere #rosedemai #parfumfloral #qosmi"""))
 
