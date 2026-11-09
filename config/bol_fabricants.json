@@ -3234,6 +3234,520 @@
    "fabricant_email": null,
    "source": "config/gpsr.json",
    "confiance": "moyenne"
+  },
+  "armaf": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Armaf"
+  },
+  "orientica": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Orientica"
+  },
+  "orientica fzc": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Orientica Perfumes FZC"
+  },
+  "ard al zaafaran": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Ard Al Zaafaran"
+  },
+  "moudon": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Moudon"
+  },
+  "lattafa": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Lattafa"
+  },
+  "lattafa pride": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Lattafa Pride"
+  },
+  "athoor al alam": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Athoor Al Alam"
+  },
+  "maison alhambra": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Maison Alhambra"
+  },
+  "zimaya": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Zimaya"
+  },
+  "ahmed al maghribi": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Ahmed Al Maghribi"
+  },
+  "gerini": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Gerini"
+  },
+  "rasasi": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Rasasi"
+  },
+  "azha": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Azha"
+  },
+  "corner": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Paris Corner"
+  },
+  "asdaaf": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Asdaaf"
+  },
+  "my": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "My Perfumes"
+  },
+  "gulf orchid": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Gulf Orchid"
+  },
+  "khadlaj": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Khadlaj"
+  },
+  "al wataniah": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Al Wataniah"
+  },
+  "nasamat": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Nasamat"
+  },
+  "emir": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Emir"
+  },
+  "afnan": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Afnan"
+  },
+  "al haramain": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Al Haramain"
+  },
+  "french avenue": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "French Avenue"
+  },
+  "swiss arabian": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Swiss Arabian"
+  },
+  "nabeel": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Nabeel"
+  },
+  "rayhaan": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Rayhaan"
+  },
+  "grandeur": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Grandeur"
+  },
+  "nasma": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Nasma"
+  },
+  "dar el ward": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Dar El Ward"
+  },
+  "assala prime": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Assala Prime"
+  },
+  "al rehab": {
+   "fabricant_nom": "Kenai s.r.o.",
+   "fabricant_adresse": {
+    "rue": "Vyšehradská",
+    "numero": "",
+    "code_postal": "85106",
+    "ville": "Bratislava",
+    "pays": "Slovaquie"
+   },
+   "fabricant_email": "info@kenai.sk",
+   "role": "personne responsable UE (GPSR) — pas le fabricant",
+   "source": "parfum-centrum.com (Parfimo) : « Responsible person Kenai s.r.o., Vyšehradská, Bratislava, 85106, SK » pour les marques des Émirats (Paris Corner, Emir, Gerini, Moudon…) ; choix validé par Amine le 09/11/2026 pour les marques des Émirats",
+   "confiance": "moyenne",
+   "marque": "Al Rehab"
+  },
+  "victoria s secret": {
+   "marque": "Victoria's Secret",
+   "alias": [
+    "Victoria’s Secret",
+    "Victorias Secret"
+   ],
+   "fabricant_nom": "Victoria's Secret",
+   "fabricant_adresse": {
+    "rue": "",
+    "numero": "",
+    "code_postal": "D02 C953",
+    "ville": "Dublin 2",
+    "pays": "Irlande"
+   },
+   "fabricant_email": "",
+   "role": "représentant autorisé UE (adresse imprimée sur les fiches ingrédients officielles)",
+   "source": "Fiche ingrédients Victoria's Secret vendue par Next (xcdn.next.co.uk/pdfs/ingredients/P62248.pdf) : « EU Authorised Representative Address : Victoria's Secret, Dublin 2, D02C953, IE » ; validé par Amine le 09/11/2026 (« une adresse en Europe »)",
+   "confiance": "moyenne"
   }
  }
 }
