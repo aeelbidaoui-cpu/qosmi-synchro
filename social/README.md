@@ -1,5 +1,6 @@
 # Réseaux sociaux Qosmi
 
+- `lot2/` : lot n°2 (30 publications du 16/12/2026 au 14/01/2027), visuels et `lot2.json` avec légendes FR (`txt`), NL (`txt_nl`) et hashtags (`tags`). Scripts : `visuels_lot2.py`, `legendes_lot2.py`.
 - `lot1/` : lot n°1 (30 publications du 16/11 au 15/12/2026), avec les visuels finaux en 1080 × 1350 et `lot1.json` (dates, légendes, liste des visuels).
 - `visuels_base.py`, `visuels_lot1.py` : génération des visuels (HTML → PNG avec Playwright, police Jost).
   - Ils ont besoin des flacons détourés, des photos de matières et des portraits ; ceux-ci restent dans le scratchpad de la session, à reprendre pour le lot 2.

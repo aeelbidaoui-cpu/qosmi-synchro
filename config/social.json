@@ -2,10 +2,14 @@
  "actif": true,
  "heure": "18:30",
  "fuseau": "Europe/Brussels",
- "lot": "social/lot1/lot1.json",
  "page_nom": "Qosmi",
  "graph_version": "v23.0",
  "_note": "09/11/2026 : lot n°1 validé par Amine, une publication par jour à 18 h 30 exactement (Facebook et Instagram). Le robot attend le secret META_TOKEN (utilisateur système qosmi-robot).",
  "verifier_stock": false,
- "_note_stock": "09/11/2026 : Amine ne veut pas de contrôle de stock avant publication (une rupture n'est pas grave)."
+ "_note_stock": "09/11/2026 : Amine ne veut pas de contrôle de stock avant publication (une rupture n'est pas grave).",
+ "lots": [
+  "social/lot1/lot1.json"
+ ],
+ "bilingue": true,
+ "_note_lot2": "09/11/2026 : lot n°2 (16/12/2026 → 14/01/2027, légendes FR + NL) préparé dans social/lot2/ ; à ajouter à « lots » quand Amine l'aura validé."
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Robot de publication Qosmi sur Facebook et Instagram (demande d'Amine du 09/11/2026).
 
-Chaque jour, publie UNE publication du lot validé (social/lot1/lot1.json) à l'heure exacte choisie (config/social.json,
+Chaque jour, publie UNE publication des lots validés (config/social.json « lots » : social/lot1/lot1.json, social/lot2/lot2.json…) à l'heure exacte choisie (config/social.json,
 18 h 30 heure de Bruxelles), sur la page Facebook Qosmi et sur le compte Instagram qosmi.be.
 
 Déroulé (lancé un peu avant l'heure par .github/workflows/social.yml) :
@@ -67,6 +67,25 @@ def choisir(lot, etat, aujourd_hui):
     return None, sautees
 
 
+def legende(p):
+    """Légende publiée : texte FR, puis texte NL s'il existe (lot 2 et suivants), puis hashtags."""
+    t = p["txt"]
+    if p.get("txt_nl") and CFG.get("bilingue", True):
+        t += "\n\n— NL —\n\n" + p["txt_nl"]
+    if p.get("tags"):
+        t += "\n\n" + p["tags"]
+    return t
+
+
+def charger_lots():
+    """Tous les lots, chacun avec le dossier de ses visuels."""
+    lots = []
+    for chemin in CFG.get("lots") or [CFG["lot"]]:
+        for p in json.load(open(os.path.join(RACINE, chemin), encoding="utf-8")):
+            lots.append(dict(p, _dossier=os.path.join(RACINE, os.path.dirname(chemin))))
+    return lots
+
+
 def graph(methode, chemin, jeton, **params):
     params["access_token"] = jeton
     donnees = urllib.parse.urlencode(params).encode()
@@ -101,7 +120,7 @@ def urls_publiques(p):
     from shopify_api import Shopify
     import photos_adp as pa
     s = Shopify()
-    dossier = os.path.join(RACINE, os.path.dirname(CFG["lot"]))
+    dossier = p.get("_dossier") or os.path.join(RACINE, os.path.dirname(CFG["lot"]))
     out = []
     for n in p["img"]:
         nom = "qosmi-social-%s.jpg" % n
@@ -174,7 +193,7 @@ def main():
         if avance < -90:
             print("Trop tard pour aujourd'hui (%s dépassé de %d min) : rien publié." % (CFG.get("heure"), -avance))
             return
-    lot = json.load(open(os.path.join(RACINE, CFG["lot"]), encoding="utf-8"))
+    lot = charger_lots()
     p, sautees = choisir(lot, etat, jour)
     for pid, absents in sautees:
         print("Sautée pour l'instant (rupture de stock) : %s → %s" % (pid, ", ".join(absents)))
@@ -183,7 +202,7 @@ def main():
         return
     print("Publication du jour : n°%s %s — %s (%d visuel(s))" % (p["n"], p["id"], p["titre"], len(p["img"])))
     if essai:
-        print(p["txt"])
+        print(legende(p))
         return
     jeton = os.environ.get("META_TOKEN", "").strip()
     if not jeton:
@@ -191,7 +210,7 @@ def main():
         return
     page, jeton_page, ig = page_et_instagram(jeton)
     urls = urls_publiques(p)
-    conteneur = preparer_instagram(ig, jeton, urls, p["txt"]) if ig else None
+    conteneur = preparer_instagram(ig, jeton, urls, legende(p)) if ig else None
     if not ig:
         print("Aucun compte Instagram relié à la page : Facebook seulement.")
     photos = preparer_facebook(page, jeton_page, urls)
@@ -208,7 +227,7 @@ def main():
         except RuntimeError as ex:
             erreurs.append(str(ex))
     try:
-        resultat["facebook"] = publier_facebook(page, jeton_page, photos, p["txt"])
+        resultat["facebook"] = publier_facebook(page, jeton_page, photos, legende(p))
     except RuntimeError as ex:
         erreurs.append(str(ex))
     if "instagram" in resultat or "facebook" in resultat:
