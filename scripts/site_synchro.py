@@ -444,9 +444,11 @@ def publication_boutique(s):
 
 
 def publications_vente(s):
-    """Boutique en ligne + Google & YouTube (installé le 08/11/2026) : les canaux où une fiche active doit apparaître."""
+    """Boutique en ligne + Google & YouTube (installé le 08/11/2026) + Facebook & Instagram (09/11/2026) :
+    les canaux où une fiche active doit apparaître (une fiche en brouillon n'est envoyée à aucun d'eux)."""
     pubs = s.gql("{ publications(first: 20) { nodes { id name } } }")["publications"]["nodes"]
-    return [p["id"] for p in pubs if p["name"] in ("Online Store", "Boutique en ligne") or "google" in p["name"].lower()]
+    return [p["id"] for p in pubs if p["name"] in ("Online Store", "Boutique en ligne")
+            or any(m in p["name"].lower() for m in ("google", "facebook"))]
 
 
 def publier_fiches(s, ids):
