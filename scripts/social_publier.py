@@ -5,8 +5,9 @@ Chaque jour, publie UNE publication du lot validé (social/lot1/lot1.json) à l'
 18 h 30 heure de Bruxelles), sur la page Facebook Qosmi et sur le compte Instagram qosmi.be.
 
 Déroulé (lancé un peu avant l'heure par .github/workflows/social.yml) :
-  1. choisit la publication du jour : la plus ancienne non publiée dont la date est passée ; si un parfum montré n'est
-     plus en stock sur qosmi.be, on passe à la suivante du calendrier (rien n'est publié deux fois, une seule par jour) ;
+  1. choisit la publication du jour : la plus ancienne non publiée dont la date est passée (rien n'est publié deux fois,
+     une seule par jour). Pas de contrôle de stock (décision d'Amine du 09/11 : une rupture n'empêche pas de publier) ;
+     on peut le réactiver avec « verifier_stock »: true dans config/social.json ;
   2. envoie ses visuels dans les Fichiers Shopify (adresse publique exigée par Instagram) ;
   3. prépare la publication chez Meta (carrousel si plusieurs visuels) ;
   4. attend l'heure exacte, puis publie sur Instagram et sur Facebook ;
@@ -57,8 +58,9 @@ def choisir(lot, etat, aujourd_hui):
     if not echues:
         return None, []
     sautees = []
+    verifier = CFG.get("verifier_stock", False)
     for p in echues + [p for p in attente if p["iso"] > aujourd_hui]:
-        absents = [h for h in p.get("produits", []) if not en_stock(h)]
+        absents = [h for h in p.get("produits", []) if not en_stock(h)] if verifier else []
         if not absents:
             return p, sautees
         sautees.append((p["id"], absents))
