@@ -27,6 +27,9 @@ def cle(s):
     return re.sub(r"[^a-z0-9]", "", slug(s))
 
 
+GENERIQUES = {"homme", "femme", "pour homme", "pour femme", "woman", "man", "men", "women", "her", "him", "dolce", "the", "les", "une"}
+
+
 def court(nom, marque):
     """« Creed Aventus — Eau de Parfum pour homme » → « Aventus »."""
     n = nom.split(" — ")[0].strip()
@@ -92,7 +95,7 @@ def main(essai=False):
         noms = []
         for p in prods:
             n = court(p["title"], v)
-            if n and n not in noms and len(n) <= 28:
+            if n and "|" not in n and len(n) >= 3 and n.lower() not in GENERIQUES and n not in noms and len(n) <= 28:
                 noms.append(n)
         noms = sorted(noms, key=len)  # les noms les plus courts sont en général les parfums phares (Aventus, Sauvage…)
         t = textes(m, noms)
