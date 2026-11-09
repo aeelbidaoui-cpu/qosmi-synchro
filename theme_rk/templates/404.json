@@ -1,6 +1,11 @@
 {
   "sections": {
-    "main": { "type": "qk-404", "settings": {} }
+    "main": { "type": "qk-404", "settings": {} },
+    "qk_amb": { "type": "qk-ambiance", "settings": {
+      "fichier": "qosmi-ambiance-8.jpg", "alt": "Flacon de parfum posé sur une surface couverte de gouttes", "cote": "gauche",
+      "surtitre": "Perdu ?", "titre": "Retrouve ton parfum", "texte": "<p>Parcours nos parfums ou nos marques.</p>", "lien_texte": "Voir tous les parfums",
+      "surtitre_nl": "Verdwaald?", "titre_nl": "Vind je parfum", "texte_nl": "<p>Bekijk onze parfums of onze merken.</p>", "lien_texte_nl": "Alle parfums",
+      "lien": "/collections/parfums" } }
   },
-  "order": ["main"]
+  "order": ["main", "qk_amb"]
 }

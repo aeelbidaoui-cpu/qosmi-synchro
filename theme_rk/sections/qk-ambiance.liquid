@@ -1,0 +1,54 @@
+{%- comment -%}
+  Bloc d'ambiance (demande d'Amine du 09/11/2026 : « habiller le site ») : une photo d'ambiance d'un côté,
+  un court texte et un lien de l'autre. Photos gratuites Unsplash (licence Unsplash), dans Contenu → Fichiers
+  (qosmi-ambiance-<n>.jpg). Textes FR + NL dans les réglages de la section.
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- assign img = images[section.settings.fichier] -%}
+{%- if qk_nl and section.settings.titre_nl != blank -%}
+  {%- assign t_sur = section.settings.surtitre_nl -%}{%- assign t_titre = section.settings.titre_nl -%}
+  {%- assign t_texte = section.settings.texte_nl -%}{%- assign t_lien = section.settings.lien_texte_nl -%}
+{%- else -%}
+  {%- assign t_sur = section.settings.surtitre -%}{%- assign t_titre = section.settings.titre -%}
+  {%- assign t_texte = section.settings.texte -%}{%- assign t_lien = section.settings.lien_texte -%}
+{%- endif -%}
+{%- assign lien = section.settings.lien | default: routes.all_products_collection_url -%}
+{%- if qk_nl and lien contains '/' and lien.size > 1 -%}{%- unless lien contains '/nl/' -%}{%- assign lien = '/nl' | append: lien -%}{%- endunless -%}{%- endif -%}
+<section class="qk-section qk-ambiance qk-ambiance--{{ section.settings.cote }}">
+  <div class="qk-largeur qk-ambiance__grille">
+    <div class="qk-ambiance__photo">
+      {%- if img -%}
+        {{ img | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1600', sizes: '(max-width: 749px) 100vw, 50vw', alt: section.settings.alt }}
+      {%- endif -%}
+    </div>
+    <div class="qk-ambiance__texte">
+      {%- if t_sur != blank -%}<p class="qk-surtitre">{{ t_sur }}</p>{%- endif -%}
+      {%- if t_titre != blank -%}<h2 class="qk-titre-section">{{ t_titre }}</h2>{%- endif -%}
+      {%- if t_texte != blank -%}<div class="qk-intro">{{ t_texte }}</div>{%- endif -%}
+      {%- if t_lien != blank -%}<a class="qk-lien" href="{{ lien }}">{{ t_lien }}</a>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Qosmi · Ambiance",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "fichier", "label": "Fichier image (Contenu → Fichiers)", "default": "qosmi-ambiance-1.jpg" },
+    { "type": "text", "id": "alt", "label": "Description de l'image" },
+    { "type": "select", "id": "cote", "label": "Photo", "default": "gauche", "options": [{ "value": "gauche", "label": "À gauche" }, { "value": "droite", "label": "À droite" }] },
+    { "type": "text", "id": "surtitre", "label": "Surtitre" },
+    { "type": "text", "id": "titre", "label": "Titre" },
+    { "type": "richtext", "id": "texte", "label": "Texte" },
+    { "type": "text", "id": "lien_texte", "label": "Texte du lien" },
+    { "type": "text", "id": "surtitre_nl", "label": "Surtitre (NL)" },
+    { "type": "text", "id": "titre_nl", "label": "Titre (NL)" },
+    { "type": "richtext", "id": "texte_nl", "label": "Texte (NL)" },
+    { "type": "text", "id": "lien_texte_nl", "label": "Texte du lien (NL)" },
+    { "type": "text", "id": "lien", "label": "Lien (ex. /collections/parfums-arabes)" }
+  ],
+  "presets": [{ "name": "Qosmi · Ambiance" }]
+}
+{% endschema %}

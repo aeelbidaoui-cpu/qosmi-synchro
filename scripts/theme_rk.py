@@ -12,6 +12,14 @@ FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.js
             "templates/search.json", "sections/header-group.json", "sections/footer-group.json", "templates/cart.json"]
 OPTIONNELS = ["snippets/meta-tags.liquid"]  # 09/11/2026 : titre Google de l'accueil FR (lu s'il existe)
 
+def ambiance(n, alt, cote, fr, nl, lien):
+    """Bloc photo + texte (photos d'ambiance Unsplash validées par Amine le 09/11/2026, qosmi-ambiance-<n>.jpg)."""
+    return {"type": "qk-ambiance", "settings": {
+        "fichier": "qosmi-ambiance-%d.jpg" % n, "alt": alt, "cote": cote,
+        "surtitre": fr[0], "titre": fr[1], "texte": "<p>%s</p>" % fr[2], "lien_texte": fr[3],
+        "surtitre_nl": nl[0], "titre_nl": nl[1], "texte_nl": "<p>%s</p>" % nl[2], "lien_texte_nl": nl[3], "lien": lien}}
+
+
 # 09/11/2026 (SEO) : l'accueil FR n'avait que « Qosmi » comme titre et aucune méta-description (le NL était bon).
 ACCUEIL_FR = ("{%- if request.page_type == 'index' and request.locale.iso_code == 'fr' -%}"
               "{%- assign page_title = 'Qosmi – Parfums de marque et de niche en Belgique' -%}"
@@ -321,14 +329,28 @@ def construire(fichiers, marques):
         "qk_marques": {"type": "qk-marques", "settings": {
             "titre": "Marques", "liste": "\n".join(m for m in marques if not m.endswith("_")), "logos": logos_slugs(),
             "texte": "Des parfums originaux et neufs, des grandes maisons aux créateurs de niche."}},
-        "qk_apropos": {"type": "qk-texte", "settings": {
+        "qk_amb_journal": ambiance(3, "Main qui vaporise un parfum", "droite",
+            ("Le Journal", "Le bon geste", "Conseils pour bien porter ton parfum, matières premières, portraits de parfumeurs : tout ce qu'il faut savoir avant de choisir.", "Lire le Journal"),
+            ("Het Journal", "De juiste reflex", "Tips om je parfum goed te dragen, grondstoffen, portretten van parfumeurs: alles wat je moet weten voor je kiest.", "Lees het Journal"),
+            "/blogs/journal"),
+        "qk_amb_arabes": ambiance(4, "Flacons de parfum dorés dans la lumière", "gauche",
+            ("Parfums arabes", "L'Orient en flacon", "Oud, ambre, vanille, rose : Lattafa, Armaf, Al Haramain, Afnan et bien d'autres maisons des Émirats.", "Découvrir"),
+            ("Arabische parfums", "Het Oosten in een flacon", "Oud, amber, vanille, roos: Lattafa, Armaf, Al Haramain, Afnan en nog veel meer huizen uit de Emiraten.", "Ontdek"),
+            "/collections/parfums-arabes"),
+        "qk_apropos": ambiance(1, "Flacons de parfum posés sur un journal", "droite",
+            ("À propos", "Qosmi", "Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, neufs, au juste prix. "
+             "On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, et on te les livre partout en Belgique.", "Voir tous les parfums"),
+            ("Over ons", "Qosmi", "Qosmi is een Belgische online parfumerie, eenvoudig en eerlijk: 100% originele, nieuwe parfums tegen de juiste prijs. "
+             "We kiezen de huizen die we graag hebben, van grote klassiekers tot nichecreateurs, en leveren ze in heel België.", "Alle parfums"),
+            "/collections/parfums"),
+        "qk_apropos_ancien": {"type": "qk-texte", "disabled": True, "settings": {
             "surtitre": "À propos", "titre": "Qosmi",
             "texte": "<p>Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, "
                      "neufs, au juste prix. On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, "
                      "et on te les livre partout en Belgique.</p>",
             "lien_texte": "Voir tous les parfums", "lien": "shopify://collections/parfums", "alignement": "centre"}},
     }
-    d["order"] = ["qk_hero", "qk_favoris", "qk_banniere", "qk_tuiles", "qk_marques", "qk_apropos"]
+    d["order"] = ["qk_hero", "qk_favoris", "qk_amb_journal", "qk_banniere", "qk_tuiles", "qk_amb_arabes", "qk_marques", "qk_apropos", "qk_apropos_ancien"]
     jsons["templates/index.json"] = ecrire(e, d)
 
     # ---------- fiche produit ----------
@@ -375,6 +397,11 @@ def construire(fichiers, marques):
                 if b["type"] == "text":
                     b["settings"]["text"] = "<h3>Tu aimeras aussi</h3>"
     cartes(d)
+    d["sections"]["qk_amb"] = ambiance(6, "Flacon de parfum sur une fourrure blanche", "gauche",
+        ("Qosmi", "100 % authentique", "Chaque parfum est neuf et d'origine. Livraison partout en Belgique, offerte dès 2 articles.", "Nos marques"),
+        ("Qosmi", "100% origineel", "Elk parfum is nieuw en origineel. Levering in heel België, gratis vanaf 2 artikelen.", "Onze merken"),
+        "/pages/marques")
+    d["order"] = [k for k in d["order"] if k != "qk_amb"] + ["qk_amb"]
     jsons["templates/product.json"] = ecrire(e, d)
 
     # ---------- collections et recherche ----------
@@ -392,6 +419,17 @@ def construire(fichiers, marques):
                 if k != "qk_entete" and s.get("type") == "section":
                     s["disabled"] = True
             d["order"] = ["qk_entete"] + [k for k in d["order"] if k != "qk_entete"]
+        if nom == "templates/collection.json":
+            d["sections"]["qk_amb"] = ambiance(2, "Flacons de parfum alignés, en lumière douce", "droite",
+                ("Toutes nos marques", "Plus de 100 maisons", "Des grands classiques aux créateurs de niche, retrouve chaque maison sur sa page.", "Voir les marques"),
+                ("Al onze merken", "Meer dan 100 huizen", "Van grote klassiekers tot nichecreateurs: elk huis heeft zijn eigen pagina.", "Bekijk de merken"),
+                "/pages/marques")
+        else:
+            d["sections"]["qk_amb"] = ambiance(7, "Reflets dorés d'un flacon de parfum", "gauche",
+                ("Besoin d'idées ?", "Le Journal", "Guides, conseils et parfums du jour pour t'aider à trouver le tien.", "Lire le Journal"),
+                ("Ideeën nodig?", "Het Journal", "Gidsen, tips en parfums van de dag om de jouwe te vinden.", "Lees het Journal"),
+                "/blogs/journal")
+        d["order"] = [k for k in d["order"] if k != "qk_amb"] + ["qk_amb"]
         jsons[nom] = ecrire(e, d)
 
     # ---------- en-tête ----------
@@ -408,7 +446,11 @@ def construire(fichiers, marques):
         for k in [k for k, sec in d["sections"].items() if sec.get("type") == "product-list"]:
             del d["sections"][k]
         d["sections"]["qk_suggestions"] = {"type": "qk-suggestions", "settings": {"titre": "Tu aimeras aussi", "produits": DU_JOUR, "nombre": 8}}
-        d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_suggestions")] + ["qk_suggestions"]
+        d["sections"]["qk_amb"] = ambiance(5, "Pivoine blanche dans un petit flacon de verre", "droite",
+            ("Un cadeau ?", "Offre un parfum", "La livraison est offerte dès 2 articles, partout en Belgique.", "Idées de parfums"),
+            ("Een cadeau?", "Geef een parfum", "Gratis levering vanaf 2 artikelen, in heel België.", "Parfumideeën"),
+            "/collections/parfums")
+        d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_suggestions", "qk_amb")] + ["qk_suggestions", "qk_amb"]
         jsons["templates/cart.json"] = ecrire(e, d)
 
     e, d = lire(fichiers["sections/header-group.json"])
