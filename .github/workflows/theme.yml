@@ -6,7 +6,7 @@ on:
       action:
         description: "exporter (lecture seule) ou appliquer (copie non publiée)"
         type: choice
-        options: [exporter, exporter-apercu, appliquer, theme-rk, publier, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, seo-boutique, controle-boutique, google, testeurs-suspens, photos-manquantes, photos-jm, photos-mm, photos-tfi, photos-ck, photos-tt, photos-lvmh, photos-m2, photos-m3, livraison-2-95, page-favoris, politiques, politiques-nl, textes-fiches, menu, nl-audit, nl-traduire, nl-publier, nl-emails, nl-emails-envoyer, seo-marques, seo-marques-essai, seo-collections-vides, seo-prix-unitaire, photos-ambiance]
+        options: [exporter, exporter-apercu, appliquer, theme-rk, publier, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, seo-boutique, controle-boutique, google, testeurs-suspens, photos-manquantes, photos-jm, photos-mm, photos-tfi, photos-ck, photos-tt, photos-lvmh, photos-m2, photos-m3, livraison-2-95, page-favoris, politiques, politiques-nl, textes-fiches, menu, nl-audit, nl-traduire, nl-publier, nl-emails, nl-emails-envoyer, seo-marques, seo-marques-essai, seo-collections-vides, seo-prix-unitaire, photos-ambiance, seo-alt-nl]
         default: exporter
       fiche:
         description: "photos-marques : renvoyer seulement cette fiche (adresse de la fiche)"
@@ -59,6 +59,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "seo-boutique" ]; then python -u scripts/seo_boutique.py
           elif [ "${{ inputs.action }}" = "seo-marques" ]; then python -u scripts/seo_marques.py
           elif [ "${{ inputs.action }}" = "photos-ambiance" ]; then python -u scripts/photos_ambiance.py
+          elif [ "${{ inputs.action }}" = "seo-alt-nl" ]; then python -u scripts/seo_alt_nl.py
           elif [ "${{ inputs.action }}" = "seo-marques-essai" ]; then python -u scripts/seo_marques.py --essai
           elif [ "${{ inputs.action }}" = "seo-collections-vides" ]; then python -u scripts/seo_plus.py --collections-vides
           elif [ "${{ inputs.action }}" = "seo-prix-unitaire" ]; then python -u scripts/seo_plus.py --prix-unitaire

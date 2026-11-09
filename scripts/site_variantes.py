@@ -152,9 +152,39 @@ def produit(lignes, r, photos):
         vus[cle] = v
         variantes.append(v)
     seo = seo_textes(t_fr, t_nl, r, vols)
+    riche = descriptions_riches().get(sl.slug(t_fr)[:200])
+    if riche:  # 10/11/2026 : vraie description (notes, famille, occasions) rédigée et vérifiée, FR + NL
+        d_fr, d_nl = riche["fr"] + "<p>" + d_fr + "</p>", riche["nl"] + "<p>" + d_nl + "</p>"
+        notes = [n for k in ("tete", "coeur", "fond", "cle") for n in (riche.get("notes_fr") or {}).get(k) or []][:3]
+        notes_nl = [n for k in ("tete", "coeur", "fond", "cle") for n in (riche.get("notes_nl") or {}).get(k) or []][:3]
+        if notes:
+            seo["seo_desc_fr"] = coupe155("%s. Notes : %s. 100 %% authentique, livré partout en Belgique."
+                                          % (t_fr.replace(" — ", ", "), ", ".join(n.lower() for n in notes)))
+        if notes_nl:
+            seo["seo_desc_nl"] = coupe155("%s. Geurnoten: %s. 100%% origineel, geleverd in heel België."
+                                          % (t_nl.replace(" — ", ", "), ", ".join(n.lower() for n in notes_nl)))
     return {"handle": sl.slug(t_fr)[:200], "titre_fr": t_fr, "titre_nl": t_nl, "desc_fr": d_fr, "desc_nl": d_nl,
             "marque": marque, "type_fr": cat_fr, "type_nl": cat_nl, "tags": ", ".join(tags),
             "teintes": teintes, "variantes": variantes, **seo}
+
+
+_RICHES = None
+
+
+def descriptions_riches():
+    """config/descriptions_parfums.json : descriptions vérifiées des parfums phares. Prises en compte seulement si « actif » est vrai
+    (préparées le 10/11/2026, à activer en décembre quand les minutes GitHub du mois sont rechargées)."""
+    global _RICHES
+    if _RICHES is None:
+        import json, os
+        f = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "descriptions_parfums.json")
+        d = json.load(open(f, encoding="utf-8")) if os.path.exists(f) else {}
+        _RICHES = d.get("parfums", {}) if d.get("actif") else {}
+    return _RICHES
+
+
+def coupe155(d):
+    return d if len(d) <= 155 else d[:152].rsplit(" ", 1)[0] + "…"
 
 
 def seo_textes(t_fr, t_nl, r, vols=None):
