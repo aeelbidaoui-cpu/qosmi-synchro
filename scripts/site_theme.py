@@ -293,6 +293,9 @@ def menu_seul():
     from shopify_api import Shopify
     s = Shopify()
     menu(s, collections(s))
+    # 10/11/2026 : refaire le menu recrée ses liens, qui perdent leur traduction NL -> on retraduit tout de suite
+    import site_nl
+    site_nl.traduire()
 
 
 if __name__ == "__main__":

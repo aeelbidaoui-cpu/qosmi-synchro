@@ -137,7 +137,7 @@ img.qk-hero__img { animation: qk-zoom 28s ease-in-out infinite alternate; transf
 .product-information .product-media__image { mix-blend-mode: multiply; }
 .qk-titre-produit { margin: 0; font-size: clamp(1.5rem, 2.2vw, 1.875rem); font-weight: 500; line-height: 1.2; text-transform: none; }
 .qk-type-produit { margin: 2px 0 0; color: var(--qk-doux); font-size: 0.9375rem; }
-.qk-marque-produit { margin: 0 0 2px; color: var(--qk-doux); font-size: 0.9375rem; }
+.qk-marque-produit { display: block; margin: 0 0 2px; color: var(--qk-doux); font-size: 0.9375rem; font-weight: 400; line-height: 1.4; }
 .qk-rassurance { background: var(--qk-gris); padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; font-size: 0.875rem; }
 .qk-rassurance span { display: flex; gap: 10px; align-items: flex-start; }
 .qk-rassurance span::before { content: "✓"; font-weight: 600; }

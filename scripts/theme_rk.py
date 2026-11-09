@@ -366,7 +366,8 @@ def construire(fichiers, marques):
     grp["blocks"]["qk_titre"] = liquide(
         "{%- assign t = closest.product.title | split: ' — ' -%}{%- assign n = t[0] | remove_first: closest.product.vendor | strip -%}"
         "{%- if n == blank -%}{%- assign n = t[0] -%}{%- endif -%}"
-        "<p class=\"qk-marque-produit\">{{ closest.product.vendor }}</p><div class=\"qk-titre-ligne\"><h1 class=\"qk-titre-produit\">{{ n }}</h1>"
+        # 10/11/2026 (SEO) : la marque fait partie du titre principal (H1 « Creed Aventus »), même rendu qu'avant
+        "<div class=\"qk-titre-ligne\"><h1 class=\"qk-titre-produit\"><span class=\"qk-marque-produit\">{{ closest.product.vendor }}</span> {{ n }}</h1>"
         "{% render 'qk-favori', product: closest.product, classe: 'qk-fav--fiche' %}</div>"
         "{%- if t[1] -%}<p class=\"qk-type-produit\">{{ t[1] }}</p>{%- endif -%}")
     grp["block_order"] = ["qk_titre"] + [k for k in grp.get("block_order", grp["blocks"]) if k in grp["blocks"] and k != "qk_titre"]
