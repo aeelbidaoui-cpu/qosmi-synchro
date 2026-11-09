@@ -157,6 +157,10 @@ def publier():
     marches = s.gql("{ markets(first:20){ nodes{ id name enabled primary webPresences(first:5){ nodes{ id defaultLocale{ locale } alternateLocales{ locale } } } } } }")["markets"]["nodes"]
     print(json.dumps(marches, ensure_ascii=False))
     wp = [w["id"] for m in marches if m["enabled"] for w in m["webPresences"]["nodes"]]
+    if not wp:  # présences web rattachées à la boutique (celles du français)
+        loc = s.gql("{ shopLocales { locale primary marketWebPresences { id } } }")["shopLocales"]
+        wp = [w["id"] for l in loc if l["primary"] for w in l["marketWebPresences"]]
+    print("Présences web visées : %s" % wp)
     r = s.gql('mutation($wp:[ID!]){ shopLocaleUpdate(locale:"nl", shopLocale:{ published:true, marketWebPresenceIds:$wp }){ shopLocale{ locale published marketWebPresences{ id } } userErrors{ field message } } }', {"wp": wp})
     print(json.dumps(r, ensure_ascii=False))
 
