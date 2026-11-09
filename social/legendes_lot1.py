@@ -81,7 +81,7 @@ Il entre à l'ISIPCA, l'école de parfumerie de Versailles, en 1990. Cinq ans pl
 
 Avant la parfumerie, il y a eu le piano et la danse classique. Ça se sent dans ses créations : beaucoup de rigueur, et toujours de l'émotion.
 
-Le Male, Aqua Universalis et Gentle Fluidity Gold sont sur qosmi.be
+Le Male, Aqua Universalis Cologne Forte et Gentle Fluidity Gold sont sur qosmi.be
 
 #franciskurkdjian #parfumeur #mfk #lemale #qosmi"""))
 
@@ -130,11 +130,11 @@ Disponible sur qosmi.be
 
 #shalimar #guerlain #parfumdujour #parfumculte #qosmi"""))
 
-L.append(("12-sel-noel-lui", "Carrousel · spécial Noël", "3 cadeaux pour lui", [("Bleu de Chanel", "/parfum/bleu-de-chanel"), ("Sauvage", "/parfum/sauvage"), ("Aventus", "/parfum/aventus-creed")], """Pour lui, 3 valeurs sûres qu'on ne regrette jamais d'offrir :
+L.append(("12-sel-noel-lui", "Carrousel · spécial Noël", "3 cadeaux pour lui", [("Bleu de Chanel", "/parfum/bleu-de-chanel"), ("Sauvage Parfum", "/parfum/sauvage-parfum"), ("Aventus", "/parfum/aventus-creed")], """Pour lui, 3 valeurs sûres qu'on ne regrette jamais d'offrir :
 
 1. Bleu de Chanel : agrumes, gingembre et bois de santal. Créé par Jacques Polge en 2010, c'est le premier grand parfum masculin de Chanel depuis Égoïste.
 
-2. Dior Sauvage : bergamote, poivre de Sichuan et ambroxan. Frais, puissant, impossible à rater.
+2. Dior Sauvage Parfum : mandarine, bergamote, santal et vanille. La version concentrée de Sauvage, plus chaude et enveloppante.
 
 3. Creed Aventus : ananas, bouleau fumé et mousse de chêne. La maison dit s'être inspirée de la vie de Napoléon.
 
@@ -316,27 +316,61 @@ Disponible sur qosmi.be
 
 #xerjoff #erbapura #parfumdeniche #parfumdujour #qosmi"""))
 
-L.append(("29-mat-bergamote", "Carrousel · matière première", "La bergamote", [("Bergamote", "/matiere/bergamote"), ("Sauvage", "/parfum/sauvage")], """La bergamote, c'est ce pétillant qu'on sent dans les premières secondes de beaucoup de parfums.
+L.append(("29-mat-bergamote", "Carrousel · matière première", "La bergamote", [("Bergamote", "/matiere/bergamote"), ("Sauvage Parfum", "/parfum/sauvage-parfum"), ("Colonia", "/parfum/acqua-di-parma-colonia")], """La bergamote, c'est ce pétillant qu'on sent dans les premières secondes de beaucoup de parfums.
 
 C'est un agrume, le fruit du bergamotier, entre l'orange amère et le citron. Elle pousse surtout en Calabre, tout au sud de l'Italie. Douce, acidulée, légèrement amère, elle donne de l'éclat à tout ce qu'elle touche.
 
 On la trouve surtout en note de tête, des colognes aux parfums les plus chauds. En 1925, Shalimar a été l'un des premiers parfums à en utiliser autant.
 
-À sentir : Dior Sauvage et sa bergamote de Calabre, et Acqua di Parma Colonia. Sur qosmi.be
+À sentir : Dior Sauvage Parfum, où la bergamote rencontre la mandarine, et Acqua di Parma Colonia. Sur qosmi.be
 
 #bergamote #matierepremiere #agrumes #calabre #qosmi"""))
 
-L.append(("30-sel-derniere-minute", "Carrousel · spécial Noël", "3 cadeaux qui plaisent à tout le monde", [("Le Male", "/parfum/le-male"), ("Light Blue pour Homme", "/parfum/light-blue-pour-homme"), ("Aqua Universalis", "/parfum/aqua-universalis")], """Noël approche et toujours pas d'idée ? 3 parfums qui plaisent à presque tout le monde :
+L.append(("30-sel-derniere-minute", "Carrousel · spécial Noël", "3 cadeaux qui plaisent à tout le monde", [("Le Male", "/parfum/le-male"), ("Light Blue pour Homme", "/parfum/light-blue-pour-homme"), ("Aqua Universalis Cologne Forte", "/parfum/aqua-universalis-cologne-forte")], """Noël approche et toujours pas d'idée ? 3 parfums qui plaisent à presque tout le monde :
 
 1. Jean Paul Gaultier Le Male : lavande, cannelle et vanille dans son célèbre flacon en buste. Un classique depuis 1995, signé Francis Kurkdjian.
 
 2. Dolce&Gabbana Light Blue pour Homme : pamplemousse, genièvre et romarin. Frais et facile à porter.
 
-3. Maison Francis Kurkdjian Aqua Universalis : agrumes, fleurs blanches et muscs. Une odeur de propre, élégante, qui va à tout le monde.
+3. Maison Francis Kurkdjian Aqua Universalis Cologne Forte : bergamote, pois de senteur et musc. Une odeur de propre, élégante, qui va à tout le monde.
 
 Commande sur qosmi.be tant qu'il est temps.
 
 #cadeaunoel #idéecadeau #lemale #lightblue #qosmi"""))
+
+
+# Fiches Qosmi montrées dans chaque publication (titre exact) : le robot vérifie leur stock avant de publier.
+T = {
+ "1-parfum-du-jour": ["Parfums de Marly Delina — Eau de Parfum pour femme"],
+ "2-carrousel-hiver": ["Tom Ford Private Blend Lost Cherry — Eau de Parfum mixte", "By Kilian The Liquors Angels' Share — Eau de Parfum mixte", "Tom Ford Black Orchid — Parfum mixte"],
+ "4-matiere-oud": ["Tom Ford Private Blend Oud Wood — Eau de Parfum mixte"],
+ "5-anniversaire-coco": ["Chanel Coco Mademoiselle — Eau de Parfum pour femme"],
+ "06-pdj-jadore": ["Dior J'adore — Eau de Parfum pour femme"],
+ "07-bio-kurkdjian": ["Jean Paul Gaultier Le Male — Eau de Toilette pour homme", "Maison Francis Kurkdjian Aqua Universalis Cologne Forte — Eau de Parfum mixte", "Maison Francis Kurkdjian Gentle Fluidity Gold — Eau de Parfum mixte"],
+ "08-sel-noel-elle": ["Yves Saint Laurent Libre — Eau de Parfum pour femme", "Lancôme La Vie Est Belle — Eau de Parfum pour femme", "Viktor & Rolf Flowerbomb — Eau de Parfum pour femme"],
+ "09-mat-vanille": ["Guerlain Shalimar — Eau de Parfum pour femme", "Lattafa Yara — Eau de Parfum pour femme"],
+ "10-conseil-offrir": ["Dior J'adore — Eau de Parfum pour femme", "Chanel Bleu de Chanel — Eau de Parfum pour homme", "Lancôme La Vie Est Belle — Eau de Parfum pour femme"],
+ "11-pdj-shalimar": ["Guerlain Shalimar — Eau de Parfum pour femme"],
+ "12-sel-noel-lui": ["Chanel Bleu de Chanel — Eau de Parfum pour homme", "Dior Sauvage — Parfum pour homme", "Creed Aventus — Eau de Parfum pour homme"],
+ "13-anniv-terre": ["Hermes Terre d´Hermès — Eau de Toilette pour homme"],
+ "14-bio-bisch": ["Parfums de Marly Delina — Eau de Parfum pour femme", "Parfums de Marly Valaya — Eau de Parfum pour femme", "Carolina Herrera Very Good Girl — Eau de Parfum pour femme"],
+ "15-conseil-concentrations": ["Jean Paul Gaultier Le Male — Eau de Toilette pour homme", "Dior J'adore — Eau de Parfum pour femme", "Nishane Hacivat — Extrait de Parfum mixte"],
+ "16-pdj-9pm": ["Afnan 9pm — Eau de Parfum pour homme"],
+ "17-mat-rose": ["Parfums de Marly Delina — Eau de Parfum pour femme", "Chanel Coco Mademoiselle — Eau de Parfum pour femme"],
+ "18-sel-mixtes": ["Calvin Klein CK One — Eau de Toilette mixte", "Acqua di Parma Colonia — Eau de Cologne mixte", "Mancera Les Confidentiels Red Tobacco — Eau de Parfum mixte"],
+ "19-pdj-hypnotic": ["Dior Hypnotic Poison — Eau de Parfum pour femme"],
+ "20-bio-polge": ["Chanel Coco Mademoiselle — Eau de Parfum pour femme", "Chanel Bleu de Chanel — Eau de Parfum pour homme"],
+ "21-conseil-tester": ["Xerjoff Erba Pura — Eau de Parfum mixte", "Nishane Hacivat — Extrait de Parfum mixte", "Maison Francis Kurkdjian Aqua Universalis Cologne Forte — Eau de Parfum mixte"],
+ "22-sel-arabes": ["Lattafa Khamrah — Eau de Parfum mixte", "Lattafa Yara — Eau de Parfum pour femme", "Lattafa Asad — Eau de Parfum pour homme"],
+ "23-mat-santal": ["Chanel Bleu de Chanel — Eau de Parfum pour homme", "Dior Hypnotic Poison — Eau de Parfum pour femme"],
+ "24-pdj-hacivat": ["Nishane Hacivat — Extrait de Parfum mixte"],
+ "25-anniv-goodgirl": ["Carolina Herrera Good Girl — Eau de Parfum pour femme"],
+ "26-bio-morillas": ["Calvin Klein CK One — Eau de Toilette mixte", "Dolce&Gabbana Light Blue — Eau de Toilette pour homme"],
+ "28-pdj-erba": ["Xerjoff Erba Pura — Eau de Parfum mixte"],
+ "29-mat-bergamote": ["Dior Sauvage — Parfum pour homme", "Acqua di Parma Colonia — Eau de Cologne mixte"],
+ "30-sel-derniere-minute": ["Jean Paul Gaultier Le Male — Eau de Toilette pour homme", "Dolce&Gabbana Light Blue — Eau de Toilette pour homme", "Maison Francis Kurkdjian Aqua Universalis Cologne Forte — Eau de Parfum mixte"],
+}
+PS = {p["title"]: p["handle"] for p in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "produits.json")))}
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 IMG = os.path.join(ICI, "page", "img")
@@ -349,7 +383,7 @@ for k, (pid, typ, titre, src, txt) in enumerate(L):
     imgs = sorted([f[:-4] for f in os.listdir(IMG) if f.startswith(pid + "-") and f[len(pid) + 1:-4].isdigit()],
                   key=lambda x: int(x.rsplit("-", 1)[1]))
     out.append({"n": k + 1, "id": pid, "date": "%s %d %s" % (JOURS[d.weekday()], d.day, MOIS[d.month]), "iso": d.isoformat(),
-                "sur": typ, "titre": titre, "img": imgs, "src": [[a, O + b] for a, b in src], "txt": txt})
+                "sur": typ, "titre": titre, "img": imgs, "produits": [PS[t] for t in T.get(pid, [])], "src": [[a, O + b] for a, b in src], "txt": txt})
     assert imgs, pid
 json.dump(out, open(os.path.join(ICI, "lot1.json"), "w"), ensure_ascii=False, indent=1)
 print(len(out), "publications,", sum(len(p["img"]) for p in out), "visuels")

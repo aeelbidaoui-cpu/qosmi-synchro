@@ -1,0 +1,58 @@
+name: Qosmi - réseaux sociaux
+
+# Publie chaque jour à 18 h 30 (heure de Bruxelles) une publication du lot validé sur Facebook et Instagram.
+# Deux passages (15 h 45 et 16 h 45 UTC) pour couvrir l'heure d'hiver et l'heure d'été : le script ne garde que le bon
+# et attend lui-même l'heure exacte. Sans le secret META_TOKEN, il ne publie rien.
+on:
+  schedule:
+    - cron: "45 15 * * *"
+    - cron: "45 16 * * *"
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "essai = montrer la publication du jour sans rien envoyer ; forcer = publier tout de suite"
+        type: choice
+        default: essai
+        options: [essai, publier, forcer]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: social
+  cancel-in-progress: false
+
+jobs:
+  social:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - name: Refuser de tourner si le dépôt est public
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          prive=$(gh api "repos/${GITHUB_REPOSITORY}" --jq .private)
+          if [ "$prive" != "true" ]; then echo "::error::Le dépôt est PUBLIC : arrêt."; exit 1; fi
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Publication
+        env:
+          SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+          META_TOKEN: ${{ secrets.META_TOKEN }}
+        run: |
+          A="${{ inputs.action }}"; [ -z "$A" ] && A=publier
+          if [ "$A" = "essai" ]; then python -u scripts/social_publier.py --essai
+          elif [ "$A" = "forcer" ]; then python -u scripts/social_publier.py --forcer
+          else python -u scripts/social_publier.py; fi
+      - name: Sauvegarde de l'historique
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain social/publie.json)" ]; then
+            git config user.name "qosmi-robot"; git config user.email "robot@users.noreply.github.com"
+            git add social/publie.json && git commit -m "Réseaux sociaux : publication du $(date +%d/%m/%Y)"
+            for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
+          fi

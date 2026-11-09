@@ -207,7 +207,7 @@ P["07-bio-kurkdjian"] = bio("Francis<br>Kurkdjian", "f2361-francis-kurkdjian-par
      "Il entre à l'ISIPCA, l'école de parfumerie de Versailles, en 1990. Cinq ans plus tard, il signe Le Male pour Jean Paul Gaultier.",
      "En 2009, il ouvre sa propre maison."],
     ("« L'ingrédient ne m'intéresse pas. Ce qui compte pour moi, c'est l'émotion du résultat. »", "Francis Kurkdjian"),
-    [("lemale", "Le Male", "Jean Paul Gaultier · 1995"), ("aquauni", "Aqua Universalis", "MFK · 2009"), ("gfgold", "Gentle Fluidity Gold", "MFK · 2019")])
+    [("lemale", "Le Male", "Jean Paul Gaultier · 1995"), ("aquauni", "Aqua Universalis Cologne Forte", "MFK · 2021"), ("gfgold", "Gentle Fluidity Gold", "MFK · 2019")])
 P["08-sel-noel-elle"] = selection("3 cadeaux<br>pour elle", [
     ("libre", "Yves Saint Laurent", "Libre", "Lavande, fleur d'oranger, vanille", "Élégant, sans jamais être sage.", "Eau de parfum"),
     ("lveb", "Lancôme", "La Vie est Belle", "Poire, iris, praline, vanille", "Le gourmand qu'on ne présente plus.", "2012"),
@@ -229,7 +229,7 @@ P["10-conseil-offrir"] = conseil("4 conseils<br>pour offrir<br>un parfum sans<br
 P["11-pdj-shalimar"] = pdj("shalimar", "Guerlain · 1925", "Shalimar", "Bergamote, iris, vanille, fève tonka", "Jacques Guerlain")
 P["12-sel-noel-lui"] = selection("3 cadeaux<br>pour lui", [
     ("bleu", "Chanel", "Bleu de Chanel", "Agrumes, gingembre, santal", "Le premier grand masculin de Chanel depuis Égoïste.", "2010 · Jacques Polge"),
-    ("sauvage", "Dior", "Sauvage", "Bergamote, poivre de Sichuan, ambroxan", "Frais, puissant, impossible à rater.", "Depuis 2015"),
+    ("sauvage", "Dior", "Sauvage Parfum", "Mandarine, bergamote, santal, vanille", "La version concentrée de Sauvage, plus chaude.", "2019 · François Demachy"),
     ("aventus", "Creed", "Aventus", "Ananas, bouleau, mousse de chêne", "La maison dit s'être inspirée de Napoléon.", "2010")],
     "Ton choix ?", "1, 2 ou 3<br>en commentaire.", sur="Spécial Noël")
 P["13-anniv-terre"] = anniv("20", "terre", "Hermès · 2006 – 2026", "Terre<br>d'Hermès", "Pamplemousse, silex, poivre, cèdre", "Jean-Claude Ellena")
@@ -300,11 +300,11 @@ P["29-mat-bergamote"] = matiere("La bergamote", "L'éclat des premières seconde
     "Un agrume, fruit du bergamotier, entre l'orange amère et le citron. Elle pousse surtout en Calabre, au sud de l'Italie.",
     "Douce, acidulée, légèrement amère : on la trouve surtout en note de tête, des colognes aux parfums les plus chauds.",
     "En 1925, Shalimar a été l'un des premiers parfums à en utiliser autant.",
-    [("sauvage", "Dior", "Sauvage"), ("colonia", "Acqua di Parma", "Colonia")])
+    [("sauvage", "Dior", "Sauvage Parfum"), ("colonia", "Acqua di Parma", "Colonia")])
 P["30-sel-derniere-minute"] = selection("3 cadeaux<br>qui plaisent<br>à tout le monde", [
     ("lemale", "Jean Paul Gaultier", "Le Male", "Lavande, cannelle, vanille", "Un classique depuis 1995, signé Francis Kurkdjian.", "1995"),
     ("lbh", "Dolce&Gabbana", "Light Blue pour Homme", "Pamplemousse, genièvre, romarin", "Frais et facile à porter.", "2007 · Alberto Morillas"),
-    ("aquauni", "Maison Francis Kurkdjian", "Aqua Universalis", "Agrumes, fleurs blanches, muscs", "Une odeur de propre, élégante, qui va à tout le monde.", "2009")],
+    ("aquauni", "Maison Francis Kurkdjian", "Aqua Universalis Cologne Forte", "Bergamote, pois de senteur, musc", "Une odeur de propre, élégante, qui va à tout le monde.", "2021")],
     "Noël approche", "Commande sur qosmi.be<br>tant qu'il est temps.", fin_droite="qosmi.be", sur="Spécial Noël", taille_titre=88)
 
 if __name__ == "__main__":

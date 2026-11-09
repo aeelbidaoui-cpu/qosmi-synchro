@@ -1,0 +1,9 @@
+{
+ "actif": true,
+ "heure": "18:30",
+ "fuseau": "Europe/Brussels",
+ "lot": "social/lot1/lot1.json",
+ "page_nom": "Qosmi",
+ "graph_version": "v23.0",
+ "_note": "09/11/2026 : lot n°1 validé par Amine, une publication par jour à 18 h 30 exactement (Facebook et Instagram). Le robot attend le secret META_TOKEN (utilisateur système qosmi-robot)."
+}
