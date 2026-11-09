@@ -10,7 +10,8 @@
 {%- assign qk_img = nil -%}
 {%- assign qk_logo = nil -%}
 {%- if qk_avec contains qk_c.handle -%}
-  {%- assign qk_nom = 'qosmi-entete-' | append: qk_c.handle | append: '-v2.jpg' -%}
+  {%- assign qk_v = '-v2.jpg' -%}{%- if qk_c.handle == 'parfums' -%}{%- assign qk_v = '-v3.jpg' -%}{%- endif -%}
+  {%- assign qk_nom = 'qosmi-entete-' | append: qk_c.handle | append: qk_v -%}
   {%- assign qk_img = images[qk_nom] -%}
 {%- else -%}
   {%- comment -%} page d'une marque (/collections/vendors?q=…) : son logo, s'il est dans la liste « logos » (une marque par ligne) {%- endcomment -%}

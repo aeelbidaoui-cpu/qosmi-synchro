@@ -9,6 +9,9 @@ SOL_DEVANT, SOL_DERRIERE = 905, 845
 REGLAGES = {"m_calvin-klein-ck-one-eau-de-toilette-mixt.jpg": (232, 8), "m_tom-ford-private-blend-lost-cherry-eau-d.jpg": (232, 8), "m_escentric-molecules-molecule-01-guaiac-w.jpg": (232, 8), "m_tom-ford-ombre-leather-eau-de-parfum-mix.jpg": (232, 8), "m_tom-ford-black-orchid-parfum-mixte.jpg": (232, 8), "p_lancome-idole-eau-de-parfum-pour-femme.jpg": (232, 8), "p_giorgio-armani-code-eau-de-toilette-pour.jpg": (232, 8), "p_paco-rabanne-fame-eau-de-parfum-pour-fem.jpg": (232, 8), "p_viktor-rolf-spicebomb-eau-de-toilette-po.jpg": (232, 8), "p_dolce-gabbana-light-blue-eau-de-toilette.jpg": (232, 8), "f_yves-saint-laurent-libre-eau-de-parfum-p.jpg": (232, 8), "h_jean-paul-gaultier-le-male-eau-de-toilet.jpg": (232, 8),
             "h_versace-eros-eau-de-parfum-pour-homme.jpg": (232, 8), "h_hugo-boss-boss-bottled-eau-de-parfum-pou.jpg": (232, 8)}  # fichier → (luminosité minimale du fond, écart de couleur maximal) pour les photos avec halo
 
+EROSION = {"p_dior-hypnotic-poison-eau-de-parfum-pour-.jpg": 7}
+REGLAGES["p_dior-hypnotic-poison-eau-de-parfum-pour-.jpg"] = (225, 12)
+
 def masque(im, nom=""):
     """Fond blanc relié aux bords → transparent ; le reste (y compris étiquettes blanches) → flacon."""
     rgb = im.convert("RGB")
@@ -36,6 +39,8 @@ def masque(im, nom=""):
         if y < h - 1: q.append((x, y + 1))
     m = Image.frombytes("L", (w, h), bytes(0 if v else 255 for v in vu))
     m = m.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(1.1))
+    if nom in EROSION:  # liseré blanc tenace autour du flacon
+        m = m.filter(ImageFilter.MinFilter(EROSION[nom])).filter(ImageFilter.GaussianBlur(1.2))
     return m
 
 def flacon(nom, hauteur, gris):
@@ -118,7 +123,7 @@ def composer(flacons, chev, sortie):
 
 JEUX = {
  "parfums-mixtes": ([('m_calvin-klein-ck-one-eau-de-toilette-mixt.jpg', 580, True), ('m_tom-ford-private-blend-lost-cherry-eau-d.jpg', 560, True), ('m_escentric-molecules-molecule-01-guaiac-w.jpg', 700, True), ('m_tom-ford-ombre-leather-eau-de-parfum-mix.jpg', 540, True), ('m_tom-ford-black-orchid-parfum-mixte.jpg', 620, True)], [-0.04, -0.04, -0.04, -0.04]),
- "parfums": ([('p_lancome-idole-eau-de-parfum-pour-femme.jpg', 480, True), ('p_giorgio-armani-code-eau-de-toilette-pour.jpg', 620, True), ('p_paco-rabanne-fame-eau-de-parfum-pour-fem.jpg', 590, True), ('p_viktor-rolf-spicebomb-eau-de-toilette-po.jpg', 530, True), ('p_dolce-gabbana-light-blue-eau-de-toilette.jpg', 590, True)], [-0.04, -0.04, -0.04, -0.04]),
+ "parfums": ([('p_dior-hypnotic-poison-eau-de-parfum-pour-.jpg', 500, True),  # 09/11 : Idôle remplacé (étiquette invisible de face) ('p_giorgio-armani-code-eau-de-toilette-pour.jpg', 620, True), ('p_paco-rabanne-fame-eau-de-parfum-pour-fem.jpg', 590, True), ('p_viktor-rolf-spicebomb-eau-de-toilette-po.jpg', 530, True), ('p_dolce-gabbana-light-blue-eau-de-toilette.jpg', 590, True)], [-0.04, -0.04, -0.04, -0.04]),
  "parfums-femme": ([("f_carolina-herrera-good-girl-eau-de-parfum.jpg", 690, False), ("f_giorgio-armani-my-way-eau-de-parfum-pour.jpg", 600, True),
                     ("f_yves-saint-laurent-libre-eau-de-parfum-p.jpg", 720, False), ("f_viktor-rolf-flowerbomb-eau-de-parfum-pou.jpg", 560, True),
                     ("f_gucci-bloom-eau-de-parfum-pour-femme.jpg", 545, False)], [0.04, 0.04, 0.04, 0.04]),
