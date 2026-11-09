@@ -1,0 +1,1825 @@
+{
+ "_note": "Fabricant (personne responsable UE, GPSR) par marque, pour compléter les fiches bol « informations essentielles manquantes ». Clé = nom de marque normalisé. Jamais de fournisseur ni de grossiste.",
+ "marques": {
+  "acqua di parma": {
+   "marque": "Acqua di Parma",
+   "fabricant_nom": "Acqua di Parma S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Giovanni Spadolini",
+    "numero": "7",
+    "code_postal": "20141",
+    "ville": "Milano",
+    "pays": "Italie"
+   },
+   "fabricant_email": "customercare@acquadiparma.it",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "adidas": {
+   "marque": "Adidas",
+   "fabricant_nom": "Coty Beauty Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité UE : fiches GPSR Shop Apotheke (Davidoff Hot Water https://www.shop-apotheke.com/beauty/upmXLCFPU/davidoff-hot-water-eau-de-toilette.h",
+   "confiance": "moyenne"
+  },
+  "alcina": {
+   "marque": "ALCINA",
+   "fabricant_nom": "Dr. Kurt Wolff GmbH & Co. KG",
+   "fabricant_adresse": {
+    "rue": "Johanneswerkstraße",
+    "numero": "34-36",
+    "code_postal": "33611",
+    "ville": "Bielefeld",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "kw-info@drwolffgroup.com",
+   "source": "https://www.alcina.com/de-de/impressum",
+   "confiance": "haute"
+  },
+  "alfaparf": {
+   "marque": "ALFAPARF MILANO",
+   "fabricant_nom": "Beauty & Business S.p.A.",
+   "fabricant_adresse": {
+    "rue": "via Cesare Cantù",
+    "numero": "1",
+    "code_postal": "20123",
+    "ville": "Milano",
+    "pays": "Italie"
+   },
+   "fabricant_email": "privacy@alfaparfmilano.com",
+   "source": "https://www.alfaparfmilano.com/it-it/privacy-policy",
+   "confiance": "haute"
+  },
+  "amouage": {
+   "marque": "Amouage",
+   "fabricant_nom": "Amouage Europe",
+   "fabricant_adresse": {
+    "rue": "boulevard Saint-Germain",
+    "numero": "250B",
+    "code_postal": "75007",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "artdeco": {
+   "marque": "Artdeco",
+   "fabricant_nom": "ARTDECO cosmetic GmbH",
+   "fabricant_adresse": {
+    "rue": "Gaußstraße",
+    "numero": "13",
+    "code_postal": "85757",
+    "ville": "Karlsfeld",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "info@artdeco.com",
+   "source": "https://artdeco.de/policies/legal-notice",
+   "confiance": "haute"
+  },
+  "azzaro": {
+   "marque": "Azzaro",
+   "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
+   "fabricant_adresse": {
+    "rue": "Scorpius",
+    "numero": "141",
+    "code_postal": "2132 LR",
+    "ville": "Hoofddorp",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "info.conso@be.loreal.com",
+   "source": "https://www.loreal.com/en/belgium/ (siège Benelux + service consommateurs Belgique) ; entité : https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr",
+   "confiance": "moyenne"
+  },
+  "batiste": {
+   "marque": "Batiste",
+   "fabricant_nom": "Sofibel SAS (Church & Dwight)",
+   "fabricant_adresse": {
+    "rue": "rue Victor Hugo",
+    "numero": "110-114",
+    "code_postal": "92686",
+    "ville": "Levallois-Perret",
+    "pays": "France"
+   },
+   "fabricant_email": "service.consommateurs@sofibel.fr",
+   "source": "https://www.batiste-hair.eu/fr/mentions-legales/ ; https://www.batiste-hair.eu/fr/contact/ ; https://www.batiste-hair.eu/fr/politique-de-confidentialite/",
+   "confiance": "haute"
+  },
+  "bdk": {
+   "marque": "BDK Parfums",
+   "fabricant_nom": "Parfums BDK",
+   "fabricant_adresse": {
+    "rue": "boulevard Maurice Barrès",
+    "numero": "120",
+    "code_postal": "92200",
+    "ville": "Neuilly-sur-Seine",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "bi oil": {
+   "marque": "Bi-Oil",
+   "fabricant_nom": "Union-Swiss (Pty) Ltd",
+   "fabricant_adresse": {
+    "rue": "Long Street (Park on Long, 9th Floor)",
+    "numero": "66",
+    "code_postal": "8001",
+    "ville": "Cape Town",
+    "pays": "Afrique du Sud"
+   },
+   "fabricant_email": "bio-oil@unionswiss.com",
+   "source": "https://www.bio-oil.com/us/en/privacy_policy",
+   "confiance": "moyenne"
+  },
+  "bioderma": {
+   "marque": "BIODERMA",
+   "fabricant_nom": "NAOS France SAS",
+   "fabricant_adresse": {
+    "rue": "cours Gambetta (Immeuble New Age)",
+    "numero": "141",
+    "code_postal": "69003",
+    "ville": "Lyon",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@consommateurs.naos.com",
+   "source": "https://www.bioderma.fr/pages-legales/mentions-legales ; https://www.bioderma.fr/pages-legales/conditions-generales-vente ; https://www.bioderma.fr/pages-legales/livraisons-et-retours",
+   "confiance": "haute"
+  },
+  "biotherm": {
+   "marque": "Biotherm",
+   "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
+   "fabricant_adresse": {
+    "rue": "Scorpius",
+    "numero": "141",
+    "code_postal": "2132 LR",
+    "ville": "Hoofddorp",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "info.conso@be.loreal.com",
+   "source": "https://www.loreal.com/en/belgium/ (siège Benelux + service consommateurs Belgique) ; entité : https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr",
+   "confiance": "moyenne"
+  },
+  "borntostandout": {
+   "marque": "Borntostandout",
+   "fabricant_nom": "Showroom Romeo",
+   "fabricant_adresse": {
+    "rue": "rue Ferdinand Duval",
+    "numero": "18",
+    "code_postal": "75004",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "britney spears": {
+   "marque": "Britney Spears",
+   "fabricant_nom": "Elizabeth Arden GmbH",
+   "fabricant_adresse": {
+    "rue": "Abraham-Lincoln-Straße",
+    "numero": "22",
+    "code_postal": "65189",
+    "ville": "Wiesbaden",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "kundenservice@elizabetharden.de",
+   "source": "https://www.elizabetharden.de/policies/terms-of-service ; https://www.elizabetharden.de/pages/privacy-policy",
+   "confiance": "moyenne"
+  },
+  "bruno banani": {
+   "marque": "Bruno Banani",
+   "fabricant_nom": "Coty Beauty Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité UE : fiches GPSR Shop Apotheke (Davidoff Hot Water https://www.shop-apotheke.com/beauty/upmXLCFPU/davidoff-hot-water-eau-de-toilette.h",
+   "confiance": "moyenne"
+  },
+  "bvlgari": {
+   "marque": "Bvlgari",
+   "fabricant_nom": "Bvlgari Italia S.p.A.",
+   "fabricant_adresse": {
+    "rue": "Via dei Condotti",
+    "numero": "10",
+    "code_postal": "00187",
+    "ville": "Roma",
+    "pays": "Italie"
+   },
+   "fabricant_email": "it.cs@bulgari.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "cacharel": {
+   "marque": "Cacharel",
+   "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
+   "fabricant_adresse": {
+    "rue": "Scorpius",
+    "numero": "141",
+    "code_postal": "2132 LR",
+    "ville": "Hoofddorp",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "dpo.benelux@loreal.com",
+   "source": "https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr",
+   "confiance": "moyenne"
+  },
+  "calvin klein": {
+   "marque": "Calvin Klein",
+   "fabricant_nom": "Coty",
+   "fabricant_adresse": {
+    "rue": "rue du Quatre Septembre",
+    "numero": "14",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@cotyconsumeraffairs.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "carner barcelona": {
+   "marque": "Carner Barcelona",
+   "fabricant_nom": "Carner Barcelona S.L.",
+   "fabricant_adresse": {
+    "rue": "C/ Diputació 266, local",
+    "numero": "2",
+    "code_postal": "08007",
+    "ville": "Barcelona",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "contact@carnerbarcelona.com",
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "carolina herrera": {
+   "marque": "Carolina Herrera",
+   "fabricant_nom": "Antonio Puig, S.A.",
+   "fabricant_adresse": {
+    "rue": "Plaza Europa",
+    "numero": "46-48",
+    "code_postal": "08902",
+    "ville": "L'Hospitalet de Llobregat (Barcelona)",
+    "pays": "Espagne"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "chanel": {
+   "marque": "Chanel",
+   "fabricant_nom": "Chanel Parfums Beauté",
+   "fabricant_adresse": {
+    "rue": "avenue Charles de Gaulle",
+    "numero": "135",
+    "code_postal": "92200",
+    "ville": "Neuilly-sur-Seine",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "clarins": {
+   "marque": "Clarins",
+   "fabricant_nom": "Clarins SAS",
+   "fabricant_adresse": {
+    "rue": "rue du Commandant Pilot",
+    "numero": "9",
+    "code_postal": "92200",
+    "ville": "Neuilly-sur-Seine",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "https://www.clarins.fr/legal_notices.html (section 3 « Entité responsable de la mise sur le marché ») ; contact : https://www.clarins.fr/service-client",
+   "confiance": "haute"
+  },
+  "clive christian": {
+   "marque": "Clive Christian",
+   "fabricant_nom": "Clive Christian",
+   "fabricant_adresse": {
+    "rue": "ul. Kasprzaka",
+    "numero": "31A/82",
+    "code_postal": "01-234",
+    "ville": "Warszawa",
+    "pays": "Pologne"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "creed": {
+   "marque": "Creed",
+   "fabricant_nom": "Ecomundo",
+   "fabricant_adresse": {
+    "rue": "rue Jean-Jacques Rousseau",
+    "numero": "195",
+    "code_postal": "92130",
+    "ville": "Issy-les-Moulineaux",
+    "pays": "France"
+   },
+   "fabricant_email": "info@fragrances-production.fr",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "cuba": {
+   "marque": "Cuba",
+   "fabricant_nom": "New Brand Perfumes BV",
+   "fabricant_adresse": {
+    "rue": "de Limburg Stirumlaan",
+    "numero": "250",
+    "code_postal": "1780",
+    "ville": "Wemmel",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "info@newbrandperfumes.com",
+   "source": "Personne responsable : fiche GPSR Parfum-Centrum https://www.parfum-centrum.com/cuba-orange-eau-de-toilette-35-ml-man_z1535 ; adresse du siège : registre officiel BCE/KBO (n° 0870.138.203) https://kbo",
+   "confiance": "moyenne"
+  },
+  "davidoff": {
+   "marque": "Davidoff",
+   "fabricant_nom": "Coty Beauty Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité UE : fiches GPSR Shop Apotheke (Davidoff Hot Water https://www.shop-apotheke.com/beauty/upmXLCFPU/davidoff-hot-water-eau-de-toilette.h",
+   "confiance": "moyenne"
+  },
+  "dermacol": {
+   "marque": "Dermacol",
+   "fabricant_nom": "Dermacol, a.s.",
+   "fabricant_adresse": {
+    "rue": "Výtvarná",
+    "numero": "1023/4",
+    "code_postal": "161 00",
+    "ville": "Praha 6",
+    "pays": "République tchèque"
+   },
+   "fabricant_email": "export@dermacol.cz",
+   "source": "https://www.dermacol.com/contacts/",
+   "confiance": "haute"
+  },
+  "dior": {
+   "marque": "Dior",
+   "fabricant_nom": "Parfums Christian Dior",
+   "fabricant_adresse": {
+    "rue": "avenue Hoche",
+    "numero": "33",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "diptyque": {
+   "marque": "Diptyque",
+   "fabricant_nom": "Diptyque SAS",
+   "fabricant_adresse": {
+    "rue": "avenue de l'Opéra",
+    "numero": "5",
+    "code_postal": "75001",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "serviceclient@diptyqueparis.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "dolce gabbana": {
+   "marque": "Dolce&Gabbana",
+   "fabricant_nom": "Dolce & Gabbana Beauty S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Carlo Goldoni",
+    "numero": "10",
+    "code_postal": "20129",
+    "ville": "Milano",
+    "pays": "Italie"
+   },
+   "fabricant_email": "amministrazionedgbeauty@dolcegabbana.it",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "dr hauschka": {
+   "marque": "Dr. Hauschka",
+   "fabricant_nom": "WALA Heilmittel GmbH",
+   "fabricant_adresse": {
+    "rue": "Dorfstraße",
+    "numero": "1",
+    "code_postal": "73087",
+    "ville": "Bad Boll/Eckwälden",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "info@drhauschka.de",
+   "source": "https://www.drhauschka.de/kontakt/ ; https://www.drhauschka.de/datenschutz/",
+   "confiance": "haute"
+  },
+  "dunhill": {
+   "marque": "Dunhill",
+   "fabricant_nom": "Interparfums SA",
+   "fabricant_adresse": {
+    "rue": "rue de Solferino",
+    "numero": "10",
+    "code_postal": "75007",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@interparfums.fr",
+   "source": "Personne responsable : fiche GPSR Parfum-Centrum https://www.parfum-centrum.com/dunhill-desire-blue-eau-de-toilette-50-ml-man_z539 ; adresse/e-mail officiels : https://www.annickgoutal.com/policies/le",
+   "confiance": "moyenne"
+  },
+  "ecodenta": {
+   "marque": "Ecodenta",
+   "fabricant_nom": "UAB „BIOK laboratorija“",
+   "fabricant_adresse": {
+    "rue": "Ukmergės g.",
+    "numero": "451",
+    "code_postal": "LT-14199",
+    "ville": "Klevinė (Vilniaus r.)",
+    "pays": "Lituanie"
+   },
+   "fabricant_email": "biok@bioklab.com",
+   "source": "https://ecodenta.lt/en/contacts/",
+   "confiance": "haute"
+  },
+  "elie saab": {
+   "marque": "Elie Saab",
+   "fabricant_nom": "Give Back Beauty GmbH",
+   "fabricant_adresse": {
+    "rue": "Darmstädter Landstraße 116, 4e étage",
+    "numero": "",
+    "code_postal": "60598",
+    "ville": "Frankfurt am Main",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "info@givebackbeauty.com",
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "escentric molecules": {
+   "marque": "Escentric Molecules",
+   "fabricant_nom": "Nobilis Group",
+   "fabricant_adresse": {
+    "rue": "Rheingaustraße",
+    "numero": "32",
+    "code_postal": "65201",
+    "ville": "Wiesbaden",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "info@nobilis-group.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "estee lauder": {
+   "marque": "Estée Lauder",
+   "fabricant_nom": "Whitman LBS NV (The Estée Lauder Companies)",
+   "fabricant_adresse": {
+    "rue": "Nijverheidstraat",
+    "numero": "15",
+    "code_postal": "2260",
+    "ville": "Oevel",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "contactmanufacturer@elcompanies.com",
+   "source": "https://www.cremedelamer.co.uk/contact-manufacturer",
+   "confiance": "haute"
+  },
+  "etat libre d orange": {
+   "marque": "Etat Libre d´Orange",
+   "fabricant_nom": "Editions des Sens SAS",
+   "fabricant_adresse": {
+    "rue": "rue des Archives",
+    "numero": "69",
+    "code_postal": "75003",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "shop@etatlibredorange.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "eucerin": {
+   "marque": "Eucerin",
+   "fabricant_nom": "Beiersdorf AG",
+   "fabricant_adresse": {
+    "rue": "Beiersdorfstraße",
+    "numero": "1-9",
+    "code_postal": "22529",
+    "ville": "Hamburg",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "info@eucerin.de",
+   "source": "https://www.eucerin.de/meta-pages/impressum",
+   "confiance": "haute"
+  },
+  "ferragamo": {
+   "marque": "Ferragamo",
+   "fabricant_nom": "Interparfums SA",
+   "fabricant_adresse": {
+    "rue": "rue de Solferino",
+    "numero": "10",
+    "code_postal": "75007",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@interparfums.fr",
+   "source": "Personne responsable : fiche GPSR Parfum-Centrum https://www.parfum-centrum.com/ferragamo-signorina-eau-de-parfum-30-ml-woman_z1024232 ; adresse/e-mail officiels : https://www.annickgoutal.com/policie",
+   "confiance": "moyenne"
+  },
+  "frederic malle": {
+   "marque": "Frederic Malle",
+   "fabricant_nom": "Whitman LBS NV",
+   "fabricant_adresse": {
+    "rue": "Nijverheidsstraat",
+    "numero": "15",
+    "code_postal": "2260",
+    "ville": "Oevel (Westerlo)",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "contactmanufacturer@elcompanies.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "fugazzi": {
+   "marque": "Fugazzi",
+   "fabricant_nom": "Fugazzi Fragrances B.V.",
+   "fabricant_adresse": {
+    "rue": "Waterloseweg",
+    "numero": "41",
+    "code_postal": "7311",
+    "ville": "JG Apeldoorn",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "giardini di toscana": {
+   "marque": "Giardini Di Toscana",
+   "fabricant_nom": "Giardini di Toscana Srl",
+   "fabricant_adresse": {
+    "rue": "Via XXVIII Agosto",
+    "numero": "7",
+    "code_postal": "52011",
+    "ville": "Bibbiena (AR)",
+    "pays": "Italie"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "gillette": {
+   "marque": "Gillette",
+   "fabricant_nom": "Procter & Gamble Distribution Company (Europe) BV",
+   "fabricant_adresse": {
+    "rue": "Temselaan",
+    "numero": "100",
+    "code_postal": "1853",
+    "ville": "Strombeek-Bever",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "pgprivacyofficer.im@pg.com",
+   "source": "https://privacypolicy.pg.com/nl-BE/ (tableau des responsables de traitement par pays, ligne België)",
+   "confiance": "moyenne"
+  },
+  "giorgio armani": {
+   "marque": "Giorgio Armani",
+   "fabricant_nom": "L'Oréal – Giorgio Armani Parfums",
+   "fabricant_adresse": {
+    "rue": "rue Royale",
+    "numero": "14",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "giorgio beverly hills": {
+   "marque": "Giorgio Beverly Hills",
+   "fabricant_nom": "Elizabeth Arden GmbH",
+   "fabricant_adresse": {
+    "rue": "Abraham-Lincoln-Straße",
+    "numero": "22",
+    "code_postal": "65189",
+    "ville": "Wiesbaden",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "kundenservice@elizabetharden.de",
+   "source": "https://www.elizabetharden.de/policies/terms-of-service ; https://www.elizabetharden.de/pages/privacy-policy",
+   "confiance": "moyenne"
+  },
+  "givenchy": {
+   "marque": "Givenchy",
+   "fabricant_nom": "LVMH Fragrance Brands",
+   "fabricant_adresse": {
+    "rue": "rue Pasquier",
+    "numero": "1",
+    "code_postal": "92300",
+    "ville": "Levallois-Perret",
+    "pays": "France"
+   },
+   "fabricant_email": "dpo@parfumsgivenchy.fr",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "goldfield banks": {
+   "marque": "Goldfield & Banks",
+   "fabricant_nom": "Goldfield & Banks",
+   "fabricant_adresse": {
+    "rue": "rue de Clichy",
+    "numero": "62",
+    "code_postal": "75009",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "goutal": {
+   "marque": "Goutal",
+   "fabricant_nom": "Interparfums SA",
+   "fabricant_adresse": {
+    "rue": "rue de Solferino",
+    "numero": "10",
+    "code_postal": "75007",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@annickgoutal.com",
+   "source": "https://www.annickgoutal.com/policies/legal-notice",
+   "confiance": "haute"
+  },
+  "gres": {
+   "marque": "Gres",
+   "fabricant_nom": "Lalique Beauty Services",
+   "fabricant_adresse": {
+    "rue": "Chemin du Mont à Grillons",
+    "numero": "",
+    "code_postal": "77760",
+    "ville": "Ury",
+    "pays": "France"
+   },
+   "fabricant_email": "info@lalique-group.com",
+   "source": "Fiche GPSR Parfum-Centrum : https://www.parfum-centrum.com/gres-cabochard-eau-de-toilette-30-ml-woman_z582862",
+   "confiance": "moyenne"
+  },
+  "gucci": {
+   "marque": "Gucci",
+   "fabricant_nom": "Coty",
+   "fabricant_adresse": {
+    "rue": "rue du Quatre Septembre",
+    "numero": "14",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@cotyconsumeraffairs.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "guerlain": {
+   "marque": "Guerlain",
+   "fabricant_nom": "Guerlain",
+   "fabricant_adresse": {
+    "rue": "avenue des Champs-Élysées",
+    "numero": "68",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "dpo@guerlain.fr",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "halloween": {
+   "marque": "Halloween",
+   "fabricant_nom": "Perfumes y Diseño",
+   "fabricant_adresse": {
+    "rue": "Isla de Java",
+    "numero": "",
+    "code_postal": "28034",
+    "ville": "Madrid",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "info@halloweenperfumes.com",
+   "source": "Fiche GPSR Parfum-Centrum : https://www.parfum-centrum.com/halloween-kiss-eau-de-toilette-100-ml-woman_z715569",
+   "confiance": "moyenne"
+  },
+  "head shoulders": {
+   "marque": "Head & Shoulders",
+   "fabricant_nom": "Procter & Gamble Distribution Company (Europe) BV",
+   "fabricant_adresse": {
+    "rue": "Temselaan",
+    "numero": "100",
+    "code_postal": "1853",
+    "ville": "Strombeek-Bever",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "pgprivacyofficer.im@pg.com",
+   "source": "https://privacypolicy.pg.com/nl-BE/ (tableau des responsables de traitement par pays, ligne België)",
+   "confiance": "moyenne"
+  },
+  "hermes": {
+   "marque": "Hermès",
+   "fabricant_nom": "Comptoir Nouveau de la Parfumerie (Hermès Parfums) SA",
+   "fabricant_adresse": {
+    "rue": "rue Boissy d'Anglas",
+    "numero": "23",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "privacy@hermes.com",
+   "source": "Nom + adresse : https://hermes.com/be/en/bcr-eu (liste des entités du groupe, ligne Hermès Parfums). E-mail : https://www.fondationdentreprisehermes.org/en/privacy-and-data-protection-policy (en clair",
+   "confiance": "moyenne"
+  },
+  "histoires": {
+   "marque": "Histoires de Parfums",
+   "fabricant_nom": "Histoires de Parfums",
+   "fabricant_adresse": {
+    "rue": "rue des Lombards",
+    "numero": "66",
+    "code_postal": "75001",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "hugo boss": {
+   "marque": "Hugo Boss",
+   "fabricant_nom": "Coty",
+   "fabricant_adresse": {
+    "rue": "rue du Quatre Septembre",
+    "numero": "14",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@cotyconsumeraffairs.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "initio": {
+   "marque": "Initio",
+   "fabricant_nom": "Initio Parfums Privés – Artessence Paris",
+   "fabricant_adresse": {
+    "rue": "rue de la Paix",
+    "numero": "17",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "issey miyake": {
+   "marque": "Issey Miyake",
+   "fabricant_nom": "Beauté Prestige International SAS (Shiseido EMEA)",
+   "fabricant_adresse": {
+    "rue": "rue de Villiers",
+    "numero": "57",
+    "code_postal": "92200",
+    "ville": "Neuilly-sur-Seine",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "https://www.isseymiyakeparfums.com/en/legal-notice.html ; contact : https://www.isseymiyakeparfums.com/en/contact",
+   "confiance": "haute"
+  },
+  "jacques bogart": {
+   "marque": "Jacques Bogart",
+   "fabricant_nom": "BOGART S.A. (anciennement Jacques Bogart S.A.)",
+   "fabricant_adresse": {
+    "rue": "avenue des Champs-Élysées",
+    "numero": "76-78",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@jbogart.com",
+   "source": "E-mail : communiqués réglementés du groupe déposés à l'AMF, rubrique CONTACTS, ex. https://echanges.dila.gouv.fr/OPENDATA/AMF/ACT/2023/05/FCACT064229_20230502.pdf et https://echanges.dila.gouv.fr/OPEN",
+   "confiance": "moyenne"
+  },
+  "jean paul gaultier": {
+   "marque": "Jean Paul Gaultier",
+   "fabricant_nom": "Antonio Puig, S.A.",
+   "fabricant_adresse": {
+    "rue": "Plaza Europa",
+    "numero": "46-48",
+    "code_postal": "08902",
+    "ville": "L'Hospitalet de Llobregat (Barcelona)",
+    "pays": "Espagne"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "jeanne arthes": {
+   "marque": "Jeanne Arthes",
+   "fabricant_nom": "Groupe Arthes S.A.",
+   "fabricant_adresse": {
+    "rue": "Parc Industriel des Bois de Grasse, BP 91006",
+    "numero": "",
+    "code_postal": "06131",
+    "ville": "Grasse Cedex",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@groupe-arthes.com",
+   "source": "https://www.jeanne-arthes.com/pages/mentions-legales",
+   "confiance": "haute"
+  },
+  "jil sander": {
+   "marque": "Jil Sander",
+   "fabricant_nom": "Coty S.A.S.",
+   "fabricant_adresse": {
+    "rue": "rue du Quatre Septembre",
+    "numero": "14",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Entité et adresse : https://www.coty.com/nl-be/privacy-notice (liste des entités Coty) ; fiche GPSR Shop Apotheke Jil Sander No.4 Shower Gel https://www.shop-apotheke.com/beauty/upmTKCGUD/jil-sander-n",
+   "confiance": "moyenne"
+  },
+  "jo malone": {
+   "marque": "Jo Malone",
+   "fabricant_nom": "Whitman LBS NV",
+   "fabricant_adresse": {
+    "rue": "Nijverheidsstraat",
+    "numero": "15",
+    "code_postal": "2260",
+    "ville": "Oevel (Westerlo)",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "contactmanufacturer@elcompanies.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "joop": {
+   "marque": "JOOP!",
+   "fabricant_nom": "Coty Beauty Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité UE : fiches GPSR Shop Apotheke (Davidoff Hot Water https://www.shop-apotheke.com/beauty/upmXLCFPU/davidoff-hot-water-eau-de-toilette.h",
+   "confiance": "moyenne"
+  },
+  "jovan": {
+   "marque": "Jövan",
+   "fabricant_nom": "Coty Beauty Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité UE : fiches GPSR Shop Apotheke (Davidoff Hot Water https://www.shop-apotheke.com/beauty/upmXLCFPU/davidoff-hot-water-eau-de-toilette.h",
+   "confiance": "moyenne"
+  },
+  "juicy couture": {
+   "marque": "Juicy Couture",
+   "fabricant_nom": "Elizabeth Arden GmbH",
+   "fabricant_adresse": {
+    "rue": "Abraham-Lincoln-Straße",
+    "numero": "22",
+    "code_postal": "65189",
+    "ville": "Wiesbaden",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "kundenservice@elizabetharden.de",
+   "source": "https://www.elizabetharden.de/policies/terms-of-service ; https://www.elizabetharden.de/pages/privacy-policy",
+   "confiance": "moyenne"
+  },
+  "juliette has a gun": {
+   "marque": "Juliette Has A Gun",
+   "fabricant_nom": "JULIETTE HAS A GUN (SAS)",
+   "fabricant_adresse": {
+    "rue": "rue de Richelieu",
+    "numero": "59",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "hey@juliettehasagun.com",
+   "source": "https://www.juliettehasagun.com/policies/terms-of-sale ; https://www.juliettehasagun.com/pages/nous-contacter",
+   "confiance": "haute"
+  },
+  "juvena": {
+   "marque": "Juvena",
+   "fabricant_nom": "Troll Cosmetics GmbH (personne responsable UE)",
+   "fabricant_adresse": {
+    "rue": "Weidachstraße",
+    "numero": "20",
+    "code_postal": "6858",
+    "ville": "Schwarzach",
+    "pays": "Autriche"
+   },
+   "fabricant_email": null,
+   "source": "Fiche GPSR Shop Apotheke Juvena MasterCream : https://www.shop-apotheke.com/beauty/upm7UWH4K/juvena-of-switzerland-mastercare-mastercream.htm",
+   "confiance": "moyenne"
+  },
+  "kallos": {
+   "marque": "Kallos Cosmetics",
+   "fabricant_nom": "Kallos Cosmetics Kft.",
+   "fabricant_adresse": {
+    "rue": "Soroksári út",
+    "numero": "164",
+    "code_postal": "1095",
+    "ville": "Budapest",
+    "pays": "Hongrie"
+   },
+   "fabricant_email": "info@kallos.com",
+   "source": "https://kallos.com/pages/contactus ; confirmé par https://agora.mfa.gr/component/agora/company/6279",
+   "confiance": "haute"
+  },
+  "kenneth cole": {
+   "marque": "Kenneth Cole",
+   "fabricant_nom": "Perlux SARL",
+   "fabricant_adresse": {
+    "rue": "rue de Bitche",
+    "numero": "54",
+    "code_postal": "92400",
+    "ville": "Courbevoie",
+    "pays": "France"
+   },
+   "fabricant_email": "info@perlux.fr",
+   "source": "Fiche GPSR Parfum-Centrum : https://www.parfum-centrum.com/kenneth-cole-black-for-men-eau-de-toilette-100-ml-man_z628374",
+   "confiance": "moyenne"
+  },
+  "kenzo": {
+   "marque": "Kenzo",
+   "fabricant_nom": "LVMH Fragrance Brands",
+   "fabricant_adresse": {
+    "rue": "rue Pasquier",
+    "numero": "1",
+    "code_postal": "92300",
+    "ville": "Levallois-Perret",
+    "pays": "France"
+   },
+   "fabricant_email": "dpo@parfumsgivenchy.fr",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "kilian": {
+   "marque": "By Kilian",
+   "fabricant_nom": "Whitman LBS NV",
+   "fabricant_adresse": {
+    "rue": "Nijverheidsstraat",
+    "numero": "15",
+    "code_postal": "2260",
+    "ville": "Oevel (Westerlo)",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "contactmanufacturer@elcompanies.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "l oreal": {
+   "marque": "L'Oréal Paris",
+   "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
+   "fabricant_adresse": {
+    "rue": "Scorpius",
+    "numero": "141",
+    "code_postal": "2132 LR",
+    "ville": "Hoofddorp",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "info.conso@be.loreal.com",
+   "source": "https://www.loreal.com/en/belgium/ (siège Benelux + service consommateurs Belgique) ; entité : https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr",
+   "confiance": "moyenne"
+  },
+  "lancome": {
+   "marque": "Lancôme",
+   "fabricant_nom": "L'Oréal – Lancôme Parfums et Beauté & Cie",
+   "fabricant_adresse": {
+    "rue": "rue Royale",
+    "numero": "14",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "le labo": {
+   "marque": "Le Labo",
+   "fabricant_nom": "Whitman LBS NV",
+   "fabricant_adresse": {
+    "rue": "Nijverheidsstraat",
+    "numero": "15",
+    "code_postal": "2260",
+    "ville": "Oevel (Westerlo)",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "contactmanufacturer@elcompanies.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "londa": {
+   "marque": "Londa Professional",
+   "fabricant_nom": "Wella Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65-65a",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "wella@wella.com",
+   "source": "https://www.londaprofessional.com/de/impressum ; e-mail : https://www.wella.com/professional/de-DE/impressum",
+   "confiance": "haute"
+  },
+  "lorenzo villoresi": {
+   "marque": "Lorenzo Villoresi",
+   "fabricant_nom": "Lorenzo Villoresi (P.IVA 05276890489)",
+   "fabricant_adresse": {
+    "rue": "Via de' Bardi",
+    "numero": "12",
+    "code_postal": "50125",
+    "ville": "Firenze",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@lorenzovilloresi.it",
+   "source": "https://www.lorenzovilloresi.it/us_en/privacy-policy/ ; https://www.lorenzovilloresi.it/us_en/contact/",
+   "confiance": "haute"
+  },
+  "maison crivelli": {
+   "marque": "Maison Crivelli",
+   "fabricant_nom": "Maison Crivelli SAS",
+   "fabricant_adresse": {
+    "rue": "rue Saint-Honoré",
+    "numero": "280",
+    "code_postal": "75001",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "maison francis kurkdjian": {
+   "marque": "Maison Francis Kurkdjian",
+   "fabricant_nom": "Parfums Francis Kurkdjian",
+   "fabricant_adresse": {
+    "rue": "rue Étienne Marcel",
+    "numero": "41",
+    "code_postal": "75001",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "dpo@franciskurkdjian.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "maison margiela": {
+   "marque": "Maison Margiela Paris",
+   "fabricant_nom": "L'Oréal – Maison Margiela Parfums",
+   "fabricant_adresse": {
+    "rue": "rue Royale",
+    "numero": "14",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "mancera": {
+   "marque": "Mancera",
+   "fabricant_nom": "Inter Development Diffusion SA",
+   "fabricant_adresse": {
+    "rue": "Cours de Rive",
+    "numero": "10",
+    "code_postal": "1204",
+    "ville": "Genève",
+    "pays": "Suisse"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "marc antoine barrois": {
+   "marque": "Marc-Antoine Barrois",
+   "fabricant_nom": "CPH Parfums SAS",
+   "fabricant_adresse": {
+    "rue": "rue du Faubourg Saint-Honoré",
+    "numero": "14",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "parfums@marcantoinebarrois.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "marc jacobs": {
+   "marque": "Marc Jacobs",
+   "fabricant_nom": "Coty",
+   "fabricant_adresse": {
+    "rue": "rue du Quatre Septembre",
+    "numero": "14",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@cotyconsumeraffairs.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "marly": {
+   "marque": "Parfums de Marly",
+   "fabricant_nom": "L.N.C",
+   "fabricant_adresse": {
+    "rue": "rue de la Paix",
+    "numero": "17",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "matiere premiere": {
+   "marque": "Matiere Premiere",
+   "fabricant_nom": "The Fragrance Designers",
+   "fabricant_adresse": {
+    "rue": "rue Monsigny",
+    "numero": "15",
+    "code_postal": "75002",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "wsylvestre@matiere-premiere.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "max factor": {
+   "marque": "Max Factor",
+   "fabricant_nom": "Coty Beauty Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité UE : fiches GPSR Shop Apotheke (Davidoff Hot Water https://www.shop-apotheke.com/beauty/upmXLCFPU/davidoff-hot-water-eau-de-toilette.h",
+   "confiance": "moyenne"
+  },
+  "mercedes benz": {
+   "marque": "Mercedes-Benz",
+   "fabricant_nom": "INCC Group",
+   "fabricant_adresse": {
+    "rue": "avenue de Saint-Cloud",
+    "numero": "85",
+    "code_postal": "78000",
+    "ville": "Versailles",
+    "pays": "France"
+   },
+   "fabricant_email": "customerservice@incc-group.com",
+   "source": "Fiche GPSR Parfum-Centrum : https://www.parfum-centrum.com/mercedes-benz-select-eau-de-toilette-100-ml-man_z715722",
+   "confiance": "moyenne"
+  },
+  "missoni": {
+   "marque": "Missoni",
+   "fabricant_nom": "Euroitalia S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Galileo Galilei",
+    "numero": "5",
+    "code_postal": "20873",
+    "ville": "Cavenago di Brianza (MB)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "privacy@euroitalia.it",
+   "source": "https://www.euroitalia.it/ (marque au portefeuille) ; https://www.euroitalia.it/privacy-policy/",
+   "confiance": "moyenne"
+  },
+  "miu miu": {
+   "marque": "Miu Miu",
+   "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
+   "fabricant_adresse": {
+    "rue": "Scorpius",
+    "numero": "141",
+    "code_postal": "2132 LR",
+    "ville": "Hoofddorp",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "dpo.benelux@loreal.com",
+   "source": "https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr",
+   "confiance": "moyenne"
+  },
+  "molinard": {
+   "marque": "Molinard",
+   "fabricant_nom": "GLB SAS « Parfums Molinard »",
+   "fabricant_adresse": {
+    "rue": "boulevard Victor Hugo",
+    "numero": "60",
+    "code_postal": "06130",
+    "ville": "Grasse",
+    "pays": "France"
+   },
+   "fabricant_email": "accueil@molinard.fr",
+   "source": "https://molinard.com/policies/terms-of-sale",
+   "confiance": "haute"
+  },
+  "moncler": {
+   "marque": "Moncler",
+   "fabricant_nom": "Interparfums SA",
+   "fabricant_adresse": {
+    "rue": "Rond-Point des Champs-Élysées",
+    "numero": "4",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@interparfums.fr",
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "montale": {
+   "marque": "Montale",
+   "fabricant_nom": "Creation Luxe Design",
+   "fabricant_adresse": {
+    "rue": "rue Pierre Charron",
+    "numero": "68",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "montblanc": {
+   "marque": "Montblanc",
+   "fabricant_nom": "Interparfums SA",
+   "fabricant_adresse": {
+    "rue": "rue de Solferino",
+    "numero": "10",
+    "code_postal": "75007",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@interparfums.fr",
+   "source": "https://www.interparfums.fr/fr/mentions-legales/",
+   "confiance": "haute"
+  },
+  "moroccanoil": {
+   "marque": "Moroccanoil",
+   "fabricant_nom": "Moroccanoil Italy S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Giovanni Battista Pergolesi",
+    "numero": "8",
+    "code_postal": "20124",
+    "ville": "Milano",
+    "pays": "Italie"
+   },
+   "fabricant_email": "contactus@moroccanoil.com",
+   "source": "https://de.moroccanoil.com/pages/impressum ; https://de.moroccanoil.com/policies/terms-of-service",
+   "confiance": "haute"
+  },
+  "moschino": {
+   "marque": "Moschino",
+   "fabricant_nom": "Euroitalia S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Galileo Galilei",
+    "numero": "5",
+    "code_postal": "20873",
+    "ville": "Cavenago di Brianza (MB)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "privacy@euroitalia.it",
+   "source": "https://www.euroitalia.it/ (marque au portefeuille) ; https://www.euroitalia.it/privacy-policy/",
+   "confiance": "haute"
+  },
+  "mr mrs": {
+   "marque": "Mr&Mrs Fragrance",
+   "fabricant_nom": "Joy Fragrances S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Gavinana",
+    "numero": "14",
+    "code_postal": "21052",
+    "ville": "Busto Arsizio (VA)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "sales@joyfragrances.it",
+   "source": "https://mrandmrsfragrance.com/ (pied de page)",
+   "confiance": "haute"
+  },
+  "mustela": {
+   "marque": "Mustela",
+   "fabricant_nom": "Laboratoires Expanscience SAS",
+   "fabricant_adresse": {
+    "rue": "Place des Saisons",
+    "numero": "1",
+    "code_postal": "92048",
+    "ville": "Paris La Défense Cedex",
+    "pays": "France"
+   },
+   "fabricant_email": "consomustela@expanscience.com",
+   "source": "https://www.mustela.fr/pages/conditions-generales-de-vente",
+   "confiance": "haute"
+  },
+  "narciso rodriguez": {
+   "marque": "Narciso Rodriguez",
+   "fabricant_nom": "Beauté Prestige International",
+   "fabricant_adresse": {
+    "rue": "rue du Faubourg Saint-Honoré",
+    "numero": "56A",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "nasomatto": {
+   "marque": "Nasomatto",
+   "fabricant_nom": "Nasomatto B.V.",
+   "fabricant_adresse": {
+    "rue": "Veemarkt",
+    "numero": "40",
+    "code_postal": "1019",
+    "ville": "DD Amsterdam",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "office@ortoparisi.com",
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "nishane": {
+   "marque": "Nishane",
+   "fabricant_nom": "Nobilis Group",
+   "fabricant_adresse": {
+    "rue": "Rheingaustraße",
+    "numero": "32",
+    "code_postal": "65201",
+    "ville": "Wiesbaden",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "info@nobilis-group.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "nivea": {
+   "marque": "Nivea",
+   "fabricant_nom": "Beiersdorf AG",
+   "fabricant_adresse": {
+    "rue": "Beiersdorfstraße",
+    "numero": "1-9",
+    "code_postal": "20245",
+    "ville": "Hamburg",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "nivea@beiersdorf.com",
+   "source": "https://www.nivea.de/ueber-uns/impressum",
+   "confiance": "haute"
+  },
+  "orto parisi": {
+   "marque": "Orto Parisi",
+   "fabricant_nom": "Orto Parisi",
+   "fabricant_adresse": {
+    "rue": "Veemarkt",
+    "numero": "40",
+    "code_postal": "1019",
+    "ville": "DD Amsterdam",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "office@ortoparisi.com",
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "paco rabanne": {
+   "marque": "Paco Rabanne",
+   "fabricant_nom": "Puig France SAS",
+   "fabricant_adresse": {
+    "rue": "avenue des Champs-Élysées",
+    "numero": "65-67",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "pasta del capitano": {
+   "marque": "Pasta Del Capitano",
+   "fabricant_nom": "Farmaceutici Dott. Ciccarelli S.p.A.",
+   "fabricant_adresse": {
+    "rue": "Via Clemente Prudenzio",
+    "numero": "13",
+    "code_postal": "20138",
+    "ville": "Milano",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@ciccarelli.it",
+   "source": "https://pastadelcapitano.it/en/contacts",
+   "confiance": "haute"
+  },
+  "police": {
+   "marque": "Police",
+   "fabricant_nom": "Mavive S.p.A.",
+   "fabricant_adresse": {
+    "rue": "Via Altinia",
+    "numero": "298/B",
+    "code_postal": "30173",
+    "ville": "Venezia Dese (VE)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@mavive.com",
+   "source": "Fiche GPSR Parfum-Centrum : https://www.parfum-centrum.com/police-original-eau-de-toilette-100-ml-man_z668761",
+   "confiance": "moyenne"
+  },
+  "prada": {
+   "marque": "Prada",
+   "fabricant_nom": "L'Oréal – Prada Parfums",
+   "fabricant_adresse": {
+    "rue": "rue Royale",
+    "numero": "14",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "proraso": {
+   "marque": "PRORASO",
+   "fabricant_nom": "Ludovico Martelli S.p.A.",
+   "fabricant_adresse": {
+    "rue": "Via Faentina",
+    "numero": "169/12",
+    "code_postal": "50014",
+    "ville": "Fiesole (FI)",
+    "pays": "Italie"
+   },
+   "fabricant_email": null,
+   "source": "https://proraso.com/fr/contacts/ ; https://proraso.com/fr/privacy-policy/",
+   "confiance": "haute"
+  },
+  "redken": {
+   "marque": "Redken",
+   "fabricant_nom": "L'Oréal Nederland B.V. (L'Oréal Benelux)",
+   "fabricant_adresse": {
+    "rue": "Scorpius",
+    "numero": "141",
+    "code_postal": "2132 LR",
+    "ville": "Hoofddorp",
+    "pays": "Pays-Bas"
+   },
+   "fabricant_email": "info.conso@be.loreal.com",
+   "source": "https://www.loreal.com/en/belgium/ (siège Benelux + service consommateurs Belgique) ; entité : https://www.loreal.com/en/benelux/pages/privacy-policy/benelux/privacy-policy-benelux-fr",
+   "confiance": "moyenne"
+  },
+  "revlon": {
+   "marque": "Revlon Professional",
+   "fabricant_nom": "Beautyge, S.L.",
+   "fabricant_adresse": {
+    "rue": "Carrer Tirso de Molina (WTC Almeda Park)",
+    "numero": "40",
+    "code_postal": "08940",
+    "ville": "Cornellà de Llobregat",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "info.revlon@revlon.com",
+   "source": "E-mail et adresse UE : https://www.revlonprofessional.com/contact/ ; https://www.revlonprofessional.com/privacy-policy/ (Revlon Law Department, C/ Tirso de Molina 40, Cornellà) ; nom légal : https://s",
+   "confiance": "haute"
+  },
+  "rimmel": {
+   "marque": "Rimmel London",
+   "fabricant_nom": "Coty Beauty Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "data_privacy@cotyinc.com",
+   "source": "Marque Coty : https://www.coty.com/our-brands/all-brands ; entité UE : fiches GPSR Shop Apotheke (Davidoff Hot Water https://www.shop-apotheke.com/beauty/upmXLCFPU/davidoff-hot-water-eau-de-toilette.h",
+   "confiance": "moyenne"
+  },
+  "rochas": {
+   "marque": "Rochas",
+   "fabricant_nom": "Interparfums SA",
+   "fabricant_adresse": {
+    "rue": "rue de Solferino",
+    "numero": "10",
+    "code_postal": "75007",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@interparfums.fr",
+   "source": "https://www.interparfums.fr/fr/ (marque Rochas au portefeuille) ; https://www.interparfums.fr/fr/mentions-legales/ (e-mail, recherche antérieure)",
+   "confiance": "haute"
+  },
+  "sachajuan": {
+   "marque": "Sachajuan",
+   "fabricant_nom": "SACHAJUAN Haircare AB",
+   "fabricant_adresse": {
+    "rue": "Box 24023",
+    "numero": "",
+    "code_postal": "104 50",
+    "ville": "Stockholm",
+    "pays": "Suède"
+   },
+   "fabricant_email": "haircare@sachajuan.com",
+   "source": "https://sachajuan.com/pages/privacy-policy ; https://sachajuan.com/pages/contact",
+   "confiance": "haute"
+  },
+  "salvador dali": {
+   "marque": "Salvador Dali",
+   "fabricant_nom": "Cofinluxe (COFCI)",
+   "fabricant_adresse": {
+    "rue": "Rue Anatole de la Forge",
+    "numero": "6",
+    "code_postal": "75017",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "Fiche GPSR Parfum-Centrum : https://www.parfum-centrum.com/salvador-dali-dalilight-eau-de-toilette-50-ml-woman_z580683/",
+   "confiance": "moyenne"
+  },
+  "schwarzkopf": {
+   "marque": "Schwarzkopf Professional",
+   "fabricant_nom": "Henkel AG & Co. KGaA",
+   "fabricant_adresse": {
+    "rue": "Henkelstraße",
+    "numero": "67",
+    "code_postal": "40589",
+    "ville": "Düsseldorf",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "cosmetics@henkel.com",
+   "source": "https://www.schwarzkopf-professional.com/com/en/imprint.html",
+   "confiance": "haute"
+  },
+  "sensodyne": {
+   "marque": "Sensodyne",
+   "fabricant_nom": "Haleon Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Barthstraße",
+    "numero": "4",
+    "code_postal": "80339",
+    "ville": "München",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": null,
+   "source": "Fiche Shop Apotheke Sensodyne MultiCare (rubrique « Herstellerdaten ») : https://www.shop-apotheke.com/hygiene/8120890/sensodyne-multicare-zahnfleischschutz-zahnpasta.htm",
+   "confiance": "moyenne"
+  },
+  "shiseido": {
+   "marque": "Shiseido",
+   "fabricant_nom": "Shiseido Europe",
+   "fabricant_adresse": {
+    "rue": "rue de Villiers",
+    "numero": "57",
+    "code_postal": "92200",
+    "ville": "Neuilly-sur-Seine",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "https://www.shiseido.fr/fr/fr/legal-notice/ ; contact : https://www.shiseido.fr/fr/fr/nous-contacter",
+   "confiance": "haute"
+  },
+  "state of mind": {
+   "marque": "State Of Mind",
+   "fabricant_nom": "Alegria SAS",
+   "fabricant_adresse": {
+    "rue": "Rue des Pontonas",
+    "numero": "36",
+    "code_postal": "92310",
+    "ville": "Sèvres",
+    "pays": "France"
+   },
+   "fabricant_email": "contact@stateofmind.fr",
+   "source": "Fiche GPSR Parfum-Centrum : https://www.parfum-centrum.com/state-of-mind-aesthetic-turbulence-eau-de-parfum-100-ml-unisex_z1081596 ; confirmation de l'éditeur : https://stateofmind.fr/legal-notice",
+   "confiance": "moyenne"
+  },
+  "stephane humbert lucas 777": {
+   "marque": "Stéphane Humbert Lucas 777",
+   "fabricant_nom": "Stéphane Humbert Lucas",
+   "fabricant_adresse": {
+    "rue": "rue de Ponthieu",
+    "numero": "25",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": "info@stephanehumbertlucas.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "swissdent": {
+   "marque": "Swissdent",
+   "fabricant_nom": "SWISSDENT Cosmetics GmbH (représentant UE)",
+   "fabricant_adresse": {
+    "rue": "Hauptstrasse",
+    "numero": "59",
+    "code_postal": "77855",
+    "ville": "Achern",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": null,
+   "source": "https://www.swissdent.ch/datenschutzerklaerung ; https://www.swissdent.ch/kontakt",
+   "confiance": "haute"
+  },
+  "ted baker": {
+   "marque": "Ted Baker",
+   "fabricant_nom": "KMI Brands Limited",
+   "fabricant_adresse": {
+    "rue": "Kingsway (6th Floor, Holborn)",
+    "numero": "71",
+    "code_postal": "WC2B 6ST",
+    "ville": "London",
+    "pays": "Royaume-Uni"
+   },
+   "fabricant_email": "info@kmibrands.com",
+   "source": "https://kmibrands.com/contact-us/",
+   "confiance": "moyenne"
+  },
+  "tepe": {
+   "marque": "TePe",
+   "fabricant_nom": "TePe Munhygienprodukter AB",
+   "fabricant_adresse": {
+    "rue": "Bronsåldersgatan",
+    "numero": "5",
+    "code_postal": "SE-213 76",
+    "ville": "Malmö",
+    "pays": "Suède"
+   },
+   "fabricant_email": "info@tepe.com",
+   "source": "https://www.tepe.com/global (pied de page « Production »)",
+   "confiance": "haute"
+  },
+  "tiziana terenzi": {
+   "marque": "Tiziana Terenzi",
+   "fabricant_nom": "Cereria Terenzi",
+   "fabricant_adresse": {
+    "rue": "Via Bizet",
+    "numero": "snc",
+    "code_postal": "47841",
+    "ville": "Cattolica",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@cereriaterenzi.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "tom ford": {
+   "marque": "Tom Ford",
+   "fabricant_nom": "Whitman LBS NV",
+   "fabricant_adresse": {
+    "rue": "Nijverheidsstraat",
+    "numero": "15",
+    "code_postal": "2260",
+    "ville": "Oevel (Westerlo)",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "contactmanufacturer@elcompanies.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "versace": {
+   "marque": "Versace",
+   "fabricant_nom": "Euroitalia S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Galileo Galilei",
+    "numero": "5",
+    "code_postal": "20873",
+    "ville": "Cavenago di Brianza (MB)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "privacy@euroitalia.it",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "viktor rolf": {
+   "marque": "Viktor & Rolf",
+   "fabricant_nom": "L'Oréal – Viktor & Rolf Parfums",
+   "fabricant_adresse": {
+    "rue": "rue Royale",
+    "numero": "14",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "wella": {
+   "marque": "Wella Professionals",
+   "fabricant_nom": "Wella Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65-65a",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": "wella@wella.com",
+   "source": "https://www.wella.com/professional/de-DE/impressum",
+   "confiance": "haute"
+  },
+  "xerjoff": {
+   "marque": "Xerjoff",
+   "fabricant_nom": "Xerjoff Group S.p.A.",
+   "fabricant_adresse": {
+    "rue": "Via Carlo Tenivelli",
+    "numero": "29",
+    "code_postal": "10024",
+    "ville": "Moncalieri",
+    "pays": "Italie"
+   },
+   "fabricant_email": "customer@xerjoff.com",
+   "source": "config/gpsr.json + bol_operateurs.json",
+   "confiance": "moyenne"
+  },
+  "xpel": {
+   "marque": "Xpel",
+   "fabricant_nom": "Xpel Marketing Ltd",
+   "fabricant_adresse": {
+    "rue": "Everite Road (Unit 7)",
+    "numero": "7",
+    "code_postal": "WA8 8PT",
+    "ville": "Widnes",
+    "pays": "Royaume-Uni"
+   },
+   "fabricant_email": null,
+   "source": "Registre officiel UK (Companies House, n° 06557112) : https://pay.company-information.service.gov.uk/company/06557112",
+   "confiance": "moyenne"
+  },
+  "yves saint laurent": {
+   "marque": "Yves Saint Laurent",
+   "fabricant_nom": "L'Oréal – YSL Beauté",
+   "fabricant_adresse": {
+    "rue": "rue Saint-Honoré",
+    "numero": "281",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  },
+  "zadig voltaire": {
+   "marque": "Zadig & Voltaire",
+   "fabricant_nom": "Beauté Prestige International",
+   "fabricant_adresse": {
+    "rue": "rue du Faubourg Saint-Honoré",
+    "numero": "56A",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "source": "config/gpsr.json",
+   "confiance": "moyenne"
+  }
+ }
+}

@@ -128,6 +128,112 @@ def rapport():
     with open(os.path.join(RAPPORTS, "bol_contenu_envois.json"), "w", encoding="utf-8") as fh:
         json.dump(envois, fh, ensure_ascii=False, indent=1)
 
+# ---------- complément automatique (09/11/2026) ----------
+BLOQUANTS = ("2006", "2002", "3000", "2003")  # marque interdite, produit bloqué, droits de vente : rien à faire côté fiche
+
+
+def cle_marque(s):
+    import re, unicodedata
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+    s = re.sub(r"\(.*?\)", "", s)
+    s = re.sub(r"[^a-z0-9]+", " ", s)
+    s = re.sub(r"\b(professionals?|parfums?|perfumes?|paris|cosmetics?|the|de|by|new york|london|milano|fragrances?|beauty|laboratoires?)\b", " ", s)
+    return " ".join(s.split())
+
+
+def fabricant_pour(marque, nom, table):
+    """Fabricant (config/bol_fabricants.json) d'après la marque de la fiche bol, sinon d'après le début du nom du produit."""
+    k = cle_marque(marque)
+    if k in table:
+        return table[k]
+    for kk, v in table.items():
+        if k and kk and (k.startswith(kk + " ") or kk.startswith(k + " ") or k in [cle_marque(a) for a in v.get("alias", [])]):
+            return v
+    nk = cle_marque(nom)
+    for kk in sorted(table, key=len, reverse=True):
+        if kk and (nk == kk or nk.startswith(kk + " ")):
+            return table[kk]
+    return None
+
+
+def nettoyer_inci(v):
+    """Liste d'ingrédients refusée par bol : on enlève le préfixe (« Ingredients: ») et les mentions ajoutées par d'autres
+    vendeurs ; on ne renvoie la liste que si elle ressemble à une vraie liste INCI."""
+    import re
+    if not v:
+        return None
+    t = re.sub(r"^\s*(ingr[eé]di[eë]nt(s|en)?|inci|composition|samenstelling|zutaten)\s*[:：-]\s*", "", v.strip(), flags=re.I)
+    t = re.split(r"[\"'“”‘’]{1,3}\s*Houd er rekening mee|Houd er rekening mee|Please note|Veuillez noter", t)[0]
+    t = re.sub(r"\s+", " ", t).strip(" .;'\"“”")
+    if re.search(r"does not apply|niet van toepassing|n/a", t, re.I) or t.count(",") < 4 or len(t) < 40:
+        return None
+    vus, items = set(), []
+    for x in (i.strip() for i in t.split(",")):
+        if x and x.lower() not in vus:
+            vus.add(x.lower()); items.append(x)
+    if items[-1].split(" ")[-1].lower() in ("benzyl", "ethylhexyl", "butyl", "sodium", "alcohol", "hexyl", "methyl"):
+        return None  # liste tronquée : on ne la renvoie pas
+    t = ", ".join(items)
+    return t + ("." if not t.endswith(".") else "")
+
+
+def auto(essai=False):
+    """Après --diag : complète tout seul les fiches bloquées pour « informations essentielles » (fabricant, d'après la
+    marque) et « adresse fabricant incorrecte », et nettoie les listes d'ingrédients refusées pour leur mise en forme.
+    Ce qui ne peut pas être complété automatiquement est listé dans rapports/bol_contenu_auto.json."""
+    diag_ = json.load(open(os.path.join(RAPPORTS, "bol_contenu_diag.json"), encoding="utf-8"))
+    table = json.load(open(os.path.join(RACINE, "config", "bol_fabricants.json"), encoding="utf-8"))["marques"]
+    manuel = {f["ean"].zfill(13): f for f in json.load(open(os.path.join(RACINE, "config", "bol_contenu.json"), encoding="utf-8"))["fiches"]}
+    try:
+        decisions = json.load(open(os.path.join(RACINE, "base", "bol_decisions.json"), encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        decisions = {}
+    a_envoyer, sans_fabricant, inci_a_chercher = {}, {}, []
+    for ean, v in diag_.items():
+        textes = [(str(r.get("code")), r.get("description") or "") for r in v.get("raisons_completes") or []]
+        if not textes or any(c in BLOQUANTS for c, _ in textes):
+            continue
+        fiche = v.get("fiche") or {}
+        attrs = {a.get("id"): (a.get("values") or [{}])[0].get("value") for a in fiche.get("attributes") or []}
+        marque = next((p.get("name") for p in fiche.get("parties", []) if p.get("role") == "BRAND"), "")
+        d = decisions.get(ean.lstrip("0")) or decisions.get(ean) or {}
+        nom = d.get("nom") or attrs.get("Title") or ""
+        marque = marque or d.get("marque") or ""
+        envoi = []
+        if any(c == "4004" and "essential" in t for c, t in textes) or any("Supplier address" in t for c, t in textes):
+            f = manuel.get(ean) if manuel.get(ean, {}).get("fabricant_nom") else fabricant_pour(marque, nom, table)
+            if f:
+                envoi += [a for a in attributs(dict(f, inci=None)) if a["id"].startswith("Manufacturer")]
+            else:
+                sans_fabricant.setdefault(marque or nom.split(" ")[0], []).append([ean, nom])
+        if any("(Ingredients)" in t for _, t in textes):
+            propre = nettoyer_inci(attrs.get("Ingredients"))
+            if propre and propre != attrs.get("Ingredients"):
+                envoi.append({"id": "Ingredients", "values": [{"value": propre}]})
+            else:
+                inci_a_chercher.append([ean, nom, (attrs.get("Ingredients") or "")[:120]])
+        if any("missing content (Cosmetics)" in t for _, t in textes) and not attrs.get("Ingredients"):
+            inci_a_chercher.append([ean, nom, ""])
+        if envoi:
+            a_envoyer[ean] = envoi
+    print("Fiches à compléter automatiquement : %d · marques sans fabricant connu : %d (%d produits) · listes INCI à chercher : %d"
+          % (len(a_envoyer), len(sans_fabricant), sum(len(x) for x in sans_fabricant.values()), len(inci_a_chercher)))
+    envois = {}
+    if not essai and a_envoyer:
+        from bol_api import Bol
+        bol = Bol()
+        for ean, attrs in a_envoyer.items():
+            corps = {"language": "nl", "attributes": [{"id": "EAN", "values": [{"value": ean.zfill(13)}]}] + attrs}
+            try:
+                r = bol.appel("POST", "/retailer/content/products", corps=corps)
+                envois[ean] = {"processStatusId": (r or {}).get("processStatusId"), "attributs": [a["id"] for a in attrs]}
+            except RuntimeError as ex:
+                envois[ean] = {"erreur": str(ex)[:300]}
+        print("%d fiches envoyées à bol, %d refus" % (sum(1 for v in envois.values() if v.get("processStatusId")), sum(1 for v in envois.values() if "erreur" in v)))
+    with open(os.path.join(RAPPORTS, "bol_contenu_auto.json"), "w", encoding="utf-8") as fh:
+        json.dump({"envois": envois, "a_envoyer": {k: [a["id"] for a in v] for k, v in a_envoyer.items()},
+                   "sans_fabricant": sans_fabricant, "inci_a_chercher": inci_a_chercher}, fh, ensure_ascii=False, indent=1)
+
 
 if __name__ == "__main__":
     if "--envoyer" in sys.argv:
@@ -138,5 +244,9 @@ if __name__ == "__main__":
         sys.exit(0)
     if "--diag" in sys.argv:
         diag()
+        if "--auto" in sys.argv:
+            auto(essai="--essai" in sys.argv)
+    elif "--auto" in sys.argv:
+        auto(essai="--essai" in sys.argv)
     else:
         print(__doc__)
