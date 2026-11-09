@@ -169,13 +169,17 @@ def main():
         print("Publication bol désactivée (config/bol.json « publication_active » = false) : rien n'est envoyé.")
         return
     dec = lire(DECISIONS, {}).get("decisions") or sys.exit("Pas de décisions : lancer d'abord l'analyse bol.")
+    # règle d'Amine (09/11/2026) : une offre que bol juge « prix trop haut » (4000) est retirée, on ne baisse pas la marge.
+    # La liste est gardée dans base/bol_refus.json (clé « _prix_trop_haut »), d'un passage à l'autre.
+    trop_hauts = set((lire(REFUS, {}).get("_prix_trop_haut") or {}).get("eans", []))
+    cfg = dict(cfg, ean_exclus=sorted(set(cfg.get("ean_exclus", [])) | trop_hauts | {e.zfill(13) for e in trop_hauts}))
     voulues = selection(dec, cfg)
     from bol_api import Bol
     bol = Bol()
     en_ligne = offres_en_ligne(bol)
     eo_ids, eo_marque, eo_statuts, eo_incomplets = operateurs(bol, essai)
     eo_de = lambda d: eo_ids.get(eo_marque.get((d or {}).get("marque") or "", "DEWAY")) or eo_ids.get("DEWAY")
-    refus = {e: r for e, r in lire(REFUS, {}).items() if "Duplicate Offer" not in r.get("raison", "")}
+    refus = {e: r for e, r in lire(REFUS, {}).items() if e.startswith("_") or "Duplicate Offer" not in r.get("raison", "")}
     maintenant = time.time()
     maxi = int(cfg.get("publication_max_creations", 300))
     journal, a_suivre = [], []
@@ -247,6 +251,11 @@ def main():
             for r in o.get("notPublishableReasons") or []:
                 cle = "%s %s" % (r.get("code", ""), (r.get("description") or "")[:80])
                 invisibles.setdefault(cle, []).append(ec)
+                if str(r.get("code")) == "4000":
+                    trop_hauts.add(ec)
+        if trop_hauts:
+            refus["_prix_trop_haut"] = {"eans": sorted(trop_hauts), "raison": "prix trop haut selon bol : offre retirée (règle d'Amine)"}
+            ecrire(REFUS, refus)
 
     # 3. rapports internes
     os.makedirs(RAPPORTS, exist_ok=True)
