@@ -186,7 +186,8 @@ def politiques_nl():
 
 def _meme(a, b):
     import re as _re
-    n = lambda x: _re.sub(r"\s+", " ", _re.sub(r"<[^>]+>", " ", x)).strip()[:120]
+    # la ligne « Version du … » change de date : on la retire avant de comparer
+    n = lambda x: _re.sub(r"\s+", " ", _re.sub(r"<[^>]+>", " ", _re.sub(r"Version du [^<]*", "", x))).strip()[:120]
     return n(a) == n(b)
 
 
