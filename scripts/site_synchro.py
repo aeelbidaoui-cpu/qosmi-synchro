@@ -218,7 +218,12 @@ def selection():
     if not os.path.exists(chemin):
         return None
     d = json.load(open(chemin, encoding="utf-8"))
+    global INTERDITS
+    INTERDITS = {e.lstrip("0") for e in d.get("ean_interdits", {})}
     return {m.lower() for m in d.get("marques", [])}, set(d.get("categories", []))
+
+
+INTERDITS = set()  # 09/11/2026 : EAN aux ingrédients interdits dans l'UE (Lilial, D5) : jamais affichés
 
 
 ARABES, CONC = None, None
@@ -230,6 +235,8 @@ def visible(p, sel):
     Parfums arabes : affichés comme les autres depuis le 08/11/2026 21 h 27 (au moins 5 € net, même plus cher que le concurrent)."""
     global ARABES, CONC
     if not p.get("photo_ok", True):
+        return False
+    if any(str(v.get("ean", "")).lstrip("0") in INTERDITS for v in p.get("variantes", [])):
         return False
     if not (sel is None or (p["marque"].lower() in sel[0] and p["type_fr"] in sel[1])):
         return False

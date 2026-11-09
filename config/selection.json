@@ -210,5 +210,21 @@
   "_note_arabes": "08/11/2026 : maisons des Parfums arabes ajoutées (liste site_theme.ARABES) ; une fiche arabe n'est affichée que si elle est moins chère que Deloox avec 3 € net minimum (site_synchro.visible). — 08/11/2026 21 h 27 : la condition « moins cher que Deloox » est levée (5 € net minimum).",
   "_note_rosendo": "08/11/2026 : Rosendo Mateu remis (photos Fragrantica trouvées, demande d'Amine).",
   "_note_retirees": "08/11/2026 : les 12 marques retirées le 07/11 faute de photos sont remises (photos Notino + Fragrantica vérifiées, config/photos_retirees.json). Les parfums sans bonne photo restent masqués un par un.",
-  "_note_groupe1": "08/11/2026 21 h : Amine ajoute les marques dont on a déjà de bonnes photos (Memo Paris, Juliette Has A Gun, Penhaligon's, Boadicea the Victorious, Lorenzo Villoresi, Mind Games, Jeroboam, Caron, Loewe) ; seuls les parfums avec bonne photo s'affichent."
+  "_note_groupe1": "08/11/2026 21 h : Amine ajoute les marques dont on a déjà de bonnes photos (Memo Paris, Juliette Has A Gun, Penhaligon's, Boadicea the Victorious, Lorenzo Villoresi, Mind Games, Jeroboam, Caron, Loewe) ; seuls les parfums avec bonne photo s'affichent.",
+  "ean_interdits": {
+    "3050070004023": "Scorpio Rouge Aftershave Water — Lilial",
+    "3346131400096": "Terre d'Hermès baume après-rasage — D5",
+    "3380810016734": "Clarins BB Skin Detox Fluid — Lilial",
+    "4015400793229": "Wella Oil Reflections — D5",
+    "5051198597655": "Miller Harris Cœur de Jardin EDP — Lilial",
+    "5998889502157": "Kallos KJMN Curl Power — D5",
+    "0730852114920": "Shiseido Instant Eye and Lip Makeup Remover — D5",
+    "8052464896240": "Ferragamo Signorina EDP — Lilial",
+    "8809643504553": "Missha M Perfect Cover BB Cream EX — D5",
+    "8809747957279": "Missha M Perfect Cover Serum BB Cream — D5",
+    "8429421445313": "Lakmé Teknia Color Stay mask — D5",
+    "0802465701108": "Kenneth Cole Black EDT — Lilial",
+    "0874034004330": "Clean Rain EDP — Lilial"
+  },
+  "_note_ean_interdits": "09/11/2026 : retirés du site ET de bol à la demande d'Amine — listes d'ingrédients publiées avec Lilial (interdit dans l'UE depuis 2022) ou D5 (cyclopentasiloxane, interdit dans les produits sans rinçage depuis le 06/06/2026), probablement d'anciennes formules. Toute la fiche est masquée (tous les formats)."
 }
