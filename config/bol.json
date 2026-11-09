@@ -53,7 +53,8 @@
   "seul_vendeur_avec_marche": true,
   "plus_cher_ecart_max": 0.1,
   "seul_vendeur_sans_marche": true,
-  "creer_sans_marche": false
+  "creer_sans_marche": false,
+  "_note_sans_marche_photo": "09/11/2026 (Amine) : si le test des photos marche (action controle-images), mettre creer_sans_marche à \"avec_photo\" : on ne crée les « seul vendeur sans marché » QUE s'il y a une photo autorisée, envoyée à bol juste après la création. false = pause, true = tous."
  },
  "_note_selection": "Choix d'Amine du 08/11/2026 : koopblok gagnable (ou à nous) + seul vendeur avec prix de marché connu + plus cher que le koopblok d'au plus 10 %. Les autres « oui » (plus chers, ou sans aucune donnée de marché) ne sont pas publiés.",
  "publication_max_creations": 500,

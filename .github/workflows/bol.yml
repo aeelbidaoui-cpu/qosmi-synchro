@@ -9,7 +9,7 @@ on:
         description: "Que faire ?"
         type: choice
         default: analyse
-        options: [analyse, test-connexion, recalculer, publier, essai-publication, contenu-diag, contenu-auto, contenu-envoyer, contenu-rapport, offres-test, contenu-images]
+        options: [analyse, test-connexion, recalculer, publier, essai-publication, contenu-diag, contenu-auto, contenu-envoyer, contenu-rapport, offres-test, contenu-images, controle-images, contenu-images-4004]
       maxi:
         description: "Nombre maximum d'EAN à relever (vide = tous, dans la limite de durée)"
         required: false
@@ -83,6 +83,8 @@ jobs:
           elif [ "$A" = "contenu-auto" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_contenu.py --diag --auto
           elif [ "$A" = "contenu-rapport" ]; then python -u scripts/bol_contenu.py --rapport config/bol_contenu_envois_controle.json
           elif [ "$A" = "contenu-images" ]; then python -u scripts/bol_contenu.py --images
+          elif [ "$A" = "controle-images" ]; then python -u scripts/bol_contenu.py --controle-images
+          elif [ "$A" = "contenu-images-4004" ]; then python -u scripts/bol_contenu.py --images-4004
           elif [ "$A" = "offres-test" ]; then python -u scripts/bol_contenu.py --offres-test
           elif [ "$A" = "contenu-envoyer" ]; then python -u scripts/bol_contenu.py --envoyer
           elif [ "$A" = "essai-publication" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py --essai
@@ -118,5 +120,6 @@ jobs:
             rapports/bol_contenu_diag.json
             rapports/bol_contenu_envois.json
             rapports/bol_contenu_auto.json
+            rapports/bol_controle_images.json
           retention-days: 14
           if-no-files-found: ignore

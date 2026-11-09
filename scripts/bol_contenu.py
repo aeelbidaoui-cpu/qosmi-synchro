@@ -263,6 +263,89 @@ def images():
     rapport()
 
 
+def photos_autorisees():
+    """{EAN sans zéros de tête : URL de la photo Qosmi recadrée} pour les produits qui ont une photo AUTORISÉE
+    (config/photos_*.json « par_ean » : marques, Olfastory, Fragrantica, revendeurs ayant donné leur accord),
+    dans sa version recadrée hébergée dans les Fichiers Shopify (config/photos_cadrees.json). Sans version recadrée : pas de photo."""
+    import glob
+    cad = json.load(open(os.path.join(RACINE, "config", "photos_cadrees.json"), encoding="utf-8"))["par_url"]
+    out = {}
+    for f in sorted(glob.glob(os.path.join(RACINE, "config", "photos_*.json"))):
+        if f.endswith("photos_cadrees.json"):
+            continue
+        for e, u in (json.load(open(f, encoding="utf-8")).get("par_ean") or {}).items():
+            if isinstance(u, list):
+                u = u[0] if u else None
+            if isinstance(u, dict):
+                u = u.get("url")
+            if u and cad.get(u):
+                out.setdefault(str(e).lstrip("0"), cad[u])
+    return out
+
+
+def envoyer_images(imgs, bol=None):
+    """Envoie à bol {ean: url} comme image principale (FRONT). Renvoie {ean: processStatusId ou erreur}."""
+    from bol_api import Bol
+    bol = bol or Bol()
+    envois = {}
+    for ean, url in imgs.items():
+        corps = {"language": "nl", "attributes": [{"id": "EAN", "values": [{"value": ean.zfill(13)}]}],
+                 "assets": [{"url": url, "labels": ["FRONT"]}]}
+        try:
+            r = bol.appel("POST", "/retailer/content/products", corps=corps)
+            envois[ean] = {"processStatusId": (r or {}).get("processStatusId"), "attributs": ["FRONT"]}
+        except RuntimeError as ex:
+            envois[ean] = {"erreur": str(ex)[:300]}
+    return envois
+
+
+def controle_images():
+    """Le test des photos a-t-il marché ? Pour les EAN de config/bol_images.json (photos envoyées le 09/11/2026) :
+    fiche bol publiée ou non, et raisons d'invisibilité de notre offre. Écrit rapports/bol_controle_images.json."""
+    from bol_api import Bol
+    from bol_publier import offres_en_ligne
+    bol = Bol()
+    imgs = json.load(open(os.path.join(RACINE, "config", "bol_images.json"), encoding="utf-8"))
+    offres = offres_en_ligne(bol)
+    out, pub, vis = {}, 0, 0
+    for ean in imgs:
+        try:
+            f = bol.appel("GET", "/retailer/content/catalog-products/%s" % ean.zfill(13), params={"language": "nl"}) or {}
+        except RuntimeError as ex:
+            f = {"erreur": str(ex)[:200]}
+        o = offres.get(ean.lstrip("0")) or {}
+        raisons = []
+        if o.get("offerId"):
+            raisons = [str(r.get("code")) for r in ((bol.appel("GET", "/retailer/offers/%s" % o["offerId"]) or {}).get("notPublishableReasons") or [])]
+        out[ean] = {"published": f.get("published"), "enrichment": (f.get("enrichment") or {}).get("status"),
+                    "offre": bool(o.get("offerId")), "raisons": raisons}
+        pub += bool(f.get("published"))
+        vis += bool(o.get("offerId")) and not raisons
+    os.makedirs(RAPPORTS, exist_ok=True)
+    json.dump(out, open(os.path.join(RAPPORTS, "bol_controle_images.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print("RESULTAT TEST PHOTOS : %d fiches publiées sur %d ; %d offres visibles (sans raison d'invisibilité)" % (pub, len(imgs), vis))
+    import collections
+    print("raisons restantes :", dict(collections.Counter(r for v in out.values() for r in v["raisons"])))
+
+
+def images_4004():
+    """Étend le test : photo Qosmi autorisée (FRONT) pour toutes nos offres bloquées 4004 qui en ont une
+    et n'en ont pas encore reçu (rapports/bol_invisibles.json écrit par bol_publier.py)."""
+    inv = json.load(open(os.path.join(RAPPORTS, "bol_invisibles.json"), encoding="utf-8"))
+    deja = set(json.load(open(os.path.join(RACINE, "config", "bol_images.json"), encoding="utf-8")))
+    ph = photos_autorisees()
+    k4 = sorted({e.lstrip("0") for k, v in inv.items() if k.startswith("4004") for e in v})
+    cibles = {e: ph[e] for e in k4 if e in ph and e.zfill(13) not in deja and e not in deja}
+    print("offres 4004 : %d ; avec photo autorisée et pas encore envoyée : %d" % (len(k4), len(cibles)))
+    envois = envoyer_images(cibles)
+    print("%d images envoyées, %d refus" % (sum(1 for v in envois.values() if v.get("processStatusId")), sum(1 for v in envois.values() if "erreur" in v)))
+    os.makedirs(RAPPORTS, exist_ok=True)
+    json.dump(envois, open(os.path.join(RAPPORTS, "bol_contenu_envois.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    import time
+    time.sleep(240)
+    rapport()
+
+
 def offres_test():
     """Contrôle : opérateur économique lié aux offres bloquées 4004 vs offres visibles, et détail de 3 offres."""
     from bol_api import Bol
@@ -284,6 +367,12 @@ def offres_test():
 
 
 if __name__ == "__main__":
+    if "--controle-images" in sys.argv:
+        controle_images()
+        sys.exit(0)
+    if "--images-4004" in sys.argv:
+        images_4004()
+        sys.exit(0)
     if "--images" in sys.argv:
         images()
         sys.exit(0)

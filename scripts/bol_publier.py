@@ -190,9 +190,18 @@ def main():
                  maintenant - refus.get(e, {}).get("t", 0) > REESSAI_REFUS_JOURS * 86400]
     # 09/11/2026 (Amine) : pause des NOUVELLES offres « seul vendeur sans marché » (fiches bol presque toujours non publiées,
     # offres invisibles). Les offres déjà en ligne restent et sont toujours mises à jour.
-    if not cfg.get("selection", {}).get("creer_sans_marche", True):
-        creations = [e for e in creations if not (str(voulues[e].get("decision", "")).startswith("oui : seul vendeur")
-                                                  and not voulues[e].get("marche_connu"))]
+    sans_marche = lambda e: str(voulues[e].get("decision", "")).startswith("oui : seul vendeur") and not voulues[e].get("marche_connu")
+    mode_sm = cfg.get("selection", {}).get("creer_sans_marche", True)
+    photos_sm = {}
+    if mode_sm == "avec_photo":
+        # 09/11/2026 (Amine) : on reprend les « sans marché » (seul vendeur, sans concurrence) UNIQUEMENT s'il y a une photo
+        # autorisée ; la photo est envoyée à bol juste après la création (une fiche avec photo peut être publiée).
+        from bol_contenu import photos_autorisees
+        ph = photos_autorisees()
+        photos_sm = {e: ph[e.lstrip("0")] for e in creations if sans_marche(e) and e.lstrip("0") in ph}
+        creations = [e for e in creations if not sans_marche(e) or e in photos_sm]
+    elif not mode_sm:
+        creations = [e for e in creations if not sans_marche(e)]
     for e in creations[:maxi]:
         d = voulues[e]
         if essai:
@@ -217,6 +226,14 @@ def main():
                 continue
             refus[e] = {"t": maintenant, "raison": raison[:300]}
             journal.append(("refusée par bol", e, voulues[e], raison[:200]))
+
+    # 1 bis. photo autorisée pour les « sans marché » qu'on vient de créer
+    a_photo = {e.lstrip("0"): photos_sm[e] for action, e, d, det in journal if action in ("créée", "déjà en ligne") and e in photos_sm}
+    if a_photo and not essai:
+        from bol_contenu import envoyer_images
+        envois = envoyer_images(a_photo, bol)
+        for e, v in envois.items():
+            journal.append(("photo envoyée" if v.get("processStatusId") else "photo refusée", e, voulues.get(e) or voulues.get(e.zfill(13)) or {}, v.get("erreur", "")))
 
     # 2. mises à jour et retraits
     par_court = {e.lstrip("0"): e for e in voulues}
