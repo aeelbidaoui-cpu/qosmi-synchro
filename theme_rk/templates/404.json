@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "main": { "type": "qk-404", "settings": {} }
+  },
+  "order": ["main"]
+}
