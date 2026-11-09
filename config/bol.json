@@ -28,8 +28,12 @@
  "_note_publication_active": "true depuis le 08/11/2026 23 h 37 (accord d'Amine) : la publication crée et met à jour les offres de la sélection (scripts/bol_publier.py).",
  "mon_retailer_id": "1862791",
  "ean_exclus": [
+  "0802465701108",
+  "0874034004330",
   "3147758034905",
-  "3760361770826"
+  "3760361770826",
+  "802465701108",
+  "874034004330"
  ],
  "selection": {
   "koopblok": true,
@@ -38,5 +42,5 @@
  },
  "_note_selection": "Choix d'Amine du 08/11/2026 : koopblok gagnable (ou à nous) + seul vendeur avec prix de marché connu + plus cher que le koopblok d'au plus 10 %. Les autres « oui » (plus chers, ou sans aucune donnée de marché) ne sont pas publiés.",
  "publication_max_creations": 300,
- "_note_ean_exclus": "09/11/2026 : offres refusées par bol pour « prix trop haut » (4000). Décision d'Amine : on ne baisse pas nos marges, on retire l'offre (stock 0)."
+ "_note_ean_exclus": "09/11/2026 : offres refusées par bol pour « prix trop haut » (4000). Décision d'Amine : on ne baisse pas nos marges, on retire l'offre (stock 0). 09/11/2026 : Kenneth Cole Black et Clean Rain retirés (formule US avec Lilial, interdit dans l'UE)."
 }

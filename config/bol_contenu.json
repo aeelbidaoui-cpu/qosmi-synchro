@@ -1,0 +1,815 @@
+{
+ "_note": "09/11/2026 : compléments des fiches bol incomplètes (INCI et fabricant officiel), trouvés en ligne sur les sites des marques et des distributeurs officiels. Jamais de grossiste ni de revendeur. Kenneth Cole Black et Clean Rain exclus : leurs listes publiées contiennent du Lilial (interdit dans l'UE).",
+ "fiches": [
+  {
+   "ean": "3069662026169",
+   "titre": "Uniseks Parfum Gerini Imperial Patchouli (100 ml)",
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Citral, Benzyl Benzoate, Benzyl Salicylate, Eugenol",
+   "inci_statut": "existant_complet",
+   "inci_source": null,
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "fabricant_source": null,
+   "remarque": "INCI : liste actuelle reprise (12 ingrédients, plausible) mais NON confirmée en ligne : aucune source officielle ni distributeur ne publie l'INCI de Gerini Imperial Patchouli ; ajouter seulement les virgules. Fabricant : introuvable. Pas de site officiel Gerini trouvé. 'Kenai s.r.o.' (Vyšehradská, Bratislava, kenaisro@gmail.com) apparaît seulement comme 'personne responsable GPSR' sur le revendeur parfum-centrum.com (Parfimo), pour plusieurs marques (Gerini, Moudon…) : c'est vraisemblablement un importateur/revendeur, donc à NE PAS utiliser comme fabricant. Le bol 'Supplier address incorrect' vient sans doute de l'adresse sans numéro de rue. CAS DOUTEUX : demander au fournisseur l'étiquette (nom + adresse du fabricant imprimés sur la boîte)."
+  },
+  {
+   "ean": "3200202412114",
+   "titre": "Uniseks Parfum Moudon Mazan 100 ml",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "fabricant_source": null,
+   "remarque": "Aucune liste INCI publiée pour Moudon Mazan (seulement des notes olfactives sur parfumo/parfum-centrum/Nahdi). Pas de site officiel Moudon trouvé ; l'adresse actuelle 'Moudon, Sikath Al Khail Road 1st, 34659 Dubai' n'a pu être confirmée sur aucune source officielle. Sur parfum-centrum.com, la personne responsable GPSR affichée est Kenai s.r.o. (Bratislava) = revendeur/importateur, non retenu. À relever sur l'emballage physique."
+  },
+  {
+   "ean": "3259550501902",
+   "titre": "(day Hydrating Radiance Firming Face Treatment ) 50 Ml",
+   "inci": "Aqua (Water), Butylene Glycol, Dicaprylyl Ether, Euglena Gracilis Extract, Glycerin, Coco-Caprylate/Caprate, Glyceryl Stearate, Polysorbate 60, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, PEG-8, Cetyl Alcohol, Gold, Decarboxy Carnosine HCl, Sodium PCA, Magnesium PCA, Zinc PCA, Manganese PCA, Adenosine, Biotin, Fagus Sylvatica Bud Extract, Lactis Proteinum (Whey Protein), Bacillus Ferment, Sodium Hyaluronate, Ascorbyl Palmitate, Ascorbic Acid, Tocopherol, Lactose, Squalane, Caprylyl Glycol, Sorbitan Isostearate, Cetearyl Alcohol, Propylene Glycol, Hexylene Glycol, PEG-100 Stearate, PEG-20 Stearate, Sodium Polyacrylate, Disodium EDTA, Citric Acid, Lactic Acid, Mica, Silica, CI 77891 (Titanium Dioxide), CI 77491 (Iron Oxides), Ethylhexylglycerin, Potassium Sorbate, Benzyl Alcohol, Benzoic Acid, Phenoxyethanol, Limonene, Linalool, Benzyl Salicylate, Hexyl Cinnamal, Parfum (Fragrance)",
+   "inci_statut": "existant_complet",
+   "inci_source": "https://www.parfumdreams.ie/Eisenberg/Facial-care/Creams/Energie-Or-Soin-Jour/index_84622.aspx",
+   "fabricant_nom": "José Eisenberg S.A.",
+   "fabricant_adresse": {
+    "rue": "Avenue Princesse Grace",
+    "numero": "24",
+    "code_postal": "98000",
+    "ville": "Monte-Carlo",
+    "pays": "Monaco"
+   },
+   "fabricant_email": "customerservice@eisenberg.com",
+   "fabricant_source": "https://eisenberg.com/de/pages/company-and-imprint",
+   "remarque": "Produit = Eisenberg Excellence Énergie Or Soin Jour 50 ml. Liste actuelle confirmée identique chez Parfumdreams. Adresse fabricant : l'imprint officiel donne le siège à Monaco ; Parfumdreams (et l'emballage) indiquent aussi 'José Eisenberg S.A., 1ère Avenue, 12ème Rue, 06510 Carros, France' (site de production) – l'une ou l'autre est acceptable, Carros si bol exige une adresse UE."
+  },
+  {
+   "ean": "3259550502374",
+   "titre": "( Whitening Corrector) 50 Ml",
+   "inci": "Aqua (Water), Glyceryl Stearate, Caprylic/Capric Triglyceride, Stearic Acid, Palmitic Acid, Cetearyl Alcohol, Alpha-Arbutin, Cetyl Alcohol, CI 77891 (Titanium Dioxide), Fagus Sylvatica Bud Extract, Lactis Proteinum (Whey Protein), Bacillus Ferment, Bellis Perennis (Daisy) Flower Extract, Tocopheryl Acetate, Tocopherol, Ascorbyl Palmitate, Ascorbic Acid, Ascorbyl Glucoside, Bisabolol, Ethylhexylglycerin, Lactic Acid, Glycerin, PEG-100 Stearate, PEG-20 Stearate, Lactose, Carbomer, Sodium Hydroxide, Disodium EDTA, Citric Acid, Propylene Glycol, PEG-8, Phenoxyethanol, Benzyl Alcohol, Potassium Sorbate, Benzoic Acid, Citrus Aurantium Dulcis (Orange) Peel Oil, Citrus Limon (Lemon) Peel Oil, Pentadecalactone, Disodium Phosphate, Limonene, Citrus Aurantium Peel Oil, Pinene, Citral",
+   "inci_statut": "trouve",
+   "inci_source": "https://eisenberg.com/products/whitening-corrector",
+   "fabricant_nom": "José Eisenberg S.A.",
+   "fabricant_adresse": {
+    "rue": "Avenue Princesse Grace",
+    "numero": "24",
+    "code_postal": "98000",
+    "ville": "Monte-Carlo",
+    "pays": "Monaco"
+   },
+   "fabricant_email": "customerservice@eisenberg.com",
+   "fabricant_source": "https://eisenberg.com/de/pages/company-and-imprint",
+   "remarque": "Produit = Pure White Correcteur Lumière 50 ml ; EAN 3259550502374 visible dans les images du site officiel. Code lot 'I072BC' en fin de liste retiré. Alternative adresse UE : 1ère Avenue, 12ème Rue, 06510 Carros, France."
+  },
+  {
+   "ean": "3259550753967",
+   "titre": "Hydraterend Gezichtsmasker Eisenberg 75 ml",
+   "inci": "Aqua (Water), Butylene Glycol, Glycerin, Carbomer, Fagus Sylvatica Bud Extract, Whey Protein, Bacillus Ferment, Sodium Hyaluronate, Chondrus Crispus, PPG-26-Buteth-26, Ethylhexylglycerin, Panthenol, Biosaccharide Gum-1, Lactic Acid, Saccharide Isomerate, PEG-40 Hydrogenated Castor Oil, Caprylyl Glycol, Lactose, Disodium EDTA, Benzophenone-4, Sodium Polyacrylate, Sodium Hydroxide, Citric Acid, Sodium Citrate, PEG-8, Propylene Glycol, Caramel, CI 19140 (Yellow 5), CI 42090 (Blue 1), Phenoxyethanol, Benzyl Alcohol, Potassium Sorbate, Benzoic Acid, Pentadecalactone, Citrus Aurantium Dulcis (Orange) Peel Oil, Citrus Limon (Lemon) Peel Oil, Limonene, Pinene, Citral",
+   "inci_statut": "trouve",
+   "inci_source": "https://eisenberg.com/pr233/masque-hydratation-totale",
+   "fabricant_nom": "José Eisenberg S.A.",
+   "fabricant_adresse": {
+    "rue": "Avenue Princesse Grace",
+    "numero": "24",
+    "code_postal": "98000",
+    "ville": "Monte-Carlo",
+    "pays": "Monaco"
+   },
+   "fabricant_email": "customerservice@eisenberg.com",
+   "fabricant_source": "https://eisenberg.com/de/pages/company-and-imprint",
+   "remarque": "EAN 3259550753967 = Masque Hydratation Totale 75 ml (confirmé par les noms d'images du site officiel). ATTENTION : la liste actuelle sur bol (Kaolin, Moroccan Lava Clay…) est celle d'un autre masque (argile) et doit être remplacée. Alternative adresse UE : 1ère Avenue, 12ème Rue, 06510 Carros, France."
+  },
+  {
+   "ean": "3259550755008",
+   "titre": "Eisenberg Homme Repairing Night Cream Treatment",
+   "inci": "Aqua (Water), Caprylic/Capric Triglyceride, C12-20 Acid PEG-8 Ester, Butylene Glycol, Glycerin, Coco-Caprylate/Caprate, Cetyl Alcohol, PEG-8, Fagus Sylvatica Bud Extract, Whey Protein, Bacillus Ferment, Butyrospermum Parkii (Shea) Butter, Argania Spinosa Kernel Oil, Zea Mays (Corn) Kernel Extract, Carica Papaya (Papaya) Fruit Extract, Pistacia Lentiscus (Mastic) Gum, Helianthus Annuus (Sunflower) Seed Oil, Hordeum Vulgare Seed Extract, Citrus Aurantium Dulcis (Orange) Fruit Extract, Methylsilanol Mannuronate, Ethylhexylglycerin, Disodium Adenosine Triphosphate, Sodium Hyaluronate, Xanthan Gum, Lactose, Lactic Acid, Glyceryl Caprylate/Caprate, Saccharide Isomerate, Potassium Cetyl Phosphate, Caprylyl Glycol, Lecithin, Sodium Hydroxide, Disodium EDTA, Citric Acid, Sodium Citrate, Carbomer, Sodium Polyacrylate, Algin, Propylene Glycol, Pentylene Glycol, Tocopheryl Acetate, Tocopherol, Phenoxyethanol, Potassium Sorbate, Sorbic Acid, Benzoic Acid, Benzyl Alcohol, Parfum (Fragrance), Benzyl Salicylate, Linalyl Acetate, Alpha-Isomethyl Ionone, Linalool, Tetramethyl Acetyloctahydronaphthalenes, Limonene, Cinnamyl Alcohol, Terpineol, Trimethylbenzenepropanol, Eugenol",
+   "inci_statut": "trouve",
+   "inci_source": "https://eisenberg.com/products/repairing-night-cream-treatment",
+   "fabricant_nom": "José Eisenberg S.A.",
+   "fabricant_adresse": {
+    "rue": "Avenue Princesse Grace",
+    "numero": "24",
+    "code_postal": "98000",
+    "ville": "Monte-Carlo",
+    "pays": "Monaco"
+   },
+   "fabricant_email": "customerservice@eisenberg.com",
+   "fabricant_source": "https://eisenberg.com/de/pages/company-and-imprint",
+   "remarque": "Homme Soin Crème Réparateur Nuit 75 ml ; EAN confirmé dans les images du site officiel. La liste actuelle de bol est une ancienne formule avec fautes ('HEUANTHUS', '1061BB SANS COLORANT') : remplacer. Code 'I061DA' retiré. Alternative adresse UE : 1ère Avenue, 12ème Rue, 06510 Carros, France."
+  },
+  {
+   "ean": "3259551504018",
+   "titre": "(purifying Light Foaming Gel) 150 Ml 150ml",
+   "inci": "Aqua (Water), Lauryl Glucoside, Polysorbate 20, Cocamidopropyl Betaine, Xanthan Gum, Epilobium Fleischeri Flower/Leaf/Stem Extract, Fomes Officinalis (Mushroom) Extract, Bellis Perennis (Daisy) Flower Extract, Fagus Sylvatica Bud Extract, Lactis Proteinum (Whey Protein), Bacillus Ferment, Ascorbyl Glucoside, Alpha-Arbutin, Lactose, Glycerin, Butylene Glycol, Caprylyl Glycol, Citrus Aurantium Dulcis (Orange) Peel Oil, Citrus Limon (Lemon) Peel Oil, Disodium Cocoyl Glutamate, Sodium Cocoyl Glutamate, Propylene Glycol, Pentylene Glycol, 1,2-Hexanediol, PEG-40 Hydrogenated Castor Oil, Pentadecalactone, Disodium EDTA, Disodium Phosphate, Sodium Chloride, Citric Acid, Lactic Acid, CI 42090 (Blue 1), CI 19140 (Yellow 5), Ethylhexylglycerin, Sodium Benzoate, Potassium Sorbate, Benzyl Alcohol, Benzoic Acid, Phenoxyethanol, Limonene",
+   "inci_statut": "trouve",
+   "inci_source": "https://us.eisenberg.com/products/purifying-light-foaming-gel",
+   "fabricant_nom": "José Eisenberg S.A.",
+   "fabricant_adresse": {
+    "rue": "Avenue Princesse Grace",
+    "numero": "24",
+    "code_postal": "98000",
+    "ville": "Monte-Carlo",
+    "pays": "Monaco"
+   },
+   "fabricant_email": "customerservice@eisenberg.com",
+   "fabricant_source": "https://eisenberg.com/de/pages/company-and-imprint",
+   "remarque": "Pure White Eau Purifiante Moussante 150 ml ; EAN visible dans les images du site officiel (us.eisenberg.com). Code 'I020CA' retiré. Alternative adresse UE : 1ère Avenue, 12ème Rue, 06510 Carros, France."
+  },
+  {
+   "ean": "3259551504032",
+   "titre": "Eisenberg - Bi-Phase Pure Make-Up Remover - Dvoufázový odličovač očí a rtů",
+   "inci": "Aqua (Water), Cyclopentasiloxane, Isohexadecane, Butylene Glycol, Potassium Sorbate, Phenoxyethanol, Sodium Chloride, Panthenol, Bisabolol, Potassium Chloride, Glycerin, Propylene Glycol, Fagus Sylvatica Bud Extract, Bacillus Ferment, Benzyl Alcohol, Lactose, Lactis Proteinum (Whey Protein), Benzoic Acid, Lactic Acid, Bellis Perennis (Daisy) Flower Extract, Disodium Phosphate",
+   "inci_statut": "trouve",
+   "inci_source": "https://intl.eisenberg.com/products/bi-phase-pure-make-up-remover",
+   "fabricant_nom": "José Eisenberg S.A.",
+   "fabricant_adresse": {
+    "rue": "Avenue Princesse Grace",
+    "numero": "24",
+    "code_postal": "98000",
+    "ville": "Monte-Carlo",
+    "pays": "Monaco"
+   },
+   "fabricant_email": "customerservice@eisenberg.com",
+   "fabricant_source": "https://eisenberg.com/de/pages/company-and-imprint",
+   "remarque": "Démaquillant Pur Biphase 150 ml ; EAN visible dans les images du site officiel. La liste actuelle sur bol (isododecane, talc…) est celle d'un produit de maquillage, à remplacer. Groupe bol à corriger : c'est du Skin Care, pas Fragrances. Code 'I016AC' retiré. Alternative adresse UE : 1ère Avenue, 12ème Rue, 06510 Carros, France."
+  },
+  {
+   "ean": "3346131403097",
+   "titre": "Hermes Terre D'Hermes Eau de Parfum Spray 200 ml",
+   "inci": "Alcohol, Parfum (Fragrance), Aqua (Water), Ethylhexyl Methoxycinnamate, Limonene, Butyl Methoxydibenzoylmethane, Citronellol, Ethylhexyl Salicylate, Hydroxycitronellal, Hexyl Cinnamal, Linalool, Evernia Prunastri (Oakmoss) Extract, BHT, Geraniol, Citral, Benzyl Alcohol, CI 19140 (Yellow 5), CI 15985 (Yellow 6), CI 60730 (Ext. Violet 2), CI 14700 (Red 4), CI 42090 (Blue 1)",
+   "inci_statut": "existant_complet",
+   "inci_source": null,
+   "fabricant_nom": "Hermès Parfums",
+   "fabricant_adresse": {
+    "rue": "Rue du Faubourg Saint-Honoré",
+    "numero": "24",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.hermes.com/ch/fr/legal/mentions-legales-ch/",
+   "remarque": "INCI : liste actuelle (21 ingrédients, plausible) conservée, non re-confirmée (hermes.com refuse l'accès automatisé). 'Hydroxy-citronellal' normalisé en 'Hydroxycitronellal'. Fabricant : 'Hermès Parfums' tel qu'imprimé sur les emballages ; le 24 rue du Faubourg Saint-Honoré est le siège du groupe confirmé par les mentions légales hermes.com (qui nomment Hermès Sellier comme éditeur). Aucun e-mail public (formulaire uniquement) : NE PAS utiliser service.us@hermes.com (service client USA). Tél. service client France : +33 1 40 17 47 00."
+  },
+  {
+   "ean": "3346131404476",
+   "titre": "Men's Perfume Terre D'hermes Hermes EDT",
+   "inci": "Alcohol, Parfum (Fragrance), Aqua (Water), Butyl Methoxydibenzoylmethane, Alpha-Isomethyl Ionone, Limonene, Ethylhexyl Salicylate, Ethylhexyl Methoxycinnamate, Citronellol, Linalool, Benzyl Alcohol, Citral, Tris(Tetramethylhydroxypiperidinol) Citrate, Geraniol, Disodium EDTA, CI 14700 (Red 4), CI 60730 (Ext. Violet 2), CI 19140 (Yellow 5), BHT",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.shop-apotheke.at/beauty/D8095754/terre-d-hermes.htm",
+   "fabricant_nom": "Hermès Parfums",
+   "fabricant_adresse": {
+    "rue": "Rue du Faubourg Saint-Honoré",
+    "numero": "24",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.hermes.com/ch/fr/legal/mentions-legales-ch/",
+   "remarque": "INCI pris sur la fiche Terre d'Hermès EDT 50 ml (EAN 3346131400041) de la pharmacie en ligne Shop Apotheke (même jus EDT, autre contenance) ; Hermès, Notino et Kruidvat refusent l'accès automatisé. À recouper avec l'emballage du 125 ml. Pas d'e-mail public Hermès (formulaire) ; ne pas utiliser service.us@hermes.com."
+  },
+  {
+   "ean": "3346131700011",
+   "titre": "Hermes Eau des Merveilles - 100 ml - Eau de toilette",
+   "inci": "Alcohol, Parfum (Fragrance), Aqua (Water), Limonene, Benzyl Salicylate, Alpha-Isomethyl Ionone, Hydroxycitronellal, Linalool, Ethylhexyl Methoxycinnamate, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Citral, Benzyl Benzoate, Farnesol, Benzyl Alcohol, Cinnamyl Alcohol, Benzyl Cinnamate, Geraniol",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.lookfantastic.com/p/hermes-eau-des-merveilles-eau-de-toilette-50ml/13715548/",
+   "fabricant_nom": "Hermès Parfums",
+   "fabricant_adresse": {
+    "rue": "Rue du Faubourg Saint-Honoré",
+    "numero": "24",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.hermes.com/ch/fr/legal/mentions-legales-ch/",
+   "remarque": "INCI de l'Eau des Merveilles EDT (Lookfantastic, fiche 50 ml, même jus que le 100 ml). Pas d'e-mail public Hermès."
+  },
+  {
+   "ean": "3346132004989",
+   "titre": "Hermes - Eau de Rhubarbe Ecarlate Refillable - Eau de Cologne 50 ml",
+   "inci": "Alcohol, Aqua (Water), Parfum (Fragrance), Limonene, Ethylhexyl Methoxycinnamate, BHT, Ethylhexyl Salicylate, Linalool, Butyl Methoxydibenzoylmethane, Citronellol, Geraniol, Citral, Farnesol, Eugenol, Disodium EDTA",
+   "inci_statut": "trouve",
+   "inci_source": "https://eu.lookfantastic.com/p/hermes-eau-de-rhubarbe-ecarlate-eau-de-cologne-spray-50ml/15286575",
+   "fabricant_nom": "Hermès Parfums",
+   "fabricant_adresse": {
+    "rue": "Rue du Faubourg Saint-Honoré",
+    "numero": "24",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.hermes.com/ch/fr/legal/mentions-legales-ch/",
+   "remarque": "Eau de Rhubarbe Écarlate EDC 50 ml (Lookfantastic). La valeur actuelle '50' dans le champ ingrédients est la cause du blocage. Pas d'e-mail public Hermès."
+  },
+  {
+   "ean": "3355991004375",
+   "titre": "Herenparfum Jacques Bogart EDT One Man Show Ruby Edition 100 ml",
+   "inci": "Alcohol, Parfum (Fragrance), Limonene, Linalool, Hexyl Cinnamal, Citronellol, Geraniol, Benzyl Alcohol, Coumarin, Citral, Eugenol, Alpha-Isomethyl Ionone, Cinnamal, Benzyl Salicylate, Hydroxycitronellal, Benzyl Benzoate, Anise Alcohol",
+   "inci_statut": "existant_complet",
+   "inci_source": null,
+   "fabricant_nom": "Bogart S.A. (Jacques Bogart)",
+   "fabricant_adresse": {
+    "rue": "Avenue des Champs-Élysées",
+    "numero": "76-78",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://api-avis-situation-sirene.insee.fr/identification/pdf/30439604700090",
+   "remarque": "INCI : liste actuelle (17 ingrédients) conservée, non confirmée (Notino bloque ; aucune autre source officielle). Fabricant : siège de BOGART S.A. selon l'avis de situation INSEE (SIRET 304 396 047 00090). Attention : des profils boursiers (Yahoo, Simply Wall St) donnent 13 rue Pierre Leroux, 75007 Paris – à vérifier sur l'étiquette. Pas d'e-mail officiel trouvé. L'adresse actuelle 'Jacques Bogart S.A. 5, 92130 Issy-les-Moulineaux' est incomplète (pas de rue)."
+  },
+  {
+   "ean": "3380810177565",
+   "titre": "Clarins SOS Comfort Masque Masker - 75 ml - Gezichtsmasker",
+   "inci": "Aqua/Water/Eau, Isononyl Isononanoate, Caprylic/Capric Triglyceride, Dicaprylyl Carbonate, Cetearyl Alcohol, Glycerin, Betaine, Butyrospermum Parkii (Shea) Butter, Pentylene Glycol, Squalane, Pentaerythrityl Distearate, Propanediol, Glyceryl Stearate, PEG-100 Stearate, Octyldodecanol, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Cetearyl Glucoside, Irvingia Gabonensis Kernel Butter, Parfum/Fragrance, Caprylyl Glycol, Hydrogenated Coco-Glycerides, CI 77891/Titanium Dioxide, Synthetic Fluorphlogopite, Ethylhexylglycerin, Caprylhydroxamic Acid, Bisabolol, Polysorbate 60, Sorbitan Isostearate, Alcohol, Tin Oxide, Tris(Tetramethylhydroxypiperidinol) Citrate, Terpineol, CI 15985/Yellow 6, Tocopherol, Linalyl Acetate, CI 19140/Yellow 5",
+   "inci_statut": "trouve",
+   "inci_source": "https://ae.clarins.com/en/skincare/face-200/sos-comfort-face-mask-CS01360164.html",
+   "fabricant_nom": "Clarins SAS",
+   "fabricant_adresse": {
+    "rue": "Rue du Commandant Pilot",
+    "numero": "9",
+    "code_postal": "92200",
+    "ville": "Neuilly-sur-Seine",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.clarins.ie/legal_notices.html",
+   "remarque": "INCI officiel Clarins (site Clarins EAU) du SOS Comfort Masque 75 ml, réf. formule 01V3048. ATTENTION : la liste actuelle sur bol (Kaolin, Illite, Hibiscus… réf. V3047C) semble être celle du SOS Pure, autre masque : à remplacer. L'EAN 3380810177565 correspond à l'ancien conditionnement (le nouveau est 3666057128837) : vérifier la boîte, la formule a pu légèrement évoluer. Fabricant = Clarins (SAS), 'responsable de la mise sur le marché UE' selon les mentions légales Clarins ; contact uniquement via formulaire."
+  },
+  {
+   "ean": "3392865074171",
+   "titre": "Herenparfum Jacomo Paris EDT Jacomo de Jacomo In White 100 ml",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": "Jacomo SAS",
+   "fabricant_adresse": {
+    "rue": "Avenue Strassburger",
+    "numero": null,
+    "code_postal": "14800",
+    "ville": "Deauville",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://api-avis-situation-sirene.insee.fr/identification/pdf/40258756200016",
+   "remarque": "INCI introuvable en ligne (seulement des notes olfactives). ATTENTION : la liste actuelle sur bol est une liste 'type' copiée à l'identique sur d'autres fiches (Mercedes-Benz Floral Fantasy, Ted Baker W) : elle n'est pas fiable, il faut relever l'INCI sur la boîte. Fabricant : JACOMO SAS (SIREN 402 587 562, fabrication de parfums), siège avenue Strassburger, 14800 Deauville selon l'INSEE (pas de numéro de rue au registre) ; confirmé par fragrance.com (EU contact : av. Strassburger, Deauville, +33 2 31 14 64 64). L'adresse actuelle (Groupe Vabel, Neuville-en-Ferrain) est celle de l'actionnaire, pas du fabricant."
+  },
+  {
+   "ean": "3423222052423",
+   "titre": "Dolce&Gabbana Dolce Eau de Toilette - 75ml",
+   "inci": "Alcohol, Aqua (Water), Parfum (Fragrance), Limonene, Linalool, Geraniol, Citral, Farnesol, Benzyl Salicylate, Citronellol",
+   "inci_statut": "existant_complet",
+   "inci_source": null,
+   "fabricant_nom": "Dolce & Gabbana Beauty S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Carlo Goldoni",
+    "numero": "10",
+    "code_postal": "20129",
+    "ville": "Milano",
+    "pays": "Italie"
+   },
+   "fabricant_email": "amministrazionedgbeauty@dolcegabbana.it",
+   "fabricant_source": "https://world.dolcegabbana.com/information-processing-personal-data-beauty-customers-photo-boot-service",
+   "remarque": "INCI : liste actuelle (10 ingrédients) conservée mais NON confirmée en ligne (Dolce EDT n'est plus vendu sur le site officiel). Le blocage vient sans doute de la phrase d'avertissement en néerlandais collée à la liste : la supprimer. Fabricant : EAN 3423222… = ancienne licence Shiseido (Beauté Prestige International, 57 rue de Villiers, 92200 Neuilly-sur-Seine) ; la marque est aujourd'hui exploitée par Dolce & Gabbana Beauty S.r.l. (adresse/e-mail tirés de la notice de confidentialité D&G Beauty, déjà relevés dans operateurs_contacts.json ; code postal 20129 à vérifier). L'adresse actuelle (56/A Faubourg St-Honoré) n'a pas été confirmée. CAS DOUTEUX : vérifier l'opérateur imprimé sur la boîte."
+  },
+  {
+   "ean": "3423222106508",
+   "titre": "",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": "Beauté Prestige International (Shiseido EMEA)",
+   "fabricant_adresse": {
+    "rue": "Rue de Villiers",
+    "numero": "57",
+    "code_postal": "92200",
+    "ville": "Neuilly-sur-Seine",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.isseymiyakeparfums.com/privacy-policy/",
+   "remarque": "Produit non identifié : titre vide sur bol, EAN introuvable en ligne ; la liste actuelle décrit un coffret (EDT + lotion + gel douche, sans doute L'Eau d'Issey) avec des noms traduits en néerlandais, non conformes INCI. Il faut identifier le produit (boîte) avant de remplir l'INCI. Fabricant : Beauté Prestige International (nom commercial Shiseido EMEA), responsable du site Issey Miyake Parfums ; pas d'e-mail public (formulaire). ATTENTION : l'e-mail actuel admin@labori.nl appartient à un tiers (grossiste/revendeur) : à supprimer."
+  },
+  {
+   "ean": "3595471028242",
+   "titre": "Mercedes-benz Floral Fantasy Edt W 90ml",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": "INCC Parfums",
+   "fabricant_adresse": {
+    "rue": "Avenue de Saint-Cloud",
+    "numero": "85",
+    "code_postal": "78000",
+    "ville": "Versailles",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://fragrancefoundation.fr/?p=12607",
+   "remarque": "INCI introuvable (seulement des notes olfactives sur les sites officiels Mercedes-Benz et les revendeurs). La liste actuelle est la liste 'type' copiée sur Jacomo/Ted Baker : non fiable. Fabricant : EAN 3595471… = licence INCC (INCC Group/INCC Parfums) ; adresse prise sur la fiche membre de la Fragrance Foundation France, non confirmée par un site INCC (l'adresse actuelle 8 rue de la Michodière, 75002 Paris n'a pas pu être confirmée). L'e-mail actuel info@givebackbeauty.com est celui de Give Back Beauty, nouveau licencié Mercedes-Benz depuis 2024, qui n'a probablement pas fabriqué ce lot. CAS DOUTEUX."
+  },
+  {
+   "ean": "3614226940490",
+   "titre": "Tiffany & Co Tiffany & Co Intense - 75 ml - eau de parfum spray - damesparfum",
+   "inci": "Alcohol Denat., Parfum/Fragrance, Aqua/Water/Eau, Linalool, Ethylhexyl Methoxycinnamate, Limonene, Alpha-Isomethyl Ionone, Benzyl Benzoate, Benzophenone-3, Ethylhexyl Salicylate, Hexyl Cinnamal, Coumarin, Butyl Methoxydibenzoylmethane, Geraniol, Propylene Glycol, Alcohol, Tris(Tetramethylhydroxypiperidinol) Citrate, Benzyl Alcohol, BHT, CI 60730 (Ext. D&C Violet No. 2), CI 42053 (FD&C Green No. 3)",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.lookfantastic.pt/tiffany-co.-intense-eau-de-parfum-for-her-75ml/12032343.html",
+   "fabricant_nom": "Coty (SAS)",
+   "fabricant_adresse": {
+    "rue": "Boulevard Berthier",
+    "numero": "13T",
+    "code_postal": "75017",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://api-avis-situation-sirene.insee.fr/identification/pdf/39471055200099",
+   "remarque": "INCI : fiche Lookfantastic du Tiffany & Co Intense EDP 75 ml (la liste actuelle était triée par ordre alphabétique et incomplète). Fabricant : la licence Tiffany parfums est chez Coty (EAN 3614226…). Adresse = établissement parisien de COTY SAS (SIREN 394 710 552, fabrication de parfums) d'après l'INSEE ; ce n'est PAS le siège au registre (SIRET siège 394 710 552 00057, adresse non consultable). Coty ne publie pas d'e-mail consommateur (formulaire sur coty.com) ; tél. Coty Paris +33 1 58 71 72 00. IMPORTANT : l'actuel 'Sacha Destock, Bourbourg' est un revendeur : à remplacer. CAS À VÉRIFIER sur la boîte (Coty imprime parfois une entité néerlandaise ou allemande)."
+  },
+  {
+   "ean": "3614273327114",
+   "titre": "Cacharel - Yes I Am Glorious Eau de Parfum 50 ml",
+   "inci": "Alcohol, Parfum/Fragrance, Aqua/Water/Eau, Linalool, Benzyl Salicylate, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Benzyl Alcohol, Hydroxycitronellal, Alpha-Isomethyl Ionone, Limonene, Citronellol, Hexyl Cinnamal, Geraniol, Eugenol, Tris(Tetramethylhydroxypiperidinol) Citrate, Methyl Anthranilate, Coumarin, Citral, Farnesol, Benzyl Benzoate, CI 14700/Red 4, CI 60730/Ext. Violet 2",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.tendance-parfums.com/en/yes-i-am-glorious-eau-de-parfum-cacharel.html",
+   "fabricant_nom": "Cacharel (L'Oréal)",
+   "fabricant_adresse": {
+    "rue": "BP 217",
+    "numero": null,
+    "code_postal": "45144",
+    "ville": "Saint-Jean-de-la-Ruelle",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.nocibe.fr/fr/p/5011994161",
+   "remarque": "INCI de Yes I Am Glorious EDP (Tendance Parfums ; l'image produit porte l'EAN 3614273327114 = 50 ml). Fabricant : adresse 'Contact fabricant' affichée par Nocibé pour les parfums Cacharel (licence L'Oréal) : 'Cacharel, BP 217, 45144 Saint-Jean-de-la-Ruelle'. C'est une boîte postale (pas de rue) ; si bol refuse, utiliser l'adresse L'Oréal Luxe 14 rue Royale, 75008 Paris (non confirmée pour Cacharel). L'adresse actuelle 'Jean Cacharel SA, 62 rue de Verneuil' est la maison de mode, pas le fabricant du parfum."
+  },
+  {
+   "ean": "3614274569131",
+   "titre": "MIU MIU MIUTINE edp vapo 100 ml",
+   "inci": "Alcohol, Parfum/Fragrance, Aqua/Water/Eau, Tetramethyl Acetyloctahydronaphthalenes, Alpha-Isomethyl Ionone, Linalool, Geraniol, Hydroxycitronellal, Geranyl Acetate, Butyl Methoxydibenzoylmethane, Linalyl Acetate, Pogostemon Cablin Oil, Hexyl Cinnamal, Carvone, Limonene, Citrus Aurantium Peel Oil, Benzyl Alcohol, Pentaerythrityl Tetra-Di-T-Butyl Hydroxyhydrocinnamate, Hexadecanolactone, Coumarin, Citrus Limon Peel Oil, Rose Ketones, Citronellol, Methyl Anthranilate, Pinene, Benzaldehyde, Rose Flower Oil/Extract, Beta-Caryophyllene, Trimethylcyclopentenyl Methylisopentenol, Citral",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.lookfantastic.fr/p/miu-miu-miutine-eau-de-parfum-50ml/16962121/",
+   "fabricant_nom": "Miu Miu Beauty (L'Oréal)",
+   "fabricant_adresse": {
+    "rue": "Rue Royale",
+    "numero": "14",
+    "code_postal": "75008",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.nocibe.fr/fr/p/5011871006",
+   "remarque": "INCI identique sur Lookfantastic (EDP 50 ml) et Nocibé (coffret Miutine EDP). Fabricant 'Miu Miu Beauty, 14 rue Royale, 75008 Paris' = 'Contact fabricant' affiché par Nocibé (licence L'Oréal). L'adresse actuelle (Via Fogazzaro 28, Milano) est celle de la maison de mode Prada/Miu Miu : à remplacer. Pas d'e-mail public."
+  },
+  {
+   "ean": "3770014573216",
+   "titre": "Hfc Paris Wrap Me In Dreams Eau De Parfum 75 Ml (woman)",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": "SIA Haute Fragrance Company (HFC Paris)",
+   "fabricant_adresse": {
+    "rue": "Ģertrūdes iela",
+    "numero": "39-1",
+    "code_postal": "LV-1011",
+    "ville": "Rīga",
+    "pays": "Lettonie"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://datreal.com/fi/lv/company/40203147492",
+   "remarque": "INCI introuvable (uniquement des notes olfactives, souvent contradictoires). La liste actuelle ('Bergamot, mandarin…') est une liste de notes, pas un INCI. Fabricant : titulaire de la marque HFC = SIA 'Haute Fragrance Company' (Lettonie, TVA LV40203147492), adresse légale via un annuaire d'entreprises lettones (pas le site de la marque) ; bureau parisien 102 av. des Champs-Élysées (OnCosmetics). Alternative : le revendeur parfum-centrum.com indique comme personne responsable GPSR 'STEPHID S.A.S., 1534 rue Pasteur, 60700 Pont-Sainte-Maxence, France' (fabricant à façon de parfums, groupe Anjac) – c'est probablement l'adresse imprimée sur la boîte. IMPORTANT : l'actuel 'Via K & Co BVBA (Luxury Cosmetics), Haachtsebaan' est un distributeur/revendeur : à remplacer. CAS DOUTEUX : vérifier l'étiquette."
+  },
+  {
+   "ean": "4015600613112",
+   "titre": "Wella SP System Professional Luxeoil Keratin Boost Essence Hair Oil 100ml",
+   "inci": "Aqua (Water), Alcohol Denat., Cetrimonium Chloride, PEG-40 Hydrogenated Castor Oil, Panthenol, Isopropyl Alcohol, Polyquaternium-11, Glycerin, Citric Acid, Parfum (Fragrance), Ethylhexyl Methoxycinnamate, Threonine, Histidine, Glycine, Arginine, Alanine, Argania Spinosa (Argan) Kernel Oil, Phenoxyethanol, Simmondsia Chinensis (Jojoba) Seed Oil, Prunus Amygdalus Dulcis Oil, Camellia Oleifera Seed Extract, Caprylyl Glycol, Amyl Cinnamal, Hexyl Cinnamal, Linalool",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.shop-apotheke.com/beauty/upmPMWMRG/wella-sp-luxeoil-keratin-boost-essence.htm",
+   "fabricant_nom": "Wella Germany GmbH",
+   "fabricant_adresse": {
+    "rue": "Berliner Allee",
+    "numero": "65-65a",
+    "code_postal": "64295",
+    "ville": "Darmstadt",
+    "pays": "Allemagne"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.shop-apotheke.com/beauty/upmPMWMRG/wella-sp-luxeoil-keratin-boost-essence.htm",
+   "remarque": "INCI et fabricant tirés de la pharmacie en ligne Shop Apotheke (fiche avec EAN 4064666041278, nouveau code du même produit) ; trois noms germanisés corrigés en INCI (Cetrimoniumchlorid → Cetrimonium Chloride, Arginin → Arginine, Capryl Glycol → Caprylyl Glycol ; 'Ethyl Hexyl Methoxycinnamate' → Ethylhexyl Methoxycinnamate). La liste actuelle sur bol est celle d'un shampooing, totalement fausse. Le groupe bol 'Skin Care' et la contenance '1' sont aussi à corriger (Hair Care, 100 ml). L'ancien EAN 4015600613112 peut avoir une formule un peu différente : vérifier le flacon. Fabricant : remplacer 'Schwarzkopf/Henkel' (faux) par Wella Germany GmbH."
+  },
+  {
+   "ean": "6290171075141",
+   "titre": "Afnan Kiaana Angel - Eau de Parfum - 100 ml",
+   "inci": "Alcohol Denat., Parfum, Aqua, Alpha-Isomethyl Ionone, Benzyl Alcohol, Benzyl Benzoate, Benzyl Salicylate, Cinnamyl Alcohol, Citral, Citronellol, Coumarin, Limonene, Eugenol, Farnesol, Geraniol, Hexyl Cinnamal, Isoeugenol",
+   "inci_statut": "partiel",
+   "inci_source": "https://www.bjutip.com/afnan/afnan-kiaana-angel-w-100-ml",
+   "fabricant_nom": "Afnan Perfumes LLC",
+   "fabricant_adresse": null,
+   "fabricant_email": "contact@afnan.com",
+   "fabricant_source": null,
+   "remarque": "INCI trouvé uniquement chez un revendeur croate (Bjutip, fiche avec l'EAN 6290171075141) ; ordre alphabétique après les 3 premiers (c'est souvent ainsi sur les étiquettes Afnan) ; noms normalisés (D-Limonene → Limonene, Hexyl Cinnamal Aldehyde → Hexyl Cinnamal, Iso Eugenol → Isoeugenol). Aucune source officielle : statut 'partiel', à vérifier sur la boîte. Fabricant : Afnan Perfumes LLC (Dubaï) ; adresse et e-mail actuels (Industrial Area, P.O. Box 97872 Dubai, contact@afnan.com) NON confirmés en ligne ; pas de mentions légales officielles accessibles."
+  },
+  {
+   "ean": "6290362161653",
+   "titre": "Maison Asrar Imperial - Eau de Parfum - 100 ml",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "fabricant_source": null,
+   "remarque": "INCI introuvable (Bjutip, parfumo : notes olfactives seulement). Maison Asrar est une marque du groupe Gulf Orchid (EAU) d'après les revendeurs ; l'adresse actuelle (Basin 4 - Block 2, New Industrial Zone, Umm Al Quwain, info@gulforchid.com) n'a pas pu être confirmée sur un site officiel. À relever sur l'emballage."
+  },
+  {
+   "ean": "6294015157017",
+   "titre": "Le Couvent des Minimes Aqua Mahana Eau de Toilette 50ml Spray",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "fabricant_source": null,
+   "remarque": "CAS DOUTEUX : incohérence de fiche. L'EAN 6294015… est un préfixe de Sterling Perfumes (Armaf/Flavia, Dubaï) et la marque bol est 'Flavia', mais le titre parle de 'Le Couvent des Minimes Aqua Mahana EDT 50 ml' (marque française) et la contenance indique 100. EAN introuvable en ligne. Impossible de savoir quel produit est réellement concerné : vérifier l'article physique avant de compléter. L'adresse actuelle (Double E sprl / hello@parfumia.be, Bruxelles) est celle d'un revendeur : à supprimer."
+  },
+  {
+   "ean": "6294015176131",
+   "titre": "Armaf Club de Nuit Ladies Eter Desert Flower EDP Spray 3.4 oz",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": "Sterling Perfumes Industries LLC (Armaf)",
+   "fabricant_adresse": {
+    "rue": "Dubai Investment Park 2, P.O. Box 40769",
+    "numero": null,
+    "code_postal": null,
+    "ville": "Dubai",
+    "pays": "Émirats arabes unis"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://armaf.com/pages/about-us",
+   "remarque": "Produit = Armaf Eter Desert Flower EDP 100 ml (EAN confirmé par Superdrug et Perfumerías de la Uz). INCI introuvable (notes seulement). ATTENTION : la liste actuelle est une liste 'type' identique à celles de Furla Mistica, Lalique Oriental Zinc et Clean Rain (se terminant par 'Citral, Benzyl.') : non fiable. Fabricant : armaf.com nomme 'Sterling Perfumes Industry' sans adresse ; l'adresse DIP 2 / P.O. Box 40769 est reprise du fichier, non confirmée. Le groupe bol 'Skin Care' est à corriger (Fragrances)."
+  },
+  {
+   "ean": "6295199815496",
+   "titre": "Armaf Dunescape Extrait de parfum 100 ml (unisex)",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": "Sterling Perfumes Industries LLC (Armaf)",
+   "fabricant_adresse": {
+    "rue": "Dubai Investment Park 2, P.O. Box 40769",
+    "numero": null,
+    "code_postal": null,
+    "ville": "Dubai",
+    "pays": "Émirats arabes unis"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://armaf.com/pages/about-us",
+   "remarque": "INCI introuvable (armaf.com, Bjutip, AiO.lv : notes uniquement). Concentration ambiguë : AiO.lv dit 'Extrait de Parfum', Bjutip et armaf.com disent 'Eau de Parfum'. Fabricant : voir Eter Desert Flower ; adresse non confirmée en ligne. L'e-mail info@sterling.ae n'a pas été confirmé ; armaf.com donne seulement support@armafusa.com (service client USA)."
+  },
+  {
+   "ean": "0679602403122",
+   "titre": "Mistica Eau De Parfum (edp) 30ml",
+   "inci": "Alcohol Denat., Aqua (Water), Parfum (Fragrance), Limonene, Citral, Eugenol, Coumarin, Linalool, BHT, CI 60730 (Ext. D&C Violet 2)",
+   "inci_statut": "partiel",
+   "inci_source": "https://en.parfumdreams.de/Furla/Womens-fragrances/Mistica/Eau-de-Parfum-Spray/index_123413.aspx",
+   "fabricant_nom": "Mavive S.p.A. (licence Furla)",
+   "fabricant_adresse": {
+    "rue": "Via Altinia",
+    "numero": "298/B",
+    "code_postal": "30173",
+    "ville": "Venezia",
+    "pays": "Italie"
+   },
+   "fabricant_email": "mavive@legalmail.it",
+   "fabricant_source": "https://en.parfumdreams.de/Furla/Womens-fragrances/Mistica/Eau-de-Parfum-Spray/index_123413.aspx",
+   "remarque": "Parfumdreams publie DEUX listes pour Furla Mistica EDP sans dire laquelle correspond à quelle contenance : (1) celle-ci ; (2) la même avec trois filtres UV en plus après Parfum : 'Alcohol Denat., Aqua (Water), Parfum (Fragrance), Butyl Methoxydibenzoylmethane, Ethylhexyl Methoxycinnamate, Ethylhexyl Salicylate, Limonene, Citral, Eugenol, Coumarin, Linalool, BHT, CI 60730 (Ext. D&C Violet 2)'. Choisir selon la boîte du 30 ml. La liste actuelle sur bol est la liste 'type' (copiée sur Lalique/Clean/Armaf) : à remplacer. Fabricant = licencié Mavive S.p.A. (Parfumdreams). L'e-mail mavive@legalmail.it est une adresse PEC (courrier certifié) ; l'actuel info@mavive.com n'a pas été confirmé."
+  },
+  {
+   "ean": "0688003104330",
+   "titre": "Ted Baker W - 75ml - Eau de toilette",
+   "inci": "Alcohol Denat., Aqua/Water/Eau, Parfum (Fragrance), Benzyl Salicylate, Limonene, Hydroxycitronellal, Linalool, Eugenol, Alpha-Isomethyl Ionone, Citral, Benzyl Alcohol, Benzyl Benzoate, Geraniol",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.superdrug.com/p/mp-00280838",
+   "fabricant_nom": null,
+   "fabricant_adresse": null,
+   "fabricant_email": null,
+   "fabricant_source": null,
+   "remarque": "INCI : fiche Superdrug (vendeur marketplace) portant exactement l'EAN 0688003104330 ; pas de source de marque. La liste actuelle sur bol est la liste 'type' copiée sur Jacomo/Mercedes : à remplacer. Fabricant introuvable : Ted Baker ne publie pas le titulaire de la licence parfums ; la presse cite KMI Brands (Royaume-Uni) comme licencié beauté/parfums de longue date, mais non confirmé pour ce produit ni son adresse. À relever sur l'emballage."
+  },
+  {
+   "ean": "0690251009015",
+   "titre": "Jo Malone - Nectarine Blossom & Honey - Eau De Cologne - 100Ml",
+   "inci": "Alcohol Denat., Fragrance (Parfum), Water\\Aqua\\Eau, BHT, Limonene, Linalool, Citronellol, Citral, Geraniol",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.cultbeauty.co.uk/p/jo-malone-london-nectarine-blossom-and-honey-cologne-100ml/12079053",
+   "fabricant_nom": "Whitman LBS NV (The Estée Lauder Companies)",
+   "fabricant_adresse": {
+    "rue": "Nijverheidstraat",
+    "numero": "15",
+    "code_postal": "2260",
+    "ville": "Oevel",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "contactmanufacturer@elcompanies.com",
+   "fabricant_source": "https://www.cremedelamer.co.uk/contact-manufacturer",
+   "remarque": "Liste identique à l'actuelle (confirmée par Cult Beauty, 100 ml) : il suffit de supprimer la phrase d'avertissement en néerlandais collée à la fin. Fabricant = page officielle ELC 'contact manufacturer' (Europe continentale), déjà relevée dans operateurs_contacts.json. Remplacer 'ESTEE LAUDER, Lachen (Suisse), kundendienst@esteelauder.ch' (entité suisse)."
+  },
+  {
+   "ean": "0690251122288",
+   "titre": "Jo Malone London - Fluweelroos & Oud Cologne Intense 100Ml Spray",
+   "inci": "Alcohol Denat., Water\\Aqua\\Eau, Fragrance (Parfum), Geraniol, Linalool, Benzyl Salicylate, Alpha-Isomethyl Ionone, Citronellol, Eugenol, Citral, Benzyl Alcohol, Hydroxycitronellal, BHT",
+   "inci_statut": "trouve",
+   "inci_source": "https://altitude.www.lookfantastic.com/jo-malone-london-velvet-rose-oud-cologne-intense-50ml/13151563.html",
+   "fabricant_nom": "Whitman LBS NV (The Estée Lauder Companies)",
+   "fabricant_adresse": {
+    "rue": "Nijverheidstraat",
+    "numero": "15",
+    "code_postal": "2260",
+    "ville": "Oevel",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "contactmanufacturer@elcompanies.com",
+   "fabricant_source": "https://www.cremedelamer.co.uk/contact-manufacturer",
+   "remarque": "Liste identique à l'actuelle (Lookfantastic, Cologne Intense 50 ml, même jus) : supprimer seulement la phrase d'avertissement. Code '<ILN43078>' retiré. Corriger l'adresse actuelle 'Nijverheidstraat 16' → 15 et le nom 'Estée Lauder B.V.' → Whitman LBS NV."
+  },
+  {
+   "ean": "0690251122295",
+   "titre": "Damesparfum Jo Malone EDC Donkere Amber & Gemberlelie 100 ml",
+   "inci": "Alcohol Denat., Water\\Aqua\\Eau, Fragrance (Parfum), Benzyl Benzoate, Alpha-Isomethyl Ionone, Citronellol, Hydroxycitronellal, Limonene, Coumarin, Linalool, Geraniol",
+   "inci_statut": "existant_complet",
+   "inci_source": null,
+   "fabricant_nom": "Whitman LBS NV (The Estée Lauder Companies)",
+   "fabricant_adresse": {
+    "rue": "Nijverheidstraat",
+    "numero": "15",
+    "code_postal": "2260",
+    "ville": "Oevel",
+    "pays": "Belgique"
+   },
+   "fabricant_email": "contactmanufacturer@elcompanies.com",
+   "fabricant_source": "https://www.cremedelamer.co.uk/contact-manufacturer",
+   "remarque": "Produit = Dark Amber & Ginger Lily COLOGNE INTENSE 100 ml (le titre bol 'EDC' est approximatif). Liste actuelle conservée sans la phrase d'avertissement. Lookfantastic publie une liste plus ancienne contenant Butylphenyl Methylpropional (Lilial, interdit dans l'UE depuis 03/2022) : la liste actuelle, sans Lilial, correspond vraisemblablement à la formule en vente ; vérifier la boîte."
+  },
+  {
+   "ean": "0711367108680",
+   "titre": "Damesparfum Annick Goutal Folie D'Un Soir EDP (50 ml)",
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water/Eau), Alpha-Isomethyl Ionone, Coumarin, Hydroxycitronellal, Citronellol, Limonene, Geraniol, Citral, Benzyl Cinnamate",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.shop-apotheke.at/beauty/upmPF3W3D/goutal-folie-soir-eau-de-parfum-100.htm",
+   "fabricant_nom": "Goutal Paris",
+   "fabricant_adresse": {
+    "rue": "Rue de Castiglione",
+    "numero": "18",
+    "code_postal": "75001",
+    "ville": "Paris",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.shop-apotheke.at/beauty/upmPF3W3D/goutal-folie-soir-eau-de-parfum-100.htm",
+   "remarque": "INCI de la fiche Folie d'un Soir EDP 100 ml (EAN 0711367108888, même jus que le 50 ml) chez Shop Apotheke, qui donne aussi le 'Hersteller' Goutal Paris, 18 rue de Castiglione. La liste actuelle (notes olfactives) est invalide. Note : la marque Goutal a été rachetée par Interparfums en 2025 ; l'entité imprimée sur les lots récents peut changer. E-mail actuel eboutique@goutalparis.com non confirmé."
+  },
+  {
+   "ean": "0730852167476",
+   "titre": "Vloeibare Foundation Synchro Skin Shiseido (30 ml)",
+   "inci": "Water (Aqua/Eau), Dimethicone, Titanium Dioxide (CI 77891), Diphenylsiloxy Phenyl Trimethicone, Ethylhexyl Methoxycinnamate, Trifluoropropyldimethyl/Trimethylsiloxysilicate, Glycerin, Iron Oxides (CI 77492), Butylene Glycol, Hydrogenated Polydecene, PEG-10 Dimethicone, Iron Oxides (CI 77491), Bis-Butyldimethicone Polyglyceryl-3, Disteardimonium Hectorite, Titanium Dioxide (nano), Sorbitan Sesquiisostearate, Xylitol, Erythritol, Dimethicone/PEG-10/15 Crosspolymer, Iron Oxides (CI 77499), Mica, Barium Sulfate, Phenoxyethanol, Synthetic Fluorphlogopite, Aluminum Hydroxide, Polysilicone-2, Disodium EDTA, Stearic Acid, Calcium Aluminum Borosilicate, Tocopherol, Dipropylene Glycol, Triethoxycaprylylsilane, Triethoxysilylethyl Polydimethylsiloxyethyl Dimethicone, Polyquaternium-51, BHT, Citrus Unshiu Peel Extract, Thymus Serpyllum Extract, Alumina, Fagus Sylvatica Bud Extract, Hydrolyzed Conchiolin Protein, Polymethylsilsesquioxane, Dimethicone/Vinyl Dimethicone Crosspolymer",
+   "inci_statut": "existant_complet",
+   "inci_source": "https://skinsort.com/products/shiseido/synchro-skin-self-refreshing-foundation-spf-30",
+   "fabricant_nom": "Beauté Prestige International (Shiseido EMEA)",
+   "fabricant_adresse": {
+    "rue": "Rue de Villiers",
+    "numero": "57",
+    "code_postal": "92200",
+    "ville": "Neuilly-sur-Seine",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.isseymiyakeparfums.com/privacy-policy/",
+   "remarque": "Synchro Skin Self-Refreshing Foundation SPF 30 (teinte inconnue). Liste actuelle reprise (séparateurs '･' remplacés par des virgules) : ses ingrédients correspondent à la formule publiée par Skinsort (format US) ; les pigments (CI 77491/77492/77499) varient selon la teinte → vérifier la boîte. Fabricant : Shiseido EMEA = Beauté Prestige International (adresse confirmée sur un site du groupe Shiseido, celui d'Issey Miyake Parfums) ; à confirmer sur l'emballage Shiseido. Pas d'e-mail public."
+  },
+  {
+   "ean": "7640111502968",
+   "titre": "Lalique - Oriental Zinc - Eau De Parfum - 100ML",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": "Lalique Beauty Services",
+   "fabricant_adresse": {
+    "rue": "Chemin du Mont à Grillons",
+    "numero": "2",
+    "code_postal": "77760",
+    "ville": "Ury",
+    "pays": "France"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://www.nocibe.fr/fr/p/5011572036",
+   "remarque": "INCI introuvable (Notino, allbeauty, lalique.com : notes seulement). La liste actuelle est la liste 'type' copiée sur Furla/Clean/Armaf : non fiable. Fabricant : 'Contact fabricant' Nocibé pour les parfums Lalique = LALIQUE BEAUTY SERVICES, 2 chemin du Mont à Grillons, 77760 Ury (le fichier indiquait le n° 8). E-mail info.lbs@lalique-beauty.com non confirmé."
+  },
+  {
+   "ean": "0783320426919",
+   "titre": "Parfumset voor Heren Bvlgari BVLGARI MAN 2 Onderdelen",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": "Bulgari S.p.A.",
+   "fabricant_adresse": {
+    "rue": "Lungotevere Marzio",
+    "numero": "11",
+    "code_postal": "00186",
+    "ville": "Roma",
+    "pays": "Italie"
+   },
+   "fabricant_email": "it.cs@bulgari.com",
+   "fabricant_source": "https://www.bulgari.com/fr-fr/editorial/43202",
+   "remarque": "Coffret 'BVLGARI MAN' 2 pièces : contenu exact non identifié (Man in Black, Wood Essence, Rain Essence… ont tous des coffrets), EAN introuvable en ligne → INCI impossible à déterminer ; pour un coffret, bol attend l'INCI de chaque élément. Fabricant : Bulgari S.p.A., siège Lungotevere Marzio 11, Rome, selon les mentions légales bulgari.com (le code postal 00186 est celui de cette rue, non écrit sur la page) ; tél. +39 06 688101. E-mail = service client Italie (page contact Bulgari, déjà relevé dans operateurs_contacts.json). L'actuelle 'Bulgari España, Serrano 16' est une filiale commerciale avec adresse incomplète (cause du 'Supplier address incorrect')."
+  },
+  {
+   "ean": "8016741582554",
+   "titre": "Tiziana Terenzi Casanova Anniversary Collection 100 Ml For Unisex",
+   "inci": "Alcohol Denat., Parfum, Alpha-Isomethyl Ionone, Limonene, Linalool, Citronellol, Eugenol, Cinnamal, Citral",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfumdreams.ie/Tiziana-Terenzi/Collections/Anniversary-Collection/Extrait-de-Parfum/index_123334.aspx",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l. (Tiziana Terenzi)",
+   "fabricant_adresse": {
+    "rue": "Via dei Faggi",
+    "numero": "101",
+    "code_postal": "47842",
+    "ville": "San Giovanni in Marignano (RN)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@cereriaterenzi.com",
+   "fabricant_source": "https://www.douglas.de/de/p/5000185038",
+   "remarque": "Liste identique à l'actuelle (Parfumdreams) : supprimer seulement la phrase d'avertissement anglaise. Fabricant : 'Herstellerkontakt' identique chez Douglas et Parfumdreams ; raison sociale (Cereria Terenzi Evelino S.r.l.) tirée du pied de page tizianaterenzi.com. Remplacer info@spazioterenzi.com par info@cereriaterenzi.com."
+  },
+  {
+   "ean": "8016741622557",
+   "titre": "Tiziana Terenzi Dionisio Extrait De Parfum Spray 100 Ml For Women",
+   "inci": "Alcohol Denat., Parfum, Anise Alcohol",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfumdreams.ie/Tiziana-Terenzi/Collections/Anniversary-Collection/Extrait-de-Parfum/index_77444.aspx",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l. (Tiziana Terenzi)",
+   "fabricant_adresse": {
+    "rue": "Via dei Faggi",
+    "numero": "101",
+    "code_postal": "47842",
+    "ville": "San Giovanni in Marignano (RN)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@cereriaterenzi.com",
+   "fabricant_source": "https://www.parfumdreams.ie/Tiziana-Terenzi/Collections/Anniversary-Collection/Extrait-de-Parfum/index_77444.aspx",
+   "remarque": "Dionisio : la liste de 3 ingrédients est bien celle publiée par Parfumdreams (pas d'oubli). Bol peut la juger trop courte : elle est pourtant correcte ; supprimer la phrase d'avertissement. Remplacer l'e-mail contact@arnoway.it (tiers) par info@cereriaterenzi.com."
+  },
+  {
+   "ean": "8016741632556",
+   "titre": "Tiziana Terenzi Mirach Extrait De Parfum Spray (Unisex) 100 ml voor Vrouwen",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l. (Tiziana Terenzi)",
+   "fabricant_adresse": {
+    "rue": "Via dei Faggi",
+    "numero": "101",
+    "code_postal": "47842",
+    "ville": "San Giovanni in Marignano (RN)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@cereriaterenzi.com",
+   "fabricant_source": "https://www.douglas.de/de/p/5000185038",
+   "remarque": "INCI de Mirach introuvable (Parfumdreams/Douglas n'ont pas de fiche Mirach accessible ; revendeurs : notes seulement). La liste actuelle est une liste de notes en néerlandais, invalide. Contenance bol '00' à corriger en 100."
+  },
+  {
+   "ean": "8016741792427",
+   "titre": "Mirabile by V Canto 100 ml - Extrait De Parfum Spray (Unisex)",
+   "inci": "Alcohol Denat., Parfum, Limonene, Linalool, Coumarin, Eugenol, Citronellol, Geraniol, Anise Alcohol, Citral",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfumdreams.ie/V-Canto/Collections/Blue-Collection/Extrait-de-Parfum/index_77818.aspx",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l. (Tiziana Terenzi / V Canto)",
+   "fabricant_adresse": {
+    "rue": "Via dei Faggi",
+    "numero": "101",
+    "code_postal": "47842",
+    "ville": "San Giovanni in Marignano (RN)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@cereriaterenzi.com",
+   "fabricant_source": "https://www.parfumdreams.ie/V-Canto/Collections/Blue-Collection/Extrait-de-Parfum/index_77818.aspx",
+   "remarque": "V Canto Mirabile Extrait. ATTENTION : la liste actuelle sur bol (Aqua, filtres UV, 19 ingrédients) ne correspond pas à celle publiée par Parfumdreams (10 ingrédients, sans eau) : remplacer. Parfumdreams donne le même fabricant que pour Tiziana Terenzi."
+  },
+  {
+   "ean": "8016741992582",
+   "titre": "Tiziana Terenzi Halley Extrait De Parfum Spray (unisex) 100 Ml For Women",
+   "inci": "Alcohol Denat., Parfum, Limonene, Alpha-Isomethyl Ionone, Linalool, Coumarin, Citral, Cinnamal, Benzyl Benzoate, Benzyl Alcohol, Citronellol, Eugenol, Geraniol",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfumdreams.ie/Tiziana-Terenzi/Collections/Comete-Collection/Extrait-de-Parfum/index_98619.aspx",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l. (Tiziana Terenzi)",
+   "fabricant_adresse": {
+    "rue": "Via dei Faggi",
+    "numero": "101",
+    "code_postal": "47842",
+    "ville": "San Giovanni in Marignano (RN)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@cereriaterenzi.com",
+   "fabricant_source": "https://www.parfumdreams.ie/Tiziana-Terenzi/Collections/Comete-Collection/Extrait-de-Parfum/index_98619.aspx",
+   "remarque": "Liste identique à l'actuelle : supprimer la phrase d'avertissement (collée à 'Geraniol'). IMPORTANT : l'actuel 'DESIGNER FRAGRANCES, Bury (UK), consumercare@puig.com' est un distributeur britannique + un e-mail Puig sans rapport : à remplacer."
+  },
+  {
+   "ean": "8028713400070",
+   "titre": "Acqua di Parma Peonia Nobile Eau de Parfum 20ml",
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Citronellol, Hexyl Cinnamal, Linalool, Hydroxycitronellal, Alpha-Isomethyl Ionone, Ethylhexyl Methoxycinnamate, Geraniol, Alcohol, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, BHT, Limonene, Citral, Methyl 2-Octynoate, Tocopherol, CI 14700 (Red 4), CI 60730 (Ext. Violet 2), CI 19140 (Yellow 5)",
+   "inci_statut": "trouve",
+   "inci_source": "https://origin-www.feelunique.com/p/Acqua-di-Parma-Peonia-Nobile-Eau-de-Parfum-100ml",
+   "fabricant_nom": "Acqua di Parma S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Giovanni Spadolini",
+    "numero": "7",
+    "code_postal": "20141",
+    "ville": "Milano",
+    "pays": "Italie"
+   },
+   "fabricant_email": "customercare@acquadiparma.it",
+   "fabricant_source": "https://www.acquadiparma.com/en-lu/privacy-policy",
+   "remarque": "Liste identique à l'actuelle mais les codes CI étaient tronqués sur bol ('ci 147', 'ci 673', 'ci 1914') : corrigés en CI 14700 / CI 60730 / CI 19140 d'après Feelunique. Contenance bol '0.02' à corriger (20 ml). Fabricant : siège selon la politique de confidentialité Acqua di Parma ; e-mail service client (FAQ officielle), déjà relevés dans operateurs_contacts.json."
+  },
+  {
+   "ean": "8028713813412",
+   "titre": "ACQUA DI PARMA MAGNOLIA INFINITA EAU DE PARFUM 100ML SPRAY",
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Ethylhexyl Salicylate, Limonene, Linalool, Citrus Aurantium Bergamia (Bergamot) Peel Oil, Citrus Limon (Lemon) Peel Oil, Butyl Methoxydibenzoylmethane, Citrus Aurantium Peel Oil, Citronellol, Geraniol, Hydroxycitronellal, Hexyl Cinnamal, Linalyl Acetate, Tetramethyl Acetyloctahydronaphthalenes, Pinene, Isoeugenyl Acetate, Amyl Salicylate, Cananga Odorata Oil/Extract, Geranyl Acetate, Citral, Pelargonium Graveolens Oil, Pogostemon Cablin Oil, Jasmine Oil/Extract, Coumarin, Rose Ketones, Eugenol, Rose Flower Oil/Extract, Beta-Caryophyllene, Vanillin, Benzyl Benzoate, Isoeugenol, Benzyl Salicylate, Benzyl Alcohol, Terpineol, Terpinolene, Anethole, CI 15985 (Yellow 6), CI 19140 (Yellow 5), CI 42090 (Blue 1)",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.acquadiparma.com/en/gb/magnolia-infinita/MAGNOLIAINFINITAEDPSPRAY.html",
+   "fabricant_nom": "Acqua di Parma S.r.l.",
+   "fabricant_adresse": {
+    "rue": "Via Giovanni Spadolini",
+    "numero": "7",
+    "code_postal": "20141",
+    "ville": "Milano",
+    "pays": "Italie"
+   },
+   "fabricant_email": "customercare@acquadiparma.it",
+   "fabricant_source": "https://www.acquadiparma.com/en-lu/privacy-policy",
+   "remarque": "Liste officielle actuelle (site Acqua di Parma, nouvelle nomenclature allergènes UE 2023). La liste actuelle sur bol (17 ingrédients, séparés par '/') est une ancienne version : remplacer. Si la boîte en stock est ancienne, sa liste peut différer : en cas de doute, recopier la boîte. Le nombre '22138' après la liste officielle (code interne) a été retiré."
+  },
+  {
+   "ean": "8033488157968",
+   "titre": "Shooting Stars Allende Extrait de Parfum",
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water), BHT, Benzyl Alcohol, Benzyl Benzoate, Benzyl Salicylate, Citronellol, Coumarin, Eugenol, Farnesol, Geraniol, Linalool",
+   "inci_statut": "trouve",
+   "inci_source": "https://www.parfumdreams.ie/XERJOFF/Collections/Shooting-Stars-Collection/Parfum/index_96880.aspx",
+   "fabricant_nom": "Xerjoff Group S.p.A.",
+   "fabricant_adresse": {
+    "rue": "Via Carlo Tenivelli",
+    "numero": "29",
+    "code_postal": "10024",
+    "ville": "Moncalieri (TO)",
+    "pays": "Italie"
+   },
+   "fabricant_email": "info@xerjoff.com",
+   "fabricant_source": "https://www.xerjoff.com/policies/legal-notice",
+   "remarque": "Shooting Stars Allende, concentration 'Parfum' 50 ml (Parfumdreams ; le titre bol dit 'Extrait de Parfum'). La liste actuelle (notes olfactives) est invalide. Fabricant : mentions légales officielles xerjoff.com (P.IVA 09547650011) ; l'adresse actuelle 'Via Leonardo da Vinci 29, Grugliasco' (encore affichée par Parfumdreams) est l'ancienne."
+  },
+  {
+   "ean": "8429421444118",
+   "titre": "Shampoo Lakmé Teknia Hair",
+   "inci": null,
+   "inci_statut": "introuvable",
+   "inci_source": null,
+   "fabricant_nom": "Lakmé Cosmetics S.L.",
+   "fabricant_adresse": {
+    "rue": "Calle Narcís Monturiol",
+    "numero": "27",
+    "code_postal": "08960",
+    "ville": "Sant Just Desvern (Barcelona)",
+    "pays": "Espagne"
+   },
+   "fabricant_email": null,
+   "fabricant_source": "https://infonif.economia3.com/ficha-empresa/lakme-cosmetics-sl",
+   "remarque": "Produit non identifié : 'Shampoo Lakmé Teknia Hair' 1000 ml sans nom de variante (Teknia compte une dizaine de shampooings : Full Defense, Deep Care, Color Stay, Frizz Control, Argan Oil…) et EAN introuvable en ligne → impossible de choisir le bon INCI. La liste actuelle ('Paraben-Free / Vegan…') n'est pas un INCI. Fabricant : Lakmé Cosmetics S.L. (NIF B61208476), domicile social selon un annuaire d'entreprises espagnol (pas le site Lakmé) ; ville corrigée : Sant Just Desvern et non Barcelone. E-mail info@lakme.com non confirmé."
+  },
+  {
+   "ean": "8436550507584",
+   "titre": "TOUS Loveme - Eau de Parfum - 90 ml - Damesparfum",
+   "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water/Eau), Ethylhexyl Methoxycinnamate, Tocopheryl Acetate, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, BHT, Hydroxycitronellal, Limonene, Alpha-Isomethyl Ionone, Citronellol, Linalool, Hexyl Cinnamal, Citral, Geraniol, Cinnamyl Alcohol, Farnesol, Benzyl Alcohol, Anise Alcohol",
+   "inci_statut": "existant_complet",
+   "inci_source": null,
+   "fabricant_nom": "Perfumes y Diseño (PyD) – licencié des parfums TOUS",
+   "fabricant_adresse": {
+    "rue": "Calle Isla de Java",
+    "numero": "33",
+    "code_postal": "28034",
+    "ville": "Madrid",
+    "pays": "Espagne"
+   },
+   "fabricant_email": "pyd@pyd.es",
+   "fabricant_source": null,
+   "remarque": "INCI : liste actuelle conservée (20 ingrédients, plausible), simplement remise en forme ('Parfum, Fragrance, Aqua, Water, Eau' → 'Parfum (Fragrance), Aqua (Water/Eau)') ; non confirmée en ligne (Parfumdreams/Kaufland inaccessibles). Groupe bol 'Skin Care' à corriger (Fragrances). Fabricant : les parfums TOUS sont fabriqués sous licence par Perfumes y Diseño (PyD) ; adresse et e-mail repris du fichier, NON confirmés (la presse signale un déménagement de PyD vers l'ancien siège de Heineken à Madrid) : à vérifier sur la boîte."
+  }
+ ]
+}
