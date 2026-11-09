@@ -6,7 +6,7 @@ choisie par Amine (config/bol.json, « selection ») :
   - koopblok gagnable ou déjà à nous ;
   - seul vendeur quand le prix de marché est connu (étoiles / bornes) ;
   - plus cher que le koopblok d'au plus « plus_cher_ecart_max » (10 %).
-Chaque prix garde au moins marge_nette_eur (7 €) net : c'est déjà vérifié par la règle (scripts/bol_regle.py).
+Chaque prix garde au moins marge_nette_eur (7 €) net, 10 € quand on est seul vendeur (marge_nette_seul_vendeur_eur) : c'est déjà vérifié par la règle (scripts/bol_regle.py).
 
 À chaque passage :
   1. liste les offres déjà en ligne (export bol) ;

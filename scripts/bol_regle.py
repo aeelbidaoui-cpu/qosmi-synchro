@@ -6,7 +6,8 @@ Pour une référence (EAN), avec :
   comm   = commission bol = fixe + pourcentage × prix TTC (facturée sans TVA, autoliquidation)
   net    = prix TTC / (1 + TVA) − comm − cout
 
-1. Plancher = plus petit prix (,x9) qui laisse net ≥ marge_nette_eur.
+1. Plancher = plus petit prix (,x9) qui laisse net ≥ marge_nette_eur ; quand personne d'autre ne vend le produit,
+   net ≥ marge_nette_seul_vendeur_eur (10 €) tant que ça reste sous la borne 2 étoiles.
 2. Prix visé :
    - des concurrents vendent ce produit sur bol : juste sous le koopblok (le plus bas des deux pays),
      jamais sous le plancher (si le plancher est plus haut, on liste quand même au plancher) ;
@@ -104,12 +105,15 @@ def decider(ref, marche, cfg):
         prix = max(cible, pl)
         motif = OUI_GAGNABLE if prix <= cible + 1e-9 else OUI_PLUS_CHER
         d["koopblok"] = ref_prix
-    elif bornes:
-        borne = bornes.get(int(cfg.get("etoiles_min", 3))) or bornes.get(2)
-        prix = max(down9(borne), pl) if borne else pl
-        motif = OUI_A_NOUS if a_nous else OUI_SEUL
     else:
-        prix = pl
+        # personne d'autre ne vend ce produit sur bol : plancher relevé à « marge_nette_seul_vendeur_eur » (10 €,
+        # décision d'Amine du 09/11/2026), sans jamais dépasser la borne 2 étoiles (sinon on garde le plancher normal).
+        pl_seul = plancher(ref["achat"], dict(cfg, marge_nette_eur=max(cfg["marge_nette_eur"],
+                                                     cfg.get("marge_nette_seul_vendeur_eur", 0))), fixe, pct) or pl
+        if bornes.get(2) and pl_seul > bornes[2] + 1e-9:
+            pl_seul = max(pl, down9(bornes[2]))
+        borne = bornes.get(int(cfg.get("etoiles_min", 3))) or bornes.get(2)
+        prix = max(down9(borne), pl_seul) if borne else pl_seul
         motif = OUI_A_NOUS if a_nous else OUI_SEUL
     if bornes.get(2) and prix > bornes[2] + 1e-9:
         d.update(prix=None, decision=NON_MASQUE, etoiles=1)
@@ -135,6 +139,13 @@ if __name__ == "__main__":  # petits contrôles de la règle
     assert d["decision"] == OUI_PLUS_CHER and d["prix"] == d["plancher"] and abs(d["net"] - 7) < 0.15, d
     m["bornes"] = {5: 45, 4: 50, 3: 55, 2: 58}
     assert decider(ref, m, cfg)["decision"] == NON_MASQUE
+    m = {"existe": True, "offres": [], "bornes": {}, "comm": (1.0, 0.15)}
+    d7 = decider(ref, m, cfg)
+    d10 = decider(ref, m, dict(cfg, marge_nette_seul_vendeur_eur=10))
+    assert abs(d7["net"] - 7) < 0.15 and abs(d10["net"] - 10) < 0.15 and d10["decision"] == OUI_SEUL, (d7, d10)
+    m["bornes"] = {5: 55, 4: 57, 3: 59, 2: 63}
+    d = decider(ref, m, dict(cfg, marge_nette_seul_vendeur_eur=10))
+    assert d["decision"] == OUI_SEUL and d["prix"] <= 63 and d["net"] >= 7, d
     m = {"existe": True, "offres": [], "bornes": {5: 60, 4: 65, 3: 70, 2: 80}, "comm": (1.0, 0.15)}
     d = decider(ref, m, cfg)
     assert d["decision"] == OUI_SEUL and d["prix"] == 69.99, d

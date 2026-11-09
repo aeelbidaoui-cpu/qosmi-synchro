@@ -227,8 +227,8 @@ def rapports(lignes, cfg):
         compte[l["decision"]] = compte.get(l["decision"], 0) + 1
     oui = [l for l in lignes if l["decision"].startswith("oui")]
     txt = ["Analyse bol du %s" % dt.datetime.now().strftime("%d/%m/%Y %H:%M"),
-           "Règle : %.0f € net minimum ; envoi client compté %.2f € HT ; part colis fournisseur %.2f € ; emballage %.2f € ; "
-           "retours %.2f € ; délai %s." % (cfg["marge_nette_eur"], max(cfg["envoi_client_ht"].values()),
+           "Règle : %.0f € net minimum (%.0f € quand on est seul vendeur) ; envoi client compté %.2f € HT ; part colis fournisseur %.2f € ; emballage %.2f € ; "
+           "retours %.2f € ; délai %s." % (cfg["marge_nette_eur"], max(cfg["marge_nette_eur"], cfg.get("marge_nette_seul_vendeur_eur", 0)), max(cfg["envoi_client_ht"].values()),
                                           cfg["envoi_fournisseur_eur"], cfg["emballage_eur"],
                                           cfg.get("provision_retours_eur", 0), cfg["delai_livraison"]), ""]
     txt += ["%-45s %6d" % (k, v) for k, v in sorted(compte.items(), key=lambda kv: -kv[1])]

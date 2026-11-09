@@ -6,6 +6,7 @@
  ],
  "tva": 0.21,
  "marge_nette_eur": 7.0,
+ "marge_nette_seul_vendeur_eur": 10.0,
  "envoi_fournisseur_eur": 3.0,
  "emballage_eur": 0.6,
  "envoi_client_ht": {
