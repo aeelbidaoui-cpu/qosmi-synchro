@@ -75,27 +75,26 @@ def main(essai=False):
     pub = publication_boutique(s)
     marques = [m for m in json.load(open(os.path.join(RACINE, "config", "selection.json"), encoding="utf-8"))["marques"]
                if not m.endswith("_")]
-    vendeurs = s.gql("{ shop { productVendors(first: 250) { nodes } } }")["shop"]["productVendors"]["nodes"]
-    par_cle = {}
-    for v in vendeurs:
-        par_cle.setdefault(cle(v), v)
     table, faits, sans = {}, 0, []
     for m in marques:
-        v = par_cle.get(cle(m))
-        if not v:
-            sans.append(m)
-            continue
         h = slug(m)
-        prods = s.gql("""query($q: String!) { products(first: 6, query: $q, sortKey: TITLE) { nodes { title } } }""",
-                      {"q": "vendor:'%s' status:active published_status:published" % v.replace("'", "\\'")})["products"]["nodes"]
+        prods = []
+        for nom in dict.fromkeys([m, m.replace("´", "'"), m.replace("&", " & "), m.replace(" & ", "&")]):
+            prods = s.gql("""query($q: String!) { products(first: 25, query: $q, sortKey: TITLE) { nodes { title vendor } } }""",
+                          {"q": 'vendor:"%s" status:active published_status:published' % nom.replace('"', '')})["products"]["nodes"]
+            prods = [p for p in prods if cle(p["vendor"]) == cle(m)]
+            if prods:
+                break
         if not prods:
             sans.append(m)
             continue
+        v = prods[0]["vendor"]
         noms = []
         for p in prods:
             n = court(p["title"], v)
             if n and n not in noms and len(n) <= 28:
                 noms.append(n)
+        noms = sorted(noms, key=len)  # les noms les plus courts sont en général les parfums phares (Aventus, Sauvage…)
         t = textes(m, noms)
         if essai:
             print("%-22s /collections/%-22s %s | %s" % (m, h, t["titre_fr"], t["meta_fr"]))
