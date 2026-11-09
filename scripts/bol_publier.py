@@ -188,6 +188,11 @@ def main():
     # 1. créations
     creations = [e for e in voulues if e.lstrip("0") not in en_ligne and
                  maintenant - refus.get(e, {}).get("t", 0) > REESSAI_REFUS_JOURS * 86400]
+    # 09/11/2026 (Amine) : pause des NOUVELLES offres « seul vendeur sans marché » (fiches bol presque toujours non publiées,
+    # offres invisibles). Les offres déjà en ligne restent et sont toujours mises à jour.
+    if not cfg.get("selection", {}).get("creer_sans_marche", True):
+        creations = [e for e in creations if not (str(voulues[e].get("decision", "")).startswith("oui : seul vendeur")
+                                                  and not voulues[e].get("marche_connu"))]
     for e in creations[:maxi]:
         d = voulues[e]
         if essai:
