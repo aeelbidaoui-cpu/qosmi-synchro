@@ -1,0 +1,2498 @@
+{
+ "actif": false,
+ "_note": "10/11/2026 : descriptions vérifiées (sites des marques, Olfastory, Parfumo, Basenotes) des 50 parfums phares, FR + NL, à la demande d'Amine. À activer en décembre (minutes GitHub rechargées) : mettre « actif » à true puis lancer l'action theme « textes-fiches ». Le champ « doute » signale les points où les sources divergent (souvent la pyramide) ; à relire pour Tom Ford Café Rose, Creed Aventus For Her et Light Blue (nouvelle formule 2025).",
+ "parfums": {
+  "creed-aventus-eau-de-parfum-pour-homme": {
+   "annee": 2010,
+   "parfumeurs": [],
+   "famille_fr": "Boisé fruité",
+   "famille_nl": "Houtig fruitig",
+   "notes_fr": {
+    "tete": [
+     "pomme",
+     "bergamote de Calabre",
+     "citron",
+     "cassis",
+     "baies roses"
+    ],
+    "coeur": [
+     "ananas",
+     "jasmin",
+     "patchouli"
+    ],
+    "fond": [
+     "mousse de chêne",
+     "cèdre",
+     "ambroxan"
+    ],
+    "cle": [
+     "bergamote de Calabre",
+     "accord ananas",
+     "bouleau fumé"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "appel",
+     "Calabrische bergamot",
+     "citroen",
+     "zwarte bes",
+     "roze peper"
+    ],
+    "coeur": [
+     "ananas",
+     "jasmijn",
+     "patchoeli"
+    ],
+    "fond": [
+     "eikenmos",
+     "ceder",
+     "ambroxan"
+    ],
+    "cle": [
+     "Calabrische bergamot",
+     "ananasaccord",
+     "gerookte berk"
+    ]
+   },
+   "fr": "<p>Aventus s'ouvre sur un mélange fruité et frais : <strong>pomme</strong>, <strong>bergamote</strong> de Calabre, citron, cassis et une pointe de baies roses. Très vite, l'<strong>ananas</strong> prend le relais, porté par du jasmin et du patchouli.</p><p>Le fond devient plus sec et plus sombre, avec la <strong>mousse de chêne</strong>, le cèdre et une facette de bouleau fumé, légèrement cuirée. C'est un parfum masculin et assuré, qui reste lumineux du début à la fin.</p><p>Lancé en 2010, Aventus s'inspire de la vie de Napoléon, selon la maison Creed, qui mélange et fait macérer chaque lot dans ses ateliers d'Ury, en France. Idéal pour le bureau, un dîner ou une journée de printemps et d'été.</p>",
+   "nl": "<p>Aventus opent fris en fruitig: <strong>appel</strong>, <strong>bergamot</strong> uit Calabrië, citroen, zwarte bes en een vleugje roze peper. Al snel neemt <strong>ananas</strong> het over, samen met jasmijn en patchoeli.</p><p>Daarna wordt de geur droger en donkerder, met <strong>eikenmos</strong>, ceder en een rokerige, licht leerachtige toets van berk. Een zelfzeker parfum voor mannen dat van begin tot eind helder blijft.</p><p>Aventus kwam uit in 2010. Volgens het huis Creed is het geïnspireerd op het leven van Napoleon, en elke batch wordt gemengd en gerijpt in de eigen ateliers in Ury, in Frankrijk. Ideaal voor op kantoor, een etentje of een dag in de lente of de zomer.</p>",
+   "sources": [
+    "https://creedboutique.com/blogs/creed-journal/aventus-your-questions-answered",
+    "https://www.creedfragrance.com/p/aventus/12870029/",
+    "https://www.olfastory.com/en/perfume/aventus-creed/composition",
+    "https://basenotes.com/fragrances/aventus-by-creed.26131702",
+    "https://www.parfumo.com/Perfumes/Creed/Aventus"
+   ],
+   "doute": "Parfumeur non confirmé : la marque ne nomme personne ; Basenotes attribue à Olivier Creed (avec son fils Erwin), Olfastory à Jean-Christophe Hérault (attribué officiellement à Olivier Creed) — laissé vide. Pyramide = celle du journal officiel Creed ; d'autres sources (Olfastory, Parfumo) placent le bouleau au cœur/fond et ajoutent musc, ambre gris, vanille ; le bouleau fumé vient de la fiche produit officielle (notes clés). Famille : la marque dit « Dry Woods, Fresh, Citrus & Fruity », résumé en « boisé fruité »."
+  },
+  "dior-sauvage-parfum-pour-homme": {
+   "annee": 2019,
+   "parfumeurs": [
+    "François Demachy"
+   ],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Amber houtig",
+   "notes_fr": {
+    "tete": [
+     "mandarine",
+     "bergamote"
+    ],
+    "coeur": [
+     "santal du Sri Lanka",
+     "cèdre"
+    ],
+    "fond": [
+     "vanille",
+     "fève tonka"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "mandarijn",
+     "bergamot"
+    ],
+    "coeur": [
+     "sandelhout uit Sri Lanka",
+     "ceder"
+    ],
+    "fond": [
+     "vanille",
+     "tonkaboon"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Sauvage Parfum démarre sur des agrumes juteux : <strong>mandarine</strong> et <strong>bergamote</strong>, vives sans être acides. Le cœur s'arrondit avec le <strong>santal</strong> du Sri Lanka et le cèdre, un bois chaud et crémeux.</p><p>Au fond, la <strong>vanille</strong> et la <strong>fève tonka</strong>, légèrement amère, installent une chaleur ambrée qui tient longtemps sur la peau. Le parfum reste frais en tête, puis devient doux et enveloppant, avec une vraie présence.</p><p>Cette version a été créée en 2019 par François Demachy, alors parfumeur de la maison Dior, et son flacon est rechargeable. Idéal pour les soirées, l'automne et l'hiver, ou quand tu veux une signature plus posée.</p>",
+   "nl": "<p>Sauvage Parfum begint met sappige citrus: <strong>mandarijn</strong> en <strong>bergamot</strong>, fris maar niet zuur. In het hart wordt de geur ronder met <strong>sandelhout</strong> uit Sri Lanka en ceder, warm en romig hout.</p><p>In de basis zorgen <strong>vanille</strong> en een licht bittere <strong>tonkaboon</strong> voor een amberachtige warmte die lang op je huid blijft. Fris bij de start, daarna zacht en omhullend, met een duidelijke aanwezigheid.</p><p>Deze versie werd in 2019 gecreëerd door François Demachy, toen huisparfumeur van Dior, en de flacon is navulbaar. Ideaal voor de avond, de herfst en de winter, of wanneer je een rustigere signatuur wilt.</p>",
+   "sources": [
+    "https://www.dior.com/en_int/beauty/products/sauvage-parfum-Y0998004.html",
+    "https://www.parfumo.com/Perfumes/Dior/sauvage-parfum",
+    "https://www.olfastory.com/parfum/sauvage-parfum/composition",
+    "https://en.wikipedia.org/wiki/Sauvage_(fragrance)"
+   ],
+   "doute": "La fiche Dior décrit tête/cœur/fond sans étiquettes formelles (répartition confirmée par Olfastory). Les notes annoncées au lancement 2019 incluaient aussi élémi et oliban, absents de la description actuelle ; Parfumo donne une pyramide plus longue. Famille : Dior dit « agrumes et boisé » aux tons ambrés, Olfastory « orientale » — résumé en « ambré boisé »."
+  },
+  "chanel-coco-mademoiselle-eau-de-parfum-pour-femme": {
+   "annee": 2001,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Amber houtig",
+   "notes_fr": {
+    "tete": [
+     "orange"
+    ],
+    "coeur": [
+     "jasmin",
+     "rose"
+    ],
+    "fond": [
+     "patchouli",
+     "vétiver"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "sinaasappel"
+    ],
+    "coeur": [
+     "jasmijn",
+     "roos"
+    ],
+    "fond": [
+     "patchoeli",
+     "vetiver"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Coco Mademoiselle commence par une <strong>orange</strong> pétillante, fraîche et lumineuse. Le cœur dévoile un duo de <strong>rose</strong> et de <strong>jasmin</strong>, net et féminin, sans aucune lourdeur.</p><p>Le fond repose sur le <strong>patchouli</strong> et le <strong>vétiver</strong> : des notes boisées, un peu terreuses, qui donnent au parfum du caractère et une belle tenue. C'est une fragrance élégante et affirmée, qui passe facilement du jour au soir.</p><p>Créé en 2001 par Jacques Polge pour Chanel, il se présente dans un flacon en verre transparent aux lignes épurées. Idéal pour le travail, un rendez-vous ou une sortie, en toute saison.</p>",
+   "nl": "<p>Coco Mademoiselle opent met sprankelende <strong>sinaasappel</strong>, fris en helder. In het hart vind je een duo van <strong>roos</strong> en <strong>jasmijn</strong>: duidelijk vrouwelijk, maar nooit zwaar.</p><p>De basis draait rond <strong>patchoeli</strong> en <strong>vetiver</strong>, houtige en wat aardse tonen die het parfum karakter en een mooie houdbaarheid geven. Een elegante, zelfbewuste geur die vlot van dag naar avond gaat.</p><p>Jacques Polge creëerde dit parfum in 2001 voor Chanel. Het zit in een transparante glazen flacon met strakke lijnen. Ideaal voor op het werk, een afspraak of een avondje uit, in elk seizoen.</p>",
+   "sources": [
+    "https://www.chanel.com/fr/parfums/p/116520/coco-mademoiselle-eau-de-parfum-vaporisateur/",
+    "https://www.chanel.com/fr/parfums/coco-mademoiselle/",
+    "https://www.olfastory.com/parfum/coco-mademoiselle/composition",
+    "https://en.wikipedia.org/wiki/Coco_Mademoiselle",
+    "https://www.osmoz.com/perfumes/chanel/1666/coco-mademoiselle"
+   ],
+   "doute": "Pyramide = description officielle Chanel (tête/cœur/fond décrits sur la fiche) ; d'autres sources ajoutent bergamote, mandarine, mimosa, vanille, muscs blancs. Famille : Chanel dit « ambré-boisé », Osmoz/Olfastory classent en chypre floral."
+  },
+  "chanel-coco-noir-eau-de-parfum-pour-femme": {
+   "annee": 2012,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Ambré floral",
+   "famille_nl": "Amber bloemig",
+   "notes_fr": {
+    "tete": [
+     "bergamote"
+    ],
+    "coeur": [
+     "rose",
+     "feuille de géranium rosat"
+    ],
+    "fond": [
+     "patchouli",
+     "fève tonka"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot"
+    ],
+    "coeur": [
+     "roos",
+     "blad van rozengeranium"
+    ],
+    "fond": [
+     "patchoeli",
+     "tonkaboon"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Coco Noir s'ouvre sur la <strong>bergamote</strong>, vive et élégante. Le cœur prend ensuite une teinte plus sombre et plus florale avec la <strong>rose</strong> et la feuille de <strong>géranium rosat</strong>, à la fois verte et poudrée.</p><p>Le fond s'installe avec le <strong>patchouli</strong> et la <strong>fève tonka</strong>, qui apportent une chaleur ambrée, un peu sucrée, et beaucoup de profondeur. C'est un parfum mystérieux et sophistiqué, qui se porte avec assurance.</p><p>Lancé en 2012, il a été composé par Jacques Polge pour Chanel. Idéal pour les soirées, les occasions habillées et les mois froids de l'automne et de l'hiver.</p>",
+   "nl": "<p>Coco Noir opent met <strong>bergamot</strong>, levendig en verfijnd. Daarna wordt het hart donkerder en bloemiger met <strong>roos</strong> en blad van <strong>rozengeranium</strong>, groen en tegelijk poederig.</p><p>In de basis brengen <strong>patchoeli</strong> en <strong>tonkaboon</strong> een amberachtige, licht zoete warmte en veel diepgang. Een mysterieus en verfijnd parfum dat je met zelfvertrouwen draagt, en dat mooi blijft hangen op huid en kleding.</p><p>Coco Noir kwam in 2012 op de markt en werd gecomponeerd door Jacques Polge voor Chanel. Ideaal voor de avond, chique gelegenheden en de koude maanden van de herfst en de winter.</p>",
+   "sources": [
+    "https://www.chanel.com/fr/parfums/p/113660/coco-noir-eau-de-parfum-vaporisateur/",
+    "https://www.osmoz.com/perfumes/chanel/6596/coco-noir",
+    "https://nstperfume.com/2012/07/26/chanel-coco-noir-new-fragrance"
+   ],
+   "doute": "Pyramide = description officielle Chanel (version courte) ; Osmoz donne une pyramide plus longue (pamplemousse, jasmin, narcisse, santal, vanille, oliban, muscs blancs…)."
+  },
+  "chanel-chance-eau-de-parfum-pour-femme": {
+   "annee": 2005,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "baie rose",
+     "jasmin",
+     "patchouli ambré",
+     "muscs blancs",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "roze peper",
+     "jasmijn",
+     "amberachtige patchoeli",
+     "witte musk",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Chance Eau de Parfum s'ouvre sur la <strong>baie rose</strong>, légèrement poivrée, qui réveille tout de suite. Le <strong>jasmin</strong> apporte ensuite une note florale douce et lumineuse.</p><p>Le fond mêle <strong>patchouli</strong> ambré, <strong>muscs blancs</strong> et <strong>vanille</strong> : un sillage rond, propre et chaleureux, qui enveloppe la peau sans l'alourdir. C'est un floral pétillant et joyeux, facile à porter au quotidien.</p><p>Sortie en 2005, cette eau de parfum se reconnaît à son flacon rond, signature de la ligne Chance, à une époque où les parfums Chanel se présentaient en flacons carrés. Idéal pour le printemps, l'été et toutes les journées où tu as envie d'une touche d'optimisme.</p>",
+   "nl": "<p>Chance Eau de Parfum opent met <strong>roze peper</strong>, licht pikant en meteen opwekkend. Daarna zorgt <strong>jasmijn</strong> voor een zachte, stralende bloementoets.</p><p>De basis combineert amberachtige <strong>patchoeli</strong>, <strong>witte musk</strong> en <strong>vanille</strong>: rond, schoon en warm, zonder je huid te verzwaren. Een sprankelend, vrolijk bloemig parfum dat je makkelijk elke dag draagt.</p><p>Deze eau de parfum kwam uit in 2005 en herken je aan de ronde flacon, het handelsmerk van de Chance-lijn, op een moment dat de parfums van Chanel in vierkante flacons kwamen. Ideaal voor de lente, de zomer en elke dag waarop je wat optimisme kunt gebruiken.</p>",
+   "sources": [
+    "https://www.chanel.com/fr/parfums/p/126520/chance-eau-de-parfum-vaporisateur/",
+    "https://en.wikipedia.org/wiki/Chanel_Chance",
+    "https://www.olfastory.com/blog/chance-chanel-toute-la-ligne",
+    "https://www.olfastory.com/parfum/chance/composition"
+   ],
+   "doute": "Pyramide laissée vide : les sources tierces se contredisent (Wikipedia, Olfastory, Parfumo donnent des répartitions différentes) ; seules les notes citées par Chanel sont en « cle ». Parfumeur : la ligne est attribuée à Jacques Polge (Wikipedia, Olfastory), mais aucune source ne le nomme spécifiquement pour l'EDP 2005 — non mentionné dans le texte."
+  },
+  "chanel-bleu-de-chanel-eau-de-parfum-pour-homme": {
+   "annee": 2014,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Aromatique boisé",
+   "famille_nl": "Aromatisch houtig",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "notes ambrées-cèdre",
+     "notes boisées musquées",
+     "santal de Nouvelle-Calédonie"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "amberachtige cedertonen",
+     "houtige muskustonen",
+     "sandelhout uit Nieuw-Caledonië"
+    ]
+   },
+   "fr": "<p>Bleu de Chanel Eau de Parfum est un boisé aromatique qui démarre avec fraîcheur et se réchauffe au fil des heures. Sa signature repose sur un accord de <strong>cèdre</strong> ambré, sec et sensuel.</p><p>Des notes <strong>boisées musquées</strong> lui donnent de la douceur, tandis que le <strong>santal</strong> de Nouvelle-Calédonie ajoute une profondeur crémeuse et élégante. Le résultat est sobre, soigné et polyvalent, jamais tapageur.</p><p>Lancée en 2014 et signée Jacques Polge, cette eau de parfum se reconnaît à son flacon d'un bleu profond. Idéale au bureau comme en soirée, toute l'année. Chanel conseille de la vaporiser en nuage sur la peau ou à l'intérieur des vêtements.</p>",
+   "nl": "<p>Bleu de Chanel Eau de Parfum is een aromatisch-houtige geur die fris begint en in de loop van de uren warmer wordt. De kern is een accord van amberachtige <strong>ceder</strong>, droog en sensueel.</p><p>Houtige <strong>muskustonen</strong> maken het geheel zachter, terwijl <strong>sandelhout</strong> uit Nieuw-Caledonië zorgt voor een romige, elegante diepte. Het resultaat is sober, verzorgd en veelzijdig, zonder ooit opdringerig te worden.</p><p>Deze eau de parfum kwam uit in 2014, gecreëerd door Jacques Polge, en je herkent hem aan de diepblauwe flacon. Ideaal op kantoor én 's avonds, het hele jaar door. Chanel raadt aan om hem als een wolkje op je huid of aan de binnenkant van je kleding te sprayen.</p>",
+   "sources": [
+    "https://www.chanel.com/fr/parfums/p/107360/bleu-de-chanel-eau-de-parfum-vaporisateur/",
+    "https://www.olfastory.com/parfum/chanel-bleu-de-chanel-eau-de-parfum-vaporisateur",
+    "https://fr.wikipedia.org/wiki/Bleu_de_Chanel",
+    "https://basenotes.com/fragrances/bleu-de-chanel-eau-de-parfum-by-chanel.26145039",
+    "https://www.parfumo.com/Perfumes/Chanel/Bleu_de_Chanel_Eau_de_Parfum"
+   ],
+   "doute": "Pyramide laissée vide : Basenotes, Parfumo et Olfastory donnent des listes très différentes ; seules les notes officielles Chanel sont en « cle ». L'ouverture « fraîche » du texte découle de la famille aromatique (agrumes cités par plusieurs sources tierces, pas par Chanel). La fiche Chanel cite aujourd'hui Olivier Polge comme parfumeur-créateur de la maison ; la création 2014 est attribuée à Jacques Polge (Olfastory, Wikipédia FR)."
+  },
+  "yves-saint-laurent-libre-eau-de-parfum-pour-femme": {
+   "annee": 2019,
+   "parfumeurs": [
+    "Anne Flipo",
+    "Carlos Benaïm"
+   ],
+   "famille_fr": "Ambré floral",
+   "famille_nl": "Amber bloemig",
+   "notes_fr": {
+    "tete": [
+     "mandarine",
+     "lavande",
+     "cassis",
+     "petitgrain"
+    ],
+    "coeur": [
+     "jasmin",
+     "lavande",
+     "fleur d'oranger"
+    ],
+    "fond": [
+     "vanille",
+     "cèdre",
+     "ambre gris",
+     "musc"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "mandarijn",
+     "lavendel",
+     "zwarte bes",
+     "petitgrain"
+    ],
+    "coeur": [
+     "jasmijn",
+     "lavendel",
+     "oranjebloesem"
+    ],
+    "fond": [
+     "vanille",
+     "ceder",
+     "ambergris",
+     "musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Libre s'ouvre sur la <strong>mandarine</strong> et le cassis, avec déjà une touche de <strong>lavande</strong> fraîche et de petitgrain. Le cœur associe cette lavande à la <strong>fleur d'oranger</strong> et au jasmin, pour un floral à la fois net et solaire.</p><p>Le fond devient doux et chaud grâce à la <strong>vanille</strong>, au cèdre, à l'ambre gris et au musc. C'est un parfum féminin au caractère franc : propre, lumineux et sensuel.</p><p>Créé en 2019 par Anne Flipo et Carlos Benaïm, Libre place la lavande, longtemps réservée aux parfums pour homme, au centre d'une composition féminine. Idéal pour le bureau, les sorties et la mi-saison.</p>",
+   "nl": "<p>Libre opent met <strong>mandarijn</strong> en zwarte bes, met meteen al een toets frisse <strong>lavendel</strong> en petitgrain. In het hart gaat die lavendel samen met <strong>oranjebloesem</strong> en jasmijn: helder, zonnig en bloemig.</p><p>De basis wordt zacht en warm dankzij <strong>vanille</strong>, ceder, ambergris en musk. Een vrouwelijk parfum met een uitgesproken karakter: schoon, stralend en sensueel, met een warme toets die uren blijft.</p><p>Anne Flipo en Carlos Benaïm creëerden Libre in 2019. Ze zetten lavendel, lang vooral voorbehouden aan herenparfums, centraal in een geur voor vrouwen. Ideaal voor op kantoor, een avondje uit en het tussenseizoen.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/libre-yves-saint-laurent",
+    "https://www.olfastory.com/en/perfume/libre-yves-saint-laurent/composition",
+    "https://www.parfumo.com/Perfumes/Yves_Saint_Laurent/libre-eau-de-parfum"
+   ],
+   "doute": "Page officielle YSL de l'EDP inaccessible (erreur) : pyramide d'Olfastory, non vérifiée sur le site de la marque ; Parfumo donne une variante (néroli en tête, jasmin sambac). Famille : Olfastory « orientale », Parfumo « floral-sucré » — résumé en « ambré floral »."
+  },
+  "yves-saint-laurent-y-eau-de-parfum-pour-homme": {
+   "annee": 2018,
+   "parfumeurs": [
+    "Dominique Ropion"
+   ],
+   "famille_fr": "Fougère aromatique",
+   "famille_nl": "Aromatische fougère",
+   "notes_fr": {
+    "tete": [
+     "pomme",
+     "bergamote"
+    ],
+    "coeur": [
+     "géranium",
+     "sauge sclarée"
+    ],
+    "fond": [
+     "bois",
+     "fève tonka"
+    ],
+    "cle": [
+     "sauge",
+     "absolu de géranium",
+     "accord boisé",
+     "fève tonka"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "appel",
+     "bergamot"
+    ],
+    "coeur": [
+     "geranium",
+     "scharlei"
+    ],
+    "fond": [
+     "hout",
+     "tonkaboon"
+    ],
+    "cle": [
+     "salie",
+     "geraniumabsolue",
+     "houtaccord",
+     "tonkaboon"
+    ]
+   },
+   "fr": "<p>Y Eau de Parfum démarre sur la <strong>pomme</strong> et la <strong>bergamote</strong>, une ouverture fraîche et croquante. Au cœur, la <strong>sauge</strong> et le <strong>géranium</strong> forment un accord aromatique propre et vert.</p><p>Le fond change d'humeur : des bois sombres et la <strong>fève tonka</strong> apportent une chaleur douce et légèrement sucrée. C'est ce jeu entre clarté et profondeur qu'Yves Saint Laurent décrit comme une fougère à la fois blanche et sombre.</p><p>Lancé en 2018, il a été composé par Dominique Ropion. Son flacon, dessiné par Suzanne Dalton, est un bloc de verre bleu qui fonce vers le bas, entaillé pour laisser voir un Y métallique. Idéal pour le bureau, les journées actives et les soirées décontractées, toute l'année.</p>",
+   "nl": "<p>Y Eau de Parfum begint met <strong>appel</strong> en <strong>bergamot</strong>, fris en knapperig. In het hart vormen <strong>salie</strong> en <strong>geranium</strong> een schoon, groen en aromatisch accord.</p><p>De basis slaat een andere toon aan: donker hout en <strong>tonkaboon</strong> brengen een zachte, licht zoete warmte. Dat spel tussen licht en diepte noemt Yves Saint Laurent een witte en donkere fougère.</p><p>Y Eau de Parfum kwam uit in 2018 en werd gecomponeerd door Dominique Ropion. De flacon, ontworpen door Suzanne Dalton, is een blok blauw glas dat naar onder toe donkerder wordt, met een inkeping die een metalen Y laat zien. Ideaal voor op kantoor, actieve dagen en ontspannen avonden, het hele jaar door.</p>",
+   "sources": [
+    "https://www.yslbeauty.com/int/fragrance/fragrance-for-him/y/y--eau-de-parfum/WW-50194YSL.html",
+    "https://www.olfastory.com/parfum/y-men-0",
+    "https://basenotes.com/fragrances/y-eau-de-parfum-by-yves-saint-laurent.26157362"
+   ],
+   "doute": "La marque ne donne pas de pyramide (deux accords : sauge/géranium et bois/tonka, mis en « cle ») ; pyramide tête/cœur/fond reprise d'Olfastory. Année 2018 confirmée par Olfastory et Basenotes, pas par la page officielle."
+  },
+  "lancome-la-vie-est-belle-eau-de-parfum-pour-femme": {
+   "annee": 2012,
+   "parfumeurs": [
+    "Olivier Polge",
+    "Dominique Ropion",
+    "Anne Flipo"
+   ],
+   "famille_fr": "Ambré floral",
+   "famille_nl": "Amber bloemig",
+   "notes_fr": {
+    "tete": [
+     "poire",
+     "cassis",
+     "aldéhydes"
+    ],
+    "coeur": [
+     "fleur d'oranger",
+     "jasmin",
+     "iris"
+    ],
+    "fond": [
+     "vanille",
+     "praliné",
+     "patchouli",
+     "fève tonka"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "peer",
+     "zwarte bes",
+     "aldehyden"
+    ],
+    "coeur": [
+     "oranjebloesem",
+     "jasmijn",
+     "iris"
+    ],
+    "fond": [
+     "vanille",
+     "praliné",
+     "patchoeli",
+     "tonkaboon"
+    ],
+    "cle": []
+   },
+   "fr": "<p>La Vie Est Belle s'ouvre sur un fruité gourmand de <strong>poire</strong> et de <strong>cassis</strong>, éclairé par une touche d'aldéhydes. Le cœur réunit <strong>iris</strong>, jasmin et fleur d'oranger, pour un floral doux et poudré.</p><p>C'est surtout le fond qui marque : <strong>praliné</strong>, <strong>vanille</strong>, fève tonka et patchouli forment une chaleur sucrée et réconfortante qui dure longtemps. Un parfum joyeux, généreux et très féminin.</p><p>Créé en 2012 par Olivier Polge, Dominique Ropion et Anne Flipo, il se présente dans un flacon dont la forme évoque un sourire de cristal. Idéal pour l'automne, l'hiver et les moments où tu as envie de douceur.</p>",
+   "nl": "<p>La Vie Est Belle opent fruitig en zoet met <strong>peer</strong> en <strong>zwarte bes</strong>, opgefrist door een vleugje aldehyden. Het hart brengt <strong>iris</strong>, jasmijn en oranjebloesem samen tot een zacht, poederig bloemenaccord.</p><p>Vooral de basis blijft je bij: <strong>praliné</strong>, <strong>vanille</strong>, tonkaboon en patchoeli zorgen voor een zoete, geruststellende warmte die lang aanhoudt. Een vrolijk, gul en uitgesproken vrouwelijk parfum.</p><p>Olivier Polge, Dominique Ropion en Anne Flipo creëerden het in 2012. De flacon heeft een vorm die doet denken aan een glimlach van kristal. Ideaal voor de herfst, de winter en momenten waarop je zin hebt in wat zachtheid.</p>",
+   "sources": [
+    "https://www.osmoz.com/perfumes/lancome/6665/la-vie-est-belle",
+    "https://www.olfastory.com/parfum/la-vie-est-belle/composition",
+    "https://basenotes.com/fragrances/la-vie-est-belle-by-lancome.26135897"
+   ],
+   "doute": "Pages officielles Lancôme inaccessibles (erreur) : pyramide d'Osmoz, concordante avec Basenotes. Basenotes ne cite que Polge et Ropion (Anne Flipo citée par Osmoz et Olfastory)."
+  },
+  "lancome-idole-eau-de-parfum-pour-femme": {
+   "annee": 2019,
+   "parfumeurs": [
+    "Shyamala Maisondieu",
+    "Adriana Medina",
+    "Nadège Le Garlantezec"
+   ],
+   "famille_fr": "Chypré floral",
+   "famille_nl": "Bloemige chypre",
+   "notes_fr": {
+    "tete": [
+     "poire",
+     "bergamote",
+     "poivre rose"
+    ],
+    "coeur": [
+     "rose",
+     "jasmin"
+    ],
+    "fond": [
+     "muscs blancs",
+     "vanille",
+     "patchouli",
+     "cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "peer",
+     "bergamot",
+     "roze peper"
+    ],
+    "coeur": [
+     "roos",
+     "jasmijn"
+    ],
+    "fond": [
+     "witte musk",
+     "vanille",
+     "patchoeli",
+     "ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Idôle s'ouvre sur une fraîcheur fruitée : <strong>poire</strong>, <strong>bergamote</strong> et une pointe de poivre rose. Le cœur est un bouquet très clair de <strong>rose</strong> et de <strong>jasmin</strong>, net et lumineux.</p><p>Le fond reste léger et propre, avec des <strong>muscs blancs</strong>, un peu de vanille, du patchouli et du cèdre. C'est un floral moderne et frais, facile à porter, qui laisse une impression de peau propre.</p><p>Lancé en 2019, il a été composé par trois parfumeuses : Shyamala Maisondieu, Adriana Medina et Nadège Le Garlantezec. Son flacon rose, très fin (environ 15 mm d'épaisseur), est rechargeable. Idéal pour la journée, au printemps comme en été.</p>",
+   "nl": "<p>Idôle opent fris en fruitig met <strong>peer</strong>, <strong>bergamot</strong> en een vleugje roze peper. Het hart is een helder boeket van <strong>roos</strong> en <strong>jasmijn</strong>, puur en stralend.</p><p>De basis blijft licht en schoon, met <strong>witte musk</strong>, een beetje vanille, patchoeli en ceder. Een modern, fris bloemig parfum dat makkelijk te dragen is en aanvoelt als een pas gewassen huid.</p><p>Idôle kwam uit in 2019 en werd gecomponeerd door drie parfumeurs: Shyamala Maisondieu, Adriana Medina en Nadège Le Garlantezec. De roze flacon is heel dun, ongeveer 15 mm, en navulbaar. Ideaal overdag, in de lente en de zomer.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/idole-lancome",
+    "https://www.olfastory.com/en/perfume/idole-lancome/composition",
+    "https://www.parfumo.com/Perfumes/Lancome/Idole",
+    "https://basenotes.com/fragrances/idole-by-lancome.26159203"
+   ],
+   "doute": "Page officielle Lancôme inaccessible (erreur) : pyramide d'Olfastory, concordante avec Parfumo (qui détaille davantage roses et jasmins). Famille : Olfastory « chypré, fleuri » ; Parfumo « floral-sucré »."
+  },
+  "dior-j-adore-eau-de-parfum-pour-femme": {
+   "annee": 1999,
+   "parfumeurs": [
+    "Calice Becker"
+   ],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [
+     "ylang-ylang"
+    ],
+    "coeur": [
+     "rose de Damas"
+    ],
+    "fond": [
+     "jasmin grandiflorum",
+     "jasmin sambac"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "ylang-ylang"
+    ],
+    "coeur": [
+     "Damascusroos"
+    ],
+    "fond": [
+     "jasmijn grandiflorum",
+     "sambac-jasmijn"
+    ],
+    "cle": []
+   },
+   "fr": "<p>J'adore s'ouvre sur l'<strong>ylang-ylang</strong>, une fleur solaire au parfum doux et légèrement crémeux. Au cœur, la <strong>rose de Damas</strong> apporte fraîcheur et relief, puis deux jasmins, <strong>grandiflorum et sambac</strong>, prennent le relais en fond avec une note lumineuse. L'idée de la maison : que ces fleurs se fondent en un seul bouquet, sans qu'aucune ne prenne le dessus.</p><p>Le résultat est féminin, lumineux et facile à porter. Idéal au quotidien comme pour une soirée, il se plaît particulièrement au printemps et en été.</p><p>Créé en 1999 par la parfumeuse Calice Becker, J'adore se reconnaît à son flacon en forme d'amphore au long col orné d'anneaux, dessiné par Hervé Van der Straeten.</p>",
+   "nl": "<p>J'adore opent met <strong>ylang-ylang</strong>, een zonnige bloem met een zachte, licht romige geur. In het hart zorgt <strong>Damascusroos</strong> voor frisheid en karakter, waarna twee soorten jasmijn, <strong>grandiflorum en sambac</strong>, de basis vormen met een stralende toets. Het idee van het huis: al die bloemen smelten samen tot één boeket, zonder dat er één de bovenhand neemt.</p><p>Het resultaat is vrouwelijk, stralend en makkelijk te dragen. Ideaal voor elke dag én voor een avondje uit, en op zijn best in de lente en de zomer.</p><p>J'adore werd in 1999 gecreëerd door parfumeur Calice Becker. Je herkent hem meteen aan de amforavormige flacon met lange, geringde hals, ontworpen door Hervé Van der Straeten.</p>",
+   "sources": [
+    "https://www.dior.com/en_id/beauty/products/j%E2%80%99adore-eau-de-parfum-Y0998031.html",
+    "https://www.olfastory.com/parfum/jadore/composition",
+    "https://www.olfastory.com/en/perfume/jadore/bottle",
+    "https://basenotes.com/fragrances/jadore-by-christian-dior.10210718"
+   ],
+   "doute": "Pyramide = pyramide officielle Dior actuelle (ylang / rose de Damas / jasmins). La formule de 1999 citée par Olfastory était différente (bergamote, mandarine, violette, orchidée, prune, mûre, musc). Famille 'Floral' selon Olfastory (Fragrantica inaccessible)."
+  },
+  "giorgio-armani-acqua-di-gio-pour-homme-eau-de-toilette-pour-homme": {
+   "annee": 1996,
+   "parfumeurs": [
+    "Alberto Morillas"
+   ],
+   "famille_fr": "Hespéridé aquatique",
+   "famille_nl": "Citrus aquatisch",
+   "notes_fr": {
+    "tete": [
+     "accord marin",
+     "bergamote"
+    ],
+    "coeur": [
+     "jasmin",
+     "bois de cèdre",
+     "romarin"
+    ],
+    "fond": [
+     "muscs blancs",
+     "patchouli"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "marien akkoord",
+     "bergamot"
+    ],
+    "coeur": [
+     "jasmijn",
+     "cederhout",
+     "rozemarijn"
+    ],
+    "fond": [
+     "witte musk",
+     "patchoeli"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Acqua di Giò Pour Homme démarre sur un <strong>accord marin</strong> et de la <strong>bergamote</strong> : on pense à l'air salé du large et à un zeste d'agrume. Le cœur mêle <strong>jasmin</strong>, <strong>romarin</strong> et bois de cèdre, pour une touche à la fois florale et aromatique. En fond, des <strong>muscs blancs</strong> et du <strong>patchouli</strong> laissent sur la peau une trace propre et légèrement boisée.</p><p>C'est un parfum frais et décontracté, idéal pour les journées chaudes, le bureau ou le week-end, du printemps à la fin de l'été.</p><p>Lancé en 1996 et signé Alberto Morillas, il s'inspire de Pantelleria, une petite île entre la Sicile et la Tunisie à laquelle Giorgio Armani est très attaché.</p>",
+   "nl": "<p>Acqua di Giò Pour Homme opent met een <strong>marien akkoord</strong> en <strong>bergamot</strong>: denk aan zilte zeelucht en een vleugje citrus. Het hart combineert <strong>jasmijn</strong>, <strong>rozemarijn</strong> en cederhout, bloemig en aromatisch tegelijk. In de basis laten <strong>witte musk</strong> en <strong>patchoeli</strong> een schoon, licht houtig spoor op je huid achter.</p><p>Een frisse, ontspannen geur, ideaal voor warme dagen, op kantoor of in het weekend, van de lente tot het einde van de zomer.</p><p>Hij kwam uit in 1996, werd gecomponeerd door Alberto Morillas en is geïnspireerd op Pantelleria, een klein eiland tussen Sicilië en Tunesië waar Giorgio Armani bijzonder aan gehecht is.</p>",
+   "sources": [
+    "https://www.armanibeauty.co.uk/perfume/mens-perfumes/acqua-di-gio/acqua-di-gio-eau-de-toilette/ww-00843-arm.html",
+    "https://www.olfastory.com/parfum/acqua-di-gio-homme",
+    "https://www.olfastory.com/en/perfume/acqua-di-gio-homme"
+   ],
+   "doute": "Pyramide = notes officielles Armani actuelles (UK). Olfastory donne une pyramide technique différente (bergamote, melon, limette / note marine, hédione, coriandre / patchouli, cèdre). Famille : Olfastory dit 'hespéridé' ; 'aquatique' ajouté d'après l'accord marin officiel (Fragrantica inaccessible)."
+  },
+  "giorgio-armani-code-eau-de-toilette-pour-homme": {
+   "annee": 2004,
+   "parfumeurs": [
+    "Antoine Lie",
+    "Antoine Maisondieu"
+   ],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Amberachtig houtig",
+   "notes_fr": {
+    "tete": [
+     "mandarine verte"
+    ],
+    "coeur": [
+     "lavandin"
+    ],
+    "fond": [
+     "fève tonka",
+     "cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "groene mandarijn"
+    ],
+    "coeur": [
+     "lavandin"
+    ],
+    "fond": [
+     "tonkaboon",
+     "ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Armani Code s'ouvre sur la <strong>mandarine verte</strong> de Calabre, vive et un peu acidulée. Le cœur passe au <strong>lavandin</strong> de Provence, aromatique et net, puis le fond s'arrondit avec l'absolu de <strong>fève tonka</strong> et le <strong>cèdre</strong> : une chaleur douce, légèrement sucrée et boisée, qui reste près de la peau.</p><p>Son caractère est élégant et séducteur, sans lourdeur. Idéal pour le soir, un rendez-vous ou une sortie, il trouve sa meilleure saison en automne et en hiver ; avec une ou deux pulvérisations, il se porte aussi au bureau.</p><p>Lancé en 2004, il a été composé par Antoine Lie et Antoine Maisondieu. D'abord sorti sous le nom de Black Code, il a rapidement été rebaptisé Armani Code.</p>",
+   "nl": "<p>Armani Code opent met <strong>groene mandarijn</strong> uit Calabrië, levendig en een tikje zuur. In het hart zit <strong>lavandin</strong> uit de Provence, aromatisch en strak, waarna de basis zachter wordt met absolue van <strong>tonkaboon</strong> en <strong>ceder</strong>: een zachte, licht zoete en houtige warmte die dicht bij je huid blijft.</p><p>Een elegante, verleidelijke geur zonder zwaarte. Ideaal voor de avond, een date of een avondje uit, en op zijn best in de herfst en de winter. Met één of twee sprays draag je hem ook op kantoor.</p><p>Hij werd gelanceerd in 2004 en gecomponeerd door Antoine Lie en Antoine Maisondieu. Eerst heette hij Black Code, maar al snel kreeg hij de naam Armani Code.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/armani-code",
+    "https://www.olfastory.com/en/perfume/armani-code",
+    "https://basenotes.com/fragrances/armani-code-black-code-by-giorgio-armani.26122640"
+   ],
+   "doute": "Pyramide = notes officielles Armani depuis la version rechargeable 2023 (citées par Olfastory ; page Armani inaccessible). Anciennes listes plus longues (bergamote, fleur d'olivier, gaïac…). Basenotes ne cite qu'Antoine Lie ; Olfastory ajoute Antoine Maisondieu. Famille : Olfastory 'oriental / boisé', rendu en 'Ambré boisé'."
+  },
+  "giorgio-armani-my-way-eau-de-parfum-pour-femme": {
+   "annee": 2020,
+   "parfumeurs": [
+    "Carlos Benaïm",
+    "Bruno Jovanovic"
+   ],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "fleur d'oranger"
+    ],
+    "coeur": [
+     "tubéreuse",
+     "jasmin sambac"
+    ],
+    "fond": [
+     "cèdre",
+     "vanille",
+     "muscs blancs"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "oranjebloesem"
+    ],
+    "coeur": [
+     "tuberoos",
+     "sambac-jasmijn"
+    ],
+    "fond": [
+     "ceder",
+     "vanille",
+     "witte musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>My Way commence avec la <strong>bergamote</strong> de Calabre et la <strong>fleur d'oranger</strong> d'Égypte, une ouverture fraîche et lumineuse. Le cœur est un bouquet de fleurs blanches, <strong>tubéreuse</strong> et <strong>jasmin sambac</strong>, crémeux sans être lourd. En fond, la <strong>vanille</strong> bourbon de Madagascar, le cèdre de Virginie et les muscs blancs installent une douceur propre et enveloppante.</p><p>C'est un floral solaire et positif, facile à porter. Idéal pour le quotidien, le bureau ou les sorties en journée, il convient à toutes les saisons, avec un petit plus au printemps.</p><p>Sorti en 2020, il a été créé par Carlos Benaïm et Bruno Jovanovic. Son flacon en verre transparent, coiffé d'une pierre polie bleue, est conçu pour être rechargé.</p>",
+   "nl": "<p>My Way opent met <strong>bergamot</strong> uit Calabrië en Egyptische <strong>oranjebloesem</strong>, fris en stralend. Het hart is een boeket witte bloemen, <strong>tuberoos</strong> en <strong>sambac-jasmijn</strong>, romig maar niet zwaar. In de basis zorgen <strong>bourbonvanille</strong> uit Madagaskar, Virginiaanse ceder en witte musk voor een zachte, schone warmte.</p><p>Een zonnige, positieve bloemengeur die je makkelijk draagt. Ideaal voor elke dag, op kantoor of voor een uitstap overdag. Hij past bij elk seizoen, maar komt in de lente extra mooi tot zijn recht.</p><p>My Way kwam uit in 2020 en werd gecreëerd door Carlos Benaïm en Bruno Jovanovic. De transparante glazen flacon, bekroond met een gepolijste blauwe steen, is navulbaar.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/my-way",
+    "https://www.olfastory.com/en/perfume/my-way",
+    "https://basenotes.com/fragrances/my-way-by-giorgio-armani.26161523"
+   ],
+   "doute": "Page officielle Armani inaccessible : pyramide d'Olfastory, confirmée par Basenotes. Origines des notes de cœur divergentes (Inde pour la tubéreuse ou pour le jasmin selon la source) : non mentionnées."
+  },
+  "paco-rabanne-1-million-eau-de-toilette-pour-homme": {
+   "annee": 2008,
+   "parfumeurs": [
+    "Christophe Raynaud",
+    "Olivier Pescheux",
+    "Michel Girard"
+   ],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Houtig kruidig",
+   "notes_fr": {
+    "tete": [
+     "mandarine sanguine",
+     "pamplemousse",
+     "menthe"
+    ],
+    "coeur": [
+     "cannelle",
+     "rose",
+     "épices"
+    ],
+    "fond": [
+     "cuir",
+     "ambre",
+     "bois",
+     "patchouli"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "bloedmandarijn",
+     "grapefruit",
+     "munt"
+    ],
+    "coeur": [
+     "kaneel",
+     "roos",
+     "kruiden"
+    ],
+    "fond": [
+     "leer",
+     "amber",
+     "hout",
+     "patchoeli"
+    ],
+    "cle": []
+   },
+   "fr": "<p>1 Million s'ouvre sur la <strong>mandarine sanguine</strong>, relevée de pamplemousse et d'une touche de menthe bien fraîche. Le cœur se réchauffe avec la <strong>cannelle</strong> et une rose épicée. En fond, un <strong>ambre cuiré</strong> mêlé de bois fumés et de patchouli laisse une trace chaude qui tient bien sur la peau.</p><p>C'est un boisé épicé assumé, chaleureux et qui ne passe pas inaperçu. Idéal pour les soirées, les sorties et les jours froids, de l'automne à la fin de l'hiver ; en journée, une ou deux pulvérisations suffisent.</p><p>Lancé en 2008, il est l'œuvre de trois parfumeurs : Christophe Raynaud, Olivier Pescheux et Michel Girard. Son flacon en forme de lingot d'or a été dessiné par Noé Duchaufour-Lawrance.</p>",
+   "nl": "<p>1 Million opent met <strong>bloedmandarijn</strong>, aangescherpt met grapefruit en een frisse toets munt. In het hart wordt het warmer met <strong>kaneel</strong> en een kruidige roos. In de basis zorgt <strong>leerachtige amber</strong>, met rokerig hout en patchoeli, voor een warm spoor dat lang op je huid blijft.</p><p>Een uitgesproken houtig-kruidige geur, warm en opvallend. Ideaal voor avonden, feestjes en koude dagen, van de herfst tot het einde van de winter. Overdag volstaan één of twee sprays.</p><p>Hij kwam uit in 2008 en is het werk van drie parfumeurs: Christophe Raynaud, Olivier Pescheux en Michel Girard. De flacon in de vorm van een goudstaaf werd ontworpen door Noé Duchaufour-Lawrance.</p>",
+   "sources": [
+    "https://www.rabanne.com/fr/fr/fragrance/p/1-million--000000000065135969",
+    "https://www.olfastory.com/en/perfume/1-million/composition",
+    "https://www.olfastory.com/en/perfume/1-million"
+   ],
+   "doute": ""
+  },
+  "paco-rabanne-invictus-eau-de-toilette-pour-homme": {
+   "annee": 2013,
+   "parfumeurs": [
+    "Véronique Nyberg",
+    "Anne Flipo",
+    "Olivier Polge",
+    "Dominique Ropion"
+   ],
+   "famille_fr": "Boisé aquatique",
+   "famille_nl": "Houtig aquatisch",
+   "notes_fr": {
+    "tete": [
+     "pamplemousse"
+    ],
+    "coeur": [
+     "accord marin",
+     "laurier"
+    ],
+    "fond": [
+     "bois de gaïac",
+     "patchouli",
+     "ambre gris"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "grapefruit"
+    ],
+    "coeur": [
+     "marien akkoord",
+     "laurier"
+    ],
+    "fond": [
+     "guajakhout",
+     "patchoeli",
+     "ambergris"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Invictus démarre sur le <strong>pamplemousse</strong>, juteux et pétillant. Le cœur apporte un <strong>accord marin</strong> qui évoque l'air de la mer, adouci par une feuille de <strong>laurier</strong>. En fond, le <strong>bois de gaïac</strong>, le patchouli et l'<strong>ambre gris</strong> forment une base boisée, chaude et un peu salée.</p><p>C'est un parfum frais, dynamique et plein d'énergie. Idéal en journée, pour les sorties entre amis et les beaux jours, du printemps à la fin de l'été.</p><p>Lancé en 2013, Invictus (« invaincu » en latin) a été composé par Véronique Nyberg avec Anne Flipo, Olivier Polge et Dominique Ropion. Son flacon en forme de trophée, dessiné par Cédric Ragot, rappelle la coupe remise au vainqueur.</p>",
+   "nl": "<p>Invictus opent met sappige, sprankelende <strong>grapefruit</strong>. Het hart brengt een <strong>marien akkoord</strong> dat aan zeelucht doet denken, verzacht met <strong>laurier</strong>. In de basis zorgen <strong>guajakhout</strong>, patchoeli en <strong>ambergris</strong> voor een houtig, warm en licht zilt spoor.</p><p>Een frisse, dynamische geur vol energie. Ideaal overdag, om met vrienden op stap te gaan en voor zonnige dagen, van de lente tot het einde van de zomer.</p><p>Invictus (Latijn voor ‘onoverwonnen’) kwam uit in 2013 en werd gecomponeerd door Véronique Nyberg samen met Anne Flipo, Olivier Polge en Dominique Ropion. De trofeevormige flacon, ontworpen door Cédric Ragot, verwijst naar de beker die de winnaar krijgt.</p>",
+   "sources": [
+    "https://www.rabanne.com/fr/fr/fragrance/p/invictus--000000000065055742_BASE",
+    "https://www.olfastory.com/parfum/invictus/composition",
+    "https://www.olfastory.com/en/perfume/invictus"
+   ],
+   "doute": "Pyramide officielle Rabanne courte (pamplemousse / accord marin / gaïac + patchouli, ambre gris) ; laurier ajouté d'après Olfastory."
+  },
+  "paco-rabanne-olympea-eau-de-parfum-pour-femme": {
+   "annee": 2015,
+   "parfumeurs": [
+    "Anne Flipo",
+    "Dominique Ropion",
+    "Loc Dong"
+   ],
+   "famille_fr": "Floral ambré",
+   "famille_nl": "Bloemig amberachtig",
+   "notes_fr": {
+    "tete": [
+     "mandarine verte",
+     "jasmin d'eau"
+    ],
+    "coeur": [
+     "fleur de gingembre"
+    ],
+    "fond": [
+     "vanille salée",
+     "ambre gris",
+     "bois de cachemire"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "groene mandarijn",
+     "waterjasmijn"
+    ],
+    "coeur": [
+     "gemberbloem"
+    ],
+    "fond": [
+     "zilte vanille",
+     "ambergris",
+     "kasjmierhout"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Olympéa s'ouvre sur la <strong>mandarine verte</strong> et le <strong>jasmin d'eau</strong>, une entrée fraîche et florale. Le cœur dévoile la <strong>fleur de gingembre</strong>, légèrement épicée. En fond, une <strong>vanille</strong> à la facette salée, posée sur l'<strong>ambre gris</strong> et le bois de cachemire, crée un contraste doux-salé qui reste proche de la peau.</p><p>C'est un floral ambré sensuel et chaleureux. Idéal pour les soirées et les moments où tu as envie de te sentir élégante, il se porte surtout en automne et en hiver.</p><p>Lancé en 2015, il a été créé par Anne Flipo, Dominique Ropion et Loc Dong. Son flacon, entouré de feuilles de laurier, s'inspire de la Grèce antique et des ailes mythiques de la victoire.</p>",
+   "nl": "<p>Olympéa opent met <strong>groene mandarijn</strong> en <strong>waterjasmijn</strong>, fris en bloemig. In het hart verschijnt <strong>gemberbloem</strong>, licht kruidig. In de basis zorgt <strong>vanille</strong> met een zilte toets, op <strong>ambergris</strong> en kasjmierhout, voor een zacht zoet-zout contrast dat dicht bij je huid blijft.</p><p>Een sensuele, warme bloemig-amberachtige geur. Ideaal voor avonden en momenten waarop je je elegant wilt voelen, vooral in de herfst en de winter.</p><p>Olympéa kwam uit in 2015 en werd gecreëerd door Anne Flipo, Dominique Ropion en Loc Dong. De flacon, omringd door laurierbladeren, is geïnspireerd op het oude Griekenland en de mythische vleugels van de overwinning.</p>",
+   "sources": [
+    "https://www.rabanne.com/uk/en_GB/fragrance/p/olympea--000000000065187140",
+    "https://www.olfastory.com/parfum/olympea",
+    "https://www.olfastory.com/parfum/olympea/composition",
+    "https://basenotes.com/fragrances/olympea-by-paco-rabanne.26146053"
+   ],
+   "doute": "Pyramide officielle Rabanne très courte (tête jasmin / cœur fleur de gingembre / fond vanille) ; mandarine verte, jasmin d'eau, ambre gris et bois de cachemire viennent de la description officielle, la facette salée d'Olfastory et Basenotes. Olfastory donne une autre pyramide (mandarine, orange, cassis / fleur d'oranger, jasmin / vanille, caramel, cashmeran)."
+  },
+  "jean-paul-gaultier-le-male-eau-de-toilette-pour-homme": {
+   "annee": 1995,
+   "parfumeurs": [
+    "Francis Kurkdjian"
+   ],
+   "famille_fr": "Aromatique ambré",
+   "famille_nl": "Aromatisch amberachtig",
+   "notes_fr": {
+    "tete": [
+     "lavande",
+     "menthe",
+     "bergamote"
+    ],
+    "coeur": [
+     "fleur d'oranger",
+     "cannelle",
+     "cumin"
+    ],
+    "fond": [
+     "vanille",
+     "fève tonka",
+     "santal",
+     "cèdre"
+    ],
+    "cle": [
+     "menthe",
+     "lavande",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "lavendel",
+     "munt",
+     "bergamot"
+    ],
+    "coeur": [
+     "oranjebloesem",
+     "kaneel",
+     "komijn"
+    ],
+    "fond": [
+     "vanille",
+     "tonkaboon",
+     "sandelhout",
+     "ceder"
+    ],
+    "cle": [
+     "munt",
+     "lavendel",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Le Male s'ouvre sur la <strong>lavande</strong> et la <strong>menthe</strong>, avec un peu de bergamote : une fraîcheur aromatique très nette. Le cœur se réchauffe avec la fleur d'oranger, la cannelle et une pointe de cumin. En fond, la <strong>vanille</strong>, la fève tonka, le santal et le cèdre laissent une trace douce et ambrée.</p><p>Frais et chaleureux à la fois, il a un caractère affirmé et sensuel. Idéal pour le soir et les sorties, il est particulièrement agréable en automne et en hiver.</p><p>Créé en 1995 par Francis Kurkdjian, Le Male se reconnaît au premier coup d'œil : son flacon a la forme d'un buste de marin moulé dans la célèbre marinière de Jean Paul Gaultier.</p>",
+   "nl": "<p>Le Male opent met <strong>lavendel</strong> en <strong>munt</strong>, met een vleugje bergamot: een heel heldere, aromatische frisheid. In het hart wordt het warmer met oranjebloesem, kaneel en een tikje komijn. In de basis laten <strong>vanille</strong>, tonkaboon, sandelhout en ceder een zacht, amberachtig spoor achter.</p><p>Fris en warm tegelijk, met een uitgesproken, sensueel karakter. Ideaal voor de avond en om uit te gaan, en vooral aangenaam in de herfst en de winter.</p><p>Le Male werd in 1995 gecreëerd door Francis Kurkdjian. Je herkent hem meteen: de flacon heeft de vorm van een zeemanstorso in de bekende gestreepte marinière van Jean Paul Gaultier.</p>",
+   "sources": [
+    "https://www.jeanpaulgaultier.com/be/fr/p/gamme-le-male/le-male-eau-de-toilette-000000000065120120",
+    "https://www.olfastory.com/parfum/le-male",
+    "https://www.olfastory.com/parfum/le-male/composition"
+   ],
+   "doute": "La marque ne donne que 3 notes clés (menthe, lavande, vanille) sans pyramide ; tête/cœur/fond repris d'Olfastory, dont les deux pages diffèrent un peu (pamplemousse/néroli/vétiver sur la page composition)."
+  },
+  "carolina-herrera-good-girl-refillable-eau-de-parfum-pour-femme": {
+   "annee": 2016,
+   "parfumeurs": [
+    "Louise Turner"
+   ],
+   "famille_fr": "Ambré floral",
+   "famille_nl": "Amberachtig bloemig",
+   "notes_fr": {
+    "tete": [
+     "amande"
+    ],
+    "coeur": [
+     "jasmin sambac",
+     "tubéreuse"
+    ],
+    "fond": [
+     "fève tonka",
+     "cacao"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "amandel"
+    ],
+    "coeur": [
+     "sambac-jasmijn",
+     "tuberoos"
+    ],
+    "fond": [
+     "tonkaboon",
+     "cacao"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Good Girl s'ouvre sur l'<strong>amande</strong>, accompagnée d'une touche de café. Le cœur réunit deux fleurs blanches, le <strong>jasmin sambac</strong> et la <strong>tubéreuse</strong>, lumineuses et généreuses. En fond, la <strong>fève tonka</strong> et le <strong>cacao</strong> apportent une chaleur gourmande, un peu sombre.</p><p>Ce parfum joue sur le contraste entre fleurs blanches éclatantes et notes plus douces et profondes : féminin, audacieux et sensuel. Idéal pour le soir, les sorties et les occasions spéciales, il est à son meilleur en automne et en hiver.</p><p>Lancé en 2016 et composé par Louise Turner, il se reconnaît à son flacon en forme d'escarpin à talon aiguille, en verre bleu nuit avec un talon doré. Dans cette version rechargeable, il suffit de retirer le talon pour remplir le flacon avec une recharge.</p>",
+   "nl": "<p>Good Girl opent met <strong>amandel</strong> en een toets koffie. In het hart vind je twee witte bloemen, <strong>sambac-jasmijn</strong> en <strong>tuberoos</strong>, stralend en vol. In de basis zorgen <strong>tonkaboon</strong> en <strong>cacao</strong> voor een gourmande, wat donkere warmte.</p><p>De geur speelt met het contrast tussen stralende witte bloemen en zachtere, diepere tonen: vrouwelijk, gedurfd en sensueel. Ideaal voor de avond, om uit te gaan en voor speciale gelegenheden, en op zijn best in de herfst en de winter.</p><p>Good Girl kwam uit in 2016 en werd gecomponeerd door Louise Turner. Je herkent hem aan de flacon in de vorm van een pump met naaldhak, in nachtblauw glas met een gouden hak. Bij deze navulbare versie haal je gewoon de hak eraf om de flacon met een navulling bij te vullen.</p>",
+   "sources": [
+    "https://www.carolinaherrera.com/fr/fr/p-fragrance/good-girl-eau-de-parfum",
+    "https://www.carolinaherrera.com/ww/en/editorial/fragrances-good-girl-refillable-edition",
+    "https://www.olfastory.com/parfum/good-girl/composition",
+    "https://www.olfastory.com/en/perfume/good-girl/bottle"
+   ],
+   "doute": "Le café n'est pas dans la pyramide officielle (cité par Olfastory en ouverture) : mentionné dans le texte seulement. Selon la marque, seul le 100 ml est rechargeable."
+  },
+  "prada-luna-rossa-eau-de-toilette-pour-homme": {
+   "annee": 2012,
+   "parfumeurs": [
+    "Daniela Andrier"
+   ],
+   "famille_fr": "Fougère aromatique",
+   "famille_nl": "Aromatische fougère",
+   "notes_fr": {
+    "tete": [
+     "orange amère",
+     "lavande"
+    ],
+    "coeur": [
+     "sauge sclarée",
+     "menthe"
+    ],
+    "fond": [
+     "ambroxan",
+     "ambrette"
+    ],
+    "cle": [
+     "lavande",
+     "menthe verte",
+     "ambre"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bittere sinaasappel",
+     "lavendel"
+    ],
+    "coeur": [
+     "scharlei",
+     "munt"
+    ],
+    "fond": [
+     "ambroxan",
+     "ambrette"
+    ],
+    "cle": [
+     "lavendel",
+     "groene munt",
+     "amber"
+    ]
+   },
+   "fr": "<p>Luna Rossa s'ouvre sur l'<strong>orange amère</strong> et la <strong>lavande</strong>, fraîches et aromatiques. Le cœur ajoute la <strong>sauge sclarée</strong> et la <strong>menthe</strong>, pour une sensation verte et tonique. En fond, l'ambroxan et l'ambrette laissent une trace ambrée, propre et légèrement musquée.</p><p>C'est une fougère moderne, nette et élégante, sans lourdeur. Idéal pour le bureau, la journée et les beaux jours, il se porte toute l'année, surtout au printemps et en été.</p><p>Lancé en 2012 et composé par Daniela Andrier, il porte le nom de l'équipe de voile engagée par Prada dans la Coupe de l'America. Son flacon argenté, dessiné par Yves Béhar, reprend les lignes des voiliers de course.</p>",
+   "nl": "<p>Luna Rossa opent met <strong>bittere sinaasappel</strong> en <strong>lavendel</strong>, fris en aromatisch. In het hart komen <strong>scharlei</strong> en <strong>munt</strong> erbij, groen en verkwikkend. In de basis laten ambroxan en ambrette een schoon, amberachtig en licht muskusachtig spoor achter.</p><p>Een moderne fougère, strak en elegant zonder zwaar te worden. Ideaal voor op kantoor, overdag en voor zonnige dagen. Je draagt hem het hele jaar door, maar vooral in de lente en de zomer.</p><p>Luna Rossa kwam uit in 2012 en werd gecomponeerd door Daniela Andrier. Hij is vernoemd naar het zeilteam waarmee Prada deelnam aan de America's Cup. De zilveren flacon van Yves Béhar is geïnspireerd op de lijnen van snelle raceboten.</p>",
+   "sources": [
+    "https://www.prada-beauty.com/fragrance/luna-rossa/luna-rossa-eau-de-toilette/MPL01360.html",
+    "https://www.olfastory.com/parfum/prada-luna-rossa/composition",
+    "https://www.olfastory.com/en/perfume/prada-luna-rossa"
+   ],
+   "doute": "La marque ne donne que 3 notes clés (lavande, menthe verte, ambre) ; pyramide d'Olfastory, qui signale que l'ordre des notes varie selon les textes de la maison."
+  },
+  "dolce-gabbana-light-blue-eau-de-toilette-pour-femme": {
+   "annee": 2001,
+   "parfumeurs": [
+    "Olivier Cresp"
+   ],
+   "famille_fr": "Boisé fruité",
+   "famille_nl": "Houtig fruitig",
+   "notes_fr": {
+    "tete": [
+     "Citron de Sicile"
+    ],
+    "coeur": [
+     "Pomme Granny Smith"
+    ],
+    "fond": [
+     "Bois de cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Siciliaanse citroen"
+    ],
+    "coeur": [
+     "Granny Smith-appel"
+    ],
+    "fond": [
+     "Cederhout"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Light Blue s'ouvre sur un <strong>citron de Sicile</strong> vif et juteux, presque pétillant. Vient ensuite une <strong>pomme Granny Smith</strong> croquante, verte et acidulée, qui donne au parfum son côté fruité et frais. Le fond repose sur le <strong>bois de cèdre</strong>, adouci par une touche de jasmin et de musc qui reste près de la peau.</p><p>C'est un parfum lumineux et facile à porter, qui évoque une journée d'été au bord de la Méditerranée. Idéal pour le printemps et l'été, au bureau comme en week-end, ou dès que tu as envie de fraîcheur.</p><p>Lancé en 2001, il a été composé par le parfumeur Olivier Cresp, qui voulait traduire le soleil et la mer du sud de l'Italie.</p>",
+   "nl": "<p>Light Blue opent met frisse, sappige <strong>Siciliaanse citroen</strong>. Daarna komt een knapperige <strong>Granny Smith-appel</strong>, groen en lekker zurig, die de geur zijn fruitige frisheid geeft. In de basis zit <strong>cederhout</strong>, verzacht door een vleugje jasmijn en musk dat dicht bij de huid blijft.</p><p>Een stralende geur die je zonder nadenken draagt en die doet denken aan een zomerdag aan de Middellandse Zee. Ideaal voor de lente en de zomer, op kantoor of in het weekend, telkens als je zin hebt in frisheid.</p><p>Light Blue kwam uit in 2001 en werd gecomponeerd door parfumeur Olivier Cresp, die de zon en de zee van Zuid-Italië wilde vangen.</p>",
+   "sources": [
+    "https://www.notino.co.uk/-/pd/DOG09945",
+    "https://dolcegabbana.com/en-tw/beauty/women/gift/light-blue-eau-de-toilette---VT01JMVT0009V000.html",
+    "https://everfumed.com/?p=36808",
+    "https://basenotes.com/fragrances/light-blue-by-dolce-gabbana.10211214",
+    "https://theglassmagazine.com/dolce-gabbana-relaunches-light-blue-with-two-new-capri-inspired-scents/"
+   ],
+   "doute": "Pyramide simplifiée de la marque (citron / pomme / cèdre) ; la pyramide classique 2001 (Basenotes) est plus longue : tête cédrat de Sicile, pomme, campanule ; cœur jasmin, rose blanche, bambou ; fond cèdre, ambre, muscs. En 2025 (25 ans), D&G a relancé l'EDT avec un nouveau flacon et une formule « affinée » par Olivier Cresp et Alberto Morillas : vérifier quelle version est en stock. Jasmin et musc du texte viennent de l'interview de Cresp (Everfumed)."
+  },
+  "dolce-gabbana-the-one-eau-de-parfum-pour-femme": {
+   "annee": 2006,
+   "parfumeurs": [
+    "Christine Nagel"
+   ],
+   "famille_fr": "Floral ambré",
+   "famille_nl": "Bloemig amber",
+   "notes_fr": {
+    "tete": [
+     "Pêche",
+     "Litchi",
+     "Mandarine",
+     "Bergamote"
+    ],
+    "coeur": [
+     "Lys de la Madone",
+     "Jasmin",
+     "Muguet"
+    ],
+    "fond": [
+     "Vanille",
+     "Ambre",
+     "Prune",
+     "Musc",
+     "Vétiver"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Perzik",
+     "Lychee",
+     "Mandarijn",
+     "Bergamot"
+    ],
+    "coeur": [
+     "Madonnalelie",
+     "Jasmijn",
+     "Lelietje-van-dalen"
+    ],
+    "fond": [
+     "Vanille",
+     "Amber",
+     "Pruim",
+     "Musk",
+     "Vetiver"
+    ],
+    "cle": []
+   },
+   "fr": "<p>The One commence de façon fruitée et lumineuse : <strong>mandarine</strong>, bergamote, <strong>pêche</strong> et litchi. Le cœur s'ouvre ensuite sur des fleurs blanches, avec le <strong>lys</strong>, le jasmin et le muguet. En séchant, il devient chaud et doux grâce à la <strong>vanille</strong>, l'ambre, la prune et le musc, avec un peu de vétiver qui garde l'ensemble élégant.</p><p>C'est un floral ambré chaleureux, féminin et classique, qui reste agréablement sur la peau. Idéal pour l'automne et l'hiver, pour une soirée, un dîner ou une occasion où tu veux te sentir soignée.</p><p>Il a été créé en 2006 par la parfumeuse Christine Nagel. Son flacon carré au bouchon doré mise sur la sobriété et l'éclat de l'or.</p>",
+   "nl": "<p>The One begint fruitig en helder met <strong>mandarijn</strong>, bergamot, <strong>perzik</strong> en lychee. Daarna volgt een hart van witte bloemen: <strong>lelie</strong>, jasmijn en lelietje-van-dalen. Bij het opdrogen wordt de geur warm en zacht door <strong>vanille</strong>, amber, pruim en musk, met een beetje vetiver dat alles verfijnd houdt.</p><p>Een warme, vrouwelijke en klassieke bloemige ambergeur die mooi op de huid blijft. Ideaal in de herfst en de winter, voor een etentje, een avondje uit of een moment waarop je je verzorgd wilt voelen.</p><p>The One werd in 2006 gecreëerd door parfumeur Christine Nagel. De vierkante flacon met gouden dop kiest voor eenvoud en de glans van goud.</p>",
+   "sources": [
+    "https://dolcegabbana.com/en-gr/beauty/women/the-one-eau-de-parfum---VP7117VP1039V000.html",
+    "https://www.parfumo.com/Perfumes/Dolce_Gabbana/The_One_Eau_de_Parfum",
+    "https://www.olfastory.com/parfum/one/composition",
+    "https://www.olfastory.com/en/perfume/one/bottle"
+   ],
+   "doute": "La marque ne donne que mandarine, rose et vanille, sans pyramide ; pyramide reprise de Parfumo (concordante avec Olfastory, qui place toutefois la prune au cœur)."
+  },
+  "gucci-bloom-eau-de-parfum-pour-femme": {
+   "annee": 2017,
+   "parfumeurs": [
+    "Alberto Morillas"
+   ],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "Tubéreuse",
+     "Jasmin",
+     "Racine d'iris",
+     "Liane de Rangoon",
+     "Musc"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "Tuberoos",
+     "Jasmijn",
+     "Iriswortel",
+     "Rangoon creeper",
+     "Musk"
+    ]
+   },
+   "fr": "<p>Gucci Bloom sent le jardin de fleurs blanches en pleine floraison. La <strong>tubéreuse</strong> et le <strong>jasmin</strong> forment un bouquet généreux, crémeux et un peu poudré. La <strong>liane de Rangoon</strong>, une plante grimpante d'Asie aux fleurs parfumées, apporte une note plus rare, tandis que la racine d'iris et le musc arrondissent le tout.</p><p>C'est un floral riche et lumineux, où les fleurs blanches tiennent le premier rôle. Idéal au printemps, pour la journée ou les sorties, quand tu as envie de porter des fleurs qui se remarquent.</p><p>Lancé en 2017 et composé par Alberto Morillas, c'est le premier parfum féminin de Gucci imaginé entièrement sous la direction d'Alessandro Michele. Son flacon laqué rose poudré rappelle la porcelaine.</p>",
+   "nl": "<p>Gucci Bloom ruikt naar een tuin vol witte bloemen in volle bloei. <strong>Tuberoos</strong> en <strong>jasmijn</strong> vormen een vol, romig en licht poederig boeket. De <strong>Rangoon creeper</strong>, een Aziatische klimplant met geurige bloemen, brengt een minder bekende toets, terwijl iriswortel en musk het geheel afronden.</p><p>Een rijke, heldere bloemengeur waarin de witte bloemen echt de hoofdrol spelen. Ideaal in de lente, overdag of voor een uitstapje, als je zin hebt om bloemen te dragen die opvallen.</p><p>Gucci Bloom kwam uit in 2017 en werd gecomponeerd door Alberto Morillas. Het is het eerste damesparfum van Gucci dat volledig onder creatief directeur Alessandro Michele tot stand kwam. De gelakte, poederroze flacon doet denken aan porselein.</p>",
+   "sources": [
+    "https://www.parfumo.com/Perfumes/Gucci/Bloom_Eau_de_Parfum",
+    "https://cafleurebon.com/?p=98754",
+    "https://nstperfume.com/2017/05/01/gucci-bloom-new-perfume"
+   ],
+   "doute": "Pas de pyramide tête/cœur/fond publiée : liste de notes mise dans « cle ». Page officielle Gucci non consultée (sources : Parfumo, CaFleureBon, NST)."
+  },
+  "tom-ford-black-orchid-eau-de-parfum-pour-femme": {
+   "annee": 2006,
+   "parfumeurs": [
+    "David Apel",
+    "Pierre Negrin"
+   ],
+   "famille_fr": "Floral ambré",
+   "famille_nl": "Bloemig amber",
+   "notes_fr": {
+    "tete": [
+     "Truffe noire",
+     "Ylang-ylang",
+     "Bergamote",
+     "Orange amère"
+    ],
+    "coeur": [
+     "Orchidée noire",
+     "Prune noire",
+     "Rhum"
+    ],
+    "fond": [
+     "Patchouli",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Zwarte truffel",
+     "Ylang-ylang",
+     "Bergamot",
+     "Bittere sinaasappel"
+    ],
+    "coeur": [
+     "Zwarte orchidee",
+     "Zwarte pruim",
+     "Rum"
+    ],
+    "fond": [
+     "Patchoeli",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Black Orchid démarre de façon inattendue : la <strong>truffe noire</strong>, terreuse et sombre, se mêle à l'ylang-ylang, à la bergamote et à l'orange amère. Au cœur, l'<strong>orchidée noire</strong> s'entoure d'une <strong>prune</strong> mûre aux accents de rhum. Le fond, fait de <strong>patchouli</strong> et de vanille, reste chaud, crémeux et un peu boisé.</p><p>C'est un floral ambré profond et mystérieux, qui ne passe pas inaperçu. Idéal pour les soirées d'automne et d'hiver, un dîner ou une sortie, quand tu veux un parfum avec du caractère. Quelques pulvérisations suffisent.</p><p>Sorti en 2006, il a été composé par les parfumeurs David Apel et Pierre Negrin.</p>",
+   "nl": "<p>Black Orchid opent verrassend: aardse, donkere <strong>zwarte truffel</strong> samen met ylang-ylang, bergamot en bittere sinaasappel. In het hart wordt de <strong>zwarte orchidee</strong> omringd door rijpe <strong>pruim</strong> met een toets van rum. De basis van <strong>patchoeli</strong> en vanille blijft warm, romig en licht houtig.</p><p>Een diepe, mysterieuze bloemige ambergeur die niet onopgemerkt blijft. Ideaal voor herfst- en winteravonden, een etentje of een avond uit, als je een parfum met karakter wilt. Een paar verstuivingen zijn genoeg.</p><p>Black Orchid kwam uit in 2006 en werd gecomponeerd door de parfumeurs David Apel en Pierre Negrin.</p>",
+   "sources": [
+    "https://www.parfumo.com/Perfumes/Tom_Ford/Black_Orchid_Eau_de_Parfum",
+    "https://www.sephora.com/product/P183301?preferedSku=1008572",
+    "https://basenotes.com/fragrances/black-orchid-eau-de-parfum-by-tom-ford.26125725"
+   ],
+   "doute": "Pyramide de Parfumo, cohérente avec la description officielle reprise par Sephora ; Basenotes donne une pyramide différente (jasmin, gardénia, cassis, lotus, chocolat, encens, santal, vétiver). Page officielle Tom Ford non consultée."
+  },
+  "tom-ford-private-blend-lost-cherry-eau-de-parfum-mixte": {
+   "annee": 2018,
+   "parfumeurs": [
+    "Louise Turner"
+   ],
+   "famille_fr": "Ambré gourmand",
+   "famille_nl": "Amber gourmand",
+   "notes_fr": {
+    "tete": [
+     "Cerise noire",
+     "Liqueur de cerise",
+     "Amande amère"
+    ],
+    "coeur": [
+     "Sirop de griotte",
+     "Rose turque",
+     "Jasmin sambac"
+    ],
+    "fond": [
+     "Baume du Pérou",
+     "Fève tonka torréfiée",
+     "Bois de santal",
+     "Vétiver",
+     "Cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Zwarte kers",
+     "Kersenlikeur",
+     "Bittere amandel"
+    ],
+    "coeur": [
+     "Krieksiroop",
+     "Turkse roos",
+     "Jasmijn sambac"
+    ],
+    "fond": [
+     "Perubalsem",
+     "Geroosterde tonkaboon",
+     "Sandelhout",
+     "Vetiver",
+     "Ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Lost Cherry s'ouvre sur une <strong>cerise noire</strong> gourmande, presque confite, avec une liqueur de cerise et une <strong>amande amère</strong> bien marquée. Le cœur mêle un sirop de griotte à la <strong>rose turque</strong> et au jasmin sambac. Le fond devient chaud et velouté avec le baume du Pérou, la <strong>fève tonka</strong> torréfiée, le santal, le vétiver et le cèdre.</p><p>C'est un parfum gourmand et ambré, sucré sans être enfantin, qui se porte aussi bien par les femmes que par les hommes. Idéal pour l'automne et l'hiver, les soirées et les moments où tu veux une odeur chaude qui se remarque.</p><p>Membre de la collection Private Blend de Tom Ford, il est sorti en 2018 et a été composé par Louise Turner. Son flacon rouge laqué protège le jus de la lumière.</p>",
+   "nl": "<p>Lost Cherry opent met een smakelijke, bijna gekonfijte <strong>zwarte kers</strong>, samen met kersenlikeur en duidelijk aanwezige <strong>bittere amandel</strong>. In het hart zitten krieksiroop, <strong>Turkse roos</strong> en jasmijn sambac. De basis wordt warm en fluweelzacht met perubalsem, geroosterde <strong>tonkaboon</strong>, sandelhout, vetiver en ceder.</p><p>Een zoete, ambergourmand geur die toch volwassen blijft en die zowel vrouwen als mannen kunnen dragen. Ideaal in de herfst en de winter, voor avonden uit of momenten waarop je iets warms en opvallends wilt dragen.</p><p>Lost Cherry hoort bij de Private Blend-collectie van Tom Ford, kwam uit in 2018 en werd gecomponeerd door Louise Turner. De rood gelakte flacon beschermt het parfum tegen licht.</p>",
+   "sources": [
+    "https://www.dillards.com/p/tom-ford-lost-cherry-eau-de-parfum/519390274",
+    "https://www.sephora.com/product/P436489",
+    "https://everfumed.com/?p=41614"
+   ],
+   "doute": "Notes de fond santal, vétiver, cèdre et parfumeuse Louise Turner : source Everfumed (la fiche Dillard's/Tom Ford ne cite en fond que baume du Pérou et tonka). Famille : Dillard's dit « Warm & Sweet Gourmand », Sephora « Warm & Spicy »."
+  },
+  "parfums-de-marly-layton-eau-de-parfum-mixte": {
+   "annee": 2016,
+   "parfumeurs": [
+    "Hamid Merati-Kashani"
+   ],
+   "famille_fr": "Fougère ambrée fruitée",
+   "famille_nl": "Fruitige amberfougère",
+   "notes_fr": {
+    "tete": [
+     "Pomme",
+     "Bergamote",
+     "Cardamome"
+    ],
+    "coeur": [
+     "Lavande",
+     "Violette",
+     "Géranium"
+    ],
+    "fond": [
+     "Patchouli",
+     "Vanille",
+     "Bois de gaïac",
+     "Praliné"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Appel",
+     "Bergamot",
+     "Kardemom"
+    ],
+    "coeur": [
+     "Lavendel",
+     "Viooltje",
+     "Geranium"
+    ],
+    "fond": [
+     "Patchoeli",
+     "Vanille",
+     "Guaiachout",
+     "Praliné"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Layton s'ouvre sur une <strong>pomme</strong> fraîche et juteuse, relevée par la bergamote et la <strong>cardamome</strong>. Le cœur devient aromatique et fleuri avec la <strong>lavande</strong>, la violette et le géranium. En fond, le <strong>patchouli</strong>, la vanille, le bois de gaïac et une touche de praliné laissent une trace chaude, boisée et légèrement sucrée.</p><p>C'est une fougère ambrée et fruitée, à la fois fraîche et chaleureuse, élégante sans être stricte. Mixte, elle convient surtout à l'automne et à l'hiver, pour le soir, un rendez-vous ou une occasion où tu veux soigner les détails.</p><p>Sorti en 2016, Layton a été composé par le parfumeur Hamid Merati-Kashani pour la maison française Parfums de Marly.</p>",
+   "nl": "<p>Layton opent met frisse, sappige <strong>appel</strong>, opgepept met bergamot en <strong>kardemom</strong>. Het hart wordt aromatisch en bloemig met <strong>lavendel</strong>, viooltje en geranium. In de basis laten <strong>patchoeli</strong>, vanille, guaiachout en een toets praliné een warm, houtig en licht zoet spoor na.</p><p>Een fruitige amberfougère die tegelijk fris en warm is, elegant zonder stijf te worden. Deze unisex geur past vooral bij de herfst en de winter, voor 's avonds, een date of een gelegenheid waarbij je op de details let.</p><p>Layton kwam uit in 2016 en werd gecomponeerd door parfumeur Hamid Merati-Kashani voor het Franse parfumhuis Parfums de Marly.</p>",
+   "sources": [
+    "https://uk.parfums-de-marly.com/products/layton",
+    "https://www.olfastory.com/en/perfume/parfums-de-marly-layton/composition",
+    "https://www.parfumo.com/Perfumes/Parfums_de_Marly/Layton"
+   ],
+   "doute": "Famille « Fougère ambrée fruitée » lue sur le coffret Layton du site officiel (pas sur la fiche du flacon seul). Le parfumeur n'est pas cité par la marque (Olfastory + avis Parfumo)."
+  },
+  "parfums-de-marly-delina-eau-de-parfum-pour-femme": {
+   "annee": 2017,
+   "parfumeurs": [
+    "Quentin Bisch"
+   ],
+   "famille_fr": "Floral rosé boisé",
+   "famille_nl": "Bloemig houtig met roos",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Litchi",
+     "Rhubarbe"
+    ],
+    "coeur": [
+     "Rose de Damas",
+     "Muscade"
+    ],
+    "fond": [
+     "Cashmeran",
+     "Muscs",
+     "Vétiver"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Lychee",
+     "Rabarber"
+    ],
+    "coeur": [
+     "Damascusroos",
+     "Nootmuskaat"
+    ],
+    "fond": [
+     "Cashmeran",
+     "Musk",
+     "Vetiver"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Delina commence par un <strong>litchi</strong> juteux, accompagné de la <strong>rhubarbe</strong> un peu acidulée et de la bergamote. Au cœur, la <strong>rose de Damas</strong> prend toute la place, réchauffée par une pointe de muscade. Le fond, fait de cashmeran, de muscs et de vétiver, reste doux, propre et légèrement boisé.</p><p>C'est un floral rosé lumineux, frais et féminin, à la fois romantique et moderne. Idéal au printemps et en été, en journée comme pour un mariage, un brunch ou un rendez-vous.</p><p>Lancé en 2017 et composé par Quentin Bisch, Delina s'inspire, selon Parfums de Marly, des dames de la cour et de leurs robes qui frôlent les massifs de fleurs.</p>",
+   "nl": "<p>Delina begint met sappige <strong>lychee</strong>, samen met licht zurige <strong>rabarber</strong> en bergamot. In het hart staat de <strong>Damascusroos</strong> centraal, verwarmd door een vleugje nootmuskaat. De basis van cashmeran, musk en vetiver blijft zacht, schoon en licht houtig.</p><p>Een stralende, frisse en vrouwelijke rozengeur, romantisch en modern tegelijk. Ideaal in de lente en de zomer, overdag of voor een huwelijk, een brunch of een date.</p><p>Delina kwam uit in 2017 en werd gecomponeerd door Quentin Bisch. Volgens Parfums de Marly is de geur geïnspireerd op de hofdames en hun jurken die langs de bloemperken strijken.</p>",
+   "sources": [
+    "https://us.parfums-de-marly.com/products/delina",
+    "https://www.olfastory.com/en/perfume/delina-parfums-de-marly",
+    "https://www.parfumo.com/Perfumes/Parfums_de_Marly/Delina"
+   ],
+   "doute": ""
+  },
+  "lattafa-khamrah-eau-de-parfum-mixte": {
+   "annee": 2022,
+   "parfumeurs": [],
+   "famille_fr": "Ambré épicé",
+   "famille_nl": "Kruidig amber",
+   "notes_fr": {
+    "tete": [
+     "Cannelle",
+     "Muscade",
+     "Bergamote"
+    ],
+    "coeur": [
+     "Dattes",
+     "Praliné",
+     "Tubéreuse",
+     "Mahonial"
+    ],
+    "fond": [
+     "Vanille",
+     "Fève tonka",
+     "Bois ambrés",
+     "Myrrhe",
+     "Benjoin",
+     "Akigalawood"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Kaneel",
+     "Nootmuskaat",
+     "Bergamot"
+    ],
+    "coeur": [
+     "Dadels",
+     "Praliné",
+     "Tuberoos",
+     "Mahonial"
+    ],
+    "fond": [
+     "Vanille",
+     "Tonkaboon",
+     "Amberhout",
+     "Mirre",
+     "Benzoë",
+     "Akigalawood"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Khamrah s'ouvre sur la <strong>cannelle</strong> et la muscade, éclairées par un peu de bergamote : on pense tout de suite à une pâtisserie épicée. Le cœur est gourmand, avec des <strong>dattes</strong> et du <strong>praliné</strong>, adoucis par une touche de tubéreuse. Le fond mêle <strong>vanille</strong>, fève tonka, bois ambrés, myrrhe et benjoin pour une trace chaude et résineuse.</p><p>C'est un parfum oriental épicé et sucré, riche et réconfortant, qui se porte aussi bien par les femmes que par les hommes. Idéal pour l'automne et l'hiver, les soirées fraîches, les fêtes de fin d'année ou les moments cocooning à la maison.</p><p>Il a été lancé en 2022 par la maison émiratie Lattafa.</p>",
+   "nl": "<p>Khamrah opent met <strong>kaneel</strong> en nootmuskaat, opgefrist met wat bergamot: je denkt meteen aan gekruid gebak. Het hart is smakelijk zoet met <strong>dadels</strong> en <strong>praliné</strong>, verzacht door een vleugje tuberoos. In de basis zorgen <strong>vanille</strong>, tonkaboon, amberhout, mirre en benzoë voor een warm, harsachtig spoor.</p><p>Een kruidige, zoete oosterse geur, rijk en geruststellend, die zowel vrouwen als mannen kunnen dragen. Ideaal in de herfst en de winter, op frisse avonden, tijdens de feestdagen of voor gezellige momenten thuis.</p><p>Khamrah werd in 2022 gelanceerd door het Emiraatse parfumhuis Lattafa.</p>",
+   "sources": [
+    "https://www.lattafa-usa.com/products/khamrah",
+    "https://www.olfastory.com/en/perfume/khamrah",
+    "https://www.parfumo.com/Perfumes/Lattafa/khamrah"
+   ],
+   "doute": "Parfumeur inconnu (non communiqué). Famille : la marque dit « Aromatic Spicy », Olfastory « Oriental » ; « Ambré épicé » retenu comme synthèse."
+  },
+  "lattafa-yara-eau-de-parfum-pour-femme": {
+   "annee": 2020,
+   "parfumeurs": [],
+   "famille_fr": "Ambré vanillé",
+   "famille_nl": "Amber vanille",
+   "notes_fr": {
+    "tete": [
+     "Orchidée",
+     "Héliotrope",
+     "Mandarine"
+    ],
+    "coeur": [
+     "Accord gourmand",
+     "Fruits tropicaux"
+    ],
+    "fond": [
+     "Vanille",
+     "Musc",
+     "Bois de santal"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Orchidee",
+     "Heliotroop",
+     "Mandarijn"
+    ],
+    "coeur": [
+     "Gourmand akkoord",
+     "Tropisch fruit"
+    ],
+    "fond": [
+     "Vanille",
+     "Musk",
+     "Sandelhout"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Yara s'ouvre sur une <strong>mandarine</strong> pétillante, entourée d'<strong>orchidée</strong> et d'héliotrope, une fleur au parfum doux et poudré. Le cœur devient gourmand et fruité, avec des <strong>fruits tropicaux</strong> et un accord sucré presque crémeux. Le fond de <strong>vanille</strong>, de musc et de santal laisse une trace douce et enveloppante.</p><p>C'est un parfum ambré vanillé, tendre et réconfortant, facile à aimer. Idéal au quotidien, surtout en automne et en hiver, ou quand tu as envie d'une odeur douce et câline.</p><p>Lancé en 2020 par la maison émiratie Lattafa, Yara a depuis donné naissance à toute une famille de déclinaisons.</p>",
+   "nl": "<p>Yara opent met sprankelende <strong>mandarijn</strong>, omringd door <strong>orchidee</strong> en heliotroop, een bloem met een zachte, poederige geur. Het hart wordt smakelijk en fruitig met <strong>tropisch fruit</strong> en een zoet, bijna romig akkoord. De basis van <strong>vanille</strong>, musk en sandelhout laat een zacht, omhullend spoor na.</p><p>Een tedere en geruststellende vanillegeur met een warme amberbasis, waar je snel aan gehecht raakt. Ideaal voor elke dag, vooral in de herfst en de winter, of wanneer je zin hebt in iets zachts en knus.</p><p>Yara werd in 2020 gelanceerd door het Emiraatse parfumhuis Lattafa en kreeg sindsdien een hele reeks varianten.</p>",
+   "sources": [
+    "https://www.lattafa-usa.com/products/yara",
+    "https://www.olfastory.com/parfum/yara"
+   ],
+   "doute": "Année 2020 confirmée seulement par Olfastory (la marque ne la donne pas). Parfumeur inconnu. La fiche Parfumo de Yara contient des notes incohérentes (poivre noir, citron vert...) et n'a pas été utilisée."
+  },
+  "lattafa-asad-eau-de-parfum-pour-homme": {
+   "annee": 2021,
+   "parfumeurs": [],
+   "famille_fr": "Ambré épicé",
+   "famille_nl": "Kruidig amber",
+   "notes_fr": {
+    "tete": [
+     "Poivre noir",
+     "Tabac",
+     "Ananas"
+    ],
+    "coeur": [
+     "Patchouli",
+     "Café",
+     "Iris"
+    ],
+    "fond": [
+     "Vanille",
+     "Ambre",
+     "Bois secs",
+     "Benjoin",
+     "Labdanum"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Zwarte peper",
+     "Tabak",
+     "Ananas"
+    ],
+    "coeur": [
+     "Patchoeli",
+     "Koffie",
+     "Iris"
+    ],
+    "fond": [
+     "Vanille",
+     "Amber",
+     "Droge houtsoorten",
+     "Benzoë",
+     "Labdanum"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Asad démarre fort avec le <strong>poivre noir</strong> et le <strong>tabac</strong>, éclairés par une pointe d'ananas. Le cœur réunit le <strong>café</strong>, le patchouli et l'iris, pour un mélange sombre et un peu poudré. En fond, la <strong>vanille</strong>, l'ambre, les bois secs, le benjoin et le labdanum installent une chaleur résineuse et légèrement sucrée.</p><p>C'est un parfum ambré épicé, intense et masculin, avec beaucoup de présence. Idéal pour l'automne et l'hiver, les soirées et les sorties, quand tu veux une odeur chaude qui affirme ta personnalité.</p><p>Lancé en 2021 par la maison émiratie Lattafa, il porte un nom qui signifie « lion » en arabe.</p>",
+   "nl": "<p>Asad begint krachtig met <strong>zwarte peper</strong> en <strong>tabak</strong>, opgelicht door een toets ananas. Het hart brengt <strong>koffie</strong>, patchoeli en iris samen tot een donkere, licht poederige mix. In de basis zorgen <strong>vanille</strong>, amber, droge houtsoorten, benzoë en labdanum voor een warme, harsachtige en licht zoete afronding.</p><p>Een intense, kruidige ambergeur voor mannen, met veel aanwezigheid. Ideaal in de herfst en de winter, voor avonden en uitjes, als je een warme geur wilt die je persoonlijkheid onderstreept.</p><p>Asad werd in 2021 gelanceerd door het Emiraatse parfumhuis Lattafa. De naam betekent 'leeuw' in het Arabisch.</p>",
+   "sources": [
+    "https://www.lattafa-usa.com/products/asad",
+    "https://www.olfastory.com/en/perfume/lattafa-asad",
+    "https://www.parfumo.com/Perfumes/Lattafa/asad-1"
+   ],
+   "doute": "Parfumeur inconnu (non communiqué)."
+  },
+  "armaf-club-de-nuit-intense-man-eau-de-parfum-pour-homme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Boisé fruité",
+   "famille_nl": "Houtig fruitig",
+   "notes_fr": {
+    "tete": [
+     "Pomme",
+     "Bergamote",
+     "Cassis",
+     "Ananas",
+     "Citron"
+    ],
+    "coeur": [
+     "Rose",
+     "Bouleau",
+     "Jasmin"
+    ],
+    "fond": [
+     "Musc",
+     "Ambre gris",
+     "Patchouli",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Appel",
+     "Bergamot",
+     "Zwarte bes",
+     "Ananas",
+     "Citroen"
+    ],
+    "coeur": [
+     "Roos",
+     "Berk",
+     "Jasmijn"
+    ],
+    "fond": [
+     "Musk",
+     "Ambergris",
+     "Patchouli",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Club de Nuit Intense Man s'ouvre sur un mélange de fruits juteux : <strong>citron</strong>, <strong>ananas</strong>, pomme, cassis et bergamote. Très vite, le <strong>bouleau</strong> apporte une note fumée, presque cuirée, adoucie par la rose et le jasmin.</p><p>Le fond repose sur l'ambre gris, le musc, le patchouli et une touche de <strong>vanille</strong>, qui laissent sur la peau une impression chaude et boisée. Armaf le décrit comme un parfum masculin boisé et épicé : il sent à la fois le frais et le fumé.</p><p>Idéal pour les soirées, une sortie en ville ou les journées de mi-saison, quand tu as envie d'un parfum qui se remarque. En été, une ou deux pulvérisations suffisent.</p>",
+   "nl": "<p>Club de Nuit Intense Man opent met sappig fruit: <strong>citroen</strong>, <strong>ananas</strong>, appel, zwarte bes en bergamot. Al snel brengt <strong>berk</strong> een rokerig, bijna leerachtig accent, verzacht door roos en jasmijn.</p><p>In de basis zorgen ambergris, musk, patchouli en een vleugje <strong>vanille</strong> voor een warme, houtige indruk op de huid. Armaf omschrijft hem als een houtige, kruidige herengeur: fris en rokerig tegelijk.</p><p>Ideaal voor een avond uit, een dag in de stad of het tussenseizoen, wanneer je zin hebt in een geur die opvalt. In de zomer volstaan een of twee sprays.</p>",
+   "sources": [
+    "https://www.armaf.ae/products/club-de-nuit-intense-man-eau-de-parfum",
+    "https://armaf.com/products/club-de-nuit-intense-man-6-8",
+    "https://www.parfumo.com/Perfumes/Armaf/club-de-nuit-intense-man-eau-de-parfum"
+   ],
+   "doute": "Année de la version Eau de Parfum non confirmée (Parfumo : inconnue ; la version EDT date de 2015 selon Fragrantica). Parfumeur non communiqué par la marque. Famille : Armaf dit « boisé » / « boisé épicé » ; « boisé fruité » est une reformulation tenant compte de l'ouverture fruitée."
+  },
+  "xerjoff-erba-pura-eau-de-parfum-mixte": {
+   "annee": null,
+   "parfumeurs": [
+    "Christian Carbonnel"
+   ],
+   "famille_fr": "Fruité frais",
+   "famille_nl": "Fris fruitig",
+   "notes_fr": {
+    "tete": [
+     "Citron",
+     "Bergamote de Calabre",
+     "Orange de Sicile"
+    ],
+    "coeur": [
+     "Fruits méditerranéens"
+    ],
+    "fond": [
+     "Ambre",
+     "Vanille de Madagascar",
+     "Musc blanc"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Citroen",
+     "Calabrische bergamot",
+     "Siciliaanse sinaasappel"
+    ],
+    "coeur": [
+     "Mediterraans fruit"
+    ],
+    "fond": [
+     "Amber",
+     "Vanille uit Madagaskar",
+     "Witte musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Erba Pura démarre sur un trio d'agrumes du sud de l'Italie : <strong>orange de Sicile</strong>, citron et <strong>bergamote de Calabre</strong>. Ce départ pétillant laisse place à un cœur de fruits méditerranéens bien mûrs, doux et juteux.</p><p>En fond, l'<strong>ambre</strong>, la <strong>vanille de Madagascar</strong> et le musc blanc forment une base ronde et lumineuse, qui prolonge la chaleur du départ. Xerjoff le range dans sa collection Vibe et décrit son profil comme frais et fruité ; la maison l'associe à une balade dans une vieille ville méditerranéenne à l'heure dorée.</p><p>Mixte, solaire et facile à porter, il convient au printemps et à l'été, en journée comme en soirée. Idéal si tu aimes les parfums fruités qui restent élégants.</p>",
+   "nl": "<p>Erba Pura begint met drie citrusvruchten uit Zuid-Italië: <strong>Siciliaanse sinaasappel</strong>, citroen en <strong>Calabrische bergamot</strong>. Na die sprankelende start volgt een hart van rijp mediterraan fruit, zacht en sappig.</p><p>In de basis zorgen <strong>amber</strong>, <strong>vanille uit Madagaskar</strong> en witte musk voor een ronde, stralende afdronk die de warmte van de opening vasthoudt. Xerjoff plaatst hem in de Vibe-collectie en noemt het profiel fris en fruitig; het huis denkt daarbij aan een wandeling door een oud mediterraan stadje rond zonsondergang.</p><p>Deze unisexgeur is zonnig en makkelijk te dragen: ideaal in de lente en de zomer, overdag en 's avonds. Perfect als je houdt van fruitige geuren met een elegante toets.</p>",
+   "sources": [
+    "https://www.xerjoff.com/en-us/products/erba-pura-eau-de-parfum",
+    "https://www.parfumo.com/Perfumes/Xerjoff/Erba_Pura",
+    "https://basenotes.com/fragrances/erba-pura-by-xerjoff.26189162"
+   ],
+   "doute": "Année contradictoire : 2019 selon le titre Fragrantica (page non consultable), 2013 selon Parfumo ; laissée à null. Parfumeur (Christian Carbonnel) donné par Parfumo uniquement, non confirmé par la marque."
+  },
+  "nishane-hacivat-extrait-de-parfum-mixte": {
+   "annee": 2017,
+   "parfumeurs": [
+    "Jorge Lee"
+   ],
+   "famille_fr": "Chypre boisé",
+   "famille_nl": "Houtige chypre",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Ananas",
+     "Pamplemousse"
+    ],
+    "coeur": [
+     "Jasmin",
+     "Patchouli",
+     "Bois de cèdre"
+    ],
+    "fond": [
+     "Clearwood",
+     "Mousse de chêne",
+     "Bois secs"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Ananas",
+     "Grapefruit"
+    ],
+    "coeur": [
+     "Jasmijn",
+     "Patchouli",
+     "Cederhout"
+    ],
+    "fond": [
+     "Clearwood",
+     "Eikenmos",
+     "Droge houtsoorten"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Hacivat est un extrait de parfum de la maison Nishane, sorti en 2017 et composé par Jorge Lee. Il s'ouvre sur un départ vif d'<strong>ananas</strong>, de <strong>bergamote</strong> et de pamplemousse, juteux avec une pointe d'amertume.</p><p>Le cœur devient plus sec avec le jasmin, le <strong>patchouli</strong> et le cèdre. Le fond s'installe ensuite sur la <strong>mousse de chêne</strong>, le Clearwood et des bois secs. Nishane le classe parmi les chyprés boisés et hespéridés : frais au départ, puis nettement boisé.</p><p>Son nom vient d'un personnage du théâtre d'ombres traditionnel. Idéal au bureau, en journée ou pour une sortie, du printemps à l'automne.</p>",
+   "nl": "<p>Hacivat is een extrait de parfum van Nishane, gelanceerd in 2017 en gecomponeerd door Jorge Lee. Hij opent fris en levendig met <strong>ananas</strong>, <strong>bergamot</strong> en grapefruit: sappig, met een licht bitter randje.</p><p>Het hart wordt droger met jasmijn, <strong>patchouli</strong> en ceder. Daarna nemen <strong>eikenmos</strong>, Clearwood en droge houtsoorten het over. Nishane plaatst hem bij de houtige citrus-chypres: fris bij het opsprayen, daarna duidelijk houtig.</p><p>De naam verwijst naar een personage uit het traditionele schaduwtheater. Ideaal op kantoor, overdag of voor een avondje uit, van de lente tot de herfst, wanneer je iets fris en verzorgd wilt dragen.</p>",
+   "sources": [
+    "https://nishane.com/product/hacivat/",
+    "https://basenotes.com/fragrances/hacivat-by-nishane.26152751",
+    "https://www.parfumo.com/Perfumes/Nishane/Hacivat"
+   ],
+   "doute": ""
+  },
+  "guerlain-mon-guerlain-eau-de-parfum-pour-femme": {
+   "annee": 2017,
+   "parfumeurs": [
+    "Thierry Wasser",
+    "Delphine Jelk"
+   ],
+   "famille_fr": "Ambré",
+   "famille_nl": "Amber",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "Lavande",
+     "Jasmin sambac",
+     "Santal",
+     "Vanille tahitensis"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "Lavendel",
+     "Sambac-jasmijn",
+     "Sandelhout",
+     "Tahitensis-vanille"
+    ]
+   },
+   "fr": "<p>Lancé en 2017, Mon Guerlain a été composé par Thierry Wasser avec Delphine Jelk. Il s'articule autour de quatre matières : la <strong>lavande</strong> française, qui donne une fraîcheur aromatique dès les premières secondes, le <strong>jasmin sambac</strong>, floral et lumineux, le <strong>santal</strong> crémeux et la <strong>vanille tahitensis</strong>, douce et légèrement florale.</p><p>Le résultat est un ambré à la fois frais et enveloppant : la lavande garde l'ensemble net, tandis que la vanille l'arrondit au fil des heures.</p><p>Le flacon reprend le modèle quadrilobé de 1908, inspiré d'une fiole d'alchimiste, modernisé d'une bague dorée. Idéal en automne et en hiver, au quotidien comme pour une soirée.</p>",
+   "nl": "<p>Mon Guerlain kwam uit in 2017 en werd gecomponeerd door Thierry Wasser, samen met Delphine Jelk. De geur draait om vier grondstoffen: Franse <strong>lavendel</strong>, die meteen een aromatische frisheid geeft, <strong>sambac-jasmijn</strong>, bloemig en stralend, romig <strong>sandelhout</strong> en zachte <strong>tahitensis-vanille</strong> met een licht bloemig randje.</p><p>Het resultaat is een ambergeur die fris en omhullend tegelijk is: de lavendel houdt het geheel helder, de vanille maakt het na verloop van tijd ronder en zachter.</p><p>Het flacon is gebaseerd op het vierlobbige model uit 1908, geïnspireerd op een alchemistenflesje en vernieuwd met een gouden ring. Ideaal in de herfst en de winter, voor elke dag of een avond uit.</p>",
+   "sources": [
+    "https://www.guerlain.com/be/fr-be/p/mon-guerlain-eau-de-parfum-P013139.html",
+    "https://www.moodiedavittreport.com/guerlain-goes-global-with-new-feminine-fragrance-mon-guerlain/"
+   ],
+   "doute": "Guerlain ne donne que 4 notes clés, sans pyramide tête/cœur/fond (laissées vides). Famille : la page officielle parle de fragrance « ambrée »."
+  },
+  "guerlain-shalimar-eau-de-parfum-pour-femme": {
+   "annee": 1925,
+   "parfumeurs": [
+    "Jacques Guerlain"
+   ],
+   "famille_fr": "Ambré",
+   "famille_nl": "Amber",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Notes florales"
+    ],
+    "coeur": [
+     "Iris",
+     "Jasmin",
+     "Rose"
+    ],
+    "fond": [
+     "Vanille",
+     "Notes balsamiques",
+     "Fève tonka"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Bloemige tonen"
+    ],
+    "coeur": [
+     "Iris",
+     "Jasmijn",
+     "Roos"
+    ],
+    "fond": [
+     "Vanille",
+     "Balsemachtige tonen",
+     "Tonkaboon"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Créé par Jacques Guerlain et présenté en 1925, Shalimar est décrit par la maison comme le premier parfum ambré. Il s'ouvre sur une <strong>bergamote</strong> vive et quelques notes florales, puis passe à un cœur poudré d'<strong>iris</strong>, de jasmin et de rose.</p><p>Le fond fait toute sa personnalité : une <strong>vanille</strong> chaude, des notes balsamiques et la <strong>fève tonka</strong>, pour une douceur légèrement fumée qui enveloppe la peau.</p><p>Son nom renvoie aux jardins de Shalimar et à l'histoire d'amour de l'empereur Shah Jahan et de Mumtaz Mahal. Le flacon, dessiné par Raymond Guerlain, s'inspire des bassins de ces jardins, et son bouchon bleu en éventail évoque l'eau qui y coule. Idéal pour les soirées d'automne et d'hiver.</p>",
+   "nl": "<p>Shalimar werd gecreëerd door Jacques Guerlain en in 1925 voorgesteld; het huis noemt hem het allereerste ambergeurige parfum. Hij opent met frisse <strong>bergamot</strong> en enkele bloemige tonen en gaat dan over in een poederig hart van <strong>iris</strong>, jasmijn en roos.</p><p>De basis geeft hem zijn karakter: warme <strong>vanille</strong>, balsemachtige tonen en <strong>tonkaboon</strong>, voor een zachte, licht rokerige afdronk die je huid omhult.</p><p>De naam verwijst naar de Shalimar-tuinen en het liefdesverhaal van keizer Shah Jahan en Mumtaz Mahal. Raymond Guerlain ontwierp het flacon naar de waterbekkens van die tuinen; de blauwe, waaiervormige dop doet denken aan het stromende water. Ideaal voor herfst- en winteravonden.</p>",
+   "sources": [
+    "https://www.guerlain.com/us/en-us/p/shalimar-eau-de-parfum-G011353.html?bvstate=pg:3/ct:r",
+    "https://www.guerlain.com/fr/fr-fr/parfum/parfum-femme/shalimar/",
+    "https://en.wikipedia.org/wiki/Shalimar_(perfume)",
+    "https://www.olfastory.com/parfum/shalimar/composition"
+   ],
+   "doute": "1925 = présentation de Shalimar (créé en 1921 selon Wikipedia) ; la concentration Eau de Parfum est plus tardive (1986 selon Parfumo, 1990 selon Fragrantica). Pyramide = celle de la page officielle Guerlain (EDP), non étiquetée formellement tête/cœur/fond mais décrite dans cet ordre."
+  },
+  "guerlain-habit-rouge-eau-de-toilette-pour-homme": {
+   "annee": 1965,
+   "parfumeurs": [
+    "Jean-Paul Guerlain"
+   ],
+   "famille_fr": "Ambré hespéridé",
+   "famille_nl": "Amber citrus",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "Citron vert",
+     "Orange amère",
+     "Patchouli",
+     "Benjoin",
+     "Vanille",
+     "Accord cuir"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "Limoen",
+     "Bittere sinaasappel",
+     "Patchouli",
+     "Benzoë",
+     "Vanille",
+     "Leerakkoord"
+    ]
+   },
+   "fr": "<p>Habit Rouge est sorti en 1965, composé par Jean-Paul Guerlain. La maison le présente comme le premier ambré masculin, pensé en hommage à sa passion pour l'art du dressage.</p><p>Il s'ouvre sur l'amertume fraîche du <strong>citron vert</strong> et de l'<strong>orange amère</strong>. Le <strong>patchouli</strong> donne ensuite un cœur épicé et raffiné, avant un fond de <strong>benjoin</strong> et de <strong>vanille</strong> qui adoucit une touche de cuir. Tour à tour hespéridé, chaud et vanillé, il reste élégant sans peser.</p><p>Son flacon carré à facettes porte un capot mat guilloché, inspiré de l'horlogerie. Idéal en automne et en hiver, au bureau comme pour un dîner.</p>",
+   "nl": "<p>Habit Rouge kwam uit in 1965 en werd gecomponeerd door Jean-Paul Guerlain. Het huis noemt hem de eerste amberachtige herengeur, gemaakt als eerbetoon aan zijn passie voor de dressuursport.</p><p>Hij opent met de frisse bitterheid van <strong>limoen</strong> en <strong>bittere sinaasappel</strong>. Daarna geeft <strong>patchouli</strong> een kruidig, verfijnd hart, en in de basis verzachten <strong>benzoë</strong> en <strong>vanille</strong> een leerachtig accent. Afwisselend citrusachtig, warm en vanilleachtig, en toch nooit zwaar.</p><p>Het vierkante, gefacetteerde flacon heeft een matte dop met guillochépatroon, geïnspireerd op de horlogerie. Ideaal in de herfst en de winter, op kantoor of bij een diner.</p>",
+   "sources": [
+    "https://www.guerlain.com/fr/fr-fr/p/habit-rouge-de-guerlain-paris-eau-de-toilette-P030482.html",
+    "https://www.olfastory.com/parfum/habit-rouge/composition",
+    "https://www.olfastory.com/en/perfume/habit-rouge"
+   ],
+   "doute": "Guerlain décrit les notes dans un ordre (agrumes, patchouli, benjoin/vanille/cuir) sans pyramide formelle : mises en « cle ». Olfastory donne une pyramide différente (lavande, néroli, orange, citron / rose, jasmin / cannelle, patchouli, vanille, bouleau), non retenue. Parfumeur (Jean-Paul Guerlain) sourcé par Olfastory, pas par la page officielle."
+  },
+  "dior-fahrenheit-eau-de-toilette-pour-homme": {
+   "annee": 1988,
+   "parfumeurs": [
+    "Jean-Louis Sieuzac"
+   ],
+   "famille_fr": "Boisé cuiré",
+   "famille_nl": "Houtig leder",
+   "notes_fr": {
+    "tete": [
+     "Mandarine de Sicile"
+    ],
+    "coeur": [
+     "Feuille de violette"
+    ],
+    "fond": [
+     "Cuir",
+     "Bouleau",
+     "Styrax",
+     "Cade"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Siciliaanse mandarijn"
+    ],
+    "coeur": [
+     "Viooltjesblad"
+    ],
+    "fond": [
+     "Leer",
+     "Berk",
+     "Styrax",
+     "Cade"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Lancé par Dior en 1988 et composé par Jean-Louis Sieuzac, Fahrenheit se reconnaît dès la première pulvérisation. La <strong>mandarine de Sicile</strong> ouvre sur une note fraîche et fruitée, puis la <strong>feuille de violette</strong> prend le relais avec son caractère vert et végétal.</p><p>Le fond est plus sombre : <strong>cuir</strong>, bouleau, styrax et cade évoquent le bois fumé et le cuir tanné. C'est un boisé cuiré au tempérament affirmé, à la fois frais et chaud.</p><p>Son flacon en dégradé couleur de feu serait né, selon la maison, d'un défaut de refroidissement du verre. Idéal en automne et en hiver, en soirée ou quand tu as envie d'un parfum de caractère.</p>",
+   "nl": "<p>Fahrenheit werd in 1988 door Dior gelanceerd en gecomponeerd door Jean-Louis Sieuzac. Je herkent hem meteen bij de eerste spray. <strong>Siciliaanse mandarijn</strong> zorgt voor een frisse, fruitige opening, daarna neemt <strong>viooltjesblad</strong> het over met een groen, plantaardig karakter.</p><p>De basis is donkerder: <strong>leer</strong>, berk, styrax en cade doen denken aan gerookt hout en gelooid leer. Een houtige leergeur met een uitgesproken karakter, fris en warm tegelijk.</p><p>Het flacon met zijn vuurrode kleurverloop zou volgens het huis ontstaan zijn uit een fout bij het afkoelen van het glas. Ideaal in de herfst en de winter, 's avonds of wanneer je zin hebt in een geur met karakter.</p>",
+   "sources": [
+    "https://www.dior.com/en_int/beauty/products/fahrenheit-eau-de-toilette-Y0066001.html",
+    "https://www.olfastory.com/parfum/fahrenheit/composition",
+    "https://www.olfastory.com/en/perfume/fahrenheit",
+    "https://www.parfumo.com/Perfumes/Dior/Fahrenheit_Eau_de_Toilette"
+   ],
+   "doute": "Pyramide actuelle (mandarine / feuille de violette / cuir, bouleau, styrax, cade) : Dior officiel confirme mandarine, violette, cuir ; bouleau, styrax et cade via Olfastory (présentation actuelle Dior). D'autres sources (Parfumo, Basenotes) donnent une pyramide historique bien plus longue. Parfumeur : Jean-Louis Sieuzac selon Olfastory ; Parfumo ajoute Maurice Roger (en réalité dirigeant de Parfums Dior selon Olfastory) ; Michel Almairac est parfois cité comme co-auteur (non vérifié ici)."
+  },
+  "viktor-rolf-spicebomb-eau-de-toilette-pour-homme": {
+   "annee": 2012,
+   "parfumeurs": [
+    "Olivier Polge"
+   ],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Houtig kruidig",
+   "notes_fr": {
+    "tete": [
+     "Baies roses",
+     "Élémi",
+     "Bergamote",
+     "Pamplemousse"
+    ],
+    "coeur": [
+     "Cannelle",
+     "Safran",
+     "Paprika"
+    ],
+    "fond": [
+     "Cuir",
+     "Tabac",
+     "Vétiver"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Roze peper",
+     "Elemi",
+     "Bergamot",
+     "Grapefruit"
+    ],
+    "coeur": [
+     "Kaneel",
+     "Saffraan",
+     "Paprika"
+    ],
+    "fond": [
+     "Leer",
+     "Tabak",
+     "Vetiver"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Spicebomb est sorti en 2012, composé par Olivier Polge. Il démarre sur un accord vif de <strong>baies roses</strong>, d'élémi, de bergamote et de pamplemousse, à la fois frais et piquant.</p><p>Le cœur se réchauffe vite avec la <strong>cannelle</strong>, le <strong>safran</strong> et le paprika, puis le fond s'installe tout en douceur sur le <strong>cuir</strong>, le <strong>tabac</strong> et le vétiver. Viktor&amp;Rolf le classe parmi les boisés épicés, avec une facette gourmande : chaleureux, épicé et confortable.</p><p>Son flacon en forme de grenade, cerclé d'une bande noire, traduit bien son tempérament explosif. Idéal pour les soirées d'automne et d'hiver, ou pour un rendez-vous quand il fait froid.</p>",
+   "nl": "<p>Spicebomb kwam uit in 2012 en werd gecomponeerd door Olivier Polge. Hij start met een levendig akkoord van <strong>roze peper</strong>, elemi, bergamot en grapefruit: fris en pittig tegelijk.</p><p>Het hart warmt snel op met <strong>kaneel</strong>, <strong>saffraan</strong> en paprika. Daarna volgt een zachte basis van <strong>leer</strong>, <strong>tabak</strong> en vetiver. Viktor&amp;Rolf rekent hem tot de houtig-kruidige geuren met een gourmand trekje: warm, kruidig en comfortabel.</p><p>Het flacon in de vorm van een granaat, met een zwarte band errond, past perfect bij zijn explosieve karakter. Ideaal voor herfst- en winteravonden of een afspraakje wanneer het koud is.</p>",
+   "sources": [
+    "https://us.viktor-rolf.com/fragrance/spicebomb-eau-de-toilette-VKR_030.html",
+    "https://www.olfastory.com/en/perfume/spicebomb/composition",
+    "https://basenotes.com/fragrances/spicebomb-by-viktor-rolf.26132699"
+   ],
+   "doute": "Pyramide officielle Viktor&Rolf retenue (Olfastory place l'élémi et les poivres en cœur). Le site officiel écrit « Oliver Polge » (coquille) ; le parfumeur est Olivier Polge selon Olfastory."
+  },
+  "hermes-terre-d-hermes-eau-de-toilette-pour-homme": {
+   "annee": 2006,
+   "parfumeurs": [
+    "Jean-Claude Ellena"
+   ],
+   "famille_fr": "Boisé minéral",
+   "famille_nl": "Houtig mineraal",
+   "notes_fr": {
+    "tete": [
+     "Pamplemousse",
+     "Orange"
+    ],
+    "coeur": [
+     "Silex",
+     "Poivre noir",
+     "Géranium"
+    ],
+    "fond": [
+     "Cèdre",
+     "Vétiver",
+     "Patchouli",
+     "Benjoin"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Grapefruit",
+     "Sinaasappel"
+    ],
+    "coeur": [
+     "Vuursteen",
+     "Zwarte peper",
+     "Geranium"
+    ],
+    "fond": [
+     "Ceder",
+     "Vetiver",
+     "Patchouli",
+     "Benzoë"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Créé en 2006 par Jean-Claude Ellena, Terre d'Hermès parle du lien entre l'homme et la terre. Il s'ouvre sur le <strong>pamplemousse</strong> et l'<strong>orange</strong>, pétillants et légèrement amers.</p><p>Le cœur prend une tournure minérale avec une note de <strong>silex</strong>, relevée de poivre noir et de géranium. Le fond descend ensuite vers le <strong>cèdre</strong>, le <strong>vétiver</strong>, le patchouli et le benjoin : un boisé sec, net et terreux, qui reste discret et soigné.</p><p>Le flacon, dessiné par Philippe Mouquet, s'inspire d'une bouteille de nécessaire de voyage conservée au musée Émile Hermès, avec un petit H orange à sa base. Idéal toute l'année, au bureau comme le week-end.</p>",
+   "nl": "<p>Terre d'Hermès werd in 2006 gecreëerd door Jean-Claude Ellena en gaat over de band tussen de mens en de aarde. Hij opent met <strong>grapefruit</strong> en <strong>sinaasappel</strong>, sprankelend en licht bitter.</p><p>Het hart krijgt een minerale toets door een noot van <strong>vuursteen</strong>, gekruid met zwarte peper en geranium. Daarna zakt de geur naar <strong>ceder</strong>, <strong>vetiver</strong>, patchouli en benzoë: droog, strak en aards hout, ingetogen en verzorgd.</p><p>Het flacon, ontworpen door Philippe Mouquet, is geïnspireerd op een fles uit een reisnecessaire in het Émile Hermès-museum, met een kleine oranje H onderaan. Ideaal het hele jaar door, op kantoor en in het weekend.</p>",
+   "sources": [
+    "https://www.olfastory.com/en/perfume/terre-dhermes/composition",
+    "https://www.olfastory.com/en/perfume/terre-dhermes/bottle",
+    "https://www.parfumo.com/Perfumes/Hermes/Terre_d_Hermes_Eau_de_Toilette",
+    "https://www.hermes.com/us/en/content/101186-terre-d-hermes/"
+   ],
+   "doute": "Page produit officielle Hermès inaccessible : pyramide reprise d'Olfastory (Parfumo confirme les mêmes notes sans pyramide, avec en plus baies roses). Famille « boisé minéral » d'après la description Olfastory (famille boisée, caractère minéral)."
+  },
+  "hermes-un-jardin-sur-la-lagune-eau-de-toilette-mixte": {
+   "annee": 2019,
+   "parfumeurs": [
+    "Christine Nagel"
+   ],
+   "famille_fr": "Floral boisé",
+   "famille_nl": "Bloemig houtig",
+   "notes_fr": {
+    "tete": [
+     "Magnolia",
+     "Pittosporum"
+    ],
+    "coeur": [
+     "Lys de la Madone",
+     "Note marine"
+    ],
+    "fond": [
+     "Notes boisées"
+    ],
+    "cle": [
+     "Magnolia",
+     "Pittosporum",
+     "Lys de la Madone"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "Magnolia",
+     "Pittosporum"
+    ],
+    "coeur": [
+     "Madonnalelie",
+     "Zeenoot"
+    ],
+    "fond": [
+     "Houtige tonen"
+    ],
+    "cle": [
+     "Magnolia",
+     "Pittosporum",
+     "Madonnalelie"
+    ]
+   },
+   "fr": "<p>Un Jardin sur la Lagune est né d'un jardin secret de Venise, le Giardino Eden. Créé en 2019 par Christine Nagel, c'est le premier Parfum-Jardin qu'elle a signé pour Hermès.</p><p>Le départ est lumineux avec le <strong>magnolia</strong> et le <strong>pittosporum</strong>, aux fleurs douces et enveloppantes. Le <strong>lys de la Madone</strong> apporte ensuite un cœur plus charnel, traversé d'une note marine qui rappelle la lagune. Le fond reste léger, sur des notes boisées.</p><p>Floral, frais et mixte, il est idéal au printemps et en été, pour les journées en plein air, une promenade au bord de l'eau ou simplement quand tu as envie de lumière.</p>",
+   "nl": "<p>Un Jardin sur la Lagune is ontstaan in een geheime tuin in Venetië, de Giardino Eden. Christine Nagel creëerde hem in 2019: het was de eerste Parfum-Jardin die zij voor Hermès maakte.</p><p>De opening is stralend met <strong>magnolia</strong> en <strong>pittosporum</strong>, zachte en omhullende bloemen. Daarna brengt de <strong>madonnalelie</strong> een voller, sensueler hart, met een zilte noot die aan de lagune doet denken. De basis blijft licht, met houtige tonen.</p><p>Bloemig, fris en unisex: ideaal in de lente en de zomer, voor dagen buiten, een wandeling langs het water of gewoon wanneer je zin hebt in wat licht.</p>",
+   "sources": [
+    "https://www.hermes.com/us/en/product/un-jardin-sur-la-lagune-eau-de-toilette-V100081V0/",
+    "https://www.olfastory.com/en/perfume/un-jardin-sur-le-lagune/composition"
+   ],
+   "doute": "Hermès donne 3 notes clés (magnolia, pittosporum, lys de la Madone) sans pyramide ; la pyramide tête/cœur/fond (dont note marine et notes boisées) vient d'Olfastory."
+  },
+  "kenzo-world-eau-de-parfum-pour-femme": {
+   "annee": 2016,
+   "parfumeurs": [
+    "Francis Kurkdjian"
+   ],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [
+     "Pivoine"
+    ],
+    "coeur": [
+     "Jasmin d'Égypte"
+    ],
+    "fond": [
+     "Ambroxan"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Pioen"
+    ],
+    "coeur": [
+     "Egyptische jasmijn"
+    ],
+    "fond": [
+     "Ambroxan"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Kenzo World s’ouvre sur une <strong>pivoine</strong> fraîche et légèrement fruitée, qui laisse vite la place à un cœur de <strong>jasmin</strong> d’Égypte, lumineux et solaire. En fond, l’<strong>ambroxan</strong> apporte une chaleur boisée, presque minérale, qui reste agréablement sur la peau.</p><p>C’est un floral pétillant et un peu espiègle, qui ne se prend pas trop au sérieux. Il a été composé en 2016 par le parfumeur Francis Kurkdjian pour la maison Kenzo.</p><p>Idéal si tu aimes les fleurs avec du peps : il accompagne bien les journées de printemps, les sorties entre amis ou une soirée détendue. Commence par une ou deux pulvérisations, puis ajuste selon ton envie.</p>",
+   "nl": "<p>Kenzo World opent met een frisse, licht fruitige <strong>pioen</strong>. Daarna volgt een stralend hart van Egyptische <strong>jasmijn</strong>. In de basis zorgt <strong>ambroxan</strong> voor een warme, houtige en bijna minerale toets die mooi op je huid blijft hangen.</p><p>Het is een speelse, sprankelende bloemengeur die zichzelf niet te serieus neemt. Parfumeur Francis Kurkdjian creëerde hem in 2016 voor het huis Kenzo.</p><p>Ideaal als je houdt van bloemen met wat pit: hij past bij lentedagen, een uitstap met vrienden of een ontspannen avond. Begin met een of twee sprays en kijk dan of je meer wilt.</p>",
+   "sources": [
+    "https://www.parfumo.com/Parfums/Kenzo/Kenzo_World_Eau_de_Parfum",
+    "https://www.escentual.com/blog/2017/07/18/first-look-kenzo-world/"
+   ],
+   "doute": "Famille olfactive : seulement « floral » confirmé (Parfumo parle de floral sucré). Fragrantica et le site Kenzo n'ont pas pu être consultés."
+  },
+  "givenchy-l-interdit-eau-de-parfum-pour-femme": {
+   "annee": 2018,
+   "parfumeurs": [
+    "Dominique Ropion",
+    "Anne Flipo",
+    "Fanny Bal"
+   ],
+   "famille_fr": "Floral fleurs blanches boisé",
+   "famille_nl": "Bloemig witte bloemen houtig",
+   "notes_fr": {
+    "tete": [
+     "Bergamote de Calabre",
+     "Gingembre de Madagascar"
+    ],
+    "coeur": [
+     "Jasmin sambac",
+     "Tubéreuse",
+     "Fleur d'oranger"
+    ],
+    "fond": [
+     "Vétiver d'Haïti",
+     "Patchouli d'Indonésie"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Calabrische bergamot",
+     "Gember uit Madagaskar"
+    ],
+    "coeur": [
+     "Jasmijn sambac",
+     "Tuberoos",
+     "Oranjebloesem"
+    ],
+    "fond": [
+     "Haïtiaanse vetiver",
+     "Indonesische patchoeli"
+    ],
+    "cle": []
+   },
+   "fr": "<p>L’Interdit démarre sur la fraîcheur de la <strong>bergamote</strong> et une pointe piquante de <strong>gingembre</strong>. Le cœur est un bouquet de fleurs blanches : <strong>fleur d’oranger</strong>, <strong>jasmin sambac</strong> et <strong>tubéreuse</strong>, crémeuses et lumineuses. Puis le fond change de ton avec un <strong>vétiver</strong> et un <strong>patchouli</strong> plus sombres et terreux, qui donnent du relief à l’ensemble.</p><p>Ce contraste entre fleurs claires et bois profonds fait tout son caractère. Cette version de 2018 reprend un nom historique de Givenchy ; elle a été composée par Dominique Ropion, Anne Flipo et Fanny Bal.</p><p>Idéal pour les soirées, les dîners ou une journée d’automne où tu as envie d’un parfum féminin avec un petit côté rebelle.</p>",
+   "nl": "<p>L’Interdit begint fris met <strong>bergamot</strong> en een pittig randje <strong>gember</strong>. Het hart is een boeket witte bloemen: <strong>oranjebloesem</strong>, <strong>jasmijn sambac</strong> en <strong>tuberoos</strong>, romig en stralend. Daarna slaat de geur een donkerdere toon aan met aardse <strong>vetiver</strong> en <strong>patchoeli</strong>, die het geheel diepte geven.</p><p>Net dat contrast tussen lichte bloemen en diepe houtnoten maakt hem zo eigen. Deze versie uit 2018 grijpt terug naar een historische naam van Givenchy en werd gecomponeerd door Dominique Ropion, Anne Flipo en Fanny Bal.</p><p>Ideaal voor avonden, etentjes of een herfstdag waarop je zin hebt in een vrouwelijke geur met een rebels kantje.</p>",
+   "sources": [
+    "https://www.parfumo.com/Parfums/Givenchy/L_Interdit_2018",
+    "https://thecandyperfumeboy.com/2019/01/28/perfume-review-linterdit-by-givenchy/",
+    "https://thescentbase.com/perfumes/givenchy/l-interdit-eau-de-parfum"
+   ],
+   "doute": "Pyramide reprise de Parfumo (détails d'origine type fiche marque) ; Thescentbase donne une variante (poire en tête, ambroxan et vanille en fond). Famille olfactive non nommée officiellement : « fleurs blanches » d'après les sources secondaires."
+  },
+  "givenchy-gentleman-eau-de-toilette-pour-homme": {
+   "annee": 2017,
+   "parfumeurs": [
+    "Olivier Cresp",
+    "Nathalie Lorson"
+   ],
+   "famille_fr": "Boisé floral fougère",
+   "famille_nl": "Houtig bloemige fougère",
+   "notes_fr": {
+    "tete": [
+     "Poire"
+    ],
+    "coeur": [
+     "Iris",
+     "Lavande"
+    ],
+    "fond": [
+     "Cuir",
+     "Patchouli"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Peer"
+    ],
+    "coeur": [
+     "Iris",
+     "Lavendel"
+    ],
+    "fond": [
+     "Leder",
+     "Patchoeli"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Gentleman s’ouvre sur une <strong>poire</strong> juteuse et fraîche. Au cœur, la <strong>lavande</strong> rencontre un <strong>iris</strong> poudré, doux et élégant. Le fond, plus profond, associe le <strong>patchouli</strong> à un accord <strong>cuir</strong> qui donne de la tenue et une touche sensuelle.</p><p>C’est un boisé floral fougère, classique dans l’esprit mais moderne dans le résultat. Lancé en 2017, il a été composé par Olivier Cresp et Nathalie Lorson, avec l’idée de réinventer le Gentleman créé par Givenchy en 1974.</p><p>Idéal pour le bureau, un rendez-vous ou les journées fraîches d’automne et d’hiver, quand tu veux sentir soigné sans en faire trop.</p>",
+   "nl": "<p>Gentleman opent met een sappige, frisse <strong>peer</strong>. In het hart ontmoet <strong>lavendel</strong> een poederige, zachte <strong>iris</strong>. De basis gaat dieper: <strong>patchoeli</strong> en een akkoord van <strong>leder</strong> geven de geur houvast en een sensuele toets.</p><p>Het is een houtig-bloemige fougère, klassiek van opzet maar modern van karakter. Hij kwam uit in 2017 en werd gemaakt door Olivier Cresp en Nathalie Lorson, als nieuwe kijk op de Gentleman die Givenchy in 1974 lanceerde.</p><p>Ideaal voor op kantoor, een afspraak of koele herfst- en winterdagen, wanneer je verzorgd wilt ruiken zonder te overdrijven.</p>",
+   "sources": [
+    "https://nstperfume.com/2017/07/13/givenchy-gentlemen-new-fragrance",
+    "https://escentual.com/givenchy/men-fragrances/givenchy-gentleman/gentlemangivenchy001",
+    "https://vivir.com/article/givenchy-gentleman-2017-edt-review"
+   ],
+   "doute": "Pyramide courte (fiche Escentual, cohérente avec la présentation de lancement) ; d'autres bases ajoutent cardamome, ananas, géranium et vanille noire. La fiche Parfumo trouvée était erronée (autre parfum)."
+  },
+  "versace-eros-eau-de-toilette-pour-homme": {
+   "annee": 2012,
+   "parfumeurs": [
+    "Aurélien Guichard"
+   ],
+   "famille_fr": "Fougère aromatique",
+   "famille_nl": "Aromatische fougère",
+   "notes_fr": {
+    "tete": [
+     "Menthe",
+     "Pomme verte",
+     "Citron"
+    ],
+    "coeur": [
+     "Fève tonka",
+     "Géranium",
+     "Ambroxan"
+    ],
+    "fond": [
+     "Vanille de Madagascar",
+     "Vétiver",
+     "Mousse de chêne",
+     "Cèdre de Virginie",
+     "Cèdre de l'Atlas"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Munt",
+     "Groene appel",
+     "Citroen"
+    ],
+    "coeur": [
+     "Tonkaboon",
+     "Geranium",
+     "Ambroxan"
+    ],
+    "fond": [
+     "Vanille uit Madagaskar",
+     "Vetiver",
+     "Eikenmos",
+     "Virginiaceder",
+     "Atlasceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Eros commence fort : la <strong>menthe</strong>, la <strong>pomme verte</strong> et le <strong>citron</strong> donnent un départ frais et vif. Le cœur se réchauffe avec la <strong>fève tonka</strong>, le <strong>géranium</strong> et l’ambroxan, entre douceur et notes boisées. Le fond, à la <strong>vanille</strong> de Madagascar, au vétiver, à la mousse de chêne et aux cèdres, laisse une trace sucrée et chaleureuse.</p><p>C’est un parfum masculin assumé, qui porte le nom du dieu grec de l’amour. Il a été créé par le parfumeur Aurélien Guichard et lancé fin 2012.</p><p>Idéal pour les soirées, les sorties et les saisons fraîches, quand sa douceur vanillée se révèle le mieux.</p>",
+   "nl": "<p>Eros begint krachtig: <strong>munt</strong>, <strong>groene appel</strong> en <strong>citroen</strong> zorgen voor een frisse, levendige start. Het hart wordt warmer met <strong>tonkaboon</strong>, <strong>geranium</strong> en ambroxan, zacht en houtig tegelijk. De basis met <strong>vanille</strong> uit Madagaskar, vetiver, eikenmos en ceder laat een zoet, warm spoor na.</p><p>Het is een uitgesproken mannelijke geur, genoemd naar de Griekse god van de liefde. Parfumeur Aurélien Guichard creëerde hem en hij kwam eind 2012 op de markt.</p><p>Ideaal voor avonden, uitgaan en de koudere seizoenen, wanneer de zachte vanille het best tot zijn recht komt.</p>",
+   "sources": [
+    "https://nstperfume.com/2012/10/12/versace-eros-new-fragrance",
+    "https://www.osmoz.com/perfumes/versace/6978/eros",
+    "https://www.perfumesclub.nl/nl/versace/eros-edt-vapo/p_43370/"
+   ],
+   "doute": "Année : lancement européen fin 2012 (NST), Osmoz indique 2013 (sortie US en mars 2013). Famille : fougère aromatique selon Perfumesclub, « oriental boisé » selon Osmoz."
+  },
+  "chanel-chance-eau-tendre-eau-de-toilette-pour-femme": {
+   "annee": 2010,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Floral fruité",
+   "famille_nl": "Bloemig fruitig",
+   "notes_fr": {
+    "tete": [
+     "Pamplemousse",
+     "Coing"
+    ],
+    "coeur": [
+     "Jasmin",
+     "Rose"
+    ],
+    "fond": [
+     "Musc blanc"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Grapefruit",
+     "Kweepeer"
+    ],
+    "coeur": [
+     "Jasmijn",
+     "Roos"
+    ],
+    "fond": [
+     "Witte musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Chance Eau Tendre s’ouvre sur un accord de <strong>pamplemousse</strong> et de <strong>coing</strong>, vert, fruité et pétillant. Le cœur dévoile un <strong>jasmin</strong> délicat, accompagné d’une touche de rose. Le fond repose sur un <strong>musc blanc</strong> doux et propre, qui enveloppe la peau comme un voile léger.</p><p>C’est un floral fruité tendre et lumineux, facile à porter. Lancé en 2010 et signé Jacques Polge, il garde le flacon rond propre à la ligne Chance.</p><p>Idéal pour tous les jours, au printemps comme en été : au travail, pour un brunch ou une balade en ville, quand tu veux un parfum frais et souriant.</p>",
+   "nl": "<p>Chance Eau Tendre opent met een akkoord van <strong>grapefruit</strong> en <strong>kweepeer</strong>: groen, fruitig en sprankelend. In het hart vind je een fijne <strong>jasmijn</strong> met een vleugje roos. De basis is een zachte, schone <strong>witte musk</strong> die als een lichte sluier over je huid ligt.</p><p>Het is een tedere, stralende bloemig-fruitige geur die je makkelijk draagt. Hij kwam uit in 2010, werd gemaakt door Jacques Polge en zit in de ronde fles die typisch is voor de Chance-lijn.</p><p>Ideaal voor elke dag in de lente en zomer: op het werk, bij een brunch of tijdens een wandeling in de stad, als je zin hebt in iets fris en vrolijks.</p>",
+   "sources": [
+    "https://www.chanel.com/us/fragrance/p/126310/chance-eau-tendre-eau-de-toilette-spray/",
+    "https://perfumeshrine.blogspot.com/2010/02/chanel-chance-eau-tendre-new-fragrances.html?m=1",
+    "https://en.wikipedia.org/wiki/Chanel_Chance"
+   ],
+   "doute": "Pyramide d'après chanel.com (accord pamplemousse-coing, jasmin, musc blanc ; la rose vient d'une réponse du service client sur la même page). Les listes de 2010 (Perfume Shrine, Wikipedia) ajoutent melon, jacinthe, iris, cèdre et ambre."
+  },
+  "tom-ford-cafe-rose-eau-de-parfum-mixte": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral épicé",
+   "famille_nl": "Bloemig kruidig",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "Rose de Turquie",
+     "Rose de Bulgarie",
+     "Café",
+     "Encens",
+     "Bois de santal",
+     "Patchouli"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "Turkse roos",
+     "Bulgaarse roos",
+     "Koffie",
+     "Wierook",
+     "Sandelhout",
+     "Patchoeli"
+    ]
+   },
+   "fr": "<p>Café Rose met la <strong>rose</strong> au centre, avec deux variétés, de Turquie et de Bulgarie, riches et veloutées. Une note de <strong>café</strong> vient l’assombrir doucement, sans jamais la cacher. Le fond, plus chaud, mêle <strong>encens</strong>, <strong>bois de santal</strong> et <strong>patchouli</strong>, pour un résultat crémeux et légèrement fumé.</p><p>C’est une rose épicée et nocturne, qui se porte aussi bien au féminin qu’au masculin. Le parfum est né en 2012 dans la collection Private Blend de Tom Ford, puis a été relancé en 2023 dans une nouvelle version.</p><p>Idéal pour les soirées d’automne et d’hiver, un dîner ou un moment où tu as envie d’une rose plus profonde et plus mystérieuse.</p>",
+   "nl": "<p>Café Rose zet de <strong>roos</strong> centraal, met twee soorten uit Turkije en Bulgarije, rijk en fluweelzacht. Een toets <strong>koffie</strong> maakt haar zachtjes donkerder, zonder haar ooit te overstemmen. De warme basis combineert <strong>wierook</strong>, <strong>sandelhout</strong> en <strong>patchoeli</strong> tot iets romigs en licht rokerigs.</p><p>Het is een kruidige roos met een avondkarakter, die zowel vrouwen als mannen goed staat. De geur ontstond in 2012 in de Private Blend-collectie van Tom Ford en kreeg in 2023 een nieuwe versie.</p><p>Ideaal voor herfst- en winteravonden, een etentje of een moment waarop je zin hebt in een diepere, mysterieuzere roos.</p>",
+   "sources": [
+    "https://www.parfumo.com/Parfums/Tom_Ford/Coffee_Rose",
+    "https://www.selfridges.com/TW/zh/cat/tom-ford-private-blend-caf-rose-eau-de-parfum-50ml_453-3001058-T14M01/",
+    "https://www.musingsofamuse.com/?p=211358",
+    "https://scentadvice.com/cafe-rose-2023-tom-ford",
+    "https://escentual.com/products/tom-ford-cafe-rose-eau-de-parfum-spray"
+   ],
+   "doute": "Deux versions : original 2012 (Antoine Lie ; tête safran, poivre noir, rose de mai / cœur roses turque et bulgare, café / fond encens, ambre, santal, patchouli) et relance 2023 reformulée (parfumeur non communiqué ; Escentual liste aussi ylang-ylang, cardamome, coriandre). Version vendue inconnue, donc année, parfumeur et pyramide laissés vides ; seules les notes communes aux deux sont en « cle »."
+  },
+  "creed-aventus-for-her-eau-de-parfum-pour-femme": {
+   "annee": 2016,
+   "parfumeurs": [
+    "Olivier Creed"
+   ],
+   "famille_fr": "Floral fruité",
+   "famille_nl": "Bloemig fruitig",
+   "notes_fr": {
+    "tete": [
+     "Violette",
+     "Baies roses",
+     "Citron",
+     "Bergamote",
+     "Patchouli"
+    ],
+    "coeur": [
+     "Bois de santal",
+     "Rose",
+     "Musc"
+    ],
+    "fond": [
+     "Ylang-ylang",
+     "Ambre",
+     "Pêche"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Viooltje",
+     "Roze peper",
+     "Citroen",
+     "Bergamot",
+     "Patchoeli"
+    ],
+    "coeur": [
+     "Sandelhout",
+     "Roos",
+     "Musk"
+    ],
+    "fond": [
+     "Ylang-ylang",
+     "Amber",
+     "Perzik"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Aventus For Her démarre sur une ouverture vive : <strong>bergamote</strong>, citron et <strong>baies roses</strong>, avec une touche de <strong>violette</strong> et de patchouli. Le cœur devient plus doux avec la <strong>rose</strong>, le santal et le musc. En fond, l’<strong>ylang-ylang</strong>, l’ambre et une <strong>pêche</strong> veloutée laissent une impression fruitée et chaleureuse.</p><p>C’est un parfum fruité et floral, à la fois frais et affirmé. La maison Creed l’a lancé en 2016, en s’inspirant de femmes au fort caractère.</p><p>Idéal pour le printemps et l’été, en journée comme en soirée : au bureau, le week-end ou pour une occasion où tu veux te sentir sûre de toi.</p>",
+   "nl": "<p>Aventus For Her opent levendig met <strong>bergamot</strong>, citroen en <strong>roze peper</strong>, aangevuld met een vleugje <strong>viooltje</strong> en patchoeli. Het hart wordt zachter met <strong>roos</strong>, sandelhout en musk. In de basis zorgen <strong>ylang-ylang</strong>, amber en fluweelzachte <strong>perzik</strong> voor een fruitige, warme indruk.</p><p>Het is een fruitig-bloemige geur, fris en tegelijk zelfverzekerd. Het huis Creed bracht hem in 2016 uit, geïnspireerd door vrouwen met een sterke persoonlijkheid.</p><p>Ideaal voor lente en zomer, overdag en ’s avonds: op kantoor, in het weekend of voor een gelegenheid waarop je je sterk wilt voelen.</p>",
+   "sources": [
+    "https://www.creedfragrance.com/aventus-for-her.list",
+    "https://www.creedfragrance.com/c/aventus-for-her/",
+    "https://www.2luxury2.com/creed-aventus-for-her-the-highly-anticipated-aventus-fragrance-partner/",
+    "https://www.parfumo.com/perfumes/creed/aventus_for_her"
+   ],
+   "doute": "Pyramide officielle du site Creed (inhabituelle : santal au cœur, ylang en fond). Le communiqué de lancement 2016 donne une autre pyramide (tête pomme verte, feuille de violette, baies roses, bergamote / cœur rose, styrax, santal / fond pêche, cassis, ylang, ambre). Parfumeur : Olivier Creed selon 2luxury2 ; Creed dit seulement que Olivier et Erwin Creed créent les parfums de la maison. Famille : « fruité floral » (2luxury2), Creed parle d'agrumes."
+  },
+  "dior-sauvage-elixir-parfum-pour-homme": {
+   "annee": 2021,
+   "parfumeurs": [
+    "François Demachy"
+   ],
+   "famille_fr": "Aromatique épicé boisé",
+   "famille_nl": "Aromatisch kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "Pamplemousse",
+     "Cannelle",
+     "Noix de muscade",
+     "Cardamome"
+    ],
+    "coeur": [
+     "Lavande"
+    ],
+    "fond": [
+     "Réglisse",
+     "Bois de santal",
+     "Ambre",
+     "Patchouli",
+     "Vétiver d'Haïti"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Grapefruit",
+     "Kaneel",
+     "Nootmuskaat",
+     "Kardemom"
+    ],
+    "coeur": [
+     "Lavendel"
+    ],
+    "fond": [
+     "Zoethout",
+     "Sandelhout",
+     "Amber",
+     "Patchoeli",
+     "Haïtiaanse vetiver"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Sauvage Elixir s’ouvre sur le <strong>pamplemousse</strong> et un trio d’épices chaudes : <strong>cannelle</strong>, muscade et <strong>cardamome</strong>. Au cœur, la <strong>lavande</strong> apporte une fraîcheur aromatique. Le fond est dense et enveloppant, avec la <strong>réglisse</strong>, le santal, l’ambre, le patchouli et le vétiver d’Haïti.</p><p>Dior le présente comme un parfum très concentré, au caractère épicé et boisé. Il a été créé par François Demachy, alors parfumeur-créateur de la maison, et lancé en 2021.</p><p>Idéal pour les soirées et les mois froids, quand tu veux une présence chaude et affirmée. Vu sa concentration, une ou deux pulvérisations suffisent largement.</p>",
+   "nl": "<p>Sauvage Elixir opent met <strong>grapefruit</strong> en een trio warme kruiden: <strong>kaneel</strong>, nootmuskaat en <strong>kardemom</strong>. In het hart brengt <strong>lavendel</strong> een aromatische frisheid. De basis is vol en omhullend, met <strong>zoethout</strong>, sandelhout, amber, patchoeli en vetiver uit Haïti.</p><p>Dior omschrijft hem als een sterk geconcentreerde geur met een kruidig, houtig karakter. Hij werd gecreëerd door François Demachy, toen parfumeur-createur van het huis, en kwam uit in 2021.</p><p>Ideaal voor avonden en koude maanden, wanneer je een warme, uitgesproken aanwezigheid wilt. Omdat hij zo geconcentreerd is, volstaan een of twee sprays ruim.</p>",
+   "sources": [
+    "https://nstperfume.com/2021/08/20/dior-sauvage-elixir-new-fragrance",
+    "https://www.scento.com/perfumes/sauvage-elixir-by-dior.md",
+    "https://www.parfumo.com/Perfumes/Dior/sauvage-elixir/reviews/335116"
+   ],
+   "doute": "Page officielle dior.com non consultable (redirection bloquée) ; pyramide reprise de Scento, cohérente avec la liste du lancement (NST). Famille : « aromatique » selon Scento, précision épicé boisé d'après sa description."
+  },
+  "giorgio-armani-acqua-di-gio-profondo-eau-de-parfum-pour-homme": {
+   "annee": 2020,
+   "parfumeurs": [
+    "Alberto Morillas"
+   ],
+   "famille_fr": "Aromatique marin",
+   "famille_nl": "Aromatisch marien",
+   "notes_fr": {
+    "tete": [
+     "Notes marines",
+     "Aquozone",
+     "Bergamote",
+     "Mandarine verte"
+    ],
+    "coeur": [
+     "Romarin",
+     "Lavande",
+     "Cyprès",
+     "Lentisque"
+    ],
+    "fond": [
+     "Accord ambre minéral",
+     "Patchouli",
+     "Musc"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Zeenoten",
+     "Aquozone",
+     "Bergamot",
+     "Groene mandarijn"
+    ],
+    "coeur": [
+     "Rozemarijn",
+     "Lavendel",
+     "Cipres",
+     "Mastiek"
+    ],
+    "fond": [
+     "Mineraal amberakkoord",
+     "Patchoeli",
+     "Musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Acqua di Giò Profondo s’ouvre sur des <strong>notes marines</strong>, la <strong>bergamote</strong> et la mandarine verte, à la fois fraîches et salées. Le cœur devient aromatique avec le <strong>romarin</strong>, la <strong>lavande</strong>, le cyprès et le lentisque. Le fond associe un accord d’<strong>ambre minéral</strong>, le patchouli et le musc, comme une peau qui sort de la mer.</p><p>C’est un parfum aquatique et aromatique, avec plus de corps qu’une simple eau fraîche. Son nom, « Profondo », signifie « profond » en italien. Il a été créé par Alberto Morillas et lancé en 2020.</p><p>Idéal pour le printemps et l’été, au bureau comme en vacances, quand tu veux de la fraîcheur avec un peu plus de caractère.</p>",
+   "nl": "<p>Acqua di Giò Profondo opent met <strong>zeenoten</strong>, <strong>bergamot</strong> en groene mandarijn, fris en tegelijk zilt. Het hart wordt aromatisch met <strong>rozemarijn</strong>, <strong>lavendel</strong>, cipres en mastiek. In de basis zorgen een <strong>mineraal amberakkoord</strong>, patchoeli en musk voor het gevoel van huid die net uit de zee komt.</p><p>Het is een aquatische, aromatische geur met meer body dan een gewone frisse eau. De naam „Profondo” betekent „diep” in het Italiaans. Alberto Morillas creëerde hem en hij kwam uit in 2020.</p><p>Ideaal voor lente en zomer, op kantoor of op vakantie, wanneer je frisheid zoekt met net iets meer karakter.</p>",
+   "sources": [
+    "https://nstperfume.com/2020/02/20/giorgio-armani-aqua-di-gio-profondo-new-fragrance",
+    "https://thescentbase.com/perfumes/giorgio-armani/acqua-di-gio-profondo"
+   ],
+   "doute": "Pyramide d'après Thescentbase, identique en contenu à la liste de lancement (NST) qui ne sépare pas tête/cœur/fond. Page officielle Armani non consultée."
+  },
+  "hermes-un-jardin-sur-le-nil-eau-de-toilette-mixte": {
+   "annee": 2005,
+   "parfumeurs": [
+    "Jean-Claude Ellena"
+   ],
+   "famille_fr": "Floral aquatique",
+   "famille_nl": "Bloemig aquatisch",
+   "notes_fr": {
+    "tete": [
+     "Pamplemousse",
+     "Mangue verte"
+    ],
+    "coeur": [
+     "Lotus"
+    ],
+    "fond": [
+     "Oliban (encens)",
+     "Sycomore"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Grapefruit",
+     "Groene mango"
+    ],
+    "coeur": [
+     "Lotus"
+    ],
+    "fond": [
+     "Olibanum (wierook)",
+     "Sycomoor"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Un Jardin sur le Nil s’ouvre sur une <strong>mangue verte</strong> acidulée et un <strong>pamplemousse</strong> pétillant. Le cœur, aquatique et floral, s’articule autour de la fleur de <strong>lotus</strong>. En fond, l’<strong>encens</strong> et le bois de <strong>sycomore</strong> apportent une douceur sèche et lumineuse.</p><p>C’est un parfum vert et frais, léger sans être fade, qui se porte aussi bien au féminin qu’au masculin. Il a été créé en 2005 par Jean-Claude Ellena, alors parfumeur maison d’Hermès.</p><p>Idéal pour les chaudes journées d’été, le bureau ou les vacances, quand tu as envie d’un parfum frais, calme et naturel. Il se vaporise facilement plusieurs fois dans la journée.</p>",
+   "nl": "<p>Un Jardin sur le Nil opent met een frisse, zurige <strong>groene mango</strong> en sprankelende <strong>grapefruit</strong>. Het hart, waterig en bloemig, draait rond de <strong>lotusbloem</strong>. In de basis zorgen <strong>wierook</strong> en <strong>sycomoorhout</strong> voor een droge, lichte zachtheid.</p><p>Het is een groene, frisse geur, licht maar nooit flets, die zowel vrouwen als mannen goed staat. Jean-Claude Ellena, toen huisparfumeur van Hermès, creëerde hem in 2005.</p><p>Ideaal voor warme zomerdagen, op kantoor of op vakantie, wanneer je zin hebt in een frisse, rustige en natuurlijke geur. Je kunt hem gerust een paar keer per dag opnieuw aanbrengen.</p>",
+   "sources": [
+    "https://osmoz.com/perfumes/hermes/2899/un-jardin-sur-le-nil",
+    "https://www.parfumo.com/Parfums/Hermes/un-jardin-sur-le-nil-eau-de-toilette"
+   ],
+   "doute": "Pages hermes.com inaccessibles (erreur du site). Pyramide d'Osmoz, qui cite aussi un « bois de palmier » au cœur (non repris) ; Parfumo ajoute le calamus (jonc odorant)."
+  }
+ }
+}
