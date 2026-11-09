@@ -239,6 +239,30 @@ def auto(essai=False):
                    "sans_fabricant": sans_fabricant, "inci_a_chercher": inci_a_chercher}, fh, ensure_ascii=False, indent=1)
 
 
+def images():
+    """Essai (09/11/2026) : les offres « 4004 informations essentielles manquantes » sont presque toutes sur des fiches bol
+    non publiées (published=false). On envoie la photo Qosmi (photo autorisée, recadrée) comme image principale (FRONT)."""
+    from bol_api import Bol
+    bol = Bol()
+    imgs = json.load(open(os.path.join(RACINE, "config", "bol_images.json"), encoding="utf-8"))
+    envois = {}
+    for ean, url in imgs.items():
+        corps = {"language": "nl", "attributes": [{"id": "EAN", "values": [{"value": ean.zfill(13)}]}],
+                 "assets": [{"url": url, "labels": ["FRONT"]}]}
+        try:
+            r = bol.appel("POST", "/retailer/content/products", corps=corps)
+            envois[ean] = {"processStatusId": (r or {}).get("processStatusId"), "attributs": ["FRONT"]}
+        except RuntimeError as ex:
+            envois[ean] = {"erreur": str(ex)[:300]}
+    print("%d images envoyées, %d refus" % (sum(1 for v in envois.values() if v.get("processStatusId")), sum(1 for v in envois.values() if "erreur" in v)))
+    os.makedirs(RAPPORTS, exist_ok=True)
+    with open(os.path.join(RAPPORTS, "bol_contenu_envois.json"), "w", encoding="utf-8") as fh:
+        json.dump(envois, fh, ensure_ascii=False, indent=1)
+    import time
+    time.sleep(240)
+    rapport()
+
+
 def offres_test():
     """Contrôle : opérateur économique lié aux offres bloquées 4004 vs offres visibles, et détail de 3 offres."""
     from bol_api import Bol
@@ -260,6 +284,9 @@ def offres_test():
 
 
 if __name__ == "__main__":
+    if "--images" in sys.argv:
+        images()
+        sys.exit(0)
     if "--offres-test" in sys.argv:
         offres_test()
         sys.exit(0)
