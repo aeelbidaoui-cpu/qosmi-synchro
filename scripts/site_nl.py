@@ -29,11 +29,11 @@ def bilan(noeuds, detail, nom):
             if k in faites:
                 trad += 1
                 obso += 1 if faites[k] else 0
-            elif len(manquants) < 400:
-                manquants.append({"id": n["resourceId"], "cle": k, "fr": (v or "")[:120]})
+            elif len(manquants) < 400 and k != "handle" and not k.startswith("shopify."):
+                manquants.append({"id": n["resourceId"], "cle": k, "fr": v if not nom.startswith("PRODUCT") else (v or "")[:120]})
     detail[nom] = {"textes": tot, "traduits": trad, "perimes": obso, "manquants": len(
         [1 for n in noeuds for c in n["translatableContent"] if (c.get("value") or "").strip()
-         and c["key"] not in {t["key"] for t in n["translations"]}]), "exemples": manquants[:60]}
+         and c["key"] not in {t["key"] for t in n["translations"]}]), "exemples": manquants}
     print("%-48s %6d textes · %6d traduits · %5d périmés" % (nom, tot, trad, obso))
 
 
