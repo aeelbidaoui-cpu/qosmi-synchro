@@ -125,6 +125,8 @@ JEUX = {
  "parfums-homme": ([("h_hugo-boss-boss-bottled-eau-de-parfum-pou.jpg", 680, False), ("h_giorgio-armani-acqua-di-gio-eau-de-parfu.jpg", 600, True),
                     ("h_jean-paul-gaultier-le-male-eau-de-toilet.jpg", 760, False), ("h_paco-rabanne-1-million-eau-de-toilette-p.jpg", 600, True),
                     ("h_versace-eros-eau-de-parfum-pour-homme.jpg", 600, False)], [0.02, 0.02, 0.02, 0.02]),
+ "parfums-arabes": ([("a_khamrah.jpg", 560, False), ("a_hawas.jpg", 640, True), ("a_asad.jpg", 720, False), ("a_yara.jpg", 640, True),
+                     ("a_9pm.jpg", 620, False)], [0.04, 0.04, 0.04, 0.04]),  # 09/11/2026 : photos des fiches Qosmi
  "journal-erba-pura": ([("j_erba_riklis.png", 760, True)], []),
  "journal-concentrations": ([("h_jean-paul-gaultier-le-male-eau-de-toilet.jpg", 700, True), ("h_giorgio-armani-acqua-di-gio-eau-de-parfu.jpg", 600, True),
                              ("n_nishane-ani-extrait-de-parfum-mixte.jpg", 600, True)], [-0.18, -0.18]),

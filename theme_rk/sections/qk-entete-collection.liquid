@@ -6,7 +6,7 @@
 {%- endcomment -%}
 {%- assign qk_c = collection | default: closest.collection -%}
 {%- comment -%} seules ces catégories ont une image (sinon images[] renvoie un objet vide et image_url plante) {%- endcomment -%}
-{%- assign qk_avec = 'parfums,parfums-femme,parfums-homme,parfums-mixtes,niche' | split: ',' -%}
+{%- assign qk_avec = 'parfums,parfums-femme,parfums-homme,parfums-mixtes,niche,parfums-arabes' | split: ',' -%}
 {%- assign qk_img = nil -%}
 {%- assign qk_logo = nil -%}
 {%- if qk_avec contains qk_c.handle -%}
