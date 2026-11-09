@@ -109,7 +109,7 @@ NL = {
      "<p>Qosmi is een Belgische onlineparfumerie, eenvoudig en eerlijk: 100 % authentieke, nieuwe parfums aan de juiste prijs. We kiezen de huizen die we graag hebben, van de grote klassiekers tot nichecreateurs, en leveren ze in heel België.</p>",
  "Voir tous les parfums": "Alle parfums bekijken", "<h1>Collections</h1>": "<h1>Collecties</h1>", "Submit": "Verzenden",
  "Livraison offerte dès 2 articles\nLivraison suivie partout en Belgique\nParfums 100 % authentiques et neufs\nPlus de 100 maisons, des grands classiques à la niche\nPaiement sécurisé : Bancontact, carte, Apple Pay\n14 jours pour changer d'avis":
-     "Gratis levering vanaf 2 artikelen\nGevolgde levering in heel België\n100 % authentieke en nieuwe parfums\nMeer dan 100 huizen, van grote klassiekers tot niche\nVeilig betalen: Bancontact, kaart, Apple Pay\n14 dagen bedenktijd",
+     "Gratis levering vanaf 2 artikelen\nLevering in heel België\n100 % authentieke en nieuwe parfums\nMeer dan 100 huizen, van grote klassiekers tot niche\nVeilig betalen: Bancontact, kaart, Apple Pay\n14 dagen bedenktijd",
 }
 MARQUES_INTRO = ("<p>Toutes les maisons que nous proposons, des grands classiques aux créateurs de niche.</p>",
                  "<p>Alle huizen die we aanbieden, van de grote klassiekers tot nichecreateurs.</p>")
@@ -125,18 +125,20 @@ def traduire():
         apres = None
         while True:
             d = s.gql("query($a:String){ translatableResources(first:100, after:$a, resourceType:%s){ pageInfo{hasNextPage endCursor} "
-                      "nodes{ resourceId translatableContent{ key value digest } translations(locale:\"nl\"){ key outdated } } } }" % t,
+                      "nodes{ resourceId translatableContent{ key value digest } translations(locale:\"nl\"){ key value outdated } } } }" % t,
                       {"a": apres})["translatableResources"]
             for n in d["nodes"]:
-                faites = {x["key"] for x in n["translations"] if not x["outdated"]}
+                faites = {x["key"]: x["value"] for x in n["translations"] if not x["outdated"]}
                 lot = []
                 for c in n["translatableContent"]:
                     v = (c.get("value") or "")
-                    if c["key"] in faites or not v.strip():
+                    if not v.strip():
                         continue
                     nl = NL.get(v.replace("\r\n", "\n").strip()) if c["key"] != "handle" else None
                     if c["key"] == "body_html" and v.startswith(MARQUES_INTRO[0]):
                         nl = v.replace(MARQUES_INTRO[0], MARQUES_INTRO[1], 1)
+                    if c["key"] in faites and (nl is None or faites[c["key"]] == nl):
+                        continue  # déjà traduit (et identique au dictionnaire)
                     if nl is not None:
                         lot.append({"locale": "nl", "key": c["key"], "value": nl, "translatableContentDigest": c["digest"]})
                 if lot:
@@ -150,6 +152,26 @@ def traduire():
                 break
             apres = d["pageInfo"]["endCursor"]
     print("Traductions NL enregistrées : %d textes (%d erreurs)" % (ok, err))
+
+
+def emails():
+    """Copie des modèles d'e-mail (FR et NL existant) → rapports/theme/emails/ : base de la traduction NL."""
+    s = Shopify()
+    dossier = os.path.join(RAPPORTS, "emails")
+    os.makedirs(dossier, exist_ok=True)
+    apres, n = None, 0
+    while True:
+        d = s.gql("query($a:String){ translatableResources(first:50, after:$a, resourceType:EMAIL_TEMPLATE){ pageInfo{hasNextPage endCursor} "
+                  "nodes{ resourceId translatableContent{ key value digest } translations(locale:\"nl\"){ key value outdated } } } }",
+                  {"a": apres})["translatableResources"]
+        for nd in d["nodes"]:
+            n += 1
+            with open(os.path.join(dossier, nd["resourceId"].split("/")[-1] + ".json"), "w", encoding="utf-8") as f:
+                json.dump(nd, f, ensure_ascii=False, indent=1)
+        if not d["pageInfo"]["hasNextPage"]:
+            break
+        apres = d["pageInfo"]["endCursor"]
+    print("Modèles d'e-mail copiés : %d" % n)
 
 
 def publier():
@@ -168,6 +190,8 @@ def publier():
 if __name__ == "__main__":
     if "--audit" in sys.argv:
         audit()
+    elif "--emails" in sys.argv:
+        emails()
     elif "--traduire" in sys.argv:
         traduire()
     elif "--publier" in sys.argv:
