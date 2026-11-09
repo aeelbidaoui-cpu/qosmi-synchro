@@ -29,8 +29,14 @@ def diag():
     cibles = sorted(e for e, r in raisons.items() if any(x.startswith(CONTENU) for x in r))
     print("EAN avec un problème de fiche : %d" % len(cibles))
     bol = Bol()
+    from bol_publier import offres_en_ligne
+    offres = offres_en_ligne(bol)
     out = {}
     for e in cibles:
+        o = offres.get(e.lstrip("0")) or {}
+        completes = []
+        if o.get("offerId"):
+            completes = (bol.appel("GET", "/retailer/offers/%s" % o["offerId"]) or {}).get("notPublishableReasons") or []
         ean = e.zfill(13)
         fiche = None
         for params in ({"language": "nl"}, None):
@@ -40,7 +46,7 @@ def diag():
                 fiche = {"erreur": str(ex)[:300]}
             if fiche:
                 break
-        out[ean] = {"raisons": raisons[e], "fiche": fiche}
+        out[ean] = {"raisons": raisons[e], "raisons_completes": completes, "fiche": fiche}
         attrs = (fiche or {}).get("attributes") or []
         print("%s : %d attributs · %s" % (ean, len(attrs), " | ".join(r[:40] for r in raisons[e])))
     os.makedirs(RAPPORTS, exist_ok=True)
