@@ -239,7 +239,30 @@ def auto(essai=False):
                    "sans_fabricant": sans_fabricant, "inci_a_chercher": inci_a_chercher}, fh, ensure_ascii=False, indent=1)
 
 
+def offres_test():
+    """Contrôle : opérateur économique lié aux offres bloquées 4004 vs offres visibles, et détail de 3 offres."""
+    from bol_api import Bol
+    from bol_publier import offres_en_ligne
+    bol = Bol()
+    inv = json.load(open(os.path.join(RACINE, "config", "bol_invisibles_controle.json"), encoding="utf-8"))
+    k4 = {e.lstrip("0") for k, v in inv.items() if k.startswith("4004 For") for e in v}
+    tous_inv = {e.lstrip("0") for v in inv.values() for e in v}
+    offres = offres_en_ligne(bol)
+    import collections
+    c = collections.Counter()
+    for e, o in offres.items():
+        grp = "4004" if e in k4 else ("visible" if e not in tous_inv else "autre")
+        c[(grp, bool(o.get("eo")))] += 1
+    print("offres par groupe (groupe, opérateur lié) :", dict(c))
+    ex = [e for e in offres if e in k4][:2] + [e for e in offres if e not in tous_inv][:1]
+    for e in ex:
+        print("=====", e, json.dumps(bol.appel("GET", "/retailer/offers/%s" % offres[e]["offerId"]), ensure_ascii=False)[:1500])
+
+
 if __name__ == "__main__":
+    if "--offres-test" in sys.argv:
+        offres_test()
+        sys.exit(0)
     if "--envoyer" in sys.argv:
         envoyer(essai="--essai" in sys.argv)
         sys.exit(0)
