@@ -1,0 +1,559 @@
+{
+ "3069662026169": {
+  "processStatusId": "01a1bfcf-b5ca-7dac-91d8-10ca76fcc16a",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfcf-b5ca-7dac-91d8-10ca76fcc16a",
+  "message": null,
+  "attributs": [
+   "Ingredients"
+  ]
+ },
+ "3259550501902": {
+  "processStatusId": "01a1bfcf-c5d8-781d-9992-3c2f9190954a",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfcf-c5d8-781d-9992-3c2f9190954a",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3259550502374": {
+  "processStatusId": "01a1bfcf-d6ec-7224-8090-e98285d552d2",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfcf-d6ec-7224-8090-e98285d552d2",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3259550753967": {
+  "processStatusId": "01a1bfcf-e7ad-7941-86fa-66a1fb360665",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfcf-e7ad-7941-86fa-66a1fb360665",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3259550755008": {
+  "processStatusId": "01a1bfcf-fa3c-7f57-9cc8-1945eabc6b6a",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfcf-fa3c-7f57-9cc8-1945eabc6b6a",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3259551504018": {
+  "processStatusId": "01a1bfd0-085e-74b0-a533-03c528b5d87b",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-085e-74b0-a533-03c528b5d87b",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3259551504032": {
+  "processStatusId": "01a1bfd0-1a68-7e21-9200-88d4bd70d693",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-1a68-7e21-9200-88d4bd70d693",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3346131403097": {
+  "processStatusId": "01a1bfd0-2c65-749b-82de-e52990ef9f71",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-2c65-749b-82de-e52990ef9f71",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3346131404476": {
+  "processStatusId": "01a1bfd0-3dd3-7640-bfa6-3277c9eab2eb",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-3dd3-7640-bfa6-3277c9eab2eb",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3346131700011": {
+  "processStatusId": "01a1bfd0-424a-7526-bfd5-dd3475a5fa1c",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-424a-7526-bfd5-dd3475a5fa1c",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3346132004989": {
+  "processStatusId": "01a1bfd0-51c1-7ec9-a6a6-05b315ef1eb5",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-51c1-7ec9-a6a6-05b315ef1eb5",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3355991004375": {
+  "processStatusId": "01a1bfd0-61b5-7523-aa5a-ff91baee8ea9",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-61b5-7523-aa5a-ff91baee8ea9",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3380810177565": {
+  "processStatusId": "01a1bfd0-7398-7900-a0bf-1975774a46ff",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-7398-7900-a0bf-1975774a46ff",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3392865074171": {
+  "processStatusId": "01a1bfd0-833c-7394-b16d-ec07b62bcfe7",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-833c-7394-b16d-ec07b62bcfe7",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address"
+  ]
+ },
+ "3423222052423": {
+  "processStatusId": "01a1bfd0-9394-71da-bb73-e9a87c1302cb",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-9394-71da-bb73-e9a87c1302cb",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3423222106508": {
+  "processStatusId": "01a1bfd0-a5bd-7a5e-837e-b187f3ef8878",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-a5bd-7a5e-837e-b187f3ef8878",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address"
+  ]
+ },
+ "3595471028242": {
+  "processStatusId": "01a1bfd0-b68d-700e-b1da-dbe76410d578",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-b68d-700e-b1da-dbe76410d578",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address"
+  ]
+ },
+ "3614226940490": {
+  "processStatusId": "01a1bfd0-c63b-7129-9960-f052a0ca7d93",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-c63b-7129-9960-f052a0ca7d93",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3614273327114": {
+  "processStatusId": "01a1bfd0-d6b9-7ed4-8229-5e614193303e",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-d6b9-7ed4-8229-5e614193303e",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3614274569131": {
+  "processStatusId": "01a1bfd0-e6f4-7970-ba40-81a2874da532",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-e6f4-7970-ba40-81a2874da532",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3770014573216": {
+  "processStatusId": "01a1bfd0-f7f3-779d-b693-230da5bb9204",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd0-f7f3-779d-b693-230da5bb9204",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address"
+  ]
+ },
+ "4015600613112": {
+  "processStatusId": "01a1bfd1-079d-716e-a1ab-5142c5696ef8",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-079d-716e-a1ab-5142c5696ef8",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "6290171075141": {
+  "processStatusId": "01a1bfd1-17f1-723e-9472-3d0ae0d02717",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-17f1-723e-9472-3d0ae0d02717",
+  "message": null,
+  "attributs": [
+   "Ingredients"
+  ]
+ },
+ "6294015176131": {
+  "processStatusId": "01a1bfd1-2999-7887-82a1-0bb07ad6462c",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-2999-7887-82a1-0bb07ad6462c",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address"
+  ]
+ },
+ "6295199815496": {
+  "processStatusId": "01a1bfd1-37ca-7315-84a4-01f6f1977d9e",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-37ca-7315-84a4-01f6f1977d9e",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address"
+  ]
+ },
+ "0679602403122": {
+  "processStatusId": "01a1bfd1-3ad4-72ef-a18b-9c339561902e",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-3ad4-72ef-a18b-9c339561902e",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "0688003104330": {
+  "processStatusId": "01a1bfd1-4b87-7947-94be-e13aa24a1b37",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-4b87-7947-94be-e13aa24a1b37",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "0690251009015": {
+  "processStatusId": "01a1bfd1-5d4d-774a-855d-80d50a4dab00",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-5d4d-774a-855d-80d50a4dab00",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "0690251122288": {
+  "processStatusId": "01a1bfd1-6b65-73f3-9509-5d6e4f46e009",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-6b65-73f3-9509-5d6e4f46e009",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "0690251122295": {
+  "processStatusId": "01a1bfd1-7c73-7f05-b03d-db2806393508",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-7c73-7f05-b03d-db2806393508",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "0711367108680": {
+  "processStatusId": "01a1bfd1-8d25-77e1-8d0f-a03b01cbb6e1",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-8d25-77e1-8d0f-a03b01cbb6e1",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address"
+  ]
+ },
+ "0730852167476": {
+  "processStatusId": "01a1bfd1-9e8a-7d14-a8c1-1ecb48669c00",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-9e8a-7d14-a8c1-1ecb48669c00",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address"
+  ]
+ },
+ "7640111502968": {
+  "processStatusId": "01a1bfd1-adee-7e9c-ada3-a1166686a0ab",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-adee-7e9c-ada3-a1166686a0ab",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address"
+  ]
+ },
+ "0783320426919": {
+  "processStatusId": "01a1bfd1-bfa1-798a-8953-be46daaa55e0",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-bfa1-798a-8953-be46daaa55e0",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "8016741582554": {
+  "processStatusId": "01a1bfd1-d05c-79a2-82fa-83b4ec712d64",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-d05c-79a2-82fa-83b4ec712d64",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "8016741622557": {
+  "processStatusId": "01a1bfd1-df97-7976-8ca9-9a4f599a7e2d",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-df97-7976-8ca9-9a4f599a7e2d",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "8016741632556": {
+  "processStatusId": "01a1bfd1-eec0-7e7f-ae0a-c2e06b57ef4e",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-eec0-7e7f-ae0a-c2e06b57ef4e",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "8016741792427": {
+  "processStatusId": "01a1bfd1-f318-7fbe-a180-46639dbd6ed0",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd1-f318-7fbe-a180-46639dbd6ed0",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "8016741992582": {
+  "processStatusId": "01a1bfd2-0387-7eb1-a76e-e4f9159d0090",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-0387-7eb1-a76e-e4f9159d0090",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "8028713400070": {
+  "processStatusId": "01a1bfd2-12b0-74cb-ba0e-728a80f21293",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-12b0-74cb-ba0e-728a80f21293",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "8028713813412": {
+  "processStatusId": "01a1bfd2-21cd-774a-9e5f-80a1a8f795a6",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-21cd-774a-9e5f-80a1a8f795a6",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "8033488157968": {
+  "processStatusId": "01a1bfd2-3222-70fa-b63f-3f159ac61fc3",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-3222-70fa-b63f-3f159ac61fc3",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "8429421444118": {
+  "processStatusId": "01a1bfd2-42f2-72b7-968c-53f8c676fd22",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-42f2-72b7-968c-53f8c676fd22",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address"
+  ]
+ },
+ "8436550507584": {
+  "processStatusId": "01a1bfd2-53d1-7ff6-9370-f40a14ffad40",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-53d1-7ff6-9370-f40a14ffad40",
+  "message": null,
+  "attributs": [
+   "Ingredients",
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3274870162565": {
+  "processStatusId": "01a1bfd2-635d-7b34-bbc9-39bfa2df3530",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-635d-7b34-bbc9-39bfa2df3530",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3346470144231": {
+  "processStatusId": "01a1bfd2-73b2-7a25-bb01-067d0ea2ef9b",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-73b2-7a25-bb01-067d0ea2ef9b",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "3349668566211": {
+  "processStatusId": "01a1bfd2-8428-7a81-9923-a1df0b5297b6",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-8428-7a81-9923-a1df0b5297b6",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "0766124306335": {
+  "processStatusId": "01a1bfd2-96ad-78cb-a86b-0f5395e7b347",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-96ad-78cb-a86b-0f5395e7b347",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ },
+ "8411061311608": {
+  "processStatusId": "01a1bfd2-a6bc-781c-8a37-1935d96f9c9a",
+  "statut": "SUCCESS",
+  "uploadId": "01a1bfd2-a6bc-781c-8a37-1935d96f9c9a",
+  "message": null,
+  "attributs": [
+   "Manufacturer Name",
+   "Manufacturer Address",
+   "Manufacturer Email"
+  ]
+ }
+}

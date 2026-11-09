@@ -9,7 +9,7 @@ on:
         description: "Que faire ?"
         type: choice
         default: analyse
-        options: [analyse, test-connexion, recalculer, publier, essai-publication, contenu-diag, contenu-auto, contenu-envoyer]
+        options: [analyse, test-connexion, recalculer, publier, essai-publication, contenu-diag, contenu-auto, contenu-envoyer, contenu-rapport]
       maxi:
         description: "Nombre maximum d'EAN à relever (vide = tous, dans la limite de durée)"
         required: false
@@ -81,6 +81,7 @@ jobs:
           elif [ "$A" = "publier" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py
           elif [ "$A" = "contenu-diag" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_contenu.py --diag
           elif [ "$A" = "contenu-auto" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_contenu.py --diag --auto
+          elif [ "$A" = "contenu-rapport" ]; then python -u scripts/bol_contenu.py --rapport config/bol_contenu_envois_controle.json
           elif [ "$A" = "contenu-envoyer" ]; then python -u scripts/bol_contenu.py --envoyer
           elif [ "$A" = "essai-publication" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py --essai
           elif [ -n "$M" ]; then python -u scripts/bol_analyse.py --max "$M" && python -u scripts/bol_publier.py

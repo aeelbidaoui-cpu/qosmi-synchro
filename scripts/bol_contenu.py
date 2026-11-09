@@ -112,10 +112,10 @@ def envoyer(essai=False):
         print("%d fiches envoyées à bol" % sum(1 for v in envois.values() if "processStatusId" in v))
 
 
-def rapport():
+def rapport(chemin=None):
     from bol_api import Bol
     bol = Bol()
-    envois = json.load(open(os.path.join(RAPPORTS, "bol_contenu_envois.json"), encoding="utf-8"))
+    envois = json.load(open(chemin or os.path.join(RAPPORTS, "bol_contenu_envois.json"), encoding="utf-8"))
     for ean, v in envois.items():
         if not v.get("processStatusId"):
             continue
@@ -124,7 +124,8 @@ def rapport():
         rep = bol.appel("GET", "/retailer/content/upload-report/%s" % up) if up else None
         v["statut"] = st.get("status")
         v["rapport"] = rep
-        print("%s : %s %s" % (ean, st.get("status"), json.dumps(rep, ensure_ascii=False)[:300] if rep else ""))
+        print("%s : %s %s" % (ean, st.get("status"), json.dumps(rep, ensure_ascii=False)[:600] if rep else ""))
+    os.makedirs(RAPPORTS, exist_ok=True)
     with open(os.path.join(RAPPORTS, "bol_contenu_envois.json"), "w", encoding="utf-8") as fh:
         json.dump(envois, fh, ensure_ascii=False, indent=1)
 
@@ -243,7 +244,8 @@ if __name__ == "__main__":
         envoyer(essai="--essai" in sys.argv)
         sys.exit(0)
     if "--rapport" in sys.argv:
-        rapport()
+        i = sys.argv.index("--rapport")
+        rapport(os.path.join(RACINE, sys.argv[i + 1]) if len(sys.argv) > i + 1 and not sys.argv[i + 1].startswith("-") else None)
         sys.exit(0)
     if "--diag" in sys.argv:
         diag()
