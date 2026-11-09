@@ -211,7 +211,7 @@
    "inci": "Alcohol, Parfum (Fragrance), Limonene, Linalool, Hexyl Cinnamal, Citronellol, Geraniol, Benzyl Alcohol, Coumarin, Citral, Eugenol, Alpha-Isomethyl Ionone, Cinnamal, Benzyl Salicylate, Hydroxycitronellal, Benzyl Benzoate, Anise Alcohol",
    "inci_statut": "existant_complet",
    "inci_source": null,
-   "fabricant_nom": "Bogart S.A. (Jacques Bogart)",
+   "fabricant_nom": "Bogart S.A.",
    "fabricant_adresse": {
     "rue": "Avenue des Champs-Élysées",
     "numero": "76-78",
@@ -283,7 +283,7 @@
    "inci": null,
    "inci_statut": "introuvable",
    "inci_source": null,
-   "fabricant_nom": "Beauté Prestige International (Shiseido EMEA)",
+   "fabricant_nom": "Beauté Prestige International",
    "fabricant_adresse": {
     "rue": "Rue de Villiers",
     "numero": "57",
@@ -319,7 +319,7 @@
    "inci": "Alcohol Denat., Parfum/Fragrance, Aqua/Water/Eau, Linalool, Ethylhexyl Methoxycinnamate, Limonene, Alpha-Isomethyl Ionone, Benzyl Benzoate, Benzophenone-3, Ethylhexyl Salicylate, Hexyl Cinnamal, Coumarin, Butyl Methoxydibenzoylmethane, Geraniol, Propylene Glycol, Alcohol, Tris(Tetramethylhydroxypiperidinol) Citrate, Benzyl Alcohol, BHT, CI 60730 (Ext. D&C Violet No. 2), CI 42053 (FD&C Green No. 3)",
    "inci_statut": "trouve",
    "inci_source": "https://www.lookfantastic.pt/tiffany-co.-intense-eau-de-parfum-for-her-75ml/12032343.html",
-   "fabricant_nom": "Coty (SAS)",
+   "fabricant_nom": "Coty SAS",
    "fabricant_adresse": {
     "rue": "Boulevard Berthier",
     "numero": "13T",
@@ -337,7 +337,7 @@
    "inci": "Alcohol, Parfum/Fragrance, Aqua/Water/Eau, Linalool, Benzyl Salicylate, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Benzyl Alcohol, Hydroxycitronellal, Alpha-Isomethyl Ionone, Limonene, Citronellol, Hexyl Cinnamal, Geraniol, Eugenol, Tris(Tetramethylhydroxypiperidinol) Citrate, Methyl Anthranilate, Coumarin, Citral, Farnesol, Benzyl Benzoate, CI 14700/Red 4, CI 60730/Ext. Violet 2",
    "inci_statut": "trouve",
    "inci_source": "https://www.tendance-parfums.com/en/yes-i-am-glorious-eau-de-parfum-cacharel.html",
-   "fabricant_nom": "Cacharel (L'Oréal)",
+   "fabricant_nom": "L'Oréal",
    "fabricant_adresse": {
     "rue": "BP 217",
     "numero": null,
@@ -355,7 +355,7 @@
    "inci": "Alcohol, Parfum/Fragrance, Aqua/Water/Eau, Tetramethyl Acetyloctahydronaphthalenes, Alpha-Isomethyl Ionone, Linalool, Geraniol, Hydroxycitronellal, Geranyl Acetate, Butyl Methoxydibenzoylmethane, Linalyl Acetate, Pogostemon Cablin Oil, Hexyl Cinnamal, Carvone, Limonene, Citrus Aurantium Peel Oil, Benzyl Alcohol, Pentaerythrityl Tetra-Di-T-Butyl Hydroxyhydrocinnamate, Hexadecanolactone, Coumarin, Citrus Limon Peel Oil, Rose Ketones, Citronellol, Methyl Anthranilate, Pinene, Benzaldehyde, Rose Flower Oil/Extract, Beta-Caryophyllene, Trimethylcyclopentenyl Methylisopentenol, Citral",
    "inci_statut": "trouve",
    "inci_source": "https://www.lookfantastic.fr/p/miu-miu-miutine-eau-de-parfum-50ml/16962121/",
-   "fabricant_nom": "Miu Miu Beauty (L'Oréal)",
+   "fabricant_nom": "L'Oréal",
    "fabricant_adresse": {
     "rue": "Rue Royale",
     "numero": "14",
@@ -373,7 +373,7 @@
    "inci": null,
    "inci_statut": "introuvable",
    "inci_source": null,
-   "fabricant_nom": "SIA Haute Fragrance Company (HFC Paris)",
+   "fabricant_nom": "SIA Haute Fragrance Company",
    "fabricant_adresse": {
     "rue": "Ģertrūdes iela",
     "numero": "39-1",
@@ -445,7 +445,7 @@
    "inci": null,
    "inci_statut": "introuvable",
    "inci_source": null,
-   "fabricant_nom": "Sterling Perfumes Industries LLC (Armaf)",
+   "fabricant_nom": "Sterling Perfumes Industries LLC",
    "fabricant_adresse": {
     "rue": "Dubai Investment Park 2, P.O. Box 40769",
     "numero": null,
@@ -463,7 +463,7 @@
    "inci": null,
    "inci_statut": "introuvable",
    "inci_source": null,
-   "fabricant_nom": "Sterling Perfumes Industries LLC (Armaf)",
+   "fabricant_nom": "Sterling Perfumes Industries LLC",
    "fabricant_adresse": {
     "rue": "Dubai Investment Park 2, P.O. Box 40769",
     "numero": null,
@@ -481,7 +481,7 @@
    "inci": "Alcohol Denat., Aqua (Water), Parfum (Fragrance), Limonene, Citral, Eugenol, Coumarin, Linalool, BHT, CI 60730 (Ext. D&C Violet 2)",
    "inci_statut": "partiel",
    "inci_source": "https://en.parfumdreams.de/Furla/Womens-fragrances/Mistica/Eau-de-Parfum-Spray/index_123413.aspx",
-   "fabricant_nom": "Mavive S.p.A. (licence Furla)",
+   "fabricant_nom": "Mavive S.p.A.",
    "fabricant_adresse": {
     "rue": "Via Altinia",
     "numero": "298/B",
@@ -511,7 +511,7 @@
    "inci": "Alcohol Denat., Fragrance (Parfum), Water\\Aqua\\Eau, BHT, Limonene, Linalool, Citronellol, Citral, Geraniol",
    "inci_statut": "trouve",
    "inci_source": "https://www.cultbeauty.co.uk/p/jo-malone-london-nectarine-blossom-and-honey-cologne-100ml/12079053",
-   "fabricant_nom": "Whitman LBS NV (The Estée Lauder Companies)",
+   "fabricant_nom": "Whitman LBS NV",
    "fabricant_adresse": {
     "rue": "Nijverheidstraat",
     "numero": "15",
@@ -529,7 +529,7 @@
    "inci": "Alcohol Denat., Water\\Aqua\\Eau, Fragrance (Parfum), Geraniol, Linalool, Benzyl Salicylate, Alpha-Isomethyl Ionone, Citronellol, Eugenol, Citral, Benzyl Alcohol, Hydroxycitronellal, BHT",
    "inci_statut": "trouve",
    "inci_source": "https://altitude.www.lookfantastic.com/jo-malone-london-velvet-rose-oud-cologne-intense-50ml/13151563.html",
-   "fabricant_nom": "Whitman LBS NV (The Estée Lauder Companies)",
+   "fabricant_nom": "Whitman LBS NV",
    "fabricant_adresse": {
     "rue": "Nijverheidstraat",
     "numero": "15",
@@ -547,7 +547,7 @@
    "inci": "Alcohol Denat., Water\\Aqua\\Eau, Fragrance (Parfum), Benzyl Benzoate, Alpha-Isomethyl Ionone, Citronellol, Hydroxycitronellal, Limonene, Coumarin, Linalool, Geraniol",
    "inci_statut": "existant_complet",
    "inci_source": null,
-   "fabricant_nom": "Whitman LBS NV (The Estée Lauder Companies)",
+   "fabricant_nom": "Whitman LBS NV",
    "fabricant_adresse": {
     "rue": "Nijverheidstraat",
     "numero": "15",
@@ -583,7 +583,7 @@
    "inci": "Water (Aqua/Eau), Dimethicone, Titanium Dioxide (CI 77891), Diphenylsiloxy Phenyl Trimethicone, Ethylhexyl Methoxycinnamate, Trifluoropropyldimethyl/Trimethylsiloxysilicate, Glycerin, Iron Oxides (CI 77492), Butylene Glycol, Hydrogenated Polydecene, PEG-10 Dimethicone, Iron Oxides (CI 77491), Bis-Butyldimethicone Polyglyceryl-3, Disteardimonium Hectorite, Titanium Dioxide (nano), Sorbitan Sesquiisostearate, Xylitol, Erythritol, Dimethicone/PEG-10/15 Crosspolymer, Iron Oxides (CI 77499), Mica, Barium Sulfate, Phenoxyethanol, Synthetic Fluorphlogopite, Aluminum Hydroxide, Polysilicone-2, Disodium EDTA, Stearic Acid, Calcium Aluminum Borosilicate, Tocopherol, Dipropylene Glycol, Triethoxycaprylylsilane, Triethoxysilylethyl Polydimethylsiloxyethyl Dimethicone, Polyquaternium-51, BHT, Citrus Unshiu Peel Extract, Thymus Serpyllum Extract, Alumina, Fagus Sylvatica Bud Extract, Hydrolyzed Conchiolin Protein, Polymethylsilsesquioxane, Dimethicone/Vinyl Dimethicone Crosspolymer",
    "inci_statut": "existant_complet",
    "inci_source": "https://skinsort.com/products/shiseido/synchro-skin-self-refreshing-foundation-spf-30",
-   "fabricant_nom": "Beauté Prestige International (Shiseido EMEA)",
+   "fabricant_nom": "Beauté Prestige International",
    "fabricant_adresse": {
     "rue": "Rue de Villiers",
     "numero": "57",
@@ -637,7 +637,7 @@
    "inci": "Alcohol Denat., Parfum, Alpha-Isomethyl Ionone, Limonene, Linalool, Citronellol, Eugenol, Cinnamal, Citral",
    "inci_statut": "trouve",
    "inci_source": "https://www.parfumdreams.ie/Tiziana-Terenzi/Collections/Anniversary-Collection/Extrait-de-Parfum/index_123334.aspx",
-   "fabricant_nom": "Cereria Terenzi Evelino S.r.l. (Tiziana Terenzi)",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l.",
    "fabricant_adresse": {
     "rue": "Via dei Faggi",
     "numero": "101",
@@ -655,7 +655,7 @@
    "inci": "Alcohol Denat., Parfum, Anise Alcohol",
    "inci_statut": "trouve",
    "inci_source": "https://www.parfumdreams.ie/Tiziana-Terenzi/Collections/Anniversary-Collection/Extrait-de-Parfum/index_77444.aspx",
-   "fabricant_nom": "Cereria Terenzi Evelino S.r.l. (Tiziana Terenzi)",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l.",
    "fabricant_adresse": {
     "rue": "Via dei Faggi",
     "numero": "101",
@@ -673,7 +673,7 @@
    "inci": null,
    "inci_statut": "introuvable",
    "inci_source": null,
-   "fabricant_nom": "Cereria Terenzi Evelino S.r.l. (Tiziana Terenzi)",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l.",
    "fabricant_adresse": {
     "rue": "Via dei Faggi",
     "numero": "101",
@@ -691,7 +691,7 @@
    "inci": "Alcohol Denat., Parfum, Limonene, Linalool, Coumarin, Eugenol, Citronellol, Geraniol, Anise Alcohol, Citral",
    "inci_statut": "trouve",
    "inci_source": "https://www.parfumdreams.ie/V-Canto/Collections/Blue-Collection/Extrait-de-Parfum/index_77818.aspx",
-   "fabricant_nom": "Cereria Terenzi Evelino S.r.l. (Tiziana Terenzi / V Canto)",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l.",
    "fabricant_adresse": {
     "rue": "Via dei Faggi",
     "numero": "101",
@@ -709,7 +709,7 @@
    "inci": "Alcohol Denat., Parfum, Limonene, Alpha-Isomethyl Ionone, Linalool, Coumarin, Citral, Cinnamal, Benzyl Benzoate, Benzyl Alcohol, Citronellol, Eugenol, Geraniol",
    "inci_statut": "trouve",
    "inci_source": "https://www.parfumdreams.ie/Tiziana-Terenzi/Collections/Comete-Collection/Extrait-de-Parfum/index_98619.aspx",
-   "fabricant_nom": "Cereria Terenzi Evelino S.r.l. (Tiziana Terenzi)",
+   "fabricant_nom": "Cereria Terenzi Evelino S.r.l.",
    "fabricant_adresse": {
     "rue": "Via dei Faggi",
     "numero": "101",
@@ -799,7 +799,7 @@
    "inci": "Alcohol Denat., Parfum (Fragrance), Aqua (Water/Eau), Ethylhexyl Methoxycinnamate, Tocopheryl Acetate, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, BHT, Hydroxycitronellal, Limonene, Alpha-Isomethyl Ionone, Citronellol, Linalool, Hexyl Cinnamal, Citral, Geraniol, Cinnamyl Alcohol, Farnesol, Benzyl Alcohol, Anise Alcohol",
    "inci_statut": "existant_complet",
    "inci_source": null,
-   "fabricant_nom": "Perfumes y Diseño (PyD) – licencié des parfums TOUS",
+   "fabricant_nom": "Perfumes y Diseño",
    "fabricant_adresse": {
     "rue": "Calle Isla de Java",
     "numero": "33",
