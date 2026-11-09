@@ -174,6 +174,23 @@ def emails():
     print("Modèles d'e-mail copiés : %d" % n)
 
 
+def emails_envoyer():
+    """Enregistre la version NL des 7 e-mails clients personnalisés (config/emails_nl/*.json) : même mise en forme que
+    le FR (code de confirmation au lieu du n° de commande, sans bouton Shop ni lien « Bezoek onze winkel », mode clair)."""
+    import glob
+    s = Shopify()
+    m = """mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
+           userErrors { field message } translations { key } } }"""
+    for f in sorted(glob.glob(os.path.join(RACINE, "config", "emails_nl", "*.json"))):
+        e = json.load(open(f, encoding="utf-8"))
+        d = s.gql("query($ids:[ID!]!){ translatableResourcesByIds(first:1, resourceIds:$ids){ nodes{ translatableContent{ key digest } } } }",
+                  {"ids": [e["id"]]})["translatableResourcesByIds"]["nodes"]
+        dig = {c["key"]: c["digest"] for c in d[0]["translatableContent"]}
+        t = [{"locale": "nl", "key": k, "value": e[k], "translatableContentDigest": dig[k]} for k in ("title", "body_html")]
+        r = s.gql(m, {"id": e["id"], "t": t})["translationsRegister"]
+        print("%s « %s » : %s" % (e["id"].split("/")[-1], e["title"], r["userErrors"] or "ok"))
+
+
 def publier():
     s = Shopify()
     marches = s.gql("{ markets(first:20){ nodes{ id name enabled primary webPresences(first:5){ nodes{ id defaultLocale{ locale } alternateLocales{ locale } } } } } }")["markets"]["nodes"]
@@ -190,6 +207,8 @@ def publier():
 if __name__ == "__main__":
     if "--audit" in sys.argv:
         audit()
+    elif "--emails-envoyer" in sys.argv:
+        emails_envoyer()
     elif "--emails" in sys.argv:
         emails()
     elif "--traduire" in sys.argv:

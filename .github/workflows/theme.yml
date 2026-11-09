@@ -6,7 +6,7 @@ on:
       action:
         description: "exporter (lecture seule) ou appliquer (copie non publiée)"
         type: choice
-        options: [exporter, exporter-apercu, appliquer, theme-rk, publier, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, seo-boutique, controle-boutique, google, testeurs-suspens, photos-manquantes, photos-jm, photos-mm, photos-tfi, photos-ck, photos-tt, photos-lvmh, photos-m2, photos-m3, livraison-2-95, page-favoris, politiques, politiques-nl, textes-fiches, menu, nl-audit, nl-traduire, nl-publier, nl-emails]
+        options: [exporter, exporter-apercu, appliquer, theme-rk, publier, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, seo-boutique, controle-boutique, google, testeurs-suspens, photos-manquantes, photos-jm, photos-mm, photos-tfi, photos-ck, photos-tt, photos-lvmh, photos-m2, photos-m3, livraison-2-95, page-favoris, politiques, politiques-nl, textes-fiches, menu, nl-audit, nl-traduire, nl-publier, nl-emails, nl-emails-envoyer]
         default: exporter
       fiche:
         description: "photos-marques : renvoyer seulement cette fiche (adresse de la fiche)"
@@ -53,6 +53,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "textes-fiches" ]; then python -u scripts/site_synchro.py --textes
           elif [ "${{ inputs.action }}" = "nl-audit" ]; then python -u scripts/site_nl.py --audit
           elif [ "${{ inputs.action }}" = "nl-traduire" ]; then python -u scripts/site_nl.py --traduire
+          elif [ "${{ inputs.action }}" = "nl-emails-envoyer" ]; then python -u scripts/site_nl.py --emails-envoyer
           elif [ "${{ inputs.action }}" = "nl-emails" ]; then python -u scripts/site_nl.py --emails
           elif [ "${{ inputs.action }}" = "nl-publier" ]; then python -u scripts/site_nl.py --publier
           elif [ "${{ inputs.action }}" = "seo-boutique" ]; then python -u scripts/seo_boutique.py
