@@ -2,7 +2,7 @@ name: Qosmi - bol.com
 
 on:
   schedule:
-    - cron: "41 5 * * *"   # TEMPORAIRE (10/11/2026) : 1 fois par jour jusqu'au 01/12 (minutes GitHub) ; remettre "41 */6 * * *" (toutes les 6 heures). Avant : toutes les 6 heures (UTC) : relevé bol + décisions (lecture seule tant que publication_active = false)
+    - cron: "41 */6 * * *"   # toutes les 6 heures UTC (rétabli le 10/11/2026 : dépôt public, minutes illimitées) : relevé bol + décisions
   workflow_dispatch:
     inputs:
       action:
