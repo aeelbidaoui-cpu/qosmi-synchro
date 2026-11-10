@@ -80,7 +80,7 @@ COLLECTIONS = [  # (handle, titre, colonne, valeurs)
     ("maquillage", "Maquillage", "TYPE", ["Maquillage"]),
 ]
 MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes")]),
-        ("Femme", "parfums-femme", []), ("Homme", "parfums-homme", []),
+        # 10/11/2026 : Femme et Homme retirés du haut du menu (doublon avec le sous-menu Parfums, demande d'Amine)
         ("Niche", "niche", []),  # Testeurs retiré le 08/11/2026 (en suspens, question juridique)
         ("Parfums arabes", "parfums-arabes", []),  # 08/11/2026 : activé (174 parfums arabes en ligne)
         ("Marques", "page:marques", []),  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
