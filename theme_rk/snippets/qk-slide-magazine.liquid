@@ -1,0 +1,19 @@
+{%- comment -%} Diapositive « Magazine » (10/11/2026) : le dernier article publié, avec sa photo. {%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- assign qk_a = blogs['journal'].articles.first -%}
+{%- if qk_a -%}
+<div class="qk-hero qk-carrousel__slide qk-mag" role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="Magazine">
+  {%- if qk_a.image -%}
+    {{ qk_a.image | image_url: width: 2000 | image_tag: class: 'qk-hero__img qk-mag__img', loading: 'lazy', sizes: '100vw', widths: '800, 1200, 1600, 2000', alt: qk_a.title }}
+  {%- endif -%}
+  <div class="qk-mag__voile"></div>
+  <div class="qk-largeur qk-mag__cadre">
+    <span class="qk-mag__sur">{% if qk_nl %}Het Magazine{% else %}Le Magazine{% endif %} · {{ qk_a.published_at | date: '%d/%m/%Y' }}</span>
+    <h2 class="qk-mag__titre">{{ qk_a.title }}</h2>
+    {%- assign qk_ex = qk_a.excerpt_or_content | strip_html | truncatewords: 26 -%}
+    {%- if qk_ex != blank -%}<p class="qk-mag__texte">{{ qk_ex }}</p>{%- endif -%}
+    <a class="qk-lien qk-lien--clair" href="{{ qk_a.url }}">{% if qk_nl %}Lees het artikel{% else %}Lire l'article{% endif %}</a>
+  </div>
+</div>
+{%- endif -%}

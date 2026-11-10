@@ -1,0 +1,37 @@
+{%- comment -%}
+  Diapositive « Black Friday » (demande d'Amine du 10/11/2026) : les parfums vraiment moins chers que le concurrent de référence
+  (collection black-friday = étiquette « meilleur-prix », posée par la synchro). Aucune réduction ni prix d'un concurrent annoncé :
+  on montre nos meilleurs prix. Visible jusqu'au 30/11/2026 inclus, puis disparaît toute seule.
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- assign qk_bf = collections['black-friday'] -%}
+{%- assign qk_jour = 'now' | date: '%Y%m%d' | plus: 0 -%}
+{%- if qk_bf and qk_bf.products_count > 0 and qk_jour <= 20261130 -%}
+<div class="qk-hero qk-carrousel__slide qk-bf" role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="Black Friday">
+  <span class="qk-bf__fond" aria-hidden="true">BLACK FRIDAY BLACK FRIDAY BLACK FRIDAY</span>
+  <div class="qk-largeur qk-bf__cadre">
+    <div class="qk-bf__texte">
+      <span class="qk-bf__sur">{% if qk_nl %}Tot en met 30 november{% else %}Jusqu'au 30 novembre{% endif %}</span>
+      <h2 class="qk-bf__titre">Black<br>Friday</h2>
+      <p class="qk-bf__intro">{% if qk_nl %}Onze scherpste prijzen op {{ qk_bf.products_count }} parfums. Zonder code, 100 % authentiek.{% else %}Nos prix les plus doux sur {{ qk_bf.products_count }} parfums. Sans code, 100 % authentiques.{% endif %}</p>
+      <a class="qk-bf__bouton" href="{{ qk_bf.url }}">{% if qk_nl %}Ontdek de selectie{% else %}Voir la sélection{% endif %}</a>
+    </div>
+    <div class="qk-bf__produits">
+      {%- assign qk_n = 0 -%}
+      {%- for p in qk_bf.products limit: 24 -%}
+        {%- if qk_n < 4 and p.available and p.featured_image -%}
+          {%- assign qk_n = qk_n | plus: 1 -%}
+          {%- assign qk_t = p.title | split: ' — ' -%}
+          <a class="qk-bf__carte" href="{{ p.url }}">
+            <span class="qk-bf__img">{{ p.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: p.title, widths: '250, 400, 500', sizes: '(min-width: 750px) 14vw, 40vw' }}</span>
+            <span class="qk-bf__marque">{{ p.vendor }}</span>
+            <span class="qk-bf__nom">{{ qk_t[0] | remove_first: p.vendor | strip }}</span>
+            <span class="qk-bf__prix">{% if p.price_varies %}{% if qk_nl %}vanaf{% else %}dès{% endif %} {% endif %}{{ p.price_min | money }}</span>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}

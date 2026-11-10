@@ -71,12 +71,15 @@ ARABES = sorted(set(ORIENTAUX + [
     "Privezarah", "Risala", "Risala Elite", "Nusuk", "Athoor Al Alam", "Azha Perfumes", "Dubai Garden", "Marquisa Dubai",
     "Niche Emarati", "Al Malakia", "Alghabra", "The Spirit of Dubai", "Dar El Ward", "Assala Prime", "La Fede", "Blend Oud",
     "House Of Perfumes"]))
+TRI = {"nouveautes": "CREATED_DESC"}  # tri des collections (par défaut : meilleures ventes)
 COLLECTIONS = [  # (handle, titre, colonne, valeurs)
     ("parfums", "Parfums", "TYPE", PARFUMS), ("parfums-femme", "Parfums femme", "TYPE", ["Parfums femme"]),
     ("parfums-homme", "Parfums homme", "TYPE", ["Parfums homme"]), ("parfums-mixtes", "Parfums mixtes", "TYPE", ["Parfums mixtes"]),
     ("parfums-enfants", "Parfums enfants", "TYPE", ["Parfums enfants"]), ("niche", "Parfums de niche", "VENDOR", NICHE),
     ("orientaux", "Parfums orientaux", "VENDOR", ORIENTAUX), ("parfums-arabes", "Parfums arabes", "VENDOR", ARABES), ("testeurs", "Testeurs", "TAG", ["Testeurs"]),
-    ("coffrets", "Coffrets", "TYPE", ["Coffrets"]), ("soins", "Soins", "TYPE", SOINS),
+    ("coffrets", "Coffrets", "TYPE", ["Coffrets"]),
+    ("black-friday", "Black Friday", "TAG", ["meilleur-prix"]),
+    ("nouveautes", "Nouveautés", "TYPE", PARFUMS),  # 10/11/2026 : triée par date d'ajout (voir TRI)  # 10/11/2026 : parfums vraiment moins chers que le concurrent de référence ("soins", "Soins", "TYPE", SOINS),
     ("maquillage", "Maquillage", "TYPE", ["Maquillage"]),
 ]
 MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes")]),
@@ -110,11 +113,11 @@ def collections(s):
             "collectionByIdentifier")
         if ex:
             r = erreurs(s.gql("""mutation($c: CollectionInput!) { collectionUpdate(input: $c) { collection { id } userErrors { field message } } }""",
-                              {"c": {"id": ex["id"], "title": titre, "ruleSet": {"appliedDisjunctively": True, "rules": regles}}}),
+                              {"c": {"id": ex["id"], "title": titre, "sortOrder": TRI.get(handle, "BEST_SELLING"), "ruleSet": {"appliedDisjunctively": True, "rules": regles}}}),
                         "collectionUpdate")
         else:
             r = erreurs(s.gql("""mutation($c: CollectionInput!) { collectionCreate(input: $c) { collection { id } userErrors { field message } } }""",
-                              {"c": {"title": titre, "handle": handle, "sortOrder": "BEST_SELLING",
+                              {"c": {"title": titre, "handle": handle, "sortOrder": TRI.get(handle, "BEST_SELLING"),
                                      "ruleSet": {"appliedDisjunctively": True, "rules": regles}}}), "collectionCreate")
         cid = r["collection"]["id"]
         ids[handle] = cid

@@ -28,6 +28,7 @@ import site_soleluna as sl  # noqa: E402
 import site_variantes as sv  # noqa: E402
 
 JOURNAL = os.path.join(sl.RAPPORTS, "site_synchro.log")
+ETIQUETTE_PRIX = "meilleur-prix"  # 10/11/2026 : collection « Black Friday » (puis « Nos meilleurs prix »)
 VERROU = os.path.join(sl.BASE, ".site_synchro.lock")
 
 M_PRIX = """mutation call($productId: ID!, $variants: [ProductVariantsBulkInput!]!) {
@@ -278,6 +279,7 @@ def synchro(essai=False):
     handles = {p["handle"] for p in boutique.values()}
     structurels, nouveaux, prix, stocks, vus = [], [], collections.defaultdict(list), [], set()
     conc, dujour = sl.concurrent(), []  # prix du concurrent (interne) ; marques « parfum du jour » à changer
+    tags_plus, tags_moins = [], []  # étiquette « meilleur-prix » (collection Black Friday)
     nouveaux_p, structurels_p = [], []
     for p in produits:
         ids = [vs_qs[v["sku"]]["produit"] for v in p["variantes"] if v["sku"] in vs_qs]
@@ -316,6 +318,21 @@ def synchro(essai=False):
                     meilleur, ecart_max = a["id"], float(ref[0]) - float(v["prix"])
         if meilleur != ((existante.get("dujour") or {}).get("value") or ""):
             dujour.append((pid, meilleur))
+        # 10/11/2026 (Black Friday, demande d'Amine) : étiquette « meilleur-prix » = au moins un format en stock vraiment
+        # moins cher que le concurrent de référence (5 à 35 % ; au-delà, presque toujours un autre produit). Jamais son prix.
+        bon = False
+        for v in p["variantes"]:
+            ref = conc.get((v.get("ean") or "").lstrip("0"))
+            if ref and int(v["stock"]) > 0 and float(ref[0]) > 0:
+                ecart = (float(ref[0]) - float(v["prix"])) / float(ref[0])
+                if 0.05 <= ecart <= 0.35:
+                    bon = True
+        bon = bon and voulu == "ACTIVE" and p.get("type_fr") != "Coffrets"
+        a_le_tag = ETIQUETTE_PRIX in (existante.get("tags") or [])
+        if bon and not a_le_tag:
+            tags_plus.append(pid)
+        elif a_le_tag and not bon:
+            tags_moins.append(pid)
         for v in p["variantes"]:
             a = vs_qs.get(v["sku"])
             if not a or a["produit"] != pid:
@@ -437,6 +454,17 @@ def synchro(essai=False):
                   {"m": [{"ownerId": pid, "namespace": "qosmi", "key": "du_jour"} for pid in vides]})
     if dujour:
         resume += " · %d marques « parfum du jour » mises à jour" % len(dujour)
+    # 5. étiquette « meilleur-prix » (collection Black Friday / Nos meilleurs prix)
+    for pid in tags_plus:
+        if s.gql("mutation($id: ID!, $t: [String!]!) { tagsAdd(id: $id, tags: $t) { userErrors { message } } }",
+                 {"id": pid, "t": [ETIQUETTE_PRIX]})["tagsAdd"]["userErrors"]:
+            erreurs += 1
+    for pid in tags_moins:
+        if s.gql("mutation($id: ID!, $t: [String!]!) { tagsRemove(id: $id, tags: $t) { userErrors { message } } }",
+                 {"id": pid, "t": [ETIQUETTE_PRIX]})["tagsRemove"]["userErrors"]:
+            erreurs += 1
+    if tags_plus or tags_moins:
+        resume += " · meilleurs prix : +%d / -%d" % (len(tags_plus), len(tags_moins))
     ligne_journal("OK %s · %d erreur(s) · %d s" % (resume, erreurs, time.time() - debut))
     return 0 if not erreurs else 1
 

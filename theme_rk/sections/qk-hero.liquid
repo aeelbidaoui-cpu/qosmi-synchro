@@ -1,6 +1,7 @@
 {%- comment -%}
   Grand bandeau d'accueil en carrousel (demande d'Amine du 08/11/2026) :
-  1) la vidéo d'ambiance avec le titre (style Riklis Karto), 2) « Le parfum du jour » (snippets/qk-du-jour.liquid).
+  0) Black Friday (jusqu'au 30/11/2026), 1) la vidéo d'ambiance avec le titre (style Riklis Karto), 2) « Le parfum du jour » (snippets/qk-du-jour.liquid),
+  3) Nouveautés, 4) le dernier article du Magazine (ajoutés le 10/11/2026).
   Défile tout seul (réglage « duree »), se met en pause au survol, au clavier et quand l'onglet est caché ;
   on peut aussi glisser du doigt, cliquer sur les flèches ou les points.
 {%- endcomment -%}
@@ -9,6 +10,7 @@
 <section class="qk-carrousel" id="qk-carrousel-{{ section.id }}" aria-roledescription="carrousel" aria-label="{% if qk_nl %}Uitgelicht{% else %}À la une{% endif %}"
          style="--qk-hero-h: {{ section.settings.hauteur }}vh;" data-qk-duree="{{ section.settings.duree }}">
   <div class="qk-carrousel__piste">
+    {%- render 'qk-slide-bf' -%}
     <div class="qk-hero qk-carrousel__slide{% if section.settings.image == blank and section.settings.video == blank %} qk-hero--uni{% endif %}"
          role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="Qosmi">
       {%- if section.settings.video != blank -%}
@@ -28,6 +30,8 @@
       </div>
     </div>
     {%- render 'qk-du-jour', produits: section.settings.produits, titre: section.settings.dujour_titre, compte_texte: section.settings.dujour_compte, uid: section.id -%}
+    {%- render 'qk-slide-nouveautes' -%}
+    {%- render 'qk-slide-magazine' -%}
   </div>
   <button type="button" class="qk-carrousel__fleche qk-carrousel__fleche--prec" aria-label="{% if qk_nl %}Vorige{% else %}Précédent{% endif %}" hidden>
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
