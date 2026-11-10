@@ -385,3 +385,39 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 }
 
 .qk-marques__tout { text-align: center; margin-top: 1.5rem; }
+
+/* ---------- « Le parfum du jour » revu (10/11/2026, demande d'Amine) : flacon dans un halo de lumière,
+   famille et notes, compte à rebours plus fin ---------- */
+.qk-dujour__img { position: relative; background: transparent; overflow: visible; }
+.qk-dujour__img::before { content: ""; position: absolute; inset: 4%; border-radius: 50%; background: #fff;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 30px 80px rgba(0,0,0,0.55), 0 0 120px rgba(255,255,255,0.10); }
+.qk-dujour__halo { position: absolute; inset: -12%; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.10), rgba(255,255,255,0) 70%); }
+.qk-dujour__img img { position: relative; z-index: 1; width: 64%; height: 64%; transition: transform .6s ease; }
+.qk-dujour__produit:hover .qk-dujour__img img { transform: translateY(-6px) scale(1.03); }
+.qk-dujour__titre { font-size: 0.8rem; letter-spacing: 0.24em; font-weight: 500; color: rgba(255,255,255,0.75); margin-bottom: 4px;
+  display: inline-flex; align-items: center; gap: 12px; }
+.qk-dujour__titre::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+.qk-dujour__marque { font-size: 0.95rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+.qk-dujour__ligne:not(.qk-dujour__ligne--doux) { font-size: clamp(2.2rem, 5vw, 4.4rem); font-weight: 600; line-height: 1.02; text-transform: uppercase; }
+.qk-dujour__notes { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 6px; font-size: clamp(0.9rem, 1.2vw, 1.05rem); color: rgba(255,255,255,0.8); }
+.qk-dujour__notes i { font-style: normal; font-size: 0.75em; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.45); padding: 4px 10px; border-radius: 999px; }
+.qk-dujour__notes b { font-weight: 400; }
+.qk-dujour__prix { margin-top: clamp(12px, 2vh, 22px); font-size: clamp(2rem, 3.6vw, 3.2rem); }
+.qk-dujour__voir { margin-top: 18px; border: 1px solid #fff; padding: 12px 26px; text-decoration: none; letter-spacing: 0.14em; transition: background .2s, color .2s; }
+.qk-dujour__produit:hover .qk-dujour__voir { opacity: 1; background: #fff; color: #000; }
+.qk-dujour__compte { display: flex; align-items: center; gap: 18px; }
+.qk-dujour__compte-titre { margin-bottom: 0; }
+.qk-dujour__cases { gap: 6px; }
+.qk-dujour__case { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.35); width: auto; min-width: 62px; padding: 8px 10px; }
+.qk-dujour__case b { font-size: clamp(1.2rem, 1.8vw, 1.6rem); font-weight: 600; }
+.qk-dujour__case span { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+@media (max-width: 749px) {
+  .qk-dujour__produit { grid-template-columns: 42% 1fr; }
+  .qk-dujour__ligne:not(.qk-dujour__ligne--doux) { font-size: 1.5rem; }
+  .qk-dujour__notes { font-size: 0.8rem; gap: 6px; }
+  .qk-dujour__notes b { display: none; }
+  .qk-dujour__voir { padding: 8px 14px; }
+  .qk-dujour__compte { flex-direction: column; align-items: stretch; gap: 8px; }
+  .qk-dujour__case { min-width: 0; }
+}

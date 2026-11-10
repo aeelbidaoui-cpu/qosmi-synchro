@@ -43,7 +43,7 @@
         {%- assign qk_type = qk_t[1] | remove: ' pour femme' | remove: ' pour homme' | remove: ' mixte' | remove: ' voor dames' | remove: ' voor heren' | remove: ' unisex' | strip -%}
         {%- assign qk_prix = v.price | money_without_currency | split: ',' -%}
         <a class="qk-dujour__produit{% if forloop.index0 != qk_choix %} is-cache{% endif %}" data-qk-rang="{{ forloop.index0 }}" href="{{ v.url | default: p.url }}">
-          <span class="qk-dujour__img">
+          <span class="qk-dujour__img"><span class="qk-dujour__halo" aria-hidden="true"></span>
             {{ p.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: p.title, widths: '400, 600, 900', sizes: '(min-width: 750px) 40vw, 80vw' }}
           </span>
           <span class="qk-dujour__texte">
@@ -51,6 +51,7 @@
             <span class="qk-dujour__marque">{{ p.vendor }}</span>
             <span class="qk-dujour__ligne">{{ qk_nom }}</span>
             {%- if qk_type != blank -%}<span class="qk-dujour__ligne qk-dujour__ligne--doux">{{ qk_type }}{% unless v.title == 'Default Title' %} · {{ v.title }}{% endunless %}</span>{%- endif -%}
+            {%- render 'qk-du-jour-notes', h: p.handle, nl: qk_nl -%}
             <span class="qk-dujour__prix" aria-label="{{ v.price | money }}">{{ qk_prix[0] }}{% if qk_prix[1] %},<sup>{{ qk_prix[1] }}</sup>{% endif %}<small> €</small></span>
             <span class="qk-lien qk-lien--clair qk-dujour__voir">{% if qk_nl %}Bekijken{% else %}Voir le parfum{% endif %}</span>
           </span>

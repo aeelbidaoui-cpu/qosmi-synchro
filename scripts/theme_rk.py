@@ -295,9 +295,39 @@ def sans_coffrets(texte, boucle, garde):
     return texte.replace(boucle, boucle + "{%- comment -%}qk-coffrets{%- endcomment -%}" + garde)
 
 
+def snippet_notes_du_jour():
+    """10/11/2026 (demande d'Amine : « Le parfum du jour » plus beau) : famille et 3 notes du parfum du jour,
+    tirées de config/descriptions_parfums.json (FR et NL)."""
+    chemin = os.path.join(os.path.dirname(ICI), "config", "descriptions_parfums.json")
+    D = json.load(open(chemin, encoding="utf-8"))["parfums"] if os.path.exists(chemin) else {}
+    def trois(n, bas=True):
+        l = n.get("cle") or [x for k in ("tete", "coeur", "fond") for x in n.get(k, [])[:1]]
+        out = []
+        for x in l:
+            if x not in out:
+                out.append(x)
+        return [x[0].lower() + x[1:] if bas else x for x in out[:3]]
+    lignes = ["{%- comment -%} Généré par scripts/theme_rk.py (snippet_notes_du_jour) : ne pas modifier à la main. {%- endcomment -%}",
+              "{%- case h -%}"]
+    for h in DU_JOUR:
+        d = D.get(h)
+        if not d:
+            continue
+        fr, nl = trois(d.get("notes_fr") or {}), trois(d.get("notes_nl") or {}, False)
+        if not fr:
+            continue
+        esc = lambda t: (t or "").replace("<", "").replace(">", "")
+        lignes.append("{%%- when '%s' -%%}<span class=\"qk-dujour__notes\">{%%- if nl -%%}%s<b>%s</b>{%%- else -%%}%s<b>%s</b>{%%- endif -%%}</span>" % (
+            h, ("<i>%s</i>" % esc(d.get("famille_nl"))) if d.get("famille_nl") else "", esc(" · ".join(nl)),
+            ("<i>%s</i>" % esc(d.get("famille_fr"))) if d.get("famille_fr") else "", esc(" · ".join(fr))))
+    lignes.append("{%- endcase -%}")
+    return "\n".join(lignes) + "\n"
+
+
 def construire(fichiers, marques):
     liquides, jsons = fichiers_qk(), {}
     liquides["snippets/qk-gpsr.liquid"] = snippet_gpsr()
+    liquides["snippets/qk-du-jour-notes.liquid"] = snippet_notes_du_jour()
     liquides["snippets/predictive-search-empty-state.liquid"] = snippet_recherche()
     liquides["sections/main-collection.liquid"] = sans_coffrets(fichiers["sections/main-collection.liquid"],
                                                                 "{% for product in collection.products %}", QK_COFFRET_COLL)
