@@ -6144,6 +6144,838 @@
     "https://www.olfastory.com/parfum/yves-saint-laurent-black-opium-glitter-eau-de-parfum"
    ],
    "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "giorgio-armani-acqua-di-gio-elixir-parfum-pour-homme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Boisé marin",
+   "famille_nl": "Houtig marien",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Mandarine",
+     "Noix de muscade"
+    ],
+    "coeur": [
+     "Feuille de violette",
+     "Note marine"
+    ],
+    "fond": [
+     "Cuir",
+     "Labdanum",
+     "Patchouli",
+     "Vétiver"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Mandarijn",
+     "Nootmuskaat"
+    ],
+    "coeur": [
+     "Vioolblad",
+     "Zeetoon"
+    ],
+    "fond": [
+     "Leer",
+     "Labdanum",
+     "Patchoeli",
+     "Vetiver"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Acqua di Giò Elixir s'ouvre sur une vague d'agrumes, <strong>bergamote</strong> et mandarine, relevée de muscade. Le cœur associe la <strong>feuille de violette</strong> et une note marine. Le fond, profond et nocturne, réunit le <strong>cuir</strong>, le labdanum, le patchouli et le vétiver.</p><p>C'est la version la plus intense et la plus sombre d'Acqua di Giò. Idéal en automne et en hiver, en soirée.</p><p>Un Acqua di Giò rechargeable, entre la fraîcheur marine de la ligne et une intensité de nuit.</p>",
+   "nl": "<p>Acqua di Giò Elixir opent met een golf citrus, <strong>bergamot</strong> en mandarijn, gekruid met nootmuskaat. Het hart combineert <strong>vioolblad</strong> en een zeetoon. De diepe, nachtelijke basis brengt <strong>leer</strong>, labdanum, patchoeli en vetiver samen.</p><p>De intensste, donkerste versie van Acqua di Giò. Ideaal in de herfst en de winter, 's avonds.</p><p>Een navulbare Acqua di Giò, tussen de mariene frisheid van de lijn en een nachtelijke intensiteit.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/acqua-di-gio-elixir"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "giorgio-armani-acqua-di-gio-pour-homme-refillable-eau-de-toilette-pour-homme": {
+   "annee": 1996,
+   "parfumeurs": [],
+   "famille_fr": "Hespéridé marin",
+   "famille_nl": "Mariene citrus",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Limette",
+     "Melon"
+    ],
+    "coeur": [
+     "Note marine",
+     "Coriandre"
+    ],
+    "fond": [
+     "Patchouli",
+     "Cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Limoen",
+     "Meloen"
+    ],
+    "coeur": [
+     "Zeetoon",
+     "Koriander"
+    ],
+    "fond": [
+     "Patchoeli",
+     "Ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Acqua di Giò s'ouvre sur la <strong>bergamote</strong>, la limette et une touche de <strong>melon</strong>. Le cœur est marin, avec une <strong>note marine</strong> transparente et la coriandre. Le fond, léger, repose sur le patchouli et le cèdre.</p><p>C'est le grand classique des parfums frais pour homme, propre et facile à porter. Idéal au printemps et en été, en journée, au bureau ou en vacances.</p><p>Lancé en 1996, il a été inspiré à Giorgio Armani par l'île de Pantelleria, entre ciel et mer. Cette version est rechargeable.</p>",
+   "nl": "<p>Acqua di Giò opent met <strong>bergamot</strong>, limoen en een toets <strong>meloen</strong>. Het hart is marien, met een transparante <strong>zeetoon</strong> en koriander. De lichte basis rust op patchoeli en ceder.</p><p>Dé klassieker onder de frisse herengeuren, schoon en makkelijk te dragen. Ideaal in de lente en de zomer, overdag, op kantoor of op vakantie.</p><p>Gelanceerd in 1996 en voor Giorgio Armani geïnspireerd door het eiland Pantelleria, tussen hemel en zee. Deze versie is navulbaar.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/acqua-di-gio-homme"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "giorgio-armani-acqua-di-gio-profondo-eau-de-toilette-pour-homme": {
+   "annee": 2025,
+   "parfumeurs": [
+    "Alberto Morillas"
+   ],
+   "famille_fr": "Aromatique marin",
+   "famille_nl": "Aromatisch marien",
+   "notes_fr": {
+    "tete": [
+     "Cardamome",
+     "Citron",
+     "Mandarine",
+     "Pamplemousse"
+    ],
+    "coeur": [
+     "Note marine",
+     "Cyprès",
+     "Lavandin",
+     "Sauge sclarée"
+    ],
+    "fond": [
+     "Musc",
+     "Patchouli"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Kardemom",
+     "Citroen",
+     "Mandarijn",
+     "Grapefruit"
+    ],
+    "coeur": [
+     "Zeetoon",
+     "Cipres",
+     "Lavandin",
+     "Scharlei"
+    ],
+    "fond": [
+     "Musk",
+     "Patchoeli"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Acqua di Giò Profondo Eau de Toilette s'ouvre sur les agrumes et une pointe de <strong>cardamome</strong>. Le cœur plonge dans une <strong>note marine</strong> fraîche, avec le cyprès, le lavandin et la sauge. Le fond, propre, associe le musc et le patchouli.</p><p>C'est un Profondo plus aérien et lumineux. Idéal au printemps et en été, en journée.</p><p>Sortie au printemps 2025 et composée par Alberto Morillas.</p>",
+   "nl": "<p>Acqua di Giò Profondo Eau de Toilette opent met citrus en een vleugje <strong>kardemom</strong>. Het hart duikt in een frisse <strong>zeetoon</strong>, met cipres, lavandin en scharlei. De schone basis combineert musk en patchoeli.</p><p>Een luchtigere, stralendere Profondo. Ideaal in de lente en de zomer, overdag.</p><p>Uitgebracht in de lente van 2025 en gecomponeerd door Alberto Morillas.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/acqua-di-gio-profondo-0"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "giorgio-armani-acqua-di-gio-profondo-parfum-pour-homme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Aromatique marin",
+   "famille_nl": "Aromatisch marien",
+   "notes_fr": {
+    "tete": [
+     "Note marine",
+     "Mandarine"
+    ],
+    "coeur": [
+     "Mimosa"
+    ],
+    "fond": [
+     "Patchouli",
+     "Labdanum"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Zeetoon",
+     "Mandarijn"
+    ],
+    "coeur": [
+     "Mimosa"
+    ],
+    "fond": [
+     "Patchoeli",
+     "Labdanum"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Acqua di Giò Profondo Parfum s'ouvre sur une <strong>note marine</strong> et la mandarine. Le cœur, plus doux, révèle le <strong>mimosa</strong>. Le fond, boisé et résineux, associe le <strong>patchouli</strong> et le labdanum.</p><p>C'est la version la plus profonde de Profondo, marine et boisée. Idéal toute l'année, en soirée.</p><p>Elle prolonge la ligne Acqua di Giò de Giorgio Armani.</p>",
+   "nl": "<p>Acqua di Giò Profondo Parfum opent met een <strong>zeetoon</strong> en mandarijn. Het zachtere hart onthult <strong>mimosa</strong>. De houtige, harsachtige basis combineert <strong>patchoeli</strong> en labdanum.</p><p>De diepste versie van Profondo, marien en houtig. Ideaal het hele jaar door, 's avonds.</p><p>Ze bouwt voort op de Acqua di Giò-lijn van Giorgio Armani.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/armani-acqua-di-gio-profondo-parfum"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "giorgio-armani-eau-de-nuit-eau-de-toilette-pour-homme": {
+   "annee": 2013,
+   "parfumeurs": [],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Baies roses"
+    ],
+    "coeur": [
+     "Noix de muscade",
+     "Cardamome"
+    ],
+    "fond": [
+     "Bois ambrés",
+     "Iris",
+     "Ambre",
+     "Fève tonka"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Roze bessen"
+    ],
+    "coeur": [
+     "Nootmuskaat",
+     "Kardemom"
+    ],
+    "fond": [
+     "Amberhout",
+     "Iris",
+     "Amber",
+     "Tonkaboon"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Eau de Nuit s'ouvre sur la <strong>bergamote</strong> et les baies roses. Le cœur, épicé, associe la <strong>muscade</strong> et la cardamome. Le fond, poudré et chaud, réunit les bois ambrés, l'<strong>iris</strong>, l'ambre et la fève tonka.</p><p>C'est un parfum de soirée élégant et discret. Idéal en automne et en hiver, en soirée.</p><p>Lancé par Armani en 2013, il fait écho à Armani Eau pour Homme, premier parfum de la maison en 1984.</p>",
+   "nl": "<p>Eau de Nuit opent met <strong>bergamot</strong> en roze bessen. Het kruidige hart combineert <strong>nootmuskaat</strong> en kardemom. De poederige, warme basis brengt amberhout, <strong>iris</strong>, amber en tonkaboon samen.</p><p>Een elegante, ingetogen avondgeur. Ideaal in de herfst en de winter, 's avonds.</p><p>Gelanceerd door Armani in 2013, als knipoog naar Armani Eau pour Homme, het eerste parfum van het huis uit 1984.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/eau-de-nuit"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "giorgio-armani-my-way-intense-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral ambré",
+   "famille_nl": "Bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Fleur d'oranger",
+     "Bigarade"
+    ],
+    "coeur": [
+     "Tubéreuse"
+    ],
+    "fond": [
+     "Vanille",
+     "Santal"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Oranjebloesem",
+     "Bittere sinaasappel"
+    ],
+    "coeur": [
+     "Tuberoos"
+    ],
+    "fond": [
+     "Vanille",
+     "Sandelhout"
+    ],
+    "cle": []
+   },
+   "fr": "<p>My Way Intense s'ouvre sur la <strong>fleur d'oranger</strong> et la bigarade. Le cœur est une <strong>tubéreuse</strong> crémeuse. Le fond, plus chaud que My Way, associe la <strong>vanille</strong> et le santal.</p><p>C'est une version plus enveloppante et plus sensuelle de My Way. Idéal en automne et en hiver, en soirée.</p><p>Elle prolonge My Way de Giorgio Armani, un parfum pensé pour les femmes libres.</p>",
+   "nl": "<p>My Way Intense opent met <strong>oranjebloesem</strong> en bittere sinaasappel. Het hart is een romige <strong>tuberoos</strong>. De basis is warmer dan My Way en combineert <strong>vanille</strong> en sandelhout.</p><p>Een meer omhullende, sensuelere versie van My Way. Ideaal in de herfst en de winter, 's avonds.</p><p>Ze bouwt voort op My Way van Giorgio Armani, een parfum voor vrije vrouwen.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/my-way-intense"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "giorgio-armani-my-way-nectar-eau-de-parfum-pour-femme": {
+   "annee": 2024,
+   "parfumeurs": [
+    "Carlos Benaïm"
+   ],
+   "famille_fr": "Floral fruité",
+   "famille_nl": "Fruitig bloemig",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Fleur d'oranger",
+     "Poire"
+    ],
+    "coeur": [
+     "Tubéreuse"
+    ],
+    "fond": [
+     "Vanille",
+     "Musc blanc"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Oranjebloesem",
+     "Peer"
+    ],
+    "coeur": [
+     "Tuberoos"
+    ],
+    "fond": [
+     "Vanille",
+     "Witte musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>My Way Nectar s'ouvre sur une <strong>poire</strong> juteuse, avec la bergamote et la fleur d'oranger. Le cœur est une <strong>tubéreuse</strong> crémeuse. Le fond, doux, associe la <strong>vanille</strong> Bourbon et le musc blanc.</p><p>C'est un floral fruité, gai et gourmand. Idéal au printemps et en été, en journée.</p><p>Ajoutée par Giorgio Armani à la ligne My Way en 2024 et signée Carlos Benaïm, dans un flacon rose.</p>",
+   "nl": "<p>My Way Nectar opent met sappige <strong>peer</strong>, met bergamot en oranjebloesem. Het hart is een romige <strong>tuberoos</strong>. De zachte basis combineert Bourbon<strong>vanille</strong> en witte musk.</p><p>Een fruitige bloemengeur, vrolijk en gourmand. Ideaal in de lente en de zomer, overdag.</p><p>In 2024 door Giorgio Armani toegevoegd aan de My Way-lijn en gecomponeerd door Carlos Benaïm, in een roze flacon.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/my-way-nectar"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "giorgio-armani-my-way-ylang-eau-de-parfum-pour-femme": {
+   "annee": 2024,
+   "parfumeurs": [
+    "Carlos Benaïm",
+    "Pascal Gaurin"
+   ],
+   "famille_fr": "Floral fruité",
+   "famille_nl": "Fruitig bloemig",
+   "notes_fr": {
+    "tete": [
+     "Mangue",
+     "Fleurs blanches",
+     "Gingembre",
+     "Bergamote"
+    ],
+    "coeur": [
+     "Ylang-ylang",
+     "Eau de coco",
+     "Tubéreuse"
+    ],
+    "fond": [
+     "Musc blanc",
+     "Vanille",
+     "Cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Mango",
+     "Witte bloemen",
+     "Gember",
+     "Bergamot"
+    ],
+    "coeur": [
+     "Ylang-ylang",
+     "Kokoswater",
+     "Tuberoos"
+    ],
+    "fond": [
+     "Witte musk",
+     "Vanille",
+     "Ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>My Way Ylang s'ouvre sur la <strong>mangue</strong>, les fleurs blanches, le gingembre et la bergamote. Le cœur associe l'<strong>ylang-ylang</strong> de Madagascar, l'eau de coco et la tubéreuse. Le fond, doux, réunit le musc blanc, la vanille et le cèdre.</p><p>C'est un floral solaire et exotique. Idéal au printemps et en été, en journée ou en vacances.</p><p>Lancé par Giorgio Armani fin 2024, signé Carlos Benaïm et Pascal Gaurin, dans un flacon corail.</p>",
+   "nl": "<p>My Way Ylang opent met <strong>mango</strong>, witte bloemen, gember en bergamot. Het hart combineert <strong>ylang-ylang</strong> uit Madagaskar, kokoswater en tuberoos. De zachte basis brengt witte musk, vanille en ceder samen.</p><p>Een zonnige, exotische bloemengeur. Ideaal in de lente en de zomer, overdag of op vakantie.</p><p>Eind 2024 gelanceerd door Giorgio Armani, gecomponeerd door Carlos Benaïm en Pascal Gaurin, in een koraalkleurige flacon.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/my-way-ylang"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "giorgio-armani-si-passione-eclat-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral fruité",
+   "famille_nl": "Fruitig bloemig",
+   "notes_fr": {
+    "tete": [
+     "Cassis",
+     "Bergamote"
+    ],
+    "coeur": [
+     "Rose"
+    ],
+    "fond": [
+     "Musc",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Zwarte bes",
+     "Bergamot"
+    ],
+    "coeur": [
+     "Roos"
+    ],
+    "fond": [
+     "Musk",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Sì Passione Éclat s'ouvre sur le <strong>cassis</strong> et la bergamote. Le cœur est une <strong>rose</strong> lumineuse. Le fond, doux, associe le musc et la <strong>vanille</strong>.</p><p>C'est une version plus lumineuse et plus légère de Sì Passione. Idéal au printemps et en été, en journée.</p><p>Elle prolonge Sì, l'un des grands succès féminins de Giorgio Armani.</p>",
+   "nl": "<p>Sì Passione Éclat opent met <strong>zwarte bes</strong> en bergamot. Het hart is een stralende <strong>roos</strong>. De zachte basis combineert musk en <strong>vanille</strong>.</p><p>Een stralendere, lichtere versie van Sì Passione. Ideaal in de lente en de zomer, overdag.</p><p>Ze bouwt voort op Sì, een van de grote damessuccessen van Giorgio Armani.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/si-passione-eclat"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "versace-crystal-noir-eau-de-toilette-pour-femme": {
+   "annee": 2004,
+   "parfumeurs": [
+    "Antoine Lie"
+   ],
+   "famille_fr": "Ambré floral",
+   "famille_nl": "Bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Cassis",
+     "Figue",
+     "Violette"
+    ],
+    "coeur": [
+     "Tubéreuse",
+     "Frangipanier",
+     "Jasmin"
+    ],
+    "fond": [
+     "Santal",
+     "Muscs blancs",
+     "Cashmeran",
+     "Vanille",
+     "Héliotrope"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Zwarte bes",
+     "Vijg",
+     "Viooltje"
+    ],
+    "coeur": [
+     "Tuberoos",
+     "Frangipani",
+     "Jasmijn"
+    ],
+    "fond": [
+     "Sandelhout",
+     "Witte musk",
+     "Cashmeran",
+     "Vanille",
+     "Heliotroop"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Crystal Noir s'ouvre sur le <strong>cassis</strong>, la figue noire et la violette. Le cœur est un bouquet de fleurs blanches : <strong>tubéreuse</strong>, frangipanier et jasmin. Le fond, crémeux, mêle le santal, les muscs, le cashmeran, la <strong>vanille</strong> et l'héliotrope.</p><p>C'est un floral sensuel et mystérieux, facile à porter le soir. Idéal en automne et en hiver.</p><p>Composé par Antoine Lie pour Versace en 2004, dans un flacon-bijou couleur grenat.</p>",
+   "nl": "<p>Crystal Noir opent met <strong>zwarte bes</strong>, zwarte vijg en viooltje. Het hart is een boeket witte bloemen: <strong>tuberoos</strong>, frangipani en jasmijn. De romige basis mengt sandelhout, musk, cashmeran, <strong>vanille</strong> en heliotroop.</p><p>Een sensuele, mysterieuze bloemengeur, makkelijk te dragen 's avonds. Ideaal in de herfst en de winter.</p><p>Gecomponeerd door Antoine Lie voor Versace in 2004, in een granaatrode juweelflacon.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/crystal-noir"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "versace-dreamer-eau-de-toilette-pour-homme": {
+   "annee": 1996,
+   "parfumeurs": [
+    "Jean-Pierre Béthouart"
+   ],
+   "famille_fr": "Fougère",
+   "famille_nl": "Fougère",
+   "notes_fr": {
+    "tete": [
+     "Genièvre",
+     "Estragon",
+     "Armoise"
+    ],
+    "coeur": [
+     "Iris",
+     "Lys",
+     "Lin"
+    ],
+    "fond": [
+     "Tabac",
+     "Ambre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Jeneverbes",
+     "Dragon",
+     "Bijvoet"
+    ],
+    "coeur": [
+     "Iris",
+     "Lelie",
+     "Linnen"
+    ],
+    "fond": [
+     "Tabak",
+     "Amber"
+    ],
+    "cle": []
+   },
+   "fr": "<p>The Dreamer s'ouvre sur le <strong>genièvre</strong>, l'estragon et l'armoise, verts et aromatiques. Le cœur, doux, associe l'<strong>iris</strong>, le lys et le lin. Le fond, chaleureux, repose sur le <strong>tabac</strong> et l'ambre.</p><p>C'est un parfum rêveur et original, à la fois frais et chaud. Idéal toute l'année, en journée.</p><p>Lancé par Versace en 1996 et signé Jean-Pierre Béthouart.</p>",
+   "nl": "<p>The Dreamer opent met groene, aromatische <strong>jeneverbes</strong>, dragon en bijvoet. Het zachte hart combineert <strong>iris</strong>, lelie en linnen. De warme basis rust op <strong>tabak</strong> en amber.</p><p>Een dromerige, originele geur, fris en warm tegelijk. Ideaal het hele jaar door, overdag.</p><p>Gelanceerd door Versace in 1996 en gecomponeerd door Jean-Pierre Béthouart.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/the-dreamer"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "versace-eros-pour-femme-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral boisé musqué",
+   "famille_nl": "Musky houtig bloemig",
+   "notes_fr": {
+    "tete": [
+     "Citron",
+     "Bergamote",
+     "Grenade"
+    ],
+    "coeur": [
+     "Fleur de citronnier",
+     "Jasmin",
+     "Pivoine"
+    ],
+    "fond": [
+     "Santal",
+     "Ambre",
+     "Musc",
+     "Bois"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Citroen",
+     "Bergamot",
+     "Granaatappel"
+    ],
+    "coeur": [
+     "Citroenbloesem",
+     "Jasmijn",
+     "Pioen"
+    ],
+    "fond": [
+     "Sandelhout",
+     "Amber",
+     "Musk",
+     "Hout"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Eros pour Femme s'ouvre sur le <strong>citron</strong>, la bergamote et la <strong>grenade</strong>. Le cœur, floral, associe la fleur de citronnier, le jasmin et la <strong>pivoine</strong>. Le fond, doux et sensuel, réunit le santal, l'ambre, le musc et les bois.</p><p>C'est un parfum lumineux et sensuel, élégant en toute occasion. Idéal toute l'année, en journée comme en soirée.</p><p>C'est le pendant féminin d'Eros, chez Versace.</p>",
+   "nl": "<p>Eros pour Femme opent met <strong>citroen</strong>, bergamot en <strong>granaatappel</strong>. Het bloemige hart combineert citroenbloesem, jasmijn en <strong>pioen</strong>. De zachte, sensuele basis brengt sandelhout, amber, musk en hout samen.</p><p>Een stralende, sensuele geur, elegant bij elke gelegenheid. Ideaal het hele jaar door, overdag en 's avonds.</p><p>De vrouwelijke tegenhanger van Eros bij Versace.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/eros-pour-femme"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "versace-pour-homme-dylan-blue-eau-de-toilette-pour-homme": {
+   "annee": 2016,
+   "parfumeurs": [],
+   "famille_fr": "Fougère aromatique",
+   "famille_nl": "Aromatische fougère",
+   "notes_fr": {
+    "tete": [
+     "Note marine",
+     "Bergamote",
+     "Pamplemousse"
+    ],
+    "coeur": [
+     "Feuille de violette",
+     "Poivre noir",
+     "Patchouli",
+     "Ambre"
+    ],
+    "fond": [
+     "Muscs blancs",
+     "Fève tonka",
+     "Encens",
+     "Safran"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Zeetoon",
+     "Bergamot",
+     "Grapefruit"
+    ],
+    "coeur": [
+     "Vioolblad",
+     "Zwarte peper",
+     "Patchoeli",
+     "Amber"
+    ],
+    "fond": [
+     "Witte musk",
+     "Tonkaboon",
+     "Wierook",
+     "Saffraan"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Dylan Blue s'ouvre sur une <strong>note marine</strong>, la bergamote et le <strong>pamplemousse</strong>. Le cœur associe la feuille de violette, le <strong>poivre noir</strong>, le patchouli et l'ambre. Le fond, chaud, réunit les muscs, la fève tonka, l'<strong>encens</strong> et le safran.</p><p>C'est un frais moderne avec du caractère, facile à porter. Idéal toute l'année, en journée comme en soirée.</p><p>Lancé par Versace fin 2016, en bleu, la couleur emblématique de la maison.</p>",
+   "nl": "<p>Dylan Blue opent met een <strong>zeetoon</strong>, bergamot en <strong>grapefruit</strong>. Het hart combineert vioolblad, <strong>zwarte peper</strong>, patchoeli en amber. De warme basis brengt musk, tonkaboon, <strong>wierook</strong> en saffraan samen.</p><p>Een moderne frisse geur met karakter, makkelijk te dragen. Ideaal het hele jaar door, overdag en 's avonds.</p><p>Eind 2016 gelanceerd door Versace, in het blauw, de kenmerkende kleur van het huis.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/dylan-blue"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "prada-candy-eau-de-parfum-pour-femme": {
+   "annee": 2011,
+   "parfumeurs": [
+    "Daniela Andrier"
+   ],
+   "famille_fr": "Ambré gourmand",
+   "famille_nl": "Gourmand amber",
+   "notes_fr": {
+    "tete": [
+     "Caramel"
+    ],
+    "coeur": [
+     "Muscs blancs",
+     "Notes poudrées"
+    ],
+    "fond": [
+     "Benjoin",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Karamel"
+    ],
+    "coeur": [
+     "Witte musk",
+     "Poedertonen"
+    ],
+    "fond": [
+     "Benzoë",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Prada Candy s'ouvre sur un <strong>caramel</strong> gourmand. Le cœur, doux et poudré, est fait de <strong>muscs blancs</strong>. Le fond associe le <strong>benjoin</strong> et la vanille.</p><p>C'est un gourmand addictif et joyeux. Idéal en automne et en hiver, au quotidien comme en soirée.</p><p>Composé par Daniela Andrier pour Prada en 2011, dans un habillage rose et or.</p>",
+   "nl": "<p>Prada Candy opent met gourmand <strong>karamel</strong>. Het zachte, poederige hart bestaat uit <strong>witte musk</strong>. De basis combineert <strong>benzoë</strong> en vanille.</p><p>Een verslavende, vrolijke gourmand. Ideaal in de herfst en de winter, voor elke dag en 's avonds.</p><p>Gecomponeerd door Daniela Andrier voor Prada in 2011, in een roze en gouden verpakking.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/prada-candy"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "prada-la-femme-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral ambré",
+   "famille_nl": "Bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Frangipanier",
+     "Ylang-ylang"
+    ],
+    "coeur": [
+     "Tubéreuse",
+     "Cire d'abeille"
+    ],
+    "fond": [
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Frangipani",
+     "Ylang-ylang"
+    ],
+    "coeur": [
+     "Tuberoos",
+     "Bijenwas"
+    ],
+    "fond": [
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "fr": "<p>La Femme Prada s'ouvre sur le <strong>frangipanier</strong> et l'ylang-ylang. Le cœur associe la <strong>tubéreuse</strong> et la cire d'abeille. Le fond est une <strong>vanille</strong> douce.</p><p>C'est un floral blanc chaleureux et original. Idéal toute l'année, en soirée.</p><p>Prada l'a construit autour de la fleur de frangipanier.</p>",
+   "nl": "<p>La Femme Prada opent met <strong>frangipani</strong> en ylang-ylang. Het hart combineert <strong>tuberoos</strong> en bijenwas. De basis is een zachte <strong>vanille</strong>.</p><p>Een warme, originele witte bloemengeur. Ideaal het hele jaar door, 's avonds.</p><p>Prada bouwde het rond de frangipanibloem.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/la-femme-prada"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "prada-luna-rossa-ocean-le-parfum-refillable-parfum-pour-homme": {
+   "annee": 2024,
+   "parfumeurs": [
+    "Carlos Benaïm",
+    "Anne Flipo"
+   ],
+   "famille_fr": "Fougère aromatique",
+   "famille_nl": "Aromatische fougère",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Citron"
+    ],
+    "coeur": [
+     "Iris",
+     "Safran",
+     "Sauge sclarée"
+    ],
+    "fond": [
+     "Bois ambrés"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Citroen"
+    ],
+    "coeur": [
+     "Iris",
+     "Saffraan",
+     "Scharlei"
+    ],
+    "fond": [
+     "Amberhout"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Luna Rossa Ocean Le Parfum s'ouvre sur la <strong>bergamote</strong> et le citron. Le cœur associe l'<strong>iris</strong>, le <strong>safran</strong> et la sauge sclarée. Le fond repose sur des bois ambrés.</p><p>C'est une version plus intense et plus élégante de Luna Rossa Ocean. Idéal toute l'année, en soirée.</p><p>Lancé par Prada en 2024, composé par Carlos Benaïm et Anne Flipo. Le flacon est rechargeable.</p>",
+   "nl": "<p>Luna Rossa Ocean Le Parfum opent met <strong>bergamot</strong> en citroen. Het hart combineert <strong>iris</strong>, <strong>saffraan</strong> en scharlei. De basis rust op amberhout.</p><p>Een intensere, elegantere versie van Luna Rossa Ocean. Ideaal het hele jaar door, 's avonds.</p><p>Gelanceerd door Prada in 2024, gecomponeerd door Carlos Benaïm en Anne Flipo. De flacon is navulbaar.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/luna-rossa-ocean-le-parfum"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "prada-luna-rossa-ocean-eau-de-toilette-pour-homme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Fougère aromatique",
+   "famille_nl": "Aromatische fougère",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Armoise",
+     "Poivre rose"
+    ],
+    "coeur": [
+     "Lavande",
+     "Iris",
+     "Sauge sclarée",
+     "Daim"
+    ],
+    "fond": [
+     "Patchouli",
+     "Vétiver",
+     "Musc",
+     "Caramel"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Bijvoet",
+     "Roze peper"
+    ],
+    "coeur": [
+     "Lavendel",
+     "Iris",
+     "Scharlei",
+     "Suède"
+    ],
+    "fond": [
+     "Patchoeli",
+     "Vetiver",
+     "Musk",
+     "Karamel"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Luna Rossa Ocean s'ouvre sur la <strong>bergamote</strong>, l'armoise et le poivre rose. Le cœur associe la <strong>lavande</strong>, l'<strong>iris</strong>, la sauge et une note de daim. Le fond, chaud, mêle le patchouli, le vétiver, le musc et une touche de caramel.</p><p>C'est un frais élégant et moderne. Idéal toute l'année, au bureau comme en soirée.</p><p>Il prolonge Luna Rossa, la ligne masculine de Prada inspirée de la voile de compétition.</p>",
+   "nl": "<p>Luna Rossa Ocean opent met <strong>bergamot</strong>, bijvoet en roze peper. Het hart combineert <strong>lavendel</strong>, <strong>iris</strong>, salie en een toets suède. De warme basis mengt patchoeli, vetiver, musk en een vleugje karamel.</p><p>Een elegante, moderne frisse geur. Ideaal het hele jaar door, op kantoor en 's avonds.</p><p>Het bouwt voort op Luna Rossa, de herenlijn van Prada geïnspireerd op de wedstrijdzeilerij.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/luna-rossa-ocean"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "giorgio-armani-acqua-di-gio-refillable-eau-de-parfum-pour-homme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Aromatique marin",
+   "famille_nl": "Aromatisch marien",
+   "notes_fr": {
+    "tete": [
+     "Mandarine",
+     "Note marine"
+    ],
+    "coeur": [
+     "Lavandin",
+     "Sauge sclarée",
+     "Géranium"
+    ],
+    "fond": [
+     "Patchouli"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Mandarijn",
+     "Zeetoon"
+    ],
+    "coeur": [
+     "Lavandin",
+     "Scharlei",
+     "Geranium"
+    ],
+    "fond": [
+     "Patchoeli"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Cette eau de parfum d'Acqua di Giò s'ouvre sur la <strong>mandarine</strong> et une <strong>note marine</strong>, fraîches et salées. Le cœur est aromatique, avec le <strong>lavandin</strong>, la sauge sclarée et le géranium. Le fond, plus profond que dans l'eau de toilette, repose sur le <strong>patchouli</strong>.</p><p>C'est une fraîcheur marine avec plus de corps et de tenue. Idéal au printemps et en été, en journée, au bureau ou en vacances.</p><p>Acqua di Giò est né en 1996, inspiré à Giorgio Armani par l'île de Pantelleria, entre ciel et mer. Cette version eau de parfum en propose une lecture plus intense.</p>",
+   "nl": "<p>Deze eau de parfum van Acqua di Giò opent met <strong>mandarijn</strong> en een frisse, zilte <strong>zeetoon</strong>. Het hart is aromatisch, met <strong>lavandin</strong>, scharlei en geranium. De basis, dieper dan in de eau de toilette, rust op <strong>patchoeli</strong>.</p><p>Een mariene frisheid met meer body en langere houdbaarheid. Ideaal in de lente en de zomer, overdag, op kantoor of op vakantie.</p><p>Acqua di Giò ontstond in 1996, voor Giorgio Armani geïnspireerd door het eiland Pantelleria, tussen hemel en zee. Deze eau de parfum is er een intensere versie van.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/acqua-di-gio-eau-de-parfum"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN) ; année de la version EDP non confirmée, laissée vide."
   }
  }
 }
