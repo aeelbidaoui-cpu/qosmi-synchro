@@ -421,3 +421,11 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-dujour__compte { flex-direction: column; align-items: stretch; gap: 8px; }
   .qk-dujour__case { min-width: 0; }
 }
+/* Parfum du jour : fond noir profond, lumière douce derrière le flacon (10/11/2026, demande d'Amine) */
+.qk-hero--uni.qk-dujour { background:
+  radial-gradient(40vmax 40vmax at 22% 48%, rgba(255,255,255,0.09), rgba(255,255,255,0) 60%),
+  radial-gradient(60vmax 30vmax at 50% 115%, rgba(255,255,255,0.05), rgba(255,255,255,0) 70%),
+  #000; }
+.qk-dujour__img::before { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 40px 90px rgba(0,0,0,0.8), 0 0 160px rgba(255,255,255,0.14); }
+.qk-dujour__img img { width: 72%; height: 72%; }
+@media (max-width: 749px) { .qk-hero--uni.qk-dujour { background: radial-gradient(80vmax 50vmax at 25% 35%, rgba(255,255,255,0.09), rgba(255,255,255,0) 60%), #000; } }
