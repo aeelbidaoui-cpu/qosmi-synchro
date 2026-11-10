@@ -37,6 +37,22 @@ def logos_slugs():
     logos = json.load(open(chemin, encoding="utf-8"))["par_marque"] if os.path.exists(chemin) else {}
     return "\n".join(sorted(v["slug"] for v in logos.values()))
 
+# 10/11/2026 (site lent, signalé par Amine) : la bande de l'accueil n'affiche plus les 132 marques (264 logos dans la page,
+# 264 recherches d'image côté Shopify) mais les 40 plus connues qui ont un logo ; les autres sont sur la page Marques.
+MARQUES_PHARES = ["Dior", "Chanel", "Creed", "Tom Ford", "Yves Saint Laurent", "Xerjoff", "Parfums de Marly", "Maison Francis Kurkdjian",
+                  "Giorgio Armani", "Guerlain", "Hermes", "Versace", "Lattafa", "Initio", "Nishane", "By Kilian", "Le Labo", "Amouage",
+                  "Mancera", "Montale", "Dolce&Gabbana", "Gucci", "Prada", "Jean Paul Gaultier", "Carolina Herrera", "Paco Rabanne",
+                  "Valentino", "Givenchy", "Lancôme", "Bvlgari", "Acqua di Parma", "Diptyque", "Jo Malone", "Frederic Malle",
+                  "Viktor & Rolf", "Narciso Rodriguez", "Tiziana Terenzi", "Kayali", "Armaf", "Afnan", "Rasasi", "Maison Alhambra",
+                  "Al Haramain", "Swiss Arabian", "Ajmal", "Loewe", "Memo Paris", "Cartier", "Boucheron", "Calvin Klein", "Hugo Boss"]
+
+
+def marques_bande(marques):
+    """Marques phares d'abord (dans cet ordre), puis les autres ; le thème garde les 40 premières qui ont un logo."""
+    toutes = [m for m in marques if not m.endswith("_")]
+    return [m for m in MARQUES_PHARES if m in toutes] + [m for m in toutes if m not in MARQUES_PHARES]
+
+
 ACHETER = """{%- if closest.product.available -%}
 <button type="button" class="qk-acheter" data-qk-acheter>{% if request.locale.iso_code == 'nl' %}Nu kopen{% else %}Acheter maintenant{% endif %}</button>
 <script>
@@ -327,7 +343,8 @@ def construire(fichiers, marques):
                                                  "sous_titre": "Chanel, Dior, Guerlain et plus"}}},
             "block_order": ["t1", "t2", "t3", "t4"]},
         "qk_marques": {"type": "qk-marques", "settings": {
-            "titre": "Marques", "liste": "\n".join(m for m in marques if not m.endswith("_")), "logos": logos_slugs(),
+            "titre": "Marques", "liste": "\n".join(marques_bande(marques)), "logos": logos_slugs(), "maximum": 40,
+            "tout_texte": "Toutes les marques", "tout_texte_nl": "Alle merken", "tout_lien": "/pages/marques",
             "texte": "Des parfums originaux et neufs, des grandes maisons aux créateurs de niche."}},
         "qk_amb_journal": ambiance(3, "Main qui vaporise un parfum", "droite",
             ("Le Journal", "Le bon geste", "Conseils pour bien porter ton parfum, matières premières, portraits de parfumeurs : tout ce qu'il faut savoir avant de choisir.", "Lire le Journal"),

@@ -8,8 +8,19 @@
 {%- assign qk_liste_logos = '' -%}
 {%- for l in qk_logos -%}{%- assign l2 = l | strip -%}{%- assign qk_liste_logos = qk_liste_logos | append: '|' | append: l2 -%}{%- endfor -%}
 {%- assign qk_liste_logos = qk_liste_logos | append: '|' -%}
+{%- comment -%} 10/11/2026 (site lent) : seulement les « maximum » premières marques qui ont un logo (40 par défaut). {%- endcomment -%}
+{%- assign qk_max = section.settings.maximum | default: 40 -%}
+{%- assign qk_garde = '|' -%}
 {%- assign qk_n = 0 -%}
-{%- for n in noms -%}{%- assign nom = n | strip -%}{%- if nom != blank -%}{%- assign qk_n = qk_n | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- for n in noms -%}
+  {%- assign nom = n | strip -%}
+  {%- if nom != blank and qk_n < qk_max -%}
+    {%- assign slug = nom | replace: "'", "-" | replace: "’", "-" | replace: "´", "-" | handleize -%}
+    {%- assign cle = '|' | append: slug | append: '|' -%}
+    {%- if qk_liste_logos contains cle -%}{%- assign qk_garde = qk_garde | append: nom | append: '|' -%}{%- assign qk_n = qk_n | plus: 1 -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if qk_n == 0 -%}{%- assign qk_garde = '' -%}{%- for n in noms -%}{%- assign nom = n | strip -%}{%- if nom != blank -%}{%- assign qk_n = qk_n | plus: 1 -%}{%- endif -%}{%- endfor -%}{%- endif -%}
 {%- assign qk_duree = qk_n | times: section.settings.secondes_par_marque | default: 240 -%}
 <section class="qk-section qk-marques">
   <div class="qk-largeur">
@@ -21,7 +32,8 @@
       {%- for i in (1..2) -%}
         {%- for n in noms -%}
           {%- assign nom = n | strip -%}
-          {%- if nom != blank -%}
+          {%- assign qk_cle_nom = '|' | append: nom | append: '|' -%}
+          {%- if nom != blank and qk_garde == '' or qk_garde contains qk_cle_nom -%}
             {%- assign slug = nom | replace: "'", "-" | replace: "’", "-" | replace: "´", "-" | handleize -%}
             {%- assign cle = '|' | append: slug | append: '|' -%}
             {%- assign img = nil -%}
@@ -41,6 +53,11 @@
       {%- endfor -%}
     </div>
   </div>
+  {%- if section.settings.tout_lien != blank -%}
+    {%- assign qk_tout = section.settings.tout_lien -%}
+    {%- if request.locale.iso_code == 'nl' -%}{%- assign qk_tout = '/nl' | append: qk_tout -%}{%- endif -%}
+    <div class="qk-largeur qk-marques__tout"><a class="qk-lien" href="{{ qk_tout }}">{% if request.locale.iso_code == 'nl' and section.settings.tout_texte_nl != blank %}{{ section.settings.tout_texte_nl }}{% else %}{{ section.settings.tout_texte }}{% endif %}</a></div>
+  {%- endif -%}
 </section>
 
 {% schema %}
@@ -52,6 +69,10 @@
     { "type": "textarea", "id": "texte", "label": "Texte" },
     { "type": "textarea", "id": "liste", "label": "Marques (une par ligne)" },
     { "type": "textarea", "id": "logos", "label": "Marques avec logo (nom simplifié, une par ligne)" },
+    { "type": "number", "id": "maximum", "label": "Nombre de marques dans la bande (avec logo)", "default": 40 },
+    { "type": "text", "id": "tout_texte", "label": "Lien vers toutes les marques : texte", "default": "Toutes les marques" },
+    { "type": "text", "id": "tout_texte_nl", "label": "Lien vers toutes les marques : texte (NL)", "default": "Alle merken" },
+    { "type": "text", "id": "tout_lien", "label": "Lien vers toutes les marques", "default": "/pages/marques" },
     { "type": "range", "id": "secondes_par_marque", "label": "Lenteur du défilement (secondes par marque)", "min": 1, "max": 6, "step": 0.5, "default": 2.5 }
   ],
   "presets": [{ "name": "Qosmi · Marques" }]

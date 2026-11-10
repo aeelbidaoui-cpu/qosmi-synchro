@@ -62,8 +62,42 @@ def fiche(url):
             if isinstance(offres, dict):
                 offres = [offres]
             eans = [re.sub(r"\D", "", str(o.get("gtin13") or o.get("gtin") or "")) for o in offres]
-            return d.get("name"), image, [e for e in eans if len(e) >= 8]
+            return d.get("name"), packshot(t, image), [e for e in eans if len(e) >= 8]
     return None, None, []
+
+
+def packshot(page, image):
+    """10/11/2026 (Aoud Exclusif signalé par Amine) : sur certaines fiches Mancera/Montale, la photo principale est une
+    photo en situation (flacon posé sur du bois, au soleil…). Parmi les photos de la fiche, on garde celle dont les coins
+    sont les plus clairs (flacon seul sur fond clair). Sans Pillow ou en cas d'erreur : photo principale, comme avant."""
+    m = re.match(r"(https://[^/]+)/(\d+)-([a-z_0-9]+)/([^/]+\.jpg)$", image or "")
+    if not m:
+        return image
+    base, _, taille, fichier = m.groups()
+    ids = sorted(set(re.findall(r"%s/(\d+)-[a-z_0-9]+/%s" % (re.escape(base), re.escape(fichier)), page)))
+    if len(ids) < 2:
+        return image
+    try:
+        import io
+        from PIL import Image, ImageStat
+    except ImportError:
+        return image
+    notes = []
+    for i in ids[:6]:
+        try:
+            req = urllib.request.Request("%s/%s-home_default/%s" % (base, i, fichier), headers={"User-Agent": AGENT})
+            im = Image.open(io.BytesIO(urllib.request.urlopen(req, timeout=60).read())).convert("L")
+        except Exception:
+            continue
+        w, h = im.size
+        k = max(4, w // 12)
+        coins = [im.crop(b) for b in ((0, 0, k, k), (w - k, 0, w, k), (0, h - k, k, h), (w - k, h - k, w, h))]
+        notes.append((min(ImageStat.Stat(c).mean[0] for c in coins), i))
+        time.sleep(0.3)
+    if not notes:
+        return image
+    note, meilleur = max(notes)
+    return "%s/%s-%s/%s" % (base, meilleur, taille, fichier) if note >= 200 else image
 
 
 def main():

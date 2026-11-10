@@ -13,7 +13,7 @@
          role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="Qosmi">
       {%- if section.settings.video != blank -%}
         {%- comment -%} vidéo d'ambiance : muette, en boucle, lancée seule (aussi sur iPhone grâce à playsinline) {%- endcomment -%}
-        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video', image_size: '3840x' }}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video', image_size: '1920x' }}
         {%- if section.settings.video_mobile != blank -%}
           {{ section.settings.video_mobile | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video qk-hero__video--mobile', image_size: '1080x' }}
         {%- endif -%}

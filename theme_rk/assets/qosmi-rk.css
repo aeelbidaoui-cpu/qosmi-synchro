@@ -383,3 +383,5 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-ambiance--droite .qk-ambiance__photo { order: 0; }
   .qk-ambiance__photo { aspect-ratio: 4 / 3; }
 }
+
+.qk-marques__tout { text-align: center; margin-top: 1.5rem; }

@@ -48,7 +48,7 @@ jobs:
         run: |
           if [ "${{ inputs.action }}" = "activer-fiches" ]; then python -u scripts/site_synchro.py --activer
           elif [ "${{ inputs.action }}" = "photos-marques" ]; then
-            if [ -z "$PHOTOS_ESSAI" ]; then python -u scripts/photos_marques.py; fi
+            if [ -z "$PHOTOS_ESSAI" ]; then pip install -q pillow && python -u scripts/photos_marques.py; fi
             python -u scripts/site_synchro.py --photos-marques
           elif [ "${{ inputs.action }}" = "textes-fiches" ]; then python -u scripts/site_synchro.py --textes
           elif [ "${{ inputs.action }}" = "nl-audit" ]; then python -u scripts/site_nl.py --audit
