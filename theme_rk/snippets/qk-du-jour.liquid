@@ -43,8 +43,8 @@
         {%- assign qk_type = qk_t[1] | remove: ' pour femme' | remove: ' pour homme' | remove: ' mixte' | remove: ' voor dames' | remove: ' voor heren' | remove: ' unisex' | strip -%}
         {%- assign qk_prix = v.price | money_without_currency | split: ',' -%}
         <a class="qk-dujour__produit{% if forloop.index0 != qk_choix %} is-cache{% endif %}" data-qk-rang="{{ forloop.index0 }}" href="{{ v.url | default: p.url }}">
-          <span class="qk-dujour__img"><span class="qk-dujour__halo" aria-hidden="true"></span>
-            {{ p.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: p.title, widths: '400, 600, 900', sizes: '(min-width: 750px) 40vw, 80vw' }}
+          <span class="qk-dujour__img"><span class="qk-dujour__arche" aria-hidden="true"></span>
+            {{ p.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: p.title, widths: '400, 600, 900', sizes: '(min-width: 750px) 40vw, 80vw', crossorigin: 'anonymous' }}
           </span>
           <span class="qk-dujour__texte">
             <span class="qk-dujour__titre">{% if qk_nl %}Parfum van de dag{% else %}{{ titre }}{% endif %}</span>
@@ -81,12 +81,42 @@
         return parts;
       }
       function deux(x) { return (x < 10 ? '0' : '') + x; }
+      // 10/11/2026 : le fond prend la couleur du flacon du jour (couleur dominante de la photo, adoucie)
+      function teinte(img) {
+        try {
+          var c = document.createElement('canvas'), w = 48, h = 48; c.width = w; c.height = h;
+          var x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(img, 0, 0, w, h);
+          var d = x.getImageData(0, 0, w, h).data, r = 0, g = 0, b = 0, n = 0;
+          for (var i = 0; i < d.length; i += 4) {
+            var R = d[i], G = d[i + 1], B = d[i + 2], mx = Math.max(R, G, B), mn = Math.min(R, G, B);
+            if (mx > 245 && mn > 235) continue;           // fond blanc
+            if (mx - mn < 28) continue;                    // gris, verre incolore, reflets
+            r += R; g += G; b += B; n++;
+          }
+          if (n < 25) return;
+          r /= n; g /= n; b /= n;
+          var mx2 = Math.max(r, g, b) / 255, mn2 = Math.min(r, g, b) / 255, l = (mx2 + mn2) / 2, s = 0, hh = 0;
+          if (mx2 !== mn2) {
+            var dd = mx2 - mn2; s = l > 0.5 ? dd / (2 - mx2 - mn2) : dd / (mx2 + mn2);
+            var rr = r / 255, gg = g / 255, bb = b / 255;
+            hh = mx2 === rr ? (gg - bb) / dd + (gg < bb ? 6 : 0) : mx2 === gg ? (bb - rr) / dd + 2 : (rr - gg) / dd + 4; hh *= 60;
+          }
+          s = Math.min(0.55, Math.max(0.18, s));
+          racine.style.setProperty('--qk-dj-h', Math.round(hh));
+          racine.style.setProperty('--qk-dj-s', Math.round(s * 100) + '%');
+        } catch (e) {}
+      }
+      function teinteActif() {
+        var p = racine.querySelector('.qk-dujour__produit:not(.is-cache) img');
+        if (!p) return;
+        if (p.complete && p.naturalWidth) teinte(p); else p.addEventListener('load', function () { teinte(p); }, { once: true });
+      }
       function tic() {
         var b = bruxelles();
         var jour = Math.floor(Date.UTC(+b.year, +b.month - 1, +b.day) / 86400000);
         var cible = jour % total, i = 0;
         for (var k = 0; k < n; k++) { if (+produits[k].getAttribute('data-qk-rang') >= cible) { i = k; break; } }
-        if (i !== actuel) { for (k = 0; k < n; k++) produits[k].classList.toggle('is-cache', k !== i); actuel = i; }
+        if (i !== actuel) { for (k = 0; k < n; k++) produits[k].classList.toggle('is-cache', k !== i); actuel = i; teinteActif(); }
         var reste = 86400 - (+b.hour * 3600 + +b.minute * 60 + +b.second);
         racine.querySelector('[data-qk-h]').textContent = deux(Math.floor(reste / 3600));
         racine.querySelector('[data-qk-m]').textContent = deux(Math.floor(reste % 3600 / 60));

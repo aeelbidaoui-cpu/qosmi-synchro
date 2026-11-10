@@ -429,3 +429,41 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-dujour__img::before { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 40px 90px rgba(0,0,0,0.8), 0 0 160px rgba(255,255,255,0.14); }
 .qk-dujour__img img { width: 72%; height: 72%; }
 @media (max-width: 749px) { .qk-hero--uni.qk-dujour { background: radial-gradient(80vmax 50vmax at 25% 35%, rgba(255,255,255,0.09), rgba(255,255,255,0) 60%), #000; } }
+
+/* ====== Parfum du jour, version « teinte du flacon » (10/11/2026, demande d'Amine : « sois créatif, un truc beau ») ======
+   Fond clair couleur crème, teinté de la couleur du flacon du jour ; le flacon flotte devant une arche (sans carré ni rond blanc). */
+.qk-hero--uni.qk-dujour { --qk-dj-h: 32; --qk-dj-s: 30%; color: #141414;
+  background:
+    radial-gradient(48vmax 42vmax at 24% 52%, hsla(var(--qk-dj-h), var(--qk-dj-s), 72%, 0.55), transparent 62%),
+    radial-gradient(60vmax 40vmax at 92% 8%, hsla(var(--qk-dj-h), var(--qk-dj-s), 84%, 0.7), transparent 60%),
+    linear-gradient(160deg, hsl(var(--qk-dj-h), 26%, 95%) 0%, hsl(var(--qk-dj-h), 22%, 90%) 100%);
+  transition: background 1.2s ease; }
+.qk-dujour__produit { color: #141414; }
+.qk-dujour__img { position: relative; background: transparent; overflow: visible; aspect-ratio: 4 / 5; }
+.qk-dujour__img::before { content: none; }
+.qk-dujour__arche { position: absolute; left: 10%; right: 10%; top: 2%; bottom: 6%; border-radius: 999px 999px 18px 18px;
+  background: linear-gradient(180deg, hsla(var(--qk-dj-h), var(--qk-dj-s), 86%, 0.95), hsla(var(--qk-dj-h), var(--qk-dj-s), 78%, 0.9));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6), 0 30px 60px -30px hsla(var(--qk-dj-h), 40%, 30%, 0.35); }
+.qk-dujour__img::after { content: ""; position: absolute; left: 24%; right: 24%; bottom: 7%; height: 5%; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0,0,0,0.28), transparent); filter: blur(2px); }
+.qk-dujour__img img { position: relative; z-index: 1; width: 78%; height: 86%; object-fit: contain; mix-blend-mode: multiply;
+  filter: drop-shadow(0 18px 18px rgba(0,0,0,0.08)); transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.qk-dujour__produit:hover .qk-dujour__img img { transform: translateY(-8px) rotate(-1.5deg); }
+.qk-dujour__titre, .qk-dujour__marque { color: rgba(20,20,20,0.7); }
+.qk-dujour__ligne--doux { color: rgba(20,20,20,0.62); }
+.qk-dujour__notes { color: rgba(20,20,20,0.78); }
+.qk-dujour__notes i { border-color: rgba(20,20,20,0.35); background: rgba(255,255,255,0.45); }
+.qk-dujour__voir { border-color: #141414; background: #141414; color: #fff; }
+.qk-dujour__produit:hover .qk-dujour__voir { background: transparent; color: #141414; }
+.qk-dujour__compte-titre { color: rgba(20,20,20,0.6); }
+.qk-dujour__case { color: #141414; border-color: rgba(20,20,20,0.18); background: rgba(255,255,255,0.55); backdrop-filter: blur(6px); }
+.qk-dujour__case span { color: rgba(20,20,20,0.55); }
+/* flèches et points du carrousel lisibles quand le parfum du jour est affiché */
+.qk-carrousel:has(.qk-dujour[aria-hidden="false"]) .qk-carrousel__point { background: rgba(20,20,20,0.22); }
+.qk-carrousel:has(.qk-dujour[aria-hidden="false"]) .qk-carrousel__point[aria-current="true"] { background: #141414; }
+.qk-carrousel:has(.qk-dujour[aria-hidden="false"]) .qk-carrousel__fleche { border-color: rgba(20,20,20,0.25); background: rgba(255,255,255,0.6); color: #141414; }
+@media (max-width: 749px) {
+  .qk-hero--uni.qk-dujour { background:
+    radial-gradient(70vmax 50vmax at 20% 40%, hsla(var(--qk-dj-h), var(--qk-dj-s), 74%, 0.55), transparent 62%),
+    linear-gradient(160deg, hsl(var(--qk-dj-h), 26%, 95%), hsl(var(--qk-dj-h), 22%, 90%)); }
+}
