@@ -4703,6 +4703,688 @@
     "https://www.fragrantica.com/perfume/Afnan/9pm-65414.html"
    ],
    "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "dior-eau-sauvage-eau-de-toilette-pour-homme": {
+   "annee": 1966,
+   "parfumeurs": [
+    "Edmond Roudnitska"
+   ],
+   "famille_fr": "Hespéridé aromatique",
+   "famille_nl": "Aromatische citrus",
+   "notes_fr": {
+    "tete": [
+     "Citron",
+     "Bergamote",
+     "Basilic",
+     "Romarin"
+    ],
+    "coeur": [
+     "Jasmin",
+     "Coriandre",
+     "Œillet",
+     "Iris",
+     "Rose",
+     "Lavande"
+    ],
+    "fond": [
+     "Mousse de chêne",
+     "Vétiver",
+     "Musc",
+     "Ambre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Citroen",
+     "Bergamot",
+     "Basilicum",
+     "Rozemarijn"
+    ],
+    "coeur": [
+     "Jasmijn",
+     "Koriander",
+     "Anjer",
+     "Iris",
+     "Roos",
+     "Lavendel"
+    ],
+    "fond": [
+     "Eikenmos",
+     "Vetiver",
+     "Musk",
+     "Amber"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Eau Sauvage s'ouvre sur le <strong>citron</strong> et la <strong>bergamote</strong>, avec le basilic et le romarin. Le cœur, lumineux, associe un <strong>jasmin</strong> transparent à la coriandre, l'iris, la rose et la lavande. Le fond reste sec et élégant : <strong>mousse de chêne</strong>, vétiver, musc et ambre.</p><p>C'est la grande eau fraîche masculine : nette, aromatique et intemporelle. Idéal au printemps et en été, en journée, au bureau ou après le sport.</p><p>Premier parfum masculin de Dior, composé par Edmond Roudnitska et lancé en 1966, il a été l'un des premiers à utiliser l'hédione, une note jasminée qui lui donne sa clarté.</p>",
+   "nl": "<p>Eau Sauvage opent met <strong>citroen</strong> en <strong>bergamot</strong>, met basilicum en rozemarijn. Het stralende hart combineert een transparante <strong>jasmijn</strong> met koriander, iris, roos en lavendel. De basis blijft droog en elegant: <strong>eikenmos</strong>, vetiver, musk en amber.</p><p>Hét grote frisse herenwater: strak, aromatisch en tijdloos. Ideaal in de lente en de zomer, overdag, op kantoor of na het sporten.</p><p>Het eerste herenparfum van Dior, gecomponeerd door Edmond Roudnitska en gelanceerd in 1966. Het was een van de eerste parfums met hedione, een jasmijnachtige toon die het zijn helderheid geeft.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/eau-sauvage"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "dior-joy-by-dior-eau-de-parfum-pour-femme": {
+   "annee": 2018,
+   "parfumeurs": [],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Mandarine"
+    ],
+    "coeur": [
+     "Rose",
+     "Jasmin"
+    ],
+    "fond": [
+     "Santal",
+     "Cèdre",
+     "Muscs blancs",
+     "Patchouli"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Mandarijn"
+    ],
+    "coeur": [
+     "Roos",
+     "Jasmijn"
+    ],
+    "fond": [
+     "Sandelhout",
+     "Ceder",
+     "Witte musk",
+     "Patchoeli"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Joy s'ouvre sur la <strong>bergamote</strong> et la mandarine, lumineuses. Le cœur est un duo floral de <strong>rose</strong> et de <strong>jasmin</strong>. Le fond, doux et boisé, mêle le santal, le cèdre, les muscs blancs et le patchouli.</p><p>C'est un floral solaire et joyeux, élégant et facile à porter. Idéal au printemps et en été, en journée, au bureau ou pour une occasion.</p><p>Joy est lancé par Dior en 2018 comme un nouveau grand parfum féminin de la maison.</p>",
+   "nl": "<p>Joy opent met stralende <strong>bergamot</strong> en mandarijn. Het hart is een bloemig duo van <strong>roos</strong> en <strong>jasmijn</strong>. De zachte, houtige basis mengt sandelhout, ceder, witte musk en patchoeli.</p><p>Een zonnige, vrolijke bloemengeur, elegant en makkelijk te dragen. Ideaal in de lente en de zomer, overdag, op kantoor of voor een gelegenheid.</p><p>Joy werd in 2018 door Dior gelanceerd als een nieuw groot damesparfum van het huis.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/joy-de-dior"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "dior-joy-by-dior-intense-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral ambré",
+   "famille_nl": "Bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Néroli"
+    ],
+    "coeur": [
+     "Rose",
+     "Jasmin"
+    ],
+    "fond": [
+     "Fève tonka",
+     "Santal",
+     "Vanille",
+     "Musc"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Neroli"
+    ],
+    "coeur": [
+     "Roos",
+     "Jasmijn"
+    ],
+    "fond": [
+     "Tonkaboon",
+     "Sandelhout",
+     "Vanille",
+     "Musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Joy Intense s'ouvre sur la <strong>bergamote</strong> et le néroli. Le cœur garde la <strong>rose</strong> et le <strong>jasmin</strong> de Joy. Le fond devient plus chaud et plus sensuel, avec la <strong>fève tonka</strong>, le santal, la vanille et le musc.</p><p>C'est une version plus enveloppante et plus ambrée de Joy. Idéal en automne et en hiver, en soirée ou pour un rendez-vous.</p><p>Elle prolonge Joy, lancé par Dior en 2018.</p>",
+   "nl": "<p>Joy Intense opent met <strong>bergamot</strong> en neroli. Het hart behoudt de <strong>roos</strong> en <strong>jasmijn</strong> van Joy. De basis wordt warmer en sensueler, met <strong>tonkaboon</strong>, sandelhout, vanille en musk.</p><p>Een meer omhullende, amberachtige versie van Joy. Ideaal in de herfst en de winter, 's avonds of voor een afspraakje.</p><p>Het bouwt voort op Joy, dat Dior in 2018 lanceerde.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/joy-dior-intense"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "dior-poison-girl-eau-de-parfum-pour-femme": {
+   "annee": 2016,
+   "parfumeurs": [
+    "François Demachy"
+   ],
+   "famille_fr": "Floral gourmand",
+   "famille_nl": "Gourmand bloemig",
+   "notes_fr": {
+    "tete": [
+     "Orange amère"
+    ],
+    "coeur": [
+     "Rose",
+     "Rose de Damas"
+    ],
+    "fond": [
+     "Fève tonka",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bittere sinaasappel"
+    ],
+    "coeur": [
+     "Roos",
+     "Damascusroos"
+    ],
+    "fond": [
+     "Tonkaboon",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Poison Girl s'ouvre sur une <strong>orange amère</strong> vive. Le cœur est une <strong>rose</strong>, dont la rose de Damas, à la fois fraîche et douce. Le fond est gourmand, avec la <strong>fève tonka</strong> et la <strong>vanille</strong>.</p><p>C'est un parfum doux-amer, jeune et sensuel. Idéal en automne et en hiver, en soirée ou pour sortir.</p><p>Lancé par Dior en 2016 et signé François Demachy, il prolonge la lignée Poison avec un jus rose vif dans la célèbre pomme.</p>",
+   "nl": "<p>Poison Girl opent met levendige <strong>bittere sinaasappel</strong>. Het hart is een <strong>roos</strong>, waaronder Damascusroos, fris en zacht tegelijk. De basis is gourmand, met <strong>tonkaboon</strong> en <strong>vanille</strong>.</p><p>Een bitterzoet parfum, jong en sensueel. Ideaal in de herfst en de winter, 's avonds of om uit te gaan.</p><p>Gelanceerd door Dior in 2016 en gecomponeerd door François Demachy, als vervolg op de Poison-lijn met een felroze sap in de bekende appel.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/poison-girl"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "dior-poison-eau-de-toilette-pour-femme": {
+   "annee": 1985,
+   "parfumeurs": [
+    "Édouard Fléchier"
+   ],
+   "famille_fr": "Ambré épicé",
+   "famille_nl": "Kruidig amber",
+   "notes_fr": {
+    "tete": [
+     "Prune",
+     "Coriandre"
+    ],
+    "coeur": [
+     "Tubéreuse",
+     "Cannelle",
+     "Fleur d'oranger"
+    ],
+    "fond": [
+     "Vanille",
+     "Miel",
+     "Labdanum",
+     "Opoponax"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Pruim",
+     "Koriander"
+    ],
+    "coeur": [
+     "Tuberoos",
+     "Kaneel",
+     "Oranjebloesem"
+    ],
+    "fond": [
+     "Vanille",
+     "Honing",
+     "Labdanum",
+     "Opoponax"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Poison s'ouvre sur la <strong>prune</strong> et la coriandre. Le cœur est dominé par une <strong>tubéreuse</strong> intense, épicée de cannelle et adoucie de fleur d'oranger. Le fond, riche et ambré, mêle la vanille, le <strong>miel</strong>, le labdanum et l'opoponax.</p><p>C'est un parfum puissant et théâtral, une icône des années 80. Idéal en automne et en hiver, en soirée.</p><p>Lancé par Dior en 1985 et composé par Édouard Fléchier, il se reconnaît à son flacon en forme de pomme.</p>",
+   "nl": "<p>Poison opent met <strong>pruim</strong> en koriander. Het hart wordt gedomineerd door een intense <strong>tuberoos</strong>, gekruid met kaneel en verzacht met oranjebloesem. De rijke amberbasis mengt vanille, <strong>honing</strong>, labdanum en opoponax.</p><p>Een krachtig, theatraal parfum, een icoon uit de jaren 80. Ideaal in de herfst en de winter, 's avonds.</p><p>Gelanceerd door Dior in 1985 en gecomponeerd door Édouard Fléchier, herkenbaar aan de flacon in de vorm van een appel.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/poison"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "dior-pure-poison-eau-de-parfum-pour-femme": {
+   "annee": 2004,
+   "parfumeurs": [
+    "Carlos Benaïm",
+    "Dominique Ropion",
+    "Olivier Polge"
+   ],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [
+     "Mandarine",
+     "Bergamote",
+     "Orange"
+    ],
+    "coeur": [
+     "Fleur d'oranger",
+     "Jasmin",
+     "Gardénia"
+    ],
+    "fond": [
+     "Muscs blancs",
+     "Santal",
+     "Ambre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Mandarijn",
+     "Bergamot",
+     "Sinaasappel"
+    ],
+    "coeur": [
+     "Oranjebloesem",
+     "Jasmijn",
+     "Gardenia"
+    ],
+    "fond": [
+     "Witte musk",
+     "Sandelhout",
+     "Amber"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Pure Poison s'ouvre sur les agrumes : <strong>mandarine</strong>, bergamote et orange. Le cœur est un bouquet de fleurs blanches, avec la <strong>fleur d'oranger</strong>, le jasmin et le <strong>gardénia</strong>. Le fond, doux et lumineux, réunit les muscs blancs, le santal et l'ambre.</p><p>C'est un floral blanc, pur et sensuel. Idéal toute l'année, en journée comme en soirée.</p><p>Lancé par Dior en 2004 et composé par Carlos Benaïm, Dominique Ropion et Olivier Polge, il garde la pomme de Poison, en verre blanc nacré.</p>",
+   "nl": "<p>Pure Poison opent met citrus: <strong>mandarijn</strong>, bergamot en sinaasappel. Het hart is een boeket witte bloemen, met <strong>oranjebloesem</strong>, jasmijn en <strong>gardenia</strong>. De zachte, stralende basis brengt witte musk, sandelhout en amber samen.</p><p>Een witte bloemengeur, puur en sensueel. Ideaal het hele jaar door, overdag en 's avonds.</p><p>Gelanceerd door Dior in 2004 en gecomponeerd door Carlos Benaïm, Dominique Ropion en Olivier Polge, in de appel van Poison, uit parelmoerwit glas.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/pure-poison"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-allure-homme-edition-blanche-eau-de-parfum-pour-homme": {
+   "annee": 2008,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Boisé hespéridé",
+   "famille_nl": "Houtige citrus",
+   "notes_fr": {
+    "tete": [
+     "Citron",
+     "Bergamote"
+    ],
+    "coeur": [
+     "Gingembre",
+     "Cèdre"
+    ],
+    "fond": [
+     "Santal",
+     "Vétiver",
+     "Vanille",
+     "Fève tonka",
+     "Muscs blancs"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Citroen",
+     "Bergamot"
+    ],
+    "coeur": [
+     "Gember",
+     "Ceder"
+    ],
+    "fond": [
+     "Sandelhout",
+     "Vetiver",
+     "Vanille",
+     "Tonkaboon",
+     "Witte musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Allure Homme Édition Blanche s'ouvre sur un <strong>citron</strong> éclatant et la bergamote. Le cœur associe le gingembre et le cèdre. Le fond est crémeux : <strong>santal</strong>, vétiver, <strong>vanille</strong>, fève tonka et muscs blancs.</p><p>C'est un frais-boisé, entre le chaud et le froid, très élégant. Idéal au printemps et en été, au bureau comme en soirée.</p><p>Signé Jacques Polge et lancé par Chanel en 2008, c'est la version « blanche » d'Allure Homme.</p>",
+   "nl": "<p>Allure Homme Édition Blanche opent met stralende <strong>citroen</strong> en bergamot. Het hart combineert gember en ceder. De basis is romig: <strong>sandelhout</strong>, vetiver, <strong>vanille</strong>, tonkaboon en witte musk.</p><p>Een fris-houtige geur, tussen warm en koud, heel elegant. Ideaal in de lente en de zomer, op kantoor en 's avonds.</p><p>Gecomponeerd door Jacques Polge en in 2008 gelanceerd door Chanel, als 'witte' versie van Allure Homme.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/allure-homme-edition-blanche"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-allure-homme-sport-cologne-eau-de-cologne-pour-homme": {
+   "annee": 2007,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Hespéridé aromatique",
+   "famille_nl": "Aromatische citrus",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Citron",
+     "Mandarine",
+     "Pamplemousse"
+    ],
+    "coeur": [
+     "Élémi",
+     "Épices"
+    ],
+    "fond": [
+     "Cèdre",
+     "Muscs blancs"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Citroen",
+     "Mandarijn",
+     "Grapefruit"
+    ],
+    "coeur": [
+     "Elemi",
+     "Specerijen"
+    ],
+    "fond": [
+     "Ceder",
+     "Witte musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Allure Homme Sport Cologne s'ouvre sur un éclat d'<strong>agrumes</strong> : bergamote, citron, mandarine et pamplemousse. Le cœur ajoute l'élémi et une touche d'épices. Le fond, léger, repose sur le <strong>cèdre</strong> et les muscs blancs.</p><p>C'est la version la plus fraîche et la plus légère d'Allure Homme Sport. Idéal au printemps et en été, en journée et après le sport.</p><p>Signée Jacques Polge et lancée par Chanel en 2007.</p>",
+   "nl": "<p>Allure Homme Sport Cologne opent met een uitbarsting van <strong>citrus</strong>: bergamot, citroen, mandarijn en grapefruit. Het hart voegt elemi en een toets specerijen toe. De lichte basis rust op <strong>ceder</strong> en witte musk.</p><p>De frisste, lichtste versie van Allure Homme Sport. Ideaal in de lente en de zomer, overdag en na het sporten.</p><p>Gecomponeerd door Jacques Polge en in 2007 gelanceerd door Chanel.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/allure-homme-sport-cologne"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-allure-homme-eau-de-toilette-pour-homme": {
+   "annee": 1999,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Mandarine"
+    ],
+    "coeur": [
+     "Poivre noir",
+     "Cèdre"
+    ],
+    "fond": [
+     "Vétiver",
+     "Fève tonka",
+     "Labdanum",
+     "Santal",
+     "Patchouli"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Mandarijn"
+    ],
+    "coeur": [
+     "Zwarte peper",
+     "Ceder"
+    ],
+    "fond": [
+     "Vetiver",
+     "Tonkaboon",
+     "Labdanum",
+     "Sandelhout",
+     "Patchoeli"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Allure Homme s'ouvre sur la <strong>bergamote</strong> et la mandarine. Le cœur, épicé, associe le <strong>poivre noir</strong> de Madagascar et le cèdre. Le fond, chaud et boisé, réunit le <strong>vétiver</strong>, la fève tonka, le labdanum, le santal et le patchouli.</p><p>C'est un classique frais, épicé et boisé, élégant en toute occasion. Idéal toute l'année, au bureau comme en soirée.</p><p>Signé Jacques Polge et présenté par Chanel en 1999, il a donné naissance à toute la famille Allure Homme.</p>",
+   "nl": "<p>Allure Homme opent met <strong>bergamot</strong> en mandarijn. Het kruidige hart combineert <strong>zwarte peper</strong> uit Madagaskar en ceder. De warme, houtige basis brengt <strong>vetiver</strong>, tonkaboon, labdanum, sandelhout en patchoeli samen.</p><p>Een frisse, kruidige en houtige klassieker, elegant bij elke gelegenheid. Ideaal het hele jaar door, op kantoor en 's avonds.</p><p>Gecomponeerd door Jacques Polge en in 1999 door Chanel voorgesteld. Het werd de basis van de hele Allure Homme-familie.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/allure-homme"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-allure-sensuelle-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Floral ambré",
+   "famille_nl": "Bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Baies roses"
+    ],
+    "coeur": [
+     "Rose",
+     "Jasmin"
+    ],
+    "fond": [
+     "Patchouli",
+     "Encens",
+     "Vanille",
+     "Ambre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Roze bessen"
+    ],
+    "coeur": [
+     "Roos",
+     "Jasmijn"
+    ],
+    "fond": [
+     "Patchoeli",
+     "Wierook",
+     "Vanille",
+     "Amber"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Allure Sensuelle s'ouvre sur la <strong>bergamote</strong> et les baies roses. Le cœur associe la <strong>rose</strong> et le jasmin. Le fond, ambré et voluptueux, mêle le <strong>patchouli</strong>, l'<strong>encens</strong>, la vanille et l'ambre.</p><p>C'est une variation plus sensuelle et plus mystérieuse d'Allure. Idéal en automne et en hiver, en soirée.</p><p>Signée Jacques Polge pour Chanel, elle est pensée pour s'exprimer différemment sur chaque femme.</p>",
+   "nl": "<p>Allure Sensuelle opent met <strong>bergamot</strong> en roze bessen. Het hart combineert <strong>roos</strong> en jasmijn. De amberachtige, weelderige basis mengt <strong>patchoeli</strong>, <strong>wierook</strong>, vanille en amber.</p><p>Een sensuelere, mysterieuzere variatie op Allure. Ideaal in de herfst en de winter, 's avonds.</p><p>Gecomponeerd door Jacques Polge voor Chanel, bedacht om op elke vrouw anders te ruiken.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/allure-sensuelle"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-allure-eau-de-parfum-pour-femme": {
+   "annee": 1996,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Floral frais ambré",
+   "famille_nl": "Frisse bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Pêche",
+     "Bergamote",
+     "Mandarine"
+    ],
+    "coeur": [
+     "Jasmin",
+     "Rose"
+    ],
+    "fond": [
+     "Vanille",
+     "Santal",
+     "Vétiver",
+     "Cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Perzik",
+     "Bergamot",
+     "Mandarijn"
+    ],
+    "coeur": [
+     "Jasmijn",
+     "Roos"
+    ],
+    "fond": [
+     "Vanille",
+     "Sandelhout",
+     "Vetiver",
+     "Ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Allure s'ouvre sur la <strong>mandarine</strong> pétillante, la bergamote et une touche de pêche. Le cœur est doux, avec le <strong>jasmin</strong> et la <strong>rose</strong>. Le fond, sensuel, mêle la <strong>vanille</strong>, le santal, le vétiver et le cèdre.</p><p>C'est un parfum élégant et lumineux, pensé pour s'exprimer différemment sur chaque femme. Idéal toute l'année, au bureau comme en soirée.</p><p>Créé par Jacques Polge et lancé par Chanel en 1996, son nom renvoie à l'élégance naturelle défendue par Gabrielle Chanel.</p>",
+   "nl": "<p>Allure opent met sprankelende <strong>mandarijn</strong>, bergamot en een toets perzik. Het hart is zacht, met <strong>jasmijn</strong> en <strong>roos</strong>. De sensuele basis mengt <strong>vanille</strong>, sandelhout, vetiver en ceder.</p><p>Een elegant, stralend parfum, bedacht om op elke vrouw anders te ruiken. Ideaal het hele jaar door, op kantoor en 's avonds.</p><p>Gecreëerd door Jacques Polge en in 1996 gelanceerd door Chanel. De naam verwijst naar de natuurlijke elegantie die Gabrielle Chanel verdedigde.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/allure"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-chance-eau-splendide-eau-de-parfum-pour-femme": {
+   "annee": 2025,
+   "parfumeurs": [
+    "Olivier Polge"
+   ],
+   "famille_fr": "Floral fruité",
+   "famille_nl": "Fruitig bloemig",
+   "notes_fr": {
+    "tete": [
+     "Framboise",
+     "Rose",
+     "Violette"
+    ],
+    "coeur": [
+     "Géranium rosat",
+     "Iris"
+    ],
+    "fond": [
+     "Muscs blancs",
+     "Cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Framboos",
+     "Roos",
+     "Viooltje"
+    ],
+    "coeur": [
+     "Rozengeranium",
+     "Iris"
+    ],
+    "fond": [
+     "Witte musk",
+     "Ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Chance Eau Splendide s'ouvre sur un accord pétillant de <strong>framboise</strong>, de rose et de violette. Le cœur associe le <strong>géranium rosat</strong> et l'iris. Le fond, doux et lumineux, repose sur les muscs blancs et le cèdre.</p><p>C'est un floral fruité, gai et lumineux. Idéal au printemps et en été, en journée.</p><p>Lancé en 2025 et habillé de violet, c'est le cinquième parfum de la ligne Chance de Chanel, composé par Olivier Polge.</p>",
+   "nl": "<p>Chance Eau Splendide opent met een sprankelend akkoord van <strong>framboos</strong>, roos en viooltje. Het hart combineert <strong>rozengeranium</strong> en iris. De zachte, stralende basis rust op witte musk en ceder.</p><p>Een fruitige bloemengeur, vrolijk en stralend. Ideaal in de lente en de zomer, overdag.</p><p>Gelanceerd in 2025 in een paarse flacon: het vijfde parfum van de Chance-lijn van Chanel, gecomponeerd door Olivier Polge.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/chance-eau-splendide"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-coco-mademoiselle-intense-eau-de-parfum-pour-femme": {
+   "annee": 2018,
+   "parfumeurs": [
+    "Olivier Polge"
+   ],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Houtig amber",
+   "notes_fr": {
+    "tete": [
+     "Orange",
+     "Bergamote"
+    ],
+    "coeur": [
+     "Rose",
+     "Jasmin"
+    ],
+    "fond": [
+     "Patchouli",
+     "Fève tonka",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Sinaasappel",
+     "Bergamot"
+    ],
+    "coeur": [
+     "Roos",
+     "Jasmijn"
+    ],
+    "fond": [
+     "Patchoeli",
+     "Tonkaboon",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Coco Mademoiselle Intense s'ouvre sur l'orange et la bergamote. Le cœur garde la <strong>rose</strong> et le <strong>jasmin</strong>. Le fond, plus corsé que l'original, associe une forte dose de <strong>patchouli</strong> à la fève tonka et à la vanille de Madagascar.</p><p>C'est une version plus profonde et plus sensuelle de Coco Mademoiselle. Idéal en automne et en hiver, en soirée.</p><p>Composée par Olivier Polge pour Chanel en 2018, dix-sept ans après l'original créé par son père, Jacques Polge.</p>",
+   "nl": "<p>Coco Mademoiselle Intense opent met sinaasappel en bergamot. Het hart behoudt <strong>roos</strong> en <strong>jasmijn</strong>. De basis is voller dan het origineel en combineert een flinke dosis <strong>patchoeli</strong> met tonkaboon en vanille uit Madagaskar.</p><p>Een diepere, sensuelere versie van Coco Mademoiselle. Ideaal in de herfst en de winter, 's avonds.</p><p>Gecomponeerd door Olivier Polge voor Chanel in 2018, zeventien jaar na het origineel van zijn vader, Jacques Polge.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/coco-mademoiselle-intense"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-coco-mademoiselle-eau-de-toilette-pour-femme": {
+   "annee": 2002,
+   "parfumeurs": [
+    "Jacques Polge"
+   ],
+   "famille_fr": "Ambré floral fruité",
+   "famille_nl": "Fruitige bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Pamplemousse"
+    ],
+    "coeur": [
+     "Litchi",
+     "Rose",
+     "Jasmin"
+    ],
+    "fond": [
+     "Patchouli",
+     "Vanille",
+     "Muscs blancs",
+     "Vétiver"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Grapefruit"
+    ],
+    "coeur": [
+     "Lychee",
+     "Roos",
+     "Jasmijn"
+    ],
+    "fond": [
+     "Patchoeli",
+     "Vanille",
+     "Witte musk",
+     "Vetiver"
+    ],
+    "cle": []
+   },
+   "fr": "<p>L'eau de toilette Coco Mademoiselle s'ouvre sur un <strong>pamplemousse</strong> frais. Le cœur, fruité et floral, associe le <strong>litchi</strong>, la rose et le jasmin. Le fond reste élégant : <strong>patchouli</strong>, vanille, muscs blancs et vétiver.</p><p>C'est la version la plus fraîche et la plus légère de Coco Mademoiselle. Idéal au printemps et en été, en journée et au bureau.</p><p>Composée par Jacques Polge pour Chanel en 2002, un an après l'eau de parfum.</p>",
+   "nl": "<p>De eau de toilette van Coco Mademoiselle opent met frisse <strong>grapefruit</strong>. Het fruitige, bloemige hart combineert <strong>lychee</strong>, roos en jasmijn. De basis blijft elegant: <strong>patchoeli</strong>, vanille, witte musk en vetiver.</p><p>De frisste, lichtste versie van Coco Mademoiselle. Ideaal in de lente en de zomer, overdag en op kantoor.</p><p>Gecomponeerd door Jacques Polge voor Chanel in 2002, een jaar na de eau de parfum.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/coco-mademoiselle-eau-de-toilette"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
   }
  }
 }
