@@ -388,8 +388,8 @@ def construire(fichiers, marques):
             "tout_texte": "Toutes les marques", "tout_texte_nl": "Alle merken", "tout_lien": "/pages/marques",
             "texte": "Des parfums originaux et neufs, des grandes maisons aux créateurs de niche."}},
         "qk_amb_journal": ambiance(3, "Main qui vaporise un parfum", "droite",
-            ("Le Journal", "Le bon geste", "Conseils pour bien porter ton parfum, matières premières, portraits de parfumeurs : tout ce qu'il faut savoir avant de choisir.", "Lire le Journal"),
-            ("Het Journal", "De juiste reflex", "Tips om je parfum goed te dragen, grondstoffen, portretten van parfumeurs: alles wat je moet weten voor je kiest.", "Lees het Journal"),
+            ("Le Magazine", "Le bon geste", "Conseils pour bien porter ton parfum, matières premières, portraits de parfumeurs : tout ce qu'il faut savoir avant de choisir.", "Lire le Magazine"),
+            ("Het Magazine", "De juiste reflex", "Tips om je parfum goed te dragen, grondstoffen, portretten van parfumeurs: alles wat je moet weten voor je kiest.", "Lees het Magazine"),
             "/blogs/journal"),
         "qk_amb_arabes": ambiance(4, "Flacons de parfum dorés dans la lumière", "gauche",
             ("Parfums arabes", "L'Orient en flacon", "Oud, ambre, vanille, rose : Lattafa, Armaf, Al Haramain, Afnan et bien d'autres maisons des Émirats.", "Découvrir"),
@@ -485,8 +485,8 @@ def construire(fichiers, marques):
                 "/pages/marques")
         else:
             d["sections"]["qk_amb"] = ambiance(7, "Reflets dorés d'un flacon de parfum", "gauche",
-                ("Besoin d'idées ?", "Le Journal", "Guides, conseils et parfums du jour pour t'aider à trouver le tien.", "Lire le Journal"),
-                ("Ideeën nodig?", "Het Journal", "Gidsen, tips en parfums van de dag om de jouwe te vinden.", "Lees het Journal"),
+                ("Besoin d'idées ?", "Le Magazine", "Guides, conseils et parfums du jour pour t'aider à trouver le tien.", "Lire le Magazine"),
+                ("Ideeën nodig?", "Het Magazine", "Gidsen, tips en parfums van de dag om de jouwe te vinden.", "Lees het Magazine"),
                 "/blogs/journal")
         d["order"] = [k for k in d["order"] if k != "qk_amb"] + ["qk_amb"]
         jsons[nom] = ecrire(e, d)

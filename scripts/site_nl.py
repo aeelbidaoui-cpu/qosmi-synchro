@@ -81,7 +81,7 @@ NL = {
  "Maquillage": "Make-up", "Contact": "Contact", "Marques": "Merken",
  "Menu principal": "Hoofdmenu", "Menu du pied de page": "Footermenu", "Menu principal du compte client": "Hoofdmenu klantaccount",
  "Rechercher": "Zoeken", "Commandes": "Bestellingen", "Profil": "Profiel", "Femme": "Dames", "Homme": "Heren",
- "Mixte": "Unisex", "Niche": "Niche", "Parfums arabes": "Arabische parfums", "Journal": "Magazine", "Arabes": "Arabisch",
+ "Mixte": "Unisex", "Niche": "Niche", "Parfums arabes": "Arabische parfums", "Journal": "Magazine", "Magazine": "Magazine", "Arabes": "Arabisch",
  "Conditions générales de vente": "Algemene verkoopsvoorwaarden", "Livraison": "Levering",
  "Retours et remboursements": "Retourneren en terugbetalen", "Politique de confidentialité": "Privacybeleid",
  "Mentions légales": "Wettelijke vermeldingen", "Conditions d'utilisation": "Gebruiksvoorwaarden",

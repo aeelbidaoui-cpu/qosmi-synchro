@@ -33,7 +33,7 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ICI)
 RACINE = os.path.dirname(ICI)
 DOSSIER = os.path.join(RACINE, "blog", "articles")
-BLOG = {"handle": "journal", "anciens": ["actualites", "news"], "titre": "Journal Qosmi", "titre_nl": "Qosmi Journal"}
+BLOG = {"handle": "journal", "anciens": ["actualites", "news"], "titre": "Le Magazine Qosmi", "titre_nl": "Qosmi Magazine"}  # renommé le 10/11/2026 (demande d'Amine)
 AUTEUR = "L'équipe Qosmi"
 INTERDITS = ["soleluna", "wholesale", "prix d'achat", "marge", "dilbeek", "notino", "deloox", "douglas", "ici paris",
              "j'ai testé", "on a testé", "nous avons testé", "testé pour vous", "getest", "wij hebben getest"]
