@@ -2,7 +2,7 @@ name: Qosmi - mise a jour du site
 
 on:
   schedule:
-    - cron: "17 * * * *"   # toutes les heures à h+17 (heure UTC ; GitHub peut décaler de quelques minutes) - activé par Amine
+    - cron: "17 4 * * *"   # TEMPORAIRE (10/11/2026, choix d'Amine) : 1 fois par jour jusqu'au 01/12 pour ne pas dépasser les 2 000 minutes GitHub gratuites. Remettre ensuite "17 * * * *" (toutes les heures).
   workflow_dispatch:
     inputs:
       essai:
