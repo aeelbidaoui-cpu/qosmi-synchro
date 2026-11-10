@@ -551,3 +551,9 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-neuf__titre { font-size: clamp(2.2rem, 4vw, 3.8rem); white-space: nowrap; }
 @media (min-width: 750px) { .qk-bf__cadre, .qk-neuf__cadre, .qk-mag__cadre { padding-left: clamp(84px, 7vw, 110px); padding-right: clamp(84px, 7vw, 110px); } }
 .qk-neuf__cadre { grid-template-columns: minmax(320px, 0.85fr) 2fr; } @media (max-width: 749px) { .qk-neuf__cadre { grid-template-columns: 1fr; } }
+
+/* Tuiles « photo de parfum » : le texte passe SOUS le flacon, plus jamais par-dessus (11/11/2026) */
+.qk-tuile--produit { display: flex; flex-direction: column; }
+.qk-tuile--produit img { flex: 1 1 auto; min-height: 0; height: auto; padding: 10% 14% 4%; }
+.qk-tuile--produit .qk-tuile__texte { position: static; flex: 0 0 auto; padding: 0 18px 20px; }
+@media (max-width: 599px) { .qk-tuile--produit .qk-tuile__texte { padding: 0 16px 18px; } }
