@@ -467,3 +467,7 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
     radial-gradient(70vmax 50vmax at 20% 40%, hsla(var(--qk-dj-h), var(--qk-dj-s), 74%, 0.55), transparent 62%),
     linear-gradient(160deg, hsl(var(--qk-dj-h), 26%, 95%), hsl(var(--qk-dj-h), 22%, 90%)); }
 }
+/* flacon calé exactement dans l'arche (pas de bord de photo visible) */
+.qk-dujour__img img { position: absolute; left: 10%; top: 2%; width: 80%; height: 92%; padding: 9% 7% 10%; box-sizing: border-box;
+  border-radius: 999px 999px 18px 18px; filter: none; mix-blend-mode: multiply; }
+.qk-dujour__img::after { z-index: 2; mix-blend-mode: multiply; }
