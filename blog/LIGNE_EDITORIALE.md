@@ -47,9 +47,9 @@ Prendre le premier sujet non fait. Pour une fiche parfum, vérifier d'abord que 
 Faits :
 - [x] 001 Eau de parfum, eau de toilette, extrait : quelle différence ?
 - [x] 002 Xerjoff Erba Pura : notes, tenue et pour qui ?
+- [x] 003 Comment faire tenir son parfum plus longtemps ?
 
 À faire :
-- [ ] Comment faire tenir son parfum plus longtemps ?
 - [ ] Parfum de niche : c'est quoi, et pourquoi c'est plus cher ?
 - [ ] Nishane Hundred Silent Ways : notes et pour qui ?
 - [ ] Comment choisir un parfum en ligne sans le sentir ?
