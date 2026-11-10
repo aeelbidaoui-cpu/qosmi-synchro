@@ -84,7 +84,7 @@ jobs:
           elif [ "$A" = "contenu-rapport" ]; then python -u scripts/bol_contenu.py --rapport config/bol_contenu_envois_controle.json
           elif [ "$A" = "contenu-images" ]; then python -u scripts/bol_contenu.py --images
           elif [ "$A" = "controle-images" ]; then python -u scripts/bol_contenu.py --controle-images
-          elif [ "$A" = "contenu-images-4004" ]; then python -u scripts/bol_contenu.py --images-4004
+          elif [ "$A" = "contenu-images-4004" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_contenu.py --images-4004
           elif [ "$A" = "offres-test" ]; then python -u scripts/bol_contenu.py --offres-test
           elif [ "$A" = "contenu-envoyer" ]; then python -u scripts/bol_contenu.py --envoyer
           elif [ "$A" = "essai-publication" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py --essai
