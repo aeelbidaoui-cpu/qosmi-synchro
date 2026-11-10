@@ -5385,6 +5385,765 @@
     "https://www.olfastory.com/parfum/coco-mademoiselle-eau-de-toilette"
    ],
    "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-cristalle-eau-verte-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral vert",
+   "famille_nl": "Groen bloemig",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Citron"
+    ],
+    "coeur": [
+     "Néroli",
+     "Magnolia"
+    ],
+    "fond": [
+     "Musc",
+     "Iris",
+     "Jasmin"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Citroen"
+    ],
+    "coeur": [
+     "Neroli",
+     "Magnolia"
+    ],
+    "fond": [
+     "Musk",
+     "Iris",
+     "Jasmijn"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Cristalle Eau Verte s'ouvre sur la <strong>bergamote</strong> et le <strong>citron</strong>, vifs et verts. Le cœur associe le <strong>néroli</strong> et le magnolia. Le fond, léger, mêle le musc, l'iris et le jasmin.</p><p>C'est un parfum frais et pétillant, comme une bouffée de grand air. Idéal au printemps et en été, en journée.</p><p>Il prolonge Cristalle, le parfum vert et lumineux créé par Henri Robert pour Chanel en 1974, en hommage au goût de Gabrielle Chanel pour la nature.</p>",
+   "nl": "<p>Cristalle Eau Verte opent met levendige, groene <strong>bergamot</strong> en <strong>citroen</strong>. Het hart combineert <strong>neroli</strong> en magnolia. De lichte basis mengt musk, iris en jasmijn.</p><p>Een frisse, sprankelende geur, als een hap frisse lucht. Ideaal in de lente en de zomer, overdag.</p><p>Het bouwt voort op Cristalle, het groene, stralende parfum dat Henri Robert in 1974 voor Chanel creëerde, als eerbetoon aan Gabrielle Chanels liefde voor de natuur.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/cristalle-eau-verte"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-gabrielle-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [
+     "Mandarine",
+     "Pamplemousse",
+     "Cassis"
+    ],
+    "coeur": [
+     "Tubéreuse",
+     "Jasmin",
+     "Ylang-ylang",
+     "Fleur d'oranger"
+    ],
+    "fond": [
+     "Santal",
+     "Musc"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Mandarijn",
+     "Grapefruit",
+     "Zwarte bes"
+    ],
+    "coeur": [
+     "Tuberoos",
+     "Jasmijn",
+     "Ylang-ylang",
+     "Oranjebloesem"
+    ],
+    "fond": [
+     "Sandelhout",
+     "Musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Gabrielle s'ouvre sur la <strong>mandarine</strong>, le pamplemousse et le cassis. Le cœur est un bouquet de quatre fleurs blanches : <strong>tubéreuse</strong>, <strong>jasmin</strong>, ylang-ylang et fleur d'oranger. Le fond, doux, repose sur le santal et le musc.</p><p>C'est un floral lumineux et solaire, très féminin. Idéal toute l'année, en journée comme en soirée.</p><p>Chanel l'a dédié à Gabrielle Chanel, une femme audacieuse et déterminée.</p>",
+   "nl": "<p>Gabrielle opent met <strong>mandarijn</strong>, grapefruit en zwarte bes. Het hart is een boeket van vier witte bloemen: <strong>tuberoos</strong>, <strong>jasmijn</strong>, ylang-ylang en oranjebloesem. De zachte basis rust op sandelhout en musk.</p><p>Een stralende, zonnige bloemengeur, heel vrouwelijk. Ideaal het hele jaar door, overdag en 's avonds.</p><p>Chanel droeg het op aan Gabrielle Chanel, een gedurfde en vastberaden vrouw.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/gabrielle-chanel"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-gabrielle-essence-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [
+     "Mandarine",
+     "Pamplemousse",
+     "Cassis"
+    ],
+    "coeur": [
+     "Tubéreuse",
+     "Jasmin",
+     "Ylang-ylang",
+     "Fleur d'oranger"
+    ],
+    "fond": [
+     "Santal",
+     "Musc"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Mandarijn",
+     "Grapefruit",
+     "Zwarte bes"
+    ],
+    "coeur": [
+     "Tuberoos",
+     "Jasmijn",
+     "Ylang-ylang",
+     "Oranjebloesem"
+    ],
+    "fond": [
+     "Sandelhout",
+     "Musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Gabrielle Essence s'ouvre sur la <strong>mandarine</strong>, le pamplemousse et le cassis. Le cœur est un bouquet de quatre fleurs blanches : <strong>tubéreuse</strong>, <strong>jasmin</strong>, ylang-ylang et fleur d'oranger. Le fond, doux, repose sur le santal et le musc.</p><p>C'est une version plus intense et plus enveloppante de Gabrielle. Idéal en automne et en hiver, en soirée.</p><p>Chanel l'a dédié à Gabrielle Chanel, une femme audacieuse et déterminée.</p>",
+   "nl": "<p>Gabrielle Essence opent met <strong>mandarijn</strong>, grapefruit en zwarte bes. Het hart is een boeket van vier witte bloemen: <strong>tuberoos</strong>, <strong>jasmijn</strong>, ylang-ylang en oranjebloesem. De zachte basis rust op sandelhout en musk.</p><p>Een intensere, meer omhullende versie van Gabrielle. Ideaal in de herfst en de winter, 's avonds.</p><p>Chanel droeg het op aan Gabrielle Chanel, een gedurfde en vastberaden vrouw.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/gabrielle-chanel-essence"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-pour-monsieur-eau-de-toilette-pour-homme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Hespéridé chypré",
+   "famille_nl": "Citrus chypre",
+   "notes_fr": {
+    "tete": [
+     "Lavande",
+     "Orange",
+     "Citron",
+     "Petitgrain"
+    ],
+    "coeur": [
+     "Néroli",
+     "Basilic"
+    ],
+    "fond": [
+     "Mousse de chêne",
+     "Vétiver",
+     "Patchouli",
+     "Cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Lavendel",
+     "Sinaasappel",
+     "Citroen",
+     "Petitgrain"
+    ],
+    "coeur": [
+     "Neroli",
+     "Basilicum"
+    ],
+    "fond": [
+     "Eikenmos",
+     "Vetiver",
+     "Patchoeli",
+     "Ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Pour Monsieur s'ouvre sur les agrumes, <strong>orange</strong> et citron, avec la lavande et le petitgrain. Le cœur associe le <strong>néroli</strong> et le basilic. Le fond, sec et distingué, réunit la <strong>mousse de chêne</strong>, le vétiver, le patchouli et le cèdre.</p><p>C'est un classique intemporel, sobre et raffiné. Idéal toute l'année, au bureau et pour les occasions habillées.</p><p>C'est le premier parfum masculin de Chanel, resté une référence de l'élégance discrète.</p>",
+   "nl": "<p>Pour Monsieur opent met citrus, <strong>sinaasappel</strong> en citroen, met lavendel en petitgrain. Het hart combineert <strong>neroli</strong> en basilicum. De droge, voorname basis brengt <strong>eikenmos</strong>, vetiver, patchoeli en ceder samen.</p><p>Een tijdloze klassieker, sober en verfijnd. Ideaal het hele jaar door, op kantoor en voor chique gelegenheden.</p><p>Het eerste herenparfum van Chanel, nog altijd een referentie van ingetogen elegantie.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/pour-monsieur"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "chanel-egoiste-pour-homme-eau-de-toilette-pour-homme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "Mandarine",
+     "Pêche",
+     "Coriandre"
+    ],
+    "coeur": [
+     "Cannelle",
+     "Rose",
+     "Clou de girofle",
+     "Prune"
+    ],
+    "fond": [
+     "Santal",
+     "Patchouli",
+     "Vanille",
+     "Fève tonka"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Mandarijn",
+     "Perzik",
+     "Koriander"
+    ],
+    "coeur": [
+     "Kaneel",
+     "Roos",
+     "Kruidnagel",
+     "Pruim"
+    ],
+    "fond": [
+     "Sandelhout",
+     "Patchoeli",
+     "Vanille",
+     "Tonkaboon"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Égoïste s'ouvre sur la mandarine, la pêche et la coriandre. Le cœur est épicé et chaleureux : <strong>cannelle</strong>, rose, clou de girofle et prune. Le fond, crémeux, associe le <strong>santal</strong>, le patchouli, la vanille et la fève tonka.</p><p>C'est un boisé ambré, mystérieux et charmeur. Idéal en automne et en hiver, en soirée.</p><p>Chanel l'a construit autour du santal, en héritier de Bois des Îles, un parfum de la maison créé en 1926.</p>",
+   "nl": "<p>Égoïste opent met mandarijn, perzik en koriander. Het hart is kruidig en warm: <strong>kaneel</strong>, roos, kruidnagel en pruim. De romige basis combineert <strong>sandelhout</strong>, patchoeli, vanille en tonkaboon.</p><p>Een houtige ambergeur, mysterieus en charmant. Ideaal in de herfst en de winter, 's avonds.</p><p>Chanel bouwde het rond sandelhout, als erfgenaam van Bois des Îles, een parfum van het huis uit 1926.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/egoiste"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "tom-ford-black-orchid-parfum-mixte": {
+   "annee": 2020,
+   "parfumeurs": [],
+   "famille_fr": "Ambré floral",
+   "famille_nl": "Bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Truffe",
+     "Prune"
+    ],
+    "coeur": [
+     "Rhum",
+     "Ylang-ylang",
+     "Orchidée"
+    ],
+    "fond": [
+     "Patchouli"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Truffel",
+     "Pruim"
+    ],
+    "coeur": [
+     "Rum",
+     "Ylang-ylang",
+     "Orchidee"
+    ],
+    "fond": [
+     "Patchoeli"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Black Orchid Parfum s'ouvre sur la <strong>truffe</strong> et la <strong>prune noire</strong>. Le cœur, opulent, associe un absolu de <strong>rhum</strong>, l'ylang-ylang et l'orchidée. Le fond est un <strong>patchouli</strong> sombre et profond.</p><p>C'est la version la plus concentrée et la plus riche de Black Orchid, pour elle comme pour lui. Idéal en automne et en hiver, en soirée.</p><p>Lancé par Tom Ford en 2020, dans un flacon entièrement doré.</p>",
+   "nl": "<p>Black Orchid Parfum opent met <strong>truffel</strong> en <strong>zwarte pruim</strong>. Het weelderige hart combineert een absolue van <strong>rum</strong>, ylang-ylang en orchidee. De basis is een donkere, diepe <strong>patchoeli</strong>.</p><p>De meest geconcentreerde en rijkste versie van Black Orchid, voor haar en voor hem. Ideaal in de herfst en de winter, 's avonds.</p><p>Gelanceerd door Tom Ford in 2020, in een volledig gouden flacon.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/black-orchid-parfum"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "tom-ford-grey-vetiver-eau-de-parfum-pour-homme": {
+   "annee": 2009,
+   "parfumeurs": [
+    "Harry Frémont"
+   ],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "Pamplemousse",
+     "Fleur d'oranger",
+     "Sauge"
+    ],
+    "coeur": [
+     "Noix de muscade",
+     "Iris",
+     "Piment de la Jamaïque"
+    ],
+    "fond": [
+     "Vétiver",
+     "Bois ambrés",
+     "Mousse de chêne"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Grapefruit",
+     "Oranjebloesem",
+     "Salie"
+    ],
+    "coeur": [
+     "Nootmuskaat",
+     "Iris",
+     "Piment"
+    ],
+    "fond": [
+     "Vetiver",
+     "Amberhout",
+     "Eikenmos"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Grey Vetiver s'ouvre sur le <strong>pamplemousse</strong>, la fleur d'oranger et la sauge. Le cœur, légèrement épicé, associe la noix de muscade, l'<strong>iris</strong> et le piment. Le fond met le <strong>vétiver</strong> au premier plan, avec les bois ambrés et la mousse de chêne.</p><p>C'est un vétiver élégant et net, parfait pour le quotidien. Idéal toute l'année, au bureau.</p><p>Lancé par Tom Ford en 2009 et composé par Harry Frémont.</p>",
+   "nl": "<p>Grey Vetiver opent met <strong>grapefruit</strong>, oranjebloesem en salie. Het licht kruidige hart combineert nootmuskaat, <strong>iris</strong> en piment. In de basis staat <strong>vetiver</strong> centraal, met amberhout en eikenmos.</p><p>Een elegante, strakke vetiver, perfect voor elke dag. Ideaal het hele jaar door, op kantoor.</p><p>Gelanceerd door Tom Ford in 2009 en gecomponeerd door Harry Frémont.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/grey-vetiver"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "tom-ford-neroli-portofino-eau-de-parfum-mixte": {
+   "annee": 2007,
+   "parfumeurs": [
+    "Rodrigo Flores-Roux"
+   ],
+   "famille_fr": "Hespéridé aromatique",
+   "famille_nl": "Aromatische citrus",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Mandarine",
+     "Citron"
+    ],
+    "coeur": [
+     "Néroli",
+     "Fleur d'oranger",
+     "Lavande"
+    ],
+    "fond": [
+     "Ambre",
+     "Romarin"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Mandarijn",
+     "Citroen"
+    ],
+    "coeur": [
+     "Neroli",
+     "Oranjebloesem",
+     "Lavendel"
+    ],
+    "fond": [
+     "Amber",
+     "Rozemarijn"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Neroli Portofino s'ouvre sur la <strong>bergamote</strong>, la mandarine et le citron. Le cœur réunit le <strong>néroli</strong> de Tunisie, la fleur d'oranger et la lavande. Le fond, léger, associe l'ambre et le romarin.</p><p>C'est une eau de Cologne italienne revisitée, fraîche et lumineuse, pour elle comme pour lui. Idéal au printemps et en été, en vacances ou en journée.</p><p>Composé par Rodrigo Flores-Roux pour la collection Private Blend de Tom Ford en 2007, il a donné son nom à toute une collection.</p>",
+   "nl": "<p>Neroli Portofino opent met <strong>bergamot</strong>, mandarijn en citroen. Het hart brengt Tunesische <strong>neroli</strong>, oranjebloesem en lavendel samen. De lichte basis combineert amber en rozemarijn.</p><p>Een vernieuwde Italiaanse eau de Cologne, fris en stralend, voor haar en voor hem. Ideaal in de lente en de zomer, op vakantie of overdag.</p><p>Gecomponeerd door Rodrigo Flores-Roux voor de Private Blend-collectie van Tom Ford in 2007; het gaf zijn naam aan een hele collectie.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/neroli-portofino"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "tom-ford-noir-extreme-eau-de-parfum-pour-homme": {
+   "annee": 2015,
+   "parfumeurs": [
+    "Sonia Constant"
+   ],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Houtig amber",
+   "notes_fr": {
+    "tete": [
+     "Mandarine",
+     "Néroli",
+     "Safran",
+     "Cardamome",
+     "Noix de muscade"
+    ],
+    "coeur": [
+     "Kulfi",
+     "Rose",
+     "Jasmin",
+     "Fleur d'oranger"
+    ],
+    "fond": [
+     "Ambre",
+     "Santal",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Mandarijn",
+     "Neroli",
+     "Saffraan",
+     "Kardemom",
+     "Nootmuskaat"
+    ],
+    "coeur": [
+     "Kulfi",
+     "Roos",
+     "Jasmijn",
+     "Oranjebloesem"
+    ],
+    "fond": [
+     "Amber",
+     "Sandelhout",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Noir Extreme s'ouvre sur un mélange d'agrumes et d'épices : mandarine, néroli, <strong>safran</strong>, <strong>cardamome</strong> et muscade. Le cœur est gourmand, avec un accord de <strong>kulfi</strong> (dessert glacé indien), la rose, le jasmin et la fleur d'oranger. Le fond, chaud, réunit l'ambre, le santal et la <strong>vanille</strong>.</p><p>C'est un parfum chaleureux et gourmand, élégant et sensuel. Idéal en automne et en hiver, en soirée.</p><p>Lancé par Tom Ford en 2015 et composé par Sonia Constant.</p>",
+   "nl": "<p>Noir Extreme opent met een mix van citrus en specerijen: mandarijn, neroli, <strong>saffraan</strong>, <strong>kardemom</strong> en nootmuskaat. Het hart is gourmand, met een akkoord van <strong>kulfi</strong> (een Indiaas ijsdessert), roos, jasmijn en oranjebloesem. De warme basis brengt amber, sandelhout en <strong>vanille</strong> samen.</p><p>Een warme, gourmand geur, elegant en sensueel. Ideaal in de herfst en de winter, 's avonds.</p><p>Gelanceerd door Tom Ford in 2015 en gecomponeerd door Sonia Constant.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/tom-ford-noir-extreme"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "tom-ford-noir-extreme-parfum-pour-homme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Ambré",
+   "famille_nl": "Amber",
+   "notes_fr": {
+    "tete": [
+     "Cardamome",
+     "Gingembre",
+     "Mandarine",
+     "Néroli"
+    ],
+    "coeur": [
+     "Rose",
+     "Fleur d'oranger",
+     "Jasmin"
+    ],
+    "fond": [
+     "Vanille",
+     "Cuir",
+     "Daim",
+     "Ambre",
+     "Fève tonka",
+     "Gaïac",
+     "Cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Kardemom",
+     "Gember",
+     "Mandarijn",
+     "Neroli"
+    ],
+    "coeur": [
+     "Roos",
+     "Oranjebloesem",
+     "Jasmijn"
+    ],
+    "fond": [
+     "Vanille",
+     "Leer",
+     "Suède",
+     "Amber",
+     "Tonkaboon",
+     "Guajakhout",
+     "Ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Noir Extreme Parfum s'ouvre sur la <strong>cardamome</strong>, le gingembre et les agrumes. Le cœur est floral, avec la rose, la fleur d'oranger et le jasmin. Le fond, plus profond que l'eau de parfum, associe le <strong>cuir</strong>, le daim, la fève tonka, l'ambre et la <strong>vanille</strong>.</p><p>C'est la version la plus intense de Noir Extreme, chaude et sensuelle. Idéal en automne et en hiver, en soirée.</p><p>Il prolonge Noir Extreme, lancé par Tom Ford en 2015.</p>",
+   "nl": "<p>Noir Extreme Parfum opent met <strong>kardemom</strong>, gember en citrus. Het hart is bloemig, met roos, oranjebloesem en jasmijn. De basis is dieper dan de eau de parfum en combineert <strong>leer</strong>, suède, tonkaboon, amber en <strong>vanille</strong>.</p><p>De meest intense versie van Noir Extreme, warm en sensueel. Ideaal in de herfst en de winter, 's avonds.</p><p>Het bouwt voort op Noir Extreme, dat Tom Ford in 2015 lanceerde.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/tom-ford-noir-extreme-parfum"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "tom-ford-noir-eau-de-parfum-pour-homme": {
+   "annee": 2012,
+   "parfumeurs": [
+    "Olivier Gillotin"
+   ],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Houtig amber",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Verveine",
+     "Sauge sclarée"
+    ],
+    "coeur": [
+     "Rose",
+     "Géranium",
+     "Iris",
+     "Noix de muscade",
+     "Poivre noir"
+    ],
+    "fond": [
+     "Patchouli",
+     "Vétiver",
+     "Vanille",
+     "Opoponax"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Verbena",
+     "Scharlei"
+    ],
+    "coeur": [
+     "Roos",
+     "Geranium",
+     "Iris",
+     "Nootmuskaat",
+     "Zwarte peper"
+    ],
+    "fond": [
+     "Patchoeli",
+     "Vetiver",
+     "Vanille",
+     "Opoponax"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Noir s'ouvre sur la <strong>bergamote</strong>, la verveine et la sauge sclarée. Le cœur, poudré et épicé, associe la <strong>rose</strong>, le géranium, l'<strong>iris</strong>, la muscade et le poivre noir. Le fond, sombre et chaud, mêle le patchouli, le vétiver, la vanille et l'opoponax.</p><p>C'est un parfum énigmatique et raffiné, plein de contrastes. Idéal en automne et en hiver, en soirée.</p><p>Lancé par Tom Ford en 2012 et composé par Olivier Gillotin.</p>",
+   "nl": "<p>Noir opent met <strong>bergamot</strong>, verbena en scharlei. Het poederige, kruidige hart combineert <strong>roos</strong>, geranium, <strong>iris</strong>, nootmuskaat en zwarte peper. De donkere, warme basis mengt patchoeli, vetiver, vanille en opoponax.</p><p>Een raadselachtige, verfijnde geur vol contrasten. Ideaal in de herfst en de winter, 's avonds.</p><p>Gelanceerd door Tom Ford in 2012 en gecomponeerd door Olivier Gillotin.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/tom-ford-noir"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "tom-ford-ombre-leather-parfum-mixte": {
+   "annee": 2021,
+   "parfumeurs": [
+    "Sonia Constant"
+   ],
+   "famille_fr": "Cuir floral",
+   "famille_nl": "Bloemig leer",
+   "notes_fr": {
+    "tete": [
+     "Feuille de violette",
+     "Cèdre"
+    ],
+    "coeur": [
+     "Jasmin sambac",
+     "Iris"
+    ],
+    "fond": [
+     "Cuir",
+     "Bois",
+     "Tabac"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Vioolblad",
+     "Ceder"
+    ],
+    "coeur": [
+     "Sambac-jasmijn",
+     "Iris"
+    ],
+    "fond": [
+     "Leer",
+     "Hout",
+     "Tabak"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Ombré Leather Parfum s'ouvre sur un absolu de <strong>feuille de violette</strong> et le cèdre. Le cœur associe le <strong>jasmin sambac</strong> et une double dose d'<strong>iris</strong>. Le fond, plus riche que l'eau de parfum, réunit le <strong>cuir</strong>, les bois et le tabac.</p><p>C'est la version la plus intense d'Ombré Leather, pour elle comme pour lui. Idéal en automne et en hiver, en soirée.</p><p>Lancé par Tom Ford en 2021, il porte à la concentration parfum le cuir composé par Sonia Constant.</p>",
+   "nl": "<p>Ombré Leather Parfum opent met een absolue van <strong>vioolblad</strong> en ceder. Het hart combineert <strong>sambac-jasmijn</strong> en een dubbele dosis <strong>iris</strong>. De basis is rijker dan de eau de parfum en brengt <strong>leer</strong>, hout en tabak samen.</p><p>De meest intense versie van Ombré Leather, voor haar en voor hem. Ideaal in de herfst en de winter, 's avonds.</p><p>Gelanceerd door Tom Ford in 2021, als parfumversie van het leer van Sonia Constant.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/tom-ford-ombre-leather-parfum"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "tom-ford-velvet-orchid-eau-de-parfum-pour-femme": {
+   "annee": 2014,
+   "parfumeurs": [
+    "Antoine Maisondieu",
+    "Shyamala Maisondieu",
+    "Calice Becker",
+    "Yann Vasnier"
+   ],
+   "famille_fr": "Ambré floral",
+   "famille_nl": "Bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Mandarine",
+     "Rhum",
+     "Miel"
+    ],
+    "coeur": [
+     "Orchidée",
+     "Rose",
+     "Jasmin",
+     "Fleur d'oranger",
+     "Héliotrope"
+    ],
+    "fond": [
+     "Baume du Pérou",
+     "Labdanum",
+     "Santal",
+     "Myrrhe",
+     "Daim",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Mandarijn",
+     "Rum",
+     "Honing"
+    ],
+    "coeur": [
+     "Orchidee",
+     "Roos",
+     "Jasmijn",
+     "Oranjebloesem",
+     "Heliotroop"
+    ],
+    "fond": [
+     "Perubalsem",
+     "Labdanum",
+     "Sandelhout",
+     "Mirre",
+     "Suède",
+     "Vanille"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Velvet Orchid s'ouvre sur la bergamote, la mandarine, le <strong>rhum</strong> et le <strong>miel</strong>. Le cœur est un riche bouquet d'<strong>orchidée</strong>, de rose, de jasmin, de fleur d'oranger et d'héliotrope. Le fond, velouté, mêle le baume du Pérou, la myrrhe, le santal, le daim et la <strong>vanille</strong>.</p><p>C'est la version plus florale et plus douce de Black Orchid, enveloppante et féminine. Idéal en automne et en hiver, en soirée.</p><p>Lancé par Tom Ford en 2014 et composé par Antoine et Shyamala Maisondieu, Calice Becker et Yann Vasnier.</p>",
+   "nl": "<p>Velvet Orchid opent met bergamot, mandarijn, <strong>rum</strong> en <strong>honing</strong>. Het hart is een rijk boeket van <strong>orchidee</strong>, roos, jasmijn, oranjebloesem en heliotroop. De fluweelzachte basis mengt perubalsem, mirre, sandelhout, suède en <strong>vanille</strong>.</p><p>De bloemigere, zachtere versie van Black Orchid, omhullend en vrouwelijk. Ideaal in de herfst en de winter, 's avonds.</p><p>Gelanceerd door Tom Ford in 2014 en gecomponeerd door Antoine en Shyamala Maisondieu, Calice Becker en Yann Vasnier.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/velvet-orchid"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "yves-saint-laurent-y-intense-eau-de-parfum-pour-homme": {
+   "annee": 2023,
+   "parfumeurs": [],
+   "famille_fr": "Fougère aromatique",
+   "famille_nl": "Aromatische fougère",
+   "notes_fr": {
+    "tete": [
+     "Gingembre",
+     "Bergamote",
+     "Baies de genièvre"
+    ],
+    "coeur": [
+     "Sauge sclarée",
+     "Géranium",
+     "Lavande"
+    ],
+    "fond": [
+     "Vétiver",
+     "Patchouli",
+     "Cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Gember",
+     "Bergamot",
+     "Jeneverbessen"
+    ],
+    "coeur": [
+     "Scharlei",
+     "Geranium",
+     "Lavendel"
+    ],
+    "fond": [
+     "Vetiver",
+     "Patchoeli",
+     "Ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Y Intense s'ouvre sur le <strong>gingembre</strong>, la bergamote et les baies de genièvre. Le cœur, aromatique, associe la <strong>sauge sclarée</strong>, le géranium et la lavande. Le fond, boisé et profond, réunit le <strong>vétiver</strong>, le patchouli et le cèdre.</p><p>C'est la version la plus audacieuse de la ligne Y, fraîche au départ puis boisée. Idéal toute l'année, au bureau comme en soirée.</p><p>Lancé par Yves Saint Laurent en 2023 dans la collection Y, née en 2017.</p>",
+   "nl": "<p>Y Intense opent met <strong>gember</strong>, bergamot en jeneverbessen. Het aromatische hart combineert <strong>scharlei</strong>, geranium en lavendel. De houtige, diepe basis brengt <strong>vetiver</strong>, patchoeli en ceder samen.</p><p>De gedurfdste versie van de Y-lijn: fris bij het begin, daarna houtig. Ideaal het hele jaar door, op kantoor en 's avonds.</p><p>Gelanceerd door Yves Saint Laurent in 2023, in de Y-collectie die in 2017 ontstond.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/y-eau-de-parfum-intense"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "yves-saint-laurent-black-opium-glitter-eau-de-parfum-pour-femme": {
+   "annee": 2024,
+   "parfumeurs": [],
+   "famille_fr": "Ambré floral",
+   "famille_nl": "Bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Citron",
+     "Poire",
+     "Mandarine verte"
+    ],
+    "coeur": [
+     "Fleur d'oranger",
+     "Jasmin sambac"
+    ],
+    "fond": [
+     "Vanille",
+     "Café",
+     "Musc",
+     "Guimauve"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Citroen",
+     "Peer",
+     "Groene mandarijn"
+    ],
+    "coeur": [
+     "Oranjebloesem",
+     "Sambac-jasmijn"
+    ],
+    "fond": [
+     "Vanille",
+     "Koffie",
+     "Musk",
+     "Marshmallow"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Black Opium Glitter s'ouvre sur le citron, la <strong>poire</strong> et la mandarine verte. Le cœur garde la <strong>fleur d'oranger</strong> et le jasmin sambac de Black Opium. Le fond, gourmand, associe le <strong>café</strong>, la vanille bourbon, le musc et un accord <strong>guimauve</strong>.</p><p>C'est une édition plus douce et plus pétillante de Black Opium. Idéal en automne et en hiver, pour les soirées et les fêtes.</p><p>Lancée par Yves Saint Laurent fin 2024, dans un flacon pailleté d'argent.</p>",
+   "nl": "<p>Black Opium Glitter opent met citroen, <strong>peer</strong> en groene mandarijn. Het hart behoudt de <strong>oranjebloesem</strong> en sambac-jasmijn van Black Opium. De gourmand basis combineert <strong>koffie</strong>, bourbonvanille, musk en een <strong>marshmallow</strong>-akkoord.</p><p>Een zachtere, sprankelendere editie van Black Opium. Ideaal in de herfst en de winter, voor avonden en feestjes.</p><p>Eind 2024 gelanceerd door Yves Saint Laurent, in een flacon met zilveren glitters.</p>",
+   "sources": [
+    "https://www.olfastory.com/parfum/yves-saint-laurent-black-opium-glitter-eau-de-parfum"
+   ],
+   "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
   }
  }
 }
