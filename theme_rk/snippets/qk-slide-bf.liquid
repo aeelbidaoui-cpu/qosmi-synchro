@@ -19,9 +19,12 @@
     </div>
     <div class="qk-bf__produits">
       {%- assign qk_n = 0 -%}
-      {%- for p in qk_bf.products limit: 24 -%}
-        {%- if qk_n < 4 and p.available and p.featured_image -%}
+      {%- assign qk_vus = '|' -%}
+      {%- for p in qk_bf.products limit: 50 -%}
+        {%- assign qk_cle = '|' | append: p.vendor | append: '|' -%}
+        {%- if qk_n < 4 and p.available and p.featured_image -%}{%- unless qk_vus contains qk_cle -%}
           {%- assign qk_n = qk_n | plus: 1 -%}
+          {%- assign qk_vus = qk_vus | append: p.vendor | append: '|' -%}
           {%- assign qk_t = p.title | split: ' — ' -%}
           <a class="qk-bf__carte" href="{{ p.url }}">
             <span class="qk-bf__img">{{ p.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: p.title, widths: '250, 400, 500', sizes: '(min-width: 750px) 14vw, 40vw' }}</span>
@@ -29,7 +32,7 @@
             <span class="qk-bf__nom">{{ qk_t[0] | remove_first: p.vendor | strip }}</span>
             <span class="qk-bf__prix">{% if p.price_varies %}{% if qk_nl %}vanaf{% else %}dès{% endif %} {% endif %}{{ p.price_min | money }}</span>
           </a>
-        {%- endif -%}
+        {%- endunless -%}{%- endif -%}
       {%- endfor -%}
     </div>
   </div>
