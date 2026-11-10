@@ -1,6 +1,6 @@
 {
  "actif": true,
- "_note": "10/11/2026 : descriptions vérifiées (sites des marques, Olfastory, Parfumo, Basenotes) des 50 parfums phares, FR + NL, à la demande d'Amine. À activer en décembre (minutes GitHub rechargées) : mettre « actif » à true puis lancer l'action theme « textes-fiches ». Le champ « doute » signale les points où les sources divergent (souvent la pyramide) ; à relire pour Tom Ford Café Rose, Creed Aventus For Her et Light Blue (nouvelle formule 2025). — ACTIVÉ le 10/11/2026 à la demande d'Amine (dépôt public, minutes GitHub illimitées).",
+ "_note": "10/11/2026 : descriptions vérifiées (sites des marques, Olfastory, Parfumo, Basenotes) des 50 parfums phares, FR + NL, à la demande d'Amine. À activer en décembre (minutes GitHub rechargées) : mettre « actif » à true puis lancer l'action theme « textes-fiches ». Le champ « doute » signale les points où les sources divergent (souvent la pyramide) ; à relire pour Tom Ford Café Rose, Creed Aventus For Her et Light Blue (nouvelle formule 2025). — ACTIVÉ le 10/11/2026 à la demande d'Amine (dépôt public, minutes GitHub illimitées). — 10/11/2026 : Fragrantica aussi autorisé comme source (accord obtenu par Amine).",
  "parfums": {
   "creed-aventus-eau-de-parfum-pour-homme": {
    "annee": 2010,
@@ -3948,6 +3948,761 @@
     "https://www.olfastory.com/parfum/contradiction-men"
    ],
    "doute": "Pyramide d'Olfastory (fiche appariée par EAN)."
+  },
+  "dior-hypnotic-poison-eau-de-parfum-pour-femme": {
+   "annee": 2014,
+   "parfumeurs": [
+    "François Demachy"
+   ],
+   "famille_fr": "Ambré vanillé",
+   "famille_nl": "Vanille-amber",
+   "notes_fr": {
+    "tete": [
+     "Réglisse",
+     "Amande"
+    ],
+    "coeur": [
+     "Jasmin sambac",
+     "Fleur d'oranger"
+    ],
+    "fond": [
+     "Vanille",
+     "Fève tonka"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Zoethout",
+     "Amandel"
+    ],
+    "coeur": [
+     "Sambac-jasmijn",
+     "Oranjebloesem"
+    ],
+    "fond": [
+     "Vanille",
+     "Tonkaboon"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Cette eau de parfum d'Hypnotic Poison s'ouvre sur la <strong>réglisse</strong> et l'<strong>amande</strong>, gourmandes et un peu mystérieuses. Le cœur est floral et sensuel, avec le <strong>jasmin sambac</strong> et la fleur d'oranger. Le fond enveloppe le tout de <strong>vanille</strong> et de fève tonka.</p><p>C'est une version plus florale et plus sensuelle du célèbre poison rouge de Dior, séduisante et chaleureuse. Idéal en automne et en hiver, en soirée ou pour un rendez-vous.</p><p>Cette eau de parfum a été créée en 2014 par François Demachy, parfumeur de Dior, à partir d'absolus de jasmin et de fleur d'oranger.</p>",
+   "nl": "<p>Deze eau de parfum van Hypnotic Poison opent met <strong>zoethout</strong> en <strong>amandel</strong>, gourmand en een beetje mysterieus. Het hart is bloemig en sensueel, met <strong>sambac-jasmijn</strong> en oranjebloesem. De basis omhult alles met <strong>vanille</strong> en tonkaboon.</p><p>Een bloemigere, sensuelere versie van het beroemde rode 'gif' van Dior, verleidelijk en warm. Ideaal in de herfst en de winter, 's avonds of voor een afspraakje.</p><p>Deze eau de parfum werd in 2014 gecreëerd door François Demachy, parfumeur van Dior, met absolues van jasmijn en oranjebloesem.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Dior/Hypnotic-Poison-Eau-de-Parfum-23098.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "dolce-gabbana-the-one-eau-de-parfum-pour-homme": {
+   "annee": 2015,
+   "parfumeurs": [
+    "Olivier Polge"
+   ],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "Pamplemousse",
+     "Coriandre",
+     "Basilic"
+    ],
+    "coeur": [
+     "Cardamome",
+     "Gingembre",
+     "Fleur d'oranger"
+    ],
+    "fond": [
+     "Ambre",
+     "Tabac",
+     "Cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Grapefruit",
+     "Koriander",
+     "Basilicum"
+    ],
+    "coeur": [
+     "Kardemom",
+     "Gember",
+     "Oranjebloesem"
+    ],
+    "fond": [
+     "Amber",
+     "Tabak",
+     "Ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>The One for Men Eau de Parfum s'ouvre sur le <strong>pamplemousse</strong>, la coriandre et le basilic, frais et élégants. Le cœur se réchauffe avec la <strong>cardamome</strong>, le gingembre et la fleur d'oranger. Le fond, riche et sensuel, associe le <strong>tabac</strong>, l'ambre et le cèdre.</p><p>C'est un parfum chic et chaleureux, plus dense que l'eau de toilette d'origine. Idéal en automne et en hiver, en soirée, pour un dîner ou une occasion habillée.</p><p>The One for Men est né en 2008 chez Dolce&amp;Gabbana. Cette version eau de parfum, plus intense, a été composée par Olivier Polge en 2015.</p>",
+   "nl": "<p>The One for Men Eau de Parfum opent met frisse, elegante <strong>grapefruit</strong>, koriander en basilicum. Het hart wordt warmer met <strong>kardemom</strong>, gember en oranjebloesem. De rijke, sensuele basis combineert <strong>tabak</strong>, amber en ceder.</p><p>Een chique, warme geur, voller dan de oorspronkelijke eau de toilette. Ideaal in de herfst en de winter, 's avonds, voor een etentje of een feestelijke gelegenheid.</p><p>The One for Men ontstond in 2008 bij Dolce&amp;Gabbana. Deze intensere eau de parfum werd in 2015 gecomponeerd door Olivier Polge.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Dolce-Gabbana/The-One-for-Men-Eau-de-Parfum-31909.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "jean-paul-gaultier-scandal-eau-de-parfum-pour-femme": {
+   "annee": 2017,
+   "parfumeurs": [
+    "Daphné Bugey",
+    "Fabrice Pellegrin",
+    "Christophe Raynaud"
+   ],
+   "famille_fr": "Chypré floral",
+   "famille_nl": "Bloemige chypre",
+   "notes_fr": {
+    "tete": [
+     "Orange sanguine",
+     "Mandarine"
+    ],
+    "coeur": [
+     "Miel",
+     "Gardénia",
+     "Fleur d'oranger",
+     "Jasmin",
+     "Pêche"
+    ],
+    "fond": [
+     "Cire d'abeille",
+     "Caramel",
+     "Patchouli",
+     "Réglisse"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bloedsinaasappel",
+     "Mandarijn"
+    ],
+    "coeur": [
+     "Honing",
+     "Gardenia",
+     "Oranjebloesem",
+     "Jasmijn",
+     "Perzik"
+    ],
+    "fond": [
+     "Bijenwas",
+     "Karamel",
+     "Patchoeli",
+     "Zoethout"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Scandal s'ouvre sur l'<strong>orange sanguine</strong> et la mandarine, juteuses et pétillantes. Le cœur est un <strong>miel</strong> doré entouré de fleurs blanches : <strong>gardénia</strong>, fleur d'oranger et jasmin, avec une touche de pêche. Le fond, chaud et un peu terreux, mêle la cire d'abeille, le caramel, le <strong>patchouli</strong> et la réglisse.</p><p>C'est un parfum gourmand et audacieux, festif et sensuel. Idéal en automne et en hiver, pour les soirées et les fêtes.</p><p>Lancé en 2017 par Jean Paul Gaultier, il a été composé par Daphné Bugey, Fabrice Pellegrin et Christophe Raynaud. Son bouchon reprend la forme de deux jambes de femme, tête en bas.</p>",
+   "nl": "<p>Scandal opent met sappige, sprankelende <strong>bloedsinaasappel</strong> en mandarijn. Het hart is goudkleurige <strong>honing</strong>, omringd door witte bloemen: <strong>gardenia</strong>, oranjebloesem en jasmijn, met een toets perzik. De warme, licht aardse basis mengt bijenwas, karamel, <strong>patchoeli</strong> en zoethout.</p><p>Een gourmand en gedurfd parfum, feestelijk en sensueel. Ideaal in de herfst en de winter, voor avonden en feestjes.</p><p>Gelanceerd in 2017 door Jean Paul Gaultier en gecomponeerd door Daphné Bugey, Fabrice Pellegrin en Christophe Raynaud. De dop heeft de vorm van twee vrouwenbenen, ondersteboven.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Scandal-45651.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "yves-saint-laurent-la-nuit-de-l-homme-eau-de-toilette-pour-homme": {
+   "annee": 2009,
+   "parfumeurs": [
+    "Anne Flipo",
+    "Pierre Wargnye",
+    "Dominique Ropion"
+   ],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "Cardamome"
+    ],
+    "coeur": [
+     "Lavande",
+     "Cèdre de Virginie",
+     "Bergamote"
+    ],
+    "fond": [
+     "Vétiver",
+     "Carvi"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Kardemom"
+    ],
+    "coeur": [
+     "Lavendel",
+     "Virginiaceder",
+     "Bergamot"
+    ],
+    "fond": [
+     "Vetiver",
+     "Karwij"
+    ],
+    "cle": []
+   },
+   "fr": "<p>La Nuit de l'Homme s'ouvre sur la <strong>cardamome</strong>, épicée et lumineuse. Le cœur associe la <strong>lavande</strong>, le cèdre et la bergamote, frais et élégants. Le fond, sensuel, repose sur le <strong>vétiver</strong> et une touche de carvi.</p><p>C'est un parfum de séduction, à la fois frais et chaud, élégant et mystérieux. Idéal en automne et en hiver, en soirée, pour un rendez-vous ou une sortie.</p><p>Lancé en 2009 par Yves Saint Laurent, il a été composé par Anne Flipo, Pierre Wargnye et Dominique Ropion.</p>",
+   "nl": "<p>La Nuit de l'Homme opent met kruidige, stralende <strong>kardemom</strong>. Het hart combineert frisse, elegante <strong>lavendel</strong>, ceder en bergamot. De sensuele basis rust op <strong>vetiver</strong> en een toets karwij.</p><p>Een verleidingsgeur, fris en warm tegelijk, elegant en mysterieus. Ideaal in de herfst en de winter, 's avonds, voor een afspraakje of een uitje.</p><p>Gelanceerd in 2009 door Yves Saint Laurent en gecomponeerd door Anne Flipo, Pierre Wargnye en Dominique Ropion.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/La-Nuit-de-l-Homme-5521.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "gucci-guilty-eau-de-parfum-pour-femme": {
+   "annee": 2019,
+   "parfumeurs": [],
+   "famille_fr": "Ambré floral",
+   "famille_nl": "Bloemige amber",
+   "notes_fr": {
+    "tete": [
+     "Poivre rose",
+     "Mandarine",
+     "Bergamote"
+    ],
+    "coeur": [
+     "Lilas",
+     "Violette",
+     "Géranium",
+     "Rose"
+    ],
+    "fond": [
+     "Patchouli",
+     "Ambre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Roze peper",
+     "Mandarijn",
+     "Bergamot"
+    ],
+    "coeur": [
+     "Sering",
+     "Viooltje",
+     "Geranium",
+     "Roos"
+    ],
+    "fond": [
+     "Patchoeli",
+     "Amber"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Guilty Eau de Parfum s'ouvre sur le <strong>poivre rose</strong>, la mandarine et la bergamote, vifs et pétillants. Le cœur est un bouquet poudré de <strong>lilas</strong>, de violette, de géranium et de rose. Le fond, chaud et profond, repose sur le <strong>patchouli</strong> et l'ambre.</p><p>C'est un parfum libre et affirmé, à la fois floral et sensuel. Idéal en automne et en hiver, en soirée ou quand tu veux une odeur qui se remarque.</p><p>Cette eau de parfum ouvre en 2019 un nouveau chapitre de la ligne Gucci Guilty, née en 2010.</p>",
+   "nl": "<p>Guilty Eau de Parfum opent met levendige, sprankelende <strong>roze peper</strong>, mandarijn en bergamot. Het hart is een poederig boeket van <strong>sering</strong>, viooltje, geranium en roos. De warme, diepe basis rust op <strong>patchoeli</strong> en amber.</p><p>Een vrije, uitgesproken geur, bloemig en sensueel tegelijk. Ideaal in de herfst en de winter, 's avonds of als je een geur wilt die opvalt.</p><p>Deze eau de parfum opende in 2019 een nieuw hoofdstuk van de Gucci Guilty-lijn, die in 2010 ontstond.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Eau-de-Parfum-52481.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé, 10/11/2026) : « Gucci Guilty Eau de Parfum » pour femme (2019) ; parfumeur non indiqué."
+  },
+  "lancome-la-nuit-tresor-eau-de-parfum-pour-femme": {
+   "annee": 2015,
+   "parfumeurs": [
+    "Christophe Raynaud",
+    "Amandine Clerc-Marie"
+   ],
+   "famille_fr": "Ambré vanillé",
+   "famille_nl": "Vanille-amber",
+   "notes_fr": {
+    "tete": [
+     "Poire",
+     "Mandarine",
+     "Bergamote"
+    ],
+    "coeur": [
+     "Rose noire",
+     "Orchidée vanille",
+     "Fraise",
+     "Fruit de la passion"
+    ],
+    "fond": [
+     "Praline",
+     "Caramel",
+     "Vanille",
+     "Litchi",
+     "Patchouli",
+     "Encens",
+     "Café"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Peer",
+     "Mandarijn",
+     "Bergamot"
+    ],
+    "coeur": [
+     "Zwarte roos",
+     "Vanilleorchidee",
+     "Aardbei",
+     "Passievrucht"
+    ],
+    "fond": [
+     "Praline",
+     "Karamel",
+     "Vanille",
+     "Lychee",
+     "Patchoeli",
+     "Wierook",
+     "Koffie"
+    ],
+    "cle": []
+   },
+   "fr": "<p>La Nuit Trésor s'ouvre sur la <strong>poire</strong>, la mandarine et la bergamote. Le cœur révèle une <strong>rose noire</strong> et une orchidée vanille, avec des notes de fraise et de fruit de la passion. Le fond est très gourmand : <strong>praline</strong>, caramel, vanille, litchi, patchouli, encens et une touche de café.</p><p>C'est un parfum gourmand et envoûtant, présenté comme un philtre d'amour. Idéal en automne et en hiver, en soirée ou pour un rendez-vous.</p><p>Lancé par Lancôme en 2015 comme version nocturne de Trésor (1990), il a été composé par Christophe Raynaud et Amandine Clerc-Marie. Son flacon est orné d'une rose noire en satin.</p>",
+   "nl": "<p>La Nuit Trésor opent met <strong>peer</strong>, mandarijn en bergamot. Het hart onthult een <strong>zwarte roos</strong> en een vanilleorchidee, met tonen van aardbei en passievrucht. De basis is heel gourmand: <strong>praline</strong>, karamel, vanille, lychee, patchoeli, wierook en een toets koffie.</p><p>Een gourmand, betoverend parfum, voorgesteld als een liefdesdrankje. Ideaal in de herfst en de winter, 's avonds of voor een afspraakje.</p><p>In 2015 door Lancôme gelanceerd als nachtelijke versie van Trésor (1990), gecomponeerd door Christophe Raynaud en Amandine Clerc-Marie. De flacon is versierd met een zwarte satijnen roos.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Lancome/La-Nuit-Tresor-29157.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "hugo-boss-boss-bottled-eau-de-parfum-pour-homme": {
+   "annee": 2020,
+   "parfumeurs": [
+    "Honorine Blanc"
+   ],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "Pomme",
+     "Poivre noir",
+     "Bergamote"
+    ],
+    "coeur": [
+     "Cannelle",
+     "Cardamome",
+     "Châtaigne"
+    ],
+    "fond": [
+     "Vétiver",
+     "Musc"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Appel",
+     "Zwarte peper",
+     "Bergamot"
+    ],
+    "coeur": [
+     "Kaneel",
+     "Kardemom",
+     "Kastanje"
+    ],
+    "fond": [
+     "Vetiver",
+     "Musk"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Boss Bottled Eau de Parfum s'ouvre sur la <strong>pomme</strong>, le poivre noir et la bergamote. Le cœur est chaleureux et épicé, avec la <strong>cannelle</strong>, la cardamome et une note de châtaigne. Le fond, net et élégant, associe le <strong>vétiver</strong> et le musc.</p><p>C'est un classique masculin, plus intense et plus épicé que l'eau de toilette. Idéal toute l'année, au bureau comme en soirée.</p><p>Boss Bottled est né en 1998. Cette eau de parfum, sortie en 2020, a été composée par Honorine Blanc.</p>",
+   "nl": "<p>Boss Bottled Eau de Parfum opent met <strong>appel</strong>, zwarte peper en bergamot. Het hart is warm en kruidig, met <strong>kaneel</strong>, kardemom en een toets kastanje. De strakke, elegante basis combineert <strong>vetiver</strong> en musk.</p><p>Een mannelijke klassieker, intenser en kruidiger dan de eau de toilette. Ideaal het hele jaar door, op kantoor en 's avonds.</p><p>Boss Bottled ontstond in 1998. Deze eau de parfum kwam uit in 2020 en werd gecomponeerd door Honorine Blanc.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Eau-de-Parfum-62744.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "parfums-de-marly-pegasus-eau-de-parfum-pour-homme": {
+   "annee": 2011,
+   "parfumeurs": [
+    "Hamid Merati-Kashani"
+   ],
+   "famille_fr": "Fougère ambrée",
+   "famille_nl": "Amberfougère",
+   "notes_fr": {
+    "tete": [
+     "Héliotrope",
+     "Bergamote",
+     "Cumin",
+     "Poivre rose"
+    ],
+    "coeur": [
+     "Amande amère",
+     "Lavande",
+     "Jasmin"
+    ],
+    "fond": [
+     "Vanille",
+     "Santal",
+     "Ambre",
+     "Musc",
+     "Cèdre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Heliotroop",
+     "Bergamot",
+     "Komijn",
+     "Roze peper"
+    ],
+    "coeur": [
+     "Bittere amandel",
+     "Lavendel",
+     "Jasmijn"
+    ],
+    "fond": [
+     "Vanille",
+     "Sandelhout",
+     "Amber",
+     "Musk",
+     "Ceder"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Pegasus s'ouvre sur l'<strong>héliotrope</strong> et la bergamote, relevés d'un peu de cumin et de poivre rose. Le cœur associe l'<strong>amande amère</strong>, la lavande et le jasmin. Le fond est crémeux et chaleureux : <strong>vanille</strong>, santal, ambre, musc et cèdre.</p><p>C'est un parfum doux et élégant, gourmand sans être sucré, qui plaît à beaucoup de monde. Idéal en automne et en hiver, au bureau comme en soirée.</p><p>Sixième création de Parfums de Marly, Pegasus est sorti en 2011. Il a été composé par Hamid Merati-Kashani.</p>",
+   "nl": "<p>Pegasus opent met <strong>heliotroop</strong> en bergamot, gekruid met een beetje komijn en roze peper. Het hart combineert <strong>bittere amandel</strong>, lavendel en jasmijn. De basis is romig en warm: <strong>vanille</strong>, sandelhout, amber, musk en ceder.</p><p>Een zachte, elegante geur, gourmand zonder zoet te zijn, die bij veel mensen in de smaak valt. Ideaal in de herfst en de winter, op kantoor en 's avonds.</p><p>Pegasus is de zesde creatie van Parfums de Marly en kwam uit in 2011. Het werd gecomponeerd door Hamid Merati-Kashani.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Parfums-de-Marly/Pegasus-16938.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "al-haramain-amber-oud-gold-edition-eau-de-parfum-mixte": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Ambré vanillé",
+   "famille_nl": "Vanille-amber",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Notes vertes"
+    ],
+    "coeur": [
+     "Melon",
+     "Ananas",
+     "Ambre",
+     "Accord gourmand"
+    ],
+    "fond": [
+     "Vanille",
+     "Musc",
+     "Notes boisées"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Groene tonen"
+    ],
+    "coeur": [
+     "Meloen",
+     "Ananas",
+     "Amber",
+     "Gourmand akkoord"
+    ],
+    "fond": [
+     "Vanille",
+     "Musk",
+     "Houtige tonen"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Amber Oud Gold Edition s'ouvre sur la <strong>bergamote</strong> et des notes vertes, fraîches et vives. Le cœur est fruité et gourmand : <strong>melon</strong>, <strong>ananas</strong>, ambre et un accord sucré. Le fond, doux et durable, associe la <strong>vanille</strong>, le musc et les bois.</p><p>C'est un parfum fruité et ambré, très généreux, avec beaucoup de sillage. Idéal toute l'année, pour elle comme pour lui, en soirée ou quand tu veux te faire remarquer.</p><p>Il est signé par la maison Al Haramain, dans un flacon orné d'or.</p>",
+   "nl": "<p>Amber Oud Gold Edition opent met frisse, levendige <strong>bergamot</strong> en groene tonen. Het hart is fruitig en gourmand: <strong>meloen</strong>, <strong>ananas</strong>, amber en een zoet akkoord. De zachte, blijvende basis combineert <strong>vanille</strong>, musk en hout.</p><p>Een fruitige ambergeur, heel royaal, met veel sillage. Ideaal het hele jaar door, voor haar en voor hem, 's avonds of als je wilt opvallen.</p><p>Het komt van het huis Al Haramain, in een flacon met gouden versiering.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Al-Haramain-Perfumes/Amber-Oud-Gold-Edition-51816.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé, 10/11/2026), fiche choisie par le nom. Année donnée par Fragrantica (2024) peu cohérente avec l'ancienneté du parfum : laissée vide."
+  },
+  "al-haramain-amber-oud-tobacco-edition-eau-de-parfum-mixte": {
+   "annee": 2019,
+   "parfumeurs": [],
+   "famille_fr": "Ambré épicé",
+   "famille_nl": "Kruidig amber",
+   "notes_fr": {
+    "tete": [
+     "Feuille de tabac",
+     "Cannelle",
+     "Poivre noir",
+     "Gingembre"
+    ],
+    "coeur": [
+     "Vanille",
+     "Clou de girofle",
+     "Anis étoilé",
+     "Fève tonka",
+     "Cacao",
+     "Encens"
+    ],
+    "fond": [
+     "Tabac",
+     "Fruits secs",
+     "Bois"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Tabaksblad",
+     "Kaneel",
+     "Zwarte peper",
+     "Gember"
+    ],
+    "coeur": [
+     "Vanille",
+     "Kruidnagel",
+     "Steranijs",
+     "Tonkaboon",
+     "Cacao",
+     "Wierook"
+    ],
+    "fond": [
+     "Tabak",
+     "Gedroogd fruit",
+     "Hout"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Amber Oud Tobacco Edition s'ouvre sur la <strong>feuille de tabac</strong>, la <strong>cannelle</strong>, le poivre noir et le gingembre. Le cœur est riche et épicé : vanille, clou de girofle, anis étoilé, fève tonka, <strong>cacao</strong> et encens. Le fond revient au <strong>tabac</strong>, avec des fruits secs et des bois.</p><p>C'est un parfum chaud et épicé, très enveloppant, pour elle comme pour lui. Idéal en automne et en hiver, en soirée et par temps froid.</p><p>Lancé en 2019 par Al Haramain, il prolonge la ligne Amber Oud.</p>",
+   "nl": "<p>Amber Oud Tobacco Edition opent met <strong>tabaksblad</strong>, <strong>kaneel</strong>, zwarte peper en gember. Het hart is rijk en kruidig: vanille, kruidnagel, steranijs, tonkaboon, <strong>cacao</strong> en wierook. De basis keert terug naar <strong>tabak</strong>, met gedroogd fruit en hout.</p><p>Een warme, kruidige geur, heel omhullend, voor haar en voor hem. Ideaal in de herfst en de winter, 's avonds en bij koud weer.</p><p>Gelanceerd in 2019 door Al Haramain, als vervolg op de Amber Oud-lijn.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Al-Haramain-Perfumes/Amber-Oud-Tobacco-Edition-55791.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "al-haramain-l-aventure-intense-eau-de-parfum-pour-homme": {
+   "annee": 2019,
+   "parfumeurs": [],
+   "famille_fr": "Chypré floral",
+   "famille_nl": "Bloemige chypre",
+   "notes_fr": {
+    "tete": [
+     "Bergamote",
+     "Citron",
+     "Élémi"
+    ],
+    "coeur": [
+     "Notes boisées",
+     "Muguet",
+     "Jasmin"
+    ],
+    "fond": [
+     "Musc",
+     "Patchouli",
+     "Ambre"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Bergamot",
+     "Citroen",
+     "Elemi"
+    ],
+    "coeur": [
+     "Houtige tonen",
+     "Lelietje-van-dalen",
+     "Jasmijn"
+    ],
+    "fond": [
+     "Musk",
+     "Patchoeli",
+     "Amber"
+    ],
+    "cle": []
+   },
+   "fr": "<p>L'Aventure Intense s'ouvre sur un trio pétillant de <strong>bergamote</strong>, de <strong>citron</strong> et d'élémi. Le cœur, élégant, associe des notes boisées au muguet et au <strong>jasmin</strong>. Le fond, chaud et sensuel, réunit le musc, le <strong>patchouli</strong> et l'ambre.</p><p>C'est un parfum frais et affirmé, avec une belle tenue. Idéal toute l'année, au bureau comme en soirée.</p><p>Lancé en 2019 par Al Haramain, c'est la version intense de L'Aventure.</p>",
+   "nl": "<p>L'Aventure Intense opent met een sprankelend trio van <strong>bergamot</strong>, <strong>citroen</strong> en elemi. Het elegante hart combineert houtige tonen met lelietje-van-dalen en <strong>jasmijn</strong>. De warme, sensuele basis brengt musk, <strong>patchoeli</strong> en amber samen.</p><p>Een frisse, uitgesproken geur met een mooie houdbaarheid. Ideaal het hele jaar door, op kantoor en 's avonds.</p><p>Gelanceerd in 2019 door Al Haramain, als intense versie van L'Aventure.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Al-Haramain-Perfumes/L-Aventure-Intense-58870.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "rasasi-hawas-eau-de-parfum-pour-homme": {
+   "annee": 2015,
+   "parfumeurs": [],
+   "famille_fr": "Aromatique aquatique",
+   "famille_nl": "Aromatisch aquatisch",
+   "notes_fr": {
+    "tete": [
+     "Pomme",
+     "Bergamote",
+     "Citron",
+     "Cannelle"
+    ],
+    "coeur": [
+     "Notes aquatiques",
+     "Prune",
+     "Fleur d'oranger",
+     "Cardamome"
+    ],
+    "fond": [
+     "Ambre gris",
+     "Musc",
+     "Patchouli",
+     "Bois flotté"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Appel",
+     "Bergamot",
+     "Citroen",
+     "Kaneel"
+    ],
+    "coeur": [
+     "Aquatische tonen",
+     "Pruim",
+     "Oranjebloesem",
+     "Kardemom"
+    ],
+    "fond": [
+     "Ambergris",
+     "Musk",
+     "Patchoeli",
+     "Drijfhout"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Hawas s'ouvre sur la <strong>pomme</strong>, la bergamote et le citron, avec une pointe de cannelle. Le cœur est frais et fruité : <strong>notes aquatiques</strong>, prune, fleur d'oranger et cardamome. Le fond, marin et boisé, associe l'<strong>ambre gris</strong>, le musc, le patchouli et le bois flotté.</p><p>C'est un parfum frais et énergique, avec beaucoup de présence. Idéal au printemps et en été, en journée ou pour sortir.</p><p>Lancé en 2015 par la maison Rasasi, il se reconnaît à son flacon gris dont le bouchon est entouré d'un python.</p>",
+   "nl": "<p>Hawas opent met <strong>appel</strong>, bergamot en citroen, met een vleugje kaneel. Het hart is fris en fruitig: <strong>aquatische tonen</strong>, pruim, oranjebloesem en kardemom. De mariene, houtige basis combineert <strong>ambergris</strong>, musk, patchoeli en drijfhout.</p><p>Een frisse, energieke geur met veel aanwezigheid. Ideaal in de lente en de zomer, overdag of om uit te gaan.</p><p>Gelanceerd in 2015 door het huis Rasasi, herkenbaar aan de grijze flacon met een python rond de dop.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Rasasi/Hawas-for-Him-46890.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé, 10/11/2026) : fiche « Hawas for Him » (2015), choisie par le nom."
+  },
+  "rasasi-hawas-fire-eau-de-parfum-pour-homme": {
+   "annee": 2025,
+   "parfumeurs": [],
+   "famille_fr": "Aromatique aquatique",
+   "famille_nl": "Aromatisch aquatisch",
+   "notes_fr": {
+    "tete": [
+     "Sauge sclarée"
+    ],
+    "coeur": [
+     "Notes marines",
+     "Jasmin d'Égypte"
+    ],
+    "fond": [
+     "Ambre",
+     "Notes minérales",
+     "Ambre gris"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Scharlei"
+    ],
+    "coeur": [
+     "Zeetonen",
+     "Egyptische jasmijn"
+    ],
+    "fond": [
+     "Amber",
+     "Minerale tonen",
+     "Ambergris"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Hawas Fire s'ouvre sur la <strong>sauge sclarée</strong>, aromatique et fraîche. Le cœur associe des <strong>notes marines</strong> au jasmin d'Égypte. Le fond, minéral et chaleureux, réunit l'ambre et l'<strong>ambre gris</strong>.</p><p>C'est une version plus intense et plus élégante de la ligne Hawas. Idéal toute l'année, en journée comme en soirée.</p><p>Hawas Fire est l'une des nouveautés 2025 de la maison Rasasi, pensée comme une flamme à la fois puissante et raffinée.</p>",
+   "nl": "<p>Hawas Fire opent met aromatische, frisse <strong>scharlei</strong>. Het hart combineert <strong>zeetonen</strong> met Egyptische jasmijn. De minerale, warme basis brengt amber en <strong>ambergris</strong> samen.</p><p>Een intensere, elegantere versie van de Hawas-lijn. Ideaal het hele jaar door, overdag en 's avonds.</p><p>Hawas Fire is een van de nieuwigheden van 2025 bij Rasasi, bedacht als een krachtige maar verfijnde vlam.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Rasasi/Hawas-Fire-101665.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "hamidi-the-lost-paradise-sublime-cherry-eau-de-parfum-mixte": {
+   "annee": 2023,
+   "parfumeurs": [],
+   "famille_fr": "Cuir fruité",
+   "famille_nl": "Fruitig leer",
+   "notes_fr": {
+    "tete": [
+     "Griotte",
+     "Safran"
+    ],
+    "coeur": [
+     "Abricot",
+     "Cuir",
+     "Olive",
+     "Osmanthus"
+    ],
+    "fond": [
+     "Bois",
+     "Nagarmotha",
+     "Fumée"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Morel",
+     "Saffraan"
+    ],
+    "coeur": [
+     "Abrikoos",
+     "Leer",
+     "Olijf",
+     "Osmanthus"
+    ],
+    "fond": [
+     "Hout",
+     "Nagarmotha",
+     "Rook"
+    ],
+    "cle": []
+   },
+   "fr": "<p>Sublime Cherry s'ouvre sur une <strong>griotte</strong> acidulée, réchauffée par le <strong>safran</strong>. Le cœur est original : <strong>abricot</strong>, cuir, olive et osmanthus. Le fond, sombre et fumé, mêle les bois et le nagarmotha.</p><p>C'est une cerise adulte, fruitée et cuirée, loin des parfums sucrés. Idéal en automne et en hiver, en soirée, pour elle comme pour lui.</p><p>Lancé en 2023 par la maison Hamidi dans sa collection The Lost Paradise.</p>",
+   "nl": "<p>Sublime Cherry opent met een zurige <strong>morel</strong>, verwarmd door <strong>saffraan</strong>. Het hart is origineel: <strong>abrikoos</strong>, leer, olijf en osmanthus. De donkere, rokerige basis mengt hout en nagarmotha.</p><p>Een volwassen kers, fruitig en leerachtig, ver van zoete geuren. Ideaal in de herfst en de winter, 's avonds, voor haar en voor hem.</p><p>Gelanceerd in 2023 door het huis Hamidi, in de collectie The Lost Paradise.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Hamidi/Sublime-Cherry-88236.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
+  },
+  "afnan-9pm-eau-de-parfum-pour-homme": {
+   "annee": 2020,
+   "parfumeurs": [],
+   "famille_fr": "Ambré vanillé",
+   "famille_nl": "Vanille-amber",
+   "notes_fr": {
+    "tete": [
+     "Pomme",
+     "Cannelle",
+     "Lavande",
+     "Bergamote"
+    ],
+    "coeur": [
+     "Fleur d'oranger",
+     "Muguet"
+    ],
+    "fond": [
+     "Vanille",
+     "Fève tonka",
+     "Ambre",
+     "Patchouli"
+    ],
+    "cle": []
+   },
+   "notes_nl": {
+    "tete": [
+     "Appel",
+     "Kaneel",
+     "Lavendel",
+     "Bergamot"
+    ],
+    "coeur": [
+     "Oranjebloesem",
+     "Lelietje-van-dalen"
+    ],
+    "fond": [
+     "Vanille",
+     "Tonkaboon",
+     "Amber",
+     "Patchoeli"
+    ],
+    "cle": []
+   },
+   "fr": "<p>9PM s'ouvre sur la <strong>pomme</strong> et la <strong>cannelle</strong>, avec la lavande et la bergamote. Le cœur, plus doux, associe la fleur d'oranger et le muguet. Le fond est chaud et gourmand : <strong>vanille</strong>, fève tonka, ambre et patchouli.</p><p>C'est un parfum de soirée, sucré et épicé, qui laisse un beau sillage. Idéal en automne et en hiver, pour sortir le soir, comme son nom l'indique.</p><p>Lancé en 2020 par la maison émiratie Afnan, il est devenu l'un de ses grands succès.</p>",
+   "nl": "<p>9PM opent met <strong>appel</strong> en <strong>kaneel</strong>, met lavendel en bergamot. Het zachtere hart combineert oranjebloesem en lelietje-van-dalen. De basis is warm en gourmand: <strong>vanille</strong>, tonkaboon, amber en patchoeli.</p><p>Een avondgeur, zoet en kruidig, met een mooie sillage. Ideaal in de herfst en de winter, om 's avonds uit te gaan, zoals de naam zegt.</p><p>Gelanceerd in 2020 door het Emiraatse huis Afnan en uitgegroeid tot een van zijn grote successen.</p>",
+   "sources": [
+    "https://www.fragrantica.com/perfume/Afnan/9pm-65414.html"
+   ],
+   "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom et la concentration."
   }
  }
 }
