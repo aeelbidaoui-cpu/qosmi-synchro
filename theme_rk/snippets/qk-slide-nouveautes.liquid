@@ -12,9 +12,12 @@
     </div>
     <div class="qk-neuf__etagere">
       {%- assign qk_n = 0 -%}
-      {%- for p in qk_c.products limit: 30 -%}
-        {%- if qk_n < 5 and p.available and p.featured_image -%}
+      {%- assign qk_vus = '|' -%}
+      {%- for p in qk_c.products limit: 50 -%}
+        {%- assign qk_cle = '|' | append: p.vendor | append: '|' -%}
+        {%- if qk_n < 5 and p.available and p.featured_image -%}{%- unless qk_vus contains qk_cle -%}
           {%- assign qk_n = qk_n | plus: 1 -%}
+          {%- assign qk_vus = qk_vus | append: p.vendor | append: '|' -%}
           {%- assign qk_t = p.title | split: ' — ' -%}
           <a class="qk-neuf__carte" href="{{ p.url }}">
             <span class="qk-neuf__img">{{ p.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: p.title, widths: '250, 400, 500', sizes: '(min-width: 750px) 15vw, 45vw' }}</span>
@@ -22,7 +25,7 @@
             <span class="qk-neuf__nom">{{ qk_t[0] | remove_first: p.vendor | strip }}</span>
             <span class="qk-neuf__prix">{{ p.price_min | money }}</span>
           </a>
-        {%- endif -%}
+        {%- endunless -%}{%- endif -%}
       {%- endfor -%}
     </div>
   </div>
