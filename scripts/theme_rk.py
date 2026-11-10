@@ -9,7 +9,8 @@ import copy, json, os
 ICI = os.path.dirname(os.path.abspath(__file__))
 DOSSIER = os.path.join(os.path.dirname(ICI), "theme_rk")
 FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.json", "templates/collection.json",
-            "templates/search.json", "sections/header-group.json", "sections/footer-group.json", "templates/cart.json"]
+            "templates/search.json", "sections/header-group.json", "sections/footer-group.json", "templates/cart.json",
+            "sections/main-collection.liquid", "sections/search-results.liquid", "snippets/predictive-search-products-list.liquid"]
 OPTIONNELS = ["snippets/meta-tags.liquid"]  # 09/11/2026 : titre Google de l'accueil FR (lu s'il existe)
 
 def ambiance(n, alt, cote, fr, nl, lien):
@@ -272,10 +273,49 @@ def snippet_recherche():
 </div>
 """
 
+# 10/11/2026 (demande d'Amine) : les coffrets ne se voient que dans la collection Coffrets (et la mise en avant de l'accueil),
+# jamais dans les autres collections (marques, niche, arabes) ni dans la recherche, sauf si on cherche un coffret.
+QK_COFFRET = "{%- if product.type == 'Coffrets' or product.type == 'Geschenksets' -%}{%- continue -%}{%- endif -%}"
+QK_COFFRET_COLL = ("{%- if collection.handle != 'coffrets' -%}{%- if product.type == 'Coffrets' or product.type == 'Geschenksets'"
+                   " -%}{%- continue -%}{%- endif -%}{%- endif -%}")
+QK_COFFRET_RECH = ("{%- assign qk_t = qk_termes | downcase -%}{%- unless qk_t contains 'coffret' or qk_t contains 'geschenk' or qk_t contains 'gift' -%}"
+                   + QK_COFFRET + "{%- endunless -%}")
+COFFRETS_VEDETTES = [  # coffrets à belle photo (≥ 800 px, Notino et Trista), seuls mis en avant sur l'accueil
+    "hermes-terre-d-hermes-coffret-2", "xerjoff-discovery-set-i-coffret",
+    "armaf-club-de-nuit-intense-man-coffret", "afnan-supremacy-not-only-intense-coffret", "lattafa-yara-collection-coffret",
+    "armaf-club-de-nuit-woman-coffret", "afnan-discovery-set-9pm-coffret", "orientica-luxury-collection-discovery-set-coffret",
+    "lattafa-bade-e-al-oud-collection-coffret", "lattafa-najdia-coffret", "lattafa-fakhar-lattafa-coffret",
+    "lattafa-ameer-al-oudh-coffret", "lattafa-washwashah-coffret", "lattafa-sheikh-al-shuyukh-coffret", "lattafa-pure-oudi-coffret"]
+
+
+def sans_coffrets(texte, boucle, garde):
+    """Ajoute le filtre des coffrets juste après chaque boucle « boucle » (une seule fois)."""
+    if "qk-coffrets" in texte:
+        return texte
+    return texte.replace(boucle, boucle + "{%- comment -%}qk-coffrets{%- endcomment -%}" + garde)
+
+
 def construire(fichiers, marques):
     liquides, jsons = fichiers_qk(), {}
     liquides["snippets/qk-gpsr.liquid"] = snippet_gpsr()
     liquides["snippets/predictive-search-empty-state.liquid"] = snippet_recherche()
+    liquides["sections/main-collection.liquid"] = sans_coffrets(fichiers["sections/main-collection.liquid"],
+                                                                "{% for product in collection.products %}", QK_COFFRET_COLL)
+    rech = fichiers["sections/search-results.liquid"]
+    if "qk-coffrets" not in rech:
+        rech = sans_coffrets(rech, "{% for product in products %}", QK_COFFRET_RECH)
+        rech = rech.replace("{% paginate search.results", "{%- assign qk_termes = search.terms -%}\n    {% paginate search.results", 1)
+    liquides["sections/search-results.liquid"] = rech
+    pred = fichiers["snippets/predictive-search-products-list.liquid"]
+    if "qk-coffrets" not in pred:
+        tete, sep, corps = pred.partition("{%- enddoc -%}")
+        if not sep:
+            tete, sep, corps = "", "", pred
+        pred = tete + sep + "\n{%- assign qk_termes = predictive_search.terms -%}" + corps
+        pred = pred.replace(
+            "{% for product in products limit: limit %}",
+            "{% for product in products limit: limit %}{%- comment -%}qk-coffrets{%- endcomment -%}" + QK_COFFRET_RECH)
+    liquides["snippets/predictive-search-products-list.liquid"] = pred
 
     # ---------- feuille de style ----------
     lay = fichiers["layout/theme.liquid"]
@@ -321,8 +361,9 @@ def construire(fichiers, marques):
                 "o2": {"type": "onglet", "settings": {"collection": "parfums-femme", "label": "Femme"}},
                 "o3": {"type": "onglet", "settings": {"collection": "parfums-homme", "label": "Homme"}},
                 "o4": {"type": "onglet", "settings": {"collection": "parfums-mixtes", "label": "Mixte"}},  # testeurs en suspens (08/11)
-                "o5": {"type": "onglet", "settings": {"collection": "parfums-arabes", "label": "Arabes", "produits": ARABES_VEDETTES}}},
-            "block_order": ["o1", "o2", "o3", "o4", "o5"]},
+                "o5": {"type": "onglet", "settings": {"collection": "parfums-arabes", "label": "Arabes", "produits": ARABES_VEDETTES}},
+                "o6": {"type": "onglet", "settings": {"collection": "coffrets", "label": "Coffrets", "produits": COFFRETS_VEDETTES}}},
+            "block_order": ["o1", "o2", "o3", "o4", "o5", "o6"]},
         "qk_banniere": {"type": "qk-banniere", "settings": {
             "titre": "Les incontournables", "lien_texte": "Voir la niche", "lien": "shopify://collections/niche",
             "image": "shopify://shop_images/qosmi-banniere-niche.jpg",

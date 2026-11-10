@@ -34,6 +34,7 @@
       {%- else -%}
         {%- assign qk_n = 0 -%}
         {%- for product in block.settings.collection.products limit: 60 -%}
+          {%- if block.settings.collection.handle != 'coffrets' -%}{%- if product.type == 'Coffrets' or product.type == 'Geschenksets' -%}{%- continue -%}{%- endif -%}{%- endif -%}
           {%- assign qk_cle = '|' | append: product.vendor | append: '|' -%}
           {%- if qk_n < section.settings.nombre and product.featured_image -%}
             {%- if qk_vset == '|' or qk_vset contains qk_cle -%}
