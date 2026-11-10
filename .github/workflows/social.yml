@@ -34,7 +34,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           prive=$(gh api "repos/${GITHUB_REPOSITORY}" --jq .private)
-          if [ "$prive" != "true" ]; then echo "::error::Le dépôt est PUBLIC : arrêt."; exit 1; fi
+          echo "Dépôt privé : $prive (10/11/2026 : Amine a choisi de passer le dépôt en public ; plus d'arrêt)"
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
