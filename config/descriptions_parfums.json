@@ -1,6 +1,6 @@
 {
- "actif": false,
- "_note": "10/11/2026 : descriptions vérifiées (sites des marques, Olfastory, Parfumo, Basenotes) des 50 parfums phares, FR + NL, à la demande d'Amine. À activer en décembre (minutes GitHub rechargées) : mettre « actif » à true puis lancer l'action theme « textes-fiches ». Le champ « doute » signale les points où les sources divergent (souvent la pyramide) ; à relire pour Tom Ford Café Rose, Creed Aventus For Her et Light Blue (nouvelle formule 2025).",
+ "actif": true,
+ "_note": "10/11/2026 : descriptions vérifiées (sites des marques, Olfastory, Parfumo, Basenotes) des 50 parfums phares, FR + NL, à la demande d'Amine. À activer en décembre (minutes GitHub rechargées) : mettre « actif » à true puis lancer l'action theme « textes-fiches ». Le champ « doute » signale les points où les sources divergent (souvent la pyramide) ; à relire pour Tom Ford Café Rose, Creed Aventus For Her et Light Blue (nouvelle formule 2025). — ACTIVÉ le 10/11/2026 à la demande d'Amine (dépôt public, minutes GitHub illimitées).",
  "parfums": {
   "creed-aventus-eau-de-parfum-pour-homme": {
    "annee": 2010,
