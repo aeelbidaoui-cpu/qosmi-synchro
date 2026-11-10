@@ -4,9 +4,11 @@ name: Qosmi - réseaux sociaux
 # Deux passages (15 h 45 et 16 h 45 UTC) pour couvrir l'heure d'hiver et l'heure d'été : le script ne garde que le bon
 # et attend lui-même l'heure exacte. Sans le secret META_TOKEN, il ne publie rien.
 on:
-  schedule:
-    - cron: "45 15 * * *"
-    - cron: "45 16 * * *"
+  # EN PAUSE (10/11/2026, décision d'Amine) : Meta bloque la création de l'accès développeur (« nouvel appareil »).
+  # Les publications démarreront dès que Meta débloque : décaler alors les dates des lots puis remettre ces deux lignes.
+  # schedule:
+  #   - cron: "45 15 * * *"
+  #   - cron: "45 16 * * *"
   workflow_dispatch:
     inputs:
       action:
