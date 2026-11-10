@@ -5,6 +5,8 @@ on:
   push:
     branches: [main]
     paths: ["blog/articles/**"]
+  schedule:
+    - cron: "53 5 * * *"   # chaque matin (accord d'Amine du 10/11/2026) : remet à jour les photos des fiches citées dans les articles
   workflow_dispatch:
 
 permissions:
