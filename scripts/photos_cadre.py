@@ -17,7 +17,7 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ICI)
 RACINE = os.path.dirname(ICI)
 CONFIG = os.path.join(RACINE, "config")
-SOURCES = ("photos_corrections.json", "photos_hd.json", "photos_marques.json", "photos_riklis.json", "photos_skins.json", "photos_parfumerie.json", "photos_acquadiparma.json",
+SOURCES = ("photos_corrections.json", "photos_hd.json", "photos_coffrets.json", "photos_marques.json", "photos_riklis.json", "photos_skins.json", "photos_parfumerie.json", "photos_acquadiparma.json",
            "photos_parfuma.json", "photos_ici.json", "photos_elo.json", "photos_creed.json", "photos_ch.json", "photos_puig.json", "photos_notino.json", "photos_dg.json", "photos_jm.json", "photos_mm.json", "photos_tfi.json", "photos_ck.json", "photos_tt.json", "photos_lvmh.json", "photos_m2.json", "photos_m3.json", "photos_rosendo.json", "photos_retirees.json", "photos_manque.json", "photos_trouvees.json", "photos_fragrantica.json")
 AGENT = "Mozilla/5.0 (compatible; QosmiPhotos/1.0)"
 PART_H, PART_L = 0.80, 0.74  # part de la hauteur / de la largeur occupée par le flacon
