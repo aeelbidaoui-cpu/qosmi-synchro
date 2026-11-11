@@ -87,6 +87,7 @@ MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-h
         ("Niche", "niche", []),  # Testeurs retiré le 08/11/2026 (en suspens, question juridique)
         ("Parfums arabes", "parfums-arabes", []),  # 08/11/2026 : activé (174 parfums arabes en ligne)
         ("Coffrets", "coffrets", []),  # 10/11/2026 : coffrets pour les fêtes (demande d'Amine)
+        ("Par odeurs", "page:odeurs", []),  # 12/11/2026 : recherche par odeurs (idée d'un client, demande d'Amine)
         ("Marques", "page:marques", []),  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
         ("Magazine", "blog:journal", [])]  # 08/11/2026 : le blog (scripts/blog.py) ; renommé « Magazine » le 10/11/2026 (demande d'Amine), adresse /blogs/journal gardée
 LOGOS = ["qosmi-logo.png", "qosmi-logo-blanc.png", "qosmi-favicon.png"]
@@ -161,6 +162,11 @@ def menu(s, ids):
     menus = s.gql("{ menus(first: 20) { nodes { id handle title } } }")["menus"]["nodes"]
     m = next((x for x in menus if x["handle"] == "main-menu"), None)
     pages = {"page:marques": page_marques(s)} if any(h == "page:marques" for _, h, _ in MENU) else {}
+    for _, h, _ in MENU:  # autres pages du menu (ex. page:odeurs) : déjà créées, on prend leur identifiant
+        if h.startswith("page:") and h not in pages:
+            n = s.gql('query($q: String!) { pages(first: 1, query: $q) { nodes { id } } }', {"q": "handle:" + h[5:]})["pages"]["nodes"]
+            if n:
+                pages[h] = n[0]["id"]
 
     blogs = {b["handle"]: b["id"] for b in s.gql("{ blogs(first: 20) { nodes { id handle } } }")["blogs"]["nodes"]}
 
@@ -170,7 +176,7 @@ def menu(s, ids):
         if h.startswith("page:"):
             return {"title": t, "type": "PAGE", "resourceId": pages[h], "items": []}
         return {"title": t, "type": "COLLECTION", "resourceId": ids[h], "items": [entree(st, sh) for st, sh in sous]}
-    items = [entree(t, h, sous) for t, h, sous in MENU]
+    items = [entree(t, h, sous) for t, h, sous in MENU if not h.startswith("page:") or h in pages]
     if m:
         erreurs(s.gql("""mutation($id: ID!, $t: String!, $h: String, $i: [MenuItemUpdateInput!]!) { menuUpdate(id: $id, title: $t, handle: $h, items: $i) { menu { id } userErrors { field message } } }""",
                       {"id": m["id"], "t": m["title"], "h": "main-menu", "i": items}), "menuUpdate")

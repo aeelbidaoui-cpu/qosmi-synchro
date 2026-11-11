@@ -328,6 +328,9 @@ def construire(fichiers, marques):
     liquides, jsons = fichiers_qk(), {}
     liquides["snippets/qk-gpsr.liquid"] = snippet_gpsr()
     liquides["snippets/qk-du-jour-notes.liquid"] = snippet_notes_du_jour()
+    # recherche par odeurs + parfums aux notes proches (12/11/2026) : index tiré de config/descriptions_parfums.json
+    import odeurs as _odeurs
+    liquides["assets/qk-odeurs.js"] = _odeurs.asset_js()
     liquides["snippets/predictive-search-empty-state.liquid"] = snippet_recherche()
     liquides["sections/main-collection.liquid"] = sans_coffrets(fichiers["sections/main-collection.liquid"],
                                                                 "{% for product in collection.products %}", QK_COFFRET_COLL)
@@ -491,6 +494,11 @@ def construire(fichiers, marques):
         ("Qosmi", "100% origineel", "Elk parfum is nieuw en origineel. Levering in heel België, gratis vanaf 2 artikelen.", "Onze merken"),
         "/pages/marques")
     d["order"] = [k for k in d["order"] if k != "qk_amb"] + ["qk_amb"]
+    # « Parfums aux notes proches » (12/11/2026) : avant « Tu aimeras aussi » du thème
+    d["sections"]["qk_proches"] = {"type": "qk-proches", "settings": {}}
+    d["order"] = [k for k in d["order"] if k != "qk_proches"]
+    reco = next((k for k in d["order"] if d["sections"][k]["type"] == "product-recommendations"), "qk_amb")
+    d["order"].insert(d["order"].index(reco), "qk_proches")
     jsons["templates/product.json"] = ecrire(e, d)
 
     # ---------- collections et recherche ----------

@@ -1,0 +1,119 @@
+{%- comment -%}
+  Page « Trouve ton parfum par ses odeurs » (12/11/2026, idée d'un client) : le client choisit jusqu'à 3 odeurs,
+  la page classe les parfums en stock qui les contiennent (assets/qk-odeurs-outils.js + qk-odeurs.js).
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+<section class="qk-section qk-odeurs">
+  <div class="qk-largeur">
+    <p class="qk-surtitre">{% if qk_nl %}Geurzoeker{% else %}Recherche par odeurs{% endif %}</p>
+    <h1 class="qk-titre-section">{% if qk_nl %}Vind je parfum op geur{% else %}Trouve ton parfum par ses odeurs{% endif %}</h1>
+    <p class="qk-intro">{% if qk_nl %}Kies tot 3 geuren die je lekker vindt. We tonen de parfums die ze bevatten, beginnend met die met alle drie.{% else %}Choisis jusqu'à 3 odeurs que tu aimes. On te montre les parfums qui les contiennent, en commençant par ceux qui ont les trois.{% endif %}</p>
+
+    <div class="qk-odeurs__choix" data-qk-od-choix aria-live="polite">
+      <span class="qk-odeurs__place" data-qk-od-place>1</span><span class="qk-odeurs__place" data-qk-od-place>2</span><span class="qk-odeurs__place" data-qk-od-place>3</span>
+      <button type="button" class="qk-odeurs__effacer" data-qk-od-effacer hidden>{% if qk_nl %}Wissen{% else %}Effacer{% endif %}</button>
+    </div>
+
+    <div class="qk-odeurs__familles" data-qk-od-familles></div>
+
+    <div class="qk-odeurs__resultats" data-qk-od-resultats hidden>
+      <h2 class="qk-odeurs__titre-res" data-qk-od-titre></h2>
+      <div class="qk-odeurs__grille" data-qk-od-grille></div>
+      <p class="qk-odeurs__vide" data-qk-od-vide hidden>{% if qk_nl %}Geen parfum op voorraad met deze geuren. Probeer een andere combinatie.{% else %}Aucun parfum en stock avec ces odeurs. Essaie une autre combinaison.{% endif %}</p>
+      <button type="button" class="qk-acheter qk-odeurs__plus" data-qk-od-plus hidden>{% if qk_nl %}Meer parfums tonen{% else %}Voir plus de parfums{% endif %}</button>
+    </div>
+  </div>
+  <script src="{{ 'qk-odeurs.js' | asset_url }}" defer></script>
+  <script src="{{ 'qk-odeurs-outils.js' | asset_url }}" defer></script>
+  <script>
+    (function () {
+      var nl = {{ qk_nl | json }}, MAX = 3, PAGE = 12;
+      var sel = [], liste = [], pos = 0;
+      function q(s) { return document.querySelector(s); }
+      function demarrer() {
+        var O = window.qkOdeurs; if (!O || q('[data-qk-od-familles]').children.length) return;
+        var zone = q('[data-qk-od-familles]');
+        O.familles.forEach(function (f) {
+          var bloc = document.createElement('div'); bloc.className = 'qk-odeurs__famille';
+          var t = document.createElement('h2'); t.className = 'qk-odeurs__nom-famille'; t.textContent = nl ? f[2] : f[1];
+          var l = document.createElement('div'); l.className = 'qk-odeurs__puces';
+          O.odeurs.forEach(function (o) {
+            if (o.fam !== f[0]) return;
+            var b = document.createElement('button'); b.type = 'button';
+            b.className = 'qk-odeurs__puce' + (o.tout ? ' qk-odeurs__puce--tout' : '');
+            b.setAttribute('data-qk-od', o.i); b.setAttribute('aria-pressed', 'false');
+            b.textContent = nl ? o.nl : o.fr;
+            l.appendChild(b);
+          });
+          bloc.appendChild(t); bloc.appendChild(l); zone.appendChild(bloc);
+        });
+        zone.addEventListener('click', function (e) {
+          var b = e.target.closest('[data-qk-od]'); if (!b) return;
+          var i = +b.getAttribute('data-qk-od'), k = sel.indexOf(i);
+          if (k >= 0) sel.splice(k, 1); else { if (sel.length >= MAX) sel.shift(); sel.push(i); }
+          maj(true);
+        });
+        q('[data-qk-od-choix]').addEventListener('click', function (e) {
+          var p = e.target.closest('[data-qk-od-retirer]');
+          if (p) { sel.splice(+p.getAttribute('data-qk-od-retirer'), 1); maj(true); }
+          if (e.target.closest('[data-qk-od-effacer]')) { sel = []; maj(true); }
+        });
+        q('[data-qk-od-plus]').addEventListener('click', function () { plus(); });
+        // lien partageable : ?o=vanille,oud,rose
+        var m = location.search.match(/[?&]o=([^&]+)/);
+        if (m) decodeURIComponent(m[1]).split(',').forEach(function (id) { var o = O.parId[id]; if (o && sel.length < MAX) sel.push(o.i); });
+        maj(false);
+      }
+      function maj(url) {
+        var O = window.qkOdeurs;
+        document.querySelectorAll('[data-qk-od]').forEach(function (b) {
+          var k = sel.indexOf(+b.getAttribute('data-qk-od'));
+          b.classList.toggle('is-on', k >= 0); b.setAttribute('aria-pressed', k >= 0 ? 'true' : 'false');
+          b.setAttribute('data-rang', k >= 0 ? k + 1 : '');
+        });
+        var places = document.querySelectorAll('[data-qk-od-place]');
+        places.forEach(function (p, k) {
+          if (sel[k] !== undefined) {
+            p.className = 'qk-odeurs__place is-on';
+            p.innerHTML = '<span></span><button type="button" data-qk-od-retirer="' + k + '" aria-label="' + (nl ? 'Verwijderen' : 'Retirer') + '">×</button>';
+            p.querySelector('span').textContent = (k + 1) + '. ' + O.nom(sel[k], nl);
+          } else { p.className = 'qk-odeurs__place'; p.textContent = nl ? 'Geur ' + (k + 1) : 'Odeur ' + (k + 1); }
+        });
+        q('[data-qk-od-effacer]').hidden = !sel.length;
+        if (url && history.replaceState) {
+          var ids = sel.map(function (i) { return O.odeurs[i].id; }).join(',');
+          history.replaceState(null, '', location.pathname + (ids ? '?o=' + ids : ''));
+        }
+        lancer();
+      }
+      function lancer() {
+        var O = window.qkOdeurs, res = q('[data-qk-od-resultats]');
+        res.hidden = !sel.length;
+        q('[data-qk-od-grille]').innerHTML = ''; q('[data-qk-od-vide]').hidden = true; q('[data-qk-od-plus]').hidden = true;
+        if (!sel.length) return;
+        liste = O.chercher(sel); pos = 0;
+        var tous = liste.filter(function (r) { return r.m === sel.length; }).length;
+        q('[data-qk-od-titre]').textContent = nl
+          ? (tous ? tous + ' parfums met ' + (sel.length > 1 ? 'deze ' + sel.length + ' geuren' : 'deze geur') : 'Parfums met een deel van je geuren')
+          : (tous ? tous + ' parfums avec ' + (sel.length > 1 ? 'ces ' + sel.length + ' odeurs' : 'cette odeur') : 'Parfums avec une partie de tes odeurs');
+        plus();
+      }
+      function plus() {
+        var O = window.qkOdeurs, grille = q('[data-qk-od-grille]'), b = q('[data-qk-od-plus]'), cle = sel.join(',');
+        b.disabled = true;
+        O.remplir(grille, liste, pos, PAGE, nl, sel.length).then(function (p) {
+          if (cle !== sel.join(',')) return;
+          pos = p; b.disabled = false;
+          b.hidden = pos >= liste.length;
+          q('[data-qk-od-vide]').hidden = grille.children.length > 0;
+        });
+      }
+      if (window.qkOdeurs) demarrer(); else document.addEventListener('qk:odeurs', demarrer);
+    })();
+  </script>
+</section>
+
+{% schema %}
+{ "name": "Qosmi · Recherche par odeurs", "tag": "div", "settings": [] }
+{% endschema %}

@@ -1,0 +1,43 @@
+{%- comment -%}
+  « Parfums aux notes proches » sur la fiche (12/11/2026) : 8 parfums en stock qui partagent le plus d'odeurs
+  avec celui-ci (assets/qk-odeurs-outils.js). La section reste cachée si le parfum n'a pas de notes connues.
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+<section class="qk-section qk-onglets qk-proches" data-qk-proches="{{ product.handle }}" hidden>
+  <div class="qk-largeur">
+    <div class="qk-onglets__barre">
+      <h2 class="qk-titre-section">{% if qk_nl %}Parfums met gelijkaardige noten{% else %}Parfums aux notes proches{% endif %}</h2>
+      <a class="qk-lien qk-onglets__tout" href="{{ routes.root_url | append: '/pages/odeurs' | replace: '//', '/' }}">{% if qk_nl %}Zoek op geur{% else %}Chercher par odeurs{% endif %}</a>
+    </div>
+  </div>
+  <div class="qk-rangee" data-qk-proches-rangee></div>
+  <script src="{{ 'qk-odeurs.js' | asset_url }}" defer></script>
+  <script src="{{ 'qk-odeurs-outils.js' | asset_url }}" defer></script>
+  <script>
+    (function () {
+      var nl = {{ qk_nl | json }};
+      function demarrer() {
+        var O = window.qkOdeurs, s = document.querySelector('[data-qk-proches]');
+        if (!O || !s || s.getAttribute('data-ok')) return;
+        s.setAttribute('data-ok', '1');
+        var l = O.proches(s.getAttribute('data-qk-proches'));
+        if (!l.length) return;
+        var r = s.querySelector('[data-qk-proches-rangee]'), tmp = document.createElement('div');
+        O.remplir(tmp, l, 0, 8, nl, 0).then(function () {
+          if (tmp.children.length < 2) return;
+          Array.prototype.slice.call(tmp.children).forEach(function (c) {
+            var d = document.createElement('div'); d.className = 'qk-rangee__item'; d.appendChild(c); r.appendChild(d);
+          });
+          s.hidden = false;
+          if (window.qkFavoris) qkFavoris.maj();
+        });
+      }
+      if (window.qkOdeurs) demarrer(); else document.addEventListener('qk:odeurs', demarrer);
+    })();
+  </script>
+</section>
+
+{% schema %}
+{ "name": "Qosmi · Notes proches", "tag": "div", "settings": [] }
+{% endschema %}

@@ -557,3 +557,35 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-tuile--produit img { flex: 1 1 auto; min-height: 0; height: auto; padding: 10% 14% 4%; }
 .qk-tuile--produit .qk-tuile__texte { position: static; flex: 0 0 auto; padding: 0 18px 20px; }
 @media (max-width: 599px) { .qk-tuile--produit .qk-tuile__texte { padding: 0 16px 18px; } }
+
+/* ---------- Recherche par odeurs + parfums aux notes proches (12/11/2026) ---------- */
+.qk-odeurs__choix { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin: 0 -4px 28px; padding: 12px 4px; background: #fff; border-bottom: 1px solid var(--qk-trait); }
+.qk-odeurs__place { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border: 1px dashed var(--qk-trait);
+  border-radius: 999px; color: var(--qk-doux); font-size: 0.875rem; }
+.qk-odeurs__place.is-on { border: 1px solid var(--qk-noir); background: var(--qk-noir); color: #fff; padding-right: 6px; }
+.qk-odeurs__place button { width: 28px; height: 28px; border: 0; border-radius: 50%; background: rgba(255,255,255,.15); color: #fff; font-size: 1.1rem; line-height: 1; cursor: pointer; }
+.qk-odeurs__effacer { margin-left: auto; border: 0; background: none; padding: 8px 4px; font-size: 0.8125rem; letter-spacing: 0.08em;
+  text-transform: uppercase; text-decoration: underline; color: var(--qk-noir); cursor: pointer; }
+.qk-odeurs__familles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; }
+@media (max-width: 749px) { .qk-odeurs__familles { grid-template-columns: 1fr; gap: 22px; } }
+.qk-odeurs__nom-famille { margin: 0 0 10px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--qk-doux); }
+.qk-odeurs__puces { display: flex; flex-wrap: wrap; gap: 8px; }
+.qk-odeurs__puce { position: relative; min-height: 40px; padding: 0 14px; border: 1px solid var(--qk-trait); border-radius: 999px; background: #fff;
+  color: var(--qk-noir); font: inherit; font-size: 0.875rem; cursor: pointer; transition: border-color .15s, background .15s; }
+.qk-odeurs__puce:hover { border-color: var(--qk-noir); }
+.qk-odeurs__puce--tout { background: var(--qk-gris); border-color: var(--qk-gris); }
+.qk-odeurs__puce.is-on { background: var(--qk-noir); border-color: var(--qk-noir); color: #fff; padding-left: 34px; }
+.qk-odeurs__puce.is-on::before { content: attr(data-rang); position: absolute; left: 6px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px;
+  border-radius: 50%; background: #fff; color: var(--qk-noir); font-size: 0.75rem; line-height: 22px; text-align: center; }
+.qk-odeurs__puce:focus-visible { outline: 2px solid var(--qk-noir); outline-offset: 2px; }
+.qk-odeurs__resultats { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--qk-trait); }
+.qk-odeurs__titre-res { margin: 0 0 20px; font-size: 1.25rem; font-weight: 500; }
+.qk-odeurs__grille { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 20px; }
+@media (max-width: 989px) { .qk-odeurs__grille { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 749px) { .qk-odeurs__grille { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; } }
+.qk-odeurs__carte .qk-carte__img { position: relative; }
+.qk-odeurs__communes { font-size: 0.75rem; color: var(--qk-doux); line-height: 1.35; }
+.qk-odeurs__vide { color: var(--qk-doux); }
+.qk-odeurs__plus { max-width: 320px; margin: 32px auto 0; }
+.qk-proches .qk-carte__img { position: relative; }
