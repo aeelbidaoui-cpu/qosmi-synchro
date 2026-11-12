@@ -356,6 +356,10 @@ def construire(fichiers, marques):
     # favoris (08/11/2026) : cœurs sur les cartes et la fiche, page /pages/favoris, liste gardée dans le navigateur
     if "qk-favoris.js" not in lay:
         lay = lay.replace("</head>", "    <script src=\"{{ 'qk-favoris.js' | asset_url }}\" defer></script>\n  </head>", 1)
+    # « Complète ta commande » dans le panier (13/11/2026)
+    if "qk-complete.js" not in lay:
+        lay = lay.replace("</head>", "    <script>window.QK_COMPLETE = { odeurs: \"{{ 'qk-odeurs.js' | asset_url }}\", outils: \"{{ 'qk-odeurs-outils.js' | asset_url }}\" };</script>\n"
+                                     "    <script type=\"module\" src=\"{{ 'qk-complete.js' | asset_url }}\"></script>\n  </head>", 1)
     if "qosmi-rk.css" not in lay:
         lay = lay.replace("</head>", "    {{ 'qosmi-rk.css' | asset_url | stylesheet_tag }}\n  </head>", 1)
     # image de partage (réseaux sociaux, WhatsApp) quand la page n'a pas d'image propre (demande d'Amine du 08/11/2026)

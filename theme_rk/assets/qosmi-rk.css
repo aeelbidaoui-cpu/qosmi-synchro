@@ -774,3 +774,17 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-avis .jm-review-widget-minimal-header__title { font-size: 1.5rem !important; font-weight: 400 !important; text-transform: none; }
 .qk-avis { --jm-color-primary: #111111; --jm-star-color: #111111; }
 .qk-page-image { margin: 0 0 24px; }
+
+/* « Complète ta commande » (13/11/2026) */
+.qk-complete { margin: 16px 0 8px; padding: 14px; border: 1px solid var(--qk-trait); border-radius: 12px; background: #faf8f5; }
+.qk-complete__titre { margin: 0 0 10px; font-size: 0.875rem; }
+.qk-complete__liste { display: grid; gap: 10px; }
+.qk-complete__item { display: grid; grid-template-columns: 56px 1fr auto; gap: 10px; align-items: center; }
+.qk-complete__img img { width: 56px; height: 70px; object-fit: contain; background: #fff; border-radius: 8px; display: block; }
+.qk-complete__txt { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
+.qk-complete__marque { font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--qk-doux); }
+.qk-complete__nom { font-size: 0.875rem; color: var(--qk-noir); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qk-complete__prix { font-size: 0.8125rem; color: var(--qk-doux); }
+.qk-complete__btn { border: 1px solid var(--qk-noir); background: #fff; color: var(--qk-noir); border-radius: 999px; padding: 8px 14px; font-size: 0.8125rem; cursor: pointer; white-space: nowrap; }
+.qk-complete__btn:hover { background: var(--qk-noir); color: #fff; }
+.qk-complete__btn:disabled { opacity: 0.6; cursor: default; }
