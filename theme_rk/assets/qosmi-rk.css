@@ -712,3 +712,24 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-quiz__carte--icone .qk-quiz__titre { font-size: 0.875rem; }
   .qk-quiz__carte--icone .qk-quiz__sous { font-size: 0.6875rem; line-height: 1.25; }
 }
+/* quiz : résultat — le parfum idéal en grand (photo + texte côte à côte), puis 4 autres alignés (12/11/2026) */
+.qk-quiz__une { max-width: 860px; margin: 24px auto 56px; }
+.qk-quiz__une .qk-carte { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto auto 1fr; column-gap: 40px; row-gap: 10px;
+  align-content: center; text-align: left; }
+.qk-quiz__une .qk-carte__img { grid-column: 1; grid-row: 1 / -1; }
+.qk-quiz__une .qk-quiz__badge, .qk-quiz__une .qk-carte__ligne, .qk-quiz__une .qk-carte__nom, .qk-quiz__une .qk-odeurs__communes, .qk-quiz__une .qk-quiz__cta { grid-column: 2; }
+.qk-quiz__badge { justify-self: start; align-self: end; padding: 6px 12px; border-radius: 999px; background: var(--qk-noir); color: #fff;
+  font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.qk-quiz__une .qk-carte__nom { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; }
+.qk-quiz__une .qk-carte__ligne { justify-content: flex-start; gap: 16px; }
+.qk-quiz__une .qk-odeurs__communes { font-size: 0.875rem; }
+.qk-quiz__cta { align-self: start; justify-self: start; width: auto; margin-top: 10px; padding: 0 28px; background: var(--qk-noir); color: #fff; }
+.qk-quiz__autres { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1100px; margin: 0 auto 40px; }
+@media (max-width: 749px) {
+  .qk-quiz__une .qk-carte { grid-template-columns: 1fr; text-align: left; }
+  .qk-quiz__une .qk-carte__img, .qk-quiz__une .qk-quiz__badge, .qk-quiz__une .qk-carte__ligne, .qk-quiz__une .qk-carte__nom,
+  .qk-quiz__une .qk-odeurs__communes, .qk-quiz__une .qk-quiz__cta { grid-column: 1; grid-row: auto; }
+  .qk-quiz__badge { margin-top: 6px; }
+  .qk-quiz__cta { justify-self: stretch; text-align: center; }
+  .qk-quiz__autres { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
