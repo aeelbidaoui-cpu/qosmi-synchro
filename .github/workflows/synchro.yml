@@ -53,6 +53,8 @@ jobs:
         run: |
           if [ "${{ inputs.essai }}" = "true" ]; then python -u scripts/site_synchro.py --essai; else python -u scripts/site_synchro.py; fi
           [ -f rapports/site_synchro.log ] && tail -n 5 rapports/site_synchro.log >> "$GITHUB_STEP_SUMMARY" || true
+          # alertes « de retour en stock » (12/11/2026) : ne bloque jamais la mise à jour
+          if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/alertes_stock.py || echo "alertes : erreur (voir journal)"; fi
 
       - name: Garder l'état pour le prochain passage
         if: always()

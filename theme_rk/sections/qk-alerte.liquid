@@ -1,0 +1,65 @@
+{%- comment -%}
+  « Préviens-moi quand il revient » (12/11/2026, demande d'Amine) : sur une fiche dont le format choisi est épuisé,
+  le client laisse son e-mail. Il devient contact Shopify avec les étiquettes « alerte-stock », « langue:fr|nl » et
+  « attend:<id du format>:<AAAAMMJJ> ». scripts/alertes_stock.py repère le retour en stock, crée son code (5 %, max 3 €)
+  et Shopify Flow lui envoie l'e-mail.
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+<div class="qk-alerte" data-qk-alerte hidden>
+  <div class="qk-alerte__ok" data-qk-alerte-ok hidden>
+    <strong>{% if qk_nl %}Genoteerd!{% else %}C'est noté !{% endif %}</strong>
+    {% if qk_nl %}Je krijgt een e-mail zodra hij terug is, met 5 % korting voor je geduld.{% else %}Tu recevras un e-mail dès son retour, avec 5 % de réduction pour ton attente.{% endif %}
+  </div>
+  {%- form 'customer', class: 'qk-alerte__form', data-qk-alerte-form: '' -%}
+    <p class="qk-alerte__titre">{% if qk_nl %}Laat me weten wanneer hij terug is{% else %}Préviens-moi quand il revient{% endif %}</p>
+    <input type="hidden" name="contact[tags]" value="alerte-stock" data-qk-alerte-tags>
+    <input type="hidden" name="return_to" value="{{ product.url }}?alerte=ok" data-qk-alerte-retour>
+    <div class="qk-alerte__ligne">
+      <label class="visually-hidden" for="qk-alerte-email">{% if qk_nl %}E-mailadres{% else %}Adresse e-mail{% endif %}</label>
+      <input id="qk-alerte-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% else %}Ton e-mail{% endif %}">
+      <button type="submit" class="qk-alerte__bouton">{% if qk_nl %}Verwittig me{% else %}M'avertir{% endif %}</button>
+    </div>
+    <p class="qk-alerte__note">{% if qk_nl %}Je krijgt een e-mail zodra hij terug op voorraad is, met <strong>5 % korting</strong> voor je geduld. Je ontvangt ook onze maandelijkse nieuwsbrief (uitschrijven met één klik).{% else %}Tu recevras un e-mail dès son retour en stock, avec <strong>5 % de réduction</strong> pour ton attente. Tu recevras aussi notre e-mail mensuel (désinscription en un clic).{% endif %}</p>
+  {%- endform -%}
+</div>
+<script>
+  (function () {
+    var dispo = { {%- for v in product.variants -%}"{{ v.id }}": {{ v.available }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%} };
+    var langue = {{ qk_nl | json }} ? 'nl' : 'fr';
+    var bloc = document.querySelector('[data-qk-alerte]');
+    if (!bloc) return;
+    function jour() { var d = new Date(); return '' + d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2); }
+    function formulaire() { return document.querySelector('form[action*="/cart/add"] [name="id"]'); }
+    function placer() {
+      var cible = document.querySelector('.buy-buttons-block');
+      if (cible && bloc.parentNode !== cible.parentNode) cible.parentNode.insertBefore(bloc, cible.nextSibling);
+    }
+    var dernier = null;
+    function maj() {
+      var i = formulaire(); if (!i) return;
+      var vid = i.value;
+      if (vid === dernier) return;
+      dernier = vid;
+      var epuise = dispo[vid] === false;
+      bloc.hidden = !epuise;
+      document.querySelector('[data-qk-alerte-tags]').value = 'alerte-stock,langue:' + langue + ',attend:' + vid + ':' + jour();
+      var r = document.querySelector('[data-qk-alerte-retour]');
+      r.value = location.pathname + '?variant=' + vid + '&alerte=ok';
+    }
+    function demarrer() {
+      placer(); maj();
+      if (/[?&]alerte=ok/.test(location.search)) {
+        bloc.hidden = false;
+        bloc.querySelector('[data-qk-alerte-ok]').hidden = false;
+        bloc.querySelector('[data-qk-alerte-form]').hidden = true;
+      }
+      setInterval(maj, 700);  /* le thème change le format sans événement : on vérifie le format choisi régulièrement */
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', demarrer); else demarrer();
+  })();
+</script>
+
+{% schema %}
+{ "name": "Qosmi · Alerte stock", "tag": "div", "settings": [] }
+{% endschema %}

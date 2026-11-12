@@ -747,3 +747,16 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-quiz__une .qk-carte__img { aspect-ratio: 1 / 1; }
   .qk-quiz__une .qk-carte__img img { height: 100%; object-fit: contain; }
 }
+
+/* ---------- « Préviens-moi quand il revient » sur les fiches épuisées (12/11/2026) ---------- */
+.qk-alerte { margin: 16px 0 8px; padding: 18px 18px 14px; border: 1px solid var(--qk-trait); border-radius: 12px; background: #faf8f5; }
+.qk-alerte[hidden], .qk-alerte [hidden] { display: none !important; }
+.qk-alerte__titre { margin: 0 0 10px; font-weight: 500; font-size: 0.9375rem; }
+.qk-alerte__ligne { display: flex; gap: 8px; }
+.qk-alerte__ligne input { flex: 1 1 auto; min-width: 0; height: 46px; padding: 0 14px; border: 1px solid var(--qk-trait); border-radius: 8px; background: #fff; font: inherit; }
+.qk-alerte__ligne input:focus { outline: 2px solid var(--qk-noir); outline-offset: 1px; }
+.qk-alerte__bouton { flex: 0 0 auto; height: 46px; padding: 0 18px; border: 0; border-radius: 8px; background: var(--qk-noir); color: #fff; font: inherit; cursor: pointer; }
+.qk-alerte__bouton:hover { background: #333; }
+.qk-alerte__note { margin: 10px 0 0; font-size: 0.75rem; line-height: 1.45; color: var(--qk-doux); }
+.qk-alerte__ok { font-size: 0.9375rem; line-height: 1.5; }
+.qk-alerte__ok strong { display: block; margin-bottom: 4px; }

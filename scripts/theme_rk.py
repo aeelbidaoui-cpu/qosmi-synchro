@@ -494,6 +494,10 @@ def construire(fichiers, marques):
         ("Qosmi", "100% origineel", "Elk parfum is nieuw en origineel. Levering in heel België, gratis vanaf 2 artikelen.", "Onze merken"),
         "/pages/marques")
     d["order"] = [k for k in d["order"] if k != "qk_amb"] + ["qk_amb"]
+    # « Préviens-moi quand il revient » (12/11/2026) : la section se place d'elle-même sous le bouton d'achat
+    d["sections"]["qk_alerte"] = {"type": "qk-alerte", "settings": {}}
+    d["order"] = [k for k in d["order"] if k != "qk_alerte"]
+    d["order"].insert(d["order"].index("main") + 1 if "main" in d["order"] else 0, "qk_alerte")
     # « Parfums aux notes proches » (12/11/2026) : avant « Tu aimeras aussi » du thème
     d["sections"]["qk_proches"] = {"type": "qk-proches", "settings": {}}
     d["order"] = [k for k in d["order"] if k != "qk_proches"]
