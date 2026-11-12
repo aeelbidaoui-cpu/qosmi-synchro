@@ -770,3 +770,6 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-avis__badge .jdgm-prev-badge__text { font-size: 0.8125rem; color: var(--qk-doux); }
 .qk-avis__badge .jdgm-prev-badge[data-number-of-reviews="0"] { display: none !important; }
 :root { --jdgm-star-color: #111111; }
+.qk-avis .jm-button--primary { background: var(--qk-noir) !important; border-color: var(--qk-noir) !important; color: #fff !important; border-radius: 999px !important; padding: 12px 24px !important; }
+.qk-avis .jm-review-widget-minimal-header__title { font-size: 1.5rem !important; font-weight: 400 !important; text-transform: none; }
+.qk-avis { --jm-color-primary: #111111; --jm-star-color: #111111; }
