@@ -630,3 +630,61 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-menu-equilibre header-menu .menu-list__list-item:has(a.menu-list__link[href*="/pages/marques"]),
   .qk-menu-equilibre header-menu .menu-list__list-item:has(a.menu-list__link[href*="/blogs/"]) { display: none !important; }
 }
+
+/* ---------- Quiz parfum, version avec photos (12/11/2026) ---------- */
+.qk-quiz__cadre { max-width: 1100px; text-align: center; }
+.qk-quiz [hidden] { display: none !important; }
+.qk-quiz__entete { max-width: 520px; margin: 0 auto 28px; }
+.qk-quiz__entete .qk-surtitre { margin-bottom: 12px; }
+.qk-quiz__aide { margin-left: auto; margin-right: auto; }
+.qk-quiz__choix { grid-template-columns: repeat(var(--qk-cols, 2), minmax(0, 1fr)); max-width: calc(var(--qk-cols, 2) * 280px); margin: 28px auto 0; gap: 16px; }
+.qk-quiz__carte { position: relative; align-items: center; justify-content: center; text-align: center; overflow: hidden;
+  animation: qk-quiz-monte .45s ease both; }
+.qk-quiz__texte { display: flex; flex-direction: column; gap: 4px; }
+.qk-quiz__coche { position: absolute; top: 12px; right: 12px; width: 28px; height: 28px; border-radius: 50%; background: #fff; color: var(--qk-noir);
+  font-size: 0.875rem; line-height: 28px; text-align: center; opacity: 0; transform: scale(.6); transition: opacity .2s, transform .2s; }
+.qk-quiz__carte.is-on .qk-quiz__coche { opacity: 1; transform: scale(1); }
+.qk-quiz__carte--photo { aspect-ratio: 4 / 5; min-height: 0; padding: 0; border: 0; justify-content: flex-end; color: #fff; background: #111; }
+.qk-quiz__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.qk-quiz__carte--photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.65) 100%);
+  transition: background .3s; }
+.qk-quiz__carte--photo .qk-quiz__texte { position: relative; z-index: 1; padding: 18px 16px 20px; }
+.qk-quiz__carte--photo .qk-quiz__sous { opacity: .85; }
+.qk-quiz__carte--photo .qk-quiz__coche { z-index: 2; }
+.qk-quiz__carte--photo:hover .qk-quiz__photo { transform: scale(1.05); }
+.qk-quiz__carte--photo.is-on { outline: 3px solid var(--qk-noir); outline-offset: 3px; background: #111; }
+.qk-quiz__carte--photo.is-on::after { background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.7) 100%); }
+.qk-quiz__puces { justify-content: center; max-width: 760px; margin-left: auto; margin-right: auto; }
+.qk-quiz__puces .qk-odeurs__puce { animation: qk-quiz-monte .4s ease both; }
+.qk-quiz__bas { justify-content: center; gap: 24px; }
+.qk-quiz__suivant { margin: 0; max-width: 240px; background: var(--qk-noir); color: #fff; }
+.qk-quiz__suivant:hover { background: #333; }
+.qk-quiz__suivant[disabled] { opacity: .35; cursor: not-allowed; }
+.qk-quiz__entree { animation: qk-quiz-fondu .4s ease both; }
+@keyframes qk-quiz-fondu { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes qk-quiz-monte { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .qk-quiz__carte, .qk-quiz__entree, .qk-quiz__puces .qk-odeurs__puce { animation: none; } }
+/* accueil */
+.qk-quiz__accueil { position: relative; display: flex; align-items: center; justify-content: center; min-height: min(70vh, 620px); border-radius: 16px;
+  overflow: hidden; background: #222 center / cover no-repeat; color: #fff; }
+.qk-quiz__accueil::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.42); }
+.qk-quiz__accueil-texte { position: relative; max-width: 560px; padding: 40px 24px; }
+.qk-quiz__accueil-sur { margin: 0 0 14px; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: .85; }
+.qk-quiz__accueil-titre { margin: 0 0 14px; font-size: clamp(1.75rem, 5vw, 3rem); font-weight: 500; line-height: 1.1; color: #fff; }
+.qk-quiz__accueil-sous { margin: 0 0 28px; font-size: 1.0625rem; opacity: .9; }
+.qk-quiz__go { min-width: 220px; padding: 16px 28px; border: 1px solid #fff; border-radius: 999px; background: #fff; color: var(--qk-noir);
+  font: inherit; font-size: 1rem; letter-spacing: 0.04em; cursor: pointer; transition: background .2s, color .2s; }
+.qk-quiz__go:hover { background: transparent; color: #fff; }
+/* résultat centré */
+.qk-quiz__une { margin: 16px auto 40px; text-align: left; }
+.qk-quiz__autres { text-align: left; }
+.qk-quiz__actions { justify-content: center; }
+@media (max-width: 749px) {
+  .qk-quiz__choix { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .qk-quiz__choix:not(.qk-quiz__choix--photos) { grid-template-columns: 1fr; }
+  .qk-quiz__choix--photos > :last-child:nth-child(odd) { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+  .qk-quiz__carte--photo .qk-quiz__texte { padding: 12px 10px 14px; }
+  .qk-quiz__carte--photo .qk-quiz__titre { font-size: 0.9375rem; }
+  .qk-quiz__carte--photo .qk-quiz__sous { font-size: 0.75rem; }
+  .qk-quiz__accueil { min-height: 72vh; border-radius: 0; margin: 0 -16px; }
+}

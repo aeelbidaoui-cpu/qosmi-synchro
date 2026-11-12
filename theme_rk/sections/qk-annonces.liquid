@@ -34,6 +34,13 @@
       if (!nav || !col || nav.parentNode === col) return;
       col.insertBefore(nav, col.firstChild); nav.hidden = false;
       document.documentElement.classList.add('qk-menu-equilibre');
+      if (window.matchMedia('(min-width: 990px)').matches) {
+        document.querySelectorAll('header-menu .menu-list__list-item').forEach(function (li) {
+          var a = li.querySelector('a.menu-list__link');
+          if (a && /\/pages\/quiz|\/pages\/marques|\/blogs\//.test(a.getAttribute('href'))) li.remove();
+        });
+        window.dispatchEvent(new Event('resize'));
+      }
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', placer); else placer();
   })();

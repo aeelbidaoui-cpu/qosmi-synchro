@@ -7,7 +7,7 @@
 {%- assign qk_racine = routes.root_url | append: '/' | replace: '//', '/' -%}
 <section class="qk-section qk-quiz" data-qk-quiz>
   <div class="qk-largeur qk-quiz__cadre">
-    <div class="qk-quiz__entete">
+    <div class="qk-quiz__entete" data-qk-q-entete hidden>
       <p class="qk-surtitre">{% if qk_nl %}Parfumquiz{% else %}Quiz parfum{% endif %}</p>
       <div class="qk-quiz__progres" aria-hidden="true"><span data-qk-q-barre></span></div>
     </div>
@@ -26,24 +26,24 @@
       /* odeurs : id → poids. Les « tout_… » couvrent toute une famille. */
       var Q = [
         { id: 'pour', titre: T('C\'est pour qui ?', 'Voor wie is het?'), choix: [
-          { id: 'femme', t: T('Pour elle', 'Voor haar') }, { id: 'homme', t: T('Pour lui', 'Voor hem') },
-          { id: 'tous', t: T('Peu importe', 'Maakt niet uit'), s: T('Parfums mixtes compris', 'Ook unisex') }] },
+          { id: 'femme', img: '1581841064838-a470c740e8ee', t: T('Pour elle', 'Voor haar') }, { id: 'homme', img: '1706212825296-b2bebf3de002', t: T('Pour lui', 'Voor hem') },
+          { id: 'tous', img: '1621621668101-d5c8329b3784', t: T('Peu importe', 'Maakt niet uit'), s: T('Parfums mixtes compris', 'Ook unisex') }] },
         { id: 'quand', titre: T('Tu le porteras surtout…', 'Je draagt hem vooral…'), choix: [
-          { id: 'jour', t: T('Tous les jours', 'Elke dag'), s: T('Léger, facile à porter', 'Licht, makkelijk'), w: { tout_agrumes: 1, tout_frais: 1, musc: 0.5, oud: -1, tabac: -0.5 } },
-          { id: 'travail', t: T('Au travail', 'Op het werk'), s: T('Propre, discret', 'Fris, discreet'), w: { musc: 1, iris: 0.5, tout_frais: 0.5, tout_agrumes: 0.5, the: 0.5, oud: -1.5, tout_gourmand: -1 } },
-          { id: 'soir', t: T('Le soir, en sortie', '\'s Avonds, uitgaan'), s: T('Qui se remarque', 'Dat opvalt'), w: { tout_ambre: 1, oud: 1, tout_gourmand: 0.5, cuir: 0.5, tabac: 0.5, tout_agrumes: -0.5 } },
-          { id: 'special', t: T('Pour les grandes occasions', 'Voor speciale momenten'), s: T('Chic et intense', 'Chic en intens'), w: { oud: 0.5, ambre: 0.5, rose: 0.5, safran: 0.5, encens: 0.5, tout_bois: 0.5 } }] },
+          { id: 'jour', img: '1601276174812-63280a55656e', t: T('Tous les jours', 'Elke dag'), s: T('Léger, facile à porter', 'Licht, makkelijk'), w: { tout_agrumes: 1, tout_frais: 1, musc: 0.5, oud: -1, tabac: -0.5 } },
+          { id: 'travail', img: '1611269154421-4e27233ac5c7', t: T('Au travail', 'Op het werk'), s: T('Propre, discret', 'Fris, discreet'), w: { musc: 1, iris: 0.5, tout_frais: 0.5, tout_agrumes: 0.5, the: 0.5, oud: -1.5, tout_gourmand: -1 } },
+          { id: 'soir', img: '1580895456895-cfdf02e4c23f', t: T('Le soir, en sortie', '\'s Avonds, uitgaan'), s: T('Qui se remarque', 'Dat opvalt'), w: { tout_ambre: 1, oud: 1, tout_gourmand: 0.5, cuir: 0.5, tabac: 0.5, tout_agrumes: -0.5 } },
+          { id: 'special', img: '1580657274234-7339717f4541', t: T('Pour les grandes occasions', 'Voor speciale momenten'), s: T('Chic et intense', 'Chic en intens'), w: { oud: 0.5, ambre: 0.5, rose: 0.5, safran: 0.5, encens: 0.5, tout_bois: 0.5 } }] },
         { id: 'saison', titre: T('Plutôt pour quelle saison ?', 'Voor welk seizoen?'), choix: [
-          { id: 'ete', t: T('Printemps et été', 'Lente en zomer'), w: { tout_agrumes: 1, marin: 1, tout_frais: 1, tout_fruits: 0.5, tout_gourmand: -0.5, oud: -0.5 } },
-          { id: 'hiver', t: T('Automne et hiver', 'Herfst en winter'), w: { tout_ambre: 1, tout_gourmand: 1, tout_epices: 1, tout_bois: 0.5, marin: -1 } },
-          { id: 'annee', t: T('Toute l\'année', 'Het hele jaar'), w: {} }] },
+          { id: 'ete', img: '1507525428034-b723cf961d3e', t: T('Printemps et été', 'Lente en zomer'), w: { tout_agrumes: 1, marin: 1, tout_frais: 1, tout_fruits: 0.5, tout_gourmand: -0.5, oud: -0.5 } },
+          { id: 'hiver', img: '1551582045-6ec9c11d8697', t: T('Automne et hiver', 'Herfst en winter'), w: { tout_ambre: 1, tout_gourmand: 1, tout_epices: 1, tout_bois: 0.5, marin: -1 } },
+          { id: 'annee', img: '1613408181923-f058a1b0e00c', t: T('Toute l\'année', 'Het hele jaar'), w: {} }] },
         { id: 'univers', multi: 2, titre: T('Quel univers te ressemble ?', 'Welke stijl past bij jou?'), aide: T('Choisis-en 1 ou 2.', 'Kies er 1 of 2.'), choix: [
-          { id: 'frais', t: T('Frais et propre', 'Fris en clean'), s: T('Agrumes, marin, thé', 'Citrus, zee, thee'), w: { tout_agrumes: 2, marin: 2, vert: 1.5, the: 1, menthe: 1, lavande: 1, tout_frais: 1 } },
-          { id: 'gourmand', t: T('Sucré et gourmand', 'Zoet en gourmand'), s: T('Vanille, caramel, tonka', 'Vanille, karamel, tonka'), w: { vanille: 2, caramel: 2, tonka: 1.5, tout_gourmand: 1, chocolat: 1, cafe: 1, amande: 1, lait: 1, coco: 1 } },
-          { id: 'fleuri', t: T('Fleuri', 'Bloemig'), s: T('Rose, jasmin, fleurs blanches', 'Roos, jasmijn, witte bloemen'), w: { tout_fleurs: 1.5, rose: 1.5, jasmin: 1.5, fleurs_blanches: 1.5, fleur_oranger: 1, iris: 1, pivoine: 1, muguet: 1 } },
-          { id: 'boise', t: T('Boisé et élégant', 'Houtig en elegant'), s: T('Santal, cèdre, vétiver', 'Sandelhout, ceder, vetiver'), w: { tout_bois: 1.5, santal: 2, cedre: 1.5, vetiver: 1.5, patchouli: 1, mousse: 1 } },
-          { id: 'oriental', t: T('Oriental et intense', 'Oosters en intens'), s: T('Oud, ambre, encens, épices', 'Oud, amber, wierook, kruiden'), w: { oud: 2, ambre: 2, encens: 1.5, tout_epices: 1.5, safran: 1.5, cuir: 1, tabac: 1, baumes: 1, tout_ambre: 1 } },
-          { id: 'fruite', t: T('Fruité', 'Fruitig'), s: T('Fruits rouges, pêche, pomme', 'Rood fruit, perzik, appel'), w: { tout_fruits: 2, fruits_rouges: 1.5, peche: 1, pomme: 1, poire: 1, tropical: 1, cassis: 1 } }] },
+          { id: 'frais', img: '1568569350062-ebfa3cb195df', t: T('Frais et propre', 'Fris en clean'), s: T('Agrumes, marin, thé', 'Citrus, zee, thee'), w: { tout_agrumes: 2, marin: 2, vert: 1.5, the: 1, menthe: 1, lavande: 1, tout_frais: 1 } },
+          { id: 'gourmand', img: '1547414368-ac947d00b91d', t: T('Sucré et gourmand', 'Zoet en gourmand'), s: T('Vanille, caramel, tonka', 'Vanille, karamel, tonka'), w: { vanille: 2, caramel: 2, tonka: 1.5, tout_gourmand: 1, chocolat: 1, cafe: 1, amande: 1, lait: 1, coco: 1 } },
+          { id: 'fleuri', img: '1582794543139-8ac9cb0f7b11', t: T('Fleuri', 'Bloemig'), s: T('Rose, jasmin, fleurs blanches', 'Roos, jasmijn, witte bloemen'), w: { tout_fleurs: 1.5, rose: 1.5, jasmin: 1.5, fleurs_blanches: 1.5, fleur_oranger: 1, iris: 1, pivoine: 1, muguet: 1 } },
+          { id: 'boise', img: '1477862096227-3a1bb3b08330', t: T('Boisé et élégant', 'Houtig en elegant'), s: T('Santal, cèdre, vétiver', 'Sandelhout, ceder, vetiver'), w: { tout_bois: 1.5, santal: 2, cedre: 1.5, vetiver: 1.5, patchouli: 1, mousse: 1 } },
+          { id: 'oriental', img: '1583182363039-59eac8609ab2', t: T('Oriental et intense', 'Oosters en intens'), s: T('Oud, ambre, encens, épices', 'Oud, amber, wierook, kruiden'), w: { oud: 2, ambre: 2, encens: 1.5, tout_epices: 1.5, safran: 1.5, cuir: 1, tabac: 1, baumes: 1, tout_ambre: 1 } },
+          { id: 'fruite', img: '1613082410785-22292e8426e7', t: T('Fruité', 'Fruitig'), s: T('Fruits rouges, pêche, pomme', 'Rood fruit, perzik, appel'), w: { tout_fruits: 2, fruits_rouges: 1.5, peche: 1, pomme: 1, poire: 1, tropical: 1, cassis: 1 } }] },
         { id: 'adore', odeurs: true, titre: T('Une odeur que tu adores ?', 'Een geur waar je dol op bent?'), aide: T('Facultatif.', 'Optioneel.') },
         { id: 'deteste', odeurs: true, titre: T('Une odeur que tu ne supportes pas ?', 'Een geur die je niet verdraagt?'), aide: T('On l\'écartera. Facultatif.', 'Die laten we weg. Optioneel.') },
         { id: 'budget', titre: T('Ton budget ?', 'Je budget?'), choix: [
@@ -57,22 +57,51 @@
       function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
       function barre() { document.querySelector('[data-qk-q-barre]').style.width = Math.round(100 * Math.min(etape, Q.length) / Q.length) + '%'; }
 
+      var IMG = 'https://images.unsplash.com/photo-', TAILLE = '?auto=format&fit=crop&w=700&h=875&q=75';  /* photos Unsplash (licence libre) */
+      var accueilVu = false;
+      function accueil() {
+        document.querySelector('[data-qk-q-entete]').hidden = true; bRetour.hidden = true; bSuiv.hidden = true;
+        ecran.innerHTML = '';
+        var h = el('div', 'qk-quiz__accueil qk-quiz__entree');
+        h.style.backgroundImage = 'url(' + IMG + '1590736704728-f4730bb30770?auto=format&fit=crop&w=1600&h=900&q=75)';
+        var t = el('div', 'qk-quiz__accueil-texte');
+        t.appendChild(el('p', 'qk-quiz__accueil-sur', T('1 minute · 7 questions', '1 minuut · 7 vragen')));
+        t.appendChild(el('h1', 'qk-quiz__accueil-titre', T('Trouve le parfum qui te ressemble', 'Vind de parfum die bij je past')));
+        t.appendChild(el('p', 'qk-quiz__accueil-sous', T('Dis-nous ce que tu aimes, on choisit pour toi parmi nos parfums.', 'Vertel ons wat je mooi vindt, wij kiezen voor jou uit onze parfums.')));
+        var go = el('button', 'qk-quiz__go', T('Commencer', 'Starten')); go.type = 'button';
+        go.addEventListener('click', function () { accueilVu = true; document.querySelector('[data-qk-q-entete]').hidden = false; afficher(); });
+        t.appendChild(go); h.appendChild(t); ecran.appendChild(h);
+      }
       function afficher() {
+        if (!accueilVu) return accueil();
         barre();
         if (etape >= Q.length) return resultat();
         var q = Q[etape], O = window.qkOdeurs;
         ecran.innerHTML = '';
+        ecran.className = ''; void ecran.offsetWidth; ecran.className = 'qk-quiz__entree';
         ecran.appendChild(el('p', 'qk-quiz__num', (etape + 1) + ' / ' + Q.length));
         ecran.appendChild(el('h1', 'qk-quiz__question', q.titre));
         if (q.aide) ecran.appendChild(el('p', 'qk-quiz__aide', q.aide));
-        var grille = el('div', q.odeurs ? 'qk-odeurs__puces qk-quiz__puces' : 'qk-quiz__choix');
+        var photos = !q.odeurs && q.choix.some(function (c) { return c.img; });
+        var grille = el('div', q.odeurs ? 'qk-odeurs__puces qk-quiz__puces' : 'qk-quiz__choix' + (photos ? ' qk-quiz__choix--photos' : ''));
+        if (!q.odeurs) grille.style.setProperty('--qk-cols', q.choix.length > 4 ? 3 : q.choix.length);
         var liste = q.odeurs ? POPULAIRES.map(function (id) { var o = O.parId[id]; return { id: id, t: nl ? o.nl : o.fr }; }) : q.choix;
         var sel = [].concat(rep[q.id] || []);
         liste.forEach(function (c) {
           var b = el('button', q.odeurs ? 'qk-odeurs__puce' : 'qk-quiz__carte');
           b.type = 'button'; b.setAttribute('aria-pressed', sel.indexOf(c.id) >= 0 ? 'true' : 'false');
           if (sel.indexOf(c.id) >= 0) b.classList.add('is-on');
-          if (q.odeurs) b.textContent = c.t; else { b.appendChild(el('span', 'qk-quiz__titre', c.t)); if (c.s) b.appendChild(el('span', 'qk-quiz__sous', c.s)); }
+          if (q.odeurs) b.textContent = c.t;
+          else {
+            if (c.img) {
+              var im = el('img', 'qk-quiz__photo'); im.alt = ''; im.loading = 'lazy'; im.src = IMG + c.img + TAILLE;
+              b.appendChild(im); b.classList.add('qk-quiz__carte--photo');
+            }
+            var tx = el('span', 'qk-quiz__texte'); tx.appendChild(el('span', 'qk-quiz__titre', c.t)); if (c.s) tx.appendChild(el('span', 'qk-quiz__sous', c.s));
+            b.appendChild(tx);
+            b.appendChild(el('span', 'qk-quiz__coche', '✓'));
+          }
+          b.style.animationDelay = (liste.indexOf(c) * 60) + 'ms';
           b.addEventListener('click', function () {
             if (q.multi) {
               var k = sel.indexOf(c.id);
@@ -89,7 +118,8 @@
           passer.addEventListener('click', function () { rep[q.id] = []; etape++; afficher(); });
           ecran.appendChild(passer);
         }
-        bRetour.hidden = etape === 0;
+        (Q[etape + 1] && Q[etape + 1].choix || []).forEach(function (c) { if (c.img) { var pre = new Image(); pre.src = IMG + c.img + TAILLE; } });
+        bRetour.hidden = false;
         bSuiv.hidden = !q.multi; bSuiv.disabled = !(rep[q.id] || []).length;
         window.scrollTo({ top: document.querySelector('[data-qk-quiz]').offsetTop - 20, behavior: 'smooth' });
       }
@@ -137,7 +167,7 @@
           if (autres.children.length) { ecran.appendChild(t2); ecran.appendChild(autres); }
           var actions = el('div', 'qk-quiz__actions');
           var refaire = el('button', 'qk-acheter', T('Refaire le quiz', 'Quiz opnieuw doen')); refaire.type = 'button';
-          refaire.addEventListener('click', function () { rep = {}; etape = 0; afficher(); });
+          refaire.addEventListener('click', function () { rep = {}; etape = 0; document.querySelector('[data-qk-q-entete]').hidden = false; afficher(); });
           var ids = []; (rep.adore || []).forEach(function (x) { ids.push(x); });
           liste.slice(0, 1).forEach(function (r) { r.eus.slice(0, 3 - ids.length).forEach(function (i) { if (ids.indexOf(O.odeurs[i].id) < 0) ids.push(O.odeurs[i].id); }); });
           var affiner = el('a', 'qk-lien', T('Affiner par odeurs', 'Verfijnen op geur'));
@@ -147,7 +177,7 @@
         });
       }
 
-      bRetour.addEventListener('click', function () { if (etape > 0) { etape--; afficher(); } });
+      bRetour.addEventListener('click', function () { if (etape > 0) { etape--; } else { accueilVu = false; } afficher(); });
       bSuiv.addEventListener('click', function () { etape++; afficher(); });
       function demarrer() { if (window.qkOdeurs && !ecran.children.length) afficher(); }
       if (window.qkOdeurs) demarrer(); else document.addEventListener('qk:odeurs', demarrer);
