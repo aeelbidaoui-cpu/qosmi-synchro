@@ -102,5 +102,24 @@ def main():
     print("OK odeurs posées sur %d parfums (%d parfums de la liste absents de la boutique)" % (faits, absents))
 
 
+def libelle_nl():
+    """Titre du filtre Search & Discovery en néerlandais : « Odeurs » → « Geuren »."""
+    from shopify_api import Shopify
+    s = Shopify()
+    r = s.gql("""{ translatableResources(first: 50, resourceType: FILTER) { nodes { resourceId translatableContent { key value digest locale } } } }""")
+    n = 0
+    for res in r["translatableResources"]["nodes"]:
+        for c in res["translatableContent"]:
+            if c["value"] == "Odeurs":
+                e = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) { userErrors { message } } }""",
+                          {"id": res["resourceId"], "t": [{"locale": "nl", "key": c["key"], "value": "Geuren", "translatableContentDigest": c["digest"]}]})
+                print("Libellé NL :", res["resourceId"], e["translationsRegister"]["userErrors"] or "Geuren")
+                n += 1
+    print("OK libellés traduits :", n)
+
+
 if __name__ == "__main__":
-    main()
+    if "--libelle" in sys.argv:
+        libelle_nl()
+    else:
+        main()
