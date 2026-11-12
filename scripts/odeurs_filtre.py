@@ -10,7 +10,7 @@ import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import odeurs
 
-TYPE = "qosmi_odeur"
+TYPE = "odeur"
 
 
 def erreurs(r, cle):
@@ -24,16 +24,25 @@ def main():
     from shopify_api import Shopify
     s = Shopify()
     # 1. définition du métaobjet
-    d = s.gql("query($t: String!) { metaobjectDefinitionByType(type: $t) { id } }", {"t": TYPE})["metaobjectDefinitionByType"]
-    if not d:
-        d = erreurs(s.gql("""mutation($d: MetaobjectDefinitionCreateInput!) { metaobjectDefinitionCreate(definition: $d) {
+    global TYPE
+    d = None
+    for t in ("odeur", "$app:odeur"):  # 12/11/2026 : « qosmi_odeur » refusé (« réservé à une autre application »)
+        TYPE = t
+        d = s.gql("query($t: String!) { metaobjectDefinitionByType(type: $t) { id } }", {"t": TYPE})["metaobjectDefinitionByType"]
+        if d:
+            break
+        r = s.gql("""mutation($d: MetaobjectDefinitionCreateInput!) { metaobjectDefinitionCreate(definition: $d) {
                 metaobjectDefinition { id } userErrors { field message code } } }""",
-                          {"d": {"type": TYPE, "name": "Odeur", "displayNameKey": "nom",
-                                 "access": {"storefront": "PUBLIC_READ"},
-                                 "capabilities": {"translatable": {"enabled": True}},
-                                 "fieldDefinitions": [{"key": "nom", "name": "Nom", "type": "single_line_text_field", "required": True}]}}),
-                    "metaobjectDefinitionCreate")["metaobjectDefinition"]
-        print("Définition « Odeur » créée")
+                  {"d": {"type": TYPE, "name": "Odeur", "displayNameKey": "nom",
+                         "access": {"storefront": "PUBLIC_READ"},
+                         "capabilities": {"translatable": {"enabled": True}},
+                         "fieldDefinitions": [{"key": "nom", "name": "Nom", "type": "single_line_text_field", "required": True}]}})["metaobjectDefinitionCreate"]
+        print("type %s : %s" % (t, r["userErrors"] or "créé"))
+        if not r["userErrors"]:
+            d = r["metaobjectDefinition"]
+            break
+    if not d:
+        raise SystemExit("Aucun type de métaobjet accepté")
     def_id = d["id"]
 
     # 2. une fiche par odeur précise (pas les « toute la famille »)
