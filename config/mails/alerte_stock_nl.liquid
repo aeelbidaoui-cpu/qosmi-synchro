@@ -1,0 +1,53 @@
+{%- comment -%} Qosmi · alerte « de retour en stock » (12/11/2026). Lit les étiquettes posées par scripts/alertes_stock.py. {%- endcomment -%}
+{%- assign code = '' -%}{%- assign remise = '' -%}{%- assign nb_retour = 0 -%}
+{%- for t in customer.tags -%}
+  {%- if t contains 'code:' -%}{%- assign code = t | remove_first: 'code:' -%}{%- endif -%}
+  {%- if t contains 'remise:' -%}{%- assign remise = t | remove_first: 'remise:' | replace: '.', ',' -%}{%- endif -%}
+  {%- if t contains 'retour:' -%}{%- assign nb_retour = nb_retour | plus: 1 -%}{%- endif -%}
+{%- endfor -%}
+<div style="font-family:Helvetica,Arial,sans-serif;color:#111111;text-align:center;padding:8px 24px 24px;">
+{%- if nb_retour > 0 -%}
+  <p style="margin:0 0 6px;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#777777;">Goed nieuws</p>
+  <h1 style="margin:0 0 14px;font-size:28px;line-height:1.2;font-weight:600;">Hij is terug!</h1>
+  <p style="margin:0 0 22px;font-size:15px;line-height:1.6;color:#444444;">Hallo{% if customer.first_name != blank %} {{ customer.first_name }}{% endif %}, de parfum waarop je wachtte is weer op voorraad. Als dank voor je geduld krijg je een kleine korting.</p>
+  {%- if code != '' -%}
+  <div style="margin:0 auto 26px;max-width:360px;border:1px dashed #111111;border-radius:12px;padding:16px;">
+    <p style="margin:0 0 6px;font-size:13px;color:#555555;">Je persoonlijke code: {{ remise }} € (5 %)</p>
+    <p style="margin:0;font-size:22px;letter-spacing:3px;font-weight:700;">{{ code }}</p>
+  </div>
+  {%- endif -%}
+  {%- for t in customer.tags -%}{%- if t contains 'retour:' -%}
+    {%- assign h = t | remove_first: 'retour:' -%}{%- assign p = all_products[h] -%}
+    {%- if p -%}
+    <div style="margin:0 auto 22px;max-width:360px;">
+      <a href="{{ shop.url }}/discount/{{ code }}?redirect=/nl/products/{{ h }}" style="text-decoration:none;color:#111111;">
+        <img src="{{ p.featured_image | image_url: width: 600 }}" alt="{{ p.title | escape }}" width="300" style="display:block;margin:0 auto 12px;width:300px;max-width:100%;height:auto;background:#f3f3f3;border-radius:8px;">
+        <span style="display:block;font-size:13px;color:#777777;">{{ p.vendor }}</span>
+        <span style="display:block;margin:2px 0 4px;font-size:18px;">{{ p.title }}</span>
+        <span style="display:block;font-size:15px;">{{ p.price | money }}</span>
+      </a>
+      <a href="{{ shop.url }}/discount/{{ code }}?redirect=/nl/products/{{ h }}" style="display:inline-block;margin-top:14px;padding:14px 28px;background:#111111;color:#ffffff;text-decoration:none;border-radius:999px;font-size:15px;">Ik neem hem</a>
+    </div>
+    {%- endif -%}
+  {%- endif -%}{%- endfor -%}
+  <p style="margin:6px 0 0;font-size:12px;line-height:1.5;color:#888888;">Code 7 dagen geldig, één keer, op deze parfum. Hij wordt automatisch toegepast via de knop. De voorraad gaat snel: we kunnen hem niet voor je reserveren.</p>
+{%- else -%}
+  <p style="margin:0 0 6px;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#777777;">Nieuws over je parfum</p>
+  <h1 style="margin:0 0 14px;font-size:26px;line-height:1.2;font-weight:600;">Hij komt niet terug, maar we hebben andere ideeën</h1>
+  <p style="margin:0 0 22px;font-size:15px;line-height:1.6;color:#444444;">Hallo{% if customer.first_name != blank %} {{ customer.first_name }}{% endif %}, de parfum waarop je wachtte is niet meer verkrijgbaar bij onze leverancier. Dit zijn parfums met gelijkaardige noten, op voorraad:</p>
+  {%- for t in customer.tags -%}{%- if t contains 'propose:' -%}
+    {%- assign h = t | remove_first: 'propose:' -%}{%- assign p = all_products[h] -%}
+    {%- if p -%}
+    <div style="margin:0 auto 24px;max-width:300px;">
+      <a href="{{ shop.url }}/nl/products/{{ h }}" style="text-decoration:none;color:#111111;">
+        <img src="{{ p.featured_image | image_url: width: 500 }}" alt="{{ p.title | escape }}" width="240" style="display:block;margin:0 auto 10px;width:240px;max-width:100%;height:auto;border-radius:8px;">
+        <span style="display:block;font-size:13px;color:#777777;">{{ p.vendor }}</span>
+        <span style="display:block;margin:2px 0 4px;font-size:17px;">{{ p.title }}</span>
+        <span style="display:block;font-size:15px;">{{ p.price | money }}</span>
+      </a>
+    </div>
+    {%- endif -%}
+  {%- endif -%}{%- endfor -%}
+  <a href="{{ shop.url }}/nl/pages/quiz" style="display:inline-block;margin-top:4px;padding:14px 28px;background:#111111;color:#ffffff;text-decoration:none;border-radius:999px;font-size:15px;">Andere parfums vinden</a>
+{%- endif -%}
+</div>
