@@ -20,6 +20,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 TAUX, PLAFOND, MINIMUM = 0.05, 3.00, 0.50
 JOURS_CODE, JOURS_ATTENTE = 7, 30
 ESSAI = "--essai" in sys.argv
+# Test de bout en bout (accord d'Amine) : --simuler retour|perdu avec ALERTE_CLIENT = identifiant numérique du client test
+SIMULER = sys.argv[sys.argv.index("--simuler") + 1] if "--simuler" in sys.argv else ""
+SIMULER_CLIENT = os.environ.get("ALERTE_CLIENT", "").strip()
+if SIMULER and not SIMULER_CLIENT:
+    raise SystemExit("--simuler : identifiant du client test manquant (ALERTE_CLIENT)")
 
 
 def log(*a):
@@ -134,7 +139,10 @@ def main():
         retours, perdus, a_retirer = [], [], []
         for tag, vid, depuis in attentes[c["id"]]:
             v = F.get(vid)
-            if v and v["availableForSale"] and v["product"]["status"] == "ACTIVE":
+            simule = SIMULER and c["id"].rsplit("/", 1)[1] == SIMULER_CLIENT
+            if simule and SIMULER == "perdu" and v:
+                perdus.append(v["product"]["handle"]); a_retirer.append(tag)
+            elif (simule and v) or (v and v["availableForSale"] and v["product"]["status"] == "ACTIVE"):
                 retours.append(v); a_retirer.append(tag)
             elif (aujourdhui - depuis).days >= JOURS_ATTENTE:
                 perdus.append(v["product"]["handle"] if v else None); a_retirer.append(tag)
