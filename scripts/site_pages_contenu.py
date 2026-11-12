@@ -127,6 +127,7 @@ PAGES = [
         "handle": "livraison", "handle_nl": "levering",
         "titre": "Livraison", "titre_nl": "Levering",
         "fr": """
+<figure class="qk-page-image"><img src="{img_livraison_colis}" alt="Colis Qosmi en carton kraft prêts à partir" width="2400" height="1018" loading="eager" style="width:100%;height:auto;border-radius:12px;margin:0 0 24px"></figure>
 <p><strong>Livraison partout en Belgique : {frais_livraison} par commande, offerte dès 2 articles.</strong> Nous ne livrons pas en dehors de la Belgique pour le moment.</p>
 <h2>Délais</h2>
 <p><strong>Livraison en {delai_total}</strong> à compter de la confirmation du paiement.</p>
@@ -137,6 +138,7 @@ PAGES = [
 <p>Colis abîmé, en retard ou incomplet : écrivez-nous à <a href="mailto:{email}">{email}</a> avec votre numéro de commande et, si possible, des photos. Les détails figurent dans nos <a href="/pages/conditions-generales-de-vente">conditions générales de vente</a> (article 4).</p>
 """,
         "nl": """
+<figure class="qk-page-image"><img src="{img_livraison_colis}" alt="Qosmi-pakketten in kraftkarton klaar voor verzending" width="2400" height="1018" loading="eager" style="width:100%;height:auto;border-radius:12px;margin:0 0 24px"></figure>
 <p><strong>Levering in heel België: {frais_livraison_nl} per bestelling, gratis vanaf 2 artikelen.</strong> Wij leveren voorlopig niet buiten België.</p>
 <h2>Termijnen</h2>
 <p><strong>Levering binnen {delai_total_nl}</strong> na bevestiging van de betaling.</p>

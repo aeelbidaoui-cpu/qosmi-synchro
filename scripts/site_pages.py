@@ -25,18 +25,23 @@ def cfg():
         return json.load(f)
 
 
+IMAGES = {}  # {img_<nom>: adresse CDN} des images de assets/site (scripts/images_site.py), remplies par envoyer()
+
+
 def remplir(html, c, nl=False):
     d = dt.date.today()
     v = dict(ENTREPRISE, email=c["email_service_client"],
              frais_livraison=c["frais_livraison"], frais_livraison_nl=c["frais_livraison"],
              delai_total=c["delai_livraison_fr"], delai_total_nl=c["delai_livraison_nl"],
              date="%d %s %d" % (d.day, MOIS[d.month - 1], d.year), date_nl="%d %s %d" % (d.day, MAAND[d.month - 1], d.year))
+    v.update(IMAGES)
     html = html.strip()
     for k, val in v.items():
         html = html.replace("{%s}" % k, str(val))
     if nl:  # liens internes vers la version néerlandaise
         for p in PAGES:
             html = html.replace('href="/pages/%s"' % p["handle"], 'href="/nl/pages/%s"' % p["handle_nl"])
+    html = re.sub(r'<figure class="qk-page-image">\s*<img src="\{img_[a-z_]+\}"[^>]*>\s*</figure>', "", html)  # image pas encore envoyée
     reste = re.findall(r"\{[a-z_]+\}", html)
     if reste:
         raise SystemExit("Champ non rempli : %s" % reste)
@@ -63,7 +68,9 @@ def apercu():
 
 def envoyer():
     from shopify_api import Shopify
+    import images_site
     c = cfg()
+    IMAGES.update({"img_" + n.replace("qosmi-", "").replace(".jpg", "").replace("-", "_"): u for n, u in images_site.urls(Shopify()).items()})
     for p in PAGES:  # contrôle complet avant d'envoyer quoi que ce soit
         remplir(p["fr"], c), remplir(p["nl"], c, nl=True)
     s = Shopify()

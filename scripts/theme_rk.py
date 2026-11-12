@@ -14,9 +14,10 @@ FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.js
 OPTIONNELS = ["snippets/meta-tags.liquid"]  # 09/11/2026 : titre Google de l'accueil FR (lu s'il existe)
 
 def ambiance(n, alt, cote, fr, nl, lien):
-    """Bloc photo + texte (photos d'ambiance Unsplash validées par Amine le 09/11/2026, qosmi-ambiance-<n>.jpg)."""
+    """Bloc photo + texte (photos d'ambiance Unsplash validées par Amine le 09/11/2026, qosmi-ambiance-<n>.jpg ;
+    n peut aussi être un nom de fichier, ex. les images d'Amine de assets/site)."""
     return {"type": "qk-ambiance", "settings": {
-        "fichier": "qosmi-ambiance-%d.jpg" % n, "alt": alt, "cote": cote,
+        "fichier": n if isinstance(n, str) else "qosmi-ambiance-%d.jpg" % n, "alt": alt, "cote": cote,
         "surtitre": fr[0], "titre": fr[1], "texte": "<p>%s</p>" % fr[2], "lien_texte": fr[3],
         "surtitre_nl": nl[0], "titre_nl": nl[1], "texte_nl": "<p>%s</p>" % nl[2], "lien_texte_nl": nl[3], "lien": lien}}
 
@@ -428,7 +429,8 @@ def construire(fichiers, marques):
             ("Parfums arabes", "L'Orient en flacon", "Oud, ambre, vanille, rose : Lattafa, Armaf, Al Haramain, Afnan et bien d'autres maisons des Émirats.", "Découvrir"),
             ("Arabische parfums", "Het Oosten in een flacon", "Oud, amber, vanille, roos: Lattafa, Armaf, Al Haramain, Afnan en nog veel meer huizen uit de Emiraten.", "Ontdek"),
             "/collections/parfums-arabes"),
-        "qk_apropos": ambiance(1, "Flacons de parfum posés sur un journal", "droite",
+        # 13/11/2026 : photo d'Amine (Gemini) « flacons sur une console en marbre », vidéo de l'accueil gardée
+        "qk_apropos": ambiance("qosmi-accueil-flacons.jpg", "Flacons de parfum sur une console en marbre, pétales séchés et branche d'olivier", "droite",
             ("À propos", "Qosmi", "Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, neufs, au juste prix. "
              "On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, et on te les livre partout en Belgique.", "Voir tous les parfums"),
             ("Over ons", "Qosmi", "Qosmi is een Belgische online parfumerie, eenvoudig en eerlijk: 100% originele, nieuwe parfums tegen de juiste prijs. "
