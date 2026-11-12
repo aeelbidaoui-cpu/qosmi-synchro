@@ -6,7 +6,7 @@ on:
       action:
         description: "exporter (lecture seule) ou appliquer (copie non publiée)"
         type: choice
-        options: [exporter, exporter-apercu, appliquer, theme-rk, publier, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, seo-boutique, controle-boutique, google, testeurs-suspens, photos-manquantes, photos-jm, photos-mm, photos-tfi, photos-ck, photos-tt, photos-lvmh, photos-m2, photos-m3, livraison-2-95, page-favoris, page-odeurs, page-quiz, page-faq, odeurs-filtre, odeurs-libelle, profils-parfums, alertes-stock, alertes-essai, alertes-simuler-retour, alertes-simuler-perdu, images-site, photo-fiche, politiques, politiques-nl, textes-fiches, menu, nl-audit, nl-traduire, nl-publier, nl-emails, nl-emails-envoyer, seo-marques, seo-marques-essai, seo-collections-vides, seo-prix-unitaire, photos-ambiance, seo-alt-nl, social-medias-lot1]
+        options: [exporter, exporter-apercu, appliquer, theme-rk, publier, activer-fiches, photos-marques, controle-photos, qualite-photos, masquer-photos-faibles, photos-adp, photos-hero, photos-ici, photos-cadre, pages-legales, seo-boutique, controle-boutique, google, testeurs-suspens, photos-manquantes, photos-jm, photos-mm, photos-tfi, photos-ck, photos-tt, photos-lvmh, photos-m2, photos-m3, livraison-2-95, page-favoris, page-odeurs, page-quiz, page-faq, page-lexique, odeurs-filtre, odeurs-libelle, profils-parfums, alertes-stock, alertes-essai, alertes-simuler-retour, alertes-simuler-perdu, images-site, photo-fiche, politiques, politiques-nl, textes-fiches, menu, nl-audit, nl-traduire, nl-publier, nl-emails, nl-emails-envoyer, seo-marques, seo-marques-essai, seo-collections-vides, seo-prix-unitaire, photos-ambiance, seo-alt-nl, social-medias-lot1]
         default: exporter
       fiche:
         description: "photos-marques : renvoyer seulement cette fiche (adresse de la fiche)"
@@ -71,6 +71,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "page-odeurs" ]; then python -u scripts/page_odeurs.py
           elif [ "${{ inputs.action }}" = "page-quiz" ]; then python -u scripts/page_quiz.py
           elif [ "${{ inputs.action }}" = "page-faq" ]; then python -u scripts/page_faq.py
+          elif [ "${{ inputs.action }}" = "page-lexique" ]; then python -u scripts/page_lexique.py
           elif [ "${{ inputs.action }}" = "odeurs-filtre" ]; then python -u scripts/odeurs_filtre.py
           elif [ "${{ inputs.action }}" = "alertes-stock" ]; then python -u scripts/alertes_stock.py
           elif [ "${{ inputs.action }}" = "images-site" ]; then python -u scripts/images_site.py

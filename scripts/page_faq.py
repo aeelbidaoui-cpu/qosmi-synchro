@@ -76,9 +76,9 @@ FAQ = [
          "Hoe vind ik een parfum dat ik mooi vind?",
          "Doe onze <a href=\"/pages/quiz\">quiz</a>, of zoek vanuit de geuren die je mooi vindt met <a href=\"/pages/odeurs\">zoeken op geur</a>. Op elke productpagina toont het blok ‘Parfums met gelijkaardige noten’ parfums uit dezelfde familie."),
         ("Que veulent dire notes de tête, de cœur et de fond ?",
-         "Ce sont les trois temps d'un parfum. Les notes de tête se sentent dès la vaporisation et partent vite. Les notes de cœur forment le caractère du parfum pendant quelques heures. Les notes de fond, plus lourdes, restent le plus longtemps sur la peau.",
+         "Ce sont les trois temps d'un parfum. Les notes de tête se sentent dès la vaporisation et partent vite. Les notes de cœur forment le caractère du parfum pendant quelques heures. Les notes de fond, plus lourdes, restent le plus longtemps sur la peau. D'autres mots du parfum sont expliqués dans notre <a href=\"/pages/lexique\">lexique</a>.",
          "Wat betekenen top-, hart- en basisnoten?",
-         "Dat zijn de drie fases van een parfum. Topnoten ruik je meteen na het sprayen en ze verdwijnen snel. Hartnoten bepalen een paar uur lang het karakter van het parfum. Basisnoten zijn zwaarder en blijven het langst op je huid."),
+         "Dat zijn de drie fases van een parfum. Topnoten ruik je meteen na het sprayen en ze verdwijnen snel. Hartnoten bepalen een paar uur lang het karakter van het parfum. Basisnoten zijn zwaarder en blijven het langst op je huid. Meer parfumwoorden vind je in ons <a href=\"/pages/lexique\">geurwoordenboek</a>."),
         ("Comment faire tenir mon parfum plus longtemps ?",
          "Vaporise-le sur une peau propre et hydratée, sur les points chauds (poignets, cou, creux des coudes), sans frotter. Une touche sur les vêtements ou les cheveux aide aussi à garder le sillage.",
          "Hoe blijft mijn parfum langer hangen?",
@@ -126,7 +126,7 @@ def section():
             for q_fr, r_fr, q_nl, r_nl in qs:
                 q, r = (q_nl, r_nl) if nl else (q_fr, r_fr)
                 if nl:
-                    r = r.replace('href="/pages/', 'href="/nl/pages/').replace("/nl/pages/retours", "/nl/pages/retourneren")
+                    r = r.replace('href="/pages/', 'href="/nl/pages/').replace("/nl/pages/retours", "/nl/pages/retourneren").replace("/nl/pages/lexique", "/nl/pages/geurwoordenboek")
                 out.append('<details class="qk-faq__q"><summary>%s</summary><div class="qk-faq__r"><p>%s</p></div></details>' % (q, r))
         return "\n".join(out)
 
