@@ -589,3 +589,32 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-odeurs__vide { color: var(--qk-doux); }
 .qk-odeurs__plus { max-width: 320px; margin: 32px auto 0; }
 .qk-proches .qk-carte__img { position: relative; }
+
+/* ---------- Quiz parfum (12/11/2026) ---------- */
+.qk-quiz__cadre { max-width: 860px; }
+.qk-quiz__entete { margin-bottom: 24px; }
+.qk-quiz__progres { height: 3px; background: var(--qk-trait); border-radius: 3px; overflow: hidden; }
+.qk-quiz__progres span { display: block; height: 100%; width: 0; background: var(--qk-noir); transition: width .3s ease; }
+.qk-quiz__num { margin: 0 0 6px; font-size: 0.8125rem; color: var(--qk-doux); letter-spacing: 0.08em; }
+.qk-quiz__question { margin: 0 0 8px; font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 500; line-height: 1.15; }
+.qk-quiz__aide { margin: 0 0 20px; color: var(--qk-doux); }
+.qk-quiz__choix { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+@media (max-width: 599px) { .qk-quiz__choix { grid-template-columns: 1fr; gap: 10px; } }
+.qk-quiz__carte { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-height: 76px; padding: 18px 20px; text-align: left;
+  border: 1px solid var(--qk-trait); border-radius: 12px; background: #fff; color: var(--qk-noir); font: inherit; cursor: pointer; transition: border-color .15s, background .15s; }
+.qk-quiz__carte:hover { border-color: var(--qk-noir); }
+.qk-quiz__carte.is-on { background: var(--qk-noir); border-color: var(--qk-noir); color: #fff; }
+.qk-quiz__carte:focus-visible { outline: 2px solid var(--qk-noir); outline-offset: 2px; }
+.qk-quiz__titre { font-size: 1.0625rem; font-weight: 500; }
+.qk-quiz__sous { font-size: 0.875rem; opacity: .7; }
+.qk-quiz__puces { margin-top: 16px; }
+.qk-quiz__passer { margin-top: 20px; padding: 8px 0; border: 0; background: none; font: inherit; font-size: 0.875rem; text-decoration: underline; color: var(--qk-doux); cursor: pointer; }
+.qk-quiz__bas { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 28px; }
+.qk-quiz__retour { border: 0; background: none; padding: 10px 0; font: inherit; font-size: 0.9375rem; color: var(--qk-noir); cursor: pointer; }
+.qk-quiz__suivant { max-width: 220px; margin-left: auto; }
+.qk-quiz__une { max-width: 360px; margin: 16px 0 40px; }
+.qk-quiz__une .qk-carte__nom { font-size: 1.125rem; }
+.qk-quiz__autres { margin-bottom: 32px; }
+.qk-quiz__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+.qk-quiz__actions .qk-acheter { max-width: 260px; }
+@media (max-width: 599px) { .qk-quiz__une { max-width: none; } }

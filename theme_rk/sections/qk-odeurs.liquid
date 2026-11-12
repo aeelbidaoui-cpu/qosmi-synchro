@@ -8,7 +8,8 @@
   <div class="qk-largeur">
     <p class="qk-surtitre">{% if qk_nl %}Geurzoeker{% else %}Recherche par odeurs{% endif %}</p>
     <h1 class="qk-titre-section">{% if qk_nl %}Vind je parfum op geur{% else %}Trouve ton parfum par ses odeurs{% endif %}</h1>
-    <p class="qk-intro">{% if qk_nl %}Kies tot 3 geuren die je lekker vindt. We tonen de parfums die ze bevatten, beginnend met die met alle drie.{% else %}Choisis jusqu'à 3 odeurs que tu aimes. On te montre les parfums qui les contiennent, en commençant par ceux qui ont les trois.{% endif %}</p>
+    <p class="qk-intro">{% if qk_nl %}Kies tot 3 geuren die je lekker vindt. We tonen de parfums die ze bevatten, beginnend met die met alle drie.{% else %}Choisis jusqu'à 3 odeurs que tu aimes. On te montre les parfums qui les contiennent, en commençant par ceux qui ont les trois.{% endif %}
+      <a class="qk-lien" href="{{ routes.root_url | append: '/pages/quiz' | replace: '//', '/' }}">{% if qk_nl %}Geen idee? Doe de quiz{% else %}Pas d'idée ? Fais le quiz{% endif %}</a></p>
 
     <div class="qk-odeurs__choix" data-qk-od-choix aria-live="polite">
       <span class="qk-odeurs__place" data-qk-od-place>1</span><span class="qk-odeurs__place" data-qk-od-place>2</span><span class="qk-odeurs__place" data-qk-od-place>3</span>

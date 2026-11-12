@@ -78,7 +78,7 @@ NL = {
  "Page d’accueil": "Startpagina", "Parfums": "Parfums", "Parfums femme": "Damesparfums", "Parfums homme": "Herenparfums",
  "Parfums mixtes": "Unisex parfums", "Parfums enfants": "Kinderparfums", "Parfums de niche": "Nicheparfums",
  "Parfums orientaux": "Oosterse parfums", "Testeurs": "Testers", "Coffrets": "Geschenksets", "Nouveautés": "Nieuw", "Black Friday": "Black Friday", "Soins": "Verzorging",
- "Maquillage": "Make-up", "Contact": "Contact", "Marques": "Merken", "Par odeurs": "Op geur",
+ "Maquillage": "Make-up", "Contact": "Contact", "Marques": "Merken", "Par odeurs": "Op geur", "Trouve ton parfum": "Vind je parfum",
  "Menu principal": "Hoofdmenu", "Menu du pied de page": "Footermenu", "Menu principal du compte client": "Hoofdmenu klantaccount",
  "Rechercher": "Zoeken", "Commandes": "Bestellingen", "Profil": "Profiel", "Femme": "Dames", "Homme": "Heren",
  "Mixte": "Unisex", "Niche": "Niche", "Parfums arabes": "Arabische parfums", "Journal": "Magazine", "Magazine": "Magazine", "Arabes": "Arabisch",

@@ -87,7 +87,7 @@ MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-h
         ("Niche", "niche", []),  # Testeurs retiré le 08/11/2026 (en suspens, question juridique)
         ("Parfums arabes", "parfums-arabes", []),  # 08/11/2026 : activé (174 parfums arabes en ligne)
         ("Coffrets", "coffrets", []),  # 10/11/2026 : coffrets pour les fêtes (demande d'Amine)
-        ("Par odeurs", "page:odeurs", []),  # 12/11/2026 : recherche par odeurs (idée d'un client, demande d'Amine)
+        ("Trouve ton parfum", "page:quiz", []),  # 12/11/2026 : quiz parfum ; la recherche par odeurs est liée depuis le quiz et les fiches
         ("Marques", "page:marques", []),  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
         ("Magazine", "blog:journal", [])]  # 08/11/2026 : le blog (scripts/blog.py) ; renommé « Magazine » le 10/11/2026 (demande d'Amine), adresse /blogs/journal gardée
 LOGOS = ["qosmi-logo.png", "qosmi-logo-blanc.png", "qosmi-favicon.png"]

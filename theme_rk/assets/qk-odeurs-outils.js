@@ -61,9 +61,10 @@
   }
 
   /* Carte produit (même rendu que les cartes du thème). Rien si le parfum n'est plus en vente. */
-  function carte(r, nl, total) {
+  function carte(r, nl, total, filtre) {
     return produit(r.h).then(function (p) {
       if (!p || !p.available || !p.featured_image) return null;
+      if (filtre && !filtre(p)) return null;
       var t = (p.title || '').split(' — '), nom = t[0].replace(p.vendor, '').trim() || t[0];
       var a = document.createElement('a');
       a.className = 'qk-carte qk-odeurs__carte';
@@ -83,13 +84,13 @@
   }
 
   /* Remplit « grille » avec jusqu'à n cartes disponibles, à partir de la position « depart » de la liste ; renvoie la position atteinte. */
-  function remplir(grille, liste, depart, n, nl, total) {
+  function remplir(grille, liste, depart, n, nl, total, filtre) {
     var i = depart, mis = 0;
     function lot() {
       if (mis >= n || i >= liste.length) return Promise.resolve(i);
       var tranche = liste.slice(i, i + Math.max(6, n - mis));
       i += tranche.length;
-      return Promise.all(tranche.map(function (r) { return carte(r, nl, total); })).then(function (cartes) {
+      return Promise.all(tranche.map(function (r) { return carte(r, nl, total, filtre); })).then(function (cartes) {
         cartes.forEach(function (c) { if (c && mis < n) { grille.appendChild(c); mis++; } });
         if (window.qkFavoris) qkFavoris.maj();
         return lot();
@@ -98,6 +99,6 @@
     return lot();
   }
 
-  window.qkOdeurs = { odeurs: odeurs, parId: parId, familles: D.familles, chercher: chercher, proches: proches, remplir: remplir, nom: nomOdeur, connu: function (h) { return !!P[h]; } };
+  window.qkOdeurs = { odeurs: odeurs, parId: parId, familles: D.familles, chercher: chercher, proches: proches, remplir: remplir, nom: nomOdeur, profils: P, unique: unique, base: base, connu: function (h) { return !!P[h]; } };
   document.dispatchEvent(new CustomEvent('qk:odeurs'));
 })();

@@ -1,0 +1,4 @@
+{
+  "sections": { "main": { "type": "qk-quiz", "settings": {} } },
+  "order": ["main"]
+}
