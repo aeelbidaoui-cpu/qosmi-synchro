@@ -480,12 +480,14 @@ def construire(fichiers, marques):
         "<span>Parfum original, neuf, avec facture d'achat</span><span>14 jours pour changer d'avis (flacon non ouvert)</span>"
         "<span>Paiement Bancontact, carte ou Apple Pay</span>{% endif %}</div>")
     det["blocks"]["qk_gpsr"] = liquide("{% render 'qk-gpsr', product: closest.product %}")
+    # Profil du parfum (13/11/2026) : saison, tenue, sillage, occasions, pyramide (métachamp qosmi.profil)
+    det["blocks"]["qk_profil"] = liquide("{% render 'qk-profil', product: closest.product %}")
     # « Acheter maintenant » (demande d'Amine du 08/11/2026) : remplace « Acheter avec Shop », qui demandait de se connecter.
     # Ajoute le format choisi au panier et ouvre la page panier. Le bouton Shop Pay est masqué en CSS (.shopify-payment-button).
     det["blocks"]["qk_acheter"] = liquide(ACHETER)
     ordre = [k for k in det["block_order"] if k in det["blocks"] and not k.startswith("qk_")]
     i = ordre.index(next(k for k in ordre if det["blocks"][k]["type"] == "buy-buttons")) + 1
-    det["block_order"] = ordre[:i] + ["qk_acheter", "qk_livraison", "qk_rassurance", "qk_gpsr"] + ordre[i:]
+    det["block_order"] = ordre[:i] + ["qk_acheter", "qk_livraison", "qk_rassurance", "qk_profil", "qk_gpsr"] + ordre[i:]
     d["sections"]["qk_marque"] = {"type": "qk-texte", "settings": {"mode_marque": True, "alignement": "centre"}}
     d["order"] = [k for k in d["order"] if k != "qk_marque"]
     d["order"].insert(1, "qk_marque")

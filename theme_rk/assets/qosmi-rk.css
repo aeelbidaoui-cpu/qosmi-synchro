@@ -788,3 +788,29 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-complete__btn { border: 1px solid var(--qk-noir); background: #fff; color: var(--qk-noir); border-radius: 999px; padding: 8px 14px; font-size: 0.8125rem; cursor: pointer; white-space: nowrap; }
 .qk-complete__btn:hover { background: var(--qk-noir); color: #fff; }
 .qk-complete__btn:disabled { opacity: 0.6; cursor: default; }
+
+/* Profil du parfum sur la fiche (13/11/2026) */
+.qk-profil { margin: 18px 0 6px; padding: 16px 18px; border: 1px solid var(--qk-trait); border-radius: 12px; background: #faf8f5; font-size: 0.875rem; }
+.qk-profil__ligne { display: flex; gap: 12px; align-items: baseline; padding: 5px 0; }
+.qk-profil__k { flex: 0 0 92px; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--qk-doux); }
+.qk-profil__v { color: var(--qk-noir); }
+.qk-profil__puces { display: flex; flex-wrap: wrap; gap: 6px; }
+.qk-profil__puce { padding: 3px 10px; border: 1px solid var(--qk-trait); border-radius: 999px; background: #fff; font-size: 0.8125rem; }
+.qk-profil__notes { margin-top: 8px; padding-top: 10px; border-top: 1px solid var(--qk-trait); }
+.qk-profil__notes p { display: flex; gap: 12px; margin: 0; padding: 3px 0; line-height: 1.4; }
+.qk-profil__info { margin: 10px 0 0; font-size: 0.75rem; color: var(--qk-doux); }
+
+/* FAQ (13/11/2026) */
+.qk-faq__largeur { max-width: 820px; }
+.qk-faq__image { display: block; width: 100%; height: auto; border-radius: 12px; margin: 0 0 28px; }
+.qk-faq__intro { color: var(--qk-doux); margin: 8px 0 20px; }
+.qk-faq__recherche { width: 100%; padding: 12px 16px; border: 1px solid var(--qk-trait); border-radius: 999px; font: inherit; background: #fff; margin: 0 0 12px; }
+.qk-faq__theme { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--qk-doux); margin: 28px 0 6px; font-weight: 500; }
+.qk-faq__q { border-bottom: 1px solid var(--qk-trait); }
+.qk-faq__q summary { cursor: pointer; list-style: none; padding: 16px 32px 16px 0; position: relative; font-size: 1rem; }
+.qk-faq__q summary::-webkit-details-marker { display: none; }
+.qk-faq__q summary::after { content: "+"; position: absolute; right: 4px; top: 13px; font-size: 1.25rem; color: var(--qk-doux); }
+.qk-faq__q[open] summary::after { content: "–"; }
+.qk-faq__r { padding: 0 0 16px; color: #3a3a3a; line-height: 1.6; }
+.qk-faq__r p { margin: 0; }
+.qk-faq__vide { margin-top: 16px; color: var(--qk-doux); }

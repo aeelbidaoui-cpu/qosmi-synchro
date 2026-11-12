@@ -1,0 +1,68 @@
+{%- comment -%}
+  Profil du parfum sur la fiche (13/11/2026, demande d'Amine) : saison, tenue, sillage, occasions et pyramide des notes.
+  Données : métachamp produit qosmi.profil (JSON), posé par scripts/fi_profils.py.
+  { "s": ["automne","hiver"], "t": "journee", "si": "fort", "o": ["soiree","rdv"],
+    "nf": {"t": [...], "c": [...], "f": [...]}, "nn": {...} }   (nf = notes FR, nn = notes NL)
+  Rien ne s'affiche si le parfum n'a pas de profil.
+{%- endcomment -%}
+{%- assign p = product.metafields.qosmi.profil.value -%}
+{%- if p -%}
+{%- assign nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign nl = true -%}{%- endif -%}
+<div class="qk-profil">
+  {%- if p.s.size > 0 -%}
+  <div class="qk-profil__ligne"><span class="qk-profil__k">{% if nl %}Seizoen{% else %}Saison{% endif %}</span><span class="qk-profil__v">
+    {%- for x in p.s -%}{%- unless forloop.first %} · {% endunless -%}
+      {%- case x -%}
+        {%- when 'printemps' -%}{% if nl %}Lente{% else %}Printemps{% endif %}
+        {%- when 'ete' -%}{% if nl %}Zomer{% else %}Été{% endif %}
+        {%- when 'automne' -%}{% if nl %}Herfst{% else %}Automne{% endif %}
+        {%- when 'hiver' -%}{% if nl %}Winter{% else %}Hiver{% endif %}
+      {%- endcase -%}
+    {%- endfor -%}</span></div>
+  {%- endif -%}
+  {%- if p.t -%}
+  <div class="qk-profil__ligne"><span class="qk-profil__k">{% if nl %}Houdbaarheid{% else %}Tenue{% endif %}</span><span class="qk-profil__v">
+    {%- case p.t -%}
+      {%- when 'legere' -%}{% if nl %}Licht{% else %}Légère{% endif %}
+      {%- when 'moyenne' -%}{% if nl %}Gemiddeld{% else %}Moyenne{% endif %}
+      {%- when 'longue' -%}{% if nl %}Lang{% else %}Longue{% endif %}
+      {%- when 'journee' -%}{% if nl %}De hele dag{% else %}Toute la journée{% endif %}
+      {%- when 'lendemain' -%}{% if nl %}Tot de volgende dag{% else %}Jusqu'au lendemain{% endif %}
+    {%- endcase -%}</span></div>
+  {%- endif -%}
+  {%- if p.si -%}
+  <div class="qk-profil__ligne"><span class="qk-profil__k">Sillage</span><span class="qk-profil__v">
+    {%- case p.si -%}
+      {%- when 'discret' -%}{% if nl %}Subtiel{% else %}Discret{% endif %}
+      {%- when 'modere' -%}{% if nl %}Gemiddeld{% else %}Modéré{% endif %}
+      {%- when 'fort' -%}{% if nl %}Sterk{% else %}Prononcé{% endif %}
+      {%- when 'tres_fort' -%}{% if nl %}Zeer sterk{% else %}Très prononcé{% endif %}
+    {%- endcase -%}</span></div>
+  {%- endif -%}
+  {%- if p.o.size > 0 -%}
+  <div class="qk-profil__ligne qk-profil__ligne--occ"><span class="qk-profil__k">{% if nl %}Ideaal voor{% else %}Idéal pour{% endif %}</span><span class="qk-profil__puces">
+    {%- for x in p.o -%}<span class="qk-profil__puce">
+      {%- case x -%}
+        {%- when 'quotidien' -%}{% if nl %}Elke dag{% else %}Tous les jours{% endif %}
+        {%- when 'bureau' -%}{% if nl %}Kantoor{% else %}Bureau{% endif %}
+        {%- when 'rdv' -%}{% if nl %}Een date{% else %}Rendez-vous{% endif %}
+        {%- when 'diner' -%}{% if nl %}Etentje{% else %}Dîner{% endif %}
+        {%- when 'soiree' -%}{% if nl %}Uitgaan{% else %}Soirée{% endif %}
+        {%- when 'mariage' -%}{% if nl %}Bruiloft{% else %}Mariage{% endif %}
+        {%- when 'sport' -%}Sport
+        {%- when 'vacances' -%}{% if nl %}Vakantie{% else %}Vacances{% endif %}
+        {%- when 'chic' -%}{% if nl %}Chique gelegenheid{% else %}Événement chic{% endif %}
+        {%- when 'detente' -%}{% if nl %}Ontspannen{% else %}Détente{% endif %}
+      {%- endcase -%}</span>{%- endfor -%}</span></div>
+  {%- endif -%}
+  {%- if nl -%}{%- assign n = p.nn -%}{%- else -%}{%- assign n = p.nf -%}{%- endif -%}
+  {%- if n and n.t.size > 0 or n.c.size > 0 or n.f.size > 0 -%}
+  <div class="qk-profil__notes">
+    {%- if n.t.size > 0 -%}<p><span class="qk-profil__k">{% if nl %}Topnoten{% else %}Tête{% endif %}</span>{{ n.t | join: ', ' | escape }}</p>{%- endif -%}
+    {%- if n.c.size > 0 -%}<p><span class="qk-profil__k">{% if nl %}Hartnoten{% else %}Cœur{% endif %}</span>{{ n.c | join: ', ' | escape }}</p>{%- endif -%}
+    {%- if n.f.size > 0 -%}<p><span class="qk-profil__k">{% if nl %}Basisnoten{% else %}Fond{% endif %}</span>{{ n.f | join: ', ' | escape }}</p>{%- endif -%}
+  </div>
+  {%- endif -%}
+  <p class="qk-profil__info">{% if nl %}Indicatief: houdbaarheid en sillage hangen af van je huid en het weer.{% else %}À titre indicatif : la tenue et le sillage varient selon la peau et la météo.{% endif %}</p>
+</div>
+{%- endif -%}
