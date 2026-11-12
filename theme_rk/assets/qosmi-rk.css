@@ -733,3 +733,17 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-quiz__cta { justify-self: stretch; text-align: center; }
   .qk-quiz__autres { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+/* quiz résultat : texte centré verticalement à côté de la photo, bouton à hauteur normale, photo moins haute sur mobile */
+@media (min-width: 750px) {
+  .qk-quiz__une .qk-carte { grid-template-rows: 1fr repeat(5, auto) 1fr; }
+  .qk-quiz__une .qk-quiz__badge { grid-row: 2; }
+  .qk-quiz__une .qk-carte__ligne { grid-row: 3; }
+  .qk-quiz__une .qk-carte__nom { grid-row: 4; }
+  .qk-quiz__une .qk-odeurs__communes { grid-row: 5; }
+  .qk-quiz__une .qk-quiz__cta { grid-row: 6; }
+}
+.qk-quiz__cta { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; }
+@media (max-width: 749px) {
+  .qk-quiz__une .qk-carte__img { aspect-ratio: 1 / 1; }
+  .qk-quiz__une .qk-carte__img img { height: 100%; object-fit: contain; }
+}
