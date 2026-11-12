@@ -163,7 +163,8 @@ def main():
                 log("  pas revenu en 30 jours, rien de proche en stock : %s (alerte close)" % c["email"])
         if ESSAI:
             continue
-        retirer = a_retirer + anciens + [t for t in c["tags"] if t.startswith("remise:")]
+        # « alerte-pret » resté d'un envoi précédent (si Flow ne l'a pas retiré) : on l'enlève, sinon le nouvel ajout ne déclencherait rien
+        retirer = a_retirer + anciens + [t for t in c["tags"] if t.startswith("remise:") or t == "alerte-pret"]
         if retirer:
             s.gql("mutation($id: ID!, $t: [String!]!) { tagsRemove(id: $id, tags: $t) { userErrors { message } } }", {"id": c["id"], "t": retirer})
         if ajout:
