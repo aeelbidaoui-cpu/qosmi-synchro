@@ -705,3 +705,10 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-quiz__carte--icone .qk-quiz__coche { background: var(--qk-noir); color: #fff; }
 .qk-quiz__carte--icone.is-on .qk-quiz__coche { background: #fff; color: var(--qk-noir); }
 @media (max-width: 749px) { .qk-quiz__carte--icone { gap: 14px; padding: 18px 12px; } .qk-quiz__carte--icone .qk-quiz__titre { font-size: 1rem; } }
+@media (max-width: 749px) {
+  .qk-quiz__choix:has(.qk-quiz__carte--icone) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .qk-quiz__choix:has(.qk-quiz__carte--icone) > .qk-quiz__carte--icone { aspect-ratio: 3 / 4; grid-column: auto; padding: 14px 6px; gap: 10px; }
+  .qk-quiz__carte--icone .qk-quiz__icone { width: 56%; }
+  .qk-quiz__carte--icone .qk-quiz__titre { font-size: 0.875rem; }
+  .qk-quiz__carte--icone .qk-quiz__sous { font-size: 0.6875rem; line-height: 1.25; }
+}
