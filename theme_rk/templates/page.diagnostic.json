@@ -1,0 +1,4 @@
+{
+  "sections": { "main": { "type": "qk-diagnostic", "settings": {} } },
+  "order": ["main"]
+}

@@ -1,0 +1,134 @@
+{%- comment -%}
+  Diagnostic olfactif (13/11/2026, demande d'Amine, idée tirée de Nose Paris) : le client choisit de 1 à 5 parfums qu'il aime,
+  on calcule son profil (familles et notes dominantes, à partir de l'index des odeurs) et on propose 5 parfums en stock.
+  Données : assets/qk-odeurs.js + qk-odeurs-outils.js (mêmes que la recherche par odeurs). Recherche des parfums : /search/suggest.json.
+{%- endcomment -%}
+{%- assign qk_nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+<section class="qk-section qk-diag" data-qk-diag>
+  <div class="qk-largeur qk-diag__largeur">
+    <img class="qk-faq__image" src="{{ 'qosmi-mouillettes-matieres.jpg' | file_url }}" alt="" width="2400" height="1340" loading="eager">
+    <h1 class="qk-titre-section">{% if qk_nl %}Geurdiagnose{% else %}Diagnostic olfactif{% endif %}</h1>
+    <p class="qk-faq__intro">{% if qk_nl %}Kies 1 tot 5 parfums die je graag draagt. We leiden er je geurprofiel uit af en tonen je 5 parfums die erbij passen.{% else %}Choisis de 1 à 5 parfums que tu aimes porter. Nous en tirons ton profil olfactif et te proposons 5 parfums qui te ressemblent.{% endif %}</p>
+    <div class="qk-diag__choix">
+      <input class="qk-faq__recherche" type="search" autocomplete="off" data-qk-diag-champ
+        placeholder="{% if qk_nl %}Typ een parfum of een merk…{% else %}Tape un parfum ou une marque…{% endif %}"
+        aria-label="{% if qk_nl %}Zoek een parfum{% else %}Rechercher un parfum{% endif %}">
+      <ul class="qk-diag__sugg" data-qk-diag-sugg hidden></ul>
+    </div>
+    <div class="qk-diag__elus" data-qk-diag-elus></div>
+    <button type="button" class="qk-diag__bouton" data-qk-diag-go disabled>{% if qk_nl %}Bekijk mijn diagnose{% else %}Voir mon diagnostic{% endif %}</button>
+    <div class="qk-diag__resultat" data-qk-diag-res hidden>
+      <h2 class="qk-faq__theme">{% if qk_nl %}Jouw geurprofiel{% else %}Ton profil olfactif{% endif %}</h2>
+      <div class="qk-diag__familles" data-qk-diag-fam></div>
+      <p class="qk-diag__texte" data-qk-diag-txt></p>
+      <h2 class="qk-faq__theme">{% if qk_nl %}Jouw kenmerkende noten{% else %}Tes notes signature{% endif %}</h2>
+      <div class="qk-profil__puces" data-qk-diag-notes></div>
+      <h2 class="qk-faq__theme">{% if qk_nl %}5 parfums voor jou{% else %}5 parfums pour toi{% endif %}</h2>
+    </div>
+  </div>
+  <div class="qk-largeur"><div class="qk-odeurs__grille qk-diag__grille" data-qk-diag-grille></div></div>
+  <script src="{{ 'qk-odeurs.js' | asset_url }}" defer></script>
+  <script src="{{ 'qk-odeurs-outils.js' | asset_url }}" defer></script>
+  <script>
+    (function () {
+      var nl = {{ qk_nl | json }}, racine = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+      var S = document.querySelector('[data-qk-diag]');
+      var champ = S.querySelector('[data-qk-diag-champ]'), sugg = S.querySelector('[data-qk-diag-sugg]'), elus = S.querySelector('[data-qk-diag-elus]'),
+          go = S.querySelector('[data-qk-diag-go]'), res = S.querySelector('[data-qk-diag-res]'), grille = S.querySelector('[data-qk-diag-grille]');
+      var choisis = [], minuteur = null;
+      var MOTS = {
+        agrumes: nl ? 'fris en stralend, met citrus die energie geven' : 'frais et lumineux, porté par des agrumes pleins d’énergie',
+        fleurs: nl ? 'bloemig, van zachte poederige bloemen tot weelderige witte bloemen' : 'floral, des fleurs poudrées aux grandes fleurs blanches',
+        fruits: nl ? 'fruitig en sappig' : 'fruité et juteux',
+        gourmand: nl ? 'zoet en gourmand: vanille, karamel, tonka' : 'gourmand et doux : vanille, caramel, tonka',
+        epices: nl ? 'kruidig, met warme of pittige specerijen' : 'épicé, avec des épices chaudes ou piquantes',
+        bois: nl ? 'houtig, van romig sandelhout tot droog vetiver' : 'boisé, du santal crémeux au vétiver sec',
+        ambre: nl ? 'warm en amberig, met harsen, muskus of oud' : 'chaud et ambré, avec résines, muscs ou oud',
+        frais: nl ? 'fris en aromatisch: lavendel, kruiden, zeenoten' : 'frais et aromatique : lavande, herbes, notes marines'
+      };
+      function O() { return window.qkOdeurs; }
+      function dessinerElus() {
+        elus.innerHTML = '';
+        choisis.forEach(function (p, k) {
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'qk-diag__elu';
+          b.textContent = p.titre + ' ×'; b.setAttribute('aria-label', (nl ? 'Verwijder ' : 'Retirer ') + p.titre);
+          b.addEventListener('click', function () { choisis.splice(k, 1); dessinerElus(); });
+          elus.appendChild(b);
+        });
+        go.disabled = !choisis.length;
+        champ.disabled = choisis.length >= 5;
+      }
+      function chercher() {
+        var q = champ.value.trim();
+        if (q.length < 2 || !O()) { sugg.hidden = true; return; }
+        fetch(racine + 'search/suggest.json?q=' + encodeURIComponent(q) + '&resources[type]=product&resources[limit]=10')
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            var l = ((d.resources && d.resources.results && d.resources.results.products) || []).filter(function (p) {
+              return O().connu(p.handle) && !choisis.some(function (c) { return c.h === p.handle; });
+            }).slice(0, 7);
+            sugg.innerHTML = '';
+            if (!l.length) {
+              var li = document.createElement('li'); li.className = 'qk-diag__rien';
+              li.textContent = nl ? 'Geen parfum met gekende noten gevonden.' : 'Aucun parfum aux notes connues trouvé.';
+              sugg.appendChild(li);
+            }
+            l.forEach(function (p) {
+              var li = document.createElement('li'), b = document.createElement('button');
+              b.type = 'button'; b.textContent = p.title.split(' — ')[0] + (p.title.split(' — ')[1] ? ' · ' + p.title.split(' — ')[1] : '');
+              b.addEventListener('click', function () {
+                choisis.push({ h: p.handle, titre: p.title.split(' — ')[0] });
+                champ.value = ''; sugg.hidden = true; dessinerElus(); champ.focus();
+              });
+              li.appendChild(b); sugg.appendChild(li);
+            });
+            sugg.hidden = false;
+          }).catch(function () { sugg.hidden = true; });
+      }
+      champ.addEventListener('input', function () { clearTimeout(minuteur); minuteur = setTimeout(chercher, 220); });
+      document.addEventListener('click', function (e) { if (!S.querySelector('.qk-diag__choix').contains(e.target)) sugg.hidden = true; });
+
+      go.addEventListener('click', function () {
+        var Q = O(); if (!Q || !choisis.length) return;
+        /* profil : poids de chaque odeur précise (notes clés comptées double) */
+        var poids = {}, total = 0;
+        choisis.forEach(function (c) {
+          var p = Q.profils[c.h]; if (!p) return;
+          p.spec.forEach(function (i) { var w = p.cles.indexOf(i) >= 0 ? 2 : 1; poids[i] = (poids[i] || 0) + w; total += w; });
+        });
+        var fam = {};
+        Object.keys(poids).forEach(function (i) { var f = Q.odeurs[i].fam; fam[f] = (fam[f] || 0) + poids[i]; });
+        var fl = Object.keys(fam).sort(function (a, b) { return fam[b] - fam[a]; });
+        var fd = S.querySelector('[data-qk-diag-fam]'); fd.innerHTML = '';
+        fl.slice(0, 5).forEach(function (f) {
+          var pc = Math.round(fam[f] * 100 / total), nomf = (Q.familles.filter(function (x) { return x[0] === f; })[0] || [f, f, f])[nl ? 2 : 1];
+          var d = document.createElement('div'); d.className = 'qk-diag__barre';
+          d.innerHTML = '<span class="qk-diag__nom"></span><span class="qk-diag__jauge"><i style="width:' + pc + '%"></i></span><span class="qk-diag__pc">' + pc + ' %</span>';
+          d.querySelector('.qk-diag__nom').textContent = nomf; fd.appendChild(d);
+        });
+        var t = fl.slice(0, 2).map(function (f) { return MOTS[f]; }).filter(Boolean);
+        S.querySelector('[data-qk-diag-txt]').textContent = t.length ? ((nl ? 'Je houdt van parfums die ' : 'Tu aimes les parfums au caractère ') + t[0] + (t[1] ? (nl ? ', en ook ' : ', avec une touche ') + t[1] : '') + '.') : '';
+        var top = Object.keys(poids).sort(function (a, b) { return poids[b] - poids[a]; }).slice(0, 8);
+        var nd = S.querySelector('[data-qk-diag-notes]'); nd.innerHTML = '';
+        top.forEach(function (i) { var s = document.createElement('span'); s.className = 'qk-profil__puce'; s.textContent = Q.nom(+i, nl); nd.appendChild(s); });
+        /* recommandations : parfums les plus proches du profil, hors parfums choisis */
+        var bases = choisis.map(function (c) { return Q.base(c.h); }), norme = Math.sqrt(Object.keys(poids).reduce(function (s, i) { return s + poids[i] * poids[i]; }, 0));
+        var l = [];
+        Object.keys(Q.profils).forEach(function (h) {
+          if (h.indexOf('coffret') >= 0 || bases.indexOf(Q.base(h)) >= 0) return;
+          var p = Q.profils[h], s = 0, com = [];
+          p.spec.forEach(function (i) { if (poids[i]) { s += poids[i] * (p.cles.indexOf(i) >= 0 ? 1.5 : 1); com.push(i); } });
+          if (com.length >= 2) l.push({ h: h, eus: com.sort(function (a, b) { return poids[b] - poids[a]; }), s: s / (norme * Math.sqrt(p.spec.length)) });
+        });
+        l.sort(function (a, b) { return b.s - a.s; });
+        grille.innerHTML = '';
+        res.hidden = false;
+        Q.remplir(grille, Q.unique(l), 0, 5, nl, 0).then(function () { res.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+      });
+      dessinerElus();
+    })();
+  </script>
+</section>
+{% schema %}
+{ "name": "Qosmi · Diagnostic", "tag": "div", "settings": [] }
+{% endschema %}

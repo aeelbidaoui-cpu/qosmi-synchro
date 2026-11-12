@@ -824,3 +824,24 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-lex__item h3 { margin: 0 0 6px; font-size: 1.125rem; }
 .qk-lex__item p { margin: 0; color: #3a3a3a; line-height: 1.6; }
 .qk-lex__lien { display: inline-block; margin-top: 8px; font-size: 0.8125rem; color: var(--qk-noir); }
+
+/* Diagnostic olfactif (13/11/2026) */
+.qk-diag__largeur { max-width: 820px; }
+.qk-diag__choix { position: relative; }
+.qk-diag__sugg { position: absolute; z-index: 5; left: 0; right: 0; top: 52px; margin: 0; padding: 6px; list-style: none; background: #fff; border: 1px solid var(--qk-trait); border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+.qk-diag__sugg button { width: 100%; text-align: left; padding: 10px 12px; border: 0; background: none; border-radius: 10px; font: inherit; cursor: pointer; }
+.qk-diag__sugg button:hover { background: #f5efe7; }
+.qk-diag__rien { padding: 10px 12px; color: var(--qk-doux); }
+.qk-diag__elus { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 16px; }
+.qk-diag__elu { padding: 8px 14px; border: 1px solid var(--qk-noir); border-radius: 999px; background: #fff; font: inherit; font-size: 0.875rem; cursor: pointer; }
+.qk-diag__bouton { padding: 14px 28px; border: 0; border-radius: 999px; background: var(--qk-noir); color: #fff; font: inherit; cursor: pointer; }
+.qk-diag__bouton:disabled { opacity: .35; cursor: default; }
+.qk-diag__resultat { margin-top: 28px; }
+.qk-diag__barre { display: grid; grid-template-columns: 150px 1fr 48px; gap: 12px; align-items: center; padding: 6px 0; font-size: 0.9375rem; }
+.qk-diag__jauge { height: 8px; border-radius: 999px; background: #efe8de; overflow: hidden; }
+.qk-diag__jauge i { display: block; height: 100%; background: var(--qk-noir); border-radius: 999px; }
+.qk-diag__pc { text-align: right; color: var(--qk-doux); font-size: 0.875rem; }
+.qk-diag__texte { margin: 14px 0 0; line-height: 1.6; }
+.qk-diag__grille { margin-top: 8px; }
+@media (max-width: 600px) { .qk-diag__barre { grid-template-columns: 110px 1fr 44px; } }
+@media (min-width: 990px) { .qk-odeurs__grille.qk-diag__grille { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
