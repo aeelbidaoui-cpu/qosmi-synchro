@@ -688,3 +688,6 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-quiz__carte--photo .qk-quiz__sous { font-size: 0.75rem; }
   .qk-quiz__accueil { min-height: 72vh; border-radius: 0; margin: 0 -16px; }
 }
+/* quiz : texte lisible même sur les photos claires (12/11/2026) */
+.qk-quiz__carte--photo::after { background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%); }
+.qk-quiz__carte--photo .qk-quiz__texte { text-shadow: 0 1px 8px rgba(0,0,0,.45); }
