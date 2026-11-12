@@ -47,6 +47,10 @@ def envoyer(s, chemin, alt="Acqua di Parma"):
         u = adresse_fichier(s, nom)
         if u:
             return u
+    # 12/11/2026 : dire pourquoi (fichier en échec, renommé…) au lieu de rendre « None » sans explication
+    n = s.gql("query($q: String!) { files(first: 5, query: $q) { nodes { fileStatus fileErrors { code details message }"
+              " ... on MediaImage { image { url } } } } }", {"q": "filename:%s" % nom})["files"]["nodes"]
+    print("  refus Shopify :", nom, json.dumps(n, ensure_ascii=False)[:400])
     return None
 
 
