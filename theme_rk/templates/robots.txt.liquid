@@ -1,0 +1,88 @@
+{%- comment -%}
+  robots.txt de Qosmi (12/11/2026, demande d'Amine) : règles Shopify par défaut, puis
+  - robots d'entraînement d'IA et outils d'espionnage SEO : bloqués partout ;
+  - moteurs de recherche, aperçus des réseaux sociaux et robots de RECHERCHE des IA (ChatGPT, Perplexity, Claude) : autorisés.
+  Seuls les robots qui respectent robots.txt en tiennent compte.
+{%- endcomment -%}
+{% for group in robots.default_groups %}
+  {{- group.user_agent }}
+
+  {%- for rule in group.rules -%}
+    {{ rule }}
+  {%- endfor -%}
+
+  {%- if group.sitemap != blank -%}
+    {{ group.sitemap }}
+  {%- endif %}
+{% endfor %}
+
+# --- Recherche des IA : autorisée (Qosmi peut apparaître dans les réponses) ---
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+Disallow: /checkouts/
+Disallow: /account
+Disallow: /orders/
+Disallow: /*/cart
+Disallow: /*/checkout
+Disallow: /*/account
+
+# --- Entraînement des IA : bloqué ---
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Diffbot
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: ImagesiftBot
+User-agent: img2dataset
+User-agent: Omgilibot
+User-agent: omgili
+User-agent: Timpibot
+User-agent: PanguBot
+User-agent: DeepSeekBot
+User-agent: Kangaroo Bot
+User-agent: TikTokSpider
+Disallow: /
+
+# --- Outils SEO / veille concurrentielle : bloqués ---
+User-agent: AhrefsBot
+User-agent: AhrefsSiteAudit
+User-agent: SemrushBot
+User-agent: SemrushBot-BA
+User-agent: SemrushBot-SI
+User-agent: SemrushBot-SWA
+User-agent: SemrushBot-CT
+User-agent: SiteAuditBot
+User-agent: SplitSignalBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: rogerbot
+User-agent: BLEXBot
+User-agent: DataForSeoBot
+User-agent: serpstatbot
+User-agent: Barkrowler
+User-agent: SEOkicks
+User-agent: SEOkicks-Robot
+User-agent: linkdexbot
+User-agent: MegaIndex.ru
+User-agent: ZoominfoBot
+User-agent: Screaming Frog SEO Spider
+User-agent: sitebulb
+User-agent: Seekport Crawler
+Disallow: /
