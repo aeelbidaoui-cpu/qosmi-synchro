@@ -618,3 +618,15 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-quiz__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
 .qk-quiz__actions .qk-acheter { max-width: 260px; }
 @media (max-width: 599px) { .qk-quiz__une { max-width: none; } }
+
+/* ---------- En-tête équilibré : 3 liens à droite du logo sur ordinateur (12/11/2026) ---------- */
+.qk-nav-droite { display: none; }
+@media (min-width: 990px) {
+  .qk-menu-equilibre .qk-nav-droite { display: flex; align-items: center; gap: 28px; margin-right: 28px; }
+  .qk-nav-droite__lien { font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.02em; color: var(--color-foreground);
+    text-decoration: none; white-space: nowrap; }
+  .qk-nav-droite__lien:hover, .qk-nav-droite__lien.is-actif { text-decoration: underline; text-underline-offset: 4px; }
+  .qk-menu-equilibre header-menu .menu-list__list-item:has(a.menu-list__link[href*="/pages/quiz"]),
+  .qk-menu-equilibre header-menu .menu-list__list-item:has(a.menu-list__link[href*="/pages/marques"]),
+  .qk-menu-equilibre header-menu .menu-list__list-item:has(a.menu-list__link[href*="/blogs/"]) { display: none !important; }
+}

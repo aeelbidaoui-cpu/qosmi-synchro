@@ -16,6 +16,29 @@
   </div>
 </div>
 
+{%- comment -%}
+  Menu équilibré (12/11/2026, demande d'Amine) : sur ordinateur, « Trouve ton parfum », « Marques » et « Magazine »
+  passent à droite du logo, le reste du menu reste à gauche. Le menu mobile garde tout (même menu « main-menu »).
+{%- endcomment -%}
+<nav class="qk-nav-droite" data-qk-nav-droite aria-label="{% if request.locale.iso_code == 'nl' %}Ontdekken{% else %}Découvrir{% endif %}" hidden>
+  {%- for l in linklists['main-menu'].links -%}
+    {%- if l.url contains '/pages/quiz' or l.url contains '/pages/marques' or l.url contains '/blogs/' -%}
+      <a class="qk-nav-droite__lien{% if l.active or l.child_active %} is-actif{% endif %}" href="{{ l.url }}">{{ l.title }}</a>
+    {%- endif -%}
+  {%- endfor -%}
+</nav>
+<script>
+  (function () {
+    function placer() {
+      var nav = document.querySelector('[data-qk-nav-droite]'), col = document.querySelector('.header__row--top .header__column--right');
+      if (!nav || !col || nav.parentNode === col) return;
+      col.insertBefore(nav, col.firstChild); nav.hidden = false;
+      document.documentElement.classList.add('qk-menu-equilibre');
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', placer); else placer();
+  })();
+</script>
+
 {% schema %}
 {
   "name": "Bandeau qui défile",
