@@ -22,7 +22,7 @@
   <script>
     (function () {
       var nl = {{ qk_nl | json }}, racine = {{ qk_racine | json }};
-      function T(fr, n) { return nl ? n : fr; }
+      function T(fr, n) { return nl ? n : fr.replace(/ ([?!:;])/g, '\u00a0$1'); }  /* espace insécable avant ? ! : ; */
       /* odeurs : id → poids. Les « tout_… » couvrent toute une famille. */
       var Q = [
         { id: 'pour', titre: T('C\'est pour qui ?', 'Voor wie is het?'), choix: [
