@@ -63,6 +63,8 @@ def recadrer(donnees):
         fond.alpha_composite(im)
         im = fond
     im = im.convert("RGB")
+    if max(im.size) > 3000:  # 12/11/2026 : certaines sources servent des originaux énormes ; Shopify refuse au-delà de 20 Mpx
+        im.thumbnail((3000, 3000))
     l, h = im.size
     coins = [im.getpixel(p) for p in ((0, 0), (l - 1, 0), (0, h - 1), (l - 1, h - 1), (l // 2, 0), (l // 2, h - 1))]
     if min(min(c) for c in coins[:4]) >= SEUIL_FOND and min(min(c) for c in coins[4:]) < SEUIL_FOND:
