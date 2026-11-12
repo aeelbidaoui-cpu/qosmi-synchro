@@ -773,3 +773,4 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-avis .jm-button--primary { background: var(--qk-noir) !important; border-color: var(--qk-noir) !important; color: #fff !important; border-radius: 999px !important; padding: 12px 24px !important; }
 .qk-avis .jm-review-widget-minimal-header__title { font-size: 1.5rem !important; font-weight: 400 !important; text-transform: none; }
 .qk-avis { --jm-color-primary: #111111; --jm-star-color: #111111; }
+.qk-page-image { margin: 0 0 24px; }
