@@ -120,6 +120,9 @@ def main():
             if m:
                 attentes.setdefault(c["id"], []).append((t, m.group(1), dt.datetime.strptime(m.group(2), "%Y%m%d").date()))
     log("Alertes : %d client(s), %d attente(s)" % (len(attentes), sum(len(v) for v in attentes.values())))
+    if ESSAI:
+        for cid, v in attentes.items():
+            log("  client %s : %s" % (cid.rsplit("/", 1)[1], ", ".join(a[0] for a in v)))
     if not attentes:
         return
     F = formats(s, {a[1] for v in attentes.values() for a in v})
