@@ -671,6 +671,7 @@ def photos_marques():
         if seule:
             if p["handle"] != seule or essai_pid:
                 continue
+            ligne_journal("  fiche %s : %s" % (seule, json.dumps([(v.get("ean"), v.get("photo_brute"), v.get("photo_source")) for v in p["variantes"]])[:600]))
             photos = photos or sorted({v["photo_source"] for v in p["variantes"] if v["photo_source"]})
             essai = essai or "http"
         elif not photos or deja.get(p["handle"]) == photos:
