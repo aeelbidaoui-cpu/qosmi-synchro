@@ -691,3 +691,17 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 /* quiz : texte lisible même sur les photos claires (12/11/2026) */
 .qk-quiz__carte--photo::after { background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%); }
 .qk-quiz__carte--photo .qk-quiz__texte { text-shadow: 0 1px 8px rgba(0,0,0,.45); }
+/* quiz, question 1 : icônes de flacons au lieu de photos (12/11/2026) */
+.qk-quiz__carte--icone { aspect-ratio: 4 / 5; min-height: 0; justify-content: center; gap: 22px; padding: 28px 20px; border: 1px solid var(--qk-trait);
+  background: linear-gradient(180deg, #faf8f5 0%, #f1ede7 100%); color: var(--qk-noir); }
+.qk-quiz__icone { display: block; width: 42%; max-width: 132px; transition: transform .35s ease; }
+.qk-quiz__icone svg { display: block; width: 100%; height: auto; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.qk-quiz__carte--icone .qk-quiz__titre { font-size: 1.125rem; }
+.qk-quiz__carte--icone .qk-quiz__sous { color: var(--qk-doux); opacity: 1; }
+.qk-quiz__carte--icone:hover { border-color: var(--qk-noir); }
+.qk-quiz__carte--icone:hover .qk-quiz__icone { transform: translateY(-6px) rotate(-3deg); }
+.qk-quiz__carte--icone.is-on { background: var(--qk-noir); color: #fff; border-color: var(--qk-noir); }
+.qk-quiz__carte--icone.is-on .qk-quiz__sous { color: rgba(255,255,255,.75); }
+.qk-quiz__carte--icone .qk-quiz__coche { background: var(--qk-noir); color: #fff; }
+.qk-quiz__carte--icone.is-on .qk-quiz__coche { background: #fff; color: var(--qk-noir); }
+@media (max-width: 749px) { .qk-quiz__carte--icone { gap: 14px; padding: 18px 12px; } .qk-quiz__carte--icone .qk-quiz__titre { font-size: 1rem; } }

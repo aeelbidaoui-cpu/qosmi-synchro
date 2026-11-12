@@ -26,8 +26,8 @@
       /* odeurs : id → poids. Les « tout_… » couvrent toute une famille. */
       var Q = [
         { id: 'pour', titre: T('C\'est pour qui ?', 'Voor wie is het?'), choix: [
-          { id: 'femme', img: '1581841064838-a470c740e8ee', t: T('Pour elle', 'Voor haar') }, { id: 'homme', img: '1706212825296-b2bebf3de002', t: T('Pour lui', 'Voor hem') },
-          { id: 'tous', img: '1621621668101-d5c8329b3784', t: T('Peu importe', 'Maakt niet uit'), s: T('Parfums mixtes compris', 'Ook unisex') }] },
+          { id: 'femme', svg: 'femme', t: T('Pour elle', 'Voor haar') }, { id: 'homme', svg: 'homme', t: T('Pour lui', 'Voor hem') },
+          { id: 'tous', svg: 'tous', t: T('Peu importe', 'Maakt niet uit'), s: T('Parfums mixtes compris', 'Ook unisex') }] },
         { id: 'quand', titre: T('Tu le porteras surtout…', 'Je draagt hem vooral…'), choix: [
           { id: 'jour', img: '1601276174812-63280a55656e', t: T('Tous les jours', 'Elke dag'), s: T('Léger, facile à porter', 'Licht, makkelijk'), w: { tout_agrumes: 1, tout_frais: 1, musc: 0.5, oud: -1, tabac: -0.5 } },
           { id: 'travail', img: '1611269154421-4e27233ac5c7', t: T('Au travail', 'Op het werk'), s: T('Propre, discret', 'Fris, discreet'), w: { musc: 1, iris: 0.5, tout_frais: 0.5, tout_agrumes: 0.5, the: 0.5, oud: -1.5, tout_gourmand: -1 } },
@@ -59,6 +59,14 @@
 
       var IMG = 'https://images.unsplash.com/photo-', TAILLE = '?auto=format&fit=crop&w=700&h=875&q=75';  /* photos Unsplash (licence libre) */
       var accueilVu = false;
+      /* icônes de flacons (question 1) : dessins au trait, aucune photo de personne */
+      var ELLE = '<circle cx="48" cy="13" r="6"/><path d="M43 19h10v8H43z"/><path d="M48 27c-15 0-23 11-23 27 0 17 9 31 23 31s23-14 23-31c0-16-8-27-23-27z"/><path d="M35 57c5 7 21 7 26 0"/>';
+      var LUI = '<rect x="39" y="8" width="18" height="12" rx="1.5"/><path d="M43 20h10v8H43z"/><rect x="25" y="28" width="46" height="57" rx="5"/><path d="M33 47h30M33 67h30"/>';
+      var SVG = {
+        femme: '<svg viewBox="0 0 96 96" aria-hidden="true">' + ELLE + '</svg>',
+        homme: '<svg viewBox="0 0 96 96" aria-hidden="true">' + LUI + '</svg>',
+        tous: '<svg viewBox="0 0 96 96" aria-hidden="true"><g transform="translate(-6 14) scale(.72)">' + ELLE + '</g><g transform="translate(37 14) scale(.72)">' + LUI + '</g></svg>'
+      };
       function accueil() {
         document.querySelector('[data-qk-q-entete]').hidden = true; bRetour.hidden = true; bSuiv.hidden = true;
         ecran.innerHTML = '';
@@ -82,7 +90,7 @@
         ecran.appendChild(el('p', 'qk-quiz__num', (etape + 1) + ' / ' + Q.length));
         ecran.appendChild(el('h1', 'qk-quiz__question', q.titre));
         if (q.aide) ecran.appendChild(el('p', 'qk-quiz__aide', q.aide));
-        var photos = !q.odeurs && q.choix.some(function (c) { return c.img; });
+        var photos = !q.odeurs && q.choix.some(function (c) { return c.img || c.svg; });
         var grille = el('div', q.odeurs ? 'qk-odeurs__puces qk-quiz__puces' : 'qk-quiz__choix' + (photos ? ' qk-quiz__choix--photos' : ''));
         if (!q.odeurs) grille.style.setProperty('--qk-cols', q.choix.length > 4 ? 3 : q.choix.length);
         var liste = q.odeurs ? POPULAIRES.map(function (id) { var o = O.parId[id]; return { id: id, t: nl ? o.nl : o.fr }; }) : q.choix;
@@ -93,6 +101,10 @@
           if (sel.indexOf(c.id) >= 0) b.classList.add('is-on');
           if (q.odeurs) b.textContent = c.t;
           else {
+            if (c.svg) {
+              var ic = el('span', 'qk-quiz__icone'); ic.innerHTML = SVG[c.svg];
+              b.appendChild(ic); b.classList.add('qk-quiz__carte--icone');
+            }
             if (c.img) {
               var im = el('img', 'qk-quiz__photo'); im.alt = ''; im.loading = 'lazy'; im.src = IMG + c.img + TAILLE;
               b.appendChild(im); b.classList.add('qk-quiz__carte--photo');
