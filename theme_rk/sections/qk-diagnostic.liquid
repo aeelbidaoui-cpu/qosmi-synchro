@@ -36,16 +36,14 @@
       var champ = S.querySelector('[data-qk-diag-champ]'), sugg = S.querySelector('[data-qk-diag-sugg]'), elus = S.querySelector('[data-qk-diag-elus]'),
           go = S.querySelector('[data-qk-diag-go]'), res = S.querySelector('[data-qk-diag-res]'), grille = S.querySelector('[data-qk-diag-grille]');
       var choisis = [], minuteur = null;
-      var MOTS = {
-        agrumes: nl ? 'fris en stralend, met citrus die energie geven' : 'frais et lumineux, porté par des agrumes pleins d’énergie',
-        fleurs: nl ? 'bloemig, van zachte poederige bloemen tot weelderige witte bloemen' : 'floral, des fleurs poudrées aux grandes fleurs blanches',
-        fruits: nl ? 'fruitig en sappig' : 'fruité et juteux',
-        gourmand: nl ? 'zoet en gourmand: vanille, karamel, tonka' : 'gourmand et doux : vanille, caramel, tonka',
-        epices: nl ? 'kruidig, met warme of pittige specerijen' : 'épicé, avec des épices chaudes ou piquantes',
-        bois: nl ? 'houtig, van romig sandelhout tot droog vetiver' : 'boisé, du santal crémeux au vétiver sec',
-        ambre: nl ? 'warm en amberig, met harsen, muskus of oud' : 'chaud et ambré, avec résines, muscs ou oud',
-        frais: nl ? 'fris en aromatisch: lavendel, kruiden, zeenoten' : 'frais et aromatique : lavande, herbes, notes marines'
-      };
+      var A = nl ? { agrumes: 'fris en stralend: citrus vol energie', fleurs: 'bloemig: van poederige bloemen tot weelderige witte bloemen', fruits: 'fruitig en sappig',
+          gourmand: 'gourmand: vanille, karamel, tonkaboon', epices: 'kruidig, met warme of pittige specerijen', bois: 'houtig: van romig sandelhout tot droog vetiver',
+          ambre: 'warm en amberig: harsen, muskus of oud', frais: 'fris en aromatisch: lavendel, kruiden, zeenoten' }
+        : { agrumes: 'frais et hespéridé : des agrumes pleins d\u2019énergie', fleurs: 'floral : des fleurs poudrées aux grandes fleurs blanches', fruits: 'fruité et juteux',
+          gourmand: 'gourmand : vanille, caramel, fève tonka', epices: 'épicé, avec des épices chaudes ou piquantes', bois: 'boisé : du santal crémeux au vétiver sec',
+          ambre: 'chaud et ambré : résines, muscs ou oud', frais: 'frais et aromatique : lavande, herbes, notes marines' };
+      var B = nl ? { agrumes: 'citrus', fleurs: 'bloemen', fruits: 'fruitige noten', gourmand: 'gourmande noten', epices: 'specerijen', bois: 'houtgeuren', ambre: 'amberige noten', frais: 'frisse, aromatische noten' }
+        : { agrumes: 'les agrumes', fleurs: 'les fleurs', fruits: 'les notes fruitées', gourmand: 'les notes gourmandes', epices: 'les épices', bois: 'les bois', ambre: 'les notes ambrées', frais: 'les notes fraîches et aromatiques' };
       function O() { return window.qkOdeurs; }
       function dessinerElus() {
         elus.innerHTML = '';
@@ -106,8 +104,9 @@
           d.innerHTML = '<span class="qk-diag__nom"></span><span class="qk-diag__jauge"><i style="width:' + pc + '%"></i></span><span class="qk-diag__pc">' + pc + ' %</span>';
           d.querySelector('.qk-diag__nom').textContent = nomf; fd.appendChild(d);
         });
-        var t = fl.slice(0, 2).map(function (f) { return MOTS[f]; }).filter(Boolean);
-        S.querySelector('[data-qk-diag-txt]').textContent = t.length ? ((nl ? 'Je houdt van parfums die ' : 'Tu aimes les parfums au caractère ') + t[0] + (t[1] ? (nl ? ', en ook ' : ', avec une touche ') + t[1] : '') + '.') : '';
+        var txt = A[fl[0]] ? (nl ? 'Je profiel is vooral ' : 'Ton profil est surtout ') + A[fl[0]] + '.' : '';
+        if (fl[1] && B[fl[1]]) txt += (nl ? ' Je houdt ook van ' : ' Tu aimes aussi ') + B[fl[1]] + '.';
+        S.querySelector('[data-qk-diag-txt]').textContent = txt;
         var top = Object.keys(poids).sort(function (a, b) { return poids[b] - poids[a]; }).slice(0, 8);
         var nd = S.querySelector('[data-qk-diag-notes]'); nd.innerHTML = '';
         top.forEach(function (i) { var s = document.createElement('span'); s.className = 'qk-profil__puce'; s.textContent = Q.nom(+i, nl); nd.appendChild(s); });
