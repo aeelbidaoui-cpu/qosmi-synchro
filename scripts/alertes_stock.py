@@ -30,7 +30,7 @@ def clients_en_attente(s):
     res, apres = [], None
     while True:
         r = s.gql("""query($a: String) { customers(first: 100, after: $a, query: "tag:alerte-stock") {
-            nodes { id email tags } pageInfo { hasNextPage endCursor } } }""", {"a": apres})["customers"]
+            nodes { id tags } pageInfo { hasNextPage endCursor } } }""", {"a": apres})["customers"]
         res += r["nodes"]
         if not r["pageInfo"]["hasNextPage"]:
             return res
@@ -149,7 +149,7 @@ def main():
             code = "ESSAI" if ESSAI else creer_code(s, c["id"], produits, montant)
             ajout += ["retour:" + v["product"]["handle"] for v in retours] + ["code:" + code, "remise:%.2f" % montant]
             n_retour += 1
-            log("  retour en stock : %s → %s (code %s, %.2f €)" % (c["email"], ", ".join(v["product"]["title"] for v in retours), code, montant))
+            log("  retour en stock : %s → %s (code %s, %.2f €)" % (c["id"].rsplit("/", 1)[1], ", ".join(v["product"]["title"] for v in retours), code, montant))
         elif perdus:
             props = []
             for h in perdus:
@@ -158,9 +158,9 @@ def main():
             if props:
                 ajout += ["propose:" + h for h in props[:3]]
                 n_propose += 1
-                log("  pas revenu en 30 jours : %s → %s" % (c["email"], ", ".join(props[:3])))
+                log("  pas revenu en 30 jours : %s → %s" % (c["id"].rsplit("/", 1)[1], ", ".join(props[:3])))
             else:
-                log("  pas revenu en 30 jours, rien de proche en stock : %s (alerte close)" % c["email"])
+                log("  pas revenu en 30 jours, rien de proche en stock : %s (alerte close)" % c["id"].rsplit("/", 1)[1])
         if ESSAI:
             continue
         # « alerte-pret » resté d'un envoi précédent (si Flow ne l'a pas retiré) : on l'enlève, sinon le nouvel ajout ne déclencherait rien
