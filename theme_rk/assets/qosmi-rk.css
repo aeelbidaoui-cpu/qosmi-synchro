@@ -760,3 +760,13 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-alerte__note { margin: 10px 0 0; font-size: 0.75rem; line-height: 1.45; color: var(--qk-doux); }
 .qk-alerte__ok { font-size: 0.9375rem; line-height: 1.5; }
 .qk-alerte__ok strong { display: block; margin-bottom: 4px; }
+
+/* Avis clients Judge.me (13/11/2026) */
+.qk-avis { padding-top: 8px; }
+.qk-avis .jdgm-rev-widg { padding: 0 !important; border: 0 !important; }
+.qk-avis .jdgm-rev-widg__title { font-size: 1.5rem; font-weight: 400; text-align: left; margin-bottom: 12px; }
+.qk-avis .jdgm-write-rev-link, .qk-avis .jdgm-ask-question-btn { border-radius: 999px !important; background: var(--qk-noir) !important; color: #fff !important; border: 0 !important; padding: 12px 22px !important; }
+.qk-avis__badge { margin: -2px 0 10px; cursor: pointer; }
+.qk-avis__badge .jdgm-prev-badge__text { font-size: 0.8125rem; color: var(--qk-doux); }
+.qk-avis__badge .jdgm-prev-badge[data-number-of-reviews="0"] { display: none !important; }
+:root { --jdgm-star-color: #111111; }

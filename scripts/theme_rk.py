@@ -503,6 +503,10 @@ def construire(fichiers, marques):
     d["order"] = [k for k in d["order"] if k != "qk_proches"]
     reco = next((k for k in d["order"] if d["sections"][k]["type"] == "product-recommendations"), "qk_amb")
     d["order"].insert(d["order"].index(reco), "qk_proches")
+    # Avis clients Judge.me (13/11/2026) : juste avant « Parfums aux notes proches »
+    d["sections"]["qk_avis"] = {"type": "qk-avis", "settings": {}}
+    d["order"] = [k for k in d["order"] if k != "qk_avis"]
+    d["order"].insert(d["order"].index("qk_proches"), "qk_avis")
     jsons["templates/product.json"] = ecrire(e, d)
 
     # ---------- collections et recherche ----------

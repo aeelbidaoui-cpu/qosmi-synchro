@@ -1,0 +1,38 @@
+{%- comment -%}
+  Avis clients Judge.me (13/11/2026, accord d'Amine) : widget d'avis sous la fiche + étoiles sous le titre.
+  Code Liquid officiel de Judge.me (judge.me/help, « Liquid code for Judge.me widgets ») ; l'intégration
+  « Judge.me » doit rester activée dans Thème → Intégrations d'applications.
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+<section class="qk-section qk-avis">
+  <div class="qk-largeur">
+    {%- assign has_legacy = false -%}
+    {%- if product.metafields.judgeme.widget.size > 20 -%}{%- assign has_legacy = true -%}{%- endif -%}
+    <div style="clear:both"></div>
+    <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget" data-product-title="{{ product.title | escape }}" data-id="{{ product.id }}" data-product-id="{{ product.id }}" data-widget="review" data-auto-install="false" data-shop-reviews-count="{{ shop.metafields.judgeme.shop_reviews_count | default: 0 | escape }}" data-entry-point="review_widget.js" data-entry-key="review-widget/main.js">
+      {%- if has_legacy -%}<div class="jdgm-legacy-widget-content" style="display: none;">{{ product.metafields.judgeme.widget }}</div>{%- endif -%}
+    </div>
+    {%- if product.metafields.judgeme.review_widget_data -%}
+      <script>jdgm.data ||= {}; jdgm.data.reviewWidget ||= {}; jdgm.data.reviewWidget[{{ product.id }}] = {{ product.metafields.judgeme.review_widget_data }}</script>
+    {%- endif -%}
+  </div>
+  <div class="qk-avis__badge" data-qk-avis-badge>
+    <div class="jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}">{{ product.metafields.judgeme.badge }}</div>
+  </div>
+  <script>
+    (function () {
+      /* étoiles sous le titre du parfum ; un clic descend jusqu'aux avis */
+      var b = document.querySelector('[data-qk-avis-badge]'), t = document.querySelector('.qk-titre-ligne');
+      if (b && t) { t.parentNode.insertBefore(b, t.nextSibling); }
+      if (b) b.addEventListener('click', function () {
+        var w = document.getElementById('judgeme_product_reviews');
+        if (w) w.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{ "name": "Qosmi · Avis", "tag": "div", "settings": [] }
+{% endschema %}
