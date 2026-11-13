@@ -1,0 +1,33 @@
+{%- comment -%} Qosmi · e-mail « 3 parfums pour toi » ~2 mois après l'achat (13/11/2026). Fiches lues dans les étiquettes suggere:<fiche> (scripts/apres_achat.py). {%- endcomment -%}
+{%- assign n = 0 -%}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F5EFE7;">
+  <tr><td style="padding:36px 20px 10px;text-align:center;">
+    <p style="margin:0 0 8px;font-family:Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8A7F72;">Choisis pour toi</p>
+    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:26px;line-height:1.2;color:#1A1A1A;">3 parfums dans le même esprit</p>
+    <p style="margin:12px 0 0;font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;color:#6F665C;">D'après les notes du parfum que tu as choisi chez nous.</p>
+  </td></tr>
+  <tr><td style="padding:14px 12px 6px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    {%- for t in customer.tags -%}{%- if t contains 'suggere:' -%}
+      {%- assign p = all_products[t | remove_first: 'suggere:'] -%}
+      {%- if p and p.title != blank and n < 3 -%}
+        {%- assign nom = p.title | split: ' — ' | first | remove_first: p.vendor | strip -%}
+        <td width="33%" valign="top" style="padding:8px 6px 22px;">
+          <a href="{{ shop.url }}/products/{{ p.handle }}" style="display:block;text-decoration:none;color:#1A1A1A;text-align:center;">
+            <div style="background:#FFFFFF;border:1px solid #E7DCCD;border-radius:50% 50% 12px 12px / 30% 30% 12px 12px;overflow:hidden;padding:36px 10px 12px;">
+              <img src="{{ p.featured_image | image_url: width: 300 }}" alt="{{ p.title | escape }}" width="120" style="display:block;margin:0 auto;width:100%;max-width:120px;height:auto;border:0;">
+            </div>
+            <p style="margin:12px 0 4px;font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8A7F72;">{{ p.vendor }}</p>
+            <p style="margin:0 0 6px;font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.3;color:#1A1A1A;">{{ nom }}</p>
+            <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:600;color:#1A1A1A;">{% if p.price_varies %}dès {% endif %}{{ p.price_min | money }}</p>
+          </a>
+        </td>
+        {%- assign n = n | plus: 1 -%}
+      {%- endif -%}
+    {%- endif -%}{%- endfor -%}
+    </tr></table>
+  </td></tr>
+  <tr><td style="padding:0 20px 38px;text-align:center;">
+    <a href="{{ shop.url }}/pages/odeurs" style="display:inline-block;padding:14px 30px;border:1px solid #1A1A1A;border-radius:999px;font-family:Helvetica,Arial,sans-serif;font-size:14px;color:#1A1A1A;text-decoration:none;">Chercher par odeurs</a>
+  </td></tr>
+</table>

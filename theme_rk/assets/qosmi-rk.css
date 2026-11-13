@@ -848,3 +848,4 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 
 /* Quiz : sélection par e-mail (13/11/2026) */
 .qk-quiz__mail { margin-top: 28px; }
+.qk-favoris__prix { margin-top: 32px; max-width: 560px; }

@@ -55,6 +55,10 @@ jobs:
           [ -f rapports/site_synchro.log ] && tail -n 5 rapports/site_synchro.log >> "$GITHUB_STEP_SUMMARY" || true
           # alertes « de retour en stock » (12/11/2026) : ne bloque jamais la mise à jour
           if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/alertes_stock.py || echo "alertes : erreur (voir journal)"; fi
+          # alertes « baisse de prix » sur les favoris (13/11/2026)
+          if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/alertes_prix.py || echo "alertes prix : erreur (voir journal)"; fi
+          # e-mails après l'achat : 3 parfums proches ~2 mois après (13/11/2026)
+          if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/apres_achat.py || echo "après achat : erreur (voir journal)"; fi
 
       - name: Garder l'état pour le prochain passage
         if: always()

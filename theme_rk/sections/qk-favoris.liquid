@@ -7,6 +7,24 @@
     <p class="qk-intro" data-qk-fav-vide hidden>{% if qk_nl %}Je hebt nog geen favorieten. Tik op het hartje bij een parfum om het hier te bewaren.{% else %}Tu n'as pas encore de favoris. Touche le cœur d'un parfum pour le garder ici.{% endif %}
       <br><a class="qk-lien" href="{{ routes.collections_url }}/parfums">{% if qk_nl %}Parfums bekijken{% else %}Voir les parfums{% endif %}</a></p>
     <div class="qk-favoris__grille" data-qk-fav-grille></div>
+    {%- comment -%} 13/11/2026 : alerte baisse de prix (scripts/alertes_prix.py + Shopify Flow) {%- endcomment -%}
+    <div class="qk-alerte qk-favoris__prix" data-qk-fav-prix hidden>
+      <div class="qk-alerte__ok" data-qk-fav-prix-ok hidden>
+        <strong>{% if qk_nl %}Genoteerd!{% else %}C'est noté !{% endif %}</strong>
+        {% if qk_nl %}We sturen je een e-mail als de prijs van een van je favorieten daalt.{% else %}Nous t'écrirons si le prix d'un de tes favoris baisse.{% endif %}
+      </div>
+      {%- form 'customer', class: 'qk-alerte__form', data-qk-fav-prix-form: '' -%}
+        <p class="qk-alerte__titre">{% if qk_nl %}Verwittig me als een favoriet in prijs daalt{% else %}Préviens-moi si un de mes favoris baisse de prix{% endif %}</p>
+        <input type="hidden" name="contact[tags]" value="" data-qk-fav-prix-tags>
+        <input type="hidden" name="return_to" value="{{ request.path }}?prix=ok">
+        <div class="qk-alerte__ligne">
+          <label class="visually-hidden" for="qk-fav-email">{% if qk_nl %}E-mailadres{% else %}Adresse e-mail{% endif %}</label>
+          <input id="qk-fav-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% else %}Ton e-mail{% endif %}">
+          <button type="submit" class="qk-alerte__bouton">{% if qk_nl %}Verwittig me{% else %}M'avertir{% endif %}</button>
+        </div>
+        <p class="qk-alerte__note">{% if qk_nl %}Geldt voor de favorieten die je nu bewaard hebt. Je ontvangt ook onze maandelijkse nieuwsbrief (uitschrijven met één klik).{% else %}Valable pour les favoris enregistrés maintenant. Tu recevras aussi notre e-mail mensuel (désinscription en un clic).{% endif %}</p>
+      {%- endform -%}
+    </div>
   </div>
   <script>
     (function () {
@@ -14,7 +32,17 @@
       var racine = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
       var grille = document.querySelector('[data-qk-fav-grille]'), vide = document.querySelector('[data-qk-fav-vide]');
       function euros(c) { return (c / 100).toFixed(2).replace('.', ',') + ' €'; }
+      var suivis = {}, blocPrix = document.querySelector('[data-qk-fav-prix]');
+      function majPrix() {
+        var l = Object.keys(suivis).slice(0, 20).map(function (h) { return suivis[h]; });
+        blocPrix.querySelector('[data-qk-fav-prix-tags]').value = ['prix-alerte', 'langue:' + (nl ? 'nl' : 'fr')].concat(l).join(',');
+        blocPrix.hidden = !l.length && !/[?&]prix=ok/.test(location.search);
+      }
+      if (/[?&]prix=ok/.test(location.search)) {
+        blocPrix.hidden = false; blocPrix.querySelector('[data-qk-fav-prix-ok]').hidden = false; blocPrix.querySelector('[data-qk-fav-prix-form]').hidden = true;
+      }
       function dessiner() {
+        suivis = {};
         var l = (window.qkFavoris ? qkFavoris.lire() : []);
         vide.hidden = l.length > 0;
         grille.innerHTML = '';
@@ -41,6 +69,7 @@
                 .then(function () { b.textContent = nl ? 'Toegevoegd ✓' : 'Ajouté ✓'; });
             });
             grille.appendChild(d);
+            if (v) { suivis[h] = 'prix:' + v.id + ':' + v.price; majPrix(); }
           });
         });
       }
