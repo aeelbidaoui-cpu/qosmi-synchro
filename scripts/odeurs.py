@@ -171,8 +171,29 @@ def construire_index():
     return {"familles": [list(f) for f in FAMILLES], "odeurs": liste, "parfums": parfums}, compte
 
 
+def fiches_en_ligne():
+    """Fiches visibles sur la boutique (products.json public). Ensemble vide si la boutique ne répond pas."""
+    import urllib.request
+    h = set()
+    try:
+        for page in range(1, 60):
+            r = json.load(urllib.request.urlopen(urllib.request.Request("https://qosmi.be/products.json?limit=250&page=%d" % page,
+                                                                        headers={"User-Agent": "QosmiSynchro/1.0"}), timeout=30))
+            if not r.get("products"):
+                break
+            h |= {x["handle"] for x in r["products"]}
+    except Exception as e:
+        print("fiches en ligne : %s" % e)
+        return set()
+    return h
+
+
 def asset_js():
     idx, _ = construire_index()
+    # 13/11/2026 : seulement les fiches en ligne (évite de proposer un parfum masqué : 404 côté navigateur)
+    en_ligne = fiches_en_ligne()
+    if len(en_ligne) > 500:
+        idx["parfums"] = {h: v for h, v in idx["parfums"].items() if h in en_ligne}
     return ("/* Généré par scripts/odeurs.py (recherche par odeurs, 12/11/2026) : ne pas modifier à la main. */\n"
             "window.QK_ODEURS=" + json.dumps(idx, ensure_ascii=False, separators=(",", ":")) + ";\n")
 
