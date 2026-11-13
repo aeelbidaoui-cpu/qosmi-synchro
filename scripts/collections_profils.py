@@ -4,6 +4,8 @@
 Collections manuelles remplies à partir de config/profils_parfums.json (saison « s » et occasions « o », données
 Fragrance Index) : on ajoute les fiches qui correspondent et on retire celles qui ne correspondent plus.
 Titre, texte, SEO et adresse en français + traduction néerlandaise. Tri : meilleures ventes.
+Seulement les parfums disponibles (sinon les épuisés remontent en tête, faute de ventes) ; lancé à chaque synchro
+pour suivre le stock.
 
   python3 scripts/collections_profils.py           # crée / met à jour
   python3 scripts/collections_profils.py --essai   # compte seulement
@@ -61,6 +63,23 @@ COLLECTIONS = [
 ]
 
 
+def disponibles():
+    """Fiches en vente (au moins un format disponible), lues sur products.json. Ensemble vide si la boutique ne répond pas."""
+    import urllib.request
+    h = set()
+    try:
+        for page in range(1, 60):
+            r = json.load(urllib.request.urlopen(urllib.request.Request("https://qosmi.be/products.json?limit=250&page=%d" % page,
+                                                                        headers={"User-Agent": "QosmiSynchro/1.0"}), timeout=30))
+            if not r.get("products"):
+                break
+            h |= {x["handle"] for x in r["products"] if any(v.get("available") for v in x["variants"])}
+    except Exception as e:
+        print("disponibilités : %s" % e)
+        return set()
+    return h if len(h) > 300 else set()
+
+
 def main():
     P = json.load(open(os.path.join(RACINE, "config", "profils_parfums.json"), encoding="utf-8"))["parfums"]
     voulus = {c[0]: sorted(h for h, v in P.items() if c[2] in v.get(c[1], []) and "testeur" not in h and "tester" not in h)
@@ -82,6 +101,8 @@ def main():
         if not r["pageInfo"]["hasNextPage"]:
             break
         apres = r["pageInfo"]["endCursor"]
+    dispo = disponibles()
+    print("parfums disponibles sur la boutique : %d" % len(dispo))
     for h, cle, val, t_fr, h_nl, t_nl, x_fr, x_nl, m_fr, m_nl in COLLECTIONS:
         champs = {"title": t_fr, "descriptionHtml": "<p>%s%s</p>" % (x_fr, NOTE_FR), "sortOrder": "BEST_SELLING",
                   "seo": {"title": "%s | Qosmi" % t_fr, "description": m_fr}}
@@ -108,7 +129,7 @@ def main():
             if not r["pageInfo"]["hasNextPage"]:
                 break
             apres = r["pageInfo"]["endCursor"]
-        cible = {ids[x] for x in voulus[h] if x in ids}
+        cible = {ids[x] for x in voulus[h] if x in ids and (not dispo or x in dispo)}
         ajout, retrait = sorted(cible - dedans), sorted(dedans - cible)
         for i in range(0, len(ajout), 250):
             e = s.gql("mutation($id: ID!, $p: [ID!]!) { collectionAddProducts(id: $id, productIds: $p) { userErrors { message } } }",
