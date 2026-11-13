@@ -14,13 +14,14 @@ from notes_traductions import traduire
 
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SAISON = {"spring": "printemps", "summer": "ete", "autumn": "automne", "fall": "automne", "winter": "hiver"}
-TENUE = {"light wear": "legere", "short-lived": "legere", "moderate": "moyenne", "moderate wear": "moyenne", "long-lasting": "longue",
+TENUE = {"light wear": "legere", "short-lived": "legere", "moderate": "moyenne", "moderate wear": "moyenne", "long-lasting": "longue", "fleeting": "legere",
          "all-day wear": "journee", "into the next day": "lendemain"}
 SILLAGE = {"intimate": "discret", "soft": "discret", "light": "discret", "moderate": "modere", "strong": "fort",
-           "enormous": "tres_fort", "very strong": "tres_fort", "heavy": "tres_fort"}
+           "enormous": "tres_fort", "very strong": "tres_fort", "heavy": "tres_fort", "powerful": "tres_fort"}
 OCC = {"everyday": "quotidien", "office": "bureau", "date night": "rdv", "dinner out": "diner", "club & party": "soiree",
        "wedding": "mariage", "gym": "sport", "sport": "sport", "beach": "vacances", "vacation": "vacances", "holiday": "vacances",
-       "formal": "chic", "gala": "chic", "black tie": "chic", "lounge": "detente", "relaxing": "detente", "casual": "quotidien"}
+       "formal": "chic", "gala": "chic", "black tie": "chic", "lounge": "detente", "relaxing": "detente", "casual": "quotidien",
+       "interview": "bureau", "travel": "vacances", "yoga": "detente", "bedtime": "detente"}
 
 
 def main(dossier, valides=None):
@@ -91,7 +92,7 @@ def main(dossier, valides=None):
               ensure_ascii=False, separators=(",", ":"))
     print("relevés : %d (sûrs : %d, validés à la main : %d)" % (len(R), n2, n1))
     print("profils : %d fiches · nouvelles notes : %d fiches" % (len(profils), len(notes_fi)))
-    print("notes sans traduction :", inconnues.most_common(80))
+    print("notes sans traduction :", inconnues.most_common(80), "· total", len(inconnues))
     print("valeurs inconnues :", inc_val.most_common(30))
 
 
