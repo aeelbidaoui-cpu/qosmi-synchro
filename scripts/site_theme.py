@@ -272,13 +272,16 @@ def appliquer_rk():
     marques = json.load(open(os.path.join(os.path.dirname(ICI), "config", "selection.json"), encoding="utf-8"))["marques"]
     liquides, jsons = theme_rk.construire(actuels, marques)
     for lot, nom in ((liquides, "sections, style et mise en page"), (jsons, "modèles")):
-        r = s.gql("""mutation($id: ID!, $f: [OnlineStoreThemeFilesUpsertFileInput!]!) { themeFilesUpsert(themeId: $id, files: $f) {
-                     upsertedThemeFiles { filename } userErrors { filename code message } } }""",
-                  {"id": apercu["id"], "f": [{"filename": n, "body": {"type": "TEXT", "value": v}} for n, v in lot.items()]})["themeFilesUpsert"]
-        if r["userErrors"]:
-            print("  REFUS (%s) : %s" % (nom, json.dumps(r["userErrors"], ensure_ascii=False)[:3000]))
-            raise SystemExit(1)
-        print("  %s envoyés : %s" % (nom, ", ".join(f["filename"] for f in r["upsertedThemeFiles"])))
+        # Shopify : 50 fichiers au plus par envoi (13/11/2026) ; extraits (snippets) d'abord, ils sont rendus par les sections
+        noms = sorted(lot, key=lambda n: (not n.startswith("snippets/"), not n.startswith("assets/"), n))
+        for i in range(0, len(noms), 45):
+            r = s.gql("""mutation($id: ID!, $f: [OnlineStoreThemeFilesUpsertFileInput!]!) { themeFilesUpsert(themeId: $id, files: $f) {
+                         upsertedThemeFiles { filename } userErrors { filename code message } } }""",
+                      {"id": apercu["id"], "f": [{"filename": n, "body": {"type": "TEXT", "value": lot[n]}} for n in noms[i:i + 45]]})["themeFilesUpsert"]
+            if r["userErrors"]:
+                print("  REFUS (%s) : %s" % (nom, json.dumps(r["userErrors"], ensure_ascii=False)[:3000]))
+                raise SystemExit(1)
+            print("  %s envoyés : %s" % (nom, ", ".join(f["filename"] for f in r["upsertedThemeFiles"])))
     num = apercu["id"].rsplit("/", 1)[-1]
     print("APERÇU : https://qosmi.be/?preview_theme_id=%s" % num)
 
