@@ -103,17 +103,18 @@ def main():
 
 
 def libelle_nl():
-    """Titre du filtre Search & Discovery en néerlandais : « Odeurs » → « Geuren »."""
+    """Titres des filtres Search & Discovery en néerlandais (Odeurs, Saison, Idéal pour)."""
+    NL = {"Odeurs": "Geuren", "Saison": "Seizoen", "Idéal pour": "Ideaal voor"}
     from shopify_api import Shopify
     s = Shopify()
     r = s.gql("""{ translatableResources(first: 50, resourceType: FILTER) { nodes { resourceId translatableContent { key value digest locale } } } }""")
     n = 0
     for res in r["translatableResources"]["nodes"]:
         for c in res["translatableContent"]:
-            if c["value"] == "Odeurs":
+            if c["value"] in NL:
                 e = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) { userErrors { message } } }""",
-                          {"id": res["resourceId"], "t": [{"locale": "nl", "key": c["key"], "value": "Geuren", "translatableContentDigest": c["digest"]}]})
-                print("Libellé NL :", res["resourceId"], e["translationsRegister"]["userErrors"] or "Geuren")
+                          {"id": res["resourceId"], "t": [{"locale": "nl", "key": c["key"], "value": NL[c["value"]], "translatableContentDigest": c["digest"]}]})
+                print("Libellé NL :", res["resourceId"], e["translationsRegister"]["userErrors"] or NL[c["value"]])
                 n += 1
     print("OK libellés traduits :", n)
 
