@@ -881,3 +881,12 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 @media (max-width: 749px) { .qk-noel__pratique { grid-template-columns: 1fr; } }
 .qk-noel__pratique li { border-top: 1px solid #1A1A1A; padding-top: 12px; color: #6F665C; font-size: .95rem; }
 .qk-noel__pratique strong { display: block; color: #1A1A1A; font-weight: 500; margin-bottom: 4px; }
+
+/* message cadeau dans le panier (13/11/2026) */
+.qk-cadeau { margin: 0 0 14px; padding: 12px 14px; border: 1px solid var(--qk-trait, #e5e0d8); border-radius: 12px; background: #faf8f5; text-align: left; }
+.qk-cadeau__case { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.9rem; }
+.qk-cadeau__case input { width: 18px; height: 18px; accent-color: #1A1A1A; margin: 0; }
+.qk-cadeau__aide { margin: 10px 0 6px; font-size: 0.8rem; color: #6F665C; }
+.qk-cadeau textarea { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #d9d2c7; border-radius: 8px; font: inherit; font-size: 0.9rem; resize: vertical; background: #fff; }
+.qk-cadeau__pied { display: flex; justify-content: space-between; margin: 4px 0 0; font-size: 0.75rem; color: #6F665C; }
+.qk-cadeau__compte { margin-left: auto; }

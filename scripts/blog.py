@@ -18,6 +18,7 @@ Dans "corps" (HTML) :
   [[concentrations]]           visuel des concentrations (eau de Cologne → extrait)
   [[collection:<handle>|texte]] lien vers une collection (adresse NL traduite si elle existe)
   [[marque:<nom>|texte]]       lien vers tous les parfums d'une marque
+  [[page:<handle>|texte]]      lien vers une page du site (adresse NL dans PAGES_NL)
 Les liens NL pointent vers l'adresse néerlandaise de la fiche. Une fiche qui n'est pas en ligne n'est jamais liée.
 La FAQ est ajoutée en bas de l'article et reprise en données structurées (FAQPage) par le thème.
 
@@ -77,6 +78,10 @@ def collections_nl(s):
     return {c["handle"]: next((t["value"] for t in c["translations"] if t["key"] == "handle"), c["handle"]) for c in d}
 
 
+PAGES_NL = {"diagnostic": "geurdiagnose", "faq": "veelgestelde-vragen", "lexique": "geurwoordenboek",
+            "idees-cadeaux-noel": "kerstcadeaus"}  # adresses NL des pages (quiz, odeurs… gardent la même)
+
+
 def rendu(corps, fiches, langue):
     def lien(h):
         f = fiches.get(h)
@@ -111,11 +116,14 @@ def rendu(corps, fiches, langue):
         genre, (cle, _, texte) = m.group(1), m.group(2).partition("|")
         cle = cle.strip()
         prefixe = "/nl" if langue == "nl" else ""
+        if genre == "page":  # 13/11/2026 : pages du site (diagnostic, quiz, guide cadeaux…)
+            h = PAGES_NL.get(cle, cle) if langue == "nl" else cle
+            return '<a href="%s/pages/%s">%s</a>' % (prefixe, h, html.escape(texte.strip() or cle))
         if genre == "collection":
             h = COLLECTIONS_NL.get(cle, cle) if langue == "nl" else cle
             return '<a href="%s/collections/%s">%s</a>' % (prefixe, h, html.escape(texte.strip() or cle))
         return '<a href="%s/collections/vendors?q=%s">%s</a>' % (prefixe, urllib.parse.quote(cle), html.escape(texte.strip() or cle))
-    corps = re.sub(r"\[\[(collection|marque):([^\]]+)\]\]", autres, corps)
+    corps = re.sub(r"\[\[(collection|marque|page):([^\]]+)\]\]", autres, corps)
     corps = re.sub(r"\[\[notes:([^\]]+)\]\]", lambda m: notes_html(m.group(1), langue), corps)
     corps = corps.replace("[[concentrations]]", concentrations_html(langue))
     return re.sub(r"\[\[(photo|photos|produit):([^\]]+)\]\]", remplace, corps)

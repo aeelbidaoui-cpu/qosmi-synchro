@@ -82,11 +82,15 @@ COLLECTIONS = [  # (handle, titre, colonne, valeurs)
     ("nouveautes", "Nouveautés", "TYPE", PARFUMS),  # 10/11/2026 : triée par date d'ajout (voir TRI)  # 10/11/2026 : parfums vraiment moins chers que le concurrent de référence ("soins", "Soins", "TYPE", SOINS),
     ("maquillage", "Maquillage", "TYPE", ["Maquillage"]),
 ]
-MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes")]),
+MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes"),
+                               # 13/11/2026 : collections par saison (scripts/collections_profils.py), demande d'Amine
+                               ("Parfums d'hiver", "parfums-hiver"), ("Parfums de printemps", "parfums-printemps"),
+                               ("Parfums d'été", "parfums-ete"), ("Parfums d'automne", "parfums-automne")]),
         # 10/11/2026 : Femme et Homme retirés du haut du menu (doublon avec le sous-menu Parfums, demande d'Amine)
         ("Niche", "niche", []),  # Testeurs retiré le 08/11/2026 (en suspens, question juridique)
         ("Parfums arabes", "parfums-arabes", []),  # 08/11/2026 : activé (174 parfums arabes en ligne)
         ("Coffrets", "coffrets", []),  # 10/11/2026 : coffrets pour les fêtes (demande d'Amine)
+        ("Idées cadeaux", "page:idees-cadeaux-noel", []),  # 13/11/2026 : guide de Noël, en haut jusqu'à fin décembre (demande d'Amine)
         ("Trouve ton parfum", "page:quiz", []),  # 12/11/2026 : quiz parfum ; la recherche par odeurs est liée depuis le quiz et les fiches
         ("Marques", "page:marques", []),  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
         ("Magazine", "blog:journal", [])]  # 08/11/2026 : le blog (scripts/blog.py) ; renommé « Magazine » le 10/11/2026 (demande d'Amine), adresse /blogs/journal gardée
@@ -175,6 +179,8 @@ def menu(s, ids):
             return {"title": t, "type": "BLOG", "resourceId": blogs[h[5:]], "items": []}
         if h.startswith("page:"):
             return {"title": t, "type": "PAGE", "resourceId": pages[h], "items": []}
+        if h not in ids:  # collections manuelles hors COLLECTIONS (ex. saisons)
+            ids[h] = s.gql("query($h: String!) { collectionByIdentifier(identifier: {handle: $h}) { id } }", {"h": h})["collectionByIdentifier"]["id"]
         return {"title": t, "type": "COLLECTION", "resourceId": ids[h], "items": [entree(st, sh) for st, sh in sous]}
     items = [entree(t, h, sous) for t, h, sous in MENU if not h.startswith("page:") or h in pages]
     if m:

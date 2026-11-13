@@ -357,6 +357,8 @@ def construire(fichiers, marques):
     if "qk-favoris.js" not in lay:
         lay = lay.replace("</head>", "    <script src=\"{{ 'qk-favoris.js' | asset_url }}\" defer></script>\n  </head>", 1)
     # « Complète ta commande » dans le panier (13/11/2026)
+    if "qk-cadeau.js" not in lay:  # 13/11/2026 : message cadeau dans le panier
+        lay = lay.replace("</head>", "    <script type=\"module\" src=\"{{ 'qk-cadeau.js' | asset_url }}\"></script>\n  </head>", 1)
     if "qk-complete.js" not in lay:
         lay = lay.replace("</head>", "    <script>window.QK_COMPLETE = { odeurs: \"{{ 'qk-odeurs.js' | asset_url }}\", outils: \"{{ 'qk-odeurs-outils.js' | asset_url }}\" };</script>\n"
                                      "    <script type=\"module\" src=\"{{ 'qk-complete.js' | asset_url }}\"></script>\n  </head>", 1)
@@ -433,6 +435,13 @@ def construire(fichiers, marques):
             "titre": "Marques", "liste": "\n".join(marques_bande(marques)), "logos": logos_slugs(), "maximum": 40,
             "tout_texte": "Toutes les marques", "tout_texte_nl": "Alle merken", "tout_lien": "/pages/marques",
             "texte": "Des parfums originaux et neufs, des grandes maisons aux créateurs de niche."}},
+        # 13/11/2026 : bloc Noël vers le guide cadeaux (demande d'Amine), à retirer après les fêtes
+        "qk_amb_noel": ambiance("qosmi-decor-coffret-noel.jpg", "Coffret cadeau en carton, papier de soie et anis étoilé", "gauche",
+            ("Noël", "Idées cadeaux parfum", "Des coffrets, des parfums pour tous les budgets et de l'aide pour choisir celui qui lui ressemble. "
+             "Tu peux aussi ajouter un petit mot au moment de commander.", "Voir le guide cadeaux"),
+            ("Kerst", "Parfum cadeau-ideeën", "Geschenksets, parfums voor elk budget en hulp om de geur te kiezen die bij die persoon past. "
+             "Je kunt bij je bestelling ook een kort berichtje toevoegen.", "Bekijk de cadeaugids"),
+            "/pages/idees-cadeaux-noel"),
         "qk_amb_journal": ambiance(3, "Main qui vaporise un parfum", "droite",
             ("Le Magazine", "Le bon geste", "Conseils pour bien porter ton parfum, matières premières, portraits de parfumeurs : tout ce qu'il faut savoir avant de choisir.", "Lire le Magazine"),
             ("Het Magazine", "De juiste reflex", "Tips om je parfum goed te dragen, grondstoffen, portretten van parfumeurs: alles wat je moet weten voor je kiest.", "Lees het Magazine"),
@@ -455,7 +464,7 @@ def construire(fichiers, marques):
                      "et on te les livre partout en Belgique.</p>",
             "lien_texte": "Voir tous les parfums", "lien": "shopify://collections/parfums", "alignement": "centre"}},
     }
-    d["order"] = ["qk_hero", "qk_favoris", "qk_amb_journal", "qk_banniere", "qk_tuiles", "qk_amb_arabes", "qk_marques", "qk_apropos", "qk_apropos_ancien"]
+    d["order"] = ["qk_hero", "qk_favoris", "qk_amb_noel", "qk_amb_journal", "qk_banniere", "qk_tuiles", "qk_amb_arabes", "qk_marques", "qk_apropos", "qk_apropos_ancien"]
     jsons["templates/index.json"] = ecrire(e, d)
 
     # ---------- fiche produit ----------
