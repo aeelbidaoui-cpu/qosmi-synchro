@@ -12,6 +12,25 @@
       <div class="qk-quiz__progres" aria-hidden="true"><span data-qk-q-barre></span></div>
     </div>
     <div data-qk-q-ecran aria-live="polite"></div>
+    {%- comment -%} 13/11/2026 : « Reçois ta sélection par e-mail ». Le client devient contact avec les étiquettes quiz-pret, langue:fr|nl
+      et quiz:<AAAAMMJJHHMM>:<rang>:<fiche> ; Shopify Flow lui envoie l'e-mail (config/mails/quiz_selection_*.liquid). {%- endcomment -%}
+    <div class="qk-alerte qk-quiz__mail" data-qk-q-mail hidden>
+      <div class="qk-alerte__ok" data-qk-q-mail-ok hidden>
+        <strong>{% if qk_nl %}Verstuurd!{% else %}C'est envoyé !{% endif %}</strong>
+        {% if qk_nl %}Je selectie komt binnen enkele minuten in je mailbox.{% else %}Ta sélection arrive dans ta boîte mail d'ici quelques minutes.{% endif %}
+      </div>
+      {%- form 'customer', class: 'qk-alerte__form', data-qk-q-mail-form: '' -%}
+        <p class="qk-alerte__titre">{% if qk_nl %}Ontvang je selectie per e-mail{% else %}Reçois ta sélection par e-mail{% endif %}</p>
+        <input type="hidden" name="contact[tags]" value="" data-qk-q-mail-tags>
+        <input type="hidden" name="return_to" value="{{ request.path }}?quiz=ok">
+        <div class="qk-alerte__ligne">
+          <label class="visually-hidden" for="qk-quiz-email">{% if qk_nl %}E-mailadres{% else %}Adresse e-mail{% endif %}</label>
+          <input id="qk-quiz-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% else %}Ton e-mail{% endif %}">
+          <button type="submit" class="qk-alerte__bouton">{% if qk_nl %}Versturen{% else %}Envoyer{% endif %}</button>
+        </div>
+        <p class="qk-alerte__note">{% if qk_nl %}Je ontvangt ook onze maandelijkse nieuwsbrief (uitschrijven met één klik).{% else %}Tu recevras aussi notre e-mail mensuel (désinscription en un clic).{% endif %}</p>
+      {%- endform -%}
+    </div>
     <div class="qk-quiz__bas">
       <button type="button" class="qk-quiz__retour" data-qk-q-retour hidden>{% if qk_nl %}← Terug{% else %}← Retour{% endif %}</button>
       <button type="button" class="qk-acheter qk-quiz__suivant" data-qk-q-suivant hidden>{% if qk_nl %}Volgende{% else %}Suivant{% endif %}</button>
@@ -201,12 +220,33 @@
           var affiner = el('a', 'qk-lien', T('Affiner par odeurs', 'Verfijnen op geur'));
           affiner.href = racine + 'pages/odeurs' + (ids.length ? '?o=' + ids.slice(0, 3).join(',') : '');
           actions.appendChild(refaire); actions.appendChild(affiner); ecran.appendChild(actions);
+          /* sélection par e-mail : fiches des cartes affichées, dans l'ordre */
+          var mail = document.querySelector('[data-qk-q-mail]');
+          var fiches = Array.prototype.slice.call(une.querySelectorAll('a.qk-carte')).concat(Array.prototype.slice.call(autres.querySelectorAll('a.qk-carte')))
+            .map(function (a) { var m = a.getAttribute('href').match(/\/products\/([^/?#]+)/); return m ? m[1] : null; }).filter(Boolean).slice(0, 5);
+          if (mail && fiches.length) {
+            var d = new Date(), z = function (n) { return ('0' + n).slice(-2); };
+            var ts = '' + d.getFullYear() + z(d.getMonth() + 1) + z(d.getDate()) + z(d.getHours()) + z(d.getMinutes());
+            mail.querySelector('[data-qk-q-mail-tags]').value = ['quiz-pret', 'langue:' + (nl ? 'nl' : 'fr')].concat(fiches.map(function (h, k) { return 'quiz:' + ts + ':' + (k + 1) + ':' + h; })).join(',');
+            mail.querySelector('[data-qk-q-mail-form]').addEventListener('submit', function () { try { sessionStorage.setItem('qk-quiz-mail', '1'); } catch (e) {} });
+            ecran.appendChild(mail); mail.hidden = false;
+          }
           if (window.qkFavoris) qkFavoris.maj();
         });
       }
 
       bRetour.addEventListener('click', function () { if (etape > 0) { etape--; } else { accueilVu = false; } afficher(); });
       bSuiv.addEventListener('click', function () { etape++; afficher(); });
+      /* retour du formulaire « sélection par e-mail » (?quiz=ok, ou repli si la vérification anti-robot a perdu le paramètre) */
+      (function () {
+        var vu = /[?&]quiz=ok/.test(location.search) || /[?&]customer_posted=true/.test(location.search);
+        try { if (sessionStorage.getItem('qk-quiz-mail')) { vu = vu || document.referrer.indexOf('/challenge') >= 0 || /customer_posted/.test(location.search); } } catch (e) {}
+        if (!vu) return;
+        try { sessionStorage.removeItem('qk-quiz-mail'); } catch (e) {}
+        var m = document.querySelector('[data-qk-q-mail]');
+        m.hidden = false; m.querySelector('[data-qk-q-mail-ok]').hidden = false; m.querySelector('[data-qk-q-mail-form]').hidden = true;
+        m.parentNode.insertBefore(m, m.parentNode.firstChild);
+      })();
       function demarrer() { if (window.qkOdeurs && !ecran.children.length) afficher(); }
       if (window.qkOdeurs) demarrer(); else document.addEventListener('qk:odeurs', demarrer);
     })();

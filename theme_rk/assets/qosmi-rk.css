@@ -845,3 +845,6 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-diag__grille { margin-top: 8px; }
 @media (max-width: 600px) { .qk-diag__barre { grid-template-columns: 110px 1fr 44px; } }
 @media (min-width: 990px) { .qk-odeurs__grille.qk-diag__grille { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+
+/* Quiz : sélection par e-mail (13/11/2026) */
+.qk-quiz__mail { margin-top: 28px; }

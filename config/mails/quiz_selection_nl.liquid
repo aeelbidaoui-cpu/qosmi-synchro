@@ -1,0 +1,57 @@
+{%- comment -%} Qosmi · e-mail « Ta sélection du quiz » (13/11/2026). Fiches lues dans les étiquettes quiz:<AAAAMMJJHHMM>:<rang>:<fiche> (le quiz le plus récent). {%- endcomment -%}
+{%- assign ts = '' -%}
+{%- for t in customer.tags -%}{%- if t contains 'quiz:' -%}{%- assign x = t | split: ':' -%}{%- if x[1] > ts -%}{%- assign ts = x[1] -%}{%- endif -%}{%- endif -%}{%- endfor -%}
+{%- assign fiches = '' -%}
+{%- for r in (1..5) -%}{%- assign rs = r | append: '' -%}{%- for t in customer.tags -%}{%- assign x = t | split: ':' -%}{%- if x[0] == 'quiz' and x[1] == ts and x[2] == rs -%}{%- assign fiches = fiches | append: x[3] | append: ',' -%}{%- endif -%}{%- endfor -%}{%- endfor -%}
+{%- assign liste = fiches | split: ',' -%}
+{%- assign n = 0 -%}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F5EFE7;">
+  <tr><td style="padding:36px 20px 10px;text-align:center;">
+    <p style="margin:0 0 8px;font-family:Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8A7F72;">Jouw Qosmi-quiz</p>
+    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:26px;line-height:1.2;color:#1A1A1A;">Jouw parfumselectie</p>
+    <p style="margin:12px 0 0;font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;color:#6F665C;">De parfums die het best bij je antwoorden passen, op voorraad op het moment van de quiz.</p>
+  </td></tr>
+  <tr><td style="padding:14px 12px 6px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    {%- for h in liste -%}
+      {%- assign p = all_products[h] -%}
+      {%- if p and p.title != blank and n < 6 -%}
+        {%- if n == 1 or n == 3 or n == 5 -%}</tr><tr>{%- endif -%}
+        {%- assign nom = p.title | split: ' — ' | first | remove_first: p.vendor | strip -%}
+        {%- assign genre = p.title | split: ' — ' | last -%}
+        {%- if n == 0 -%}
+        <td colspan="2" valign="top" style="padding:8px 8px 26px;">
+          <a href="{{ shop.url }}/nl/products/{{ p.handle }}" style="display:block;text-decoration:none;color:#1A1A1A;text-align:center;">
+            <p style="margin:0 0 10px;font-family:Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1A1A1A;">Jouw ideale parfum</p>
+            <div style="background:#FFFFFF;border:1px solid #E7DCCD;border-radius:50% 50% 12px 12px / 30% 30% 12px 12px;overflow:hidden;padding:48px 16px 16px;max-width:260px;margin:0 auto;">
+              <img src="{{ p.featured_image | image_url: width: 500 }}" alt="{{ p.title | escape }}" width="200" style="display:block;margin:0 auto;width:100%;max-width:200px;height:auto;border:0;">
+            </div>
+            <p style="margin:14px 0 4px;font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8A7F72;">{{ p.vendor }}</p>
+            <p style="margin:0 0 3px;font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.3;color:#1A1A1A;">{{ nom }}</p>
+            <p style="margin:0 0 8px;font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#8A7F72;">{{ genre }}</p>
+            <p style="margin:0 0 14px;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:600;color:#1A1A1A;">{% if p.price_varies %}vanaf {% endif %}{{ p.price_min | money }}</p>
+            <span style="display:inline-block;padding:12px 26px;background:#1A1A1A;border-radius:999px;font-family:Helvetica,Arial,sans-serif;font-size:14px;color:#FFFFFF;">Ontdek deze parfum</span>
+          </a>
+        </td>
+        {%- else -%}
+        <td width="50%" valign="top" style="padding:8px 8px 22px;">
+          <a href="{{ shop.url }}/nl/products/{{ p.handle }}" style="display:block;text-decoration:none;color:#1A1A1A;text-align:center;">
+            <div style="background:#FFFFFF;border:1px solid #E7DCCD;border-radius:50% 50% 12px 12px / 30% 30% 12px 12px;overflow:hidden;padding:44px 16px 14px;">
+              <img src="{{ p.featured_image | image_url: width: 400 }}" alt="{{ p.title | escape }}" width="150" style="display:block;margin:0 auto;width:100%;max-width:150px;height:auto;border:0;">
+            </div>
+            <p style="margin:14px 0 4px;font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8A7F72;">{{ p.vendor }}</p>
+            <p style="margin:0 0 3px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.3;color:#1A1A1A;">{{ nom }}</p>
+            <p style="margin:0 0 8px;font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#8A7F72;">{{ genre }}</p>
+            <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:600;color:#1A1A1A;">{% if p.price_varies %}vanaf {% endif %}{{ p.price_min | money }}</p>
+          </a>
+        </td>
+        {%- endif -%}
+        {%- assign n = n | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+    </tr></table>
+  </td></tr>
+  <tr><td style="padding:0 20px 38px;text-align:center;">
+    <a href="{{ shop.url }}/nl/pages/quiz" style="display:inline-block;padding:14px 30px;border:1px solid #1A1A1A;border-radius:999px;font-family:Helvetica,Arial,sans-serif;font-size:14px;color:#1A1A1A;text-decoration:none;">Quiz opnieuw doen</a>
+  </td></tr>
+</table>
