@@ -139,6 +139,11 @@ def odeurs_de(note):
 def construire_index():
     """Renvoie l'index : familles, odeurs (avec « toute la famille »), parfums {handle: "i,j,k|clés"}."""
     D = json.load(open(CONFIG, encoding="utf-8"))["parfums"] if os.path.exists(CONFIG) else {}
+    # 13/11/2026 : notes des autres parfums du catalogue, tirées de Fragrance Index (config/notes_fi.json, scripts/fi_construire.py)
+    fi = os.path.join(os.path.dirname(CONFIG), "notes_fi.json")
+    if os.path.exists(fi):
+        for h, v in json.load(open(fi, encoding="utf-8"))["parfums"].items():
+            D.setdefault(h, v)
     liste = []  # odeurs affichées : [id, famille, fr, nl]
     for fid, ffr, fnl in FAMILLES:
         liste.append(["tout_" + fid, fid, TOUT[fid][0], TOUT[fid][1]])

@@ -56,10 +56,11 @@
       {%- endcase -%}</span>{%- endfor -%}</span></div>
   {%- endif -%}
   {%- if nl -%}{%- assign n = p.nn -%}{%- else -%}{%- assign n = p.nf -%}{%- endif -%}
-  {%- if n and n.t.size > 0 or n.c.size > 0 or n.f.size > 0 -%}
+  {%- if n and n.t.size > 0 or n.c.size > 0 or n.f.size > 0 or n.n.size > 0 -%}
   <div class="qk-profil__notes">
     {%- if n.t.size > 0 -%}<p><span class="qk-profil__k">{% if nl %}Topnoten{% else %}Tête{% endif %}</span>{{ n.t | join: ', ' | escape }}</p>{%- endif -%}
     {%- if n.c.size > 0 -%}<p><span class="qk-profil__k">{% if nl %}Hartnoten{% else %}Cœur{% endif %}</span>{{ n.c | join: ', ' | escape }}</p>{%- endif -%}
+    {%- if n.n.size > 0 -%}<p><span class="qk-profil__k">{% if nl %}Noten{% else %}Notes{% endif %}</span>{{ n.n | join: ', ' | escape }}</p>{%- endif -%}
     {%- if n.f.size > 0 -%}<p><span class="qk-profil__k">{% if nl %}Basisnoten{% else %}Fond{% endif %}</span>{{ n.f | join: ', ' | escape }}</p>{%- endif -%}
   </div>
   {%- endif -%}
