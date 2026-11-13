@@ -360,6 +360,14 @@ def construire(fichiers, marques):
     if "qk-complete.js" not in lay:
         lay = lay.replace("</head>", "    <script>window.QK_COMPLETE = { odeurs: \"{{ 'qk-odeurs.js' | asset_url }}\", outils: \"{{ 'qk-odeurs-outils.js' | asset_url }}\" };</script>\n"
                                      "    <script type=\"module\" src=\"{{ 'qk-complete.js' | asset_url }}\"></script>\n  </head>", 1)
+    # retour après la vérification anti-robot de Shopify (13/11/2026) : si un formulaire Qosmi a noté sa page de retour
+    # (sessionStorage « qk-retour », 15 min) et que le client atterrit ailleurs, on le renvoie vers la page de confirmation
+    if "qk-retour" not in lay:
+        lay = lay.replace("</head>", "    <script>/* qk-retour */(function(){try{var r=JSON.parse(sessionStorage.getItem('qk-retour')||'null');"
+                                     "if(!r||Date.now()-r.t>9e5){sessionStorage.removeItem('qk-retour');return;}"
+                                     "var apres=/customer_posted=true/.test(location.search)||document.referrer.indexOf('/challenge')>=0;"
+                                     "if(!apres)return;sessionStorage.removeItem('qk-retour');"
+                                     "if(location.pathname+location.search!==r.url)location.replace(r.url);}catch(e){}})();</script>\n  </head>", 1)
     if "qosmi-rk.css" not in lay:
         lay = lay.replace("</head>", "    {{ 'qosmi-rk.css' | asset_url | stylesheet_tag }}\n  </head>", 1)
     # image de partage (réseaux sociaux, WhatsApp) quand la page n'a pas d'image propre (demande d'Amine du 08/11/2026)

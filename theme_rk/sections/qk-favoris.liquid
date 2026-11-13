@@ -41,6 +41,9 @@
       if (/[?&]prix=ok/.test(location.search)) {
         blocPrix.hidden = false; blocPrix.querySelector('[data-qk-fav-prix-ok]').hidden = false; blocPrix.querySelector('[data-qk-fav-prix-form]').hidden = true;
       }
+      blocPrix.querySelector('[data-qk-fav-prix-form]').addEventListener('submit', function () {
+        try { sessionStorage.setItem('qk-retour', JSON.stringify({ url: location.pathname + '?prix=ok', t: Date.now() })); } catch (e) {}
+      });
       function dessiner() {
         suivis = {};
         var l = (window.qkFavoris ? qkFavoris.lire() : []);

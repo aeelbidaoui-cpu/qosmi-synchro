@@ -2,7 +2,16 @@
   Avis clients Judge.me (13/11/2026, accord d'Amine) : widget d'avis sous la fiche + étoiles sous le titre.
   Code Liquid officiel de Judge.me (judge.me/help, « Liquid code for Judge.me widgets ») ; l'intégration
   « Judge.me » doit rester activée dans Thème → Intégrations d'applications.
+  Demande d'Amine (13/11/2026) : rien ne s'affiche (ni bloc d'avis, ni étoiles) tant que le parfum n'a aucun avis.
+  Nombre d'avis : métachamp standard reviews.rating_count (rempli par Judge.me), sinon l'attribut
+  data-number-of-reviews du badge Judge.me.
 {%- endcomment -%}
+{%- assign qk_nb = product.metafields.reviews.rating_count.value | default: 0 | plus: 0 -%}
+{%- if qk_nb == 0 and product.metafields.judgeme.badge contains 'data-number-of-reviews' -%}
+  {%- assign qk_b = product.metafields.judgeme.badge | replace: '"', "'" | split: "data-number-of-reviews='" | last | split: "'" | first | plus: 0 -%}
+  {%- assign qk_nb = qk_b -%}
+{%- endif -%}
+{%- if qk_nb > 0 -%}
 {%- assign qk_nl = false -%}
 {%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
 <section class="qk-section qk-avis">
@@ -32,6 +41,7 @@
     })();
   </script>
 </section>
+{%- endif -%}
 
 {% schema %}
 { "name": "Qosmi · Avis", "tag": "div", "settings": [] }

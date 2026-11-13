@@ -54,6 +54,11 @@
         bloc.querySelector('[data-qk-alerte-ok]').hidden = false;
         bloc.querySelector('[data-qk-alerte-form]').hidden = true;
       }
+      /* page de retour gardée 15 min : si la vérification anti-robot perd le paramètre, le script qk-retour du thème y renvoie */
+      var f = bloc.querySelector('[data-qk-alerte-form]');
+      if (f) f.addEventListener('submit', function () {
+        try { sessionStorage.setItem('qk-retour', JSON.stringify({ url: document.querySelector('[data-qk-alerte-retour]').value, t: Date.now() })); } catch (e) {}
+      });
       setInterval(maj, 700);  /* le thème change le format sans événement : on vérifie le format choisi régulièrement */
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', demarrer); else demarrer();
