@@ -97,6 +97,7 @@ img.qk-hero__img { animation: qk-zoom 28s ease-in-out infinite alternate; transf
   scroll-snap-type: x mandatory;
   padding: 0 max(clamp(20px, 4vw, 48px), calc((100vw - 1440px) / 2 + clamp(20px, 4vw, 48px))) 8px;
   scrollbar-width: thin;
+  scroll-padding-inline: max(clamp(20px, 4vw, 48px), calc((100vw - 1440px) / 2 + clamp(20px, 4vw, 48px)));  /* le 1er parfum ne colle pas au bord */
 }
 @media (max-width: 749px) { .qk-rangee { grid-auto-columns: 62%; } }
 .qk-rangee__item { scroll-snap-align: start; }

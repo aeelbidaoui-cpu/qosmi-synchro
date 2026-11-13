@@ -41,8 +41,8 @@
       <h2 class="qk-titre-section">{% if qk_nl %}Volgens je budget{% else %}Selon ton budget{% endif %}</h2>
       <div class="qk-noel__budgets">
         <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.lte=30"><span>{% if qk_nl %}Tot{% else %}Moins de{% endif %}</span><strong>30 €</strong></a>
-        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=30&filter.v.price.lte=50"><span>{% if qk_nl %}Van{% else %}De{% endif %}</span><strong>30 à 50 €</strong></a>
-        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=50&filter.v.price.lte=80"><span>{% if qk_nl %}Van{% else %}De{% endif %}</span><strong>50 à 80 €</strong></a>
+        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=30&filter.v.price.lte=50"><span>{% if qk_nl %}Van{% else %}De{% endif %}</span><strong>{% if qk_nl %}30 tot 50 €{% else %}30 à 50 €{% endif %}</strong></a>
+        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=50&filter.v.price.lte=80"><span>{% if qk_nl %}Van{% else %}De{% endif %}</span><strong>{% if qk_nl %}50 tot 80 €{% else %}50 à 80 €{% endif %}</strong></a>
         <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=80"><span>{% if qk_nl %}Vanaf{% else %}Plus de{% endif %}</span><strong>80 €</strong></a>
       </div>
     </div>
