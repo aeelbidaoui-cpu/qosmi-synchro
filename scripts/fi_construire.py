@@ -40,7 +40,7 @@ def main(dossier, valides=None):
         p = {}
         s = [SAISON.get(d.get("saison") or "")] + [SAISON.get(d.get("saison_com") or "")]
         s = [x for i, x in enumerate(s) if x and x not in s[:i]]
-        if s: p["s"] = s
+        if s: p["s"] = sorted(s, key=["printemps", "ete", "automne", "hiver"].index)
         if d.get("tenue"):
             if d["tenue"] in TENUE: p["t"] = TENUE[d["tenue"]]
             else: inc_val["tenue:" + d["tenue"]] += 1
