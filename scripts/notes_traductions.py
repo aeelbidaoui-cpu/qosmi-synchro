@@ -253,6 +253,9 @@ T.update({"orcanox™": ("ambre boisé", "houtige amber"), "walnut milk": ("lait
     "cedar essence": ("essence de cèdre", "cederolie"), "singapore patchouli": ("patchouli de Singapour", "patchoeli uit Singapore"), "stone": ("pierre", "steen")})
 
 
+T.update({"californian lemon": ("citron de Californie", "Californische citroen"), "cola": ("cola", "cola"), "glacé": ("glaçage", "glazuur")})
+
+
 def traduire(note):
     """('fr', 'nl') ou None si inconnue."""
     return T.get(note.strip().lower())
