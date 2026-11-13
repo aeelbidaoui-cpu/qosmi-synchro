@@ -4,7 +4,7 @@
 <footer class="qk-pied">
   <div class="qk-largeur qk-pied__haut">
     <div class="qk-pied__lettre">
-      <a class="qk-pied__logo" href="{{ routes.root_url }}">{% render 'qk-logo', hauteur: 28 %}</a>
+      <a class="qk-pied__logo" href="{{ routes.root_url }}">{% render 'qk-logo', hauteur: 28, blanc: true %}</a>
       <h2 class="qk-pied__titre">{% if qk_nl %}{{ section.settings.titre_nl }}{% else %}{{ section.settings.titre }}{% endif %}</h2>
       <p class="qk-pied__texte">{% if qk_nl %}{{ section.settings.texte_nl }}{% else %}{{ section.settings.texte }}{% endif %}</p>
       {%- form 'customer', id: 'qk-lettre', class: 'qk-pied__form' -%}
