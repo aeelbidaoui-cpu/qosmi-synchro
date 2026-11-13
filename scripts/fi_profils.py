@@ -43,7 +43,7 @@ def filtres(s, type_, nom, valeurs):
         if "nom" in dig:
             s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) { userErrors { message } } }""",
                   {"id": gid[k], "t": [{"locale": "nl", "key": "nom", "value": nl, "translatableContentDigest": dig["nom"]}]})
-    cle = {"saison": "saisons", "occasion": "occasions"}[type_]
+    cle = {"qk_saison": "saisons", "qk_occasion": "occasions"}[type_]
     md = s.gql("""query($k: String!) { metafieldDefinitions(first: 5, ownerType: PRODUCT, namespace: "qosmi", key: $k) { nodes { id } } }""", {"k": cle})["metafieldDefinitions"]["nodes"]
     if not md:
         r = s.gql("""mutation($d: MetafieldDefinitionInput!) { metafieldDefinitionCreate(definition: $d) { createdDefinition { id } userErrors { field message } } }""",
@@ -75,7 +75,7 @@ def main():
             break
         apres = r["pageInfo"]["endCursor"]
     # filtres de collection (Search & Discovery) : métaobjets « saison » et « occasion » (nom FR + NL), listes sur le produit
-    refs = {"s": filtres(s, "saison", "Saison", SAISONS), "o": filtres(s, "occasion", "Occasion", OCCASIONS)}
+    refs = {"s": filtres(s, "qk_saison", "Saison", SAISONS), "o": filtres(s, "qk_occasion", "Occasion", OCCASIONS)}  # « saison » est réservé par Shopify
     lot, faits, absents = [], 0, 0
     def envoyer(l):
         e = s.gql(MUT, {"m": l})["metafieldsSet"]["userErrors"]
