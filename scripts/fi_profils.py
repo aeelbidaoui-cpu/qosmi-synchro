@@ -23,16 +23,24 @@ OCCASIONS = [("quotidien", "Tous les jours", "Elke dag"), ("bureau", "Bureau", "
 
 def filtres(s, type_, nom, valeurs):
     """Type de métaobjet + une fiche par valeur (FR, traduction NL) + définition du métachamp produit liste. Renvoie {id: gid}."""
-    d = s.gql("query($t: String!) { metaobjectDefinitionByType(type: $t) { id } }", {"t": type_})["metaobjectDefinitionByType"]
-    if not d:
+    d = None
+    base = type_
+    for t in (base, "$app:" + base):  # comme odeurs_filtre.py : certains types sont « réservés à une autre application »
+        type_ = t
+        d = s.gql("query($t: String!) { metaobjectDefinitionByType(type: $t) { id } }", {"t": t})["metaobjectDefinitionByType"]
+        if d:
+            break
         r = s.gql("""mutation($d: MetaobjectDefinitionCreateInput!) { metaobjectDefinitionCreate(definition: $d) {
                 metaobjectDefinition { id } userErrors { field message code } } }""",
-                  {"d": {"type": type_, "name": nom, "displayNameKey": "nom", "access": {"storefront": "PUBLIC_READ"},
+                  {"d": {"type": t, "name": nom, "displayNameKey": "nom", "access": {"storefront": "PUBLIC_READ"},
                          "capabilities": {"translatable": {"enabled": True}},
                          "fieldDefinitions": [{"key": "nom", "name": "Nom", "type": "single_line_text_field", "required": True}]}})["metaobjectDefinitionCreate"]
-        if r["userErrors"]:
-            raise SystemExit("%s : %s" % (type_, r["userErrors"]))
-        d = r["metaobjectDefinition"]
+        print("type %s :" % t, r["userErrors"] or "créé")
+        if not r["userErrors"]:
+            d = r["metaobjectDefinition"]
+            break
+    if not d:
+        raise SystemExit("Aucun type de métaobjet accepté pour " + base)
     gid = {}
     for k, fr, nl in valeurs:
         r = s.gql("""mutation($h: MetaobjectHandleInput!, $m: MetaobjectUpsertInput!) { metaobjectUpsert(handle: $h, metaobject: $m) {
@@ -43,7 +51,7 @@ def filtres(s, type_, nom, valeurs):
         if "nom" in dig:
             s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) { userErrors { message } } }""",
                   {"id": gid[k], "t": [{"locale": "nl", "key": "nom", "value": nl, "translatableContentDigest": dig["nom"]}]})
-    cle = {"qk_saison": "saisons", "qk_occasion": "occasions"}[type_]
+    cle = {"saison": "saisons", "occasion": "occasions"}[base]
     md = s.gql("""query($k: String!) { metafieldDefinitions(first: 5, ownerType: PRODUCT, namespace: "qosmi", key: $k) { nodes { id } } }""", {"k": cle})["metafieldDefinitions"]["nodes"]
     if not md:
         r = s.gql("""mutation($d: MetafieldDefinitionInput!) { metafieldDefinitionCreate(definition: $d) { createdDefinition { id } userErrors { field message } } }""",
@@ -75,7 +83,7 @@ def main():
             break
         apres = r["pageInfo"]["endCursor"]
     # filtres de collection (Search & Discovery) : métaobjets « saison » et « occasion » (nom FR + NL), listes sur le produit
-    refs = {"s": filtres(s, "qk_saison", "Saison", SAISONS), "o": filtres(s, "qk_occasion", "Occasion", OCCASIONS)}  # « saison » est réservé par Shopify
+    refs = {"s": filtres(s, "saison", "Saison", SAISONS), "o": filtres(s, "occasion", "Occasion", OCCASIONS)}
     lot, faits, absents = [], 0, 0
     def envoyer(l):
         e = s.gql(MUT, {"m": l})["metafieldsSet"]["userErrors"]
