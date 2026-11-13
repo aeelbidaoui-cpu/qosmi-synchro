@@ -1,0 +1,88 @@
+{%- comment -%} Qosmi · e-mail « Merci et conseils » 3 jours après l'expédition (13/11/2026). Parfum lu dans la dernière étiquette achat:<fiche>. {%- endcomment -%}
+{%- if customer.tags contains 'langue:nl' -%}
+{%- assign h = '' -%}{%- for t in customer.tags -%}{%- if t contains 'achat:' -%}{%- assign h = t | remove_first: 'achat:' -%}{%- endif -%}{%- endfor -%}
+{%- assign p = all_products[h] -%}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F5EFE7;">
+  <tr><td style="padding:36px 20px 10px;text-align:center;">
+    <p style="margin:0 0 8px;font-family:Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8A7F72;">Bedankt</p>
+    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:26px;line-height:1.2;color:#1A1A1A;">Geniet van je parfum</p>
+    <p style="margin:12px 0 0;font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;color:#6F665C;">Is je pakket aangekomen? Hier zijn enkele tips om er zo lang mogelijk van te genieten.</p>
+  </td></tr>
+  {%- if p and p.title != blank -%}
+  <tr><td style="padding:16px 20px 6px;text-align:center;">
+    <div style="background:#FFFFFF;border:1px solid #E7DCCD;border-radius:50% 50% 12px 12px / 30% 30% 12px 12px;overflow:hidden;padding:44px 16px 14px;max-width:220px;margin:0 auto;">
+      <img src="{{ p.featured_image | image_url: width: 400 }}" alt="{{ p.title | escape }}" width="170" style="display:block;margin:0 auto;width:100%;max-width:170px;height:auto;border:0;">
+    </div>
+    <p style="margin:14px 0 2px;font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8A7F72;">{{ p.vendor }}</p>
+    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:18px;color:#1A1A1A;">{{ p.title | split: ' — ' | first | remove_first: p.vendor | strip }}</p>
+  </td></tr>
+  {%- endif -%}
+  <tr><td style="padding:18px 28px 10px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td style="padding:10px 0;border-bottom:1px solid #E7DCCD;font-family:Helvetica,Arial,sans-serif;">
+          <p style="margin:0 0 3px;font-size:14px;font-weight:600;color:#1A1A1A;">Op de huid</p>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#6F665C;">Spray op een propere, gehydrateerde huid: daar blijft de geur beter hangen.</p>
+        </td></tr>
+        <tr><td style="padding:10px 0;border-bottom:1px solid #E7DCCD;font-family:Helvetica,Arial,sans-serif;">
+          <p style="margin:0 0 3px;font-size:14px;font-weight:600;color:#1A1A1A;">De warme plekken</p>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#6F665C;">Polsen, hals, binnenkant van de ellebogen: de warmte helpt de geur te verspreiden.</p>
+        </td></tr>
+        <tr><td style="padding:10px 0;border-bottom:1px solid #E7DCCD;font-family:Helvetica,Arial,sans-serif;">
+          <p style="margin:0 0 3px;font-size:14px;font-weight:600;color:#1A1A1A;">Niet wrijven</p>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#6F665C;">Wrijven beschadigt de topnoten. Laat gewoon drogen.</p>
+        </td></tr>
+        <tr><td style="padding:10px 0;border-bottom:1px solid #E7DCCD;font-family:Helvetica,Arial,sans-serif;">
+          <p style="margin:0 0 3px;font-size:14px;font-weight:600;color:#1A1A1A;">Goed bewaren</p>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#6F665C;">Uit het licht, weg van warmte en niet in de badkamer.</p>
+        </td></tr>
+    </table>
+  </td></tr>
+  <tr><td style="padding:20px 20px 38px;text-align:center;">
+    <p style="margin:0 0 14px;font-family:Helvetica,Arial,sans-serif;font-size:14px;color:#6F665C;">Benieuwd wat nog bij je past?</p>
+    <a href="{{ shop.url }}/nl/pages/diagnostic" style="display:inline-block;padding:14px 30px;border:1px solid #1A1A1A;border-radius:999px;font-family:Helvetica,Arial,sans-serif;font-size:14px;color:#1A1A1A;text-decoration:none;">Doe mijn geurdiagnose</a>
+  </td></tr>
+</table>
+{%- else -%}
+{%- assign h = '' -%}{%- for t in customer.tags -%}{%- if t contains 'achat:' -%}{%- assign h = t | remove_first: 'achat:' -%}{%- endif -%}{%- endfor -%}
+{%- assign p = all_products[h] -%}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F5EFE7;">
+  <tr><td style="padding:36px 20px 10px;text-align:center;">
+    <p style="margin:0 0 8px;font-family:Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8A7F72;">Merci</p>
+    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:26px;line-height:1.2;color:#1A1A1A;">Profite bien de ton parfum</p>
+    <p style="margin:12px 0 0;font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;color:#6F665C;">Ton colis est arrivé ? Voici quelques conseils pour en profiter au mieux.</p>
+  </td></tr>
+  {%- if p and p.title != blank -%}
+  <tr><td style="padding:16px 20px 6px;text-align:center;">
+    <div style="background:#FFFFFF;border:1px solid #E7DCCD;border-radius:50% 50% 12px 12px / 30% 30% 12px 12px;overflow:hidden;padding:44px 16px 14px;max-width:220px;margin:0 auto;">
+      <img src="{{ p.featured_image | image_url: width: 400 }}" alt="{{ p.title | escape }}" width="170" style="display:block;margin:0 auto;width:100%;max-width:170px;height:auto;border:0;">
+    </div>
+    <p style="margin:14px 0 2px;font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8A7F72;">{{ p.vendor }}</p>
+    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:18px;color:#1A1A1A;">{{ p.title | split: ' — ' | first | remove_first: p.vendor | strip }}</p>
+  </td></tr>
+  {%- endif -%}
+  <tr><td style="padding:18px 28px 10px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td style="padding:10px 0;border-bottom:1px solid #E7DCCD;font-family:Helvetica,Arial,sans-serif;">
+          <p style="margin:0 0 3px;font-size:14px;font-weight:600;color:#1A1A1A;">Sur la peau</p>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#6F665C;">Vaporise sur une peau propre et hydratée : le parfum y tient mieux.</p>
+        </td></tr>
+        <tr><td style="padding:10px 0;border-bottom:1px solid #E7DCCD;font-family:Helvetica,Arial,sans-serif;">
+          <p style="margin:0 0 3px;font-size:14px;font-weight:600;color:#1A1A1A;">Les points chauds</p>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#6F665C;">Poignets, cou, creux des coudes : la chaleur aide le parfum à se diffuser.</p>
+        </td></tr>
+        <tr><td style="padding:10px 0;border-bottom:1px solid #E7DCCD;font-family:Helvetica,Arial,sans-serif;">
+          <p style="margin:0 0 3px;font-size:14px;font-weight:600;color:#1A1A1A;">Sans frotter</p>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#6F665C;">Frotter les poignets abîme les notes de tête. Laisse sécher.</p>
+        </td></tr>
+        <tr><td style="padding:10px 0;border-bottom:1px solid #E7DCCD;font-family:Helvetica,Arial,sans-serif;">
+          <p style="margin:0 0 3px;font-size:14px;font-weight:600;color:#1A1A1A;">Bien le conserver</p>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#6F665C;">À l'abri de la lumière et de la chaleur, loin de la salle de bain.</p>
+        </td></tr>
+    </table>
+  </td></tr>
+  <tr><td style="padding:20px 20px 38px;text-align:center;">
+    <p style="margin:0 0 14px;font-family:Helvetica,Arial,sans-serif;font-size:14px;color:#6F665C;">Envie de découvrir ce qui te ressemble ?</p>
+    <a href="{{ shop.url }}/pages/diagnostic" style="display:inline-block;padding:14px 30px;border:1px solid #1A1A1A;border-radius:999px;font-family:Helvetica,Arial,sans-serif;font-size:14px;color:#1A1A1A;text-decoration:none;">Faire mon diagnostic olfactif</a>
+  </td></tr>
+</table>
+{%- endif -%}

@@ -9,7 +9,7 @@
   <tr><td style="padding:14px 12px 6px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
     {%- for t in customer.tags -%}{%- if t contains 'suggere:' -%}
-      {%- assign p = all_products[t | remove_first: 'suggere:'] -%}
+      {%- assign hs = t | remove_first: 'suggere:' -%}{%- assign p = all_products[hs] -%}
       {%- if p and p.title != blank and n < 3 -%}
         {%- assign nom = p.title | split: ' — ' | first | remove_first: p.vendor | strip -%}
         <td width="33%" valign="top" style="padding:8px 6px 22px;">
