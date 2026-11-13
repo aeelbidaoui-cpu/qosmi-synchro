@@ -63,6 +63,7 @@ def main(dossier, valides=None):
                 if not t:
                     inconnues[n.lower()] += 1
                     continue
+                t = tuple(x[:1].upper() + x[1:] for x in t)  # « Cerise noire », comme les notes vérifiées des fiches
                 if t[0] not in fr:
                     fr.append(t[0]); nl.append(t[1])
             return fr, nl
