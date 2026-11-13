@@ -23,8 +23,12 @@
       {%- endif -%}
     </div>
     <div class="qk-ambiance__texte">
-      {%- if t_sur != blank -%}<p class="qk-surtitre">{{ t_sur }}</p>{%- endif -%}
-      {%- if t_titre != blank -%}<h2 class="qk-titre-section">{{ t_titre }}</h2>{%- endif -%}
+      {%- comment -%} « Qosmi » seul → le logo en image (demande d'Amine, 13/11/2026) {%- endcomment -%}
+      {%- assign t_sur_q = t_sur | strip | downcase -%}{%- assign t_titre_q = t_titre | strip | downcase -%}
+      {%- if t_sur_q == 'qosmi' -%}<p class="qk-surtitre qk-surtitre--logo">{% render 'qk-logo', hauteur: 16 %}</p>
+      {%- elsif t_sur != blank -%}<p class="qk-surtitre">{{ t_sur }}</p>{%- endif -%}
+      {%- if t_titre_q == 'qosmi' -%}<h2 class="qk-titre-section qk-titre-section--logo">{% render 'qk-logo', hauteur: 40 %}</h2>
+      {%- elsif t_titre != blank -%}<h2 class="qk-titre-section">{{ t_titre }}</h2>{%- endif -%}
       {%- if t_texte != blank -%}<div class="qk-intro">{{ t_texte }}</div>{%- endif -%}
       {%- if t_lien != blank -%}<a class="qk-lien" href="{{ lien }}">{{ t_lien }}</a>{%- endif -%}
     </div>

@@ -2,13 +2,16 @@
 {%- assign marque = product.vendor -%}
 <section class="qk-section qk-texte qk-texte--{{ section.settings.alignement }}">
   <div class="qk-largeur qk-texte__boite">
-    {%- if section.settings.surtitre != blank -%}<p class="qk-surtitre">{{ section.settings.surtitre }}</p>{%- endif -%}
+    {%- assign q_sur = section.settings.surtitre | strip | downcase -%}{%- assign q_titre = section.settings.titre | strip | downcase -%}
+    {%- if q_sur == 'qosmi' -%}<p class="qk-surtitre qk-surtitre--logo">{% render 'qk-logo', hauteur: 16 %}</p>
+    {%- elsif section.settings.surtitre != blank -%}<p class="qk-surtitre">{{ section.settings.surtitre }}</p>{%- endif -%}
     {%- if section.settings.mode_marque and marque != blank -%}
       <h2 class="qk-titre-section">{% if request.locale.iso_code == 'nl' %}Ontdek {% else %}Découvre {% endif %}{{ marque }}</h2>
       <p class="qk-intro">{% if request.locale.iso_code == 'nl' %}Alle parfums van {{ marque }} bij Qosmi, origineel en nieuw.{% else %}Tous les parfums {{ marque }} chez Qosmi, originaux et neufs.{% endif %}</p>
       {%- assign qk_h = shop.metafields.qosmi.marques.value[marque] -%}<a class="qk-lien" href="{% if qk_h != blank %}{{ routes.collections_url }}/{{ qk_h }}{% else %}/collections/vendors?q={{ marque | url_encode }}{% endif %}">{% if request.locale.iso_code == 'nl' %}Ontdek {{ marque }}{% else %}Découvrir {{ marque }}{% endif %}</a>
     {%- else -%}
-      {%- if section.settings.titre != blank -%}<h2 class="qk-titre-section">{{ section.settings.titre }}</h2>{%- endif -%}
+      {%- if q_titre == 'qosmi' -%}<h2 class="qk-titre-section qk-titre-section--logo">{% render 'qk-logo', hauteur: 40 %}</h2>
+      {%- elsif section.settings.titre != blank -%}<h2 class="qk-titre-section">{{ section.settings.titre }}</h2>{%- endif -%}
       {%- if section.settings.texte != blank -%}<div class="qk-intro">{{ section.settings.texte }}</div>{%- endif -%}
       {%- if section.settings.lien_texte != blank -%}<a class="qk-lien" href="{{ section.settings.lien }}">{{ section.settings.lien_texte }}</a>{%- endif -%}
     {%- endif -%}

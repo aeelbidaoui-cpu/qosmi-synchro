@@ -849,3 +849,10 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 /* Quiz : sélection par e-mail (13/11/2026) */
 .qk-quiz__mail { margin-top: 28px; }
 .qk-favoris__prix { margin-top: 32px; max-width: 560px; }
+
+/* logo Qosmi en image (13/11/2026) */
+.qk-logo { display: block; height: auto; max-width: 100%; }
+.qk-surtitre--logo .qk-logo { width: auto; height: 16px; }
+.qk-titre-section--logo .qk-logo { width: auto; height: 40px; }
+.qk-pied__logo { display: inline-block; margin-bottom: 18px; }
+.qk-pied__logo .qk-logo { width: auto; height: 28px; }

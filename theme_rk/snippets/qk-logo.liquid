@@ -1,0 +1,8 @@
+{%- comment -%}
+  Logo Qosmi en image (demande d'Amine 13/11/2026 : partout le logo, jamais « Qosmi » écrit en texte).
+  {% render 'qk-logo', hauteur: 24, classe: 'qk-logo--surtitre' %}
+{%- endcomment -%}
+{%- assign h = hauteur | default: 24 -%}
+{%- assign w = h | times: 2144 | divided_by: 448 -%}
+{%- assign h2 = h | times: 2 -%}
+<img class="qk-logo {{ classe }}" src="{{ 'qosmi-logo.png' | file_url }}&height={{ h2 }}" alt="Qosmi" width="{{ w }}" height="{{ h }}" loading="lazy">
