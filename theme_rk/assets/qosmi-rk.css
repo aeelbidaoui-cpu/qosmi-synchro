@@ -856,3 +856,27 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-titre-section--logo .qk-logo { width: auto; height: 40px; }
 .qk-pied__logo { display: inline-block; margin-bottom: 18px; }
 .qk-pied__logo .qk-logo { width: auto; height: 28px; }
+
+/* guide cadeaux de Noël (13/11/2026) */
+.qk-noel__hero { position: relative; min-height: 420px; display: flex; align-items: flex-end; overflow: hidden; background: #1a1a1a; }
+.qk-noel__hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.qk-noel__hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0) 65%); }
+.qk-noel__hero-texte { position: relative; z-index: 1; color: #fff; padding: 48px var(--qk-marge, 48px); max-width: 720px; }
+.qk-noel__hero-texte .qk-surtitre, .qk-noel__hero-texte .qk-intro, .qk-noel__hero-texte .qk-titre-section { color: #fff; }
+@media (max-width: 749px) { .qk-noel__hero { min-height: 360px; } .qk-noel__hero-texte { padding: 28px 16px; } }
+.qk-noel__tete { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.qk-noel__budgets { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 749px) { .qk-noel__budgets { grid-template-columns: repeat(2, 1fr); } }
+.qk-noel__budget { display: flex; flex-direction: column; gap: 4px; padding: 28px 20px; background: #EDE5DA; color: #1A1A1A; text-decoration: none; transition: background .2s; }
+.qk-noel__budget:hover { background: #E3D8C9; }
+.qk-noel__budget span { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: #6F665C; }
+.qk-noel__budget strong { font-size: 1.5rem; font-weight: 500; }
+.qk-noel__aide { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: center; background: #F5EFE7; padding: 40px; }
+@media (max-width: 749px) { .qk-noel__aide { grid-template-columns: 1fr; padding: 24px 16px; } }
+.qk-noel__boutons { display: flex; flex-direction: column; gap: 10px; }
+.qk-noel__bouton { display: block; text-align: center; padding: 14px 20px; background: #1A1A1A; color: #fff; text-decoration: none; letter-spacing: .08em; text-transform: uppercase; font-size: .85rem; }
+.qk-noel__bouton--clair { background: transparent; color: #1A1A1A; border: 1px solid #1A1A1A; }
+.qk-noel__pratique { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+@media (max-width: 749px) { .qk-noel__pratique { grid-template-columns: 1fr; } }
+.qk-noel__pratique li { border-top: 1px solid #1A1A1A; padding-top: 12px; color: #6F665C; font-size: .95rem; }
+.qk-noel__pratique strong { display: block; color: #1A1A1A; font-weight: 500; margin-bottom: 4px; }

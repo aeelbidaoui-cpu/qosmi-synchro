@@ -1,0 +1,140 @@
+{%- comment -%}
+  Guide cadeaux de Noël (13/11/2026, demande d'Amine) : /pages/idees-cadeaux-noel (NL /nl/pages/kerstcadeaus).
+  Coffrets en stock, budgets (filtre de prix), pour qui, idées par ambiance (collections par saison / occasion),
+  aide au choix (quiz, diagnostic), rappels pratiques. Bannière : image d'Amine qosmi-decor-coffret-noel.jpg.
+  Pas de date limite de livraison annoncée (rien de garanti par le transporteur).
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- assign c_parfums = collections['parfums'] -%}
+{%- assign qk_base = '' -%}{%- if routes.root_url != '/' -%}{%- assign qk_base = routes.root_url -%}{%- endif -%}
+<div class="qk-noel">
+  <section class="qk-noel__hero">
+    <img src="{{ 'qosmi-decor-coffret-noel.jpg' | file_img_url: '2000x' }}" alt="{% if qk_nl %}Kerstgeschenk met parfum{% else %}Coffret cadeau de Noël{% endif %}" width="2000" height="1250" fetchpriority="high">
+    <div class="qk-noel__hero-texte">
+      <p class="qk-surtitre">{% if qk_nl %}Kerst {{ 'now' | date: '%Y' }}{% else %}Noël {{ 'now' | date: '%Y' }}{% endif %}</p>
+      <h1 class="qk-titre-section">{% if qk_nl %}Parfum cadeau-ideeën{% else %}Idées cadeaux parfum{% endif %}</h1>
+      <p class="qk-intro">{% if qk_nl %}Een geschenkset, een parfum binnen je budget of een geur die past bij wie je verwent: alles om het juiste parfum te kiezen.{% else %}Un coffret, un parfum dans ton budget ou une odeur qui ressemble à la personne à gâter : tout pour trouver le bon parfum à offrir.{% endif %}</p>
+    </div>
+  </section>
+
+  {%- assign c = collections['coffrets'] -%}
+  {%- if c.products_count > 0 -%}
+  <section class="qk-section">
+    <div class="qk-largeur qk-noel__tete">
+      <h2 class="qk-titre-section">{% if qk_nl %}Geschenksets{% else %}Les coffrets{% endif %}</h2>
+      <a class="qk-lien" href="{{ c.url }}">{% if qk_nl %}Alles bekijken{% else %}Tout voir{% endif %}</a>
+    </div>
+    <div class="qk-rangee">
+      {%- assign n = 0 -%}
+      {%- for product in c.products limit: 50 -%}
+        {%- if n < 12 and product.available and product.featured_image -%}
+          {%- assign n = n | plus: 1 -%}<div class="qk-rangee__item">{% render 'qk-carte', product: product %}</div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+  {%- endif -%}
+
+  <section class="qk-section">
+    <div class="qk-largeur">
+      <h2 class="qk-titre-section">{% if qk_nl %}Volgens je budget{% else %}Selon ton budget{% endif %}</h2>
+      <div class="qk-noel__budgets">
+        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.lte=30"><span>{% if qk_nl %}Tot{% else %}Moins de{% endif %}</span><strong>30 €</strong></a>
+        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=30&filter.v.price.lte=50"><span>{% if qk_nl %}Van{% else %}De{% endif %}</span><strong>30 à 50 €</strong></a>
+        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=50&filter.v.price.lte=80"><span>{% if qk_nl %}Van{% else %}De{% endif %}</span><strong>50 à 80 €</strong></a>
+        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=80"><span>{% if qk_nl %}Vanaf{% else %}Plus de{% endif %}</span><strong>80 €</strong></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="qk-section">
+    <div class="qk-largeur">
+      <h2 class="qk-titre-section">{% if qk_nl %}Voor wie?{% else %}Pour qui ?{% endif %}</h2>
+      <div class="qk-tuiles__grille">
+        {%- assign liste = 'parfums-femme|parfums-homme|parfums-mixtes|parfums-enfants' | split: '|' -%}
+        {%- for h in liste -%}
+          {%- assign t = collections[h] -%}
+          {%- if t.products_count > 0 -%}
+          {%- assign img = t.image | default: t.products.first.featured_image -%}
+          <a class="qk-tuile qk-tuile--produit" href="{{ t.url }}">
+            {%- if img != blank -%}{{ img | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 800', sizes: '(min-width: 990px) 25vw, 80vw', alt: t.title }}{%- endif -%}
+            <span class="qk-tuile__texte"><span class="qk-tuile__titre">
+              {%- case h -%}
+                {%- when 'parfums-femme' -%}{% if qk_nl %}Voor haar{% else %}Pour elle{% endif %}
+                {%- when 'parfums-homme' -%}{% if qk_nl %}Voor hem{% else %}Pour lui{% endif %}
+                {%- when 'parfums-mixtes' -%}{% if qk_nl %}Om te delen{% else %}À partager{% endif %}
+                {%- else -%}{% if qk_nl %}Voor kinderen{% else %}Pour les enfants{% endif %}
+              {%- endcase -%}
+            </span></span>
+          </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  {%- assign c = collections['parfums-hiver'] -%}
+  {%- if c.products_count > 0 -%}
+  <section class="qk-section">
+    <div class="qk-largeur qk-noel__tete">
+      <h2 class="qk-titre-section">{% if qk_nl %}Warme geuren voor de winter{% else %}Des parfums chauds pour l'hiver{% endif %}</h2>
+      <a class="qk-lien" href="{{ c.url }}">{% if qk_nl %}Alle winterparfums{% else %}Tous les parfums d'hiver{% endif %}</a>
+    </div>
+    <div class="qk-rangee">
+      {%- assign n = 0 -%}
+      {%- for product in c.products limit: 50 -%}
+        {%- if n < 12 and product.available and product.featured_image -%}
+          {%- assign n = n | plus: 1 -%}<div class="qk-rangee__item">{% render 'qk-carte', product: product %}</div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- assign c = collections['parfums-soiree'] -%}
+  {%- if c.products_count > 0 -%}
+  <section class="qk-section">
+    <div class="qk-largeur qk-noel__tete">
+      <h2 class="qk-titre-section">{% if qk_nl %}Voor de feestdagen{% else %}Pour les fêtes{% endif %}</h2>
+      <a class="qk-lien" href="{{ c.url }}">{% if qk_nl %}Parfums om uit te gaan{% else %}Tous les parfums de soirée{% endif %}</a>
+    </div>
+    <div class="qk-rangee">
+      {%- assign n = 0 -%}
+      {%- for product in c.products limit: 50 -%}
+        {%- if n < 12 and product.available and product.featured_image -%}
+          {%- assign n = n | plus: 1 -%}<div class="qk-rangee__item">{% render 'qk-carte', product: product %}</div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+  {%- endif -%}
+
+  <section class="qk-section">
+    <div class="qk-largeur qk-noel__aide">
+      <div>
+        <h2 class="qk-titre-section">{% if qk_nl %}Twijfel je?{% else %}Tu hésites ?{% endif %}</h2>
+        <p class="qk-intro">{% if qk_nl %}Weet je welk parfum die persoon al draagt? Vul het in en we tonen geuren in dezelfde sfeer. Of beantwoord een paar vragen in de quiz.{% else %}Tu sais quel parfum la personne porte déjà ? Indique-le et on te montre des parfums dans le même esprit. Sinon, réponds à quelques questions dans le quiz.{% endif %}</p>
+      </div>
+      <div class="qk-noel__boutons">
+        <a class="qk-noel__bouton" href="{{ qk_base }}/pages/{% if qk_nl %}geurdiagnose{% else %}diagnostic{% endif %}">{% if qk_nl %}Geurdiagnose{% else %}Diagnostic olfactif{% endif %}</a>
+        <a class="qk-noel__bouton qk-noel__bouton--clair" href="{{ qk_base }}/pages/quiz">{% if qk_nl %}Parfumquiz{% else %}Quiz parfum{% endif %}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="qk-section">
+    <div class="qk-largeur">
+      <ul class="qk-noel__pratique">
+        <li><strong>{% if qk_nl %}Gratis levering vanaf 2 artikelen{% else %}Livraison offerte dès 2 articles{% endif %}</strong>{% if qk_nl %}2,95 € voor 1 artikel, in heel België.{% else %}2,95 € pour 1 article, partout en Belgique.{% endif %}</li>
+        <li><strong>{% if qk_nl %}14 dagen bedenktijd{% else %}14 jours pour changer d'avis{% endif %}</strong>{% if qk_nl %}Zolang de flacon niet geopend is.{% else %}Tant que le flacon n'est pas ouvert.{% endif %}</li>
+        <li><strong>{% if qk_nl %}100 % origineel{% else %}100 % authentique{% endif %}</strong>{% if qk_nl %}Nieuwe parfums, met aankoopfactuur.{% else %}Parfums neufs, avec facture d'achat.{% endif %}</li>
+        <li><strong>{% if qk_nl %}Bestel op tijd{% else %}Commande tôt{% endif %}</strong>{% if qk_nl %}In december hebben de vervoerders het druk.{% else %}En décembre, les transporteurs sont très chargés.{% endif %}</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{ "name": "Qosmi · Guide Noël", "settings": [] }
+{% endschema %}

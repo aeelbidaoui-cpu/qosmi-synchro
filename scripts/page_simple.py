@@ -9,6 +9,7 @@ import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 PAGES = {  # suffixe du modèle : (handle FR, titre FR, handle NL, titre NL)
     "diagnostic": ("diagnostic", "Diagnostic olfactif", "geurdiagnose", "Geurdiagnose"),
+    "noel": ("idees-cadeaux-noel", "Idées cadeaux de Noël", "kerstcadeaus", "Kerstcadeaus"),  # 13/11/2026 : guide cadeaux
 }
 
 
