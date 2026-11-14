@@ -257,7 +257,7 @@ def ajouter_bons_plans(produits, r):
             bilan["gains"].append((float(v["prix"]) - prix, p["titre_fr"], v["format_fr"], float(v["prix"]), prix))
         if len(nouvelles) > len(p["variantes"]):
             p["variantes"] = nouvelles
-            p["tags"] = ", ".join([x for x in p["tags"].split(", ") if x] + ["bon-plan"])
+            p["tags"] = ", ".join([x for x in p["tags"].split(", ") if x and x != "bon-plan"] + ["bon-plan"])
             bilan["fiches"] += 1
     return bilan
 
@@ -365,14 +365,16 @@ def ajouter_sur_commande(produits, lignes_sl, r, photos):
             achat, stock = sl.nombre(v["_achat"]), max(0, int(sl.nombre(v["stock"])))
             base = achat * (1 + rb["majoration_pct"]) + rb["envoi_eur"] + r.get("paiement_fixe", 0)
             prix = sl.arrondi_90_haut((base + rb["benefice_eur"]) / k)
-            v.update(sku=PREFIXE_SUR_COMMANDE + v["ean"].lstrip("0"), format_fr=v["format_fr"] + SUR_COMMANDE_FR,
-                     format_nl=v["format_nl"] + SUR_COMMANDE_NL, prix="%.2f" % prix, stock=str(stock),
+            # 14/11/2026 (Amine) : sur ses propres fiches, format normal (« 100 ml ») et la fiche dit « Bon plan » (étiquette
+            # sur-commande → note du thème) ; ajouté à une fiche SoleLuna, le format porte « · Bon plan » (voir plus bas)
+            v.update(sku=PREFIXE_SUR_COMMANDE + v["ean"].lstrip("0"), prix="%.2f" % prix, stock=str(stock),
                      cout_ht="%.2f" % (achat * (1 + rb["majoration_pct"]) + rb["envoi_eur"]), bon_plan=True,
                      sur_commande=True, _net="%.2f" % (prix * k - base))
         existante = par_handle.get(p["handle"])
         if existante and not existante["teintes"]:  # même parfum déjà chez SoleLuna sous un autre EAN : formats ajoutés
             formats = {v["format_fr"].split(" · ")[0] for v in existante["variantes"]}
-            ajout = [v for v in p["variantes"] if v["format_fr"].split(" · ")[0] not in formats]
+            ajout = [dict(v, format_fr=v["format_fr"] + BON_PLAN_FR, format_nl=v["format_nl"] + BON_PLAN_NL)
+                     for v in p["variantes"] if v["format_fr"].split(" · ")[0] not in formats]
             if ajout:
                 existante["variantes"] += ajout
                 existante["tags"] = ", ".join([x for x in existante["tags"].split(", ") if x and x != "bon-plan"] + ["bon-plan"])
@@ -381,7 +383,7 @@ def ajouter_sur_commande(produits, lignes_sl, r, photos):
             continue
         if existante:
             continue
-        p["tags"] = ", ".join([x for x in p["tags"].split(", ") if x] + ["bon-plan"])
+        p["tags"] = ", ".join([x for x in p["tags"].split(", ") if x] + ["bon-plan", "sur-commande"])
         p["sur_commande"] = True
         produits.append(p)
         par_handle[p["handle"]] = p

@@ -313,6 +313,7 @@ def synchro(essai=False):
     conc, dujour = sl.concurrent(), []  # prix du concurrent (interne) ; marques « parfum du jour » à changer
     tags_plus, tags_moins = [], []  # étiquette « meilleur-prix » (collection Black Friday)
     bp_plus, bp_moins = [], []  # étiquette « bon-plan » (collection Bons plans)
+    sc_plus = []  # étiquette « sur-commande » (fiches propres au 2e grossiste : la fiche affiche « Bon plan » et le délai)
     bp_lu = sv.BILAN_BONS_PLANS is not None
     nouveaux_p, structurels_p = [], []
     for p in produits:
@@ -343,7 +344,13 @@ def synchro(essai=False):
         skus_fiche = {v["sku"] for v in existante["variantes"]}
         for v in p["variantes"]:
             vus.add(v["sku"])
-        if any(v["sku"] not in skus_fiche for v in p["variantes"]):  # nouveau format
+        noms_fiche = {v["sku"]: {o["name"]: o["value"] for o in v.get("selectedOptions") or []}.get("Format")
+                      for v in existante["variantes"]}
+        renomme = any(v["sku"].startswith(sv.PREFIXE_SUR_COMMANDE) and v["sku"] in noms_fiche
+                      and noms_fiche[v["sku"]] != v["format_fr"] for v in p["variantes"])  # 14/11/2026 : libellé du format changé
+        if p.get("sur_commande") and "sur-commande" not in (existante.get("tags") or []):
+            sc_plus.append(pid)
+        if renomme or any(v["sku"] not in skus_fiche for v in p["variantes"]):  # nouveau format
             e = entree_complete(p, existante, lieu_id, statut_nouv)
             structurels.append(e)
             structurels_p.append((e, p))
@@ -523,6 +530,10 @@ def synchro(essai=False):
             erreurs += 1
     if tags_plus or tags_moins:
         resume += " · meilleurs prix : +%d / -%d" % (len(tags_plus), len(tags_moins))
+    for pid in sc_plus:
+        if s.gql("mutation($id: ID!, $t: [String!]!) { tagsAdd(id: $id, tags: $t) { userErrors { message } } }",
+                 {"id": pid, "t": ["sur-commande"]})["tagsAdd"]["userErrors"]:
+            erreurs += 1
     for pid in bp_plus:
         if s.gql("mutation($id: ID!, $t: [String!]!) { tagsAdd(id: $id, tags: $t) { userErrors { message } } }",
                  {"id": pid, "t": [ETIQUETTE_BON_PLAN]})["tagsAdd"]["userErrors"]:

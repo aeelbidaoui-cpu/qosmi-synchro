@@ -1,54 +1,72 @@
-/* Option « Bon plan » sur les fiches (14/11/2026, demande d'Amine).
-   Pour certains formats, une 2e variante « 100 ml · Bon plan » (NL « · Koopje ») : même parfum, commandé spécialement,
-   un peu plus de délai, prix plus bas. Ce script :
-   - cache l'option « Bon plan » quand elle est épuisée (elle « disparaît » au lieu d'apparaître barrée) ;
-   - affiche sous le choix du format une ligne qui explique le délai quand l'option « Bon plan » est choisie.
+/* Option « Bon plan » sur les fiches (14/11/2026, demandes d'Amine).
+   1. Fiches SoleLuna : certains formats ont une 2e variante « 100 ml · Bon plan » (NL « · Koopje »), même parfum commandé
+      spécialement, un peu plus de délai, prix plus bas. L'option est cachée quand elle est épuisée et une ligne explique
+      le délai quand elle est choisie.
+   2. Fiches propres au 2e grossiste (étiquette « sur-commande », window.QK_SUR_COMMANDE posé par le layout) : formats
+      normaux (« 100 ml »), la ligne « Bon plan » s'affiche en permanence et les formats épuisés sont cachés.
    Le thème Horizon redessine le sélecteur à chaque changement de variante : un MutationObserver refait le travail. */
 const NL = document.documentElement.lang.toLowerCase().startsWith('nl');
 const MOTS = [' · Bon plan', ' · Koopje', ' · Sur commande', ' · Op bestelling'];
-const COMMANDE = [' · Sur commande', ' · Op bestelling'];
 const DELAI = NL ? '5 tot 10 werkdagen' : '5 à 10 jours ouvrables';
 const TEXTE = NL
   ? '<strong>Koopje</strong> — speciaal voor jou besteld, verzonden binnen ' + DELAI + '. Zelfde originele parfum, lagere prijs.'
   : '<strong>Bon plan</strong> — commandé spécialement pour toi, expédié sous ' + DELAI + '. Même parfum authentique, prix plus doux.';
-
-const TEXTE_COMMANDE = NL
-  ? '<strong>Op bestelling</strong> — speciaal voor jou besteld, verzonden binnen ' + DELAI + '. Origineel en nieuw parfum.'
-  : '<strong>Sur commande</strong> — commandé spécialement pour toi, expédié sous ' + DELAI + '. Parfum authentique et neuf.';
+const TEXTE_FICHE = NL
+  ? '<strong>Koopje</strong> — speciaal voor jou besteld, verzonden binnen ' + DELAI + '. Origineel en nieuw parfum.'
+  : '<strong>Bon plan</strong> — commandé spécialement pour toi, expédié sous ' + DELAI + '. Parfum authentique et neuf.';
 const estBonPlan = (v) => MOTS.some((m) => (v || '').includes(m));
-const estCommande = (v) => COMMANDE.some((m) => (v || '').includes(m));
+
+function poserNote(apres, texte, genre) {
+  const parent = apres.parentElement;
+  let note = parent && parent.querySelector(':scope > .qk-bonplan-note');
+  if (!note) {
+    note = document.createElement('p');
+    note.className = 'qk-bonplan-note';
+    apres.after(note);
+  }
+  if (note.dataset.genre !== genre) {
+    note.innerHTML = texte;
+    note.dataset.genre = genre;
+  }
+}
 
 function traiter() {
-  document.querySelectorAll('variant-picker, .variant-picker').forEach((picker) => {
-    let choisi = false, commande = false;
+  const fiche = window.QK_SUR_COMMANDE === true;
+  const pickers = document.querySelectorAll('variant-picker, .variant-picker');
+  pickers.forEach((picker) => {
+    let choisi = false;
     picker.querySelectorAll('input[type="radio"]').forEach((i) => {
-      if (!estBonPlan(i.value)) return;
+      if (!fiche && !estBonPlan(i.value)) return;
       const label = i.closest('label') || i.parentElement;
       const epuise = i.getAttribute('data-option-available') === 'false';
       if (label) label.hidden = epuise && !i.checked;
-      if (i.checked) { choisi = true; commande = estCommande(i.value); }
+      if (i.checked) choisi = true;
     });
     picker.querySelectorAll('select option').forEach((o) => {
-      if (!estBonPlan(o.value)) return;
+      if (!fiche && !estBonPlan(o.value)) return;
       const epuise = o.getAttribute('data-option-available') === 'false' || /épuisé|uitverkocht|sold out/i.test(o.textContent);
       o.hidden = epuise && !o.selected;
-      if (o.selected) { choisi = true; commande = estCommande(o.value); }
+      if (o.selected) choisi = true;
     });
-    let note = picker.parentElement && picker.parentElement.querySelector(':scope > .qk-bonplan-note');
-    const texte = commande ? TEXTE_COMMANDE : TEXTE;
-    if (choisi && !note) {
-      note = document.createElement('p');
-      note.className = 'qk-bonplan-note';
-      note.innerHTML = texte;
-      note.dataset.genre = commande ? 'c' : 'b';
-      picker.after(note);
-    } else if (choisi && note && note.dataset.genre !== (commande ? 'c' : 'b')) {
-      note.innerHTML = texte;
-      note.dataset.genre = commande ? 'c' : 'b';
-    } else if (!choisi && note) {
-      note.remove();
+    if (fiche) {
+      poserNote(picker, TEXTE_FICHE, 'f');
+    } else if (choisi) {
+      poserNote(picker, TEXTE, 'b');
+    } else {
+      const note = picker.parentElement && picker.parentElement.querySelector(':scope > .qk-bonplan-note');
+      if (note) note.remove();
     }
   });
+  if (fiche && !pickers.length) {  // un seul format : pas de sélecteur, la note va au-dessus du bouton d'achat
+    const form = document.querySelector('product-form-component, product-form, form[action*="/cart/add"]');
+    if (form && !document.querySelector('.qk-bonplan-note')) {
+      const note = document.createElement('p');
+      note.className = 'qk-bonplan-note';
+      note.dataset.genre = 'f';
+      note.innerHTML = TEXTE_FICHE;
+      form.before(note);
+    }
+  }
 }
 
 let minuteur = null;

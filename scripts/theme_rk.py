@@ -357,6 +357,8 @@ def construire(fichiers, marques):
     if "qk-favoris.js" not in lay:
         lay = lay.replace("</head>", "    <script src=\"{{ 'qk-favoris.js' | asset_url }}\" defer></script>\n  </head>", 1)
     # « Complète ta commande » dans le panier (13/11/2026)
+    if "QK_SUR_COMMANDE" not in lay:  # 14/11/2026 : fiche propre au 2e grossiste → note « Bon plan » sur toute la fiche
+        lay = lay.replace("</head>", "    {%- if template.name == 'product' and product.tags contains 'sur-commande' -%}<script>window.QK_SUR_COMMANDE = true;</script>{%- endif -%}\n  </head>", 1)
     if "qk-bonplan.js" not in lay:  # 14/11/2026 : option « Bon plan » (cachée si épuisée, délai expliqué)
         lay = lay.replace("</head>", "    <script type=\"module\" src=\"{{ 'qk-bonplan.js' | asset_url }}\"></script>\n  </head>", 1)
     if "qk-cadeau.js" not in lay:  # 13/11/2026 : message cadeau dans le panier
