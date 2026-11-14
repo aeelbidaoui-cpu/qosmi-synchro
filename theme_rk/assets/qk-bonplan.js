@@ -3,7 +3,7 @@
       spécialement, un peu plus de délai, prix plus bas. L'option est cachée quand elle est épuisée et une ligne explique
       le délai quand elle est choisie.
    2. Fiches propres au 2e grossiste (étiquette « sur-commande », window.QK_SUR_COMMANDE posé par le layout) : formats
-      normaux (« 100 ml »), la ligne « Bon plan » s'affiche en permanence et les formats épuisés sont cachés.
+      normaux (« 100 ml »), la ligne « Bon plan » s'affiche en permanence ; un format épuisé reste affiché « épuisé ».
    Le thème Horizon redessine le sélecteur à chaque changement de variante : un MutationObserver refait le travail. */
 const NL = document.documentElement.lang.toLowerCase().startsWith('nl');
 const MOTS = [' · Bon plan', ' · Koopje', ' · Sur commande', ' · Op bestelling'];
@@ -36,14 +36,14 @@ function traiter() {
   pickers.forEach((picker) => {
     let choisi = false;
     picker.querySelectorAll('input[type="radio"]').forEach((i) => {
-      if (!fiche && !estBonPlan(i.value)) return;
+      if (!estBonPlan(i.value)) return;  // 14/11/2026 (Amine) : un format normal épuisé reste visible, barré « épuisé »
       const label = i.closest('label') || i.parentElement;
       const epuise = i.getAttribute('data-option-available') === 'false';
       if (label) label.hidden = epuise && !i.checked;
       if (i.checked) choisi = true;
     });
     picker.querySelectorAll('select option').forEach((o) => {
-      if (!fiche && !estBonPlan(o.value)) return;
+      if (!estBonPlan(o.value)) return;
       const epuise = o.getAttribute('data-option-available') === 'false' || /épuisé|uitverkocht|sold out/i.test(o.textContent);
       o.hidden = epuise && !o.selected;
       if (o.selected) choisi = true;
