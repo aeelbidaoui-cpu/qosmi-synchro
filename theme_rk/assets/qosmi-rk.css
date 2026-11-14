@@ -896,3 +896,13 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 /* 14/11/2026 : option « Bon plan » sur les fiches (qk-bonplan.js) */
 .qk-bonplan-note { margin: 10px 0 0; padding: 10px 12px; background: #F3EEE6; color: #4A433B; font-size: .9rem; line-height: 1.45; border-radius: 2px; }
 .qk-bonplan-note strong { color: #1A1A1A; font-weight: 600; }
+
+/* 14/11/2026 : en-tête mobile — la loupe collait au cœur (favoris) : la loupe recule, le cœur a sa propre place ;
+   sur les petits écrans (< 390 px) le logo est un peu réduit pour ne pas toucher la loupe. */
+@media (max-width: 749px) {
+  .header__column search-button { transform: translateX(-30px); }
+  .qk-fav-entete { min-width: 32px; height: 44px; }
+}
+@media (max-width: 389px) {
+  .header-logo { transform: scale(.82); }
+}
