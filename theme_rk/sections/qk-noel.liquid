@@ -56,7 +56,20 @@
         {%- for h in liste -%}
           {%- assign t = collections[h] -%}
           {%- if t.products_count > 0 -%}
-          {%- assign img = t.image | default: t.products.first.featured_image -%}
+          {%- comment -%} image : un parfum choisi par tuile, sinon le premier parfum disponible avec photo {%- endcomment -%}
+          {%- case h -%}
+            {%- when 'parfums-femme' -%}{%- assign choix = all_products['parfums-de-marly-delina-eau-de-parfum-pour-femme'] -%}
+            {%- when 'parfums-homme' -%}{%- assign choix = all_products['creed-aventus-eau-de-parfum-pour-homme'] -%}
+            {%- when 'parfums-mixtes' -%}{%- assign choix = all_products['xerjoff-erba-pura-eau-de-parfum-mixte'] -%}
+            {%- else -%}{%- assign choix = nil -%}
+          {%- endcase -%}
+          {%- assign img = nil -%}
+          {%- if choix and choix.available and choix.featured_image -%}{%- assign img = choix.featured_image -%}{%- endif -%}
+          {%- if img == nil -%}
+            {%- for pr in t.products limit: 50 -%}
+              {%- if pr.available and pr.featured_image -%}{%- assign img = pr.featured_image -%}{%- break -%}{%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
           <a class="qk-tuile qk-tuile--produit" href="{{ t.url }}">
             {%- if img != blank -%}{{ img | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 800', sizes: '(min-width: 990px) 25vw, 80vw', alt: t.title }}{%- endif -%}
             <span class="qk-tuile__texte"><span class="qk-tuile__titre">
