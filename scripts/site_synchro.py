@@ -289,6 +289,13 @@ def synchro(essai=False):
             ligne_journal("ÉCHEC liste SoleLuna — rien n'est modifié sur le site : %s" % (r.stdout + r.stderr).strip()[-300:])
             return 1
     produits = sv.preparer(exemples=False)
+    if not essai and not sv.reglages_bons_plans()["en_ligne"] and sv.BILAN_BONS_PLANS is not None:
+        # 14/11/2026 : options « Bon plan » calculées en essai seulement, tant qu'Amine n'a pas donné son feu vert
+        # (config/site.json → bons_plans.en_ligne) ; celles éventuellement déjà en ligne restent telles quelles.
+        for p in produits:
+            p["variantes"] = [v for v in p["variantes"] if not v.get("bon_plan")]
+            p["tags"] = ", ".join(t for t in p["tags"].split(", ") if t != "bon-plan")
+        sv.BILAN_BONS_PLANS = None
     statut_nouv = reglage("statut_nouvelles_fiches", "DRAFT")
     sel = selection()
     statuts = []  # (id, statut) : fiches à afficher ou à masquer selon la sélection

@@ -182,7 +182,7 @@ PREFIXE_BON_PLAN = "QS-B"
 
 def reglages_bons_plans():
     d = (json.load(open(sl.SITE, encoding="utf-8")) if os.path.exists(sl.SITE) else {}).get("bons_plans") or {}
-    return {"actif": bool(d.get("actif", True)), "port_commande_eur": float(d.get("port_commande_eur", 13)),
+    return {"actif": bool(d.get("actif", True)), "en_ligne": bool(d.get("en_ligne", False)), "port_commande_eur": float(d.get("port_commande_eur", 13)),
             "minimum_commande_eur": float(d.get("minimum_commande_eur", 300)), "gain_min_eur": float(d.get("gain_min_eur", 3)),
             "stock_min": int(d.get("stock_min", 1)), "majoration_pct": float(d.get("majoration_pct", 0.02)),
             "envoi_eur": float(d.get("envoi_eur", 3)), "benefice_eur": float(d.get("benefice_eur", 10)),
