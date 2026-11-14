@@ -334,8 +334,7 @@ def synchro(essai=False):
         pid = collections.Counter(ids).most_common(1)[0][0]
         existante = boutique[pid]
         voulu = ("ACTIVE" if statut_nouv == "ACTIVE" else existante["status"]) if visible(p, sel) else "DRAFT"
-        if p.get("sur_commande") and not any(int(v["stock"]) > 0 for v in p["variantes"]):
-            voulu = "DRAFT"  # 14/11/2026 : parfum « sur commande » épuisé chez le grossiste : la fiche disparaît
+        # 14/11/2026 (Amine) : une fiche du 2e grossiste épuisée reste en ligne, en « épuisé » (plus de masquage à 0)
         photo = existante.get("featuredMedia") or {}
         if voulu == "ACTIVE" and photo.get("status") != "READY":  # photo absente, en échec ou pas encore traitée
             voulu = "DRAFT" if existante["status"] == "ACTIVE" and photo.get("status") in (None, "FAILED") else existante["status"]
