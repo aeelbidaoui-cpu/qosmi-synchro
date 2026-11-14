@@ -890,3 +890,5 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-cadeau textarea { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #d9d2c7; border-radius: 8px; font: inherit; font-size: 0.9rem; resize: vertical; background: #fff; }
 .qk-cadeau__pied { display: flex; justify-content: space-between; margin: 4px 0 0; font-size: 0.75rem; color: #6F665C; }
 .qk-cadeau__compte { margin-left: auto; }
+
+.qk-noel__ico { display: block; color: #1A1A1A; margin-bottom: 10px; }
