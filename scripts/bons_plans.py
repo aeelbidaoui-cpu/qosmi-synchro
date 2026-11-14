@@ -11,12 +11,12 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ICI)
 
 DELAI_FR, DELAI_NL = "5 à 10 jours ouvrables", "5 tot 10 werkdagen"
-TEXTE_FR = ("<p>Un peu plus de patience, un meilleur prix. Sur ces parfums, choisis le format marqué « Bon plan » : "
-            "on le commande spécialement pour toi et il part sous %s. Même parfum, authentique et neuf, "
-            "à un prix plus doux.</p>" % DELAI_FR)
-TEXTE_NL = ("<p>Iets meer geduld, een betere prijs. Kies bij deze parfums het formaat met „Koopje”: "
-            "we bestellen het speciaal voor jou en het vertrekt binnen %s. Hetzelfde parfum, origineel en nieuw, "
-            "aan een zachtere prijs.</p>" % DELAI_NL)
+TEXTE_FR = ("<p>Un peu plus de patience, un meilleur prix. Sur ces parfums, choisis le format marqué « Bon plan » "
+            "(ou « Sur commande » pour les parfums qu'on ne garde pas en continu) : on le commande spécialement pour toi "
+            "et il part sous %s. Parfums authentiques et neufs.</p>" % DELAI_FR)
+TEXTE_NL = ("<p>Iets meer geduld, een betere prijs. Kies bij deze parfums het formaat met „Koopje” "
+            "(of „Op bestelling” voor parfums die we niet altijd in voorraad hebben): we bestellen het speciaal voor jou "
+            "en het vertrekt binnen %s. Originele, nieuwe parfums.</p>" % DELAI_NL)
 SEO_FR = ("Bons plans parfums : des parfums originaux et neufs à prix plus doux, commandés spécialement pour toi. "
           "Livraison partout en Belgique.")
 SEO_NL = "Parfumkoopjes: originele, nieuwe parfums aan een zachtere prijs, speciaal voor jou besteld. Levering in heel België."

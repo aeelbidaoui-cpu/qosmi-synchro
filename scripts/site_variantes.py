@@ -25,6 +25,7 @@ import site_soleluna as sl  # noqa: E402
 
 PRODUITS = os.path.join(sl.BASE, "site_produits.json")
 BILAN_BONS_PLANS = None
+BILAN_SUR_COMMANDE = None
 V1 = os.path.join(sl.BASE, "site_catalogue_soleluna_v1.csv")  # fiches « un format = une fiche » du 03/11
 COLONNES = sl.COLONNES + ["groupe", "format_fr", "format_nl", "teinte"]
 
@@ -219,7 +220,7 @@ def ajouter_bons_plans(produits, r):
             continue
         nouvelles = []
         for v in p["variantes"]:
-            if " – " in v["format_fr"]:  # pas de bon plan sur un testeur ou une boîte abîmée
+            if " – " in v["format_fr"] or v.get("sur_commande"):  # pas de bon plan sur un testeur, une boîte abîmée, un « sur commande »
                 nouvelles.append(v)
                 continue
             nouvelles.append(v)
@@ -258,6 +259,134 @@ def ajouter_bons_plans(produits, r):
             p["variantes"] = nouvelles
             p["tags"] = ", ".join([x for x in p["tags"].split(", ") if x] + ["bon-plan"])
             bilan["fiches"] += 1
+    return bilan
+
+
+# ------------------------------------------------------------------ « Sur commande » (14/11/2026, décision d'Amine)
+# Parfums que seul le 2e grossiste propose (absents de la liste SoleLuna) : fiche créée avec des formats « · Sur commande »,
+# au prix de la règle « Bon plan » à 10 € net (pas de prix normal à battre), même délai, même mise à jour horaire ; la fiche
+# se masque quand plus aucun format n'est en stock. Seulement les marques de config/selection.json, parfums uniquement
+# (pas de testeurs, coffrets, miniatures, recharges, soins).
+SUR_COMMANDE_FR, SUR_COMMANDE_NL = " · Sur commande", " · Op bestelling"
+PREFIXE_SUR_COMMANDE = "QS-C"
+ALIAS_MARQUES = {"jpg": "Jean Paul Gaultier", "ysl": "Yves Saint Laurent", "d&g": "Dolce&Gabbana", "ck": "Calvin Klein",
+                 "armani": "Giorgio Armani", "lancome": "Lancôme", "etat libre d orange": "Etat Libre d´Orange",
+                 "etat libre d'orange": "Etat Libre d´Orange", "spirit of dubai": "The Spirit of Dubai",
+                 "marc antoine barrois": "Marc-Antoine Barrois", "maison margiela": "Maison Margiela Paris",
+                 "mfk": "Maison Francis Kurkdjian", "penhaligons": "Penhaligon´s", "penhaligon's": "Penhaligon´s",
+                 "kilian": "By Kilian", "dolce & gabbana": "Dolce&Gabbana", "dolce gabbana": "Dolce&Gabbana",
+                 "boss": "Hugo Boss", "viktor&rolf": "Viktor & Rolf", "viktor and rolf": "Viktor & Rolf"}
+TYPES_TRISTA = [(r"\bextrait(?: de parfum)?\b", "extrait de parfum"), (r"\bedp\b|\beau de parfum\b", "eau de parfum"),
+                (r"\bedt\b|\beau de toilette\b", "eau de toilette"), (r"\bedc\b|\bcologne\b", "eau de cologne"),
+                (r"\bparfum\b", "perfume")]
+EXCLUS_TRISTA = re.compile(r"\b(set|tester|gwp|refill|recharge|travel|mini|miniature|sample|vial|deo|deodorant|body|hair|"
+                           r"lotion|shower|cream|balm|soap|candle|mist|oil|gel)\b", re.I)
+
+
+def _norm(t):
+    import unicodedata
+    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[´`’]", "'", t)
+
+
+def marque_trista(nom, marques):
+    """(marque de la sélection, reste du nom) ou (None, None)."""
+    n = _norm(nom)
+    cands = [(m, m) for m in marques] + [(a, ALIAS_MARQUES[a]) for a in ALIAS_MARQUES]
+    for cle, marque in sorted(cands, key=lambda x: -len(x[0])):
+        c = _norm(cle)
+        if n.startswith(c + " ") and marque in marques:
+            return marque, nom[len(cle):].strip()
+    return None, None
+
+
+def lignes_trista_seules(eans_soleluna):
+    """Lignes « façon SoleLuna » pour les parfums du 2e grossiste absents de SoleLuna (marques de la sélection)."""
+    if not os.path.exists(TRISTA):
+        return None
+    sel = os.path.join(os.path.dirname(sl.SITE), "selection.json")
+    marques = json.load(open(sel, encoding="utf-8"))["marques"] if os.path.exists(sel) else []
+    with open(TRISTA, encoding="utf-8-sig", newline="") as f:
+        brut = list(csv.DictReader(f, delimiter=";"))
+    if len(brut) < 200:
+        return None
+    lignes = []
+    for l in brut:
+        ean = re.sub(r"\D", "", l.get("ean") or "")
+        nom = sl.propre(l.get("product"))
+        if len(ean) < 8 or ean.lstrip("0") in eans_soleluna or EXCLUS_TRISTA.search(nom):
+            continue
+        marque, reste = marque_trista(nom, marques)
+        if not marque:
+            continue
+        vm = re.search(r"(\d+(?:[.,]\d+)?)\s*ml\b", reste, re.I)
+        if not vm:
+            continue
+        vol = vm.group(1).replace(",", ".")
+        g = re.search(r"\((U|M|L|W)\)", reste[:vm.start()])
+        if g:
+            titre, typ, sexe = reste[:g.start()].strip(), reste[g.end():vm.start()].strip().lower(), g.group(1).upper()
+        else:  # pas de genre indiqué : le type (EDP, Parfum…) sépare le titre
+            avant = reste[:vm.start()]
+            pos = min((m.start() for motif, _ in TYPES_TRISTA for m in [re.search(motif, avant, re.I)] if m), default=None)
+            if pos is None:
+                continue
+            titre, typ, sexe = avant[:pos].strip(), avant[pos:].strip().lower(), "U"
+        type_sl = next((t for motif, t in TYPES_TRISTA if re.search(motif, typ)), None)
+        if not type_sl:
+            continue
+        if not titre:
+            continue
+        lignes.append({"ID": "T" + ean, "BRAND": marque, "TITLE": titre, "TYPE": type_sl,
+                       "SEX": {"U": "UNI", "M": "M", "L": "W", "W": "W"}[sexe], "VOLUME": "%s ml" % vol.rstrip("0").rstrip(".") if "." in vol else "%s ml" % vol,
+                       "SET": "", "STOCK": l.get("stock") or "0", "PRICE": l.get("price"), "EAN": ean,
+                       "TESTER": "0", "DAMAGED": "", "SHADE": ""})
+    return lignes
+
+
+def ajouter_sur_commande(produits, lignes_sl, r, photos):
+    """Crée (ou complète) les fiches des parfums du 2e grossiste absents de SoleLuna. Renvoie un bilan ou None."""
+    rb = reglages_bons_plans()
+    if not rb["actif"]:
+        return {"fiches": 0, "formats": 0, "completees": 0}
+    eans = {re.sub(r"\D", "", l.get("EAN") or "").lstrip("0") for l in lignes_sl}
+    lignes = lignes_trista_seules(eans)
+    if lignes is None:
+        return None
+    groupes = defaultdict(list)
+    for l in lignes:
+        groupes[cle_groupe(l)].append(l)
+    par_handle = {p["handle"]: p for p in produits}
+    k = 1 / (1 + r["tva"]) - r.get("paiement_pct", 0)
+    bilan = {"fiches": 0, "formats": 0, "completees": 0}
+    for g in groupes.values():
+        p = produit(g, r, photos)
+        for v in p["variantes"]:
+            achat, stock = sl.nombre(v["_achat"]), max(0, int(sl.nombre(v["stock"])))
+            base = achat * (1 + rb["majoration_pct"]) + rb["envoi_eur"] + r.get("paiement_fixe", 0)
+            prix = sl.arrondi_90_haut((base + rb["benefice_eur"]) / k)
+            v.update(sku=PREFIXE_SUR_COMMANDE + v["ean"].lstrip("0"), format_fr=v["format_fr"] + SUR_COMMANDE_FR,
+                     format_nl=v["format_nl"] + SUR_COMMANDE_NL, prix="%.2f" % prix, stock=str(stock),
+                     cout_ht="%.2f" % (achat * (1 + rb["majoration_pct"]) + rb["envoi_eur"]), bon_plan=True,
+                     sur_commande=True, _net="%.2f" % (prix * k - base))
+        existante = par_handle.get(p["handle"])
+        if existante and not existante["teintes"]:  # même parfum déjà chez SoleLuna sous un autre EAN : formats ajoutés
+            formats = {v["format_fr"].split(" · ")[0] for v in existante["variantes"]}
+            ajout = [v for v in p["variantes"] if v["format_fr"].split(" · ")[0] not in formats]
+            if ajout:
+                existante["variantes"] += ajout
+                existante["tags"] = ", ".join([x for x in existante["tags"].split(", ") if x and x != "bon-plan"] + ["bon-plan"])
+                bilan["completees"] += 1
+                bilan["formats"] += len(ajout)
+            continue
+        if existante:
+            continue
+        p["tags"] = ", ".join([x for x in p["tags"].split(", ") if x] + ["bon-plan"])
+        p["sur_commande"] = True
+        produits.append(p)
+        par_handle[p["handle"]] = p
+        bilan["fiches"] += 1
+        bilan["formats"] += len(p["variantes"])
     return bilan
 
 
@@ -316,7 +445,7 @@ def photos_officielles(produits):
     import photos_marques as pm
     dossier = os.path.dirname(sl.SITE)
     sources = []  # (qualité, par_ean, par_nom, marques limitées ou None)
-    for nom, qualite in (("photos_corrections.json", 9), ("photos_fi.json", 6), ("photos_hd.json", 5), ("photos_coffrets.json", 5), ("photos_aos.json", 3.5), ("photos_nose.json", 4), ("photos_elo.json", 4), ("photos_creed.json", 4), ("photos_ch.json", 4), ("photos_puig.json", 3.5), ("photos_notino.json", 3), ("photos_dg.json", 4), ("photos_jm.json", 3.5), ("photos_mm.json", 3.5), ("photos_tfi.json", 3.5), ("photos_ck.json", 3.5), ("photos_tt.json", 3.5), ("photos_lvmh.json", 3.5), ("photos_m2.json", 3.5), ("photos_m3.json", 3.5), ("photos_rosendo.json", 3.5), ("photos_retirees.json", 3.5), ("photos_manque.json", 3.5), ("photos_trouvees.json", 3.5), ("photos_fragrantica.json", 3), ("photos_ici.json", 2.5), ("photos_bijenkorf.json", 2.5), ("photos_acquadiparma.json", 4), ("photos_parfuma.json", 1.5), ("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_marques.json", None)):
+    for nom, qualite in (("photos_corrections.json", 9), ("photos_fi.json", 6), ("photos_hd.json", 5), ("photos_coffrets.json", 5), ("photos_aos.json", 3.5), ("photos_nose.json", 4), ("photos_elo.json", 4), ("photos_creed.json", 4), ("photos_ch.json", 4), ("photos_puig.json", 3.5), ("photos_notino.json", 3), ("photos_dg.json", 4), ("photos_jm.json", 3.5), ("photos_mm.json", 3.5), ("photos_tfi.json", 3.5), ("photos_ck.json", 3.5), ("photos_tt.json", 3.5), ("photos_lvmh.json", 3.5), ("photos_m2.json", 3.5), ("photos_m3.json", 3.5), ("photos_rosendo.json", 3.5), ("photos_retirees.json", 3.5), ("photos_manque.json", 3.5), ("photos_trouvees.json", 3.5), ("photos_fragrantica.json", 3), ("photos_ici.json", 2.5), ("photos_bijenkorf.json", 2.5), ("photos_acquadiparma.json", 4), ("photos_parfuma.json", 1.5), ("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_trista.json", 2), ("photos_marques.json", None)):
         chemin = os.path.join(dossier, nom)
         if not os.path.exists(chemin):
             continue
@@ -385,6 +514,8 @@ def preparer(exemples=True):
         else:
             groupes[cle_groupe(l)].append(l)
     produits = [produit(g, r, photos) for g in groupes.values()]
+    global BILAN_SUR_COMMANDE
+    BILAN_SUR_COMMANDE = ajouter_sur_commande(produits, lignes, r, photos)
     n_off = photos_officielles(produits)
     global BILAN_BONS_PLANS
     BILAN_BONS_PLANS = ajouter_bons_plans(produits, r)
@@ -539,7 +670,8 @@ TRAD_OPTIONS = [("Format", "Inhoud"), ("Teinte", "Kleur")]
 
 def valeur_nl(v):
     return (v.replace("Taille unique", "Standaard").replace(" – testeur", " – tester")
-             .replace(" – boîte abîmée", " – beschadigde doos").replace(BON_PLAN_FR, BON_PLAN_NL))
+             .replace(" – boîte abîmée", " – beschadigde doos").replace(BON_PLAN_FR, BON_PLAN_NL)
+             .replace(SUR_COMMANDE_FR, SUR_COMMANDE_NL))
 
 
 def traduire(s, sc, produits):

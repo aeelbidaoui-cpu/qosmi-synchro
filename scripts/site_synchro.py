@@ -292,10 +292,11 @@ def synchro(essai=False):
     if not essai and not sv.reglages_bons_plans()["en_ligne"] and sv.BILAN_BONS_PLANS is not None:
         # 14/11/2026 : options « Bon plan » calculées en essai seulement, tant qu'Amine n'a pas donné son feu vert
         # (config/site.json → bons_plans.en_ligne) ; celles éventuellement déjà en ligne restent telles quelles.
+        produits = [p for p in produits if not p.get("sur_commande")]
         for p in produits:
             p["variantes"] = [v for v in p["variantes"] if not v.get("bon_plan")]
             p["tags"] = ", ".join(t for t in p["tags"].split(", ") if t != "bon-plan")
-        sv.BILAN_BONS_PLANS = None
+        sv.BILAN_BONS_PLANS = sv.BILAN_SUR_COMMANDE = None
     statut_nouv = reglage("statut_nouvelles_fiches", "DRAFT")
     sel = selection()
     statuts = []  # (id, statut) : fiches à afficher ou à masquer selon la sélection
@@ -332,6 +333,8 @@ def synchro(essai=False):
         pid = collections.Counter(ids).most_common(1)[0][0]
         existante = boutique[pid]
         voulu = ("ACTIVE" if statut_nouv == "ACTIVE" else existante["status"]) if visible(p, sel) else "DRAFT"
+        if p.get("sur_commande") and not any(int(v["stock"]) > 0 for v in p["variantes"]):
+            voulu = "DRAFT"  # 14/11/2026 : parfum « sur commande » épuisé chez le grossiste : la fiche disparaît
         photo = existante.get("featuredMedia") or {}
         if voulu == "ACTIVE" and photo.get("status") != "READY":  # photo absente, en échec ou pas encore traitée
             voulu = "DRAFT" if existante["status"] == "ACTIVE" and photo.get("status") in (None, "FAILED") else existante["status"]
@@ -393,7 +396,7 @@ def synchro(essai=False):
             if int(a.get("inventoryQuantity") or 0) != int(v["stock"]):
                 stocks.append((a["inventoryItem"]["id"], int(v["stock"])))
     if not bp_lu:  # liste « bons plans » non lue : on ne touche pas aux options déjà en ligne
-        vus |= {sku for sku in vs_qs if sku.startswith(sv.PREFIXE_BON_PLAN)}
+        vus |= {sku for sku in vs_qs if sku.startswith((sv.PREFIXE_BON_PLAN, sv.PREFIXE_SUR_COMMANDE))}
     disparus = [(v["inventoryItem"]["id"], 0) for sku, v in vs_qs.items()
                 if sku not in vus and int(v.get("inventoryQuantity") or 0) != 0]
     stocks += disparus
@@ -406,6 +409,9 @@ def synchro(essai=False):
     if bp_lu:
         resume += " · bons plans : %d options sur %d fiches (+%d / -%d étiquettes)" % (
             sv.BILAN_BONS_PLANS["bons_plans"], sv.BILAN_BONS_PLANS["fiches"], len(bp_plus), len(bp_moins))
+        if sv.BILAN_SUR_COMMANDE:
+            resume += " · sur commande : %d fiches propres, %d fiches complétées, %d formats" % (
+                sv.BILAN_SUR_COMMANDE["fiches"], sv.BILAN_SUR_COMMANDE["completees"], sv.BILAN_SUR_COMMANDE["formats"])
     else:
         resume += " · bons plans : liste non lue, options laissées telles quelles"
     if essai:
