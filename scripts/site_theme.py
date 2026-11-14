@@ -90,6 +90,7 @@ MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-h
         ("Niche", "niche", []),  # Testeurs retiré le 08/11/2026 (en suspens, question juridique)
         ("Parfums arabes", "parfums-arabes", []),  # 08/11/2026 : activé (174 parfums arabes en ligne)
         ("Coffrets", "coffrets", []),  # 10/11/2026 : coffrets pour les fêtes (demande d'Amine)
+        ("Bons plans", "bons-plans", []),  # 14/11/2026 : option « Bon plan » (scripts/bons_plans.py), demande d'Amine
         ("Idées cadeaux", "page:idees-cadeaux-noel", []),  # 13/11/2026 : guide de Noël, en haut jusqu'à fin décembre (demande d'Amine)
         ("Trouve ton parfum", "page:quiz", []),  # 12/11/2026 : quiz parfum ; la recherche par odeurs est liée depuis le quiz et les fiches
         ("Marques", "page:marques", []),  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
@@ -179,10 +180,14 @@ def menu(s, ids):
             return {"title": t, "type": "BLOG", "resourceId": blogs[h[5:]], "items": []}
         if h.startswith("page:"):
             return {"title": t, "type": "PAGE", "resourceId": pages[h], "items": []}
-        if h not in ids:  # collections manuelles hors COLLECTIONS (ex. saisons)
-            ids[h] = s.gql("query($h: String!) { collectionByIdentifier(identifier: {handle: $h}) { id } }", {"h": h})["collectionByIdentifier"]["id"]
-        return {"title": t, "type": "COLLECTION", "resourceId": ids[h], "items": [entree(st, sh) for st, sh in sous]}
-    items = [entree(t, h, sous) for t, h, sous in MENU if not h.startswith("page:") or h in pages]
+        if h not in ids:  # collections manuelles hors COLLECTIONS (ex. saisons, bons plans)
+            c = s.gql("query($h: String!) { collectionByIdentifier(identifier: {handle: $h}) { id } }", {"h": h})["collectionByIdentifier"]
+            if not c:  # collection pas encore créée : entrée laissée de côté
+                print("  menu : collection %s absente, entrée « %s » laissée de côté" % (h, t))
+                return None
+            ids[h] = c["id"]
+        return {"title": t, "type": "COLLECTION", "resourceId": ids[h], "items": [x for x in (entree(st, sh) for st, sh in sous) if x]}
+    items = [x for x in (entree(t, h, sous) for t, h, sous in MENU if not h.startswith("page:") or h in pages) if x]
     if m:
         erreurs(s.gql("""mutation($id: ID!, $t: String!, $h: String, $i: [MenuItemUpdateInput!]!) { menuUpdate(id: $id, title: $t, handle: $h, items: $i) { menu { id } userErrors { field message } } }""",
                       {"id": m["id"], "t": m["title"], "h": "main-menu", "i": items}), "menuUpdate")

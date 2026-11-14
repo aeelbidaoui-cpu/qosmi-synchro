@@ -95,7 +95,7 @@ NL = {
  "Parfums de marque et de niche, 100 % authentiques.": "Merkparfums en nicheparfums, 100 % authentiek.",
  "Découvrir": "Ontdekken", "Le parfum du jour": "Parfum van de dag", "Prochain parfum dans": "Volgende parfum over",
  "Favoris": "Favorieten",
- "Idées cadeaux": "Cadeau-ideeën", "Parfums d'hiver": "Winterparfums", "Parfums de printemps": "Lenteparfums",
+ "Idées cadeaux": "Cadeau-ideeën", "Bons plans": "Koopjes", "Parfums d'hiver": "Winterparfums", "Parfums de printemps": "Lenteparfums",
  "Parfums d'été": "Zomerparfums", "Parfums d'automne": "Herfstparfums",
  "Les parfums qu'on nous demande le plus. Une sélection de grandes maisons et de niche, choisie avec soin.":
      "De parfums waar we het vaakst naar gevraagd worden. Een zorgvuldige selectie van grote huizen en niche.",

@@ -892,3 +892,7 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-cadeau__compte { margin-left: auto; }
 
 .qk-noel__ico { display: block; color: #1A1A1A; margin-bottom: 10px; }
+
+/* 14/11/2026 : option « Bon plan » sur les fiches (qk-bonplan.js) */
+.qk-bonplan-note { margin: 10px 0 0; padding: 10px 12px; background: #F3EEE6; color: #4A433B; font-size: .9rem; line-height: 1.45; border-radius: 2px; }
+.qk-bonplan-note strong { color: #1A1A1A; font-weight: 600; }

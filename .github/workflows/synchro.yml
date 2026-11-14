@@ -50,6 +50,7 @@ jobs:
           SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
           SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
           WF_URL: ${{ secrets.WF_URL }}
+          TRISTA_URL: ${{ secrets.TRISTA_URL }}
         run: |
           if [ "${{ inputs.essai }}" = "true" ]; then python -u scripts/site_synchro.py --essai; else python -u scripts/site_synchro.py; fi
           [ -f rapports/site_synchro.log ] && tail -n 5 rapports/site_synchro.log >> "$GITHUB_STEP_SUMMARY" || true

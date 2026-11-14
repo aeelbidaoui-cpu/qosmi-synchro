@@ -28,6 +28,7 @@ import site_soleluna as sl  # noqa: E402
 import site_variantes as sv  # noqa: E402
 
 JOURNAL = os.path.join(sl.RAPPORTS, "site_synchro.log")
+ETIQUETTE_BON_PLAN = "bon-plan"  # 14/11/2026 : collection « Bons plans » / « Koopjes » (option « Bon plan » en stock)
 ETIQUETTE_PRIX = "meilleur-prix"  # 10/11/2026 : collection « Black Friday » (puis « Nos meilleurs prix »)
 VERROU = os.path.join(sl.BASE, ".site_synchro.lock")
 
@@ -161,6 +162,7 @@ def listes_serveur():
     os.makedirs(sl.BASE, exist_ok=True)
     with open(sl.SOURCE, "wb") as f:
         f.write(donnees)
+    liste_bons_plans()
     url_wf = os.environ.get("WF_URL")
     if url_wf:
         dossier = os.path.join(sl.RACINE, "stocklists", "WHOLESALEFRAGRANCES")
@@ -176,6 +178,28 @@ def listes_serveur():
                         f.write(wf)
             except Exception as e:  # sans photos à jour, les nouveaux produits arrivent sans photo : pas bloquant
                 ligne_journal("  liste photos non lue (%s)" % str(e)[:120])
+
+
+def liste_bons_plans():
+    """14/11/2026 : liste du grossiste des « Bons plans » (secret TRISTA_URL, lien propre au compte, sans mot de passe).
+    Lue à chaque passage, comme SoleLuna. Si elle manque ou est illisible : pas de fichier, et les options « Bon plan »
+    déjà sur le site restent telles quelles (rien n'est mis à 0 par erreur)."""
+    url = os.environ.get("TRISTA_URL", "").strip()
+    if os.path.exists(sv.TRISTA):
+        os.remove(sv.TRISTA)
+    if not url:
+        return
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": AGENT}), timeout=120) as r:
+            donnees = r.read()
+        tete = donnees.decode("utf-8-sig", "replace").lstrip()[:60].lower()
+        if not tete.startswith("ean;") or donnees.count(b"\n") < 200:
+            raise RuntimeError("liste inattendue ou trop courte")
+        os.makedirs(sl.BASE, exist_ok=True)
+        with open(sv.TRISTA, "wb") as f:
+            f.write(donnees)
+    except Exception as e:
+        ligne_journal("  liste « bons plans » non lue (%s) : options laissées telles quelles" % str(e)[:120])
 
 
 Q_OPTIONS = "id options { id name optionValues { id name } }"
@@ -280,6 +304,8 @@ def synchro(essai=False):
     structurels, nouveaux, prix, stocks, vus = [], [], collections.defaultdict(list), [], set()
     conc, dujour = sl.concurrent(), []  # prix du concurrent (interne) ; marques « parfum du jour » à changer
     tags_plus, tags_moins = [], []  # étiquette « meilleur-prix » (collection Black Friday)
+    bp_plus, bp_moins = [], []  # étiquette « bon-plan » (collection Bons plans)
+    bp_lu = sv.BILAN_BONS_PLANS is not None
     nouveaux_p, structurels_p = [], []
     for p in produits:
         ids = [vs_qs[v["sku"]]["produit"] for v in p["variantes"] if v["sku"] in vs_qs]
@@ -316,6 +342,8 @@ def synchro(essai=False):
         for v in p["variantes"]:
             a = vs_qs.get(v["sku"])
             ref = conc.get((v.get("ean") or "").lstrip("0"))
+            if v.get("bon_plan"):
+                continue
             if a and a["produit"] == pid and ref and int(v["stock"]) > 0 and float(v["prix"]) < float(ref[0]) - 0.004:
                 if float(ref[0]) - float(v["prix"]) > ecart_max:
                     meilleur, ecart_max = a["id"], float(ref[0]) - float(v["prix"])
@@ -326,7 +354,7 @@ def synchro(essai=False):
         bon = False
         for v in p["variantes"]:
             ref = conc.get((v.get("ean") or "").lstrip("0"))
-            if ref and int(v["stock"]) > 0 and float(ref[0]) > 0:
+            if ref and int(v["stock"]) > 0 and float(ref[0]) > 0 and not v.get("bon_plan"):
                 ecart = (float(ref[0]) - float(v["prix"])) / float(ref[0])
                 if 0.05 <= ecart <= 0.35:
                     bon = True
@@ -336,6 +364,13 @@ def synchro(essai=False):
             tags_plus.append(pid)
         elif a_le_tag and not bon:
             tags_moins.append(pid)
+        if bp_lu:
+            bp = voulu == "ACTIVE" and any(v.get("bon_plan") and int(v["stock"]) > 0 for v in p["variantes"])
+            a_bp = ETIQUETTE_BON_PLAN in (existante.get("tags") or [])
+            if bp and not a_bp:
+                bp_plus.append(pid)
+            elif a_bp and not bp:
+                bp_moins.append(pid)
         for v in p["variantes"]:
             a = vs_qs.get(v["sku"])
             if not a or a["produit"] != pid:
@@ -350,6 +385,8 @@ def synchro(essai=False):
                 prix[pid].append({"id": a["id"], **maj})
             if int(a.get("inventoryQuantity") or 0) != int(v["stock"]):
                 stocks.append((a["inventoryItem"]["id"], int(v["stock"])))
+    if not bp_lu:  # liste « bons plans » non lue : on ne touche pas aux options déjà en ligne
+        vus |= {sku for sku in vs_qs if sku.startswith(sv.PREFIXE_BON_PLAN)}
     disparus = [(v["inventoryItem"]["id"], 0) for sku, v in vs_qs.items()
                 if sku not in vus and int(v.get("inventoryQuantity") or 0) != 0]
     stocks += disparus
@@ -359,6 +396,11 @@ def synchro(essai=False):
               "%d fiches complétées · %d nouvelles fiches · %d fiches affichées et %d masquées selon la sélection"
               % (n_cible, len(stocks), len(disparus), n_prix, len(structurels), len(nouveaux), n_aff,
                  len(statuts) - n_aff))
+    if bp_lu:
+        resume += " · bons plans : %d options sur %d fiches (+%d / -%d étiquettes)" % (
+            sv.BILAN_BONS_PLANS["bons_plans"], sv.BILAN_BONS_PLANS["fiches"], len(bp_plus), len(bp_moins))
+    else:
+        resume += " · bons plans : liste non lue, options laissées telles quelles"
     if essai:
         print("ESSAI (rien n'est envoyé) : " + resume)
         for e in nouveaux[:5]:
@@ -468,6 +510,14 @@ def synchro(essai=False):
             erreurs += 1
     if tags_plus or tags_moins:
         resume += " · meilleurs prix : +%d / -%d" % (len(tags_plus), len(tags_moins))
+    for pid in bp_plus:
+        if s.gql("mutation($id: ID!, $t: [String!]!) { tagsAdd(id: $id, tags: $t) { userErrors { message } } }",
+                 {"id": pid, "t": [ETIQUETTE_BON_PLAN]})["tagsAdd"]["userErrors"]:
+            erreurs += 1
+    for pid in bp_moins:
+        if s.gql("mutation($id: ID!, $t: [String!]!) { tagsRemove(id: $id, tags: $t) { userErrors { message } } }",
+                 {"id": pid, "t": [ETIQUETTE_BON_PLAN]})["tagsRemove"]["userErrors"]:
+            erreurs += 1
     ligne_journal("OK %s · %d erreur(s) · %d s" % (resume, erreurs, time.time() - debut))
     return 0 if not erreurs else 1
 

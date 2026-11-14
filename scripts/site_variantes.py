@@ -16,7 +16,7 @@ Sur Shopify, chaque fiche groupée REPREND une fiche existante du 03/11 (pas de 
 du 03/11 devenues inutiles sont ARCHIVÉES (récupérables). Tout reste en BROUILLON. Prix PROVISOIRES par variante.
 Les fiches du dépôt ne sont pas touchées.
 """
-import csv, html, json, os, re, sys, time
+import csv, html, json, math, os, re, sys, time
 from collections import defaultdict
 
 ICI = os.path.dirname(os.path.abspath(__file__))
@@ -24,6 +24,7 @@ sys.path.insert(0, ICI)
 import site_soleluna as sl  # noqa: E402
 
 PRODUITS = os.path.join(sl.BASE, "site_produits.json")
+BILAN_BONS_PLANS = None
 V1 = os.path.join(sl.BASE, "site_catalogue_soleluna_v1.csv")  # fiches « un format = une fiche » du 03/11
 COLONNES = sl.COLONNES + ["groupe", "format_fr", "format_nl", "teinte"]
 
@@ -168,6 +169,98 @@ def produit(lignes, r, photos):
             "teintes": teintes, "variantes": variantes, **seo}
 
 
+# ------------------------------------------------------------------ « Bons plans » (14/11/2026, décision d'Amine)
+# Pour un format donné, une 2e variante « 100 ml · Bon plan » commandée chez un 2e grossiste les lundis et jeudis
+# (minimum de commande, port fixe par commande) : un peu plus de délai, prix plus bas pour le client.
+# Affichée dès 1 pièce chez ce grossiste et seulement si elle fait gagner au moins gain_min_eur au client ;
+# à 0 pièce (ou sortie de sa liste) elle passe à stock 0 et le thème la cache. Mise à jour au même passage que SoleLuna.
+# Liste : base/trista_liste.csv (secret TRISTA_URL sur le serveur), colonnes ean;product;stock;incoming;eta_date;price (HT).
+TRISTA = os.path.join(sl.BASE, "trista_liste.csv")
+BON_PLAN_FR, BON_PLAN_NL = " · Bon plan", " · Koopje"
+PREFIXE_BON_PLAN = "QS-B"
+
+
+def reglages_bons_plans():
+    d = (json.load(open(sl.SITE, encoding="utf-8")) if os.path.exists(sl.SITE) else {}).get("bons_plans") or {}
+    return {"actif": bool(d.get("actif", True)), "port_commande_eur": float(d.get("port_commande_eur", 13)),
+            "minimum_commande_eur": float(d.get("minimum_commande_eur", 300)), "gain_min_eur": float(d.get("gain_min_eur", 3)),
+            "stock_min": int(d.get("stock_min", 1)), "majoration_pct": float(d.get("majoration_pct", 0.02)),
+            "envoi_eur": float(d.get("envoi_eur", 3)), "benefice_eur": float(d.get("benefice_eur", 10)),
+            "benefice_min_eur": float(d.get("benefice_min_eur", 5))}
+
+
+def liste_trista(chemin=TRISTA):
+    """{EAN sans zéros de tête: (prix d'achat HT, stock)} ; None si la liste est absente ou illisible."""
+    if not os.path.exists(chemin):
+        return None
+    with open(chemin, encoding="utf-8-sig", newline="") as f:
+        lignes = list(csv.DictReader(f, delimiter=";"))
+    if len(lignes) < 200 or not {"ean", "stock", "price"} <= set(lignes[0]):
+        return None
+    t = {}
+    for l in lignes:
+        ean = re.sub(r"\D", "", l.get("ean") or "").lstrip("0")
+        achat, stock = sl.nombre(l.get("price")), int(sl.nombre(l.get("stock")))
+        if len(ean) >= 7 and achat > 0 and (ean not in t or achat < t[ean][0]):
+            t[ean] = (achat, max(0, stock))
+    return t
+
+
+def ajouter_bons_plans(produits, r):
+    """Ajoute les variantes « Bon plan » aux fiches. Renvoie un bilan, ou None si la liste n'a pas pu être lue
+    (les variantes « Bon plan » déjà sur le site sont alors laissées telles quelles)."""
+    rb = reglages_bons_plans()
+    t = liste_trista() if rb["actif"] else {}
+    if t is None:
+        return None
+    bilan = {"bons_plans": 0, "fiches": 0, "trop_proches": 0, "sans_stock": 0, "gains": []}
+    for p in produits:
+        if p["teintes"]:
+            continue
+        nouvelles = []
+        for v in p["variantes"]:
+            if " – " in v["format_fr"]:  # pas de bon plan sur un testeur ou une boîte abîmée
+                nouvelles.append(v)
+                continue
+            nouvelles.append(v)
+            x = t.get((v.get("ean") or "").lstrip("0"))
+            if not x:
+                continue
+            achat, stock = x
+            if stock < rb["stock_min"]:
+                bilan["sans_stock"] += 1
+                continue
+            # Règle d'Amine du 14/11/2026 : (prix + 2 %) + 3 € d'envoi + 10 € de bénéfice (plus d'argent bloqué), + 21 % TVA,
+            # arrondi au ,90 supérieur. Pas d'alignement sur le concurrent pour cette option.
+            # Règle d'Amine du 14/11/2026 : (prix + 2 %) + 3 € d'envoi + frais Shopify Payments + 10 € de bénéfice, + 21 % TVA,
+            # arrondi au ,90 supérieur. Si l'écart avec la livraison normale est alors < gain_min_eur (3 €), on descend jusqu'à
+            # 3 € sous le prix normal, sans passer sous benefice_min_eur (5 € net). Pas d'alignement sur le concurrent.
+            port = rb["envoi_eur"]
+            k = 1 / (1 + r["tva"]) - r.get("paiement_pct", 0)
+            base = achat * (1 + rb["majoration_pct"]) + port + r.get("paiement_fixe", 0)
+            normal = float(v["prix"])
+            prix = sl.arrondi_90_haut((base + rb["benefice_eur"]) / k)
+            if prix > normal - rb["gain_min_eur"] + 1e-6:
+                cible = math.floor(normal - rb["gain_min_eur"] - 0.90 + 1e-9) + 0.90  # le ,90 juste sous normal - 3 €
+                prix = max(cible, sl.arrondi_90_haut((base + rb["benefice_min_eur"]) / k))
+                if prix > normal - 1 + 1e-6:  # même à 5 € net, pas au moins 1 € moins cher : pas d'option
+                    bilan["trop_proches"] += 1
+                    continue
+                bilan["benefice_reduit"] = bilan.get("benefice_reduit", 0) + 1
+            b = dict(v, sku=PREFIXE_BON_PLAN + v["ean"].lstrip("0"), format_fr=v["format_fr"] + BON_PLAN_FR,
+                     format_nl=v["format_nl"] + BON_PLAN_NL, prix="%.2f" % prix, stock=str(stock),
+                     cout_ht="%.2f" % (achat * (1 + rb["majoration_pct"]) + port), bon_plan=True,
+                     _net="%.2f" % (prix * k - base), _achat=str(achat))
+            nouvelles.append(b)
+            bilan["bons_plans"] += 1
+            bilan["gains"].append((float(v["prix"]) - prix, p["titre_fr"], v["format_fr"], float(v["prix"]), prix))
+        if len(nouvelles) > len(p["variantes"]):
+            p["variantes"] = nouvelles
+            p["tags"] = ", ".join([x for x in p["tags"].split(", ") if x] + ["bon-plan"])
+            bilan["fiches"] += 1
+    return bilan
+
+
 _RICHES = None
 
 
@@ -293,6 +386,8 @@ def preparer(exemples=True):
             groupes[cle_groupe(l)].append(l)
     produits = [produit(g, r, photos) for g in groupes.values()]
     n_off = photos_officielles(produits)
+    global BILAN_BONS_PLANS
+    BILAN_BONS_PLANS = ajouter_bons_plans(produits, r)
     # handles uniques
     vus = set()
     for p in sorted(produits, key=lambda p: p["titre_fr"].lower()):
@@ -444,7 +539,7 @@ TRAD_OPTIONS = [("Format", "Inhoud"), ("Teinte", "Kleur")]
 
 def valeur_nl(v):
     return (v.replace("Taille unique", "Standaard").replace(" – testeur", " – tester")
-             .replace(" – boîte abîmée", " – beschadigde doos"))
+             .replace(" – boîte abîmée", " – beschadigde doos").replace(BON_PLAN_FR, BON_PLAN_NL))
 
 
 def traduire(s, sc, produits):

@@ -23,5 +23,17 @@
   "delai_livraison_nl": "3 tot 6 werkdagen",
   "_note_delai": "Délai annoncé depuis le 08/11/2026 (choix d'Amine) : 3 à 6 jours ouvrables. Les parfums viennent de SoleLuna par colis groupés (un colis tous les 2-3 jours), puis Amine livre lui-même à Bruxelles ou envoie en point relais.",
   "testeurs_en_suspens": true,
-  "_note_testeurs": "08/11/2026 : testeurs en suspens (question juridique à vérifier avec l'avocat, arrêt CJUE L'Oréal c. eBay C-324/09). true = aucun format testeur sur le site ni sur Google. Remettre false pour les réafficher : le passage horaire recrée alors les formats testeurs."
+  "_note_testeurs": "08/11/2026 : testeurs en suspens (question juridique à vérifier avec l'avocat, arrêt CJUE L'Oréal c. eBay C-324/09). true = aucun format testeur sur le site ni sur Google. Remettre false pour les réafficher : le passage horaire recrée alors les formats testeurs.",
+  "bons_plans": {
+    "actif": true,
+    "majoration_pct": 0.02,
+    "envoi_eur": 3,
+    "benefice_eur": 10,
+    "benefice_min_eur": 5,
+    "gain_min_eur": 3,
+    "stock_min": 1,
+    "delai_fr": "5 à 10 jours ouvrables",
+    "delai_nl": "5 tot 10 werkdagen",
+    "_note": "Décisions d'Amine du 14/11/2026 : option « Bon plan » (2e grossiste, commandes les lundis et jeudis, minimum 300 €, port 13 € par commande). Prix client = (achat + 2 %) + 3 € d'envoi + frais Shopify Payments + 10 € de bénéfice, × 1,21, arrondi au ,90 ; si l'écart avec la livraison normale est < 3 €, on descend jusqu'à 3 € sous le prix normal sans passer sous 5 € net ; pas d'option si elle n'est pas au moins 1 € moins chère. Proposée dès 1 pièce ; à 0 elle disparaît. Délai affiché sur la fiche (theme_rk/assets/qk-bonplan.js) et la collection (scripts/bons_plans.py)."
+  }
 }
