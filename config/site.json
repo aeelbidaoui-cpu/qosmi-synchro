@@ -26,7 +26,7 @@
   "_note_testeurs": "08/11/2026 : testeurs en suspens (question juridique à vérifier avec l'avocat, arrêt CJUE L'Oréal c. eBay C-324/09). true = aucun format testeur sur le site ni sur Google. Remettre false pour les réafficher : le passage horaire recrée alors les formats testeurs.",
   "bons_plans": {
     "actif": true,
-    "en_ligne": false,
+    "en_ligne": true,
     "_note_en_ligne": "false = calculé seulement en essai (feu vert d'Amine attendu) ; true = options envoyées sur le site à chaque passage.",
     "majoration_pct": 0.02,
     "envoi_eur": 3,
