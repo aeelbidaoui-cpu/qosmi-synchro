@@ -4,3 +4,7 @@ stocklists/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Passation Claude Code : brief et documents privés (jamais sur GitHub)
+CLAUDE.local.md
+.prive/
