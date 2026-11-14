@@ -37,7 +37,7 @@ M_PRIX = """mutation call($productId: ID!, $variants: [ProductVariantsBulkInput!
 M_STOCK = """mutation($input: InventorySetQuantitiesInput!, $cle: String!) {
   inventorySetQuantities(input: $input) @idempotent(key: $cle) {
     inventoryAdjustmentGroup { id } userErrors { code field message } } }"""
-Q_ETAT = """{ products(query: "status:active OR status:draft") { edges { node { id handle status tags featuredMedia { id }
+Q_ETAT = """{ products(query: "status:active OR status:draft") { edges { node { id handle status tags featuredMedia { id status }
   dujour: metafield(namespace: "qosmi", key: "du_jour") { value }
   variants { edges { node { id sku price inventoryQuantity selectedOptions { name value }
     inventoryItem { id unitCost { amount } } } } } } } } }"""
@@ -290,15 +290,18 @@ def synchro(essai=False):
                 i += 1
             handles.add(p["handle"])
             e = sv.entree(p, lieu_id, {"handle": p["handle"]})
-            e["input"]["status"] = statut_nouv if visible(p, sel) else "DRAFT"
+            # 14/11/2026 : une nouvelle fiche naît masquée ; le passage suivant l'affiche si sa photo est bien chargée
+            # (une photo refusée par Shopify, ex. plus de 25 mégapixels, donnait une carte vide en tête de collection)
+            e["input"]["status"] = "DRAFT"
             nouveaux.append(e)
             nouveaux_p.append((e, p))
             continue
         pid = collections.Counter(ids).most_common(1)[0][0]
         existante = boutique[pid]
         voulu = ("ACTIVE" if statut_nouv == "ACTIVE" else existante["status"]) if visible(p, sel) else "DRAFT"
-        if voulu == "ACTIVE" and existante["status"] != "ACTIVE" and not existante.get("featuredMedia"):
-            voulu = existante["status"]  # pas de photo sur la fiche : elle reste masquée
+        photo = existante.get("featuredMedia") or {}
+        if voulu == "ACTIVE" and photo.get("status") != "READY":  # photo absente, en échec ou pas encore traitée
+            voulu = "DRAFT" if existante["status"] == "ACTIVE" and photo.get("status") in (None, "FAILED") else existante["status"]
         if voulu != existante["status"]:
             statuts.append((pid, voulu))
         skus_fiche = {v["sku"] for v in existante["variantes"]}
