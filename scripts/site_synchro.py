@@ -591,7 +591,8 @@ def photos_manquantes():
             continue
         lignes.append({"marque": p["marque"], "nom": p["titre_fr"], "formats": " / ".join(v["format_fr"] for v in p["variantes"]),
                        "ean": " ".join(sorted({v["ean"] for v in p["variantes"] if v.get("ean")})), "handle": p["handle"],
-                       "stock": sum(int(v.get("stock") or 0) for v in p["variantes"])})
+                       "stock": sum(int(v.get("stock") or 0) for v in p["variantes"]),
+                       "bon_plan": "oui" if p.get("sur_commande") else ""})
     lignes.sort(key=lambda x: (x["marque"].lower(), x["nom"].lower()))
     dossier = os.path.join(os.path.dirname(ICI), "rapports", "theme")
     os.makedirs(dossier, exist_ok=True)
