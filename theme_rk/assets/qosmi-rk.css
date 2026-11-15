@@ -915,3 +915,4 @@ html:not(.qk-paiements-ouverts) .cart__ctas .additional-checkout-buttons { displ
 .qk-paiement__bc strong { color: #1A1A1A; }
 .qk-paiement__plus { background: none; border: 0; padding: 4px 0; font: inherit; font-size: .85rem; color: #6F665C; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .cart__ctas { grid-template-rows: none !important; grid-auto-rows: auto !important; height: auto !important; }
+.cart__ctas > .qk-paiement { height: auto !important; max-height: none !important; min-height: 0 !important; }
