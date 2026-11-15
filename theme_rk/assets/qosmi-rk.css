@@ -906,3 +906,11 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 @media (max-width: 389px) {
   .header-logo { transform: scale(.82); }
 }
+
+/* 15/11/2026 : Bancontact d'abord dans le panier (qk-paiement.js) ; Apple Pay / Google Pay / Shop Pay derrière un bouton */
+html:not(.qk-paiements-ouverts) .cart__ctas .additional-checkout-buttons { display: none !important; }
+.qk-paiement { margin: 10px 0 4px; text-align: center; }
+.qk-paiement__bc { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 6px; font-size: .88rem; line-height: 1.4; color: #4A433B; text-align: left; }
+.qk-paiement__bc svg { width: 38px; height: auto; flex: 0 0 auto; }
+.qk-paiement__bc strong { color: #1A1A1A; }
+.qk-paiement__plus { background: none; border: 0; padding: 4px 0; font: inherit; font-size: .85rem; color: #6F665C; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
