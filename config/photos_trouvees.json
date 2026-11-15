@@ -1,5 +1,5 @@
 {
-"source": "09/11/2026 : photos officielles (sites des marques, Olfastory sans images IA, Lyko/allbeauty par EAN) pour les parfums masqués faute de photo ; vérifiées sur planches, décors et boîtes refusés",
+"source": "09/11/2026 : photos officielles (sites des marques, Olfastory sans images IA, Lyko/allbeauty par EAN) pour les parfums masqués faute de photo ; vérifiées sur planches, décors et boîtes refusés ; 15/11/2026 : 4 fiches Bons plans (Notino par EAN, flacon seul du grossiste pour Jo Malone)",
 "marques": [
 "Afnan",
 "Ahmed Al Maghribi",
@@ -31,7 +31,10 @@
 "Pendora Scents",
 "Riiffs",
 "Swiss Arabian",
-"Zimaya"
+"Zimaya",
+"Giorgio Armani",
+"Prada",
+"Jo Malone"
 ],
 "par_ean": {
 "85715320810": "https://www.olfastory.com/api/media/file/f1176-guess-girl.jpg",
@@ -238,6 +241,10 @@
 "6423080731901": "https://cdn.shopify.com/s/files/1/0734/9878/7905/files/11-qawafi.jpg",
 "6298769782235": "https://cdn.shopify.com/s/files/1/0734/9878/7905/files/charuto-mysterious_tobacco.jpg",
 "6293708020263": "https://cdn.shopify.com/s/files/1/0593/4845/1399/files/ALCHEME.png",
-"6293708019083": "https://cdn.shopify.com/s/files/1/0593/4845/1399/files/61u-f4iarDL_2d18e6a9-3127-43d5-af63-83436c99ef77.jpg"
+"6293708019083": "https://cdn.shopify.com/s/files/1/0593/4845/1399/files/61u-f4iarDL_2d18e6a9-3127-43d5-af63-83436c99ef77.jpg",
+"3614274644432": "https://cdn.notinoimg.com/detail_main_hq/armani/3614274644432_01-o.jpg",
+"3614272085282": "https://cdn.notinoimg.com/detail_main_hq/armani/3614272085282_01-o.jpg",
+"3614273906678": "https://cdn.notinoimg.com/detail_main_hq/prada/3614273906678_01-o.jpg",
+"690251056224": "https://cdn.shopify.com/s/files/1/0930/5820/4028/files/0690251056224.jpg?v=1770119793"
 }
 }
