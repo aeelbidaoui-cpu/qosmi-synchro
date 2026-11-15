@@ -38,7 +38,7 @@ M_PRIX = """mutation call($productId: ID!, $variants: [ProductVariantsBulkInput!
 M_STOCK = """mutation($input: InventorySetQuantitiesInput!, $cle: String!) {
   inventorySetQuantities(input: $input) @idempotent(key: $cle) {
     inventoryAdjustmentGroup { id } userErrors { code field message } } }"""
-Q_ETAT = """{ products(query: "status:active OR status:draft") { edges { node { id handle status tags featuredMedia { id status }
+Q_ETAT = """{ products(query: "status:active OR status:draft") { edges { node { id handle title status tags featuredMedia { id status }
   dujour: metafield(namespace: "qosmi", key: "du_jour") { value }
   variants { edges { node { id sku price inventoryQuantity selectedOptions { name value }
     inventoryItem { id unitCost { amount } } } } } } } } }"""
@@ -347,6 +347,8 @@ def synchro(essai=False):
                       for v in existante["variantes"]}
         renomme = any(v["sku"].startswith(sv.PREFIXE_SUR_COMMANDE) and v["sku"] in noms_fiche
                       and noms_fiche[v["sku"]] != v["format_fr"] for v in p["variantes"])  # 14/11/2026 : libellé du format changé
+        # 15/11/2026 (point 3) : nom d'une fiche du 2e grossiste remis en forme (accents, apostrophes) : titre FR + NL repris
+        renomme = renomme or (p.get("sur_commande") and existante.get("title") and existante["title"] != p["titre_fr"])
         if p.get("sur_commande") and "sur-commande" not in (existante.get("tags") or []):
             sc_plus.append(pid)
         if renomme or any(v["sku"] not in skus_fiche for v in p["variantes"]):  # nouveau format

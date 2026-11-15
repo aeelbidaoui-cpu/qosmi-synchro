@@ -284,6 +284,56 @@ EXCLUS_TRISTA = re.compile(r"\b(set|tester|gwp|refill|recharge|travel|mini|minia
                            r"lotion|shower|cream|balm|soap|candle|mist|oil|gel)\b", re.I)
 
 
+# 15/11/2026 (point 3) : les noms du 2e grossiste arrivent sans accents ni apostrophes (« L Eau D Hiver », « Blanche Bete »).
+# Corrections mot à mot qui ne changent pas l'adresse de la fiche (même suite de mots une fois les accents retirés),
+# sauf les quelques noms entiers de NOMS_ENTIERS.
+ACCENTS_TRISTA = {"bete": "Bête", "vole": "Volé", "therese": "Thérèse", "mediterranee": "Méditerranée",
+                  "concentree": "Concentrée", "geranium": "Géranium", "haiti": "Haïti", "neroli": "Néroli",
+                  "fraiche": "Fraîche", "idole": "Idôle", "vip": "VIP", "intensly": "Intensely"}
+MINUSCULES_TRISTA = {"de", "des", "du", "au", "aux", "et", "est", "di"}  # au milieu du nom seulement
+NOMS_ENTIERS = {"men's terre d' intense": "Terre d'Hermès Intense", 'casamorati 1888 "1888"': "Casamorati 1888 « 1888 »",
+                "acqua di gio": "Acqua di Giò", "j adore l or": "J'adore L'Or", "j adore": "J'adore"}
+
+
+def nom_propre(titre):
+    """Nom de parfum du 2e grossiste remis en forme : accents, apostrophes (« L'Eau d'Hiver »), petits mots en minuscules."""
+    t = re.sub(r"\s+", " ", (titre or "").replace("´", "'")).strip()
+    if t.lower() in NOMS_ENTIERS:
+        return NOMS_ENTIERS[t.lower()]
+    for cle, val in NOMS_ENTIERS.items():
+        if t.lower().startswith(cle + " ") and cle.startswith("j adore"):
+            t = val + t[len(cle):]
+    mots = t.split(" ")
+    sortie = []
+    i = 0
+    while i < len(mots):
+        m = mots[i]
+        bas = m.lower()
+        suivant = mots[i + 1] if i + 1 < len(mots) else ""
+        if bas in ("l", "d") and suivant[:1].isalpha():  # « L Eau » → « L'Eau », « D Hiver » → « d'Hiver »
+            elision = ("L'" if bas == "l" else ("D'" if not sortie else "d'"))
+            mot = ACCENTS_TRISTA.get(suivant.lower(), suivant)
+            if bas == "l" and suivant.lower() == "elixir":
+                mot = "Élixir"
+            sortie.append(elision + mot[:1].upper() + mot[1:])
+            i += 2
+            continue
+        if bas == "a" and suivant.lower() == "la" and sortie:  # « Neroli a la Cardamome » → « à la »
+            sortie.append("à la")
+            i += 2
+            continue
+        elif bas == "the" and sortie and sortie[-1].lower() == "au":  # « au The Vert » → « au Thé Vert »
+            sortie.append("Thé")
+        elif bas in ACCENTS_TRISTA:
+            sortie.append(ACCENTS_TRISTA[bas])
+        elif bas in MINUSCULES_TRISTA and sortie and i + 1 < len(mots):
+            sortie.append(bas)
+        else:
+            sortie.append(m)
+        i += 1
+    return " ".join(sortie)
+
+
 def _norm(t):
     import unicodedata
     t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode().lower()
@@ -338,7 +388,7 @@ def lignes_trista_seules(eans_soleluna):
             continue
         if not titre:
             continue
-        lignes.append({"ID": "T" + ean, "BRAND": marque, "TITLE": titre, "TYPE": type_sl,
+        lignes.append({"ID": "T" + ean, "BRAND": marque, "TITLE": nom_propre(titre), "TYPE": type_sl,
                        "SEX": {"U": "UNI", "M": "M", "L": "W", "W": "W"}[sexe], "VOLUME": "%s ml" % vol.rstrip("0").rstrip(".") if "." in vol else "%s ml" % vol,
                        "SET": "", "STOCK": l.get("stock") or "0", "PRICE": l.get("price"), "EAN": ean,
                        "TESTER": "0", "DAMAGED": "", "SHADE": ""})
