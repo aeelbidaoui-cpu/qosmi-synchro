@@ -269,6 +269,7 @@ def ajouter_bons_plans(produits, r):
 # (pas de testeurs, coffrets, miniatures, recharges, soins).
 SUR_COMMANDE_FR, SUR_COMMANDE_NL = " · Sur commande", " · Op bestelling"
 PREFIXE_SUR_COMMANDE = "QS-C"
+PREFIXE_SUR_COMMANDE_FUSION = "QS-D"  # format du 2e grossiste ajouté à une fiche SoleLuna du même parfum (genre différent)
 ALIAS_MARQUES = {"jpg": "Jean Paul Gaultier", "ysl": "Yves Saint Laurent", "d&g": "Dolce&Gabbana", "ck": "Calvin Klein",
                  "armani": "Giorgio Armani", "lancome": "Lancôme", "etat libre d orange": "Etat Libre d´Orange",
                  "etat libre d'orange": "Etat Libre d´Orange", "spirit of dubai": "The Spirit of Dubai",
@@ -341,7 +342,31 @@ def lignes_trista_seules(eans_soleluna):
                        "SEX": {"U": "UNI", "M": "M", "L": "W", "W": "W"}[sexe], "VOLUME": "%s ml" % vol.rstrip("0").rstrip(".") if "." in vol else "%s ml" % vol,
                        "SET": "", "STOCK": l.get("stock") or "0", "PRICE": l.get("price"), "EAN": ean,
                        "TESTER": "0", "DAMAGED": "", "SHADE": ""})
+    # 15/11/2026 : un même parfum peut venir sous deux EAN avec deux genres (« (L) » et « (U) ») : un seul genre par parfum,
+    # celui indiqué le plus souvent, « mixte » seulement si rien d'autre (sinon deux fiches pour le même parfum)
+    from collections import Counter
+    genres = defaultdict(Counter)
+    for l in lignes:
+        genres[(l["BRAND"], _cle_titre(l["TITLE"]), l["TYPE"])][l["SEX"]] += 1
+    for l in lignes:
+        c = genres[(l["BRAND"], _cle_titre(l["TITLE"]), l["TYPE"])]
+        precis = [g for g, _ in c.most_common() if g != "UNI"]
+        l["SEX"] = precis[0] if precis else "UNI"
     return lignes
+
+
+def _cle_titre(t):
+    n = _norm(t).replace("&", " and ")
+    return re.sub(r"[^a-z0-9]+", " ", n).strip()
+
+
+def cle_fiche(p):
+    """(titre, type) sans le genre : même parfum, quel que soit le genre écrit par le grossiste."""
+    if " — " not in p["titre_fr"]:
+        return None
+    t, typ = p["titre_fr"].split(" — ", 1)
+    typ = re.sub(r" (pour femme|pour homme|mixte|pour enfant)$", "", typ)
+    return (_cle_titre(t), typ.lower())
 
 
 def ajouter_sur_commande(produits, lignes_sl, r, photos):
@@ -357,6 +382,11 @@ def ajouter_sur_commande(produits, lignes_sl, r, photos):
     for l in lignes:
         groupes[cle_groupe(l)].append(l)
     par_handle = {p["handle"]: p for p in produits}
+    par_cle = {}
+    for q in produits:
+        c = cle_fiche(q)
+        if c and not q["teintes"]:
+            par_cle.setdefault(c, q)
     k = 1 / (1 + r["tva"]) - r.get("paiement_pct", 0)
     bilan = {"fiches": 0, "formats": 0, "completees": 0}
     for g in groupes.values():
@@ -371,9 +401,13 @@ def ajouter_sur_commande(produits, lignes_sl, r, photos):
                      cout_ht="%.2f" % (achat * (1 + rb["majoration_pct"]) + rb["envoi_eur"]), bon_plan=True,
                      sur_commande=True, _net="%.2f" % (prix * k - base))
         existante = par_handle.get(p["handle"])
+        fusion = False
+        if not existante and cle_fiche(p) in par_cle:  # même parfum chez SoleLuna, genre écrit autrement
+            existante, fusion = par_cle[cle_fiche(p)], True
         if existante and not existante["teintes"]:  # même parfum déjà chez SoleLuna sous un autre EAN : formats ajoutés
             formats = {v["format_fr"].split(" · ")[0] for v in existante["variantes"]}
-            ajout = [dict(v, format_fr=v["format_fr"] + BON_PLAN_FR, format_nl=v["format_nl"] + BON_PLAN_NL)
+            ajout = [dict(v, format_fr=v["format_fr"] + BON_PLAN_FR, format_nl=v["format_nl"] + BON_PLAN_NL,
+                          sku=(PREFIXE_SUR_COMMANDE_FUSION if fusion else PREFIXE_SUR_COMMANDE) + v["ean"].lstrip("0"))
                      for v in p["variantes"] if v["format_fr"].split(" · ")[0] not in formats]
             if ajout:
                 existante["variantes"] += ajout

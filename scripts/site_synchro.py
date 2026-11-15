@@ -402,7 +402,13 @@ def synchro(essai=False):
             if int(a.get("inventoryQuantity") or 0) != int(v["stock"]):
                 stocks.append((a["inventoryItem"]["id"], int(v["stock"])))
     if not bp_lu:  # liste « bons plans » non lue : on ne touche pas aux options déjà en ligne
-        vus |= {sku for sku in vs_qs if sku.startswith((sv.PREFIXE_BON_PLAN, sv.PREFIXE_SUR_COMMANDE))}
+        vus |= {sku for sku in vs_qs if sku.startswith((sv.PREFIXE_BON_PLAN, sv.PREFIXE_SUR_COMMANDE, sv.PREFIXE_SUR_COMMANDE_FUSION))}
+    if bp_lu:  # 15/11/2026 : fiche du 2e grossiste devenue un doublon (même parfum regroupé ailleurs) : masquée, pas supprimée
+        for pid, ex in boutique.items():
+            if ("sur-commande" in (ex.get("tags") or []) and ex["status"] == "ACTIVE"
+                    and not any((v.get("sku") or "") in vus for v in ex["variantes"])):
+                statuts.append((pid, "DRAFT"))
+                ligne_journal("  doublon masqué : %s" % ex.get("handle"))
     disparus = [(v["inventoryItem"]["id"], 0) for sku, v in vs_qs.items()
                 if sku not in vus and int(v.get("inventoryQuantity") or 0) != 0]
     stocks += disparus
