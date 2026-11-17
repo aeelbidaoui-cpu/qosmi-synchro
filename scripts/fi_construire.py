@@ -34,7 +34,10 @@ ACCORDS = {k: (v,) for k, v in {
     "ozonic": "ozonique", "patchouli": "patchouli", "peach": "peche", "pistachio": "pistache", "powdery": "poudre", "rose": "rose",
     "smoky": "fume", "soft spicy": "epice_doux", "sweet": "sucre", "tea": "the", "tobacco": "tabac", "tropical": "tropical",
     "tuberose": "tubereuse", "vanilla": "vanille", "violet": "violette", "warm spicy": "epice_chaud", "white floral": "fleurs_blanches",
-    "woody": "boise", "yellow floral": "fleurs_jaunes", "citrusy": "agrumes", "spicy": "epice_chaud", "fruity sweet": "fruite"}.items()}
+    "woody": "boise", "yellow floral": "fleurs_jaunes", "citrusy": "agrumes", "spicy": "epice_chaud", "fruity sweet": "fruite",
+    # accords Fragrantica absents de Fragrance Index (17/11/2026)
+    "herbal": "aromatique", "cherry": "fruite", "rum": "alcool", "whiskey": "alcool", "cacao": "chocolat", "conifer": "boise",
+    "beeswax": "miel", "fresh fruity": "fruite", "citrus fresh": "agrumes"}.items()}
 VIBES = {"cozy", "sensual", "elegant", "energetic", "romantic", "calm", "playful", "fresh", "bold", "mysterious"}
 
 
@@ -127,7 +130,8 @@ def main(dossier, valides=None, site=None):
                     notes_fi[h] = notes_fi[par_norm[norm(h)]]
                 ajout += 1
         print("profils repris pour des fiches à nouvelle adresse :", ajout)
-    src = "Fragrance Index (fragranceindex.ai), accord obtenu par Amine le 13/11/2026 ; notes vérifiées de descriptions_parfums.json prioritaires."
+    src = ("Fragrance Index (fragranceindex.ai), accord obtenu par Amine le 13/11/2026 ; Fragrantica (fragrantica.com) pour les parfums absents "
+           "de Fragrance Index, accord obtenu par Amine le 10/11/2026 ; notes vérifiées de descriptions_parfums.json prioritaires.")
     json.dump({"source": src, "parfums": profils}, open(os.path.join(RACINE, "config", "profils_parfums.json"), "w", encoding="utf-8"),
               ensure_ascii=False, separators=(",", ":"))
     json.dump({"source": src, "parfums": notes_fi}, open(os.path.join(RACINE, "config", "notes_fi.json"), "w", encoding="utf-8"),
