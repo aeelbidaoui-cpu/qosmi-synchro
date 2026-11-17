@@ -363,6 +363,10 @@ def construire(fichiers, marques):
         lay = lay.replace("</body>", "  <template id=\"qk-bancontact-logo\">{{ 'bancontact' | payment_type_svg_tag }}</template>\n  </body>", 1)
     if "QK_SUR_COMMANDE" not in lay:  # 14/11/2026 : fiche propre au 2e grossiste → note « Bon plan » sur toute la fiche
         lay = lay.replace("</head>", "    {%- if template.name == 'product' and product.tags contains 'sur-commande' -%}<script>window.QK_SUR_COMMANDE = true;</script>{%- endif -%}\n  </head>", 1)
+    if "QK_BF" not in lay:  # 17/11/2026 : Black Friday -10 % (27-30/11) : ligne sous le prix des fiches de la sélection
+        lay = lay.replace("</head>", "    {%- if template.name == 'product' -%}{%- assign qk_bf_h = product.collections | map: 'handle' -%}{%- if qk_bf_h contains 'black-friday' -%}<script>window.QK_BF = {{ 'now' | date: '%Y%m%d' }};</script>{%- endif -%}{%- endif -%}\n  </head>", 1)
+    if "qk-bf.js" not in lay:
+        lay = lay.replace("</head>", "    <script type=\"module\" src=\"{{ 'qk-bf.js' | asset_url }}\"></script>\n  </head>", 1)
     if "qk-bonplan.js" not in lay:  # 14/11/2026 : option « Bon plan » (cachée si épuisée, délai expliqué)
         lay = lay.replace("</head>", "    <script type=\"module\" src=\"{{ 'qk-bonplan.js' | asset_url }}\"></script>\n  </head>", 1)
     if "qk-cadeau.js" not in lay:  # 13/11/2026 : message cadeau dans le panier

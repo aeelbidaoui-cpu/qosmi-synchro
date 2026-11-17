@@ -916,3 +916,7 @@ html:not(.qk-paiements-ouverts) .cart__ctas .additional-checkout-buttons { displ
 .qk-paiement__plus { background: none; border: 0; padding: 4px 0; font: inherit; font-size: .85rem; color: #6F665C; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .cart__ctas { grid-template-rows: none !important; grid-auto-rows: auto !important; height: auto !important; }
 .cart__ctas > .qk-paiement { height: auto !important; max-height: none !important; min-height: 0 !important; }
+
+/* 17/11/2026 : Black Friday, ligne sous le bouton d'achat (qk-bf.js) */
+.qk-bf-note { margin: 12px 0 0; padding: 10px 14px; background: #111; color: #fff; font-size: 14px; line-height: 1.45; }
+.qk-bf-note strong { letter-spacing: .06em; text-transform: uppercase; }
