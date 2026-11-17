@@ -75,7 +75,10 @@ def envoyer():
         remplir(p["fr"], c), remplir(p["nl"], c, nl=True)
     s = Shopify()
     ids = {}
+    seules = SEULEMENT()
     for p in PAGES:
+        if seules and p["handle"] not in seules:
+            continue
         corps_fr, corps_nl = remplir(p["fr"], c), remplir(p["nl"], c, nl=True)
         d = s.gql('query($q: String!) { pages(first: 1, query: $q) { nodes { id handle } } }',
                   {"q": "handle:%s" % p["handle"]})["pages"]["nodes"]
@@ -127,6 +130,14 @@ POLITIQUES = {  # politiques Shopify (pied de la page de paiement) ← nos pages
 }
 
 
+def SEULEMENT():
+    """--seulement h1,h2 : n'envoie que ces pages (et les politiques Shopify correspondantes), pour ne pas changer la
+    date de version des autres textes légaux (17/11/2026)."""
+    if "--seulement" in sys.argv:
+        return set(sys.argv[sys.argv.index("--seulement") + 1].split(","))
+    return set()
+
+
 def politiques():
     """Remplit les politiques de Shopify (Paramètres → Politiques), affichées au paiement, avec nos textes FR + NL.
     Coordonnées (obligatoire) : raison sociale, adresse, e-mail, numéros d'entreprise et de TVA."""
@@ -134,14 +145,18 @@ def politiques():
     c = cfg()
     par = {p["handle"]: p for p in PAGES}
     contenus = {}
+    seules = SEULEMENT()
     for typ, h in POLITIQUES.items():
+        if seules and h not in seules:
+            continue
         contenus[typ] = (remplir(par[h]["fr"], c), remplir(par[h]["nl"], c, nl=True))
     e = ENTREPRISE
-    contenus["CONTACT_INFORMATION"] = (
-        "<p><strong>%s</strong><br>%s<br>E-mail : <a href=\"mailto:%s\">%s</a><br>Numéro d'entreprise (BCE) : %s<br>TVA : %s</p>"
-        % (e["raison"], e["adresse"], c["email_service_client"], c["email_service_client"], e["bce"], e["tva"]),
-        "<p><strong>%s</strong><br>%s<br>E-mail: <a href=\"mailto:%s\">%s</a><br>Ondernemingsnummer (KBO): %s<br>Btw: %s</p>"
-        % (e["raison"], e["adresse_nl"], c["email_service_client"], c["email_service_client"], e["bce"], e["tva"]))
+    if not seules:
+        contenus["CONTACT_INFORMATION"] = (
+            "<p><strong>%s</strong><br>%s<br>E-mail : <a href=\"mailto:%s\">%s</a><br>Numéro d'entreprise (BCE) : %s<br>TVA : %s</p>"
+            % (e["raison"], e["adresse"], c["email_service_client"], c["email_service_client"], e["bce"], e["tva"]),
+            "<p><strong>%s</strong><br>%s<br>E-mail: <a href=\"mailto:%s\">%s</a><br>Ondernemingsnummer (KBO): %s<br>Btw: %s</p>"
+            % (e["raison"], e["adresse_nl"], c["email_service_client"], c["email_service_client"], e["bce"], e["tva"]))
     for fr, nl in contenus.values():
         for mot in INTERDITS:
             if mot in (fr + nl).lower():

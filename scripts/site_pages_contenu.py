@@ -319,6 +319,7 @@ CONFIDENTIALITE = {
 <tr><td>Facture et comptabilité</td><td>Données de la facture.</td><td>Tenir notre comptabilité et nos obligations TVA.</td><td>Obligation légale (art. 6.1.c)</td></tr>
 <tr><td>Compte client (facultatif)</td><td>E-mail, nom, adresses enregistrées, historique des commandes.</td><td>Vous permettre de suivre vos commandes.</td><td>Exécution du contrat (art. 6.1.b)</td></tr>
 <tr><td>Service client, retours</td><td>Vos messages, numéro de commande, photos que vous nous envoyez.</td><td>Répondre, traiter un retour ou une garantie.</td><td>Exécution du contrat ; obligation légale (garantie)</td></tr>
+<tr><td>Chat du site (si vous l'utilisez)</td><td>Vos messages et les réponses, la page consultée et le contenu de votre panier pendant la conversation ; votre nom et votre e-mail si vous demandez à parler à un membre de l'équipe.</td><td>Répondre à vos questions et vous conseiller. Les premières réponses sont rédigées automatiquement par l'assistant d'intelligence artificielle de Shopify à partir des informations publiques de la boutique ; un membre de l'équipe peut reprendre la conversation.</td><td>Mesures précontractuelles et exécution du contrat ; intérêt légitime à répondre aux visiteurs (art. 6.1.b et f)</td></tr>
 <tr><td>Lettre d'information (si vous vous inscrivez)</td><td>Votre e-mail et la date de votre accord.</td><td>Vous envoyer notre lettre mensuelle.</td><td>Consentement (art. 6.1.a), retirable à tout moment</td></tr>
 <tr><td>Fonctionnement et sécurité du site</td><td>Données techniques (adresse IP, navigateur), cookies strictement nécessaires.</td><td>Faire fonctionner le panier et la caisse, sécuriser le site.</td><td>Intérêt légitime (art. 6.1.f)</td></tr>
 <tr><td>Mesure d'audience (seulement si vous l'acceptez)</td><td>Pages vues, interactions, données de cookies d'analyse.</td><td>Comprendre l'usage du site pour l'améliorer.</td><td>Consentement (art. 6.1.a)</td></tr>
@@ -326,9 +327,10 @@ CONFIDENTIALITE = {
 </tbody>
 </table>
 <p>Nous ne prenons aucune décision automatisée qui produit des effets juridiques à votre égard, à l'exception de l'analyse antifraude automatique du prestataire de paiement, qui peut bloquer un paiement suspect. Vous pouvez alors nous contacter pour un examen humain.</p>
+<p>Les réponses automatiques du chat peuvent contenir des erreurs : elles ne remplacent ni nos conditions générales ni nos politiques, qui priment. L'assistant n'a pas accès à vos données de paiement. N'y indiquez pas de données sensibles (santé, données bancaires, mots de passe).</p>
 <h2>3. Qui reçoit vos données ?</h2>
 <ul>
-<li><strong>Shopify</strong>, qui héberge la boutique, traite les paiements et envoie les e-mails de commande (Shopify International Limited, Irlande, et ses sous-traitants) ;</li>
+<li><strong>Shopify</strong>, qui héberge la boutique, traite les paiements, envoie les e-mails de commande et fournit le chat du site et son assistant d'intelligence artificielle (Shopify International Limited, Irlande, et ses sous-traitants) ;</li>
 <li><strong>le transporteur</strong> qui livre votre colis (nom, adresse, e-mail ou téléphone pour l'avis de livraison) ;</li>
 <li><strong>notre partenaire logistique établi dans l'Union européenne</strong>, qui prépare et expédie les commandes (nom et adresse de livraison seulement) ;</li>
 <li><strong>notre comptable</strong> et, si la loi l'exige, les autorités ;</li>
@@ -339,7 +341,7 @@ CONFIDENTIALITE = {
 <ul>
 <li>Données de commande et factures : pendant les délais légaux de conservation des documents comptables et fiscaux ;</li>
 <li>compte client : tant que le compte existe, puis supprimé sur demande ou après 3 ans sans commande ;</li>
-<li>messages au service client : 3 ans après le dernier échange, sauf litige en cours ;</li>
+<li>messages au service client et conversations du chat : 3 ans après le dernier échange, sauf litige en cours ;</li>
 <li>lettre d'information : jusqu'à votre désinscription ;</li>
 <li>cookies : voir notre <a href="/pages/cookies">politique de cookies</a>.</li>
 </ul>
@@ -363,6 +365,7 @@ CONFIDENTIALITE = {
 <tr><td>Factuur en boekhouding</td><td>Factuurgegevens.</td><td>Onze boekhouding en btw-verplichtingen.</td><td>Wettelijke verplichting (art. 6.1.c)</td></tr>
 <tr><td>Klantenaccount (facultatief)</td><td>E-mail, naam, bewaarde adressen, bestelgeschiedenis.</td><td>U uw bestellingen laten opvolgen.</td><td>Uitvoering van de overeenkomst (art. 6.1.b)</td></tr>
 <tr><td>Klantendienst, retours</td><td>Uw berichten, bestelnummer, foto's die u ons stuurt.</td><td>Antwoorden, een retour of garantie behandelen.</td><td>Uitvoering van de overeenkomst; wettelijke verplichting (garantie)</td></tr>
+<tr><td>Chat op de website (als u die gebruikt)</td><td>Uw berichten en de antwoorden, de bekeken pagina en de inhoud van uw winkelmandje tijdens het gesprek; uw naam en e-mail als u vraagt om met een teamlid te praten.</td><td>Uw vragen beantwoorden en u advies geven. De eerste antwoorden worden automatisch opgesteld door de AI-assistent van Shopify op basis van de openbare informatie van de winkel; een teamlid kan het gesprek overnemen.</td><td>Precontractuele maatregelen en uitvoering van de overeenkomst; gerechtvaardigd belang om bezoekers te antwoorden (art. 6.1.b en f)</td></tr>
 <tr><td>Nieuwsbrief (als u zich inschrijft)</td><td>Uw e-mail en de datum van uw toestemming.</td><td>U onze maandelijkse nieuwsbrief sturen.</td><td>Toestemming (art. 6.1.a), altijd intrekbaar</td></tr>
 <tr><td>Werking en beveiliging van de website</td><td>Technische gegevens (IP-adres, browser), strikt noodzakelijke cookies.</td><td>Het winkelmandje en het afrekenen laten werken, de website beveiligen.</td><td>Gerechtvaardigd belang (art. 6.1.f)</td></tr>
 <tr><td>Bezoekersstatistieken (enkel als u dat aanvaardt)</td><td>Bekeken pagina's, interacties, gegevens van analytische cookies.</td><td>Het gebruik van de website begrijpen om ze te verbeteren.</td><td>Toestemming (art. 6.1.a)</td></tr>
@@ -370,9 +373,10 @@ CONFIDENTIALITE = {
 </tbody>
 </table>
 <p>Wij nemen geen geautomatiseerde beslissingen met rechtsgevolgen voor u, behalve de automatische fraudecontrole van de betaaldienst, die een verdachte betaling kan blokkeren. U kunt ons dan contacteren voor een menselijke beoordeling.</p>
+<p>De automatische antwoorden van de chat kunnen fouten bevatten: ze vervangen onze algemene voorwaarden en ons beleid niet, die altijd voorrang hebben. De assistent heeft geen toegang tot uw betaalgegevens. Deel er geen gevoelige gegevens (gezondheid, bankgegevens, wachtwoorden).</p>
 <h2>3. Wie ontvangt uw gegevens?</h2>
 <ul>
-<li><strong>Shopify</strong>, dat de winkel host, de betalingen verwerkt en de bestelmails verstuurt (Shopify International Limited, Ierland, en zijn verwerkers);</li>
+<li><strong>Shopify</strong>, dat de winkel host, de betalingen verwerkt, de bestelmails verstuurt en de chat van de website met zijn AI-assistent levert (Shopify International Limited, Ierland, en zijn verwerkers);</li>
 <li><strong>de vervoerder</strong> die uw pakket levert (naam, adres, e-mail of telefoon voor het leveringsbericht);</li>
 <li><strong>onze logistieke partner in de Europese Unie</strong>, die de bestellingen klaarmaakt en verzendt (enkel naam en leveradres);</li>
 <li><strong>onze boekhouder</strong> en, als de wet het vereist, de overheid;</li>
@@ -383,7 +387,7 @@ CONFIDENTIALITE = {
 <ul>
 <li>Bestelgegevens en facturen: gedurende de wettelijke bewaartermijnen voor boekhoudkundige en fiscale documenten;</li>
 <li>klantenaccount: zolang het account bestaat, daarna gewist op verzoek of na 3 jaar zonder bestelling;</li>
-<li>berichten aan de klantendienst: 3 jaar na het laatste contact, behalve bij een lopend geschil;</li>
+<li>berichten aan de klantendienst en chatgesprekken: 3 jaar na het laatste contact, behalve bij een lopend geschil;</li>
 <li>nieuwsbrief: tot u zich uitschrijft;</li>
 <li>cookies: zie ons <a href="/pages/cookies">cookiebeleid</a>.</li>
 </ul>
