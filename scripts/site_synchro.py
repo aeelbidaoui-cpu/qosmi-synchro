@@ -539,8 +539,7 @@ def synchro(essai=False):
     for pid, ex in boutique.items():
         if pid in archives or pid in pids_vivants or ex["status"] != "ACTIVE" or "coffret" in (ex.get("title") or "").lower():
             continue
-        if any((v.get("sku") or "") in vus for v in ex["variantes"]):
-            continue
+        # (pas de test sur les codes : une ancienne fiche peut partager des codes avec la fiche gardée)
         cible = cible_orpheline(ex.get("title"), cle_cible)
         if cible is not None and cible.get("_pid") != pid:
             archives[pid] = cible
