@@ -20,7 +20,7 @@ Journal : rapports/site_synchro.log (une ligne par passage) et rapports/site_syn
   python3 scripts/site_synchro.py --essai      → calcule et affiche les changements, n'envoie RIEN
   python3 scripts/site_synchro.py --retirer-depot → archive sur Shopify les fiches du stock du dépôt (une fois)
 """
-import collections, fcntl, json, os, subprocess, sys, time, urllib.request, uuid
+import collections, fcntl, json, os, re, subprocess, sys, time, urllib.request, uuid
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ICI)
@@ -272,6 +272,67 @@ def visible(p, sel):
     return True
 
 
+SUFFIXE_HANDLE = re.compile(r"-\d+$")
+
+
+def fusionner_doublons(produits, boutique, vs_qs):
+    """17/11/2026 (Amine : « le parfum apparaît 2x … rassembler tout sous 1 fiche produit ») : les fiches de même parfum
+    (même nom + même type, quel que soit le genre écrit par le grossiste) sont réunies en UNE fiche. On garde de
+    préférence la fiche du 1er grossiste, déjà en ligne, à l'adresse sans « -2 ». Les formats des autres y sont ajoutés
+    (ceux du 2e grossiste avec « · Bon plan ») ; à format égal, celui qui a du stock. Renvoie (produits, [(pid absorbé, p cible)])."""
+    def pid_de(p):
+        ids = [vs_qs[v["sku"]]["produit"] for v in p["variantes"] if v["sku"] in vs_qs]
+        return collections.Counter(ids).most_common(1)[0][0] if ids else None
+    groupes = collections.defaultdict(list)
+    for p in produits:
+        if p.get("teintes") or p.get("type_fr") == "Coffrets":
+            continue
+        k = sv.cle_fiche(p)
+        if k:
+            groupes[k].append(p)
+    absorbes, redir = set(), []
+    for g in groupes.values():
+        if len(g) < 2:
+            continue
+        def rang(p):
+            ex = boutique.get(pid_de(p))
+            return (1 if p.get("sur_commande") else 0, 0 if ex and ex["status"] == "ACTIVE" else 1,
+                    0 if ex and not SUFFIXE_HANDLE.search(ex["handle"]) else 1, -len(p["variantes"]))
+        g.sort(key=rang)
+        prin = g[0]
+        ppid = pid_de(prin) or next((pid_de(o) for o in g if pid_de(o)), None)
+        for o in g[1:]:
+            for v in o["variantes"]:
+                w = dict(v)
+                if v.get("sur_commande") and not prin.get("sur_commande") and sv.BON_PLAN_FR not in w["format_fr"]:
+                    w["format_fr"] += sv.BON_PLAN_FR
+                    w["format_nl"] += sv.BON_PLAN_NL
+                pareil = next((x for x in prin["variantes"] if x["format_fr"] == w["format_fr"]), None)
+                if pareil is None:
+                    prin["variantes"].append(w)
+                elif int(sv.sl.nombre(pareil["stock"]) or 0) <= 0 < int(sv.sl.nombre(w["stock"]) or 0):
+                    prin["variantes"][prin["variantes"].index(pareil)] = w
+            tags = [x for x in prin["tags"].split(", ") if x]
+            prin["tags"] = ", ".join(tags + [x for x in o["tags"].split(", ") if x and x not in tags and x != "sur-commande"])
+            opid = pid_de(o)
+            if opid and opid != ppid:
+                redir.append((opid, prin))
+            absorbes.add(id(o))
+        if ppid:
+            prin["_pid"] = ppid
+    return [p for p in produits if id(p) not in absorbes], redir
+
+
+def rediriger(s, ancien, nouveau):
+    """Adresse de la fiche fusionnée → fiche gardée (FR et NL), pour Google et les liens déjà partagés."""
+    m = "mutation($r: UrlRedirectInput!) { urlRedirectCreate(urlRedirect: $r) { userErrors { message } } }"
+    for pre in ("", "/nl"):
+        try:
+            s.gql(m, {"r": {"path": "%s/products/%s" % (pre, ancien), "target": "%s/products/%s" % (pre, nouveau)}})
+        except Exception:
+            pass
+
+
 def synchro(essai=False):
     from shopify_api import Shopify
     import site_charger as sc
@@ -309,6 +370,10 @@ def synchro(essai=False):
         ligne_journal("ARRÊT : liste anormalement courte (%d formats contre %d sur le site) — rien n'est modifié." % (n_cible, len(vs_qs)))
         return 1
     handles = {p["handle"] for p in boutique.values()}
+    fusion_active = essai or reglage("fusion_doublons", False)  # 17/11/2026 : une seule fiche par parfum
+    fusions = []
+    if fusion_active:
+        produits, fusions = fusionner_doublons(produits, boutique, vs_qs)
     structurels, nouveaux, prix, stocks, vus = [], [], collections.defaultdict(list), [], set()
     conc, dujour = sl.concurrent(), []  # prix du concurrent (interne) ; marques « parfum du jour » à changer
     tags_plus, tags_moins = [], []  # étiquette « meilleur-prix » (collection Black Friday)
@@ -337,7 +402,8 @@ def synchro(essai=False):
             nouveaux.append(e)
             nouveaux_p.append((e, p))
             continue
-        pid = collections.Counter(ids).most_common(1)[0][0]
+        pid = p.get("_pid") if p.get("_pid") in boutique else collections.Counter(ids).most_common(1)[0][0]
+        p["_pid"] = pid
         existante = boutique[pid]
         voulu = ("ACTIVE" if statut_nouv == "ACTIVE" else existante["status"]) if visible(p, sel) else "DRAFT"
         # 14/11/2026 (Amine) : une fiche du 2e grossiste épuisée reste en ligne, en « épuisé » (plus de masquage à 0)
@@ -429,6 +495,32 @@ def synchro(essai=False):
                     and not any((v.get("sku") or "") in vus for v in ex["variantes"])):
                 statuts.append((pid, "DRAFT"))
                 ligne_journal("  doublon masqué : %s" % ex.get("handle"))
+    # 17/11/2026 : fiches en double → archivées (adresse redirigée vers la fiche gardée). Aussi les anciennes fiches restées
+    # en ligne (« épuisé ») alors que le même parfum a maintenant une autre fiche.
+    archives = {}
+    for opid, cible in fusions:
+        archives[opid] = cible
+    cle_cible = {}
+    for p in produits:
+        k = sv.cle_fiche(p)
+        if k and not p.get("teintes") and p.get("type_fr") != "Coffrets":
+            cle_cible.setdefault(k, p)
+    pids_vivants = {p.get("_pid") for p in produits if p.get("_pid")}
+    for pid, ex in boutique.items():
+        if pid in archives or pid in pids_vivants or ex["status"] != "ACTIVE" or "coffret" in (ex.get("title") or "").lower():
+            continue
+        if any((v.get("sku") or "") in vus for v in ex["variantes"]):
+            continue
+        cible = cle_cible.get(sv.cle_fiche({"titre_fr": ex.get("title") or ""}))
+        if cible is not None and cible.get("_pid") != pid:
+            archives[pid] = cible
+    if not fusion_active:
+        archives = {}
+    if len(archives) > 200:
+        ligne_journal("fusion des doublons : %d fiches, nombre anormal → rien d'archivé ce passage" % len(archives))
+        archives = {}
+    for pid, cible in archives.items():
+        statuts.append((pid, "ARCHIVED"))
     disparus = [(v["inventoryItem"]["id"], 0) for sku, v in vs_qs.items()
                 if sku not in vus and int(v.get("inventoryQuantity") or 0) != 0]
     stocks += disparus
@@ -438,6 +530,8 @@ def synchro(essai=False):
               "%d fiches complétées · %d nouvelles fiches · %d fiches affichées et %d masquées selon la sélection"
               % (n_cible, len(stocks), len(disparus), n_prix, len(structurels), len(nouveaux), n_aff,
                  len(statuts) - n_aff))
+    if archives:
+        resume += " · doublons réunis : %d fiche(s) archivée(s) et redirigée(s)" % len(archives)
     if bp_lu:
         resume += " · bons plans : %d options sur %d fiches (+%d / -%d étiquettes)" % (
             sv.BILAN_BONS_PLANS["bons_plans"], sv.BILAN_BONS_PLANS["fiches"], len(bp_plus), len(bp_moins))
@@ -448,6 +542,9 @@ def synchro(essai=False):
         resume += " · bons plans : liste non lue, options laissées telles quelles"
     if essai:
         print("ESSAI (rien n'est envoyé) : " + resume)
+        for pid, cible in list(archives.items())[:120]:
+            dest = boutique[cible["_pid"]]["handle"] if cible.get("_pid") in boutique else cible["handle"]
+            print("  doublon : %s → %s" % (boutique[pid]["handle"], dest))
         for e in nouveaux[:5]:
             print("  nouvelle fiche :", e["input"]["title"])
         return 0
@@ -505,6 +602,10 @@ def synchro(essai=False):
                 if d["userErrors"]:
                     erreurs += 1
         publier_fiches(s, [pid for pid, st in statuts if st == "ACTIVE"]) if len(statuts) <= 40 else None
+    for pid, cible in archives.items():  # 17/11/2026 : ancienne adresse → fiche gardée
+        dest = boutique[cible["_pid"]]["handle"] if cible.get("_pid") in boutique else cible["handle"]
+        if boutique[pid]["handle"] != dest:
+            rediriger(s, boutique[pid]["handle"], dest)
     # 1 ter. Black Friday : la fiche quitte la sélection AVANT que sa hausse de prix ne s'applique (étape 2)
     for pid in bf_sortie:
         try:
