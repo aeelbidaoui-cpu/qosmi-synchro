@@ -1,0 +1,69 @@
+{%- comment -%}
+  Fenêtre d'inscription aux e-mails (17/11/2026, demande d'Amine, « point 2 ») : une fois par visiteur, après 15 s ou
+  40 % de la page ; refermée = plus montrée pendant 14 jours ; inscrit = plus jamais. Pas sur le panier ni le compte.
+  Le cadeau est le code BIENVENUE envoyé par l'e-mail de bienvenue (montant non annoncé, décision du 15/11).
+  Jusqu'au 30/11 : annonce aussi le Black Friday. Même contact que le pied de page (étiquette newsletter + popup).
+{%- endcomment -%}
+{%- assign qk_marketing = false -%}
+{%- if customer and customer.accepts_marketing -%}{%- assign qk_marketing = true -%}{%- endif -%}
+{%- unless qk_marketing or template.name == 'cart' or template.directory == 'customers' or template.name == 'password' -%}
+{%- assign qk_nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- assign qk_j = 'now' | date: '%Y%m%d' | plus: 0 -%}
+<div class="qk-pop" data-qk-pop hidden>
+  <div class="qk-pop__fond" data-qk-pop-fermer></div>
+  <div class="qk-pop__boite" role="dialog" aria-modal="true" aria-labelledby="qk-pop-titre">
+    <button type="button" class="qk-pop__x" data-qk-pop-fermer aria-label="{% if qk_nl %}Sluiten{% else %}Fermer{% endif %}">&times;</button>
+    <div class="qk-pop__logo">{% render 'qk-logo', hauteur: 22 %}</div>
+    {%- if qk_j <= 20261130 -%}<p class="qk-pop__sur">{% if qk_nl %}Black Friday · 27 tot 30 november{% else %}Black Friday · du 27 au 30 novembre{% endif %}</p>{%- endif -%}
+    <h2 id="qk-pop-titre" class="qk-pop__titre">{% if qk_nl %}Een klein cadeau bij je eerste bestelling{% else %}Un petit cadeau sur ta première commande{% endif %}</h2>
+    <p class="qk-pop__texte">{% if qk_nl %}Schrijf je in en ontvang je welkomstcadeau per e-mail{% if qk_j <= 20261130 %}, plus een seintje zodra de Black Friday-korting van -10 % start{% else %}, plus onze nieuwe parfums en Koopjes{% endif %}.{% else %}Inscris-toi et reçois ton cadeau de bienvenue par e-mail{% if qk_j <= 20261130 %}, et un rappel dès que le -10 % du Black Friday commence{% else %}, et nos nouveautés et Bons plans{% endif %}.{% endif %}</p>
+    {%- form 'customer', id: 'qk-pop-form', class: 'qk-pop__form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter,popup">
+      {%- if form.posted_successfully? -%}
+        <p class="qk-pop__ok" role="status" data-qk-pop-ok>{% if qk_nl %}Bedankt! Je welkomstcadeau komt eraan per e-mail.{% else %}Merci ! Ton cadeau de bienvenue arrive par e-mail.{% endif %}</p>
+      {%- else -%}
+        <label class="visually-hidden" for="qk-pop-email">E-mail</label>
+        <input id="qk-pop-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% else %}Ton e-mail{% endif %}">
+        <button type="submit">{% if qk_nl %}Ik schrijf me in{% else %}Je m'inscris{% endif %}</button>
+        {%- if form.errors -%}<p class="qk-pop__erreur" role="alert" data-qk-pop-err>{{ form.errors | default_errors }}</p>{%- endif -%}
+      {%- endif -%}
+    {%- endform -%}
+    <p class="qk-pop__legal">{% if qk_nl %}Geen spam, uitschrijven met één klik. Zie ons <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">privacybeleid</a>.{% else %}Pas de spam, désinscription en un clic. Voir notre <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">politique de confidentialité</a>.{% endif %}</p>
+    <button type="button" class="qk-pop__non" data-qk-pop-fermer>{% if qk_nl %}Nee, bedankt{% else %}Non merci{% endif %}</button>
+  </div>
+</div>
+<script>
+  (function () {
+    var el = document.querySelector('[data-qk-pop]'); if (!el) return;
+    var K = 'qk-pop', JOUR = 864e5;
+    function lire() { try { return JSON.parse(localStorage.getItem(K) || 'null'); } catch (e) { return null; } }
+    function noter(v) { try { localStorage.setItem(K, JSON.stringify(v)); } catch (e) {} }
+    var avant = null;
+    function ouvrir() {
+      if (!el.hidden) return;
+      avant = document.activeElement; el.hidden = false; document.documentElement.classList.add('qk-pop-ouvert');
+      var i = el.querySelector('input[type=email]') || el.querySelector('.qk-pop__x'); if (i) setTimeout(function () { i.focus(); }, 60);
+    }
+    function fermer() {
+      el.hidden = true; document.documentElement.classList.remove('qk-pop-ouvert');
+      var s = lire() || {}; if (!s.ok) noter({ ferme: Date.now() });
+      if (avant && avant.focus) avant.focus();
+    }
+    el.querySelectorAll('[data-qk-pop-fermer]').forEach(function (b) { b.addEventListener('click', fermer); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !el.hidden) fermer(); });
+    var ok = el.querySelector('[data-qk-pop-ok]'), err = el.querySelector('[data-qk-pop-err]'), envoye = false;
+    try { envoye = sessionStorage.getItem('qk-pop-envoye') === '1'; sessionStorage.removeItem('qk-pop-envoye'); } catch (e) {}
+    if (ok) noter({ ok: 1 });  // inscrit (ici ou par le pied de page) : plus jamais la fenêtre
+    if (envoye && (ok || err)) { ouvrir(); return; }
+    var f = el.querySelector('form');
+    if (f) f.addEventListener('submit', function () { try { sessionStorage.setItem('qk-pop-envoye', '1'); } catch (e) {} });
+    var s = lire();
+    if (ok || (s && (s.ok || (s.ferme && Date.now() - s.ferme < 14 * JOUR)))) return;
+    var fait = false;
+    function declencher() { if (fait) return; fait = true; clearTimeout(t); window.removeEventListener('scroll', defile); ouvrir(); }
+    function defile() { var h = document.documentElement.scrollHeight - innerHeight; if (h > 600 && scrollY > h * 0.4) declencher(); }
+    var t = setTimeout(declencher, 15000);
+    window.addEventListener('scroll', defile, { passive: true });
+  })();
+</script>
+{%- endunless -%}

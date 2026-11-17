@@ -10,6 +10,8 @@
         {%- comment -%} 17/11/2026 : Black Friday en tête du bandeau jusqu'au 30/11/2026 {%- endcomment -%}
         {%- assign qk_j = 'now' | date: '%Y%m%d' | plus: 0 -%}
         {%- if qk_j <= 20261130 -%}<li class="qk-annonces__msg"><a href="{{ routes.root_url | append: '/collections/black-friday' | replace: '//', '/' }}" style="color:inherit">{% if request.locale.iso_code == 'nl' %}{% if qk_j < 20261127 %}Black Friday: -10 % van 27 tot 30 november{% else %}Black Friday: -10 % op een selectie, t/m maandag{% endif %}{% else %}{% if qk_j < 20261127 %}Black Friday : -10 % du 27 au 30 novembre{% else %}Black Friday : -10 % sur une sélection, jusqu'à lundi{% endif %}{% endif %}</a></li>{%- endif -%}
+        {%- comment -%} 17/11/2026 (Amine) : date conseillée pour Noël (3 à 6 jours ouvrables ; Bons plans 5 à 10), jusqu'au 16/12 {%- endcomment -%}
+        {%- if qk_j <= 20261216 -%}{%- assign qk_noel = pages['idees-cadeaux-noel'] -%}<li class="qk-annonces__msg"><a href="{% if qk_noel %}{{ qk_noel.url }}{% else %}{{ routes.root_url }}{% endif %}" style="color:inherit">{% if request.locale.iso_code == 'nl' %}{% if qk_j <= 20261210 %}Kerst: bestel vóór woensdag 16 december om op tijd geleverd te worden (Koopjes: vóór 10 december){% else %}Kerst: bestel uiterlijk woensdag 16 december om op tijd geleverd te worden{% endif %}{% else %}{% if qk_j <= 20261210 %}Noël : commande avant le mercredi 16 décembre pour être livré à temps (Bons plans : avant le 10 décembre){% else %}Noël : commande au plus tard le mercredi 16 décembre pour être livré à temps{% endif %}{% endif %}</a></li>{%- endif -%}
         {%- for m in qk_msgs -%}
           {%- assign t = m | strip -%}
           {%- if t != blank -%}<li class="qk-annonces__msg">{{ t }}</li>{%- endif -%}

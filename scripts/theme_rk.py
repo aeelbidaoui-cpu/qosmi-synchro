@@ -382,6 +382,8 @@ def construire(fichiers, marques):
                                      "var apres=/customer_posted=true/.test(location.search)||document.referrer.indexOf('/challenge')>=0;"
                                      "if(!apres)return;sessionStorage.removeItem('qk-retour');"
                                      "if(location.pathname+location.search!==r.url)location.replace(r.url);}catch(e){}})();</script>\n  </head>", 1)
+    if "qk-inscription" not in lay:  # 17/11/2026 : fenêtre d'inscription aux e-mails (cadeau de bienvenue, Black Friday)
+        lay = lay.replace("</body>", "  {% render 'qk-inscription' %}\n  </body>", 1)
     if "qosmi-rk.css" not in lay:
         lay = lay.replace("</head>", "    {{ 'qosmi-rk.css' | asset_url | stylesheet_tag }}\n  </head>", 1)
     # image de partage (réseaux sociaux, WhatsApp) quand la page n'a pas d'image propre (demande d'Amine du 08/11/2026)
