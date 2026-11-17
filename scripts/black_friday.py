@@ -31,7 +31,7 @@ TITRE_REMISE = "Black Friday Qosmi"
 Q = """query($a: String) { products(first: 100, after: $a, query: "status:active") {
   pageInfo { hasNextPage endCursor }
   nodes { id handle tags productType
-    variants(first: 30) { nodes { sku price inventoryQuantity inventoryItem { unitCost { amount } } } } } } }"""
+    variants(first: 30) { nodes { sku price inventoryQuantity inventoryPolicy inventoryItem { unitCost { amount } } } } } } }"""
 
 
 def net(prix, cout, sku):
@@ -49,12 +49,15 @@ def fiches(s):
                 continue
             vs = []
             for v in p["variants"]["nodes"]:
+                # 17/11 : on contrôle TOUS les formats (même épuisés ou sur commande), car la remise vaut pour toute la
+                # fiche : un format qui revient en stock ou se vend sur commande ne doit jamais passer sous 5 € net.
                 c = ((v.get("inventoryItem") or {}).get("unitCost") or {}).get("amount")
-                if int(v.get("inventoryQuantity") or 0) <= 0:
-                    continue
+                vendable = int(v.get("inventoryQuantity") or 0) > 0 or v.get("inventoryPolicy") == "CONTINUE"
                 if c is None:
-                    vs = None
-                    break
+                    if vendable:
+                        vs = None
+                        break
+                    continue
                 vs.append((float(v["price"]), float(c), v["sku"]))
             if vs:
                 out.append((p["id"], p["handle"], vs))
