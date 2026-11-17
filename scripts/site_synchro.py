@@ -574,7 +574,7 @@ def publications_vente(s):
     les canaux où une fiche active doit apparaître (une fiche en brouillon n'est envoyée à aucun d'eux)."""
     pubs = s.gql("{ publications(first: 20) { nodes { id name } } }")["publications"]["nodes"]
     return [p["id"] for p in pubs if p["name"] in ("Online Store", "Boutique en ligne")
-            or any(m in p["name"].lower() for m in ("google", "facebook"))]
+            or any(m in p["name"].lower() for m in ("google", "facebook", "inbox"))]  # + Shopify Inbox (17/11/2026)
 
 
 def publier_fiches(s, ids):
