@@ -316,6 +316,12 @@ def synchro(essai=False):
     sc_plus = []  # étiquette « sur-commande » (fiches propres au 2e grossiste : la fiche affiche « Bon plan » et le délai)
     bp_lu = sv.BILAN_BONS_PLANS is not None
     nouveaux_p, structurels_p = [], []
+    try:  # 17/11/2026 : gel des hausses de prix sur la sélection Black Friday (voir black_friday.py)
+        import black_friday as bfm
+        bf_gel, bf_pct = bfm.gel_actif(), bfm.pct()
+    except Exception:
+        bfm, bf_gel, bf_pct = None, False, 10
+    bf_sortie, n_gel = [], 0
     for p in produits:
         ids = [vs_qs[v["sku"]]["produit"] for v in p["variantes"] if v["sku"] in vs_qs]
         if not ids:  # nouveau parfum
@@ -389,12 +395,24 @@ def synchro(essai=False):
                 bp_plus.append(pid)
             elif a_bp and not bp:
                 bp_moins.append(pid)
+        gele = set()
+        if bf_gel and bfm.ETIQUETTE in (existante.get("tags") or []):
+            hausses = [(vs_qs[v["sku"]], v) for v in p["variantes"]
+                       if v["sku"] in vs_qs and vs_qs[v["sku"]]["produit"] == pid and float(v["prix"]) > float(vs_qs[v["sku"]]["price"]) + 0.004]
+            if hausses:
+                tenir = all(bfm.net(float(a["price"]) * (1 - bf_pct / 100.0), float(v["cout_ht"]), v["sku"]) >= bfm.NET_MIN
+                            for a, v in hausses)
+                if tenir:  # le prix actuel garde 5 € net même remisé : on ne le monte pas pendant le gel
+                    gele = {a["id"] for a, _ in hausses}
+                    n_gel += len(gele)
+                else:  # sinon la fiche sort de la sélection et son prix suit la règle normale
+                    bf_sortie.append(pid)
         for v in p["variantes"]:
             a = vs_qs.get(v["sku"])
             if not a or a["produit"] != pid:
                 continue
             maj = {}
-            if abs(float(a["price"]) - float(v["prix"])) > 0.004:
+            if abs(float(a["price"]) - float(v["prix"])) > 0.004 and a["id"] not in gele:
                 maj["price"] = v["prix"]
             cout = ((a.get("inventoryItem") or {}).get("unitCost") or {}).get("amount")
             if cout is None or abs(float(cout) - float(v["cout_ht"])) > 0.004:
@@ -487,6 +505,12 @@ def synchro(essai=False):
                 if d["userErrors"]:
                     erreurs += 1
         publier_fiches(s, [pid for pid, st in statuts if st == "ACTIVE"]) if len(statuts) <= 40 else None
+    # 1 ter. Black Friday : la fiche quitte la sélection AVANT que sa hausse de prix ne s'applique (étape 2)
+    for pid in bf_sortie:
+        try:
+            bfm.sortir(s, pid)
+        except Exception:
+            erreurs += 1
     # 2. prix et coûts
     if n_prix > 300:
         chemin = os.path.join(sl.RAPPORTS, "site_synchro_prix.jsonl")
@@ -549,6 +573,8 @@ def synchro(essai=False):
         if s.gql("mutation($id: ID!, $t: [String!]!) { tagsRemove(id: $id, tags: $t) { userErrors { message } } }",
                  {"id": pid, "t": [ETIQUETTE_BON_PLAN]})["tagsRemove"]["userErrors"]:
             erreurs += 1
+    if bf_gel:
+        resume += " · gel Black Friday : %d hausse(s) retenue(s), %d fiche(s) sorties" % (n_gel, len(bf_sortie))
     try:  # 17/11/2026 : sélection Black Friday tenue à jour pendant la période (scripts/black_friday.py)
         import black_friday
         n_bf = black_friday.rafraichir(s)

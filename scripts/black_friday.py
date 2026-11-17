@@ -24,6 +24,12 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ICI)
 
 DEBUT, FIN = "2026-11-26T23:00:00Z", "2026-11-30T22:59:59Z"  # 27/11 00:00 → 30/11 23:59 Bruxelles
+# 17/11/2026 (Amine, « vasy go ») : gel des HAUSSES de prix sur la sélection, du 17/11 à la fin du Black Friday (règle
+# belge : une réduction annoncée part du prix le plus bas des 30 derniers jours). Les baisses restent appliquées. Si une
+# hausse est nécessaire (fournisseur plus cher) et que le prix actuel à -10 % ne garde plus 5 € net, la fiche sort de la
+# sélection (étiquette black-friday-exclu, définitive jusqu'au 30/11) et son prix suit de nouveau la règle normale.
+GEL_DEBUT = "2026-11-17T00:00:00Z"
+EXCLU = "black-friday-exclu"
 NET_MIN, TVA, PAIEMENT_PCT, PAIEMENT_FIXE, EMBALLAGE = 5.0, 0.21, 0.02, 0.25, 0.6
 HANDLE, TITRE, TITRE_NL = "black-friday", "Black Friday", "Black Friday"
 TITRE_REMISE = "Black Friday Qosmi"
@@ -45,7 +51,7 @@ def fiches(s):
         d = s.gql(Q, {"a": a})["products"]
         for p in d["nodes"]:
             tags = [t.lower() for t in p["tags"]]
-            if "coffret" in (p["productType"] or "").lower() or "testeur" in tags:
+            if "coffret" in (p["productType"] or "").lower() or "testeur" in tags or EXCLU in tags:
                 continue
             vs = []
             for v in p["variants"]["nodes"]:
@@ -140,7 +146,49 @@ def rafraichir(s):
     ex = s.gql("query($h: String!) { collectionByIdentifier(identifier: {handle: $h}) { id } }", {"h": HANDLE}).get("collectionByIdentifier")
     if not ex:
         return None
-    return synchroniser(s, ex["id"], [f[0] for f in eligibles(fiches(s), int(cfg.get("pct", 10)))])
+    # pendant le gel, la sélection ne peut que rétrécir : une fiche ajoutée maintenant aurait pu monter de prix ces jours-ci
+    actuels = set(tagues(s))
+    return synchroniser(s, ex["id"], [f[0] for f in eligibles(fiches(s), int(cfg.get("pct", 10))) if f[0] in actuels])
+
+
+def config():
+    try:
+        return json.load(open(os.path.join(os.path.dirname(ICI), "config", "site.json"), encoding="utf-8")).get("black_friday") or {}
+    except Exception:
+        return {}
+
+
+def gel_actif():
+    """Vrai du 17/11 à la fin du Black Friday si la remise est active dans config/site.json."""
+    import datetime
+    cfg = config()
+    if not cfg.get("actif"):
+        return False
+    m = datetime.datetime.now(datetime.timezone.utc)
+    a = datetime.datetime.fromisoformat(GEL_DEBUT.replace("Z", "+00:00"))
+    b = datetime.datetime.fromisoformat(FIN.replace("Z", "+00:00"))
+    return a <= m <= b
+
+
+def pct():
+    return int(config().get("pct", 10))
+
+
+def tagues(s):
+    out, a = [], None
+    while True:
+        d = s.gql('query($a: String) { products(first: 250, after: $a, query: "tag:%s") { pageInfo { hasNextPage endCursor } nodes { id } } }' % ETIQUETTE,
+                  {"a": a})["products"]
+        out += [n["id"] for n in d["nodes"]]
+        if not d["pageInfo"]["hasNextPage"]:
+            return out
+        a = d["pageInfo"]["endCursor"]
+
+
+def sortir(s, pid):
+    """La fiche quitte la sélection Black Friday pour de bon (jusqu'au 30/11)."""
+    s.gql("mutation($id: ID!, $t: [String!]!) { tagsRemove(id: $id, tags: $t) { userErrors { message } } }", {"id": pid, "t": [ETIQUETTE]})
+    s.gql("mutation($id: ID!, $t: [String!]!) { tagsAdd(id: $id, tags: $t) { userErrors { message } } }", {"id": pid, "t": [EXCLU]})
 
 
 ETIQUETTE = "black-friday-remise"
