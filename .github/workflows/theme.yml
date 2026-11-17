@@ -94,7 +94,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "inbox-publier" ]; then python -u scripts/inbox_publier.py
           elif [ "${{ inputs.action }}" = "inbox-audit" ]; then python -u scripts/inbox_audit.py
           elif [ "${{ inputs.action }}" = "inbox-nl" ]; then python -u scripts/inbox_nl.py
-          elif [ "${{ inputs.action }}" = "page-confidentialite" ]; then python -u scripts/site_pages.py --seulement confidentialite && python -u scripts/site_pages.py --politiques --seulement confidentialite
+          elif [ "${{ inputs.action }}" = "page-confidentialite" ]; then python -u scripts/site_pages.py --politiques-nl --seulement confidentialite
           elif [ "${{ inputs.action }}" = "photo-fiche" ]; then python -u scripts/photo_fiche.py
           elif [ "${{ inputs.action }}" = "livraison-2-95" ]; then python -u scripts/livraison_tarif.py 7 2.95
           elif [ "${{ inputs.action }}" = "photos-m3" ]; then python -u scripts/photos_dossier.py m3

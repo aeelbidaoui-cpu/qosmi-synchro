@@ -197,6 +197,8 @@ def politiques_nl():
         typ = next((t for t in nl if t != "CONTACT_INFORMATION" and _meme(body["value"], remplir(par[POLITIQUES[t]]["fr"], c))), None)
         if typ is None and "Numéro d'entreprise (BCE)" in body["value"] and len(body["value"]) < 400:
             typ = "CONTACT_INFORMATION"
+        if SEULEMENT() and (typ == "CONTACT_INFORMATION" or (typ and POLITIQUES[typ] not in SEULEMENT())):
+            continue
         if typ is None:
             print("  politique non reconnue :", r["resourceId"], body["value"][:60])
             continue
