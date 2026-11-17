@@ -51,6 +51,7 @@ jobs:
           SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
           WF_URL: ${{ secrets.WF_URL }}
           TRISTA_URL: ${{ secrets.TRISTA_URL }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         run: |
           if [ "${{ inputs.essai }}" = "true" ]; then python -u scripts/site_synchro.py --essai; else python -u scripts/site_synchro.py; fi
           [ -f rapports/site_synchro.log ] && tail -n 5 rapports/site_synchro.log >> "$GITHUB_STEP_SUMMARY" || true
@@ -62,6 +63,8 @@ jobs:
           if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/apres_achat.py || echo "après achat : erreur (voir journal)"; fi
           if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/collections_profils.py || echo "collections saison/occasion : erreur (voir journal)"; fi
           if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/collections_cadeaux.py || echo "collections cadeaux : erreur (voir journal)"; fi
+          # nouveautés de la liste Bons plans → Telegram d'Amine (17/11/2026) ; le journal ne montre que des nombres
+          if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/nouveautes_grossiste.py || echo "nouveautés : erreur (voir journal)"; else python -u scripts/nouveautes_grossiste.py --essai || true; fi
 
       - name: Garder l'état pour le prochain passage
         if: always()
