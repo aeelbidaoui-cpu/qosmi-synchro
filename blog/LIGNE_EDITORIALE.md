@@ -48,18 +48,18 @@ Faits :
 - [x] 001 Eau de parfum, eau de toilette, extrait : quelle différence ?
 - [x] 002 Xerjoff Erba Pura : notes, tenue et pour qui ?
 - [x] 003 Comment faire tenir son parfum plus longtemps ?
+- [x] 004 Quel parfum offrir à Noël ? (idées de cadeaux)
+- [x] 005 Parfum d'hiver : quelles notes choisir quand il fait froid ?
+- [x] 006 Parfum de niche : c'est quoi, et pourquoi c'est plus cher ?
 
 À faire :
-- [ ] Parfum de niche : c'est quoi, et pourquoi c'est plus cher ?
 - [ ] Nishane Hundred Silent Ways : notes et pour qui ?
 - [ ] Comment choisir un parfum en ligne sans le sentir ?
 - [ ] Les familles olfactives expliquées (hespéridé, floral, boisé, ambré, fougère, chypre, cuir)
 - [ ] Creed Aventus : notes, versions (Aventus, Absolu, Cologne, For Her)
-- [ ] Parfum d'hiver : quelles notes choisir quand il fait froid ?
 - [ ] Notes de tête, de cœur et de fond : comment évolue un parfum ?
 - [ ] Parfums de Marly Layton : notes et pour qui ?
 - [ ] Comment conserver son parfum (lumière, chaleur, salle de bain) ?
-- [ ] Idées de cadeaux parfum pour Noël (sélection par budget, sans prix exacts)
 - [ ] Parfum mixte : c'est quoi ?
 - [ ] Combien de pulvérisations de parfum mettre ?
 - [ ] Chanel Coco Mademoiselle : EDP, Intense, Eau de Toilette, quelles différences ?
