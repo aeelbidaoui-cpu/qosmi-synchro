@@ -165,6 +165,18 @@ def produit(lignes, r, photos):
         if notes_nl:
             seo["seo_desc_nl"] = coupe155("%s. Geurnoten: %s. 100%% origineel, geleverd in heel België."
                                           % (t_nl.replace(" — ", ", "), ", ".join(n.lower() for n in notes_nl)))
+    elif not coffret and parfum:  # 17/11/2026 : profil Fragrance Index (notes, accords, saison…) écrit dans la description,
+        prof = profil_fi(sl.slug(t_fr)[:200])  # pour que les clients ET l'assistante du chat (Mimi) le trouvent
+        if prof:
+            d_fr, d_nl = d_fr + texte_profil(prof, False), d_nl + texte_profil(prof, True)
+            nf = [n for k in ("t", "c", "f", "n") for n in (prof.get("nf") or {}).get(k) or []][:3]
+            nn = [n for k in ("t", "c", "f", "n") for n in (prof.get("nn") or {}).get(k) or []][:3]
+            if nf:
+                seo["seo_desc_fr"] = coupe155("%s. Notes : %s. 100 %% authentique, livré partout en Belgique."
+                                              % (t_fr.replace(" — ", ", "), ", ".join(n.lower() for n in nf)))
+            if nn:
+                seo["seo_desc_nl"] = coupe155("%s. Geurnoten: %s. 100%% origineel, geleverd in heel België."
+                                              % (t_nl.replace(" — ", ", "), ", ".join(n.lower() for n in nn)))
     return {"handle": sl.slug(t_fr)[:200], "titre_fr": t_fr, "titre_nl": t_nl, "desc_fr": d_fr, "desc_nl": d_nl,
             "marque": marque, "type_fr": cat_fr, "type_nl": cat_nl, "tags": ", ".join(tags),
             "teintes": teintes, "variantes": variantes, **seo}
@@ -477,6 +489,87 @@ def ajouter_sur_commande(produits, lignes_sl, r, photos):
 
 
 _RICHES = None
+_PROFILS = None
+
+# 17/11/2026 : libellés du profil (mêmes valeurs que theme_rk/snippets/qk-profil.liquid), FR puis NL
+LIB = {
+    "s": {"printemps": ("printemps", "lente"), "ete": ("été", "zomer"), "automne": ("automne", "herfst"), "hiver": ("hiver", "winter")},
+    "t": {"legere": ("légère", "licht"), "moyenne": ("moyenne", "gemiddeld"), "longue": ("longue", "lang"),
+          "journee": ("toute la journée", "de hele dag"), "lendemain": ("jusqu'au lendemain", "tot de volgende dag")},
+    "si": {"discret": ("discret", "subtiel"), "modere": ("modéré", "gemiddeld"), "fort": ("prononcé", "sterk"),
+           "tres_fort": ("très prononcé", "zeer sterk")},
+    "o": {"quotidien": ("tous les jours", "elke dag"), "bureau": ("le bureau", "kantoor"), "rdv": ("un rendez-vous", "een date"),
+          "diner": ("un dîner", "een etentje"), "soiree": ("les soirées", "uitgaan"), "mariage": ("un mariage", "een bruiloft"),
+          "sport": ("le sport", "sport"), "vacances": ("les vacances", "vakantie"), "chic": ("un événement chic", "een chique gelegenheid"),
+          "detente": ("la détente", "ontspannen")},
+    "v": {"cozy": ("enveloppant", "knus"), "sensual": ("sensuel", "sensueel"), "elegant": ("élégant", "elegant"),
+          "energetic": ("énergique", "energiek"), "romantic": ("romantique", "romantisch"), "calm": ("apaisant", "rustgevend"),
+          "playful": ("joueur", "speels"), "fresh": ("frais", "fris"), "bold": ("audacieux", "gedurfd"), "mysterious": ("mystérieux", "mysterieus")},
+    "ac": {"aldehyde": ("aldéhydé", "aldehydisch"), "amande": ("amande", "amandel"), "ambre": ("ambré", "amber"), "animal": ("animal", "animaal"),
+           "aquatique": ("aquatique", "aquatisch"), "aromatique": ("aromatique", "aromatisch"), "balsamique": ("balsamique", "balsamico"),
+           "alcool": ("liqueur", "likeur"), "caramel": ("caramel", "karamel"), "chocolat": ("chocolat", "chocolade"), "cannelle": ("cannelle", "kaneel"),
+           "agrumes": ("agrumes", "citrus"), "coco": ("noix de coco", "kokos"), "cafe": ("café", "koffie"), "terreux": ("terreux", "aards"),
+           "floral": ("floral", "bloemig"), "frais": ("frais", "fris"), "epice_frais": ("épicé frais", "fris kruidig"), "fruite": ("fruité", "fruitig"),
+           "gourmand": ("gourmand", "gourmand"), "vert": ("vert", "groen"), "miel": ("miel", "honing"), "iris": ("iris", "iris"),
+           "jasmin": ("jasmin", "jasmijn"), "lacte": ("lacté", "melkachtig"), "lavande": ("lavande", "lavendel"), "cuir": ("cuir", "leer"),
+           "mousse": ("mousse", "mossig"), "muguet": ("muguet", "lelietje-van-dalen"), "musque": ("musqué", "musk"), "noisette": ("noisette", "nootachtig"),
+           "oud": ("oud", "oud"), "ozonique": ("ozonique", "ozonisch"), "patchouli": ("patchouli", "patchoeli"), "peche": ("pêche", "perzik"),
+           "pistache": ("pistache", "pistache"), "poudre": ("poudré", "poederig"), "rose": ("rose", "roos"), "fume": ("fumé", "rokerig"),
+           "epice_doux": ("épicé doux", "zacht kruidig"), "sucre": ("sucré", "zoet"), "the": ("thé", "thee"), "tabac": ("tabac", "tabak"),
+           "tropical": ("tropical", "tropisch"), "tubereuse": ("tubéreuse", "tuberoos"), "vanille": ("vanillé", "vanille"),
+           "violette": ("violette", "viooltje"), "epice_chaud": ("épicé chaud", "warm kruidig"), "fleurs_blanches": ("fleurs blanches", "witte bloemen"),
+           "boise": ("boisé", "houtig"), "fleurs_jaunes": ("fleurs jaunes", "gele bloemen")},
+}
+
+
+def profil_fi(handle):
+    """Profil Fragrance Index de la fiche (config/profils_parfums.json), y compris sous une ancienne adresse (« -2 »)."""
+    global _PROFILS
+    if _PROFILS is None:
+        import json, os
+        f = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "profils_parfums.json")
+        P = json.load(open(f, encoding="utf-8"))["parfums"] if os.path.exists(f) else {}
+        _PROFILS = dict(P)
+        for h, v in P.items():
+            _PROFILS.setdefault(re.sub(r"-\d+$", "", h), v)
+    return _PROFILS.get(handle)
+
+
+def texte_profil(p, nl):
+    """Bloc HTML de la description : pyramide, accords, ambiance, saison, tenue, sillage, occasions, année, parfumeur."""
+    i = 1 if nl else 0
+    e = lambda x: html.escape(x, quote=False)  # noqa: E731
+    lib = lambda cle, codes: [LIB[cle][c][i] for c in codes if c in LIB[cle]]  # noqa: E731
+    morceaux = []
+    n = p.get("nn" if nl else "nf") or {}
+    lignes = [(("Notes de tête", "Topnoten"), n.get("t")), (("Notes de cœur", "Hartnoten"), n.get("c")),
+              (("Notes de fond", "Basisnoten"), n.get("f")), (("Notes", "Geurnoten"), n.get("n"))]
+    lignes = ["<strong>%s :</strong> %s" % (e(k[i]), e(", ".join(v))) if not nl else "<strong>%s:</strong> %s" % (e(k[i]), e(", ".join(v)))
+              for k, v in lignes if v]
+    if lignes:
+        morceaux.append("<h3>%s</h3><p>%s</p>" % ("Geurnoten" if nl else "Notes olfactives", "<br>".join(lignes)))
+    f = []
+    sep = ": " if nl else " : "
+    if p.get("ac"):
+        f.append(("Geurfamilie" if nl else "Famille olfactive") + sep + ", ".join(lib("ac", p["ac"])))
+    if p.get("v"):
+        f.append(("Sfeer" if nl else "Ambiance") + sep + ", ".join(lib("v", p["v"])))
+    if p.get("s"):
+        f.append(("Ideaal seizoen" if nl else "Saison idéale") + sep + ", ".join(lib("s", p["s"])))
+    if p.get("t") in LIB["t"]:
+        f.append(("Houdbaarheid" if nl else "Tenue") + sep + LIB["t"][p["t"]][i])
+    if p.get("si") in LIB["si"]:
+        f.append("Sillage" + sep + LIB["si"][p["si"]][i])
+    if p.get("o"):
+        f.append(("Ideaal voor" if nl else "Idéal pour") + sep + ", ".join(lib("o", p["o"])))
+    if p.get("a"):
+        f.append(("Uitgebracht in" if nl else "Sorti en") + " %d" % p["a"])
+    if p.get("pf"):
+        f.append(("Parfumeur" if len(p["pf"]) == 1 else ("Parfumeurs" if not nl else "Parfumeurs")) + sep + ", ".join(p["pf"]))
+    if f:
+        morceaux.append("<p>%s.</p>" % e(". ".join(x[:1].upper() + x[1:] for x in f)))
+    # sur la fiche, le bloc « profil » montre déjà tout : ce texte y est masqué (CSS), il sert au chat et aux moteurs
+    return '<div class="qk-desc-profil">%s</div>' % "".join(morceaux) if morceaux else ""
 
 
 def descriptions_riches():

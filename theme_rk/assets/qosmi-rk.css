@@ -946,3 +946,5 @@ html.qk-pop-ouvert { overflow: hidden; }
   .qk-pop__boite { max-width: none; padding: 30px 20px 18px; }
   .qk-pop__titre { font-size: 1.25rem; }
 }
+/* 17/11/2026 : la description reprend le profil (pour le chat et Google) ; sur la fiche, le bloc profil suffit */
+body:has(.qk-profil) .qk-desc-profil { display: none; }

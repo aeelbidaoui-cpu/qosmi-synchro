@@ -256,6 +256,14 @@ T.update({"orcanox™": ("ambre boisé", "houtige amber"), "walnut milk": ("lait
 T.update({"californian lemon": ("citron de Californie", "Californische citroen"), "cola": ("cola", "cola"), "glacé": ("glaçage", "glazuur")})
 
 
+T.update({"sesame": ("sésame", "sesam"), "angelica root": ("racine d'angélique", "engelwortel"), "ambrostar": ("Ambrostar", "Ambrostar"),
+    "queen of the night flower": ("fleur de reine de la nuit", "koningin van de nacht"), "white musk.": ("musc blanc", "witte musk"),
+    "ice": ("glace", "ijs"), "plum liquor": ("liqueur de prune", "pruimenlikeur"), "graperfuit": ("pamplemousse", "grapefruit"),
+    "calamus": ("calamus", "kalmoes"), "georgywood": ("Georgywood", "Georgywood"), "banana leaf": ("feuille de bananier", "bananenblad"),
+    "musk vodka": ("vodka musquée", "muskwodka"), "wine lees": ("lie de vin", "wijnmoer"), "chinotto": ("chinotto", "chinotto"),
+    "pepperwood™": ("Pepperwood", "Pepperwood"), "texas cedar": ("cèdre du Texas", "Texaanse ceder"), "floral bouquet": ("bouquet floral", "bloemenboeket")})
+
+
 def traduire(note):
     """('fr', 'nl') ou None si inconnue."""
     return T.get(note.strip().lower())

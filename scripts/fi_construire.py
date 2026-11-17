@@ -5,9 +5,9 @@
 Les notes déjà vérifiées de descriptions_parfums.json sont gardées telles quelles. Une note anglaise sans traduction
 (scripts/notes_traductions.py) est laissée de côté et listée.
 
-  python3 scripts/fi_construire.py <dossier des relevés qosmi-fi-*.json> [rapprochements validés à la main.json]
+  python3 scripts/fi_construire.py <dossier des relevés qosmi-fi-*.json> [rapprochements validés à la main.json | -] [adresses des fiches du site.json]
 """
-import collections, glob, json, os, sys
+import collections, glob, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from notes_traductions import traduire
@@ -24,7 +24,21 @@ OCC = {"everyday": "quotidien", "office": "bureau", "date night": "rdv", "dinner
        "interview": "bureau", "travel": "vacances", "yoga": "detente", "bedtime": "detente"}
 
 
-def main(dossier, valides=None):
+# accords Fragrance Index (anglais) → code (clé de libellé, voir ACCORDS_LIB) ; plusieurs accords proches peuvent partager un code
+ACCORDS = {k: (v,) for k, v in {
+    "aldehydic": "aldehyde", "almond": "amande", "amber": "ambre", "animalic": "animal", "aquatic": "aquatique", "aromatic": "aromatique",
+    "balsamic": "balsamique", "boozy": "alcool", "caramel": "caramel", "chocolate": "chocolat", "cinnamon": "cannelle", "citrus": "agrumes",
+    "coconut": "coco", "coffee": "cafe", "earthy": "terreux", "floral": "floral", "fresh": "frais", "fresh spicy": "epice_frais",
+    "fruity": "fruite", "gourmand": "gourmand", "green": "vert", "honey": "miel", "iris": "iris", "jasmine": "jasmin", "lactonic": "lacte",
+    "lavender": "lavande", "leather": "cuir", "mossy": "mousse", "muguet": "muguet", "musky": "musque", "nutty": "noisette", "oud": "oud",
+    "ozonic": "ozonique", "patchouli": "patchouli", "peach": "peche", "pistachio": "pistache", "powdery": "poudre", "rose": "rose",
+    "smoky": "fume", "soft spicy": "epice_doux", "sweet": "sucre", "tea": "the", "tobacco": "tabac", "tropical": "tropical",
+    "tuberose": "tubereuse", "vanilla": "vanille", "violet": "violette", "warm spicy": "epice_chaud", "white floral": "fleurs_blanches",
+    "woody": "boise", "yellow floral": "fleurs_jaunes", "citrusy": "agrumes", "spicy": "epice_chaud", "fruity sweet": "fruite"}.items()}
+VIBES = {"cozy", "sensual", "elegant", "energetic", "romantic", "calm", "playful", "fresh", "bold", "mysterious"}
+
+
+def main(dossier, valides=None, site=None):
     R = []
     for f in sorted(glob.glob(os.path.join(dossier, "qosmi-fi-[0-9]*.json"))):
         R += json.load(open(f, encoding="utf-8"))
@@ -55,6 +69,20 @@ def main(dossier, valides=None):
             if v >= 55 and OCC[k] not in occ:
                 occ.append(OCC[k])
         if occ: p["o"] = occ[:3]
+        # 17/11/2026 (demande d'Amine : « prends toutes les infos utiles ») : année, parfumeur, accords et ambiances
+        if re.fullmatch(r"(19|20)\d\d", str(d.get("annee") or "")): p["a"] = int(d["annee"])
+        pf = [x.strip() for v in (d.get("parfumeur") or []) for x in re.split(r",| and ", v) if x.strip()]
+        if pf: p["pf"] = pf[:3]
+        acc = d.get("accords") or {}
+        acc = [k for k, _ in sorted(acc.items(), key=lambda x: -x[1])] if isinstance(acc, dict) else list(acc)
+        acc = acc or list(d.get("accords_liste") or [])
+        ac = [ACCORDS[k][0] for k in acc if k in ACCORDS]
+        ac = [x for i, x in enumerate(ac) if x not in ac[:i]]
+        for k in acc:
+            if k not in ACCORDS: inc_val["accord:" + k] += 1
+        if ac: p["ac"] = ac[:5]
+        vb = [k for k, v in sorted((d.get("vibes") or {}).items(), key=lambda x: -x[1]) if k in VIBES and v > 0]
+        if vb: p["v"] = vb[:3]
         # pyramide FI traduite
         def tr(liste):
             fr, nl = [], []
@@ -86,6 +114,19 @@ def main(dossier, valides=None):
                 notes_fi[h] = {"notes_fr": {"tete": [], "coeur": plat[0], "fond": []}, "notes_nl": {"tete": [], "coeur": plat[1], "fond": []}}
             if len(q) > 0:
                 profils[h] = q
+    if site:  # 17/11/2026 : fiches dont l'adresse a changé (doublons réunis, « -2 ») : même parfum, même profil
+        norm = lambda h: re.sub(r"-(pour-homme|pour-femme|mixte|pour-enfant)$", "", re.sub(r"-\d+$", "", h))
+        par_norm = {}
+        for h in profils:
+            par_norm.setdefault(norm(h), h)
+        ajout = 0
+        for h in json.load(open(site, encoding="utf-8")):
+            if h not in profils and norm(h) in par_norm:
+                profils[h] = profils[par_norm[norm(h)]]
+                if par_norm[norm(h)] in notes_fi:
+                    notes_fi[h] = notes_fi[par_norm[norm(h)]]
+                ajout += 1
+        print("profils repris pour des fiches à nouvelle adresse :", ajout)
     src = "Fragrance Index (fragranceindex.ai), accord obtenu par Amine le 13/11/2026 ; notes vérifiées de descriptions_parfums.json prioritaires."
     json.dump({"source": src, "parfums": profils}, open(os.path.join(RACINE, "config", "profils_parfums.json"), "w", encoding="utf-8"),
               ensure_ascii=False, separators=(",", ":"))
@@ -98,4 +139,4 @@ def main(dossier, valides=None):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)
+    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 and sys.argv[2] != "-" else None, sys.argv[3] if len(sys.argv) > 3 else None)

@@ -61,6 +61,17 @@ def filtres(s, type_, nom, valeurs):
     return gid
 
 
+def libelles(v):
+    """17/11/2026 : accords et ambiances aussi en toutes lettres (FR/NL) pour le bloc de la fiche."""
+    from site_variantes import LIB
+    v = dict(v)
+    for cle, f, n in (("ac", "acf", "acn"), ("v", "vf", "vn")):
+        if v.get(cle):
+            v[f] = [LIB[cle][c][0] for c in v[cle] if c in LIB[cle]]
+            v[n] = [LIB[cle][c][1] for c in v[cle] if c in LIB[cle]]
+    return v
+
+
 def main():
     P = json.load(open(CHEMIN, encoding="utf-8"))["parfums"]
     print("profils dans le fichier :", len(P))
@@ -93,6 +104,7 @@ def main():
         if h not in ids:
             absents += 1
             continue
+        v = libelles(v)
         lot.append({"ownerId": ids[h], "namespace": "qosmi", "key": "profil", "type": "json",
                     "value": json.dumps(v, ensure_ascii=False, separators=(",", ":"))})
         for k, cle in (("s", "saisons"), ("o", "occasions")):
