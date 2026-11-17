@@ -80,7 +80,48 @@ def references():
         old = refs.get(ean)
         if not old or (ref["stock"] > 0 and (old["stock"] <= 0 or ref["achat"] < old["achat"])):
             refs[ean] = ref
+    if lire_json(CFG, {}).get("grossiste_2", True):
+        ajouter_grossiste_2(refs)
     return refs
+
+
+def ajouter_grossiste_2(refs):
+    """17/11/2026 (Amine) : les parfums de la liste « Bons plans » vont aussi sur bol, au délai le plus long.
+    Pris quand l'EAN manque chez le 1er fournisseur ou y est épuisé. Coût = prix HT + 2 % (comme les Bons plans) ;
+    l'envoi fournisseur par pièce est celui de la règle bol (envoi_fournisseur_eur). Testeurs, coffrets, minis exclus."""
+    import site_variantes as sv
+    if not os.path.exists(sv.TRISTA):
+        try:
+            import site_synchro
+            site_synchro.liste_bons_plans()
+        except Exception:
+            return
+    if not os.path.exists(sv.TRISTA):
+        return
+    with open(sv.TRISTA, encoding="utf-8-sig", newline="") as f:
+        lignes = list(csv.DictReader(f, delimiter=";"))
+    if len(lignes) < 200:
+        return
+    maj = sv.reglages_bons_plans()["majoration_pct"]
+    sel = lire_json(os.path.join(RACINE, "config", "selection.json"), {})
+    ajoutes = 0
+    for l in lignes:
+        ean = re.sub(r"\D", "", l.get("ean") or "")
+        if len(ean) not in (8, 12, 13, 14):
+            continue
+        ean = ean.zfill(13) if len(ean) <= 13 else ean
+        nom = " ".join((l.get("product") or "").split())
+        achat, stock = nombre(l.get("price")), int(nombre(l.get("stock")))
+        if achat <= 0 or stock <= 0 or sv.EXCLUS_TRISTA.search(nom):
+            continue
+        old = refs.get(ean)
+        if old and old["stock"] > 0:
+            continue
+        marque = sv.marque_trista(nom, sel.get("marques", []))[0] or ""
+        refs[ean] = {"ean": ean, "achat": round(achat * (1 + maj), 2), "stock": stock, "testeur": False, "abime": False,
+                     "nom": nom, "marque": marque, "source": 2}
+        ajoutes += 1
+    print("grossiste 2 : %d référence(s) ajoutée(s) à l'analyse bol" % ajoutes, flush=True)
 
 
 def priorite(refs):

@@ -61,5 +61,8 @@
  "_note_ean_exclus": "09/11/2026 : offres refusées par bol pour « prix trop haut » (4000). Décision d'Amine : on ne baisse pas nos marges, on retire l'offre (stock 0). 09/11/2026 : Kenneth Cole Black et Clean Rain retirés (formule US avec Lilial, interdit dans l'UE).",
  "_note_selection_elargie": "09/11/2026 (demande d'Amine « fais 3 et 4 ») : on ajoute les parfums dont nous serions le seul vendeur sur bol, même sans repère de prix bol (≈2 000 réf., gain net ≥ 7 € garanti par la règle). Créées par lots de 500 par passage. Une offre que bol juge « prix trop haut » est retirée automatiquement.",
  "_note_ean_interdits": "09/11/2026 : ingrédients interdits dans l'UE (Lilial, D5) — voir config/selection.json « ean_interdits ».",
- "_note_pause_sans_marche": "09/11/2026 16 h : pause des créations « seul vendeur sans marché » (validée par Amine) — fiches bol non publiées (4004), sans photo. Les offres déjà en ligne restent. Reprendre quand l'envoi de photos aura prouvé qu'il débloque les fiches."
+ "_note_pause_sans_marche": "09/11/2026 16 h : pause des créations « seul vendeur sans marché » (validée par Amine) — fiches bol non publiées (4004), sans photo. Les offres déjà en ligne restent. Reprendre quand l'envoi de photos aura prouvé qu'il débloque les fiches.",
+ "grossiste_2": true,
+ "_note_grossiste_2": "17/11/2026 (Amine) : les parfums de la liste « Bons plans » sont aussi analysés et publiés sur bol (EAN absent ou épuisé chez le 1er fournisseur), avec le délai le plus long. Coût = prix HT + 2 %.",
+ "_note_delai_livraison": "17/11/2026 (Amine) : toujours le délai le plus long possible. 1-8d est le plus long des délais fixes de bol ; plus long n'existe qu'avec « MijnLeverbelofte », réglé dans le compte vendeur."
 }

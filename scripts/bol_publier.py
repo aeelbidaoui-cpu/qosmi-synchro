@@ -247,6 +247,15 @@ def main():
                 bol.put("/retailer/offers/%s" % o["offerId"], {"onHoldByRetailer": False, "economicOperatorId": eo,
                         "fulfilment": {"method": "FBR", "deliveryCode": o.get("delai") or cfg.get("delai_livraison", "1-8d")}})
             journal.append(("opérateur lié", e, d or dec_court.get(ec, {}), eo))
+        # 17/11/2026 (Amine) : toutes les offres au délai le plus long (celles créées plus tôt avec un autre délai aussi)
+        delai = cfg.get("delai_livraison", "1-8d")
+        if d and o.get("delai") and o["delai"] != delai and o.get("offerId"):
+            if not essai:
+                corps = {"onHoldByRetailer": False, "fulfilment": {"method": "FBR", "deliveryCode": delai}}
+                if o.get("eo") or eo:
+                    corps["economicOperatorId"] = o.get("eo") or eo
+                bol.put("/retailer/offers/%s" % o["offerId"], corps)
+            journal.append(("délai allongé", e, d, "%s → %s" % (o["delai"], delai)))
         if d:
             if abs(o["prix"] - d["prix"]) > 0.004:
                 if not essai:

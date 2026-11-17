@@ -33,6 +33,7 @@ jobs:
         run: |
           prive=$(gh api "repos/${GITHUB_REPOSITORY}" --jq .private)
           echo "Dépôt privé : $prive (10/11/2026 : Amine a choisi de passer le dépôt en public ; plus d'arrêt)"
+          echo "PRIVE=$prive" >> "$GITHUB_ENV"
 
       - uses: actions/checkout@v4
 
@@ -72,6 +73,7 @@ jobs:
           BOL_CLIENT_SECRET: ${{ secrets.BOL_CLIENT_SECRET }}
           SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
           SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
+          TRISTA_URL: ${{ secrets.TRISTA_URL }}
         run: |
           mkdir -p base; [ -f base/bol_refus.json ] || echo '{}' > base/bol_refus.json
           A="${{ inputs.action }}"; [ -z "$A" ] && A=analyse
@@ -105,8 +107,10 @@ jobs:
           path: base/bol_refus.json
           key: bolpub-${{ github.run_id }}
 
+      # 17/11/2026 : ces rapports contiennent des coûts ; un artefact d'un dépôt public est téléchargeable par n'importe
+      # quel compte GitHub, donc on ne les dépose que si le dépôt est privé (prévu le 01/12/2026).
       - name: Rapport (interne, confidentiel)
-        if: always() && env.ABSENT != '1'
+        if: always() && env.ABSENT != '1' && env.PRIVE == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: bol-analyse-${{ github.run_id }}
