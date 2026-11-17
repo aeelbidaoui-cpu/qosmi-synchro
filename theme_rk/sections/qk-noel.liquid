@@ -40,10 +40,10 @@
     <div class="qk-largeur">
       <h2 class="qk-titre-section">{% if qk_nl %}Volgens je budget{% else %}Selon ton budget{% endif %}</h2>
       <div class="qk-noel__budgets">
-        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.lte=30"><span>{% if qk_nl %}Tot{% else %}Moins de{% endif %}</span><strong>30 €</strong></a>
-        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=30&filter.v.price.lte=50"><span>{% if qk_nl %}Van{% else %}De{% endif %}</span><strong>{% if qk_nl %}30 tot 50 €{% else %}30 à 50 €{% endif %}</strong></a>
-        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=50&filter.v.price.lte=80"><span>{% if qk_nl %}Van{% else %}De{% endif %}</span><strong>{% if qk_nl %}50 tot 80 €{% else %}50 à 80 €{% endif %}</strong></a>
-        <a class="qk-noel__budget" href="{{ c_parfums.url }}?filter.v.price.gte=80"><span>{% if qk_nl %}Vanaf{% else %}Plus de{% endif %}</span><strong>80 €</strong></a>
+        <a class="qk-noel__budget" href="{% if collections['cadeaux-moins-30'].products_count > 0 %}{{ collections['cadeaux-moins-30'].url }}{% else %}{{ c_parfums.url }}?filter.v.price.lte=30{% endif %}"><span>{% if qk_nl %}Tot{% else %}Moins de{% endif %}</span><strong>30 €</strong></a>
+        <a class="qk-noel__budget" href="{% if collections['cadeaux-30-50'].products_count > 0 %}{{ collections['cadeaux-30-50'].url }}{% else %}{{ c_parfums.url }}?filter.v.price.gte=30&filter.v.price.lte=50{% endif %}"><span>{% if qk_nl %}Van{% else %}De{% endif %}</span><strong>{% if qk_nl %}30 tot 50 €{% else %}30 à 50 €{% endif %}</strong></a>
+        <a class="qk-noel__budget" href="{% if collections['cadeaux-50-80'].products_count > 0 %}{{ collections['cadeaux-50-80'].url }}{% else %}{{ c_parfums.url }}?filter.v.price.gte=50&filter.v.price.lte=80{% endif %}"><span>{% if qk_nl %}Van{% else %}De{% endif %}</span><strong>{% if qk_nl %}50 tot 80 €{% else %}50 à 80 €{% endif %}</strong></a>
+        <a class="qk-noel__budget" href="{% if collections['cadeaux-plus-80'].products_count > 0 %}{{ collections['cadeaux-plus-80'].url }}{% else %}{{ c_parfums.url }}?filter.v.price.gte=80{% endif %}"><span>{% if qk_nl %}Vanaf{% else %}Plus de{% endif %}</span><strong>80 €</strong></a>
       </div>
     </div>
   </section>
@@ -70,7 +70,11 @@
               {%- if pr.available and pr.featured_image -%}{%- assign img = pr.featured_image -%}{%- break -%}{%- endif -%}
             {%- endfor -%}
           {%- endif -%}
-          <a class="qk-tuile qk-tuile--produit" href="{{ t.url }}">
+          {%- comment -%} 17/11/2026 : pour elle / pour lui → collections cadeaux (parfums en stock seulement) {%- endcomment -%}
+          {%- assign qk_dest = t.url -%}
+          {%- if h == 'parfums-femme' and collections['cadeaux-pour-elle'].products_count > 0 -%}{%- assign qk_dest = collections['cadeaux-pour-elle'].url -%}{%- endif -%}
+          {%- if h == 'parfums-homme' and collections['cadeaux-pour-lui'].products_count > 0 -%}{%- assign qk_dest = collections['cadeaux-pour-lui'].url -%}{%- endif -%}
+          <a class="qk-tuile qk-tuile--produit" href="{{ qk_dest }}">
             {%- if img != blank -%}{{ img | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 800', sizes: '(min-width: 990px) 25vw, 80vw', alt: t.title }}{%- endif -%}
             <span class="qk-tuile__texte"><span class="qk-tuile__titre">
               {%- case h -%}

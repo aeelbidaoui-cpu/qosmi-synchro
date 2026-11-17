@@ -29,7 +29,7 @@ ACCUEIL_FR = ("{%- if request.page_type == 'index' and request.locale.iso_code =
               "Parfums 100 % authentiques et neufs, livrés partout en Belgique.' -%}"
               "{%- endif -%}\n")
 # 09/11/2026 (SEO) : la boutique en données structurées, avec sa politique de retour (Google la lit au niveau de la boutique).
-ORG_LD = """    {%- if request.page_type == 'index' -%}<script type="application/ld+json" id="qk-org-ld">{"@context":"https://schema.org","@type":"OnlineStore","@id":"https://qosmi.be/#org","name":"Qosmi","url":"https://qosmi.be/","email":"contact@qosmi.be","vatID":"BE1040851867","legalName":"Deway BV","areaServed":"BE","hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","applicableCountry":"BE","returnPolicyCountry":"BE","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":14,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/ReturnShippingFees","merchantReturnLink":"https://qosmi.be/pages/retours"}}</script>{%- endif -%}
+ORG_LD = """    {%- if request.page_type == 'index' -%}<script type="application/ld+json" id="qk-org-ld">{"@context":"https://schema.org","@type":"OnlineStore","@id":"https://qosmi.be/#org","name":"Qosmi","alternateName":["qosmi.be","Qosmi parfums"],"url":"https://qosmi.be/","logo":"https:{{ 'qosmi-logo.png' | file_url }}","sameAs":["https://www.instagram.com/qosmi.be"],"email":"contact@qosmi.be","vatID":"BE1040851867","legalName":"Deway BV","areaServed":"BE","hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","applicableCountry":"BE","returnPolicyCountry":"BE","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":14,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/ReturnShippingFees","merchantReturnLink":"https://qosmi.be/pages/retours"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://qosmi.be/#site","name":"Qosmi","alternateName":["qosmi.be","Qosmi parfums"],"url":"https://qosmi.be/","inLanguage":["fr-BE","nl-BE"],"publisher":{"@id":"https://qosmi.be/#org"}}</script>{%- endif -%}
 """
 
 def logos_slugs():
@@ -392,8 +392,10 @@ def construire(fichiers, marques):
     # FAQ des articles du Journal en données structurées (08/11/2026)
     if "qk-faq-ld" not in lay:
         lay = lay.replace("</head>", FAQ_LD + "  </head>", 1)
-    if "qk-org-ld" not in lay:
-        lay = lay.replace("</head>", ORG_LD + "  </head>", 1)
+    # 17/11/2026 : « qosmi » corrigé en « kosmi » par Google → nom de marque, autres noms, logo, Instagram, WebSite (nom du site)
+    import re as _re
+    lay = _re.sub(r"    \{%- if request\.page_type == 'index' -%\}<script type=\"application/ld\+json\" id=\"qk-org-ld\">.*?\{%- endif -%\}\n", "", lay, flags=_re.S)
+    lay = lay.replace("</head>", ORG_LD + "  </head>", 1)
     # titre et méta-description de l'accueil FR : dans le fichier qui écrit <title>
     if "Parfums de marque et de niche en Belgique" not in lay + fichiers.get("snippets/meta-tags.liquid", ""):
         if "<title" in fichiers.get("snippets/meta-tags.liquid", ""):
