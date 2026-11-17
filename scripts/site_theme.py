@@ -78,7 +78,7 @@ COLLECTIONS = [  # (handle, titre, colonne, valeurs)
     ("parfums-enfants", "Parfums enfants", "TYPE", ["Parfums enfants"]), ("niche", "Parfums de niche", "VENDOR", NICHE),
     ("orientaux", "Parfums orientaux", "VENDOR", ORIENTAUX), ("parfums-arabes", "Parfums arabes", "VENDOR", ARABES), ("testeurs", "Testeurs", "TAG", ["Testeurs"]),
     ("coffrets", "Coffrets", "TYPE", ["Coffrets"]),
-    # ("black-friday", …) : 17/11/2026, collection manuelle gérée par scripts/black_friday.py (-10 %), ne pas recréer ici
+    ("black-friday", "Black Friday", "TAG", ["black-friday-remise"]),  # 17/11/2026 : -10 % (scripts/black_friday.py)
     ("nouveautes", "Nouveautés", "TYPE", PARFUMS),  # 10/11/2026 : triée par date d'ajout (voir TRI)  # 10/11/2026 : parfums vraiment moins chers que le concurrent de référence ("soins", "Soins", "TYPE", SOINS),
     ("maquillage", "Maquillage", "TYPE", ["Maquillage"]),
 ]

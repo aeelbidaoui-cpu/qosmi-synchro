@@ -8,8 +8,8 @@ Bénéfice net d'un format au prix remisé p' = p' / 1,21 − 2 % × p' − 0,25
 enregistré comme « coût par article » dans Shopify par la mise à jour horaire ; + 0,60 € d'emballage pour les Bons plans).
 Une fiche entre dans la sélection seulement si TOUS ses formats en stock gardent au moins 5 € net à X %.
 
-La sélection est une collection manuelle « black-friday » (NL « black-friday ») : la mise à jour horaire n'y touche pas.
-La remise vise ces fiches une par une (pas d'étiquette, que la mise à jour pourrait réécrire).
+La sélection est la collection automatique « black-friday » (règle : étiquette black-friday-remise ; créée le 10/11 pour
+les « meilleurs prix », règle changée le 17/11) ; l'étiquette est reposée à chaque passage horaire pendant la période.
 
 Le dépôt est public : le journal n'affiche que des nombres, jamais un coût ni une marge.
 
@@ -88,6 +88,7 @@ def appliquer(pct):
                 "30 november. De korting wordt automatisch toegepast in je winkelmandje.</p>" % pct)
     ex = s.gql("query($h: String!) { collectionByIdentifier(identifier: {handle: $h}) { id } }", {"h": HANDLE}).get("collectionByIdentifier")
     champs = {"title": TITRE, "descriptionHtml": texte, "sortOrder": "BEST_SELLING",
+              "ruleSet": {"appliedDisjunctively": False, "rules": [{"column": "TAG", "relation": "EQUALS", "condition": "black-friday-remise"}]},
               "seo": {"title": "Black Friday parfums | Qosmi", "description": "Black Friday : -%d %% sur une sélection de parfums authentiques, livrés partout en Belgique." % pct}}
     if ex:
         cid = ex["id"]
@@ -139,24 +140,25 @@ def rafraichir(s):
     return synchroniser(s, ex["id"], [f[0] for f in eligibles(fiches(s), int(cfg.get("pct", 10)))])
 
 
+ETIQUETTE = "black-friday-remise"
+
+
 def synchroniser(s, cid, ids):
+    """La collection black-friday est automatique (règle : étiquette black-friday-remise). On pose ou retire l'étiquette."""
     actuels, a = [], None
     while True:
-        d = s.gql("query($id: ID!, $a: String) { collection(id: $id) { products(first: 250, after: $a) { pageInfo { hasNextPage endCursor } nodes { id } } } }",
-                  {"id": cid, "a": a})["collection"]["products"]
+        d = s.gql('query($a: String) { products(first: 250, after: $a, query: "tag:%s") { pageInfo { hasNextPage endCursor } nodes { id } } }' % ETIQUETTE,
+                  {"a": a})["products"]
         actuels += [n["id"] for n in d["nodes"]]
         if not d["pageInfo"]["hasNextPage"]:
             break
         a = d["pageInfo"]["endCursor"]
-    retirer_ = [i for i in actuels if i not in ids]
-    ajouter = [i for i in ids if i not in actuels]
-    for i in range(0, len(retirer_), 250):
-        s.gql("mutation($id: ID!, $p: [ID!]!) { collectionRemoveProducts(id: $id, productIds: $p) { userErrors { message } } }", {"id": cid, "p": retirer_[i:i + 250]})
-    for i in range(0, len(ajouter), 250):
-        r = s.gql("mutation($id: ID!, $p: [ID!]!) { collectionAddProducts(id: $id, productIds: $p) { userErrors { message } } }",
-                  {"id": cid, "p": ajouter[i:i + 250]})["collectionAddProducts"]
+    for pid in [i for i in actuels if i not in ids]:
+        s.gql("mutation($id: ID!, $t: [String!]!) { tagsRemove(id: $id, tags: $t) { userErrors { message } } }", {"id": pid, "t": [ETIQUETTE]})
+    for pid in [i for i in ids if i not in actuels]:
+        r = s.gql("mutation($id: ID!, $t: [String!]!) { tagsAdd(id: $id, tags: $t) { userErrors { message } } }", {"id": pid, "t": [ETIQUETTE]})["tagsAdd"]
         if r["userErrors"]:
-            raise RuntimeError("Ajout refusé : %s" % r["userErrors"])
+            raise RuntimeError("Étiquette refusée : %s" % r["userErrors"])
     return len(ids)
 
 
