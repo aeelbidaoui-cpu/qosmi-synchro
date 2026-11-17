@@ -42,5 +42,6 @@
     "actif": true,
     "pct": 10,
     "_note": "Black Friday 27/11 00:00 → 30/11 23:59 (Bruxelles), décision du 17/11/2026 : -10 % automatique sur les fiches qui gardent au moins 5 € net sur tous leurs formats (244 au 17/11). La sélection est recalculée à chaque passage horaire à partir du 26/11 (scripts/black_friday.py). actif false = la sélection n'est plus suivie."
-  }
+  },
+  "fusion_doublons": true
 }
