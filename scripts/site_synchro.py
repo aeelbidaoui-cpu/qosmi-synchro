@@ -549,6 +549,13 @@ def synchro(essai=False):
         if s.gql("mutation($id: ID!, $t: [String!]!) { tagsRemove(id: $id, tags: $t) { userErrors { message } } }",
                  {"id": pid, "t": [ETIQUETTE_BON_PLAN]})["tagsRemove"]["userErrors"]:
             erreurs += 1
+    try:  # 17/11/2026 : sélection Black Friday tenue à jour pendant la période (scripts/black_friday.py)
+        import black_friday
+        n_bf = black_friday.rafraichir(s)
+        if n_bf is not None:
+            resume += " · Black Friday : %d fiches" % n_bf
+    except Exception as e:
+        resume += " · Black Friday : erreur (%s)" % e.__class__.__name__
     ligne_journal("OK %s · %d erreur(s) · %d s" % (resume, erreurs, time.time() - debut))
     return 0 if not erreurs else 1
 

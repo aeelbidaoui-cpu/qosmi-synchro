@@ -37,5 +37,10 @@
     "delai_fr": "5 à 10 jours ouvrables",
     "delai_nl": "5 tot 10 werkdagen",
     "_note": "Décisions d'Amine du 14/11/2026 : option « Bon plan » (2e grossiste, commandes les lundis et jeudis, minimum 300 €, port 13 € par commande). Prix client = (achat + 2 %) + 3 € d'envoi + frais Shopify Payments + 10 € de bénéfice, × 1,21, arrondi au ,90 ; si l'écart avec la livraison normale est < 3 €, on descend jusqu'à 3 € sous le prix normal sans passer sous 5 € net ; pas d'option si elle n'est pas au moins 1 € moins chère. Proposée dès 1 pièce ; à 0 elle disparaît. Délai affiché sur la fiche (theme_rk/assets/qk-bonplan.js) et la collection (scripts/bons_plans.py)."
+  },
+  "black_friday": {
+    "actif": true,
+    "pct": 10,
+    "_note": "Black Friday 27/11 00:00 → 30/11 23:59 (Bruxelles), décision du 17/11/2026 : -10 % automatique sur les fiches qui gardent au moins 5 € net sur tous leurs formats (244 au 17/11). La sélection est recalculée à chaque passage horaire à partir du 26/11 (scripts/black_friday.py). actif false = la sélection n'est plus suivie."
   }
 }

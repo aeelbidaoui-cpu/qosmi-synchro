@@ -91,31 +91,14 @@ def appliquer(pct):
               "seo": {"title": "Black Friday parfums | Qosmi", "description": "Black Friday : -%d %% sur une sélection de parfums authentiques, livrés partout en Belgique." % pct}}
     if ex:
         cid = ex["id"]
-        r = s.gql("mutation($c: CollectionInput!) { collectionUpdate(input: $c) { userErrors { message } } }", {"c": dict(champs, id=cid)})
-        actuels, a = [], None
-        while True:
-            d = s.gql("query($id: ID!, $a: String) { collection(id: $id) { products(first: 250, after: $a) { pageInfo { hasNextPage endCursor } nodes { id } } } }",
-                      {"id": cid, "a": a})["collection"]["products"]
-            actuels += [n["id"] for n in d["nodes"]]
-            if not d["pageInfo"]["hasNextPage"]:
-                break
-            a = d["pageInfo"]["endCursor"]
-        retirer = [i for i in actuels if i not in ids]
-        ajouter = [i for i in ids if i not in actuels]
-        for i in range(0, len(retirer), 250):
-            s.gql("mutation($id: ID!, $p: [ID!]!) { collectionRemoveProducts(id: $id, productIds: $p) { userErrors { message } } }", {"id": cid, "p": retirer[i:i + 250]})
+        s.gql("mutation($c: CollectionInput!) { collectionUpdate(input: $c) { userErrors { message } } }", {"c": dict(champs, id=cid)})
     else:
         r = s.gql("mutation($c: CollectionInput!) { collectionCreate(input: $c) { collection { id } userErrors { message } } }",
                   {"c": dict(champs, handle=HANDLE)})["collectionCreate"]
         if r["userErrors"]:
             sys.exit("Collection refusée : %s" % r["userErrors"])
         cid = r["collection"]["id"]
-        ajouter = ids
-    for i in range(0, len(ajouter), 250):
-        r = s.gql("mutation($id: ID!, $p: [ID!]!) { collectionAddProducts(id: $id, productIds: $p) { userErrors { message } } }",
-                  {"id": cid, "p": ajouter[i:i + 250]})["collectionAddProducts"]
-        if r["userErrors"]:
-            sys.exit("Ajout refusé : %s" % r["userErrors"])
+    synchroniser(s, cid, ids)
     pub = publication_boutique(s)
     if pub:
         s.gql("mutation($id: ID!, $p: ID!) { publishablePublish(id: $id, input: [{publicationId: $p}]) { userErrors { message } } }", {"id": cid, "p": pub})
@@ -136,6 +119,45 @@ def appliquer(pct):
     if r["userErrors"]:
         sys.exit("Remise refusée : %s" % r["userErrors"])
     print("OK Black Friday : -%d %% sur %d fiches, du 27/11 00:00 au 30/11 23:59 (Bruxelles) · collection %s" % (pct, len(ids), HANDLE))
+
+
+def rafraichir(s):
+    """Appelé à chaque mise à jour horaire (site_synchro.py) : du 26/11 à la fin du Black Friday, la sélection suit les
+    prix du moment, pour qu'aucune fiche remisée ne passe sous 5 € net. Retourne le nombre de fiches, ou None hors période."""
+    import datetime
+    cfg = json.load(open(os.path.join(os.path.dirname(ICI), "config", "site.json"), encoding="utf-8")).get("black_friday") or {}
+    if not cfg.get("actif"):
+        return None
+    maintenant = datetime.datetime.now(datetime.timezone.utc)
+    debut = datetime.datetime.fromisoformat(DEBUT.replace("Z", "+00:00")) - datetime.timedelta(hours=30)
+    fin = datetime.datetime.fromisoformat(FIN.replace("Z", "+00:00"))
+    if not (debut <= maintenant <= fin):
+        return None
+    ex = s.gql("query($h: String!) { collectionByIdentifier(identifier: {handle: $h}) { id } }", {"h": HANDLE}).get("collectionByIdentifier")
+    if not ex:
+        return None
+    return synchroniser(s, ex["id"], [f[0] for f in eligibles(fiches(s), int(cfg.get("pct", 10)))])
+
+
+def synchroniser(s, cid, ids):
+    actuels, a = [], None
+    while True:
+        d = s.gql("query($id: ID!, $a: String) { collection(id: $id) { products(first: 250, after: $a) { pageInfo { hasNextPage endCursor } nodes { id } } } }",
+                  {"id": cid, "a": a})["collection"]["products"]
+        actuels += [n["id"] for n in d["nodes"]]
+        if not d["pageInfo"]["hasNextPage"]:
+            break
+        a = d["pageInfo"]["endCursor"]
+    retirer_ = [i for i in actuels if i not in ids]
+    ajouter = [i for i in ids if i not in actuels]
+    for i in range(0, len(retirer_), 250):
+        s.gql("mutation($id: ID!, $p: [ID!]!) { collectionRemoveProducts(id: $id, productIds: $p) { userErrors { message } } }", {"id": cid, "p": retirer_[i:i + 250]})
+    for i in range(0, len(ajouter), 250):
+        r = s.gql("mutation($id: ID!, $p: [ID!]!) { collectionAddProducts(id: $id, productIds: $p) { userErrors { message } } }",
+                  {"id": cid, "p": ajouter[i:i + 250]})["collectionAddProducts"]
+        if r["userErrors"]:
+            raise RuntimeError("Ajout refusé : %s" % r["userErrors"])
+    return len(ids)
 
 
 def retirer():
