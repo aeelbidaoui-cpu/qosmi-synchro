@@ -914,8 +914,14 @@ def photos_marques():
     essai = os.environ.get("PHOTOS_ESSAI", "")  # ex. « parfumerie.be » : une seule fiche, puis contrôle du téléchargement
     essai_pid = None
     seule = os.environ.get("PHOTOS_FICHE", "")  # une fiche précise renvoyée telle quelle (ex. pour réparer une photo)
+    cibles = set()  # 17/11/2026 : liste de photos à poser (config/photos_a_poser.json) → seulement les fiches concernées
+    chemin_cibles = os.path.join(os.path.dirname(sl.SITE), "photos_a_poser.json")
+    if os.path.exists(chemin_cibles):
+        cibles = set(json.load(open(chemin_cibles, encoding="utf-8")).get("urls") or [])
     for p in produits:
         photos = sorted({v["photo_source"] for v in p["variantes"] if v["photo_source"] in officielles})
+        if cibles and not seule and not (set(photos) & cibles):
+            continue
         if seule:
             if p["handle"] != seule or essai_pid:
                 continue
