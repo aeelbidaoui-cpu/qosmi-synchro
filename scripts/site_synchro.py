@@ -283,15 +283,27 @@ def fusionner_doublons(produits, boutique, vs_qs):
     def pid_de(p):
         ids = [vs_qs[v["sku"]]["produit"] for v in p["variantes"] if v["sku"] in vs_qs]
         return collections.Counter(ids).most_common(1)[0][0] if ids else None
-    groupes = collections.defaultdict(list)
+    par_cle = collections.defaultdict(list)
     for p in produits:
         if p.get("teintes") or p.get("type_fr") == "Coffrets":
             continue
         k = sv.cle_fiche(p)
         if k:
-            groupes[k].append(p)
+            par_cle[k].append(p)
+    groupes = []
+    for g in par_cle.values():
+        if len(g) < 2:
+            continue
+        genres = {genre_de(p["titre_fr"]) for p in g} - {"mixte", ""}
+        if len(genres) <= 1:  # même genre, ou un seul genre + « mixte » : c'est le même parfum
+            groupes.append(g)
+        else:  # homme ET femme (ex. The One pour homme / pour femme) : deux parfums différents, on ne réunit que les identiques
+            sous = collections.defaultdict(list)
+            for p in g:
+                sous[genre_de(p["titre_fr"])].append(p)
+            groupes += [x for x in sous.values() if len(x) > 1]
     absorbes, redir = set(), []
-    for g in groupes.values():
+    for g in groupes:
         if len(g) < 2:
             continue
         def rang(p):
@@ -321,6 +333,24 @@ def fusionner_doublons(produits, boutique, vs_qs):
         if ppid:
             prin["_pid"] = ppid
     return [p for p in produits if id(p) not in absorbes], redir
+
+
+def genre_de(titre):
+    m = re.search(r" (pour femme|pour homme|mixte|pour enfant)$", titre or "")
+    return {"pour femme": "femme", "pour homme": "homme", "mixte": "mixte", "pour enfant": "enfant"}[m.group(1)] if m else ""
+
+
+def cible_orpheline(titre, par_cle):
+    """Fiche gardée qui correspond à une ancienne fiche restée en ligne : même nom + type, genre identique, ou bien
+    l'un des deux « mixte » et une seule fiche possible."""
+    cands = par_cle.get(sv.cle_fiche({"titre_fr": titre or ""})) or []
+    g = genre_de(titre)
+    memes = [p for p in cands if genre_de(p["titre_fr"]) == g]
+    if len(memes) == 1:
+        return memes[0]
+    if len(cands) == 1 and (g in ("mixte", "") or genre_de(cands[0]["titre_fr"]) in ("mixte", "")):
+        return cands[0]
+    return None
 
 
 def rediriger(s, ancien, nouveau):
@@ -500,18 +530,18 @@ def synchro(essai=False):
     archives = {}
     for opid, cible in fusions:
         archives[opid] = cible
-    cle_cible = {}
+    cle_cible = collections.defaultdict(list)
     for p in produits:
         k = sv.cle_fiche(p)
         if k and not p.get("teintes") and p.get("type_fr") != "Coffrets":
-            cle_cible.setdefault(k, p)
+            cle_cible[k].append(p)
     pids_vivants = {p.get("_pid") for p in produits if p.get("_pid")}
     for pid, ex in boutique.items():
         if pid in archives or pid in pids_vivants or ex["status"] != "ACTIVE" or "coffret" in (ex.get("title") or "").lower():
             continue
         if any((v.get("sku") or "") in vus for v in ex["variantes"]):
             continue
-        cible = cle_cible.get(sv.cle_fiche({"titre_fr": ex.get("title") or ""}))
+        cible = cible_orpheline(ex.get("title"), cle_cible)
         if cible is not None and cible.get("_pid") != pid:
             archives[pid] = cible
     if not fusion_active:
