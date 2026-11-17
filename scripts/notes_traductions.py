@@ -264,6 +264,10 @@ T.update({"sesame": ("sésame", "sesam"), "angelica root": ("racine d'angélique
     "pepperwood™": ("Pepperwood", "Pepperwood"), "texas cedar": ("cèdre du Texas", "Texaanse ceder"), "floral bouquet": ("bouquet floral", "bloemenboeket")})
 
 
+T.update({"woodsy notes": ("notes boisées", "houtige noten"), "indian oud": ("oud indien", "Indiase oud"), "maltol": ("maltol", "maltol"),
+    "indian spices": ("épices indiennes", "Indiase specerijen"), "jackfruit": ("jacquier", "jackfruit")})
+
+
 def traduire(note):
     """('fr', 'nl') ou None si inconnue."""
     return T.get(note.strip().lower())
