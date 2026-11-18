@@ -244,6 +244,7 @@ def decider_tout(cfg, refs, marche, bol=None):
         decisions[e]["marche_connu"] = bool(kbs or (m or {}).get("bornes") or d.get("etoiles"))
         decisions[e]["nom"] = ref["nom"]
         decisions[e]["marque"] = ref.get("marque", "")
+        decisions[e]["fournisseur"] = 2 if ref.get("source") == 2 else 1  # 18/11/2026 : où commander (1 = catalogue, 2 = Bons plans)
         b = (m or {}).get("bornes", {})
         lignes.append({"decision": d["decision"], "ean": e, "nom": ref["nom"], "stock_fournisseur": ref["stock"],
                        "achat": ref["achat"], "cout_total_ht": round(regle.cout_ht(ref["achat"], cfg), 2),

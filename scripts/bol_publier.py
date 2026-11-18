@@ -326,7 +326,9 @@ def main():
     except RuntimeError as err:
         cmd, txt = [], txt + ["", "Commandes bol : lecture impossible (%s)" % str(err)[:120]]
     lc = ["Commandes bol ouvertes (%s) : %d article(s) à commander chez le fournisseur" % (dt.datetime.now().strftime("%d/%m %H:%M"), len(cmd))]
-    lc += ["  %s  commande %s  %s × %s  %s  (%s)" % (c["date"], c["commande"], c["quantite"], c["ean"], c["titre"][:60], c["pays"]) for c in cmd]
+    nomf = {1: "fournisseur 1 (catalogue)", 2: "fournisseur 2 (Bons plans)"}  # codes neutres : le journal du dépôt est public
+    lc += ["  %s  commande %s  %s × %s  %s  (%s)  → à commander chez : %s" % (c["date"], c["commande"], c["quantite"], c["ean"], c["titre"][:60], c["pays"],
+           nomf.get((dec.get(c["ean"]) or {}).get("fournisseur"), "introuvable dans les listes du jour")) for c in cmd]
     with open(os.path.join(RAPPORTS, "bol_commandes.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(lc) + "\n")
     txt += [""] + lc
