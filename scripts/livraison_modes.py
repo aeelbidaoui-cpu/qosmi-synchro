@@ -45,7 +45,10 @@ def traduire(s, rid, valeurs):
 def main():
     from shopify_api import Shopify
     s = Shopify()
-    for p in s.gql(LIRE)["deliveryProfiles"]["nodes"]:
+    # 18/11/2026 : les tarifs sont gérés dans Marchés → Belgique (réglés à la main dans l'admin) ; l'API des profils
+    # renvoie l'ancienne configuration, on n'y touche donc plus : seule la réduction est traitée ici.
+    profils = s.gql(LIRE)["deliveryProfiles"]["nodes"] if "--profils" in sys.argv else []
+    for p in profils:
         for g in p["profileLocationGroups"]:
             for z in g["locationGroupZones"]["nodes"]:
                 pays = [c["code"].get("countryCode") for c in z["zone"]["countries"]]
@@ -79,10 +82,8 @@ def main():
                 if r["userErrors"]:
                     sys.exit("Refus de Shopify : %s" % json.dumps(r["userErrors"], ensure_ascii=False))
                 print("   modes de livraison mis à jour")
-    if ESSAI:
-        return
     # traductions NL des deux modes
-    for p in s.gql(LIRE)["deliveryProfiles"]["nodes"]:
+    for p in profils:
         for g in p["profileLocationGroups"]:
             for z in g["locationGroupZones"]["nodes"]:
                 for m in z["methodDefinitions"]["nodes"]:
@@ -95,6 +96,9 @@ def main():
     for n in noeuds:
         d = n["discount"]
         if d.get("title") not in (REDUC, REDUC_NOUVEAU):
+            continue
+        print("Réduction trouvée : %s, plafond actuel : %s" % (d.get("title"), (d.get("maximumShippingPrice") or {}).get("amount")))
+        if ESSAI:
             continue
         r = s.gql("""mutation($id: ID!, $d: DiscountAutomaticFreeShippingInput!) {
             discountAutomaticFreeShippingUpdate(id: $id, freeShippingAutomaticDiscount: $d) {
