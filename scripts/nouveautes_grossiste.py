@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Nouveautés de la liste « Bons plans » (17/11/2026, demande d'Amine). Lancé après chaque mise à jour du site.
+"""Ce qui bouge dans la liste « Bons plans » (17-18/11/2026, demande d'Amine) : nouveautés, ruptures, retours en stock,
+références retirées. Lancé après chaque mise à jour du site.
 
 Compare la liste du 2e grossiste lue à ce passage avec celle des passages précédents et envoie à Amine, en message
 Telegram privé :
@@ -63,10 +64,16 @@ def lire_etat():
         return None
 
 
-def ecrire_etat(liste):
+def ecrire_etat(liste, avant=None):
+    """eans : 1 = en stock, 0 = épuisé ou sorti de la liste ; noms gardés pour annoncer une référence qui disparaît."""
+    avant = avant or {}
+    eans = {e: 0 for e in avant.get("eans", {})}
+    eans.update({e: 1 if d["stock"] > 0 else 0 for e, d in liste.items()})
+    noms = dict(avant.get("noms", {}))
+    noms.update({e: d["nom"] for e, d in liste.items()})
     os.makedirs(os.path.dirname(ETAT), exist_ok=True)
-    json.dump({"maj": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "nb": len(liste),
-               "eans": {e: 1 if d["stock"] > 0 else 0 for e, d in liste.items()}}, open(ETAT, "w", encoding="utf-8"))
+    json.dump({"maj": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "nb": len(liste), "eans": eans, "noms": noms},
+              open(ETAT, "w", encoding="utf-8"), ensure_ascii=False)
 
 
 # ------------------------------------------------------------------ site
@@ -157,7 +164,7 @@ def ligne(ean, d, site):
     return "• %s\n   %s · %s" % (h(d["nom"]), dispo, etat)
 
 
-def composer(nouveaux, retours, liste, site, marques):
+def composer(nouveaux, retours, ruptures, retires, liste, noms, site, marques):
     dans, hors, autres = [], [], 0
     for e in nouveaux:
         d = liste[e]
@@ -169,13 +176,12 @@ def composer(nouveaux, retours, liste, site, marques):
             hors.append(e)
     tri = lambda e: liste[e]["nom"].lower()  # noqa: E731
     blocs = []
-    if dans or hors or autres:
-        blocs.append("<b>🆕 Nouveautés dans la liste Bons plans</b> (%s)" % dt.datetime.now().strftime("%d/%m %Hh"))
+    blocs.append("<b>📦 Ce qui bouge dans la liste Bons plans</b> (%s)" % dt.datetime.now().strftime("%d/%m %Hh"))
     if dans:
-        blocs.append("\n<b>Dans tes marques (%d)</b>" % len(dans))
+        blocs.append("\n<b>🆕 Nouveautés dans tes marques (%d)</b>" % len(dans))
         blocs += [ligne(e, liste[e], site) for e in sorted(dans, key=tri)]
     if hors:
-        blocs.append("\n<b>Autres marques (%d)</b>" % len(hors))
+        blocs.append("\n<b>🆕 Nouveautés, autres marques (%d)</b>" % len(hors))
         blocs += ["• " + html.escape(liste[e]["nom"]) for e in sorted(hors, key=tri)[:MAX_HORS]]
         if len(hors) > MAX_HORS:
             blocs.append("… et %d autres" % (len(hors) - MAX_HORS))
@@ -184,6 +190,16 @@ def composer(nouveaux, retours, liste, site, marques):
     if retours:
         blocs.append("\n<b>🔁 De retour en stock (%d)</b>" % len(retours))
         blocs += [ligne(e, liste[e], site) for e in sorted(retours, key=tri)]
+    if ruptures:
+        blocs.append("\n<b>❌ En rupture (%d)</b> (sur le site, le format Bon plan s'affiche « épuisé »)" % len(ruptures))
+        blocs += [ligne(e, liste[e], site) for e in sorted(ruptures, key=tri)]
+    if retires:
+        blocs.append("\n<b>🚫 Retirés de la liste (%d)</b>" % len(retires))
+        for e in sorted(retires, key=lambda e: noms[e].lower()):
+            d = {"nom": noms[e], "stock": 0, "arrivee": ""}
+            blocs.append(ligne(e, d, site).replace("pas encore en stock", "plus proposé"))
+    if len(blocs) == 1:
+        return [], 0, 0, 0
     return blocs, len(dans), len(hors), autres
 
 
@@ -197,7 +213,7 @@ def main():
         chat, neuf = conversation(s)
         if not chat:
             raise SystemExit("Pas encore de conversation : écris /start à ton robot sur Telegram, puis relance.")
-        envoyer(chat, ["✅ C'est branché : je t'écrirai ici à chaque nouveauté de la liste Bons plans."])
+        envoyer(chat, ["✅ C'est branché : je t'écrirai ici dès que ça bouge dans la liste Bons plans (nouveautés, ruptures, retours en stock)."])
         log("message d'essai envoyé")
         return
     liste = lire_liste()
@@ -216,16 +232,19 @@ def main():
     vus = etat["eans"]
     sel = os.path.join(os.path.dirname(sl.SITE), "selection.json")
     marques = json.load(open(sel, encoding="utf-8"))["marques"] if os.path.exists(sel) else []
+    noms = etat.get("noms", {})
+    suivie = lambda nom: not sv.EXCLUS_TRISTA.search(nom) and sv.marque_trista(nom, marques)[0]  # noqa: E731
     nouveaux = [e for e in liste if e not in vus]
-    retours = [e for e, d in liste.items() if vus.get(e) == 0 and d["stock"] > 0
-               and not sv.EXCLUS_TRISTA.search(d["nom"]) and sv.marque_trista(d["nom"], marques)[0]]
-    # les références sorties de la liste restent « vues » (pas de fausse nouveauté si elles reviennent)
-    garder = {e: 0 for e in vus if e not in liste}
-    log("nouveautés : %d nouvelle(s) référence(s), %d retour(s) en stock (marques suivies)" % (len(nouveaux), len(retours)))
+    retours = [e for e, d in liste.items() if vus.get(e) == 0 and d["stock"] > 0 and suivie(d["nom"])]
+    ruptures = [e for e, d in liste.items() if vus.get(e) == 1 and d["stock"] == 0 and suivie(d["nom"])]
+    retires = [e for e in vus if vus[e] == 1 and e not in liste and e in noms and suivie(noms[e])]
+    log("nouveautés : %d nouvelle(s), %d retour(s), %d rupture(s), %d retirée(s) (marques suivies pour les 3 derniers)"
+        % (len(nouveaux), len(retours), len(ruptures), len(retires)))
     if ESSAI:
         return
     envoye = True
-    if (nouveaux or retours) and configure:
+    bouge = nouveaux or retours or ruptures or retires
+    if bouge and configure:
         from shopify_api import Shopify
         s = Shopify()
         try:
@@ -234,24 +253,20 @@ def main():
                 log("nouveautés : Telegram configuré mais pas de /start reçu ; messages en attente")
                 envoye = False
             else:
-                site = fiches_site(s, set(nouveaux) | set(retours))
-                blocs, nd, nh, na = composer(nouveaux, retours, liste, site, marques)
+                site = fiches_site(s, set(nouveaux) | set(retours) | set(ruptures) | set(retires))
+                blocs, nd, nh, na = composer(nouveaux, retours, ruptures, retires, liste, noms, site, marques)
                 if neuf:
-                    blocs.insert(0, "✅ C'est branché : je t'écrirai ici à chaque nouveauté.\n")
+                    blocs.insert(0, "✅ C'est branché : je t'écrirai ici dès que ça bouge.\n")
                 n = envoyer(chat, blocs) if blocs else 0
                 log("nouveautés : %d message(s) envoyé(s) (%d dans tes marques, %d autres, %d coffrets/testeurs)" % (n, nd, nh, na))
         except Exception as e:
             log("nouveautés : envoi Telegram impossible (%s)" % type(e).__name__)
             envoye = False
-    elif nouveaux or retours:
+    elif bouge:
         log("nouveautés : Telegram pas encore configuré, rien envoyé")
     if not envoye:
         return  # on garde l'ancien état : ce sera renvoyé au prochain passage
-    ecrire_etat(liste)
-    if garder:
-        e = lire_etat()
-        e["eans"].update(garder)
-        json.dump(e, open(ETAT, "w", encoding="utf-8"))
+    ecrire_etat(liste, etat)
 
 
 if __name__ == "__main__":
