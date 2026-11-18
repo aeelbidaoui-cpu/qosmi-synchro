@@ -87,7 +87,41 @@ def references():
             refs[ean] = ref
     if lire_json(CFG, {}).get("grossiste_2", True):
         ajouter_grossiste_2(refs)
+    if lire_json(CFG, {}).get("rituals"):
+        ajouter_rituals(refs)
     return refs
+
+
+def ajouter_rituals(refs):
+    """18/11/2026 (Amine) : tous les produits Rituals de la boutique belge (autorisation de Rituals), achetés au prix
+    public belge TTC ramené en HT (facture au nom de Deway). Envoi Rituals : 3,90 € TTC sous 35 € de commande, gratuit
+    au-delà. Au moins 7 € net partout, koopblok compris. Même EAN chez SoleLuna : on garde le moins cher des deux."""
+    import bol_rituals
+    try:
+        bol_rituals.main()
+    except Exception as e:
+        print("Rituals : catalogue non relu (%s)" % str(e)[:120], flush=True)
+    d = lire_json(bol_rituals.SORTIE, {}).get("produits") or {}
+    cfg = lire_json(CFG, {})
+    tva = cfg.get("tva", 0.21)
+    ajoutes = 0
+    for code, p in d.items():
+        nom, prix = p.get("nom") or "", p.get("prix_ttc")
+        if not prix or not p.get("ean") or re.search(r"gift ?card|cadeaukaart|e-gift", nom, re.I):
+            continue
+        achat = round(prix / (1 + tva), 2)
+        stock = 3 if p.get("dispo") == "InStock" else 0
+        old = refs.get(p["ean"])
+        if old and old["stock"] > 0 and not old.get("abime") and old["achat"] <= achat:
+            continue
+        envoi_f = 0.0 if prix >= cfg.get("rituals_franco_ttc", 35) else round(cfg.get("rituals_envoi_ttc", 3.90) / (1 + tva), 2)
+        refs[p["ean"]] = {"ean": p["ean"], "achat": achat, "stock": stock, "testeur": False, "abime": False,
+                          "nom": "Rituals " + nom if not nom.lower().startswith("rituals") else nom, "marque": "Rituals",
+                          "nature": nom + " | " + (p.get("cat") or ""), "source": 3,
+                          "reglages": {"envoi_fournisseur_eur": envoi_f,
+                                       "marge_nette_koopblok_eur": cfg.get("rituals_marge_min_eur", 7)}}
+        ajoutes += 1
+    print("Rituals : %d référence(s) ajoutée(s) à l'analyse bol" % ajoutes, flush=True)
 
 
 def ajouter_grossiste_2(refs):
@@ -249,7 +283,7 @@ def decider_tout(cfg, refs, marche, bol=None):
         decisions[e]["marche_connu"] = bool(kbs or (m or {}).get("bornes") or d.get("etoiles"))
         decisions[e]["nom"] = ref["nom"]
         decisions[e]["marque"] = ref.get("marque", "")
-        decisions[e]["fournisseur"] = 2 if ref.get("source") == 2 else 1  # 18/11/2026 : où commander (1 = catalogue, 2 = Bons plans)
+        decisions[e]["fournisseur"] = ref.get("source") or 1  # 18/11/2026 : où commander (1 = catalogue, 2 = Bons plans, 3 = boutique de la marque)
         b = (m or {}).get("bornes", {})
         lignes.append({"decision": d["decision"], "ean": e, "nom": ref["nom"], "stock_fournisseur": ref["stock"],
                        "achat": ref["achat"], "cout_total_ht": round(regle.cout_ht(ref["achat"], regle.cfg_pour(ref, cfg)), 2),

@@ -48,13 +48,16 @@ def down9(p):
 # Ces articles gardent le tarif transporteur classique ; les autres (bougies, crèmes…) prennent l'étiquette bol.
 INFLAMMABLE = re.compile(r"parfum|perfume|toilette|cologne|extrait|\bedp\b|\bedt\b|mist|brume|spray|vapo|a[ée]rosol|deo|d[ée]odorant|"
                          r"antiperspirant|anti-transpirant|after ?shave|eau fra[iî]che|nail|vernis|polish|laque|hairspray|alcohol|alcool|"
-                         r"diffuser|diffuseur|fragrance oil|huile parfum|interior|home fragrance|room spray|lighter|briquet", re.I)
+                         r"diffuser|diffuseur|fragrance oil|huile parfum|interior|interieur|int[ée]rieur|home fragrance|room spray|lighter|briquet|"
+                         r"fragrance sticks|geurstokjes|refill|navulling|car perfume|autoparfum|wax melt|geurolie", re.I)
 
 
 def cfg_pour(ref, cfg):
     """Réglages d'envoi propres à l'article : étiquette bpost via bol si l'article n'est pas inflammable."""
+    if ref.get("reglages"):  # réglages propres à la source (ex. boutique de la marque : envoi d'achat, marge minimale)
+        cfg = dict(cfg, **ref["reglages"])
     bol_bpost = cfg.get("envoi_client_bol_bpost_ht")
-    if not bol_bpost or INFLAMMABLE.search(ref.get("nom") or ""):
+    if not bol_bpost or INFLAMMABLE.search(ref.get("nature") or ref.get("nom") or ""):
         return cfg
     return dict(cfg, envoi_client_ht=bol_bpost)
 

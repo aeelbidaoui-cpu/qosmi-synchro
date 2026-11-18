@@ -58,6 +58,14 @@ jobs:
           key: bol-${{ github.run_id }}
           restore-keys: bol-
 
+      - name: Reprendre le catalogue Rituals (relu toutes les 20 h)
+        if: env.ABSENT != '1'
+        uses: actions/cache/restore@v4
+        with:
+          path: base/rituals_catalogue.json
+          key: rituals-${{ github.run_id }}
+          restore-keys: rituals-
+
       - name: Reprendre l'état de la publication (refus bol)
         if: env.ABSENT != '1'
         uses: actions/cache/restore@v4
@@ -92,6 +100,13 @@ jobs:
           elif [ "$A" = "essai-publication" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py --essai
           elif [ -n "$M" ]; then python -u scripts/bol_analyse.py --max "$M" && python -u scripts/bol_publier.py
           else python -u scripts/bol_analyse.py && python -u scripts/bol_publier.py; fi
+
+      - name: Garder le catalogue Rituals
+        if: always() && env.ABSENT != '1' && hashFiles('base/rituals_catalogue.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: base/rituals_catalogue.json
+          key: rituals-${{ github.run_id }}
 
       - name: Garder les relevés pour le prochain passage
         if: always() && env.ABSENT != '1'
