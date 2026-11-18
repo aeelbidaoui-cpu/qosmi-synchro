@@ -332,6 +332,18 @@ def publier_zernio(cle, p, urls, cible, maintenant):
 
 def main():
     essai, forcer = "--essai" in sys.argv, "--forcer" in sys.argv
+    if "--statut" in sys.argv or "--relancer" in sys.argv:  # état (ou relance) de la dernière publication chez Zernio
+        cle = os.environ.get("ZERNIO_API_KEY", "").strip()
+        etat = lire_etat()
+        dern = sorted(((v.get("date", ""), v.get("heure", ""), k, v) for k, v in etat.items() if v.get("zernio")))[-1]
+        pid = dern[3]["zernio"]
+        r = zernio("POST", "/posts/%s/retry" % pid, cle) if "--relancer" in sys.argv else zernio("GET", "/posts/%s" % pid, cle)
+        post = r.get("post", r) if isinstance(r, dict) else {}
+        print("Publication %s (%s) : %s %s" % (dern[2], pid, post.get("status"), r.get("message") or r.get("error") or ""))
+        for pl in post.get("platforms") or []:
+            print("  - %s : %s %s %s" % (pl.get("platform"), pl.get("status"), pl.get("platformPostUrl") or "",
+                                         (pl.get("errorMessage") or pl.get("error") or "")))
+        return
     if "--comptes" in sys.argv:  # vérifie la connexion Zernio sans rien publier
         cle = os.environ.get("ZERNIO_API_KEY", "").strip()
         if not cle:

@@ -14,7 +14,7 @@ on:
         description: "essai = montrer la publication du jour sans rien envoyer ; forcer = publier tout de suite"
         type: choice
         default: essai
-        options: [essai, comptes, publier, forcer, test]
+        options: [essai, comptes, publier, forcer, test, statut, relancer]
 
 permissions:
   contents: write
@@ -51,6 +51,8 @@ jobs:
           elif [ "$A" = "comptes" ]; then python -u scripts/social_publier.py --comptes
           elif [ "$A" = "forcer" ]; then python -u scripts/social_publier.py --forcer
           elif [ "$A" = "test" ]; then python -u scripts/social_publier.py --test
+          elif [ "$A" = "statut" ]; then python -u scripts/social_publier.py --statut
+          elif [ "$A" = "relancer" ]; then python -u scripts/social_publier.py --relancer
           else python -u scripts/social_publier.py; fi
       - name: Sauvegarde de l'historique
         if: always()
