@@ -177,7 +177,8 @@ def maj_page(etat, lots):
     tr = s.gql("query($id: ID!) { translatableResource(resourceId: $id) { translatableContent { key digest } } }", {"id": pid})
     dig = {x["key"]: x["digest"] for x in tr["translatableResource"]["translatableContent"]}
     t = [{"locale": "nl", "key": k, "value": v, "translatableContentDigest": dig[k]}
-         for k, v in (("title", PAGE["titre_nl"]), ("body_html", nl), ("handle", PAGE["handle_nl"])) if k in dig]
+         for k, v in (("title", PAGE["titre_nl"]), ("body_html", nl), ("handle", PAGE["handle_nl"]))
+         if k in dig and not (k == "handle" and v == PAGE["handle"])]  # même adresse en NL : rien à traduire
     e = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
                  userErrors { message } } }""", {"id": pid, "t": t})["translationsRegister"]["userErrors"]
     print("Page qosmi.be/pages/instagram à jour (%d publication(s)), NL : %s" % (len(etat), "ok" if not e else e))
