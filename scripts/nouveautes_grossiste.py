@@ -156,54 +156,28 @@ def date_fr(d):
         return d
 
 
-def ligne(ean, d, site):
-    h = html.escape
-    dispo = "%d en stock" % d["stock"] if d["stock"] > 0 else ("arrive le %s" % date_fr(d["arrivee"]) if d["arrivee"] else "pas encore en stock")
-    if ean in site:
-        titre, fmt, prix, handle, statut = site[ean]
-        etat = '<a href="%s%s">%s</a> · %s · %s' % (SITE, handle, h(fmt), euros(prix), "en ligne" if statut == "ACTIVE" else "pas en ligne")
+def ligne(d, quoi="stock"):
+    """18/11/2026 (Amine) : seulement ce qui se passe chez le grossiste, rien sur Qosmi."""
+    if quoi == "retire":
+        dispo = "plus proposé"
+    elif d["stock"] > 0:
+        dispo = "%d en stock" % d["stock"]
     else:
-        etat = "pas sur le site"
-    return "• %s\n   %s · %s" % (h(d["nom"]), dispo, etat)
+        dispo = "arrive le %s" % date_fr(d["arrivee"]) if d["arrivee"] else "plus en stock"
+    return "• %s — %s" % (html.escape(d["nom"]), dispo)
 
 
-def composer(nouveaux, retours, ruptures, retires, liste, noms, site, marques):
-    dans, hors, autres = [], [], 0
-    for e in nouveaux:
-        d = liste[e]
-        if sv.EXCLUS_TRISTA.search(d["nom"]):
-            autres += 1
-        elif sv.marque_trista(d["nom"], marques)[0]:
-            dans.append(e)
-        else:
-            hors.append(e)
+def composer(nouveaux, retours, ruptures, retires, liste, noms):
     tri = lambda e: liste[e]["nom"].lower()  # noqa: E731
-    blocs = []
-    blocs.append("<b>📦 Ce qui bouge dans la liste Bons plans</b> (%s)" % dt.datetime.now().strftime("%d/%m %Hh"))
-    if dans:
-        blocs.append("\n<b>🆕 Nouveautés dans tes marques (%d)</b>" % len(dans))
-        blocs += [ligne(e, liste[e], site) for e in sorted(dans, key=tri)]
-    if hors:
-        blocs.append("\n<b>🆕 Nouveautés, autres marques (%d)</b>" % len(hors))
-        blocs += ["• " + html.escape(liste[e]["nom"]) for e in sorted(hors, key=tri)[:MAX_HORS]]
-        if len(hors) > MAX_HORS:
-            blocs.append("… et %d autres" % (len(hors) - MAX_HORS))
-    if autres:
-        blocs.append("\n+ %d coffret(s), testeur(s) ou miniature(s)" % autres)
-    if retours:
-        blocs.append("\n<b>🔁 De retour en stock (%d)</b>" % len(retours))
-        blocs += [ligne(e, liste[e], site) for e in sorted(retours, key=tri)]
-    if ruptures:
-        blocs.append("\n<b>❌ En rupture (%d)</b> (sur le site, le format Bon plan s'affiche « épuisé »)" % len(ruptures))
-        blocs += [ligne(e, liste[e], site) for e in sorted(ruptures, key=tri)]
+    blocs = ["<b>📦 Ce qui bouge chez Trista</b> (%s)" % dt.datetime.now().strftime("%d/%m %Hh")]
+    for titre, eans in (("🆕 Nouveautés", nouveaux), ("🔁 De retour en stock", retours), ("❌ En rupture", ruptures)):
+        if eans:
+            blocs.append("\n<b>%s (%d)</b>" % (titre, len(eans)))
+            blocs += [ligne(liste[e]) for e in sorted(eans, key=tri)]
     if retires:
         blocs.append("\n<b>🚫 Retirés de la liste (%d)</b>" % len(retires))
-        for e in sorted(retires, key=lambda e: noms[e].lower()):
-            d = {"nom": noms[e], "stock": 0, "arrivee": ""}
-            blocs.append(ligne(e, d, site).replace("pas encore en stock", "plus proposé"))
-    if len(blocs) == 1:
-        return [], 0, 0, 0
-    return blocs, len(dans), len(hors), autres
+        blocs += [ligne({"nom": noms[e], "stock": 0, "arrivee": ""}, "retire") for e in sorted(retires, key=lambda e: noms[e].lower())]
+    return blocs if len(blocs) > 1 else []
 
 
 def main():
@@ -222,7 +196,7 @@ def main():
         if not chat:
             n = len(tg("getUpdates", timeout=0).get("result", []))
             raise SystemExit("Pas encore de conversation (%d message(s) reçu(s) par le robot) : écris /start à ton robot, puis relance." % n)
-        envoyer(chat, ["✅ C'est branché : je t'écrirai ici dès que ça bouge dans la liste Bons plans (nouveautés, ruptures, retours en stock)."])
+        envoyer(chat, ["✅ C'est branché : je t'écrirai ici dès que ça bouge chez Trista (nouveautés, ruptures, retours en stock, retraits)."])
         log("message d'essai envoyé")
         return
     liste = lire_liste()
@@ -242,12 +216,12 @@ def main():
     sel = os.path.join(os.path.dirname(sl.SITE), "selection.json")
     marques = json.load(open(sel, encoding="utf-8"))["marques"] if os.path.exists(sel) else []
     noms = etat.get("noms", {})
-    suivie = lambda nom: not sv.EXCLUS_TRISTA.search(nom) and sv.marque_trista(nom, marques)[0]  # noqa: E731
+    # 18/11/2026 (Amine) : tous les mouvements du grossiste, toutes marques confondues
     nouveaux = [e for e in liste if e not in vus]
-    retours = [e for e, d in liste.items() if vus.get(e) == 0 and d["stock"] > 0 and suivie(d["nom"])]
-    ruptures = [e for e, d in liste.items() if vus.get(e) == 1 and d["stock"] == 0 and suivie(d["nom"])]
-    retires = [e for e in vus if vus[e] == 1 and e not in liste and e in noms and suivie(noms[e])]
-    log("nouveautés : %d nouvelle(s), %d retour(s), %d rupture(s), %d retirée(s) (marques suivies pour les 3 derniers)"
+    retours = [e for e, d in liste.items() if vus.get(e) == 0 and d["stock"] > 0]
+    ruptures = [e for e, d in liste.items() if vus.get(e) == 1 and d["stock"] == 0]
+    retires = [e for e in vus if vus[e] == 1 and e not in liste and e in noms]
+    log("nouveautés : %d nouvelle(s), %d retour(s), %d rupture(s), %d retirée(s)"
         % (len(nouveaux), len(retours), len(ruptures), len(retires)))
     if ESSAI:
         return
@@ -262,12 +236,11 @@ def main():
                 log("nouveautés : Telegram configuré mais pas de /start reçu ; messages en attente")
                 envoye = False
             else:
-                site = fiches_site(s, set(nouveaux) | set(retours) | set(ruptures) | set(retires))
-                blocs, nd, nh, na = composer(nouveaux, retours, ruptures, retires, liste, noms, site, marques)
+                blocs = composer(nouveaux, retours, ruptures, retires, liste, noms)
                 if neuf:
                     blocs.insert(0, "✅ C'est branché : je t'écrirai ici dès que ça bouge.\n")
                 n = envoyer(chat, blocs) if blocs else 0
-                log("nouveautés : %d message(s) envoyé(s) (%d dans tes marques, %d autres, %d coffrets/testeurs)" % (n, nd, nh, na))
+                log("nouveautés : %d message(s) envoyé(s)" % n)
         except Exception as e:
             log("nouveautés : envoi Telegram impossible (%s)" % type(e).__name__)
             envoye = False
