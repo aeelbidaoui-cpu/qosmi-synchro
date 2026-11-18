@@ -285,7 +285,9 @@ T.update({
     "strawberry candy": ("bonbon à la fraise", "aardbeiensnoepje"), "nectarine blossom": ("fleur de nectarine", "nectarinebloesem"),
     "creamy notes": ("notes crémeuses", "romige noten"), "lactonic notes": ("notes lactées", "melkachtige noten"),
     "buttery notes": ("notes beurrées", "boterachtige noten"), "matcha tea": ("thé matcha", "matchathee"),
-    "linden": ("tilleul", "linde"),
+    "linden": ("tilleul", "linde"), "peat": ("tourbe", "turf"), "star fruit": ("carambole", "carambola"),
+    "cupcake": ("cupcake", "cupcake"), "strawberry jam": ("confiture de fraise", "aardbeienjam"), "pecan": ("noix de pécan", "pecannoot"),
+    "strawberry milk": ("lait à la fraise", "aardbeienmelk"), "rice milk": ("lait de riz", "rijstmelk"),
 })
 
 
