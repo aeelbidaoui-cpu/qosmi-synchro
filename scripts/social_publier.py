@@ -224,7 +224,7 @@ def publier_zernio(cle, p, urls, cible, maintenant):
     if prof:
         corps["profileId"] = prof
     if cible > maintenant + dt.timedelta(minutes=2):
-        corps["scheduledFor"] = cible.strftime("%Y-%m-%dT%H:%M:%S")  # Zernio publie lui-même à l'heure exacte
+        corps["scheduledFor"] = cible.isoformat(timespec="seconds")  # avec le décalage horaire : Zernio publie à l'heure exacte
         corps["timezone"] = CFG.get("fuseau", "Europe/Brussels")
     else:
         corps["publishNow"] = True
