@@ -19,6 +19,8 @@ secrets (ZERNIO_API_KEY, META_TOKEN), le robot s'arrête proprement.
 --comptes : vérifie quels comptes sont reliés dans Zernio, sans rien publier.
 --essai : montre ce qui serait publié aujourd'hui, sans rien envoyer.
 --forcer : publie tout de suite, sans attendre l'heure (en cas de rattrapage manuel).
+--test : programme tout de suite chez Zernio la prochaine publication du calendrier, à l'heure « test_heure » de
+config/social.json (test d'Amine du 18/11/2026 à 14 h), sans attendre sa date.
 """
 import datetime as dt, json, os, sys, time, urllib.error, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
@@ -337,6 +339,27 @@ def main():
         return
     tz = ZoneInfo(CFG.get("fuseau", "Europe/Brussels"))
     maintenant = dt.datetime.now(tz)
+    if "--test" in sys.argv:  # test : la prochaine publication, programmée à « test_heure »
+        cle = os.environ.get("ZERNIO_API_KEY", "").strip()
+        if not cle:
+            raise SystemExit("ZERNIO_API_KEY absent")
+        etat, lot = lire_etat(), charger_lots()
+        p = next((x for x in sorted(lot, key=lambda x: x["iso"]) if x["id"] not in etat), None)
+        if not p:
+            raise SystemExit("Rien à publier.")
+        cible = dt.datetime.fromisoformat(CFG["test_heure"]).astimezone(tz)
+        print("Test : n°%s %s — %s, programmée pour %s" % (p["n"], p["id"], p["titre"], cible.isoformat()))
+        urls = urls_publiques(p)
+        resultat = dict(publier_zernio(cle, p, urls, cible, dt.datetime.now(tz)), date=cible.date().isoformat(),
+                        n=p["n"], heure=cible.strftime("%H:%M:%S"), img=urls[:1], test=True)
+        etat[p["id"]] = resultat
+        ecrire_etat(etat)
+        print("Résultat : %s" % json.dumps(resultat, ensure_ascii=False))
+        try:
+            maj_page(etat, lot)
+        except Exception as ex:
+            print("Page Instagram non mise à jour (%s)" % ex)
+        return
     h, m = map(int, CFG.get("heure", "18:30").split(":"))
     cible = maintenant.replace(hour=h, minute=m, second=0, microsecond=0)
     if not CFG.get("actif", True) and not essai:
