@@ -70,6 +70,12 @@ def fiche(url):
 
 def main():
     force = "--force" in sys.argv
+    if not force and os.path.exists(SORTIE):  # ancien format (sans prix du jour) : on relit
+        try:
+            ancien = json.load(open(SORTIE, encoding="utf-8")).get("produits") or {}
+            force = bool(ancien) and "prix_actuel_ttc" not in next(iter(ancien.values()))
+        except Exception:
+            force = True
     if not force and os.path.exists(SORTIE) and time.time() - os.path.getmtime(SORTIE) < FRAIS_HEURES * 3600:
         print("Rituals : catalogue encore frais, rien à relire", flush=True)
         return
