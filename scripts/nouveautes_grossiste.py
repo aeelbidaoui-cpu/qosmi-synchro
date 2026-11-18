@@ -98,7 +98,10 @@ def fiches_site(s, eans):
 
 # ------------------------------------------------------------------ Telegram
 def tg(methode, **params):
-    jeton = os.environ.get("TELEGRAM_TOKEN", "").strip()
+    # le secret peut avoir été collé avec un retour à la ligne ou du texte de BotFather autour : on ne garde que le jeton
+    brut = os.environ.get("TELEGRAM_TOKEN", "")
+    m = re.search(r"\d{6,}:[A-Za-z0-9_-]{30,}", brut)
+    jeton = m.group(0) if m else brut.strip()
     req = urllib.request.Request("https://api.telegram.org/bot%s/%s" % (jeton, methode),
                                  data=urllib.parse.urlencode(params).encode())
     with urllib.request.urlopen(req, timeout=30) as r:
