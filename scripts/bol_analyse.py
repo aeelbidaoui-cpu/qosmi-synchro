@@ -92,6 +92,7 @@ def references():
     return refs
 
 
+<<<<<<< HEAD
 def ajouter_rituals(refs):
     """18/11/2026 (Amine) : tous les produits Rituals de la boutique belge (autorisation de Rituals), achetés au prix
     public belge TTC ramené en HT (facture au nom de Deway). Envoi Rituals : 3,90 € TTC sous 35 € de commande, gratuit
@@ -124,6 +125,9 @@ def ajouter_rituals(refs):
                                        "marge_nette_koopblok_eur": cfg.get("rituals_marge_min_eur", 7)}}
         ajoutes += 1
     print("Rituals : %d référence(s) ajoutée(s) à l'analyse bol" % ajoutes, flush=True)
+=======
+EXCLUS_BOL_G2 = re.compile(r"\b(tester|testeur|gwp|sample|samples|vial|vials|echantillon|échantillon|not for sale|nfs)\b", re.I)
+>>>>>>> parent of e546176 (Annule : tous les produits Trista sur bol (Amine : « oublie »))
 
 
 def ajouter_grossiste_2(refs):
@@ -153,13 +157,17 @@ def ajouter_grossiste_2(refs):
         ean = ean.zfill(13) if len(ean) <= 13 else ean
         nom = " ".join((l.get("product") or "").split())
         achat, stock = nombre(l.get("price")), int(nombre(l.get("stock")))
-        if achat <= 0 or stock <= 0 or sv.EXCLUS_TRISTA.search(nom):
+        # 18/11/2026 (Amine) : « tous les produits Trista aussi sur bol » → plus d'exclusion coffrets / soins / bougies / minis ;
+        # seuls restent exclus ce que bol interdit ou qui n'est pas vendable neuf (testeurs, échantillons, cadeaux promo).
+        if achat <= 0 or stock <= 0 or EXCLUS_BOL_G2.search(nom):
             continue
         old = refs.get(ean)
-        if old and old["stock"] > 0 and not old.get("abime"):  # chez le 1er fournisseur seulement en boîte abîmée : on prend le grossiste 2
+        achat_g2 = round(achat * (1 + maj), 2)
+        # même EAN chez les deux : une seule offre bol possible → on garde le moins cher des deux (en stock, boîte normale)
+        if old and old["stock"] > 0 and not old.get("abime") and old["achat"] <= achat_g2:
             continue
         marque = sv.marque_trista(nom, sel.get("marques", []))[0] or ""
-        refs[ean] = {"ean": ean, "achat": round(achat * (1 + maj), 2), "stock": stock, "testeur": False, "abime": False,
+        refs[ean] = {"ean": ean, "achat": achat_g2, "stock": stock, "testeur": False, "abime": False,
                      "nom": nom, "marque": marque, "source": 2}
         ajoutes += 1
     print("grossiste 2 : %d référence(s) ajoutée(s) à l'analyse bol" % ajoutes, flush=True)
