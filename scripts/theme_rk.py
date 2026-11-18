@@ -598,7 +598,7 @@ def construire(fichiers, marques):
             ("Un cadeau ?", "Offre un parfum", "La livraison en point relais est offerte dès 2 articles, partout en Belgique.", "Idées de parfums"),
             ("Een cadeau?", "Geef een parfum", "Gratis levering in een afhaalpunt vanaf 2 artikelen, in heel België.", "Parfumideeën"),
             "/collections/parfums")
-        d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_point_relais", "qk_suggestions", "qk_amb")] + ["qk_point_relais", "qk_suggestions", "qk_amb"]
+        d["order"] = ["qk_panier_livraison", "qk_point_relais"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_point_relais", "qk_suggestions", "qk_amb")] + ["qk_suggestions", "qk_amb"]
         jsons["templates/cart.json"] = ecrire(e, d)
 
     e, d = lire(fichiers["sections/header-group.json"])
