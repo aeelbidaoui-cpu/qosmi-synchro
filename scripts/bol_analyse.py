@@ -107,6 +107,8 @@ def ajouter_rituals(refs):
     ajoutes = 0
     for code, p in d.items():
         nom, prix = p.get("nom") or "", p.get("prix_ttc")
+        if cfg.get("rituals_prix_promo") and p.get("prix_actuel_ttc") and 0 < p["prix_actuel_ttc"] < (prix or 1e9):
+            prix = p["prix_actuel_ttc"]  # 18/11/2026 (Amine) : on suit la promo ; à la fin de la promo, le coût remonte et nos prix aussi
         if not prix or not p.get("ean") or re.search(r"gift ?card|cadeaukaart|e-gift", nom, re.I):
             continue
         achat = round(prix / (1 + tva), 2)

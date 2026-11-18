@@ -4,8 +4,9 @@ publier sur bol les produits Rituals (autorisation de Rituals), achetés au prix
 
   python3 scripts/bol_rituals.py            → base/rituals_catalogue.json (gardé 20 h)
 
-Pour chaque fiche produit du plan du site nl-be : code article, nom, catégorie, prix public BE TTC (prix « consumer »,
-jamais le prix promo, pour ne pas vendre à perte quand une promo se termine) et disponibilité.
+Pour chaque fiche produit du plan du site nl-be : code article, nom, catégorie, prix public BE TTC (prix « consumer »),
+prix du jour (promo comprise) et disponibilité. 18/11/2026 (Amine) : nos prix bol suivent le prix promo, et remontent
+quand la promo se termine (catalogue relu toutes les 5 h).
 EAN = 8719134 + 5 derniers chiffres du code article + chiffre de contrôle (vérifié sur les paires code/EAN de leurs pages).
 Le journal n'affiche que des nombres (dépôt public) : aucun prix ni nom de produit.
 """
@@ -21,7 +22,7 @@ RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SORTIE = os.path.join(RACINE, "base", "rituals_catalogue.json")
 SITE = "https://www.rituals.com"
 AGENT = "Mozilla/5.0 (compatible; Qosmi-catalogue/1.0; +https://qosmi.be)"
-FRAIS_HEURES = 20
+FRAIS_HEURES = 5  # 18/11/2026 : relu toutes les 5 h pour suivre le début et la fin des promos
 
 
 def lire(url, essais=3):
@@ -59,8 +60,12 @@ def fiche(url):
     m = re.search(r'"prices":\[\{"country":"BE"[^\]]*?"priceInclVAT":"([\d.]+)"[^\]]*?"type":"consumer"', u)
     off = p.get("offers") or {}
     paires = re.findall(r'"tradeCode":"(\d{7})"[\s\S]{0,700}?"eanCode":"(\d{13})"', u)
+    try:
+        actuel = float(off.get("price")) if off.get("price") not in (None, "") else None
+    except (TypeError, ValueError):
+        actuel = None
     return code, {"nom": p.get("name") or "", "cat": cat, "prix_ttc": float(m.group(1)) if m else None,
-                  "dispo": str(off.get("availability", "")).rsplit("/", 1)[-1]}, paires
+                  "prix_actuel_ttc": actuel, "dispo": str(off.get("availability", "")).rsplit("/", 1)[-1]}, paires
 
 
 def main():
@@ -88,8 +93,9 @@ def main():
     os.makedirs(os.path.dirname(SORTIE), exist_ok=True)
     with open(SORTIE, "w", encoding="utf-8") as f:
         json.dump({"date": time.time(), "produits": cat}, f, ensure_ascii=False)
-    print("Rituals : %d fiches lues, %d avec prix, %d en stock, %d erreurs ; règle EAN vérifiée sur %d/%d paires"
-          % (len(urls), len(cat), sum(1 for d in cat.values() if d["dispo"] == "InStock"), erreurs, ok, len(paires)), flush=True)
+    promo = sum(1 for d in cat.values() if d.get("prix_actuel_ttc") and d["prix_actuel_ttc"] < d["prix_ttc"] - 0.005)
+    print("Rituals : %d fiches lues, %d avec prix, %d en stock, %d en promo, %d erreurs ; règle EAN vérifiée sur %d/%d paires"
+          % (len(urls), len(cat), sum(1 for d in cat.values() if d["dispo"] == "InStock"), promo, erreurs, ok, len(paires)), flush=True)
 
 
 if __name__ == "__main__":

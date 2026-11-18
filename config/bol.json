@@ -76,5 +76,7 @@
  "rituals_franco_ttc": 35,
  "rituals_envoi_ttc": 0,
  "rituals_marge_min_eur": 7,
- "_note_rituals": "18/11/2026 (Amine) : tous les produits Rituals de la boutique belge sur bol (autorisation de Rituals). Coût = prix public BE TTC / 1,21 (facture Deway), jamais le prix promo ; aucun envoi d'achat : Amine récupère toujours les produits en magasin (18/11/2026 22 h 41) ; au moins 7 € net sur chaque vente, koopblok compris. Catalogue relu chaque jour (scripts/bol_rituals.py)."
+ "_note_rituals": "18/11/2026 (Amine) : tous les produits Rituals de la boutique belge sur bol (autorisation de Rituals). Coût = prix public BE TTC / 1,21 (facture Deway), jamais le prix promo ; aucun envoi d'achat : Amine récupère toujours les produits en magasin (18/11/2026 22 h 41) ; au moins 7 € net sur chaque vente, koopblok compris. Catalogue relu chaque jour (scripts/bol_rituals.py).",
+ "rituals_prix_promo": true,
+ "_note_rituals_prix_promo": "18/11/2026 22 h 42 (Amine) : le coût Rituals suit le prix du jour (promo comprise) ; catalogue relu toutes les 5 h, nos prix bol remontent quand la promo finit. À faire : acheter chez Rituals le jour même de la commande bol, tant que la promo court."
 }
