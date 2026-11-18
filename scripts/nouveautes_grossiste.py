@@ -212,6 +212,11 @@ def main():
     if TEST:
         if not configure:
             raise SystemExit("TELEGRAM_TOKEN absent")
+        brut = os.environ.get("TELEGRAM_TOKEN", "")
+        lignes = [l for l in brut.splitlines() if l.strip()]
+        log("secret TELEGRAM_TOKEN : %d ligne(s) non vide(s), %d caractères, « : » présent : %s, motif de jeton reconnu : %s, "
+            "longueurs des lignes : %s" % (len(lignes), len(brut), ":" in brut,
+                                           bool(re.search(r"\d{6,}:[A-Za-z0-9_-]{30,}", brut)), [len(l) for l in lignes]))
         s = Shopify()
         chat, neuf = conversation(s)
         if not chat:
