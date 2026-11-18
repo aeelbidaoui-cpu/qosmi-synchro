@@ -76,7 +76,8 @@ document.querySelectorAll('[data-qk-acheter]').forEach(function (b) {
 </script>
 {%- endif -%}"""
 CARTE_TEXTE = "{% render 'qk-carte-texte', product: closest.product %}"
-LIVRAISON = "Livraison 2,95 € · offerte dès 2 articles"  # formulation sans « sinon » (demande d'Amine du 08/11/2026, 22 h) ; sans délai (demande d'Amine du 08/11/2026 : le délai est donné au paiement et dans les pages légales)
+LIVRAISON = "Point relais 2,95 € · offert dès 2 articles · à domicile 6,95 €"  # 18/11/2026 (Amine)
+LIVRAISON_ANCIEN = "Livraison 2,95 € · offerte dès 2 articles"  # formulation sans « sinon » (demande d'Amine du 08/11/2026, 22 h) ; sans délai (demande d'Amine du 08/11/2026 : le délai est donné au paiement et dans les pages légales)
 # « Le parfum du jour » sur l'accueil (demande d'Amine du 08/11/2026) : grandes marques et parfums très connus, prix habituel.
 # Un par jour à tour de rôle ; ceux qui ne sont pas en ligne, en stock et avec photo sont sautés automatiquement.
 DU_JOUR = [
@@ -120,7 +121,7 @@ ARABES_VEDETTES = [  # 08/11/2026 : grands succès arabes réellement en ligne (
     "armaf-club-de-nuit-untold-eau-de-parfum-mixte", "hamidi-the-lost-paradise-sublime-cherry-eau-de-parfum-mixte",
     "amouage-existence-eau-de-parfum-mixte", "lattafa-khamrah-eau-de-parfum-mixte", "lattafa-yara-eau-de-parfum-pour-femme",
     "rasasi-hawas-eau-de-parfum-pour-homme", "afnan-9pm-eau-de-parfum-pour-homme", "lattafa-asad-eau-de-parfum-pour-homme"]
-ANNONCES = ["Livraison offerte dès 2 articles",
+ANNONCES = ["Livraison offerte en point relais dès 2 articles",
             "Livraison suivie partout en Belgique",
             "Parfums 100 % authentiques et neufs",
             "Plus de 100 maisons, des grands classiques à la niche",
@@ -504,7 +505,7 @@ def construire(fichiers, marques):
     for k in ("qosmi_livraison", "qosmi_garanties"):
         det["blocks"].pop(k, None)
     det["blocks"]["qk_livraison"] = liquide(
-        "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Verzending € 2,95 · gratis vanaf 2 artikelen"
+        "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Afhaalpunt € 2,95 · gratis vanaf 2 artikelen · aan huis € 6,95"
         "{% else %}" + LIVRAISON + "{% endif %}</p>")
     det["blocks"]["qk_rassurance"] = liquide(
         "<div class=\"qk-rassurance\">{% if request.locale.iso_code == 'nl' %}"
@@ -531,8 +532,8 @@ def construire(fichiers, marques):
                     b["settings"]["text"] = "<h3>Tu aimeras aussi</h3>"
     cartes(d)
     d["sections"]["qk_amb"] = ambiance(6, "Flacon de parfum sur une fourrure blanche", "gauche",
-        ("Qosmi", "100 % authentique", "Chaque parfum est neuf et d'origine. Livraison partout en Belgique, offerte dès 2 articles.", "Nos marques"),
-        ("Qosmi", "100% origineel", "Elk parfum is nieuw en origineel. Levering in heel België, gratis vanaf 2 artikelen.", "Onze merken"),
+        ("Qosmi", "100 % authentique", "Chaque parfum est neuf et d'origine. Livraison partout en Belgique, offerte en point relais dès 2 articles.", "Nos marques"),
+        ("Qosmi", "100% origineel", "Elk parfum is nieuw en origineel. Levering in heel België, gratis in een afhaalpunt vanaf 2 artikelen.", "Onze merken"),
         "/pages/marques")
     d["order"] = [k for k in d["order"] if k != "qk_amb"] + ["qk_amb"]
     # « Préviens-moi quand il revient » (12/11/2026) : la section se place d'elle-même sous le bouton d'achat
@@ -593,8 +594,8 @@ def construire(fichiers, marques):
             del d["sections"][k]
         d["sections"]["qk_suggestions"] = {"type": "qk-suggestions", "settings": {"titre": "Tu aimeras aussi", "produits": DU_JOUR, "nombre": 8}}
         d["sections"]["qk_amb"] = ambiance(5, "Pivoine blanche dans un petit flacon de verre", "droite",
-            ("Un cadeau ?", "Offre un parfum", "La livraison est offerte dès 2 articles, partout en Belgique.", "Idées de parfums"),
-            ("Een cadeau?", "Geef een parfum", "Gratis levering vanaf 2 artikelen, in heel België.", "Parfumideeën"),
+            ("Un cadeau ?", "Offre un parfum", "La livraison en point relais est offerte dès 2 articles, partout en Belgique.", "Idées de parfums"),
+            ("Een cadeau?", "Geef een parfum", "Gratis levering in een afhaalpunt vanaf 2 artikelen, in heel België.", "Parfumideeën"),
             "/collections/parfums")
         d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_suggestions", "qk_amb")] + ["qk_suggestions", "qk_amb"]
         jsons["templates/cart.json"] = ecrire(e, d)

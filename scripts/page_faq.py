@@ -32,9 +32,9 @@ FAQ = [
     ]),
     ("Livraison", "Levering", [
         ("Combien coûte la livraison ?",
-         "2,95 € par commande, et la livraison est <strong>offerte dès 2 articles</strong>.",
+         "Point relais Mondial Relay : 2,95 €, <strong>offert dès 2 articles</strong>. Livraison à domicile : 6,95 €.",
          "Hoeveel kost de verzending?",
-         "€ 2,95 per bestelling, en de verzending is <strong>gratis vanaf 2 artikelen</strong>."),
+         "Mondial Relay-afhaalpunt: € 2,95, <strong>gratis vanaf 2 artikelen</strong>. Levering aan huis: € 6,95."),
         ("Quand vais-je recevoir mon colis ?",
          "En 3 à 6 jours ouvrables après la confirmation du paiement. Le délai de ta commande est rappelé dans l'e-mail de confirmation.",
          "Wanneer ontvang ik mijn pakket?",

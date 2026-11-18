@@ -110,8 +110,8 @@ NL = {
  "<p>Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, neufs, au juste prix. On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, et on te les livre partout en Belgique.</p>":
      "<p>Qosmi is een Belgische onlineparfumerie, eenvoudig en eerlijk: 100 % authentieke, nieuwe parfums aan de juiste prijs. We kiezen de huizen die we graag hebben, van de grote klassiekers tot nichecreateurs, en leveren ze in heel België.</p>",
  "Voir tous les parfums": "Alle parfums bekijken", "<h1>Collections</h1>": "<h1>Collecties</h1>", "Submit": "Verzenden",
- "Livraison offerte dès 2 articles\nLivraison suivie partout en Belgique\nParfums 100 % authentiques et neufs\nPlus de 100 maisons, des grands classiques à la niche\nPaiement sécurisé : Bancontact, carte, Apple Pay\n14 jours pour changer d'avis":
-     "Gratis levering vanaf 2 artikelen\nLevering in heel België\n100 % authentieke en nieuwe parfums\nMeer dan 100 huizen, van grote klassiekers tot niche\nVeilig betalen: Bancontact, kaart, Apple Pay\n14 dagen bedenktijd",
+ "Livraison offerte en point relais dès 2 articles\nLivraison suivie partout en Belgique\nParfums 100 % authentiques et neufs\nPlus de 100 maisons, des grands classiques à la niche\nPaiement sécurisé : Bancontact, carte, Apple Pay\n14 jours pour changer d'avis":
+     "Gratis levering in een afhaalpunt vanaf 2 artikelen\nLevering in heel België\n100 % authentieke en nieuwe parfums\nMeer dan 100 huizen, van grote klassiekers tot niche\nVeilig betalen: Bancontact, kaart, Apple Pay\n14 dagen bedenktijd",
 }
 MARQUES_INTRO = ("<p>Toutes les maisons que nous proposons, des grands classiques aux créateurs de niche.</p>",
                  "<p>Alle huizen die we aanbieden, van de grote klassiekers tot nichecreateurs.</p>")
