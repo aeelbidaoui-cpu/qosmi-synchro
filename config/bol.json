@@ -63,7 +63,7 @@
  "_note_ean_interdits": "09/11/2026 : ingrédients interdits dans l'UE (Lilial, D5) — voir config/selection.json « ean_interdits ».",
  "_note_pause_sans_marche": "09/11/2026 16 h : pause des créations « seul vendeur sans marché » (validée par Amine) — fiches bol non publiées (4004), sans photo. Les offres déjà en ligne restent. Reprendre quand l'envoi de photos aura prouvé qu'il débloque les fiches.",
  "grossiste_2": true,
- "_note_grossiste_2": "18/11/2026 23 h 05 (Amine) : Trista remis sur bol, comme le 17/11 : ses produits sont publiés quand l'EAN manque chez SoleLuna ou y est épuisé (coût = prix HT + 2 %). (Retiré à 22 h 25, remis après la commande Tero à 44 € net.)",
+ "_note_grossiste_2": "18/11/2026 23 h 06 (Amine) : TOUS les produits Trista sur bol, même si SoleLuna a le produit ou l'a épuisé ; coût = prix Trista HT + 2 %. bol n'accepte qu'une offre par EAN : quand les deux l'ont en stock, on prend le moins cher. Seuls testeurs, échantillons et cadeaux promo sont exclus.",
  "_note_delai_livraison": "17/11/2026 (Amine) : toujours le délai le plus long possible. 1-8d est le plus long des délais fixes de bol ; plus long n'existe qu'avec « MijnLeverbelofte », réglé dans le compte vendeur.",
  "envoi_client_bol_bpost_ht": {
   "BE": 6.9,

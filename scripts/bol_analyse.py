@@ -92,7 +92,6 @@ def references():
     return refs
 
 
-<<<<<<< HEAD
 def ajouter_rituals(refs):
     """18/11/2026 (Amine) : tous les produits Rituals de la boutique belge (autorisation de Rituals), achetés au prix
     public belge TTC ramené en HT (facture au nom de Deway). Envoi Rituals : 3,90 € TTC sous 35 € de commande, gratuit
@@ -125,14 +124,14 @@ def ajouter_rituals(refs):
                                        "marge_nette_koopblok_eur": cfg.get("rituals_marge_min_eur", 7)}}
         ajoutes += 1
     print("Rituals : %d référence(s) ajoutée(s) à l'analyse bol" % ajoutes, flush=True)
-=======
+
+
 EXCLUS_BOL_G2 = re.compile(r"\b(tester|testeur|gwp|sample|samples|vial|vials|echantillon|échantillon|not for sale|nfs)\b", re.I)
->>>>>>> parent of e546176 (Annule : tous les produits Trista sur bol (Amine : « oublie »))
 
 
 def ajouter_grossiste_2(refs):
     """17/11/2026 (Amine) : les parfums de la liste « Bons plans » vont aussi sur bol, au délai le plus long.
-    Pris quand l'EAN manque chez le 1er fournisseur ou y est épuisé. Coût = prix HT + 2 % (comme les Bons plans) ;
+    18/11/2026 23 h 06 : TOUS les produits Trista, même si SoleLuna a le produit (une offre par EAN : le moins cher des deux). Coût = prix HT + 2 % (comme les Bons plans) ;
     l'envoi fournisseur par pièce est celui de la règle bol (envoi_fournisseur_eur). Testeurs, coffrets, minis exclus."""
     import site_variantes as sv
     if not os.path.exists(sv.TRISTA):
