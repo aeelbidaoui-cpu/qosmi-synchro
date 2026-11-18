@@ -294,7 +294,8 @@ def decider_tout(cfg, refs, marche, bol=None):
         decisions[e]["marque"] = ref.get("marque", "")
         decisions[e]["fournisseur"] = ref.get("source") or 1  # 18/11/2026 : où commander (1 = catalogue, 2 = Bons plans, 3 = boutique de la marque)
         b = (m or {}).get("bornes", {})
-        lignes.append({"decision": d["decision"], "ean": e, "nom": ref["nom"], "stock_fournisseur": ref["stock"],
+        lignes.append({"source": {2: "Trista", 3: "Rituals"}.get(ref.get("source"), "SoleLuna"),
+                       "decision": d["decision"], "ean": e, "nom": ref["nom"], "stock_fournisseur": ref["stock"],
                        "achat": ref["achat"], "cout_total_ht": round(regle.cout_ht(ref["achat"], regle.cfg_pour(ref, cfg)), 2),
                        "comm_fixe": (m or {}).get("comm", ["", ""])[0] if (m or {}).get("comm") else "",
                        "comm_pct": round(m["comm"][1] * 100, 1) if (m or {}).get("comm") else "",
@@ -325,6 +326,19 @@ def rapports(lignes, cfg):
     if oui:
         txt += ["", "À mettre en vente : %d références, gain net moyen %.2f € par vente." %
                 (len(oui), sum(l["net"] for l in oui) / len(oui))]
+    # 18/11/2026 : détail par source (nombres seulement, codes neutres : le journal du dépôt est public)
+    code = {"SoleLuna": "source 1", "Trista": "source 2", "Rituals": "source 3"}
+    for src in ("SoleLuna", "Trista", "Rituals"):
+        ls = [l for l in lignes if l.get("source") == src]
+        if not ls:
+            continue
+        o = [l for l in ls if l["decision"].startswith("oui")]
+        par = {}
+        for l in ls:
+            par[l["decision"].split(" (")[0]] = par.get(l["decision"].split(" (")[0], 0) + 1
+        txt += ["", "%s : %d références, %d vendables (gain net moyen %.2f €) · %s" % (
+            code[src], len(ls), len(o), (sum(l["net"] for l in o) / len(o)) if o else 0,
+            " · ".join("%s %d" % (k, v) for k, v in sorted(par.items(), key=lambda kv: -kv[1])))]
     with open(os.path.join(RAPPORTS, "bol_analyse.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(txt) + "\n")
     print("\n".join(txt))
