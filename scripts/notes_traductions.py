@@ -268,6 +268,26 @@ T.update({"woodsy notes": ("notes boisées", "houtige noten"), "indian oud": ("o
     "indian spices": ("épices indiennes", "Indiase specerijen"), "jackfruit": ("jacquier", "jackfruit")})
 
 
+
+# 18/11/2026 : notes relevées sur les sites officiels des marques (Xerjoff, Tiziana Terenzi…), traduites à la main
+T.update({
+    "ebony": ("ébène", "ebbenhout"), "tea rose": ("rose thé", "theeroos"), "cane sugar": ("sucre de canne", "rietsuiker"),
+    "cut grass": ("herbe coupée", "gemaaid gras"), "larch": ("mélèze", "lork"), "iroko": ("bois d'iroko", "irokohout"),
+    "santolina": ("santoline", "heiligenbloem"), "nettle": ("ortie", "brandnetel"), "sand": ("sable", "zand"),
+    "musk rose": ("rose musquée", "muskusroos"), "fir balsam": ("baume de sapin", "sparrenbalsem"), "laurel": ("laurier", "laurier"),
+    "fern": ("fougère", "varen"), "talc": ("talc", "talk"), "cade": ("huile de cade", "cade-olie"), "malt": ("malt", "mout"),
+    "burnt malt": ("malt grillé", "geroosterde mout"), "shamama": ("accord shamama", "shamama-akkoord"),
+    "palisander": ("palissandre", "palissander"), "earth": ("terre", "aarde"), "truffle": ("truffe", "truffel"),
+    "white truffle": ("truffe blanche", "witte truffel"), "green pepper": ("poivre vert", "groene peper"),
+    "acacia honey": ("miel d'acacia", "acaciahoning"), "aloe vera": ("aloe vera", "aloë vera"), "mignonette": ("réséda", "reseda"),
+    "pineapple blossom": ("fleur d'ananas", "ananasbloesem"), "nutty notes": ("notes de fruits secs", "nootachtige noten"),
+    "tropical notes": ("notes tropicales", "tropische noten"), "gourmand notes": ("notes gourmandes", "gourmand noten"),
+    "strawberry candy": ("bonbon à la fraise", "aardbeiensnoepje"), "nectarine blossom": ("fleur de nectarine", "nectarinebloesem"),
+    "creamy notes": ("notes crémeuses", "romige noten"), "lactonic notes": ("notes lactées", "melkachtige noten"),
+    "buttery notes": ("notes beurrées", "boterachtige noten"), "matcha tea": ("thé matcha", "matchathee"),
+})
+
+
 def traduire(note):
     """('fr', 'nl') ou None si inconnue."""
     return T.get(note.strip().lower())
