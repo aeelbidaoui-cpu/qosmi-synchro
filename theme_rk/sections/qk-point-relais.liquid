@@ -12,9 +12,9 @@
 <div class="qk-largeur qk-pr" id="qk-pr">
   <p class="qk-pr__titre">{% if qk_nl %}Levering in een afhaalpunt?{% else %}Livraison en point relais ?{% endif %}</p>
   <p class="qk-pr__choisi" id="qk-pr-choisi"{% if qk_pr == blank %} hidden{% endif %}>
-    {% if qk_nl %}Gekozen afhaalpunt:{% else %}Point relais choisi :{% endif %} <strong id="qk-pr-nom">{{ qk_pr | escape }}</strong>
+    {% if qk_nl %}✓ Gekozen afhaalpunt:{% else %}✓ Point relais choisi :{% endif %} <strong id="qk-pr-nom">{{ qk_pr | escape }}</strong>
   </p>
-  <p class="qk-pr__aide">{% if qk_nl %}Kies hieronder je Mondial Relay-afhaalpunt, en kies daarna bij het afrekenen « Mondial Relay-afhaalpunt ». Kies je niets, dan nemen we het afhaalpunt het dichtst bij je adres.{% else %}Choisis ici ton point relais Mondial Relay, puis prends « Point relais Mondial Relay » au paiement. Sans choix, on prend le point relais le plus proche de ton adresse.{% endif %}</p>
+  <p class="qk-pr__aide">{% if qk_nl %}Tik op de knop, vul je postcode in en kies je Mondial Relay-afhaalpunt in de lijst. Kies daarna bij het afrekenen « Mondial Relay-afhaalpunt ». Kies je niets, dan nemen we het afhaalpunt het dichtst bij je adres.{% else %}Clique sur le bouton, entre ton code postal et choisis ton point relais Mondial Relay dans la liste. Prends ensuite « Point relais Mondial Relay » au paiement. Sans choix, on prend le point relais le plus proche de ton adresse.{% endif %}</p>
   <button type="button" class="qk-pr__bouton" id="qk-pr-ouvrir">{% if qk_pr == blank %}{% if qk_nl %}Kies mijn afhaalpunt{% else %}Choisir mon point relais{% endif %}{% else %}{% if qk_nl %}Ander afhaalpunt kiezen{% else %}Changer de point relais{% endif %}{% endif %}</button>
   <div id="qk-pr-zone" class="qk-pr__zone" hidden></div>
   <input type="hidden" id="qk-pr-cible">
@@ -27,6 +27,12 @@
   .qk-pr__bouton { background: #111; color: #fff; border: 0; padding: 11px 18px; text-transform: uppercase; letter-spacing: .06em; font-size: 13px; cursor: pointer; }
   .qk-pr__zone { margin-top: 14px; }
   .qk-pr__zone .MRW-Results, .qk-pr__zone #MRW-Map { max-width: 100%; }
+  /* 18/11/2026 : sur mobile, le widget superposait la liste à la carte (carte presque invisible) → carte en haut, liste dessous */
+  #qk-pr-zone .MRW-Results { height: auto !important; position: static !important; display: flex !important; flex-direction: column; }
+  #qk-pr-zone .MRW-Map { order: 0; position: relative !important; left: auto !important; top: auto !important; width: 100% !important; height: 320px !important; display: block !important; }
+  #qk-pr-zone .MRW-RList { order: 1; position: static !important; width: 100% !important; height: auto !important; max-height: 280px; overflow-y: auto; display: block !important; margin-top: 10px; }
+  #qk-pr-zone .MRW-ButtonCircle { display: none !important; }
+  .qk-pr__choisi strong { font-weight: 600; }
 </style>
 <script>
 (function () {
@@ -41,9 +47,12 @@
     fetch('{{ routes.cart_update_url }}.js', { method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ attributes: { 'Point relais Mondial Relay': texte } }) })
       .then(function () {
+        var choisi = document.getElementById('qk-pr-choisi');
         document.getElementById('qk-pr-nom').textContent = texte;
-        document.getElementById('qk-pr-choisi').hidden = false;
+        choisi.hidden = false;
         bouton.textContent = nl ? 'Ander afhaalpunt kiezen' : 'Changer de point relais';
+        zone.hidden = true;  /* le choix est fait : on referme la carte et on montre le point retenu */
+        document.getElementById('qk-pr').scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
   }
   bouton.addEventListener('click', function () {
@@ -61,6 +70,8 @@
           Target: '#qk-pr-cible',
           Brand: 'CC245ET3',
           Country: 'BE',
+          PostCode: {{ customer.default_address.zip | default: '' | json }},
+          EnableGeolocalisatedSearch: false,  /* la géolocalisation remplissait la ville sans le code postal → message d'erreur */
           AllowedCountries: 'BE',
           ColLivMod: '24R',
           NbResults: '7',
