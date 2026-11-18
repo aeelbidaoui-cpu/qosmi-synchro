@@ -584,6 +584,7 @@ def construire(fichiers, marques):
     if "templates/cart.json" in fichiers:
         e, d = lire(fichiers["templates/cart.json"])
         d["sections"]["qk_panier_livraison"] = {"type": "qk-panier-livraison", "settings": {}}
+        d["sections"]["qk_point_relais"] = {"type": "qk-point-relais", "settings": {}}  # 18/11/2026 : carte Mondial Relay
         # panier en français et suggestions variées (demande d'Amine du 08/11/2026) : titre « Panier » ; la liste
         # « You may also like » du thème (4 premiers produits du catalogue, tous pareils) est remplacée par qk-suggestions
         for sec in d["sections"].values():
@@ -597,7 +598,7 @@ def construire(fichiers, marques):
             ("Un cadeau ?", "Offre un parfum", "La livraison en point relais est offerte dès 2 articles, partout en Belgique.", "Idées de parfums"),
             ("Een cadeau?", "Geef een parfum", "Gratis levering in een afhaalpunt vanaf 2 artikelen, in heel België.", "Parfumideeën"),
             "/collections/parfums")
-        d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_suggestions", "qk_amb")] + ["qk_suggestions", "qk_amb"]
+        d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_point_relais", "qk_suggestions", "qk_amb")] + ["qk_point_relais", "qk_suggestions", "qk_amb"]
         jsons["templates/cart.json"] = ecrire(e, d)
 
     e, d = lire(fichiers["sections/header-group.json"])

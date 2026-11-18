@@ -1,0 +1,89 @@
+{%- comment -%}
+  Choix du point relais Mondial Relay dans le panier (demande d'Amine du 18/11/2026).
+  Carte officielle et gratuite de Mondial Relay (widget « Parcelshop Picker », code enseigne public CC245ET3).
+  Le point choisi est enregistré dans les attributs du panier (« Point relais Mondial Relay »), repris dans la commande.
+  Sans choix, Qosmi prend le point relais le plus proche de l'adresse de livraison (CGV art. 4.1).
+  Les scripts (jQuery, Leaflet, widget) ne se chargent qu'au clic, pour ne pas ralentir le panier.
+{%- endcomment -%}
+{%- assign qk_nl = false -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if cart.item_count > 0 -%}
+{%- assign qk_pr = cart.attributes['Point relais Mondial Relay'] -%}
+<div class="qk-largeur qk-pr" id="qk-pr">
+  <p class="qk-pr__titre">{% if qk_nl %}Levering in een afhaalpunt?{% else %}Livraison en point relais ?{% endif %}</p>
+  <p class="qk-pr__choisi" id="qk-pr-choisi"{% if qk_pr == blank %} hidden{% endif %}>
+    {% if qk_nl %}Gekozen afhaalpunt:{% else %}Point relais choisi :{% endif %} <strong id="qk-pr-nom">{{ qk_pr | escape }}</strong>
+  </p>
+  <p class="qk-pr__aide">{% if qk_nl %}Kies hieronder je Mondial Relay-afhaalpunt, en kies daarna bij het afrekenen « Mondial Relay-afhaalpunt ». Kies je niets, dan nemen we het afhaalpunt het dichtst bij je adres.{% else %}Choisis ici ton point relais Mondial Relay, puis prends « Point relais Mondial Relay » au paiement. Sans choix, on prend le point relais le plus proche de ton adresse.{% endif %}</p>
+  <button type="button" class="qk-pr__bouton" id="qk-pr-ouvrir">{% if qk_pr == blank %}{% if qk_nl %}Kies mijn afhaalpunt{% else %}Choisir mon point relais{% endif %}{% else %}{% if qk_nl %}Ander afhaalpunt kiezen{% else %}Changer de point relais{% endif %}{% endif %}</button>
+  <div id="qk-pr-zone" class="qk-pr__zone" hidden></div>
+  <input type="hidden" id="qk-pr-cible">
+</div>
+<style>
+  .qk-pr { border: 1px solid #e5e5e5; padding: 16px 18px; margin: 12px auto 20px; }
+  .qk-pr__titre { font-weight: 600; margin: 0 0 6px; }
+  .qk-pr__aide { font-size: 14px; color: #555; margin: 6px 0 12px; }
+  .qk-pr__choisi { margin: 0 0 6px; }
+  .qk-pr__bouton { background: #111; color: #fff; border: 0; padding: 11px 18px; text-transform: uppercase; letter-spacing: .06em; font-size: 13px; cursor: pointer; }
+  .qk-pr__zone { margin-top: 14px; }
+  .qk-pr__zone .MRW-Results, .qk-pr__zone #MRW-Map { max-width: 100%; }
+</style>
+<script>
+(function () {
+  var bouton = document.getElementById('qk-pr-ouvrir'), zone = document.getElementById('qk-pr-zone');
+  var nl = {{ qk_nl | json }}, charge = false;
+  function script(src) {
+    return new Promise(function (ok, ko) { var s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = ko; document.head.appendChild(s); });
+  }
+  function css(href) { var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = href; document.head.appendChild(l); }
+  function enregistrer(d) {
+    var texte = [d.ID, d.Nom, [d.Adresse1, d.Adresse2].filter(Boolean).join(' '), d.CP + ' ' + d.Ville].filter(Boolean).join(' · ');
+    fetch('{{ routes.cart_update_url }}.js', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ attributes: { 'Point relais Mondial Relay': texte } }) })
+      .then(function () {
+        document.getElementById('qk-pr-nom').textContent = texte;
+        document.getElementById('qk-pr-choisi').hidden = false;
+        bouton.textContent = nl ? 'Ander afhaalpunt kiezen' : 'Changer de point relais';
+      });
+  }
+  bouton.addEventListener('click', function () {
+    zone.hidden = false;
+    if (charge) return;
+    charge = true;
+    bouton.disabled = true;
+    css('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+    (window.jQuery ? Promise.resolve() : script('https://code.jquery.com/jquery-3.7.1.min.js'))
+      .then(function () { return script('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'); })
+      .then(function () { return script('https://widget.mondialrelay.com/parcelshop-picker/jquery.plugin.mondialrelay.parcelshoppicker.min.js'); })
+      .then(function () {
+        bouton.disabled = false;
+        window.jQuery('#qk-pr-zone').MR_ParcelShopPicker({
+          Target: '#qk-pr-cible',
+          Brand: 'CC245ET3',
+          Country: 'BE',
+          AllowedCountries: 'BE',
+          ColLivMod: '24R',
+          NbResults: '7',
+          Responsive: true,
+          ShowResultsOnMap: true,
+          OnParcelShopSelected: enregistrer
+        });
+      })
+      .catch(function () {
+        bouton.disabled = false;
+        zone.textContent = nl ? 'De kaart kon niet laden. Geen probleem: we kiezen het afhaalpunt het dichtst bij je adres.'
+                              : "La carte n'a pas pu se charger. Pas de souci : on prendra le point relais le plus proche de ton adresse.";
+      });
+  });
+})();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Qosmi · Point relais",
+  "tag": "section",
+  "settings": [],
+  "presets": [{ "name": "Qosmi · Point relais" }]
+}
+{% endschema %}
