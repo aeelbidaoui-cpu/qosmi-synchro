@@ -285,6 +285,7 @@ T.update({
     "strawberry candy": ("bonbon à la fraise", "aardbeiensnoepje"), "nectarine blossom": ("fleur de nectarine", "nectarinebloesem"),
     "creamy notes": ("notes crémeuses", "romige noten"), "lactonic notes": ("notes lactées", "melkachtige noten"),
     "buttery notes": ("notes beurrées", "boterachtige noten"), "matcha tea": ("thé matcha", "matchathee"),
+    "linden": ("tilleul", "linde"),
 })
 
 
