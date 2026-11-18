@@ -90,6 +90,97 @@ def legende(p):
     return t
 
 
+def legende_plateforme(p, plateforme):
+    """18/11/2026 (Amine) : un lien direct vers le site sous chaque publication.
+    Facebook : liens cliquables vers les fiches des parfums. Instagram : liens non cliquables dans les légendes,
+    donc renvoi vers le lien de la bio (page qosmi.be/pages/instagram, mise à jour par ce robot)."""
+    texte = legende(p)
+    nl = p.get("langue") == "nl"
+    if plateforme == "facebook":
+        prefixe = "https://qosmi.be/nl/products/" if nl else "https://qosmi.be/products/"
+        liens = ["👉 " + prefixe + h for h in p.get("produits") or []] or ["👉 https://qosmi.be" + ("/nl" if nl else "")]
+        ajout = "\n".join(liens)
+    else:
+        ajout = "🔗 Link in bio om te bestellen" if nl else "🔗 Lien en bio pour le commander"
+    tags = p.get("tags_nl") if nl and p.get("tags_nl") else p.get("tags")
+    if tags and texte.endswith(tags):  # avant les hashtags
+        return texte[: -len(tags)].rstrip() + "\n\n" + ajout + "\n\n" + tags
+    return texte + "\n\n" + ajout
+
+
+# ---------------------------------------------------------------- page « Vu sur Instagram » (lien de la bio)
+PAGE = {"handle": "instagram", "titre": "Vu sur Instagram", "titre_nl": "Gezien op Instagram", "handle_nl": "instagram"}
+
+
+def fiche_publique(handle, nl=False):
+    try:
+        with urllib.request.urlopen("https://qosmi.be%s/products/%s.js" % ("/nl" if nl else "", handle), timeout=30) as r:
+            d = json.loads(r.read())
+        return d.get("title"), d.get("price", 0) / 100, d.get("available")
+    except Exception:
+        return None, None, None
+
+
+def corps_page(etat, lots, nl):
+    import html
+    e = lambda x: html.escape(x or "", quote=True)  # noqa: E731
+    par_id = {p["id"]: p for p in lots}
+    faites = sorted(((v.get("date", ""), k) for k, v in etat.items() if k in par_id), reverse=True)[:30]
+    cartes = []
+    for date, pid in faites:
+        p, v = par_id[pid], etat[pid]
+        titre = (p.get("titre_nl") if nl else None) or p["titre"]
+        img = (v.get("img") or [None])[0]
+        boutons = []
+        for h in p.get("produits") or []:
+            nom, prix, dispo = fiche_publique(h, nl)
+            if not nom:
+                continue
+            lib = ("Bekijk" if nl else "Voir") + (" · %s" % ("%.2f €" % prix).replace(".", ",") if prix else "")
+            boutons.append('<a class="qk-insta__btn" href="%s/products/%s">%s<br><small>%s</small></a>'
+                           % ("/nl" if nl else "", e(h), e(lib), e(nom)))
+        if not boutons:
+            boutons.append('<a class="qk-insta__btn" href="%s/collections/all">%s</a>'
+                           % ("/nl" if nl else "", "Ontdek onze parfums" if nl else "Découvrir nos parfums"))
+        cartes.append('<div class="qk-insta__carte">%s<p class="qk-insta__titre">%s</p>%s</div>'
+                      % ('<img src="%s" alt="%s" loading="lazy" width="540" height="675">' % (e(img), e(titre)) if img else "",
+                         e(titre), "".join(boutons)))
+    style = ("<style>.qk-insta{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px}"
+             ".qk-insta__carte img{width:100%;height:auto;display:block;background:#f4f4f4}"
+             ".qk-insta__titre{font-weight:500;margin:10px 0 8px}"
+             ".qk-insta__btn{display:block;text-align:center;background:#111;color:#fff;text-decoration:none;padding:10px 12px;"
+             "margin-top:6px;text-transform:uppercase;letter-spacing:.06em;font-size:13px}"
+             ".qk-insta__btn small{text-transform:none;letter-spacing:0;opacity:.8}</style>")
+    intro = ("<p>Les parfums de nos dernières publications Instagram : touche un bouton pour arriver sur la fiche.</p>" if not nl else
+             "<p>De parfums uit onze laatste Instagram-posts: tik op een knop om naar de productpagina te gaan.</p>")
+    return style + intro + '<div class="qk-insta">%s</div>' % "".join(cartes)
+
+
+def maj_page(etat, lots):
+    """Crée ou met à jour la page qosmi.be/pages/instagram (FR) et sa traduction NL."""
+    from shopify_api import Shopify
+    s = Shopify()
+    fr, nl = corps_page(etat, lots, False), corps_page(etat, lots, True)
+    d = s.gql('query($q: String!) { pages(first: 1, query: $q) { nodes { id } } }', {"q": "handle:" + PAGE["handle"]})["pages"]["nodes"]
+    champs = {"title": PAGE["titre"], "handle": PAGE["handle"], "body": fr, "isPublished": True}
+    if d:
+        r = s.gql("mutation($id: ID!, $p: PageUpdateInput!) { pageUpdate(id: $id, page: $p) { page { id } userErrors { message } } }",
+                  {"id": d[0]["id"], "p": champs})["pageUpdate"]
+    else:
+        r = s.gql("mutation($p: PageCreateInput!) { pageCreate(page: $p) { page { id } userErrors { message } } }", {"p": champs})["pageCreate"]
+    if r["userErrors"]:
+        print("Page Instagram : %s" % r["userErrors"])
+        return
+    pid = r["page"]["id"]
+    tr = s.gql("query($id: ID!) { translatableResource(resourceId: $id) { translatableContent { key digest } } }", {"id": pid})
+    dig = {x["key"]: x["digest"] for x in tr["translatableResource"]["translatableContent"]}
+    t = [{"locale": "nl", "key": k, "value": v, "translatableContentDigest": dig[k]}
+         for k, v in (("title", PAGE["titre_nl"]), ("body_html", nl), ("handle", PAGE["handle_nl"])) if k in dig]
+    e = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
+                 userErrors { message } } }""", {"id": pid, "t": t})["translationsRegister"]["userErrors"]
+    print("Page qosmi.be/pages/instagram à jour (%d publication(s)), NL : %s" % (len(etat), "ok" if not e else e))
+
+
 def charger_lots():
     """Tous les lots, chacun avec le dossier de ses visuels."""
     lots = []
@@ -217,8 +308,10 @@ def publier_zernio(cle, p, urls, cible, maintenant):
     comptes = comptes_zernio(cle)
     if not comptes:
         raise SystemExit("Aucun compte Instagram ou Facebook relié dans Zernio : relie-les dans le tableau de bord Zernio.")
-    corps = {"content": legende(p),
-             "platforms": [{"platform": k, "accountId": v[0]} for k, v in comptes.items()],
+    corps = {"content": legende_plateforme(p, "instagram"),
+             "platforms": [dict({"platform": k, "accountId": v[0]},
+                                **({"customContent": legende_plateforme(p, "facebook")} if k == "facebook" else {}))
+                           for k, v in comptes.items()],
              "mediaItems": [{"type": "image", "url": u} for u in urls]}
     prof = next((v[1] for v in comptes.values() if v[1]), None)
     if prof:
@@ -271,17 +364,22 @@ def main():
         return
     print("Publication du jour : n°%s %s — %s (%d visuel(s))" % (p["n"], p["id"], p["titre"], len(p["img"])))
     if essai:
-        print(legende(p))
+        print("--- Instagram ---\n" + legende_plateforme(p, "instagram"))
+        print("--- Facebook ---\n" + legende_plateforme(p, "facebook"))
         return
     cle = os.environ.get("ZERNIO_API_KEY", "").strip()
     jeton = os.environ.get("META_TOKEN", "").strip()
     if cle and not jeton:
         urls = urls_publiques(p)
         resultat = dict(publier_zernio(cle, p, urls, cible if not forcer else maintenant, dt.datetime.now(tz)),
-                        date=jour, n=p["n"], heure=dt.datetime.now(tz).strftime("%H:%M:%S"))
+                        date=jour, n=p["n"], heure=dt.datetime.now(tz).strftime("%H:%M:%S"), img=urls[:1])
         etat[p["id"]] = resultat
         ecrire_etat(etat)
         print("Résultat : %s" % json.dumps(resultat, ensure_ascii=False))
+        try:
+            maj_page(etat, lot)
+        except Exception as ex:
+            print("Page Instagram non mise à jour (%s)" % ex)
         return
     if not jeton:
         print("Ni ZERNIO_API_KEY ni META_TOKEN : rien publié.")
