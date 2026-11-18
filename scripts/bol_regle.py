@@ -20,6 +20,7 @@ Pour une référence (EAN), avec :
    - ce n'est ni un testeur (sauf si autorisé), ni un article abîmé, ni un EAN exclu.
 """
 import math
+import re
 
 NON_ABSENT = "non : absent de bol"
 NON_MASQUE = "non : trop cher pour bol (masqué, 1 étoile)"
@@ -41,6 +42,21 @@ def up9(p):
 def down9(p):
     """Arrondi vers le bas à ,x9."""
     return round(math.floor(round((p + 0.01) * 10, 6)) / 10 - 0.01, 2)
+
+
+# 18/11/2026 : bpost (étiquettes « pakketzegels via bol ») refuse les liquides inflammables, dont le parfum.
+# Ces articles gardent le tarif transporteur classique ; les autres (bougies, crèmes…) prennent l'étiquette bol.
+INFLAMMABLE = re.compile(r"parfum|perfume|toilette|cologne|extrait|\bedp\b|\bedt\b|mist|brume|spray|vapo|a[ée]rosol|deo|d[ée]odorant|"
+                         r"antiperspirant|anti-transpirant|after ?shave|eau fra[iî]che|nail|vernis|polish|laque|hairspray|alcohol|alcool|"
+                         r"diffuser|diffuseur|fragrance oil|huile parfum|interior|home fragrance|room spray|lighter|briquet", re.I)
+
+
+def cfg_pour(ref, cfg):
+    """Réglages d'envoi propres à l'article : étiquette bpost via bol si l'article n'est pas inflammable."""
+    bol_bpost = cfg.get("envoi_client_bol_bpost_ht")
+    if not bol_bpost or INFLAMMABLE.search(ref.get("nom") or ""):
+        return cfg
+    return dict(cfg, envoi_client_ht=bol_bpost)
 
 
 def cout_ht(achat, cfg):
@@ -72,6 +88,7 @@ def etoiles(prix, bornes):
 def decider(ref, marche, cfg):
     """ref = {ean, achat, stock, testeur, abime} ; marche = {existe, offres: [{pays, prix, koopblok, retailer}],
     bornes: {niveau: prix}, comm: (fixe, pct)} → dict de décision."""
+    cfg = cfg_pour(ref, cfg)
     d = {"ean": ref["ean"], "prix": None, "plancher": None, "net": None, "etoiles": None, "decision": ""}
     if ref["ean"] in cfg.get("ean_exclus", []):
         d["decision"] = NON_EXCLU

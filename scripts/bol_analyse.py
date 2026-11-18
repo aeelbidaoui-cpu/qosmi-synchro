@@ -252,7 +252,7 @@ def decider_tout(cfg, refs, marche, bol=None):
         decisions[e]["fournisseur"] = 2 if ref.get("source") == 2 else 1  # 18/11/2026 : où commander (1 = catalogue, 2 = Bons plans)
         b = (m or {}).get("bornes", {})
         lignes.append({"decision": d["decision"], "ean": e, "nom": ref["nom"], "stock_fournisseur": ref["stock"],
-                       "achat": ref["achat"], "cout_total_ht": round(regle.cout_ht(ref["achat"], cfg), 2),
+                       "achat": ref["achat"], "cout_total_ht": round(regle.cout_ht(ref["achat"], regle.cfg_pour(ref, cfg)), 2),
                        "comm_fixe": (m or {}).get("comm", ["", ""])[0] if (m or {}).get("comm") else "",
                        "comm_pct": round(m["comm"][1] * 100, 1) if (m or {}).get("comm") else "",
                        "plancher": d.get("plancher") or "", "prix_bol": d.get("prix") or "", "net": d.get("net") or "",
