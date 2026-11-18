@@ -99,7 +99,7 @@ def fiches_site(s, eans):
 # ------------------------------------------------------------------ Telegram
 def tg(methode, **params):
     # le secret peut avoir été collé avec un retour à la ligne ou du texte de BotFather autour : on ne garde que le jeton
-    brut = os.environ.get("TELEGRAM_TOKEN", "")
+    brut = re.sub(r"\s+", "", os.environ.get("TELEGRAM_TOKEN", ""))  # jeton coupé en deux lignes au copier-coller
     m = re.search(r"\d{6,}:[A-Za-z0-9_-]{30,}", brut)
     jeton = m.group(0) if m else brut.strip()
     req = urllib.request.Request("https://api.telegram.org/bot%s/%s" % (jeton, methode),
@@ -216,7 +216,7 @@ def main():
         lignes = [l for l in brut.splitlines() if l.strip()]
         log("secret TELEGRAM_TOKEN : %d ligne(s) non vide(s), %d caractères, « : » présent : %s, motif de jeton reconnu : %s, "
             "longueurs des lignes : %s" % (len(lignes), len(brut), ":" in brut,
-                                           bool(re.search(r"\d{6,}:[A-Za-z0-9_-]{30,}", brut)), [len(l) for l in lignes]))
+                                           bool(re.search(r"\d{6,}:[A-Za-z0-9_-]{30,}", re.sub(r"\s+", "", brut))), [len(l) for l in lignes]))
         s = Shopify()
         chat, neuf = conversation(s)
         if not chat:
