@@ -292,7 +292,7 @@ def ajouter_bons_plans(produits, r):
 # Parfums que seul le 2e grossiste propose (absents de la liste SoleLuna) : fiche créée avec des formats « · Sur commande »,
 # au prix de la règle « Bon plan » à 10 € net (pas de prix normal à battre), même délai, même mise à jour horaire ; la fiche
 # se masque quand plus aucun format n'est en stock. Seulement les marques de config/selection.json, parfums uniquement
-# (pas de testeurs, coffrets, miniatures, recharges, soins).
+# (pas de coffrets, miniatures, recharges, soins ; testeurs acceptés depuis le 18/11/2026, en option « – testeur »).
 SUR_COMMANDE_FR, SUR_COMMANDE_NL = " · Sur commande", " · Op bestelling"
 PREFIXE_SUR_COMMANDE = "QS-C"
 PREFIXE_SUR_COMMANDE_FUSION = "QS-D"  # format du 2e grossiste ajouté à une fiche SoleLuna du même parfum (genre différent)
@@ -391,11 +391,14 @@ def lignes_trista_seules(eans_soleluna):
     for l in brut:
         ean = re.sub(r"\D", "", l.get("ean") or "")
         nom = sl.propre(l.get("product"))
-        if len(ean) < 8 or ean.lstrip("0") in eans_soleluna or EXCLUS_TRISTA.search(nom):
+        # 18/11/2026 (Amine) : les testeurs Trista aussi (autorisation des marques) → option « – testeur » de la fiche
+        testeur = bool(re.search(r"\btester\b", nom, re.I))
+        if len(ean) < 8 or ean.lstrip("0") in eans_soleluna or EXCLUS_TRISTA.search(re.sub(r"\btester\b", " ", nom, flags=re.I)):
             continue
         marque, reste = marque_trista(nom, marques)
         if not marque:
             continue
+        reste = re.sub(r"\s*\btester\b\s*", " ", reste, flags=re.I).strip()
         vm = re.search(r"(\d+(?:[.,]\d+)?)\s*ml\b", reste, re.I)
         if not vm:
             continue
@@ -417,7 +420,7 @@ def lignes_trista_seules(eans_soleluna):
         lignes.append({"ID": "T" + ean, "BRAND": marque, "TITLE": nom_propre(titre), "TYPE": type_sl,
                        "SEX": {"U": "UNI", "M": "M", "L": "W", "W": "W"}[sexe], "VOLUME": "%s ml" % vol.rstrip("0").rstrip(".") if "." in vol else "%s ml" % vol,
                        "SET": "", "STOCK": l.get("stock") or "0", "PRICE": l.get("price"), "EAN": ean,
-                       "TESTER": "0", "DAMAGED": "", "SHADE": ""})
+                       "TESTER": "1" if testeur else "0", "DAMAGED": "", "SHADE": ""})
     # 15/11/2026 : un même parfum peut venir sous deux EAN avec deux genres (« (L) » et « (U) ») : un seul genre par parfum,
     # celui indiqué le plus souvent, « mixte » seulement si rien d'autre (sinon deux fiches pour le même parfum)
     from collections import Counter
@@ -482,9 +485,17 @@ def ajouter_sur_commande(produits, lignes_sl, r, photos):
             existante, fusion = par_cle[cle_fiche(p)], True
         if existante and not existante["teintes"]:  # même parfum déjà chez SoleLuna sous un autre EAN : formats ajoutés
             formats = {v["format_fr"].split(" · ")[0] for v in existante["variantes"]}
+            normaux = {v["format_fr"]: float(v.get("prix") or 0) for v in existante["variantes"] if " – " not in v["format_fr"]
+                       and " · " not in v["format_fr"]}
+
+            def utile(v):  # 18/11/2026 : un testeur n'est proposé que s'il coûte moins cher que le flacon normal de même contenance
+                if not v["format_fr"].endswith(" – testeur"):
+                    return True
+                ref = normaux.get(v["format_fr"][:-len(" – testeur")])
+                return not ref or float(v["prix"]) < ref
             ajout = [dict(v, format_fr=v["format_fr"] + BON_PLAN_FR, format_nl=v["format_nl"] + BON_PLAN_NL,
                           sku=(PREFIXE_SUR_COMMANDE_FUSION if fusion else PREFIXE_SUR_COMMANDE) + v["ean"].lstrip("0"))
-                     for v in p["variantes"] if v["format_fr"].split(" · ")[0] not in formats]
+                     for v in p["variantes"] if v["format_fr"].split(" · ")[0] not in formats and utile(v)]
             if ajout:
                 existante["variantes"] += ajout
                 existante["tags"] = ", ".join([x for x in existante["tags"].split(", ") if x and x != "bon-plan"] + ["bon-plan"])
