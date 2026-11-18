@@ -1,0 +1,17 @@
+{
+ "1-parfum-du-jour": {
+  "zernio": "6afda8bbed6a0b8de5f3bdfc",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-18T15:00:00+01:00",
+  "date": "2026-11-18",
+  "n": 1,
+  "heure": "15:00:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-1-parfum-du-jour-1.jpg"
+  ],
+  "test": true
+ }
+}
