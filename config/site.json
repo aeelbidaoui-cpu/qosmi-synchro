@@ -22,8 +22,8 @@
   "delai_livraison_fr": "3 à 6 jours ouvrables",
   "delai_livraison_nl": "3 tot 6 werkdagen",
   "_note_delai": "Délai annoncé depuis le 08/11/2026 (choix d'Amine) : 3 à 6 jours ouvrables. Les parfums viennent de SoleLuna par colis groupés (un colis tous les 2-3 jours), puis Amine livre lui-même à Bruxelles ou envoie en point relais.",
-  "testeurs_en_suspens": true,
-  "_note_testeurs": "08/11/2026 : testeurs en suspens (question juridique à vérifier avec l'avocat, arrêt CJUE L'Oréal c. eBay C-324/09). true = aucun format testeur sur le site ni sur Google. Remettre false pour les réafficher : le passage horaire recrée alors les formats testeurs.",
+  "testeurs_en_suspens": false,
+  "_note_testeurs": "18/11/2026 23 h 29 (Amine) : les marques autorisent la vente des testeurs → testeurs remis, comme une option de la fiche du parfum (« 100 ml – testeur » à côté de 50 ml, 100 ml, 100 ml Bon plan), sans rubrique ni onglet « Testeurs ». Prix : même calcul que les autres formats ; un testeur pas moins cher que le flacon normal de même contenance n'est pas proposé. (08/11 : suspendus en attendant l'avis juridique, arrêt CJUE L'Oréal c. eBay C-324/09.)",
   "bons_plans": {
     "actif": true,
     "en_ligne": true,

@@ -153,6 +153,20 @@ def produit(lignes, r, photos):
         v.update({"format_fr": f_fr, "format_nl": f_nl, "teinte": teinte, "_achat": l.get("PRICE")})
         vus[cle] = v
         variantes.append(v)
+    # 18/11/2026 (Amine, testeurs autorisés par les marques) : le testeur est une option de la fiche du parfum, au même
+    # calcul de prix que les autres formats ; s'il ne revient pas moins cher que le flacon normal de même contenance,
+    # il n'a pas d'intérêt pour le client et n'est pas proposé.
+    normaux = {}
+    for v in variantes:
+        if " – " not in v["format_fr"]:
+            normaux[(v["format_fr"], v["teinte"])] = float(v.get("prix") or 0)
+    for v in list(variantes):
+        if v["format_fr"].endswith(" – testeur"):
+            ref = normaux.get((v["format_fr"][:-len(" – testeur")], v["teinte"]))
+            if ref and float(v.get("prix") or 0) >= ref and len(variantes) > 1:
+                variantes.remove(v)
+    if testeurs and any(" – testeur" not in v["format_fr"] for v in variantes):
+        tags = [x for x in tags if x != "Testeurs"]  # pas de rubrique ni de badge « testeur » quand la fiche a aussi des flacons normaux
     seo = seo_textes(t_fr, t_nl, r, vols)
     riche = descriptions_riches().get(sl.slug(t_fr)[:200])
     if riche:  # 10/11/2026 : vraie description (notes, famille, occasions) rédigée et vérifiée, FR + NL
