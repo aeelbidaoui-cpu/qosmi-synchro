@@ -12,7 +12,8 @@
   "social/lot2/lot2.json",
   "social/lot3/lot3.json",
   "social/lot4/lot4.json",
-  "social/lot5/lot5.json"
+  "social/lot5/lot5.json",
+  "social/lot6/lot6.json"
  ],
  "bilingue": true,
  "_note_lot2": "09/11/2026 : lot n°2 (16/12/2026 → 14/01/2027) VALIDÉ par Amine le 09/11 à 17 h 15 : un jour en français, le lendemain en néerlandais (champ « langue »).",
@@ -32,7 +33,8 @@
    "social/lot2/lot2.json",
    "social/lot5/lot5.json",
    "social/lot3/lot3.json",
-   "social/lot4/lot4.json"
+   "social/lot4/lot4.json",
+   "social/lot6/lot6.json"
   ],
   "fixes": {
    "30-sel-derniere-minute": "2026-12-14",
@@ -48,5 +50,6 @@
    "l5-18-printemps": "2027-03-20"
   }
  },
- "_note_planning": "18/11/2026 (Amine : « tu vas poster 2x par jour ») : deux publications par jour à 12 h 30 et 18 h 30 (Bruxelles) à partir du 19/11. Calendrier recalculé par scripts/social_planning.py ; les publications liées à une date gardent leur date (« fixes »). Le lot n°5 (Tendances) passe avant les reprises des lots 3 et 4."
+ "_note_planning": "18/11/2026 (Amine : « tu vas poster 2x par jour ») : deux publications par jour à 12 h 30 et 18 h 30 (Bruxelles) à partir du 19/11. Calendrier recalculé par scripts/social_planning.py ; les publications liées à une date gardent leur date (« fixes »). Le lot n°5 (Tendances) passe avant les reprises des lots 3 et 4.",
+ "_note_lot6": "18/11/2026 : lot n°6 « Le bon parfum pour chaque moment » (28 publications : bureau, rendez-vous, beast mode, discrets, cosy, mariage, sport, soirée, mystérieux, printemps + 5 conseils), demandé par Amine (« go fait le lot n6 »). Parfums en stock jamais montrés. Scripts : social/legendes_lot6.py, social/visuels_lot6.py."
 }

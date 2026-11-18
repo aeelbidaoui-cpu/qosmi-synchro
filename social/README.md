@@ -13,3 +13,4 @@
 
 **Publication** : elle se fera par l'API Meta, avec le secret `META_TOKEN`, pas encore créé.
 - `lot5/` : lot n°5 « Tendances » (28 publications du 06/03 au 02/04/2027, un jour NL / un jour FR), d'après les classements Fragrance Index (Social Hype Score, Top Movers, recherches) relevés le 18/11/2026. Scripts : `legendes_lot5.py` (calendrier, légendes FR/NL), `visuels_lot5.py` (visuels ; flacons détourés depuis les photos des fiches Qosmi, police Jost du paquet npm @fontsource/jost).
+- `lot6/` : lot n°6 « Le bon parfum pour chaque moment » (28 publications : carrousels par occasion, parfums du moment, 5 conseils), parfums en stock jamais montrés. Scripts : `legendes_lot6.py`, `visuels_lot6.py` (mêmes gabarits que le lot 5). Dates posées par `scripts/social_planning.py`.
