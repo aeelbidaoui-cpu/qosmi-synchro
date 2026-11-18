@@ -69,5 +69,7 @@
   "BE": 6.9,
   "NL": 6.9
  },
- "_note_envoi_client_bol_bpost_ht": "18/11/2026 (Amine) : étiquette « pakketzegels via bol » bpost BE → NL à 6,90 € HT, déduite par bol des versements ; BE → BE compté au même prix en attendant le tarif exact. Utilisée seulement pour les articles non inflammables : bpost refuse le parfum (« ontvlambare parfums », liquides inflammables). Parfums et sprays gardent envoi_client_ht."
+ "_note_envoi_client_bol_bpost_ht": "18/11/2026 (Amine) : étiquette « pakketzegels via bol » bpost BE → NL à 6,90 € HT, déduite par bol des versements ; BE → BE compté au même prix en attendant le tarif exact. Utilisée seulement pour les articles non inflammables : bpost refuse le parfum (« ontvlambare parfums », liquides inflammables). Parfums et sprays gardent envoi_client_ht.",
+ "marge_nette_koopblok_eur": 5,
+ "_note_marge_nette_koopblok_eur": "18/11/2026 (Amine) : pour gagner le koopblok on peut descendre jusqu'à 5 € net tous frais compris (achat, envois, emballage, commission, retours, TVA), jamais à perte. Hors koopblok, le plancher reste marge_nette_eur (7 €)."
 }

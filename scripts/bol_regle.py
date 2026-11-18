@@ -119,8 +119,14 @@ def decider(ref, marche, cfg):
         cible = down9(ref_prix - 0.001)
         if cible >= ref_prix:
             cible = round(cible - 0.10, 2)
-        prix = max(cible, pl)
-        motif = OUI_GAGNABLE if prix <= cible + 1e-9 else OUI_PLUS_CHER
+        # 18/11/2026 (Amine) : pour prendre le koopblok, on accepte de descendre jusqu'à « marge_nette_koopblok_eur »
+        # (5 € net, tous frais compris, jamais à perte) ; si même ainsi on ne passe pas sous le koopblok, on reste au plancher normal.
+        pl_kb = plancher(ref["achat"], dict(cfg, marge_nette_eur=min(cfg["marge_nette_eur"],
+                                                cfg.get("marge_nette_koopblok_eur", cfg["marge_nette_eur"]))), fixe, pct) or pl
+        if cible + 1e-9 >= pl_kb:
+            prix, motif = cible, OUI_GAGNABLE
+        else:
+            prix, motif = pl, OUI_PLUS_CHER
         d["koopblok"] = ref_prix
     else:
         # personne d'autre ne vend ce produit sur bol : plancher relevé à « marge_nette_seul_vendeur_eur » (10 €,
@@ -166,6 +172,12 @@ if __name__ == "__main__":  # petits contrôles de la règle
     m = {"existe": True, "offres": [], "bornes": {5: 60, 4: 65, 3: 70, 2: 80}, "comm": (1.0, 0.15)}
     d = decider(ref, m, cfg)
     assert d["decision"] == OUI_SEUL and d["prix"] == 69.99, d
+    m = {"existe": True, "offres": [{"pays": "NL", "prix": 59.5, "koopblok": True, "retailer": "9"}],
+         "bornes": {5: 55, 4: 58, 3: 62, 2: 70}, "comm": (1.0, 0.15)}
+    d7, d5 = decider(ref, m, cfg), decider(ref, m, dict(cfg, marge_nette_koopblok_eur=5))
+    assert d7["decision"] == OUI_PLUS_CHER and d5["decision"] == OUI_GAGNABLE and 5 - 1e-9 <= d5["net"] < 7, (d7, d5)
+    m["offres"][0]["prix"] = 52.0
+    assert decider(ref, m, dict(cfg, marge_nette_koopblok_eur=5))["decision"] == OUI_PLUS_CHER
     assert decider(ref, {"existe": False}, cfg)["decision"] == NON_ABSENT
     assert decider(dict(ref, testeur=True), m, cfg)["decision"] == NON_TESTEUR
     for a in (5, 20, 80, 200):
