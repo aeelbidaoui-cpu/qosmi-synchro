@@ -2,8 +2,8 @@
  {
   "n": 1,
   "id": "1-parfum-du-jour",
-  "date": "lundi 16 novembre",
-  "iso": "2026-11-16",
+  "date": "jeudi 19 novembre",
+  "iso": "2026-11-19",
   "sur": "Le parfum du jour",
   "titre": "Delina, Parfums de Marly",
   "img": [
@@ -23,8 +23,8 @@
  {
   "n": 2,
   "id": "2-carrousel-hiver",
-  "date": "mardi 17 novembre",
-  "iso": "2026-11-17",
+  "date": "vendredi 20 novembre",
+  "iso": "2026-11-20",
   "sur": "Carrousel · la sélection",
   "titre": "3 parfums pour les soirs d'hiver",
   "img": [
@@ -58,8 +58,8 @@
  {
   "n": 3,
   "id": "3-carrousel-conseil",
-  "date": "mercredi 18 novembre",
-  "iso": "2026-11-18",
+  "date": "samedi 21 novembre",
+  "iso": "2026-11-21",
   "sur": "Carrousel · le conseil",
   "titre": "5 gestes pour que ton parfum tienne",
   "img": [
@@ -78,8 +78,8 @@
  {
   "n": 4,
   "id": "4-matiere-oud",
-  "date": "jeudi 19 novembre",
-  "iso": "2026-11-19",
+  "date": "dimanche 22 novembre",
+  "iso": "2026-11-22",
   "sur": "Carrousel · matière première",
   "titre": "L'oud",
   "img": [
@@ -105,8 +105,8 @@
  {
   "n": 5,
   "id": "5-anniversaire-coco",
-  "date": "vendredi 20 novembre",
-  "iso": "2026-11-20",
+  "date": "lundi 23 novembre",
+  "iso": "2026-11-23",
   "sur": "Joyeux anniversaire",
   "titre": "Coco Mademoiselle a 25 ans",
   "img": [
@@ -126,8 +126,8 @@
  {
   "n": 6,
   "id": "06-pdj-jadore",
-  "date": "samedi 21 novembre",
-  "iso": "2026-11-21",
+  "date": "mardi 24 novembre",
+  "iso": "2026-11-24",
   "sur": "Le parfum du jour",
   "titre": "J'adore, Dior",
   "img": [
@@ -147,8 +147,8 @@
  {
   "n": 7,
   "id": "07-bio-kurkdjian",
-  "date": "dimanche 22 novembre",
-  "iso": "2026-11-22",
+  "date": "mercredi 25 novembre",
+  "iso": "2026-11-25",
   "sur": "Carrousel · le parfumeur",
   "titre": "Francis Kurkdjian",
   "img": [
@@ -180,8 +180,8 @@
  {
   "n": 8,
   "id": "08-sel-noel-elle",
-  "date": "lundi 23 novembre",
-  "iso": "2026-11-23",
+  "date": "jeudi 26 novembre",
+  "iso": "2026-11-26",
   "sur": "Carrousel · spécial Noël",
   "titre": "3 cadeaux pour elle",
   "img": [
@@ -211,8 +211,8 @@
  {
   "n": 9,
   "id": "09-mat-vanille",
-  "date": "mardi 24 novembre",
-  "iso": "2026-11-24",
+  "date": "vendredi 27 novembre",
+  "iso": "2026-11-27",
   "sur": "Carrousel · matière première",
   "titre": "La vanille",
   "img": [
@@ -243,8 +243,8 @@
  {
   "n": 10,
   "id": "10-conseil-offrir",
-  "date": "mercredi 25 novembre",
-  "iso": "2026-11-25",
+  "date": "samedi 28 novembre",
+  "iso": "2026-11-28",
   "sur": "Carrousel · le conseil (Noël)",
   "titre": "Offrir un parfum sans se tromper",
   "img": [
@@ -267,8 +267,8 @@
  {
   "n": 11,
   "id": "11-pdj-shalimar",
-  "date": "jeudi 26 novembre",
-  "iso": "2026-11-26",
+  "date": "dimanche 29 novembre",
+  "iso": "2026-11-29",
   "sur": "Le parfum du jour",
   "titre": "Shalimar, Guerlain",
   "img": [
@@ -288,8 +288,8 @@
  {
   "n": 12,
   "id": "12-sel-noel-lui",
-  "date": "vendredi 27 novembre",
-  "iso": "2026-11-27",
+  "date": "lundi 30 novembre",
+  "iso": "2026-11-30",
   "sur": "Carrousel · spécial Noël",
   "titre": "3 cadeaux pour lui",
   "img": [
@@ -323,8 +323,8 @@
  {
   "n": 13,
   "id": "13-anniv-terre",
-  "date": "samedi 28 novembre",
-  "iso": "2026-11-28",
+  "date": "mardi 1 décembre",
+  "iso": "2026-12-01",
   "sur": "Joyeux anniversaire",
   "titre": "Terre d'Hermès a 20 ans",
   "img": [
@@ -344,8 +344,8 @@
  {
   "n": 14,
   "id": "14-bio-bisch",
-  "date": "dimanche 29 novembre",
-  "iso": "2026-11-29",
+  "date": "mercredi 2 décembre",
+  "iso": "2026-12-02",
   "sur": "Carrousel · le parfumeur",
   "titre": "Quentin Bisch",
   "img": [
@@ -373,8 +373,8 @@
  {
   "n": 15,
   "id": "15-conseil-concentrations",
-  "date": "lundi 30 novembre",
-  "iso": "2026-11-30",
+  "date": "jeudi 3 décembre",
+  "iso": "2026-12-03",
   "sur": "Carrousel · le conseil",
   "titre": "Eau de toilette, eau de parfum, extrait",
   "img": [
@@ -397,8 +397,8 @@
  {
   "n": 16,
   "id": "16-pdj-9pm",
-  "date": "mardi 1 décembre",
-  "iso": "2026-12-01",
+  "date": "vendredi 4 décembre",
+  "iso": "2026-12-04",
   "sur": "Le parfum du jour",
   "titre": "9pm, Afnan",
   "img": [
@@ -418,8 +418,8 @@
  {
   "n": 17,
   "id": "17-mat-rose",
-  "date": "mercredi 2 décembre",
-  "iso": "2026-12-02",
+  "date": "samedi 5 décembre",
+  "iso": "2026-12-05",
   "sur": "Carrousel · matière première",
   "titre": "La rose",
   "img": [
@@ -442,8 +442,8 @@
  {
   "n": 18,
   "id": "18-sel-mixtes",
-  "date": "jeudi 3 décembre",
-  "iso": "2026-12-03",
+  "date": "dimanche 6 décembre",
+  "iso": "2026-12-06",
   "sur": "Carrousel · spécial Noël",
   "titre": "3 parfums à partager à deux",
   "img": [
@@ -477,8 +477,8 @@
  {
   "n": 19,
   "id": "19-pdj-hypnotic",
-  "date": "vendredi 4 décembre",
-  "iso": "2026-12-04",
+  "date": "lundi 7 décembre",
+  "iso": "2026-12-07",
   "sur": "Le parfum du jour",
   "titre": "Hypnotic Poison, Dior",
   "img": [
@@ -498,8 +498,8 @@
  {
   "n": 20,
   "id": "20-bio-polge",
-  "date": "samedi 5 décembre",
-  "iso": "2026-12-05",
+  "date": "mardi 8 décembre",
+  "iso": "2026-12-08",
   "sur": "Carrousel · le parfumeur",
   "titre": "Jacques Polge",
   "img": [
@@ -526,8 +526,8 @@
  {
   "n": 21,
   "id": "21-conseil-tester",
-  "date": "dimanche 6 décembre",
-  "iso": "2026-12-06",
+  "date": "mercredi 3 mars",
+  "iso": "2027-03-03",
   "sur": "Carrousel · le conseil",
   "titre": "Comment bien tester un parfum",
   "img": [
@@ -550,8 +550,8 @@
  {
   "n": 22,
   "id": "22-sel-arabes",
-  "date": "lundi 7 décembre",
-  "iso": "2026-12-07",
+  "date": "mercredi 9 décembre",
+  "iso": "2026-12-09",
   "sur": "Carrousel · spécial Noël",
   "titre": "3 parfums arabes à offrir",
   "img": [
@@ -585,8 +585,8 @@
  {
   "n": 23,
   "id": "23-mat-santal",
-  "date": "mardi 8 décembre",
-  "iso": "2026-12-08",
+  "date": "jeudi 4 mars",
+  "iso": "2027-03-04",
   "sur": "Carrousel · matière première",
   "titre": "Le santal",
   "img": [
@@ -609,8 +609,8 @@
  {
   "n": 24,
   "id": "24-pdj-hacivat",
-  "date": "mercredi 9 décembre",
-  "iso": "2026-12-09",
+  "date": "jeudi 10 décembre",
+  "iso": "2026-12-10",
   "sur": "Le parfum du jour",
   "titre": "Hacivat, Nishane",
   "img": [
@@ -630,8 +630,8 @@
  {
   "n": 25,
   "id": "25-anniv-goodgirl",
-  "date": "jeudi 10 décembre",
-  "iso": "2026-12-10",
+  "date": "vendredi 11 décembre",
+  "iso": "2026-12-11",
   "sur": "Joyeux anniversaire",
   "titre": "Good Girl a 10 ans",
   "img": [
@@ -651,8 +651,8 @@
  {
   "n": 26,
   "id": "26-bio-morillas",
-  "date": "vendredi 11 décembre",
-  "iso": "2026-12-11",
+  "date": "samedi 12 décembre",
+  "iso": "2026-12-12",
   "sur": "Carrousel · le parfumeur",
   "titre": "Alberto Morillas",
   "img": [
@@ -683,8 +683,8 @@
  {
   "n": 27,
   "id": "27-conseil-peau",
-  "date": "samedi 12 décembre",
-  "iso": "2026-12-12",
+  "date": "dimanche 13 décembre",
+  "iso": "2026-12-13",
   "sur": "Carrousel · le conseil",
   "titre": "Pourquoi il ne sent pas pareil sur toi",
   "img": [
@@ -702,8 +702,8 @@
  {
   "n": 28,
   "id": "28-pdj-erba",
-  "date": "dimanche 13 décembre",
-  "iso": "2026-12-13",
+  "date": "lundi 14 décembre",
+  "iso": "2026-12-14",
   "sur": "Le parfum du jour",
   "titre": "Erba Pura, Xerjoff",
   "img": [
@@ -723,8 +723,8 @@
  {
   "n": 29,
   "id": "29-mat-bergamote",
-  "date": "lundi 14 décembre",
-  "iso": "2026-12-14",
+  "date": "vendredi 5 mars",
+  "iso": "2027-03-05",
   "sur": "Carrousel · matière première",
   "titre": "La bergamote",
   "img": [

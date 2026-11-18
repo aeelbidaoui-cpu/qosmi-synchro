@@ -13,11 +13,14 @@ Déroulé (lancé un peu avant l'heure par .github/workflows/social.yml) :
   4. attend l'heure exacte, puis publie sur Instagram et sur Facebook ;
   5. note la publication dans social/publie.json (le workflow le sauvegarde dans le dépôt).
 
-Sans le secret META_TOKEN (jeton de l'utilisateur système « qosmi-robot »), le robot s'arrête proprement.
+18/11/2026 : Meta bloque toujours l'accès développeur, on publie via Zernio (secret ZERNIO_API_KEY, comptes Instagram et
+Facebook reliés dans le tableau de bord Zernio). La publication y est programmée à l'heure exacte. Sans aucun des deux
+secrets (ZERNIO_API_KEY, META_TOKEN), le robot s'arrête proprement.
+--comptes : vérifie quels comptes sont reliés dans Zernio, sans rien publier.
 --essai : montre ce qui serait publié aujourd'hui, sans rien envoyer.
 --forcer : publie tout de suite, sans attendre l'heure (en cas de rattrapage manuel).
 """
-import datetime as dt, json, os, sys, time, urllib.parse, urllib.request
+import datetime as dt, json, os, sys, time, urllib.error, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
 
 ICI = os.path.dirname(os.path.abspath(__file__))
@@ -181,8 +184,64 @@ def publier_facebook(page, jeton_page, photos, legende):
     return graph("POST", "/%s/feed" % page, jeton_page, message=legende, **pieces)["id"]
 
 
+# ---------------------------------------------------------------- Zernio (18/11/2026, décision d'Amine : Meta bloque toujours)
+ZAPI = "https://zernio.com/api/v1"
+
+
+def zernio(methode, chemin, cle, corps=None):
+    req = urllib.request.Request(ZAPI + chemin, method=methode,
+                                 data=json.dumps(corps).encode() if corps is not None else None,
+                                 headers={"Authorization": "Bearer " + cle, "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return json.loads(r.read() or b"{}")
+    except urllib.error.HTTPError as ex:
+        raise RuntimeError("Zernio %s %s : %s %s" % (methode, chemin, ex.code, ex.read()[:300].decode("utf-8", "replace")))
+
+
+def comptes_zernio(cle):
+    """{"instagram": (accountId, profileId), "facebook": (...)} des comptes reliés dans Zernio."""
+    d = zernio("GET", "/accounts", cle)
+    liste = d if isinstance(d, list) else (d.get("accounts") or d.get("data") or [])
+    out = {}
+    for a in liste:
+        plat = (a.get("platform") or "").lower()
+        prof = a.get("profileId")
+        prof = prof.get("_id") if isinstance(prof, dict) else prof
+        if plat in ("instagram", "facebook") and plat not in out and a.get("isActive", True) is not False:
+            out[plat] = (a.get("_id") or a.get("id"), prof)
+    return out
+
+
+def publier_zernio(cle, p, urls, cible, maintenant):
+    comptes = comptes_zernio(cle)
+    if not comptes:
+        raise SystemExit("Aucun compte Instagram ou Facebook relié dans Zernio : relie-les dans le tableau de bord Zernio.")
+    corps = {"content": legende(p),
+             "platforms": [{"platform": k, "accountId": v[0]} for k, v in comptes.items()],
+             "mediaItems": [{"type": "image", "url": u} for u in urls]}
+    prof = next((v[1] for v in comptes.values() if v[1]), None)
+    if prof:
+        corps["profileId"] = prof
+    if cible > maintenant + dt.timedelta(minutes=2):
+        corps["scheduledFor"] = cible.strftime("%Y-%m-%dT%H:%M:%S")  # Zernio publie lui-même à l'heure exacte
+        corps["timezone"] = CFG.get("fuseau", "Europe/Brussels")
+    else:
+        corps["publishNow"] = True
+    r = zernio("POST", "/posts", cle, corps)
+    post = r.get("post", r) if isinstance(r, dict) else {}
+    return {"zernio": post.get("_id") or post.get("id"), "plateformes": sorted(comptes),
+            "programme": corps.get("scheduledFor", "maintenant")}
+
+
 def main():
     essai, forcer = "--essai" in sys.argv, "--forcer" in sys.argv
+    if "--comptes" in sys.argv:  # vérifie la connexion Zernio sans rien publier
+        cle = os.environ.get("ZERNIO_API_KEY", "").strip()
+        if not cle:
+            raise SystemExit("ZERNIO_API_KEY absent")
+        print("Comptes reliés dans Zernio : %s" % (", ".join(sorted(comptes_zernio(cle))) or "aucun"))
+        return
     tz = ZoneInfo(CFG.get("fuseau", "Europe/Brussels"))
     maintenant = dt.datetime.now(tz)
     h, m = map(int, CFG.get("heure", "18:30").split(":"))
@@ -214,9 +273,18 @@ def main():
     if essai:
         print(legende(p))
         return
+    cle = os.environ.get("ZERNIO_API_KEY", "").strip()
     jeton = os.environ.get("META_TOKEN", "").strip()
+    if cle and not jeton:
+        urls = urls_publiques(p)
+        resultat = dict(publier_zernio(cle, p, urls, cible if not forcer else maintenant, dt.datetime.now(tz)),
+                        date=jour, n=p["n"], heure=dt.datetime.now(tz).strftime("%H:%M:%S"))
+        etat[p["id"]] = resultat
+        ecrire_etat(etat)
+        print("Résultat : %s" % json.dumps(resultat, ensure_ascii=False))
+        return
     if not jeton:
-        print("META_TOKEN absent : accès Meta pas encore créé, rien publié.")
+        print("Ni ZERNIO_API_KEY ni META_TOKEN : rien publié.")
         return
     page, jeton_page, ig = page_et_instagram(jeton)
     urls = urls_publiques(p)

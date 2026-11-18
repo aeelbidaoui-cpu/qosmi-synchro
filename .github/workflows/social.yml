@@ -4,18 +4,17 @@ name: Qosmi - réseaux sociaux
 # Deux passages (15 h 45 et 16 h 45 UTC) pour couvrir l'heure d'hiver et l'heure d'été : le script ne garde que le bon
 # et attend lui-même l'heure exacte. Sans le secret META_TOKEN, il ne publie rien.
 on:
-  # EN PAUSE (10/11/2026, décision d'Amine) : Meta bloque la création de l'accès développeur (« nouvel appareil »).
-  # Les publications démarreront dès que Meta débloque : décaler alors les dates des lots puis remettre ces deux lignes.
-  # schedule:
-  #   - cron: "45 15 * * *"
-  #   - cron: "45 16 * * *"
+  # 18/11/2026 (Amine) : Meta bloque toujours, on publie via Zernio. Lot 1 redaté pour commencer le 19/11.
+  schedule:
+    - cron: "45 15 * * *"
+    - cron: "45 16 * * *"
   workflow_dispatch:
     inputs:
       action:
         description: "essai = montrer la publication du jour sans rien envoyer ; forcer = publier tout de suite"
         type: choice
         default: essai
-        options: [essai, publier, forcer]
+        options: [essai, comptes, publier, forcer]
 
 permissions:
   contents: write
@@ -45,9 +44,11 @@ jobs:
           SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
           SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
           META_TOKEN: ${{ secrets.META_TOKEN }}
+          ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
         run: |
           A="${{ inputs.action }}"; [ -z "$A" ] && A=publier
           if [ "$A" = "essai" ]; then python -u scripts/social_publier.py --essai
+          elif [ "$A" = "comptes" ]; then python -u scripts/social_publier.py --comptes
           elif [ "$A" = "forcer" ]; then python -u scripts/social_publier.py --forcer
           else python -u scripts/social_publier.py; fi
       - name: Sauvegarde de l'historique
