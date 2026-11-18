@@ -107,5 +107,33 @@ def main():
         print("Réduction « %s » : %s" % (REDUC_NOUVEAU, "limitée au point relais (tarifs ≤ 3 €)" if not r["userErrors"] else r["userErrors"]))
 
 
+def traduire_modes():
+    """Traductions NL des noms de livraison affichés au paiement (ressources DELIVERY_METHOD_DEFINITION)."""
+    from shopify_api import Shopify
+    s = Shopify()
+    voulu = {RELAIS["fr"]: RELAIS, DOMICILE["fr"]: DOMICILE}
+    apres, vus = None, 0
+    while True:
+        r = s.gql("""query($a: String) { translatableResources(first: 100, after: $a, resourceType: DELIVERY_METHOD_DEFINITION) {
+            nodes { resourceId translatableContent { key value digest } } pageInfo { hasNextPage endCursor } } }""",
+                  {"a": apres})["translatableResources"]
+        for n in r["nodes"]:
+            c = {x["key"]: x for x in n["translatableContent"]}
+            nom = (c.get("name") or {}).get("value")
+            vus += 1
+            print("  méthode : %s (%s)" % (nom, ", ".join(c)))
+            mode = voulu.get(nom)
+            if not mode or ESSAI:
+                continue
+            t = [{"locale": "nl", "key": "name", "value": mode["nl"], "translatableContentDigest": c["name"]["digest"]}]
+            e = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
+                         userErrors { message } } }""", {"id": n["resourceId"], "t": t})["translationsRegister"]["userErrors"]
+            print("    → NL « %s » : %s" % (mode["nl"], "ok" if not e else e))
+        if not r["pageInfo"]["hasNextPage"]:
+            break
+        apres = r["pageInfo"]["endCursor"]
+    print("Méthodes de livraison traduisibles : %d" % vus)
+
+
 if __name__ == "__main__":
-    main()
+    traduire_modes() if "--traduire" in sys.argv else main()
