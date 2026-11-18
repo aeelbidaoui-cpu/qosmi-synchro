@@ -15,7 +15,7 @@ ESSAI = "--essai" in sys.argv
 
 RELAIS = {"fr": "Point relais Mondial Relay", "nl": "Mondial Relay-afhaalpunt", "prix": "2.95",
           "desc_fr": "Au point relais le plus proche de ton adresse · offert dès 2 articles",
-          "desc_nl": "In het afhaalpunt het dichtst bij je adres · gratis vanaf 2 artikelen"}
+          "desc_nl": "In het afhaalpunt het dichtst bij je adres of het afhaalpunt dat je in je winkelmandje koos · gratis vanaf 2 artikelen"}
 DOMICILE = {"fr": "Livraison à domicile", "nl": "Levering aan huis", "prix": "6.95",
             "desc_fr": "Livré à ta porte", "desc_nl": "Geleverd aan je deur"}
 REDUC = "Livraison offerte dès 2 articles"
@@ -126,6 +126,8 @@ def traduire_modes():
             if not mode or ESSAI:
                 continue
             t = [{"locale": "nl", "key": "name", "value": mode["nl"], "translatableContentDigest": c["name"]["digest"]}]
+            if c.get("description"):
+                t.append({"locale": "nl", "key": "description", "value": mode["desc_nl"], "translatableContentDigest": c["description"]["digest"]})
             e = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
                          userErrors { message } } }""", {"id": n["resourceId"], "t": t})["translationsRegister"]["userErrors"]
             print("    → NL « %s » : %s" % (mode["nl"], "ok" if not e else e))
