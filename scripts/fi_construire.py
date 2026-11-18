@@ -116,7 +116,8 @@ def main(dossier, valides=None, site=None):
                 q["nf"], q["nn"] = {"n": plat[0]}, {"n": plat[1]}
                 notes_fi[h] = {"notes_fr": {"tete": [], "coeur": plat[0], "fond": []}, "notes_nl": {"tete": [], "coeur": plat[1], "fond": []}}
             if len(q) > 0:
-                profils[h] = q
+                # 18/11/2026 : une fiche relevée deux fois (Fragrance Index puis le site de la marque) : on complète, sans écraser
+                profils[h] = {**q, **profils[h]} if h in profils else q
     if site:  # 17/11/2026 : fiches dont l'adresse a changé (doublons réunis, « -2 ») : même parfum, même profil
         norm = lambda h: re.sub(r"-(pour-homme|pour-femme|mixte|pour-enfant)$", "", re.sub(r"-\d+$", "", h))
         par_norm = {}
