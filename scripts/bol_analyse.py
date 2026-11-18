@@ -78,7 +78,12 @@ def references():
                "nom": " ".join(x for x in (r.get("BRAND"), r.get("TITLE"), r.get("TYPE"), r.get("VOLUME")) if x),
                "marque": r.get("BRAND") or ""}
         old = refs.get(ean)
-        if not old or (ref["stock"] > 0 and (old["stock"] <= 0 or ref["achat"] < old["achat"])):
+        # 18/11/2026 : une version « boîte abîmée » ne remplace jamais la version normale du même EAN (sinon l'offre bol,
+        # vendue « neuve », pouvait renvoyer vers une pièce abîmée). Elle n'est gardée que si c'est la seule.
+        if old and ref["abime"] and not old["abime"]:
+            continue
+        if not old or (old["abime"] and not ref["abime"]) or \
+                (ref["stock"] > 0 and (old["stock"] <= 0 or ref["achat"] < old["achat"])):
             refs[ean] = ref
     if lire_json(CFG, {}).get("grossiste_2", True):
         ajouter_grossiste_2(refs)
@@ -115,7 +120,7 @@ def ajouter_grossiste_2(refs):
         if achat <= 0 or stock <= 0 or sv.EXCLUS_TRISTA.search(nom):
             continue
         old = refs.get(ean)
-        if old and old["stock"] > 0:
+        if old and old["stock"] > 0 and not old.get("abime"):  # chez le 1er fournisseur seulement en boîte abîmée : on prend le grossiste 2
             continue
         marque = sv.marque_trista(nom, sel.get("marques", []))[0] or ""
         refs[ean] = {"ean": ean, "achat": round(achat * (1 + maj), 2), "stock": stock, "testeur": False, "abime": False,
