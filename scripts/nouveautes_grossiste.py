@@ -115,7 +115,7 @@ def conversation(s):
         return mf["metafield"]["value"], False
     for u in tg("getUpdates", timeout=0).get("result", []):
         m = u.get("message") or {}
-        if (m.get("chat") or {}).get("type") == "private" and (m.get("text") or "").startswith("/start"):
+        if (m.get("chat") or {}).get("type") == "private" and (m.get("text") or "").strip():
             chat = str(m["chat"]["id"])
             r = s.gql("""mutation($m: [MetafieldsSetInput!]!) { metafieldsSet(metafields: $m) { userErrors { message } } }""",
                       {"m": [{"ownerId": mf["id"], "namespace": "qosmi_prive", "key": "telegram_chat",
@@ -220,7 +220,8 @@ def main():
         s = Shopify()
         chat, neuf = conversation(s)
         if not chat:
-            raise SystemExit("Pas encore de conversation : écris /start à ton robot sur Telegram, puis relance.")
+            n = len(tg("getUpdates", timeout=0).get("result", []))
+            raise SystemExit("Pas encore de conversation (%d message(s) reçu(s) par le robot) : écris /start à ton robot, puis relance." % n)
         envoyer(chat, ["✅ C'est branché : je t'écrirai ici dès que ça bouge dans la liste Bons plans (nouveautés, ruptures, retours en stock)."])
         log("message d'essai envoyé")
         return
