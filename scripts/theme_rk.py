@@ -121,7 +121,7 @@ ARABES_VEDETTES = [  # 08/11/2026 : grands succès arabes réellement en ligne (
     "armaf-club-de-nuit-untold-eau-de-parfum-mixte", "hamidi-the-lost-paradise-sublime-cherry-eau-de-parfum-mixte",
     "amouage-existence-eau-de-parfum-mixte", "lattafa-khamrah-eau-de-parfum-mixte", "lattafa-yara-eau-de-parfum-pour-femme",
     "rasasi-hawas-eau-de-parfum-pour-homme", "afnan-9pm-eau-de-parfum-pour-homme", "lattafa-asad-eau-de-parfum-pour-homme"]
-ANNONCES = ["Livraison offerte en point relais dès 2 articles",
+ANNONCES = ["Livraison offerte dès 2 articles",
             "Livraison suivie partout en Belgique",
             "Parfums 100 % authentiques et neufs",
             "Plus de 100 maisons, des grands classiques à la niche",
