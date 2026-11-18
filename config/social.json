@@ -20,5 +20,33 @@
  "_note_lot4": "09/11/2026 : lot n°4 (07/02 → 02/03/2027) préparé dans social/lot4/ : le lot n°1 réutilisé et mélangé (sans Noël ni anniversaires 2026), un jour NL / un jour FR ; Saint-Valentin : conseil « offrir » le 10/02, « à partager à deux » le 13/02, Shalimar le 14/02. VALIDÉ par Amine le 10/11 à 0 h 02.",
  "test_heure": "2026-11-18T14:00:00+00:00",
  "_note_test": "18/11/2026 : test demandé par Amine, publication n°1 (Delina) à 14 h (heure de Londres = 15 h à Bruxelles) ; le reste du lot n°1 avancé d'un jour pour reprendre le 19/11 à 18 h 30.",
- "_note_lot5": "18/11/2026 : lot n°5 « Tendances » (06/03 → 02/04/2027, 28 publications, un jour NL / un jour FR) demandé par Amine (« vasy fait le lot des posts numéro 5 tendances ») : classements Fragrance Index relevés le 18/11/2026, parfums vendus sur qosmi.be. Scripts : social/legendes_lot5.py, social/visuels_lot5.py."
+ "_note_lot5": "18/11/2026 : lot n°5 « Tendances » (06/03 → 02/04/2027, 28 publications, un jour NL / un jour FR) demandé par Amine (« vasy fait le lot des posts numéro 5 tendances ») : classements Fragrance Index relevés le 18/11/2026, parfums vendus sur qosmi.be. Scripts : social/legendes_lot5.py, social/visuels_lot5.py.",
+ "heures": [
+  "12:30",
+  "18:30"
+ ],
+ "planning": {
+  "debut": "2026-11-19",
+  "ordre": [
+   "social/lot1/lot1.json",
+   "social/lot2/lot2.json",
+   "social/lot5/lot5.json",
+   "social/lot3/lot3.json",
+   "social/lot4/lot4.json"
+  ],
+  "fixes": {
+   "30-sel-derniere-minute": "2026-12-14",
+   "01-sel-lui": "2026-12-16",
+   "09-fete-noel": "2026-12-24",
+   "16-sel-reveillon": "2026-12-31",
+   "17-fete-annee": "2027-01-01",
+   "30-sel-valentin": "2027-01-14",
+   "l3-30-sel-valentin": "2027-02-06",
+   "l4-10-conseil-offrir": "2027-02-10",
+   "l4-18-sel-mixtes": "2027-02-13",
+   "l4-11-pdj-shalimar": "2027-02-14",
+   "l5-18-printemps": "2027-03-20"
+  }
+ },
+ "_note_planning": "18/11/2026 (Amine : « tu vas poster 2x par jour ») : deux publications par jour à 12 h 30 et 18 h 30 (Bruxelles) à partir du 19/11. Calendrier recalculé par scripts/social_planning.py ; les publications liées à une date gardent leur date (« fixes »). Le lot n°5 (Tendances) passe avant les reprises des lots 3 et 4."
 }

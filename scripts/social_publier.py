@@ -55,16 +55,22 @@ def en_stock(handle):
         return False
 
 
-def choisir(lot, etat, aujourd_hui):
-    """Publication du jour : la plus ancienne non publiée et échue, sinon la suivante du calendrier ; tous ses parfums en stock."""
+def creneau(p):
+    return p.get("heure") or CFG.get("heure", "18:30")
+
+
+def choisir(lot, etat, aujourd_hui, heure=None):
+    """Publication du créneau : la plus ancienne non publiée dont la date et l'heure sont passées (19/11/2026 : deux
+    créneaux par jour, champ « heure » de chaque publication, voir scripts/social_planning.py)."""
     faites = set(etat)
-    attente = [p for p in sorted(lot, key=lambda p: p["iso"]) if p["id"] not in faites]
-    echues = [p for p in attente if p["iso"] <= aujourd_hui]
+    cle = lambda p: (p["iso"], creneau(p))  # noqa: E731
+    attente = [p for p in sorted(lot, key=cle) if p["id"] not in faites]
+    echues = [p for p in attente if cle(p) <= (aujourd_hui, heure or "99:99")]
     if not echues:
         return None, []
     sautees = []
     verifier = CFG.get("verifier_stock", False)
-    for p in echues + [p for p in attente if p["iso"] > aujourd_hui]:
+    for p in echues:
         absents = [h for h in p.get("produits", []) if not en_stock(h)] if verifier else []
         if not absents:
             return p, sautees
@@ -373,26 +379,31 @@ def main():
         except Exception as ex:
             print("Page Instagram non mise à jour (%s)" % ex)
         return
-    h, m = map(int, CFG.get("heure", "18:30").split(":"))
-    cible = maintenant.replace(hour=h, minute=m, second=0, microsecond=0)
     if not CFG.get("actif", True) and not essai:
         print("Robot désactivé (config/social.json « actif »).")
         return
+    # créneaux du jour (19/11/2026 : 12 h 30 et 18 h 30, heure de Bruxelles) : on prend celui qui est proche
+    heures = CFG.get("heures") or [CFG.get("heure", "18:30")]
+    def cible_de(hm):
+        h, m = map(int, hm.split(":"))
+        return maintenant.replace(hour=h, minute=m, second=0, microsecond=0)
+    proches = [hm for hm in heures if -90 <= (cible_de(hm) - maintenant).total_seconds() / 60 <= 75]
+    if proches:
+        heure = proches[0]
+    elif essai or forcer:
+        heure = max([hm for hm in heures if cible_de(hm) <= maintenant] or [heures[0]])
+    else:
+        print("Aucun créneau proche (%s) : rien à faire maintenant." % ", ".join(heures))
+        return
+    cible = cible_de(heure)
     etat = lire_etat()
     jour = maintenant.date().isoformat()
-    if any(v.get("date") == jour for v in etat.values()) and not essai:
-        print("Déjà une publication aujourd'hui (%s)." % jour)
+    if any(v.get("date") == jour and v.get("creneau", CFG.get("heure", "18:30")) == heure and not v.get("test")
+           for v in etat.values()) and not essai:
+        print("Déjà une publication pour le créneau de %s aujourd'hui (%s)." % (heure, jour))
         return
-    if not (essai or forcer):
-        avance = (cible - maintenant).total_seconds() / 60
-        if avance > 75:
-            print("Trop tôt (%d min avant %s) : le passage suivant s'en charge." % (avance, CFG.get("heure")))
-            return
-        if avance < -90:
-            print("Trop tard pour aujourd'hui (%s dépassé de %d min) : rien publié." % (CFG.get("heure"), -avance))
-            return
     lot = charger_lots()
-    p, sautees = choisir(lot, etat, jour)
+    p, sautees = choisir(lot, etat, jour, heure)
     for pid, absents in sautees:
         print("Sautée pour l'instant (rupture de stock) : %s → %s" % (pid, ", ".join(absents)))
     if not p:
@@ -408,7 +419,7 @@ def main():
     if cle and not jeton:
         urls = urls_publiques(p)
         resultat = dict(publier_zernio(cle, p, urls, cible if not forcer else maintenant, dt.datetime.now(tz)),
-                        date=jour, n=p["n"], heure=dt.datetime.now(tz).strftime("%H:%M:%S"), img=urls[:1])
+                        date=jour, creneau=heure, n=p["n"], heure=dt.datetime.now(tz).strftime("%H:%M:%S"), img=urls[:1])
         etat[p["id"]] = resultat
         ecrire_etat(etat)
         print("Résultat : %s" % json.dumps(resultat, ensure_ascii=False))
@@ -429,9 +440,9 @@ def main():
     if not forcer:
         reste = (cible - dt.datetime.now(tz)).total_seconds()
         if reste > 0:
-            print("Attente de %s (%d s)…" % (CFG.get("heure"), reste))
+            print("Attente de %s (%d s)…" % (heure, reste))
             time.sleep(reste)
-    resultat = {"date": jour, "n": p["n"], "heure": dt.datetime.now(tz).strftime("%H:%M:%S")}
+    resultat = {"date": jour, "creneau": heure, "n": p["n"], "heure": dt.datetime.now(tz).strftime("%H:%M:%S")}
     erreurs = []
     if conteneur:
         try:

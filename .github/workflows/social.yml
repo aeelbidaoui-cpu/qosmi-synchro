@@ -5,7 +5,10 @@ name: Qosmi - réseaux sociaux
 # et attend lui-même l'heure exacte. Sans le secret META_TOKEN, il ne publie rien.
 on:
   # 18/11/2026 (Amine) : Meta bloque toujours, on publie via Zernio. Lot 1 redaté pour commencer le 19/11.
+  # 18/11/2026 (Amine : « tu vas poster 2x par jour ») : 12 h 30 et 18 h 30, heure de Bruxelles.
   schedule:
+    - cron: "45 10 * * *"
+    - cron: "45 11 * * *"
     - cron: "45 15 * * *"
     - cron: "45 16 * * *"
   workflow_dispatch:

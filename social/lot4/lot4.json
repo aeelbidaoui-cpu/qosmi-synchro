@@ -3,8 +3,8 @@
   "n": 84,
   "id": "l4-27-conseil-peau",
   "reprise_de": 27,
-  "date": "dimanche 7 février",
-  "iso": "2027-02-07",
+  "date": "lundi 11 janvier",
+  "iso": "2027-01-11",
   "sur": "Carrousel · le conseil",
   "titre": "Pourquoi il ne sent pas pareil sur toi",
   "produits": [],
@@ -21,14 +21,15 @@
    "l4-27-conseil-peau-4",
    "l4-27-conseil-peau-5",
    "l4-27-conseil-peau-6"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 85,
   "id": "l4-20-bio-polge",
   "reprise_de": 20,
-  "date": "lundi 8 février",
-  "iso": "2027-02-08",
+  "date": "mardi 12 janvier",
+  "iso": "2027-01-12",
   "sur": "Carrousel · le parfumeur",
   "titre": "Jacques Polge",
   "produits": [
@@ -51,14 +52,15 @@
    "l4-20-bio-polge-1",
    "l4-20-bio-polge-2",
    "l4-20-bio-polge-3"
-  ]
+  ],
+  "heure": "12:30"
  },
  {
   "n": 86,
   "id": "l4-19-pdj-hypnotic",
   "reprise_de": 19,
-  "date": "mardi 9 février",
-  "iso": "2027-02-09",
+  "date": "mardi 12 janvier",
+  "iso": "2027-01-12",
   "sur": "Le parfum du jour",
   "titre": "Hypnotic Poison, Dior",
   "produits": [
@@ -77,7 +79,8 @@
   "titre_nl": "Hypnotic Poison, Dior",
   "img": [
    "l4-19-pdj-hypnotic-1"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 87,
@@ -103,14 +106,15 @@
    "l4-10-conseil-offrir-5",
    "l4-10-conseil-offrir-6",
    "l4-10-conseil-offrir-7"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 88,
   "id": "l4-29-mat-bergamote",
   "reprise_de": 29,
-  "date": "jeudi 11 février",
-  "iso": "2027-02-11",
+  "date": "mercredi 13 janvier",
+  "iso": "2027-01-13",
   "sur": "Carrousel · matière première",
   "titre": "La bergamote",
   "produits": [
@@ -140,14 +144,15 @@
    "l4-29-mat-bergamote-1",
    "l4-29-mat-bergamote-2",
    "l4-29-mat-bergamote-3"
-  ]
+  ],
+  "heure": "12:30"
  },
  {
   "n": 89,
   "id": "l4-28-pdj-erba",
   "reprise_de": 28,
-  "date": "vendredi 12 février",
-  "iso": "2027-02-12",
+  "date": "mercredi 13 janvier",
+  "iso": "2027-01-13",
   "sur": "Le parfum du jour",
   "titre": "Erba Pura, Xerjoff",
   "produits": [
@@ -163,7 +168,8 @@
   "txt": "Le parfum du jour : Erba Pura, de Xerjoff.\n\nUn rayon de soleil italien en plein hiver : bergamote de Calabre, orange de Sicile et citron en ouverture, une corbeille de fruits méditerranéens au cœur, puis un fond doux d'ambre, de vanille de Madagascar et de musc blanc.\n\nSon flacon turquoise ne passe pas inaperçu.\n\nDisponible sur qosmi.be\n\n#xerjoff #erbapura #parfumdeniche #parfumdujour #qosmi",
   "img": [
    "l4-28-pdj-erba-1"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 90,
@@ -203,7 +209,8 @@
    "l4-18-sel-mixtes-3",
    "l4-18-sel-mixtes-4",
    "l4-18-sel-mixtes-5"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 91,
@@ -226,14 +233,15 @@
   "txt": "Bonne Saint-Valentin ! Le parfum du jour est né d'une histoire d'amour : Shalimar, de Guerlain.\n\nJacques Guerlain le crée en 1925 autour de la vanilline, une vanille de synthèse. On le présente souvent comme le premier grand oriental de l'histoire.\n\nSon nom vient des jardins de Shalimar, liés à l'histoire d'amour de l'empereur Shah Jahan et de Mumtaz Mahal, celle du Taj Mahal.\n\nBergamote, iris, vanille, fève tonka : un sillage chaud qu'on reconnaît entre mille.\n\nDisponible sur qosmi.be\n\n#shalimar #guerlain #parfumdujour #saintvalentin #qosmi",
   "img": [
    "l4-11-pdj-shalimar-1"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 92,
   "id": "l4-17-mat-rose",
   "reprise_de": 17,
-  "date": "lundi 15 février",
-  "iso": "2027-02-15",
+  "date": "jeudi 14 janvier",
+  "iso": "2027-01-14",
   "sur": "Carrousel · matière première",
   "titre": "La rose",
   "produits": [
@@ -255,14 +263,15 @@
    "l4-17-mat-rose-1",
    "l4-17-mat-rose-2",
    "l4-17-mat-rose-3"
-  ]
+  ],
+  "heure": "12:30"
  },
  {
   "n": 93,
   "id": "l4-2-carrousel-hiver",
   "reprise_de": 2,
-  "date": "mardi 16 février",
-  "iso": "2027-02-16",
+  "date": "vendredi 15 janvier",
+  "iso": "2027-01-15",
   "sur": "Carrousel · la sélection",
   "titre": "3 parfums pour les soirs d'hiver",
   "produits": [
@@ -292,14 +301,15 @@
    "l4-2-carrousel-hiver-3",
    "l4-2-carrousel-hiver-4",
    "l4-2-carrousel-hiver-5"
-  ]
+  ],
+  "heure": "12:30"
  },
  {
   "n": 94,
   "id": "l4-26-bio-morillas",
   "reprise_de": 26,
-  "date": "mercredi 17 février",
-  "iso": "2027-02-17",
+  "date": "vendredi 15 janvier",
+  "iso": "2027-01-15",
   "sur": "Carrousel · le parfumeur",
   "titre": "Alberto Morillas",
   "produits": [
@@ -329,14 +339,15 @@
    "l4-26-bio-morillas-1",
    "l4-26-bio-morillas-2",
    "l4-26-bio-morillas-3"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 95,
   "id": "l4-1-parfum-du-jour",
   "reprise_de": 1,
-  "date": "jeudi 18 février",
-  "iso": "2027-02-18",
+  "date": "samedi 16 janvier",
+  "iso": "2027-01-16",
   "sur": "Le parfum du jour",
   "titre": "Delina, Parfums de Marly",
   "produits": [
@@ -352,14 +363,15 @@
   "txt": "Le parfum du jour : Delina, de Parfums de Marly.\n\nUne rose de Damas, mais pas sage du tout. La rhubarbe et le litchi ouvrent le bal, la vanille et la muscade arrivent ensuite, et le fond reste longtemps sur le vétiver, le cèdre et l'encens.\n\nComposé par Quentin Bisch en 2017, il s'inspire des dames de la cour. Depuis, la maison en a fait une lignée : Delina La Rosée, puis Delina Exclusif.\n\nPour qui ? Celles qui aiment la rose, mais fraîche et un peu fruitée.\n\nDisponible sur qosmi.be\n\n#delina #parfumsdemarly #parfumdujour #parfumdeniche #qosmi",
   "img": [
    "l4-1-parfum-du-jour-1"
-  ]
+  ],
+  "heure": "12:30"
  },
  {
   "n": 96,
   "id": "l4-09-mat-vanille",
   "reprise_de": 9,
-  "date": "vendredi 19 février",
-  "iso": "2027-02-19",
+  "date": "samedi 16 janvier",
+  "iso": "2027-01-16",
   "sur": "Carrousel · matière première",
   "titre": "La vanille",
   "produits": [
@@ -389,14 +401,15 @@
    "l4-09-mat-vanille-1",
    "l4-09-mat-vanille-2",
    "l4-09-mat-vanille-3"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 97,
   "id": "l4-3-carrousel-conseil",
   "reprise_de": 3,
-  "date": "samedi 20 février",
-  "iso": "2027-02-20",
+  "date": "dimanche 17 janvier",
+  "iso": "2027-01-17",
   "sur": "Carrousel · le conseil",
   "titre": "5 gestes pour que ton parfum tienne",
   "produits": [],
@@ -411,14 +424,15 @@
    "l4-3-carrousel-conseil-5",
    "l4-3-carrousel-conseil-6",
    "l4-3-carrousel-conseil-7"
-  ]
+  ],
+  "heure": "12:30"
  },
  {
   "n": 98,
   "id": "l4-24-pdj-hacivat",
   "reprise_de": 24,
-  "date": "dimanche 21 février",
-  "iso": "2027-02-21",
+  "date": "dimanche 17 janvier",
+  "iso": "2027-01-17",
   "sur": "Le parfum du jour",
   "titre": "Hacivat, Nishane",
   "produits": [
@@ -437,14 +451,15 @@
   "titre_nl": "Hacivat, Nishane",
   "img": [
    "l4-24-pdj-hacivat-1"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 99,
   "id": "l4-4-matiere-oud",
   "reprise_de": 4,
-  "date": "lundi 22 février",
-  "iso": "2027-02-22",
+  "date": "lundi 18 janvier",
+  "iso": "2027-01-18",
   "sur": "Carrousel · matière première",
   "titre": "L'oud",
   "produits": [
@@ -466,14 +481,15 @@
    "l4-4-matiere-oud-1",
    "l4-4-matiere-oud-2",
    "l4-4-matiere-oud-3"
-  ]
+  ],
+  "heure": "12:30"
  },
  {
   "n": 100,
   "id": "l4-21-conseil-tester",
   "reprise_de": 21,
-  "date": "mardi 23 février",
-  "iso": "2027-02-23",
+  "date": "lundi 18 janvier",
+  "iso": "2027-01-18",
   "sur": "Carrousel · le conseil",
   "titre": "Comment bien tester un parfum",
   "produits": [
@@ -495,14 +511,15 @@
    "l4-21-conseil-tester-5",
    "l4-21-conseil-tester-6",
    "l4-21-conseil-tester-7"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 101,
   "id": "l4-16-pdj-9pm",
   "reprise_de": 16,
-  "date": "mercredi 24 février",
-  "iso": "2027-02-24",
+  "date": "mardi 19 janvier",
+  "iso": "2027-01-19",
   "sur": "Le parfum du jour",
   "titre": "9pm, Afnan",
   "produits": [
@@ -518,14 +535,15 @@
   "txt": "Le parfum du jour : 9pm, d'Afnan.\n\nSon nom veut dire 21 h, et ce n'est pas un hasard : c'est un parfum de soirée. Lavande, pomme et cannelle en ouverture, puis un fond chaud de vanille, de patchouli et de fève tonka.\n\nSorti en 2020, il a tellement plu qu'Afnan en a fait toute une ligne : 9pm Elixir, Rebel, Pour Femme, Night Out…\n\nParfait pour les soirées d'hiver, et doux pour le budget.\n\nDisponible sur qosmi.be\n\n#afnan #9pm #parfumarabe #parfumdujour #qosmi",
   "img": [
    "l4-16-pdj-9pm-1"
-  ]
+  ],
+  "heure": "12:30"
  },
  {
   "n": 102,
   "id": "l4-07-bio-kurkdjian",
   "reprise_de": 7,
-  "date": "jeudi 25 février",
-  "iso": "2027-02-25",
+  "date": "mardi 19 janvier",
+  "iso": "2027-01-19",
   "sur": "Carrousel · le parfumeur",
   "titre": "Francis Kurkdjian",
   "produits": [
@@ -556,14 +574,15 @@
    "l4-07-bio-kurkdjian-1",
    "l4-07-bio-kurkdjian-2",
    "l4-07-bio-kurkdjian-3"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 103,
   "id": "l4-23-mat-santal",
   "reprise_de": 23,
-  "date": "vendredi 26 février",
-  "iso": "2027-02-26",
+  "date": "mercredi 20 janvier",
+  "iso": "2027-01-20",
   "sur": "Carrousel · matière première",
   "titre": "Le santal",
   "produits": [
@@ -582,14 +601,15 @@
    "l4-23-mat-santal-1",
    "l4-23-mat-santal-2",
    "l4-23-mat-santal-3"
-  ]
+  ],
+  "heure": "12:30"
  },
  {
   "n": 104,
   "id": "l4-15-conseil-concentrations",
   "reprise_de": 15,
-  "date": "samedi 27 février",
-  "iso": "2027-02-27",
+  "date": "mercredi 20 janvier",
+  "iso": "2027-01-20",
   "sur": "Carrousel · le conseil",
   "titre": "Eau de toilette, eau de parfum, extrait",
   "produits": [
@@ -611,14 +631,15 @@
    "l4-15-conseil-concentrations-5",
    "l4-15-conseil-concentrations-6",
    "l4-15-conseil-concentrations-7"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 105,
   "id": "l4-14-bio-bisch",
   "reprise_de": 14,
-  "date": "dimanche 28 février",
-  "iso": "2027-02-28",
+  "date": "jeudi 21 janvier",
+  "iso": "2027-01-21",
   "sur": "Carrousel · le parfumeur",
   "titre": "Quentin Bisch",
   "produits": [
@@ -642,14 +663,15 @@
    "l4-14-bio-bisch-1",
    "l4-14-bio-bisch-2",
    "l4-14-bio-bisch-3"
-  ]
+  ],
+  "heure": "12:30"
  },
  {
   "n": 106,
   "id": "l4-06-pdj-jadore",
   "reprise_de": 6,
-  "date": "lundi 1 mars",
-  "iso": "2027-03-01",
+  "date": "jeudi 21 janvier",
+  "iso": "2027-01-21",
   "sur": "Le parfum du jour",
   "titre": "J'adore, Dior",
   "produits": [
@@ -668,14 +690,15 @@
   "titre_nl": "J'adore, Dior",
   "img": [
    "l4-06-pdj-jadore-1"
-  ]
+  ],
+  "heure": "18:30"
  },
  {
   "n": 107,
   "id": "l4-22-sel-arabes",
   "reprise_de": 22,
-  "date": "mardi 2 mars",
-  "iso": "2027-03-02",
+  "date": "vendredi 22 janvier",
+  "iso": "2027-01-22",
   "sur": "Carrousel · la sélection",
   "titre": "3 parfums arabes à offrir",
   "produits": [
@@ -705,6 +728,7 @@
    "l4-22-sel-arabes-3",
    "l4-22-sel-arabes-4",
    "l4-22-sel-arabes-5"
-  ]
+  ],
+  "heure": "12:30"
  }
 ]
