@@ -1,0 +1,55 @@
+name: Qosmi - bol gain des commandes
+
+# 19/11/2026 (Amine : « je gagne combien à chaque commande ? ») : gain net des commandes bol des 3 derniers jours.
+# Lecture seule (aucune offre modifiée, aucun cache enregistré) et groupe séparé : ne bloque pas la mise à jour bol.
+# Dépôt public : le détail est chiffré (clé publique config/cle_rapports.pem) avant d'apparaître dans le journal.
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: qosmi-bol-commandes
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  commandes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Reprendre les relevés bol
+        uses: actions/cache/restore@v4
+        with:
+          path: base/bol_marche.json
+          key: bol-${{ github.run_id }}
+          restore-keys: bol-
+
+      - name: Reprendre le catalogue Rituals
+        uses: actions/cache/restore@v4
+        with:
+          path: base/rituals_catalogue.json
+          key: rituals-${{ github.run_id }}
+          restore-keys: rituals-
+
+      - name: Gain des commandes (chiffré)
+        env:
+          BOL_CLIENT_ID: ${{ secrets.BOL_CLIENT_ID }}
+          BOL_CLIENT_SECRET: ${{ secrets.BOL_CLIENT_SECRET }}
+          SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
+          SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
+          TRISTA_URL: ${{ secrets.TRISTA_URL }}
+        run: |
+          mkdir -p base rapports
+          python -u scripts/bol_commandes_detail.py
+          K=$(openssl rand -hex 32) && echo -n "$K" > /tmp/k
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in rapports/commandes_detail.csv -out /tmp/r.enc -pass file:/tmp/k
+          openssl pkeyutl -encrypt -pubin -inkey config/cle_rapports.pem -in /tmp/k -out /tmp/k.enc
+          echo "=== CLE_CHIFFREE" && base64 -w0 /tmp/k.enc && echo && echo "=== RAPPORT_CHIFFRE" && base64 -w0 /tmp/r.enc && echo && echo "=== FIN"
