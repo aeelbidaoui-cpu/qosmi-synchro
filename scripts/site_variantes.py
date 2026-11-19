@@ -139,7 +139,8 @@ def produit(lignes, r, photos):
         cat_fr, cat_nl = {"femme": ("Parfums femme", "Damesparfums"), "homme": ("Parfums homme", "Herenparfums"),
                           "mixte": ("Parfums mixtes", "Unisex parfums"),
                           "enfant": ("Parfums enfants", "Kinderparfums")}.get(g_cle, ("Parfums", "Parfums"))
-    tags = [cat_fr, marque] + (["Testeurs"] if testeurs else []) + (["boite-abimee"] if abimes else [])
+    # 19/11/2026 (Amine, condition des marques) : aucune rubrique ni badge « testeur » : le testeur n'est qu'une option de la fiche
+    tags = [cat_fr, marque] + (["boite-abimee"] if abimes else [])
     variantes, vus = [], {}
     for l in lignes:
         f_fr, f_nl = format_de(l)
@@ -443,8 +444,17 @@ def _cle_titre(t):
     # 19/11/2026 (Torino21, Naxos) : « JTC Torino21 » = « ATP Torino 21 », « XJ 1861 Naxos » = « 1861 Naxos » : préfixes de collection Xerjoff
     # ignorés et « mot 21 » = « mot21 », pour reconnaître le même parfum malgré deux EAN et deux écritures
     n = re.sub(r"\b(jtc|atp|xj)\b", " ", n)
+    # 19/11/2026 (contrôle de tous les parfums) : mots de gamme ou d'emballage que l'un des deux grossistes écrit et pas l'autre
+    n = re.sub(r"\b(v collection|shooting stars|the narcotics|refillable|edition|collection)\b", " ", n)
+    n = re.sub(r"\bcasamorati 1888 (?=[a-z])", "casamorati ", n)
+    n = re.sub(r"\b1888 1888\b", "1888", n)
+    n = re.sub(r"\bjoy by dior\b", "joy", n)
+    n = re.sub(r"\bcalvin klein ck\b", "calvin klein", n)
+    n = re.sub(r"\bfor man\b", "for men", n)
     n = re.sub(r"([a-z])\s+(\d)", r"\1\2", n)
-    return " ".join(n.split())
+    mots = n.split()
+    mots = [m for i, m in enumerate(mots) if i == 0 or m != mots[i - 1]]  # « 1888 1888 » → « 1888 »
+    return " ".join(sorted(mots))  # même parfum, mots dans un autre ordre (« Dylan Blue Pour Homme » / « Pour Homme Dylan Blue »)
 
 
 def cle_fiche(p):
@@ -453,7 +463,8 @@ def cle_fiche(p):
         return None
     t, typ = p["titre_fr"].split(" — ", 1)
     typ = re.sub(r" (pour femme|pour homme|mixte|pour enfant)$", "", typ)
-    return (_cle_titre(t), typ.lower())
+    typ = re.sub(r"^extrait de parfum$", "parfum", typ.lower())  # 19/11/2026 : Trista « Extrait de Parfum » = SoleLuna « Parfum »
+    return (_cle_titre(t), typ)
 
 
 def ajouter_sur_commande(produits, lignes_sl, r, photos):

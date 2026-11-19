@@ -817,6 +817,29 @@ def testeurs_suspens():
         print("Collection Testeurs retirée de la boutique : %s" % (e or "ok"))
 
 
+def testeurs_integres():
+    """19/11/2026 (Amine, autorisation des marques) : les testeurs restent une option de la fiche du parfum, sans rubrique
+    ni badge : l'étiquette « Testeurs » est retirée de toutes les fiches et la collection « Testeurs » n'est plus en ligne."""
+    from shopify_api import Shopify
+    import site_charger as sc
+    s = Shopify()
+    boutique, _ = etat_boutique(s, sc)
+    n, erreurs = 0, 0
+    for p in boutique.values():
+        if "Testeurs" in (p.get("tags") or []):
+            e = s.gql("""mutation($id: ID!, $t: [String!]!) { tagsRemove(id: $id, tags: $t) { userErrors { message } } }""",
+                      {"id": p["id"], "t": ["Testeurs"]})["tagsRemove"]["userErrors"]
+            erreurs += bool(e)
+            n += 1
+    print("Étiquette Testeurs retirée de %d fiches, %d erreurs" % (n, erreurs))
+    col = s.gql('{ collectionByIdentifier(identifier: {handle: "testeurs"}) { id } }').get("collectionByIdentifier")
+    if col:
+        pubs = publications_vente(s)
+        e = s.gql("""mutation($id: ID!, $i: [PublicationInput!]!) { publishableUnpublish(id: $id, input: $i) { userErrors { message } } }""",
+                  {"id": col["id"], "i": [{"publicationId": x} for x in pubs]})["publishableUnpublish"]["userErrors"]
+        print("Collection Testeurs retirée de la boutique : %s" % (e or "ok"))
+
+
 def google():
     """Canal Google & YouTube (08/11/2026) : y publie toutes les fiches SoleLuna (actives ou en brouillon).
     Google ne reçoit que les fiches ACTIVES : une fiche masquée (brouillon) par le passage horaire disparaît aussi de Google."""
@@ -1127,6 +1150,8 @@ def main():
         if "--photos-manquantes" in sys.argv:
             photos_manquantes()
             return 0
+        if "--testeurs-integres" in sys.argv:
+            return testeurs_integres()
         if "--testeurs-suspens" in sys.argv:
             testeurs_suspens()
             textes()  # descriptions sans la phrase sur le format testeur

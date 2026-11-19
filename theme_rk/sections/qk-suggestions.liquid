@@ -21,6 +21,7 @@
     {%- assign qk_n = 0 -%}
     {%- for tour in (1..2) -%}
       {%- for product in section.settings.produits -%}
+          {%- assign qk_ts = true -%}{%- for qk_v in product.variants -%}{%- unless qk_v.title contains 'testeur' or qk_v.title contains 'tester' -%}{%- assign qk_ts = false -%}{%- break -%}{%- endunless -%}{%- endfor -%}{%- if qk_ts -%}{%- continue -%}{%- endif -%}{%- comment -%} 19/11/2026 : fiche qui n'a que des testeurs, pas mise en avant {%- endcomment -%}
         {%- assign qk_i = forloop.index0 -%}
         {%- if tour == 1 and qk_i < qk_depart -%}{%- continue -%}{%- endif -%}
         {%- if tour == 2 and qk_i >= qk_depart -%}{%- break -%}{%- endif -%}
