@@ -280,6 +280,13 @@ def photos_autorisees():
                 u = u.get("url")
             if u and cad.get(u):
                 out.setdefault(str(e).lstrip("0"), cad[u])
+    # 19/11/2026 (Amine) : Rituals autorise l'usage des photos de son site. Photo produit officielle (packshot) en
+    # 1200 × 1200 sur fond blanc, servie par rituals.com, pour chaque produit du catalogue relu (base/rituals_catalogue.json)
+    chemin = os.path.join(RACINE, "base", "rituals_catalogue.json")
+    if os.path.exists(chemin):
+        for code, d in (json.load(open(chemin, encoding="utf-8")).get("produits") or {}).items():
+            if d.get("ean"):
+                out.setdefault(str(d["ean"]).lstrip("0"), "https://www.rituals.com/assets/%s/packshot/product-pack?fmt=jpg&wid=1200" % code)
     return out
 
 
@@ -334,7 +341,8 @@ def images_4004():
     inv = json.load(open(os.path.join(RAPPORTS, "bol_invisibles.json"), encoding="utf-8"))
     deja = set(json.load(open(os.path.join(RACINE, "config", "bol_images.json"), encoding="utf-8")))
     ph = photos_autorisees()
-    k4 = sorted({e.lstrip("0") for k, v in inv.items() if k.startswith("4004") for e in v})
+    # 19/11/2026 : aussi les offres hors ligne faute de contenu cosmétique (3001 « missing content »)
+    k4 = sorted({e.lstrip("0") for k, v in inv.items() if k.startswith("4004") or "missing content" in k for e in v})
     cibles = {e: ph[e] for e in k4 if e in ph and e.zfill(13) not in deja and e not in deja}
     print("offres 4004 : %d ; avec photo autorisée et pas encore envoyée : %d" % (len(k4), len(cibles)))
     envois = envoyer_images(cibles)
