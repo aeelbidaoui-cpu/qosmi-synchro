@@ -270,9 +270,12 @@ def ajouter_bons_plans(produits, r):
             if prix > normal - rb["gain_min_eur"] + 1e-6:
                 cible = math.floor(normal - rb["gain_min_eur"] - 0.90 + 1e-9) + 0.90  # le ,90 juste sous normal - 3 €
                 prix = max(cible, sl.arrondi_90_haut((base + rb["benefice_min_eur"]) / k))
-                if prix > normal - 1 + 1e-6:  # même à 5 € net, pas au moins 1 € moins cher : pas d'option
+                # 19/11/2026 (Amine, Naxos) : si le format normal est épuisé chez SoleLuna, l'option Trista est quand même
+                # proposée (sinon le parfum n'est plus achetable du tout), au prix de la règle avec au moins 5 € net
+                if prix > normal - 1 + 1e-6 and int(sl.nombre(v.get("stock") or 0)) > 0:  # même à 5 € net, pas 1 € moins cher : pas d'option
                     bilan["trop_proches"] += 1
                     continue
+                bilan["normal_epuise"] = bilan.get("normal_epuise", 0) + (int(sl.nombre(v.get("stock") or 0)) <= 0)
                 bilan["benefice_reduit"] = bilan.get("benefice_reduit", 0) + 1
             b = dict(v, sku=PREFIXE_BON_PLAN + v["ean"].lstrip("0"), format_fr=v["format_fr"] + BON_PLAN_FR,
                      format_nl=v["format_nl"] + BON_PLAN_NL, prix="%.2f" % prix, stock=str(stock),
