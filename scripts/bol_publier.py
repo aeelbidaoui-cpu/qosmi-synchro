@@ -307,6 +307,13 @@ def main():
     txt = ["Publication bol du %s%s" % (dt.datetime.now().strftime("%d/%m/%Y %H:%M"), " (ESSAI, rien envoyé)" if essai else ""),
            "Sélection : %d références (gain net moyen %.2f €, minimum %.2f €). Déjà en ligne avant ce passage : %d offres."
            % (len(voulues), sum(nets) / len(nets) if nets else 0, min(nets) if nets else 0, len(en_ligne)), ""]
+    # 19/11/2026 : détail par source (codes neutres, dépôt public) : sélectionnées / déjà en ligne
+    par_src = {}
+    for e, d in voulues.items():
+        k = d.get("fournisseur") or 1
+        sel_n, ligne_n = par_src.get(k, (0, 0))
+        par_src[k] = (sel_n + 1, ligne_n + (1 if e in en_ligne else 0))
+    txt += ["Par source : " + " · ".join("source %s : %d sélectionnées, %d déjà en ligne" % (k, a_, b_) for k, (a_, b_) in sorted(par_src.items())), ""]
     txt += ["%-25s %5d" % kv for kv in sorted(compte.items(), key=lambda kv: -kv[1])]
     if raisons:
         txt += ["", "Raisons des refus bol :"] + ["  %3d × %s" % (n, r) for r, n in sorted(raisons.items(), key=lambda kv: -kv[1])]
