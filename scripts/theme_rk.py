@@ -360,6 +360,8 @@ def construire(fichiers, marques):
     # « Complète ta commande » dans le panier (13/11/2026)
     if "qk-paiement.js" not in lay:  # 15/11/2026 : Bancontact d'abord dans le panier, autres moyens derrière un bouton
         lay = lay.replace("</head>", "    <script type=\"module\" src=\"{{ 'qk-paiement.js' | asset_url }}\"></script>\n  </head>", 1)
+    if "qk-relais-tiroir.js" not in lay:  # 19/11/2026 : carte des points relais Mondial Relay aussi dans le tiroir du panier
+        lay = lay.replace("</head>", "    <script type=\"module\" src=\"{{ 'qk-relais-tiroir.js' | asset_url }}\"></script>\n  </head>", 1)
     if "qk-bancontact-logo" not in lay:
         lay = lay.replace("</body>", "  <template id=\"qk-bancontact-logo\">{{ 'bancontact' | payment_type_svg_tag }}</template>\n  </body>", 1)
     if "QK_SUR_COMMANDE" not in lay:  # 14/11/2026 : fiche propre au 2e grossiste → note « Bon plan » sur toute la fiche

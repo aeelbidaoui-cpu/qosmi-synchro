@@ -948,3 +948,18 @@ html.qk-pop-ouvert { overflow: hidden; }
 }
 /* 17/11/2026 : la description reprend le profil (pour le chat et Google) ; sur la fiche, le bloc profil suffit */
 body:has(.qk-profil) .qk-desc-profil { display: none; }
+
+/* 19/11/2026 : point relais Mondial Relay dans le tiroir du panier (qk-relais-tiroir.js) */
+.qk-prt { border: 1px solid #e5e5e5; padding: 12px 14px; margin: 0 0 12px; font-size: 14px; }
+.qk-prt [hidden] { display: none !important; }
+.qk-prt__titre { font-weight: 600; margin: 0 0 4px; }
+.qk-prt__aide { color: #555; margin: 4px 0 10px; font-size: 13px; }
+.qk-prt__choisi { margin: 0 0 4px; }
+.qk-prt__choisi strong { font-weight: 600; }
+.qk-prt__bouton { background: #fff; color: #111; border: 1px solid #111; padding: 9px 14px; text-transform: uppercase; letter-spacing: .06em; font-size: 12px; cursor: pointer; width: 100%; }
+.qk-prt__zone { margin-top: 10px; }
+.qk-prt__zone .MRW-Results { height: auto !important; position: static !important; display: flex !important; flex-direction: column; max-width: 100%; }
+.qk-prt__zone .MRW-Map { order: 0; position: relative !important; left: auto !important; top: auto !important; width: 100% !important; height: 240px !important; display: block !important; }
+.qk-prt__zone .MRW-RList { order: 1; position: static !important; width: 100% !important; height: auto !important; max-height: 220px; overflow-y: auto; display: block !important; margin-top: 8px; }
+.qk-prt__zone .MRW-ButtonCircle { display: none !important; }
+.qk-prt__zone .MRW-Search { max-width: 100%; }
