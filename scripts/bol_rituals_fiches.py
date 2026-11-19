@@ -157,7 +157,69 @@ def v(x):
     return [{"value": x}]
 
 
+def diagnostic():
+    """Pourquoi bol bloque encore nos fiches Rituals : attributs obligatoires (niveau 0) de la catégorie absents de la
+    fiche bol, et rapports d'envoi (champs refusés) des envois précédents gardés dans base/bol_rituals_envois.json."""
+    from bol_api import Bol
+    bol = Bol()
+    inv = json.load(open(os.path.join(RAPPORTS, "bol_invisibles.json"), encoding="utf-8"))
+    raisons = collections.defaultdict(list)
+    for cle, eans in inv.items():
+        for e in eans:
+            raisons[str(e).zfill(13)].append(cle)
+    cibles = sorted(e for e, r in raisons.items() if e.startswith(PREFIXE) and any(x.startswith(CONTENU) for x in r))
+    print("Rituals bloquées : %d" % len(cibles), flush=True)
+    print("Raisons :", dict(collections.Counter(x[:90] for e in cibles for x in raisons[e]).most_common(8)), flush=True)
+    modele = json.loads(lire(MODELE, timeout=300) or "{}")
+    chunks = {c["id"]: c for c in modele.get("chunks", [])}
+    manque, cats, attrs_vus = collections.Counter(), collections.Counter(), collections.Counter()
+    ech = cibles[:80]
+    for e in ech:
+        f = bol.appel("GET", "/retailer/content/catalog-products/%s" % e, params={"language": "nl"}) or {}
+        a = {x.get("id") for x in f.get("attributes") or []}
+        gpc = str(f.get("gpc", {}).get("chunkId") if isinstance(f.get("gpc"), dict) else "") or next(
+            ((x.get("values") or [{}])[0].get("value") for x in f.get("attributes") or [] if x.get("id") == "GPC Code"), None)
+        attrs_vus[len(a)] += 0
+        if not f:
+            manque["(pas de fiche bol)"] += 1
+            continue
+        ch = chunks.get(str(gpc))
+        cats[(ch or {}).get("name", "catégorie inconnue %s" % gpc)] += 1
+        for x in (ch or {}).get("attributes", []):
+            if x["enrichmentLevel"] == 0 and x["id"] not in a:
+                manque[x["id"]] += 1
+        if e == ech[0]:
+            print("Exemple %s : clés de la fiche %s ; attributs %s" % (e, sorted(f.keys()), sorted(a)[:40]), flush=True)
+    print("Échantillon %d : attributs obligatoires absents %s" % (len(ech), dict(manque.most_common(15))), flush=True)
+    print("Catégories :", dict(cats.most_common(15)), flush=True)
+    chemin = os.path.join(RACINE, "base", "bol_rituals_envois.json")
+    if os.path.exists(chemin):
+        envois = json.load(open(chemin, encoding="utf-8"))
+        refus = collections.Counter()
+        etats = collections.Counter()
+        for e, v in list(envois.items())[:120]:
+            if not v.get("processStatusId"):
+                continue
+            st = bol.appel("GET", "/shared/process-status/%s" % v["processStatusId"]) or {}
+            up = st.get("entityId")
+            rep = bol.appel("GET", "/retailer/content/upload-report/%s" % up) if up else None
+            etats[(rep or {}).get("status") or st.get("status")] += 1
+            for at in (rep or {}).get("attributes") or []:
+                if at.get("status") not in (None, "ACCEPTED", "PENDING"):
+                    refus["%s : %s" % (at.get("id"), "; ".join(sorted({str(m.get("violationCode") or m.get("message") or m)[:80] for m in at.get("subStatusMessages") or at.get("messages") or []})) or at.get("subStatus") or at.get("status"))] += 1
+            for at in (rep or {}).get("assets") or []:
+                if at.get("status") not in (None, "ACCEPTED", "PENDING"):
+                    refus["photo : %s" % (at.get("subStatus") or at.get("status"))] += 1
+            if e == next(iter(envois)):
+                print("Exemple de rapport : %s" % json.dumps(rep, ensure_ascii=False)[:1500], flush=True)
+        print("Rapports d'envoi : %s" % dict(etats), flush=True)
+        for k, n in refus.most_common(25):
+            print("  refusé × %d : %s" % (n, k))
+
+
 def main():
+    if "--diag" in sys.argv:
+        return diagnostic()
     essai = "--essai" in sys.argv
     inv = json.load(open(os.path.join(RAPPORTS, "bol_invisibles.json"), encoding="utf-8"))
     raisons = collections.defaultdict(list)
@@ -269,6 +331,9 @@ def main():
     os.makedirs(RAPPORTS, exist_ok=True)
     with open(os.path.join(RAPPORTS, "bol_rituals_fiches.json"), "w", encoding="utf-8") as f:
         json.dump(envois, f, ensure_ascii=False, indent=1)
+    if envois:  # gardé d'un passage à l'autre (cache GitHub) pour lire ensuite les rapports d'envoi de bol
+        with open(os.path.join(RACINE, "base", "bol_rituals_envois.json"), "w", encoding="utf-8") as f:
+            json.dump(envois, f, ensure_ascii=False)
     for k, n in sorted(stats.items(), key=lambda kv: -kv[1]):
         print("  %-45s %5d" % (k, n))
     for k, n in refus.most_common(10):
