@@ -299,12 +299,29 @@ def main():
     print("Modèle de données bol : %d catégories" % len(chunks), flush=True)
 
     stats, refus, envois = collections.Counter(), collections.Counter(), {}
+    deja = set()
+    if photos:  # 20/11 : ne renvoyer que les photos que bol n'a pas encore publiées (IMAGE_RATE_LIMITED, 404…)
+        chemin = os.path.join(RACINE, "base", "bol_rituals_envois.json")
+        prec = json.load(open(chemin, encoding="utf-8")) if os.path.exists(chemin) else {}
+        for e, x in prec.items():
+            if e not in cibles or not x.get("processStatusId"):
+                continue
+            st = bol.appel("GET", "/shared/process-status/%s" % x["processStatusId"]) or {}
+            rep = bol.appel("GET", "/retailer/content/upload-report/%s" % st["entityId"]) if st.get("entityId") else None
+            etat = [a.get("subStatus") for a in (rep or {}).get("assets") or []]
+            if any(t in ("PUBLISHED", "IMAGE_FLAGGED_AS_DUPLICATE") for t in etat):
+                deja.add(e)
+                envois[e] = x
+        print("Photos déjà publiées par bol : %d ; à renvoyer : %d" % (len(deja), len(cibles) - len(deja)), flush=True)
     for e in sorted(cibles):
         d = donnees.get(e)
         if not d:
             stats["sans page rituals.com"] += 1
             continue
         if photos:  # 19/11 : renvoi de la seule photo (vérifiée), espacé pour éviter IMAGE_RATE_LIMITED chez bol
+            if e in deja:
+                stats["photo déjà publiée"] += 1
+                continue
             if not d.get("photo"):
                 stats["sans photo trouvée sur rituals.com"] += 1
                 continue
@@ -320,7 +337,7 @@ def main():
                 envois[e] = {"erreur": str(ex)[:300]}
                 refus[str(ex)[:160]] += 1
                 stats["refusées"] += 1
-            time.sleep(3)
+            time.sleep(10)
             continue
         attrs = [{"id": "EAN", "values": v(e)}] + [{"id": k, "values": v(x)} for k, x in fab.items()]
         assets = []
