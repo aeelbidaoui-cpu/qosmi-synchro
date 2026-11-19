@@ -40,6 +40,17 @@ function placer() {
   appliquer();
 }
 
+/* 19/11/2026 (Amine) : boutons rapides (Apple Pay…) toujours visibles ; PayPal retiré tant qu'il n'est pas activé pour Deway.
+   Les boutons Shopify sont parfois dans un shadow DOM ouvert : on les cherche aussi là. */
+ouvert = true;
+function sansPaypal(racine) {
+  racine.querySelectorAll('shopify-paypal-button, [aria-label*="PayPal"], [data-testid*="paypal"]').forEach((b) => { b.style.display = 'none'; });
+  racine.querySelectorAll('shopify-accelerated-checkout-cart, shopify-accelerated-checkout, [data-shopify="payment-button"]').forEach((h) => {
+    if (h.shadowRoot) sansPaypal(h.shadowRoot);
+  });
+}
+setInterval(() => sansPaypal(document), 1000);
+
 let minuteur = null;
 new MutationObserver(() => { clearTimeout(minuteur); minuteur = setTimeout(placer, 150); })
   .observe(document.body, { childList: true, subtree: true });
