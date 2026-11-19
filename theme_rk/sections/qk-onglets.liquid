@@ -26,7 +26,6 @@
       {%- if block.settings.produits.size > 0 -%}
         {%- assign qk_n = 0 -%}
         {%- for product in block.settings.produits -%}
-          {%- assign qk_ts = true -%}{%- for qk_v in product.variants -%}{%- unless qk_v.title contains 'testeur' or qk_v.title contains 'tester' -%}{%- assign qk_ts = false -%}{%- break -%}{%- endunless -%}{%- endfor -%}{%- if qk_ts -%}{%- continue -%}{%- endif -%}{%- comment -%} 19/11/2026 : fiche qui n'a que des testeurs, pas mise en avant {%- endcomment -%}
           {%- if qk_n < section.settings.nombre and product.available and product.featured_image -%}
             {%- assign qk_n = qk_n | plus: 1 -%}
             <div class="qk-rangee__item">{% render 'qk-carte', product: product %}</div>
@@ -35,7 +34,6 @@
       {%- else -%}
         {%- assign qk_n = 0 -%}
         {%- for product in block.settings.collection.products limit: 60 -%}
-          {%- assign qk_ts = true -%}{%- for qk_v in product.variants -%}{%- unless qk_v.title contains 'testeur' or qk_v.title contains 'tester' -%}{%- assign qk_ts = false -%}{%- break -%}{%- endunless -%}{%- endfor -%}{%- if qk_ts -%}{%- continue -%}{%- endif -%}{%- comment -%} 19/11/2026 : fiche qui n'a que des testeurs, pas mise en avant {%- endcomment -%}
           {%- if block.settings.collection.handle != 'coffrets' -%}{%- if product.type == 'Coffrets' or product.type == 'Geschenksets' -%}{%- continue -%}{%- endif -%}{%- endif -%}
           {%- assign qk_cle = '|' | append: product.vendor | append: '|' -%}
           {%- if qk_n < section.settings.nombre and product.featured_image -%}
