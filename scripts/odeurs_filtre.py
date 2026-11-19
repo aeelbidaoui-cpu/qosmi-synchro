@@ -104,7 +104,7 @@ def main():
 
 def libelle_nl():
     """Titres des filtres Search & Discovery en néerlandais (Odeurs, Saison, Idéal pour)."""
-    NL = {"Odeurs": "Geuren", "Saison": "Seizoen", "Idéal pour": "Ideaal voor"}
+    NL = {"Odeurs": "Geuren", "Saison": "Seizoen", "Idéal pour": "Ideaal voor", "Marque": "Merk"}  # Marque : 19/11/2026
     from shopify_api import Shopify
     s = Shopify()
     r = s.gql("""{ translatableResources(first: 50, resourceType: FILTER) { nodes { resourceId translatableContent { key value digest locale } } } }""")
