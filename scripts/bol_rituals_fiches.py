@@ -271,14 +271,31 @@ def main():
             continue
         attrs = [{"id": "EAN", "values": v(e)}] + [{"id": k, "values": v(x)} for k, x in fab.items()]
         assets = []
-        if e in nouveau:
-            gpc = None
+        # 19/11 soir : toutes les fiches bloquées reçoivent le jeu complet (catégorie reprise de la fiche bol si elle
+        # existe déjà, sinon recommandée par bol), pas seulement le fabricant et les ingrédients.
+        gpc = None
+        if e not in nouveau:
+            fb = bol.appel("GET", "/retailer/content/catalog-products/%s" % e, params={"language": "nl"}) or {}
+            g = fb.get("gpc") or {}
+            gpc = str(g.get("chunkId") or g.get("id") or g.get("code") or "") if isinstance(g, dict) else str(g or "")
+            if not stats["exemple gpc"]:
+                print("  gpc d'une fiche existante : %s" % json.dumps(g)[:200], flush=True)
+                stats["exemple gpc"] += 1
+            if gpc not in chunks:
+                gpc = None
+        if not d.get("inci") and any("Cosmetics" in x or "Ingredients" in x for x in cibles[e]):
+            stats["cosmétique sans liste INCI sur rituals.com"] += 1
+        if True:
             try:
+                if gpc:
+                    raise LookupError
                 r = bol.appel("POST", "/retailer/content/chunk-recommendations",
                               corps={"productContents": [{"attributes": [{"id": "Name", "values": v(nom_bol(d))},
                                                                          {"id": "Description", "values": v(re.sub(r"<[^>]+>", " ", description(d))[:2000])}]}]})
                 preds = sorted(((r or {}).get("recommendations") or [{}])[0].get("predictions") or [], key=lambda p: -p.get("probability", 0))
                 gpc = next((p["chunkId"] for p in preds if str(p.get("chunkId")) in chunks), None)
+            except LookupError:
+                pass
             except RuntimeError as ex:
                 if not stats["erreur recommandation"]:
                     print("  recommandation de catégorie : %s" % str(ex)[:300], flush=True)
@@ -302,8 +319,6 @@ def main():
                 attrs.append({"id": "Ingredients", "values": v(d["inci"])})
             assets = [{"url": "https://www.rituals.com/assets/%s/packshot/product-pack?fmt=jpg&wid=1200" % d["code"], "labels": ["FRONT"]}]
             stats["catégorie %s" % (ch.get("name") or gpc)] += 1
-        elif d.get("inci") and any("Ingredients" in x or "Cosmetics" in x for x in cibles[e]):
-            attrs.append({"id": "Ingredients", "values": v(d["inci"])})
         corps = {"language": "nl", "attributes": attrs}
         if assets:
             corps["assets"] = assets
