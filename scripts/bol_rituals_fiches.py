@@ -22,6 +22,7 @@ import os
 import re
 import sys
 import time
+import urllib.error
 import urllib.request
 
 ICI = os.path.dirname(os.path.abspath(__file__))
@@ -83,6 +84,29 @@ def champ(f, nom):
     return val or None
 
 
+def image_ok(url):
+    """Vrai si l'adresse renvoie bien une image (bol refuse une photo introuvable : DOWNLOAD_FAILED_404)."""
+    for i in range(2):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": AGENT})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return r.status == 200 and r.headers.get("Content-Type", "").startswith("image/") and len(r.read()) > 3000
+        except urllib.error.HTTPError:
+            return False
+        except Exception:
+            time.sleep(2)
+    return False
+
+
+def photo(code, h):
+    """Photo officielle qui existe vraiment (19/11 : « product-pack » est introuvable pour ± 2 produits sur 3)."""
+    cand = ["%s/assets/%s/packshot/product-pack?fmt=jpg&wid=1200" % (SITE, code),
+            "%s/assets/%s/packshot/product?fmt=jpg&wid=1200" % (SITE, code)]
+    for nom in dict.fromkeys(re.findall(r"rituals\.scene7\.com/is/image/rituals/(%s-[A-Za-z0-9_-]+)" % code, h)):
+        cand.append("https://rituals.scene7.com/is/image/rituals/%s?fmt=jpg&wid=1200&hei=1200" % nom)
+    return next((u for u in cand[:5] if image_ok(u)), None)
+
+
 def page(url):
     """Données utiles d'une fiche rituals.com : nom, catégorie, textes, INCI, mises en garde."""
     code = (re.search(r"-(\d{6,8})\.html$", url) or [None, None])[1]
@@ -105,7 +129,7 @@ def page(url):
             "cat": " > ".join(i["item"]["name"] for i in bc["itemListElement"][1:-1]) if bc else "",
             "rituel": champ(f, "ancientRitual"), "titre": champ(f, "productTitle"), "texte": champ(f, "marketingUsps"),
             "usage": champ(f, "directionsForUse"), "contenu": champ(f, "boxContains"), "inci": inci_valide(champ(f, "inci")),
-            "avertissement": champ(f, "warning")}
+            "avertissement": champ(f, "warning"), "photo": photo(code, h)}
 
 
 SANTE = re.compile(r"nachtrust|slaap|genees|geneeskunde|helend|heling|verlicht|pijn|stress|angst|immuun|therap|ontsteking|"
@@ -197,23 +221,33 @@ def diagnostic():
         envois = json.load(open(chemin, encoding="utf-8"))
         refus = collections.Counter()
         etats = collections.Counter()
-        for e, v in list(envois.items())[:120]:
+        neuves = [e for e, x in envois.items() if x.get("nouvelle")]
+        ordre = neuves[:40] + [e for e in envois if e not in neuves][:80]
+        montre = False
+        for e in ordre:
+            v = envois[e]
             if not v.get("processStatusId"):
                 continue
             st = bol.appel("GET", "/shared/process-status/%s" % v["processStatusId"]) or {}
             up = st.get("entityId")
             rep = bol.appel("GET", "/retailer/content/upload-report/%s" % up) if up else None
-            etats[(rep or {}).get("status") or st.get("status")] += 1
+            etats[("nouvelle " if v.get("nouvelle") else "") + str((rep or {}).get("status") or st.get("status"))] += 1
+            g = "[nouvelle] " if v.get("nouvelle") else ""
+            if v.get("nouvelle") and not montre and rep:
+                montre = True
+                print("Rapport d'une fiche nouvelle : %s" % json.dumps({"status": rep.get("status"), "assets": rep.get("assets"),
+                      "attributs": [(a.get("id"), a.get("status"), a.get("subStatus"), a.get("subStatusDescription")) for a in rep.get("attributes") or []]},
+                      ensure_ascii=False)[:3000], flush=True)
             for at in (rep or {}).get("attributes") or []:
                 if at.get("status") not in (None, "ACCEPTED", "PENDING"):
-                    refus["%s : %s" % (at.get("id"), "; ".join(sorted({str(m.get("violationCode") or m.get("message") or m)[:80] for m in at.get("subStatusMessages") or at.get("messages") or []})) or at.get("subStatus") or at.get("status"))] += 1
+                    refus[g + "%s : %s" % (at.get("id"), "; ".join(sorted({str(m.get("violationCode") or m.get("message") or m)[:80] for m in at.get("subStatusMessages") or at.get("messages") or []})) or at.get("subStatus") or at.get("status"))] += 1
             for at in (rep or {}).get("assets") or []:
                 if at.get("status") not in (None, "ACCEPTED", "PENDING"):
-                    refus["photo : %s" % (at.get("subStatus") or at.get("status"))] += 1
+                    refus[g + "photo : %s" % (at.get("subStatus") or at.get("status"))] += 1
             if e == next(iter(envois)):
                 print("Exemple de rapport : %s" % json.dumps(rep, ensure_ascii=False)[:1500], flush=True)
         print("Rapports d'envoi : %s" % dict(etats), flush=True)
-        for k, n in refus.most_common(25):
+        for k, n in refus.most_common(40):
             print("  refusé × %d : %s" % (n, k))
 
 
@@ -221,6 +255,7 @@ def main():
     if "--diag" in sys.argv:
         return diagnostic()
     essai = "--essai" in sys.argv
+    photos = "--photos" in sys.argv
     inv = json.load(open(os.path.join(RAPPORTS, "bol_invisibles.json"), encoding="utf-8"))
     raisons = collections.defaultdict(list)
     for cle, eans in inv.items():
@@ -268,6 +303,24 @@ def main():
         d = donnees.get(e)
         if not d:
             stats["sans page rituals.com"] += 1
+            continue
+        if photos:  # 19/11 : renvoi de la seule photo (vérifiée), espacé pour éviter IMAGE_RATE_LIMITED chez bol
+            if not d.get("photo"):
+                stats["sans photo trouvée sur rituals.com"] += 1
+                continue
+            stats["photo " + ("packshot" if "/assets/" in d["photo"] else "galerie")] += 1
+            if essai:
+                continue
+            try:
+                r = bol.appel("POST", "/retailer/content/products", corps={"language": "nl", "attributes": [{"id": "EAN", "values": v(e)}],
+                                                                           "assets": [{"url": d["photo"], "labels": ["FRONT"]}]})
+                envois[e] = {"processStatusId": (r or {}).get("processStatusId"), "nouvelle": e in nouveau, "attributs": ["EAN", "photo"]}
+                stats["envoyées"] += 1
+            except RuntimeError as ex:
+                envois[e] = {"erreur": str(ex)[:300]}
+                refus[str(ex)[:160]] += 1
+                stats["refusées"] += 1
+            time.sleep(3)
             continue
         attrs = [{"id": "EAN", "values": v(e)}] + [{"id": k, "values": v(x)} for k, x in fab.items()]
         assets = []
@@ -317,7 +370,9 @@ def main():
                 attrs.append({"id": "Capacity", "values": [cap]})
             if d.get("inci") and "Ingredients" in ids:
                 attrs.append({"id": "Ingredients", "values": v(d["inci"])})
-            assets = [{"url": "https://www.rituals.com/assets/%s/packshot/product-pack?fmt=jpg&wid=1200" % d["code"], "labels": ["FRONT"]}]
+            assets = [{"url": d["photo"], "labels": ["FRONT"]}] if d.get("photo") else []
+            if not assets:
+                stats["sans photo trouvée sur rituals.com"] += 1
             stats["catégorie %s" % (ch.get("name") or gpc)] += 1
         corps = {"language": "nl", "attributes": attrs}
         if assets:
