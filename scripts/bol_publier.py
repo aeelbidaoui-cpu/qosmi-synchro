@@ -190,7 +190,11 @@ def main():
                  maintenant - refus.get(e, {}).get("t", 0) > REESSAI_REFUS_JOURS * 86400]
     # 09/11/2026 (Amine) : pause des NOUVELLES offres « seul vendeur sans marché » (fiches bol presque toujours non publiées,
     # offres invisibles). Les offres déjà en ligne restent et sont toujours mises à jour.
-    sans_marche = lambda e: str(voulues[e].get("decision", "")).startswith("oui : seul vendeur") and not voulues[e].get("marche_connu")
+    # 19/11/2026 (Amine : « les 601 produits Rituals où on serait le seul vendeur, publie-les ») : la pause ne s'applique pas
+    # à la boutique de la marque (source 3, autorisation de Rituals) quand config « rituals_creer_sans_marche » est vrai
+    rit_sm = bool(cfg.get("rituals_creer_sans_marche"))
+    sans_marche = lambda e: (str(voulues[e].get("decision", "")).startswith("oui : seul vendeur") and not voulues[e].get("marche_connu")
+                             and not (rit_sm and voulues[e].get("fournisseur") == 3))
     mode_sm = cfg.get("selection", {}).get("creer_sans_marche", True)
     photos_sm = {}
     if mode_sm == "avec_photo":
