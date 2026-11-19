@@ -969,3 +969,30 @@ if __name__ == "__main__":
         basculer()
     else:
         print(__doc__)
+
+ECART_MAX_TESTEUR_EUR = 20  # 19/11/2026 (Amine) : un testeur coûte au plus 20 € de moins que le flacon normal
+
+
+def plafond_testeurs(produits, ecart=ECART_MAX_TESTEUR_EUR):
+    """19/11/2026 (Amine : « un tester soit moins cher de max 20 euro entre le normal et le tester ») : sur chaque fiche,
+    le testeur d'une contenance est remonté à (flacon normal le moins cher de même contenance et teinte − 20 €) quand son
+    prix calculé est plus bas. Le bénéfice ne fait qu'augmenter. Une fiche sans flacon normal garde le prix calculé."""
+    n = 0
+    for p in produits:
+        normaux = {}
+        for v in p["variantes"]:
+            if " – " in v["format_fr"]:
+                continue
+            k = (v["format_fr"].split(" · ")[0], v.get("teinte") or "")
+            pr = float(v.get("prix") or 0)
+            if pr > 0:
+                normaux[k] = min(normaux.get(k, pr), pr)
+        for v in p["variantes"]:
+            if " – testeur" not in v["format_fr"]:
+                continue
+            ref = normaux.get((v["format_fr"].split(" – ")[0], v.get("teinte") or ""))
+            pr = float(v.get("prix") or 0)
+            if ref and 0 < pr < ref - ecart:
+                v["prix"] = "%.2f" % round(ref - ecart, 2)
+                n += 1
+    return n

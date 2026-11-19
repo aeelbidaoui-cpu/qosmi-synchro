@@ -404,6 +404,9 @@ def synchro(essai=False):
     fusions = []
     if fusion_active:
         produits, fusions = fusionner_doublons(produits, boutique, vs_qs)
+    n_testeurs = sv.plafond_testeurs(produits)  # 19/11/2026 : testeur au plus 20 € sous le flacon normal
+    if n_testeurs:
+        ligne_journal("testeurs : %d prix remontés à 20 € sous le flacon normal" % n_testeurs)
     structurels, nouveaux, prix, stocks, vus = [], [], collections.defaultdict(list), [], set()
     conc, dujour = sl.concurrent(), []  # prix du concurrent (interne) ; marques « parfum du jour » à changer
     tags_plus, tags_moins = [], []  # étiquette « meilleur-prix » (collection Black Friday)
