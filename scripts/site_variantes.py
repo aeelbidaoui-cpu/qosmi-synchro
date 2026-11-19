@@ -440,9 +440,9 @@ def lignes_trista_seules(eans_soleluna):
 def _cle_titre(t):
     n = _norm(t).replace("&", " and ")
     n = re.sub(r"[^a-z0-9]+", " ", n).strip()
-    # 19/11/2026 (Torino21) : « JTC Torino21 » (SoleLuna) = « ATP Torino 21 » (Trista) : préfixes de collection Xerjoff
+    # 19/11/2026 (Torino21, Naxos) : « JTC Torino21 » = « ATP Torino 21 », « XJ 1861 Naxos » = « 1861 Naxos » : préfixes de collection Xerjoff
     # ignorés et « mot 21 » = « mot21 », pour reconnaître le même parfum malgré deux EAN et deux écritures
-    n = re.sub(r"\b(jtc|atp)\b", " ", n)
+    n = re.sub(r"\b(jtc|atp|xj)\b", " ", n)
     n = re.sub(r"([a-z])\s+(\d)", r"\1\2", n)
     return " ".join(n.split())
 
