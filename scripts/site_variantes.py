@@ -487,7 +487,10 @@ def ajouter_sur_commande(produits, lignes_sl, r, photos):
         if not existante and cle_fiche(p) in par_cle:  # même parfum chez SoleLuna, genre écrit autrement
             existante, fusion = par_cle[cle_fiche(p)], True
         if existante and not existante["teintes"]:  # même parfum déjà chez SoleLuna sous un autre EAN : formats ajoutés
-            formats = {v["format_fr"].split(" · ")[0] for v in existante["variantes"]}
+            # 19/11/2026 : un format SoleLuna épuisé (sans option Bon plan) n'empêche plus d'ajouter le même format Trista
+            formats = {v["format_fr"].split(" · ")[0] for v in existante["variantes"]
+                       if " · " in v["format_fr"] or int(sl.nombre(v.get("stock") or 0)) > 0
+                       or any(w["format_fr"].startswith(v["format_fr"] + " · ") for w in existante["variantes"])}
             normaux = {v["format_fr"]: float(v.get("prix") or 0) for v in existante["variantes"] if " – " not in v["format_fr"]
                        and " · " not in v["format_fr"]}
 
