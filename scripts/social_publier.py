@@ -133,7 +133,16 @@ def corps_page(etat, lots, nl):
     import html
     e = lambda x: html.escape(x or "", quote=True)  # noqa: E731
     par_id = {p["id"]: p for p in lots}
-    faites = sorted(((v.get("date", ""), k) for k, v in etat.items() if k in par_id), reverse=True)[:30]
+    # 20/11/2026 : seulement les publications déjà parues (les programmées d'avance chez Zernio restent cachées)
+    maintenant = dt.datetime.now(ZoneInfo(CFG.get("fuseau", "Europe/Brussels")))
+    def parue(v):
+        pr = str(v.get("programme") or "")
+        try:
+            return dt.datetime.fromisoformat(pr) <= maintenant if pr[:2] == "20" else True
+        except ValueError:
+            return True
+    faites = sorted(((str(v.get("programme") or v.get("date", "")), k) for k, v in etat.items() if k in par_id and parue(v)),
+                    reverse=True)[:30]
     cartes = []
     for date, pid in faites:
         p, v = par_id[pid], etat[pid]
@@ -446,11 +455,10 @@ def main():
                 programmees += 1
                 print("Programmée chez Zernio : %s %s → n°%s %s — %s" % (jiso, hm, p["n"], p["id"], p["titre"]), flush=True)
         print("%d publication(s) programmée(s) d'avance." % programmees)
-        if programmees:
-            try:
-                maj_page(etat, lot)
-            except Exception as ex:
-                print("Page Instagram non mise à jour (%s)" % ex)
+        try:  # à chaque passage : la page « lien en bio » ne montre que ce qui est déjà paru
+            maj_page(etat, lot)
+        except Exception as ex:
+            print("Page Instagram non mise à jour (%s)" % ex)
         return
     # créneaux du jour (19/11/2026 : 12 h 30 et 18 h 30, heure de Bruxelles) : on prend celui qui est proche
     def cible_de(hm):
