@@ -13,5 +13,95 @@
    "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-1-parfum-du-jour-1.jpg"
   ],
   "test": true
+ },
+ "2-carrousel-hiver": {
+  "zernio": "6b001e4cd27082d3fca9f254",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-20T12:30:00+01:00",
+  "date": "2026-11-20",
+  "creneau": "12:30",
+  "n": 2,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-2-carrousel-hiver-1.jpg"
+  ]
+ },
+ "3-carrousel-conseil": {
+  "zernio": "6b001e833afcecab1ecbf5a0",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-20T18:30:00+01:00",
+  "date": "2026-11-20",
+  "creneau": "18:30",
+  "n": 3,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-3-carrousel-conseil-1.jpg"
+  ]
+ },
+ "4-matiere-oud": {
+  "zernio": "6b001e9ca39bb9d17aba32b3",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-21T12:30:00+01:00",
+  "date": "2026-11-21",
+  "creneau": "12:30",
+  "n": 4,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-4-matiere-oud-1.jpg"
+  ]
+ },
+ "5-anniversaire-coco": {
+  "zernio": "6b001ea53b5e0771ec719340",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-21T18:30:00+01:00",
+  "date": "2026-11-21",
+  "creneau": "18:30",
+  "n": 5,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-5-anniversaire-coco-1.jpg"
+  ]
+ },
+ "06-pdj-jadore": {
+  "zernio": "6b001eaf259dec08b565e98d",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-22T12:30:00+01:00",
+  "date": "2026-11-22",
+  "creneau": "12:30",
+  "n": 6,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-06-pdj-jadore-1.jpg"
+  ]
+ },
+ "07-bio-kurkdjian": {
+  "zernio": "6b001ec7629bc2bb1d55599c",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-22T18:30:00+01:00",
+  "date": "2026-11-22",
+  "creneau": "18:30",
+  "n": 7,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-07-bio-kurkdjian-1.jpg"
+  ]
  }
 }
