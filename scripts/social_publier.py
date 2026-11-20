@@ -350,6 +350,39 @@ def main():
             print("  - %s : %s %s %s" % (pl.get("platform"), pl.get("status"), pl.get("platformPostUrl") or "",
                                          (pl.get("errorMessage") or pl.get("error") or "")))
         return
+    if "--rattraper" in sys.argv:
+        # 20/11/2026 (Amine : « poste déjà ceux qui sont pas passés ») : remet le calendrier d'origine. Les publications
+        # programmées chez Zernio dont l'heure prévue au calendrier est passée partent tout de suite, les autres sont
+        # reprogrammées à leur heure prévue d'origine.
+        cle = os.environ.get("ZERNIO_API_KEY", "").strip()
+        tz = ZoneInfo(CFG.get("fuseau", "Europe/Brussels"))
+        maintenant = dt.datetime.now(tz)
+        etat, lot = lire_etat(), charger_lots()
+        par_id = {x["id"]: x for x in lot}
+        for pid, v in sorted(etat.items(), key=lambda kv: (par_id.get(kv[0], {}).get("iso", ""), creneau(par_id.get(kv[0], {})))):
+            if v.get("test") or not v.get("zernio") or pid not in par_id or not str(v.get("programme", "")).startswith("20"):
+                continue
+            if dt.datetime.fromisoformat(v["programme"]) <= maintenant:
+                continue  # déjà partie
+            q = par_id[pid]
+            h, m = map(int, creneau(q).split(":"))
+            prevue = dt.datetime.combine(dt.date.fromisoformat(q["iso"]), dt.time(h, m), tzinfo=tz)
+            if prevue <= maintenant + dt.timedelta(minutes=2):
+                corps, prog = {"publishNow": True}, "maintenant"
+            else:
+                prog = prevue.isoformat(timespec="seconds")
+                corps = {"scheduledFor": prog, "timezone": CFG.get("fuseau", "Europe/Brussels")}
+            r = zernio("PUT", "/posts/%s" % v["zernio"], cle, corps)
+            post = r.get("post", r) if isinstance(r, dict) else {}
+            v.update(programme=prog if prog != "maintenant" else maintenant.isoformat(timespec="seconds"),
+                     date=(prevue if prog != "maintenant" else maintenant).date().isoformat(),
+                     creneau=creneau(q) if prog != "maintenant" else "rattrapage")
+            ecrire_etat(etat)
+            print("n°%s %s — %s : %s (%s)" % (q["n"], pid, q["titre"], "publiée maintenant" if prog == "maintenant" else "reprogrammée " + prog,
+                                             post.get("status")), flush=True)
+            if prog == "maintenant":
+                time.sleep(20)
+        return
     if "--comptes" in sys.argv:  # vérifie la connexion Zernio sans rien publier
         cle = os.environ.get("ZERNIO_API_KEY", "").strip()
         if not cle:
