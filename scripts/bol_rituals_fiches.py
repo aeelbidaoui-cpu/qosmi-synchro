@@ -194,6 +194,20 @@ def diagnostic():
     cibles = sorted(e for e, r in raisons.items() if e.startswith(PREFIXE) and any(x.startswith(CONTENU) for x in r))
     print("Rituals bloquées : %d" % len(cibles), flush=True)
     print("Raisons :", dict(collections.Counter(x[:90] for e in cibles for x in raisons[e]).most_common(8)), flush=True)
+    # texte complet de bol pour quelques offres (bol_invisibles.json le coupe à 80 caractères)
+    raisons_longues = {}
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from bol_publier import offres_en_ligne
+        en_ligne = offres_en_ligne(bol)
+        for e in cibles[:8]:
+            oid = (en_ligne.get(e) or en_ligne.get(e.lstrip("0")) or {}).get("offerId")
+            o = bol.get("/retailer/offers/%s" % oid) if oid else {}
+            raisons_longues[e] = [(r.get("code"), r.get("description")) for r in (o or {}).get("notPublishableReasons") or []]
+    except Exception as ex:
+        print("raisons longues : %s" % ex, flush=True)
+    except Exception:
+        pass
     modele = json.loads(lire(MODELE, timeout=300) or "{}")
     chunks = {c["id"]: c for c in modele.get("chunks", [])}
     manque, cats, attrs_vus = collections.Counter(), collections.Counter(), collections.Counter()
@@ -214,6 +228,13 @@ def diagnostic():
                 manque[x["id"]] += 1
         if e == ech[0]:
             print("Exemple %s : clés de la fiche %s ; attributs %s" % (e, sorted(f.keys()), sorted(a)[:40]), flush=True)
+        # 20/11 : photos publiées mais offres toujours 4004 → ce que bol montre vraiment sur la fiche et l'offre
+        if ech.index(e) < 8:
+            assets = bol.appel("GET", "/retailer/content/assets/%s" % e, params={"usage": "PRIMARY"}) or {}
+            print("Détail %s : published=%s enrichment=%s gpc=%s photos=%s raisons=%s" % (
+                e, json.dumps(f.get("published"), ensure_ascii=False)[:300], json.dumps(f.get("enrichment"), ensure_ascii=False)[:300],
+                json.dumps(f.get("gpc"), ensure_ascii=False)[:200], json.dumps(assets, ensure_ascii=False)[:400],
+                [(x, raisons_longues.get(e)) for x in raisons[e]][:3]), flush=True)
     print("Échantillon %d : attributs obligatoires absents %s" % (len(ech), dict(manque.most_common(15))), flush=True)
     print("Catégories :", dict(cats.most_common(15)), flush=True)
     chemin = os.path.join(RACINE, "base", "bol_rituals_envois.json")
