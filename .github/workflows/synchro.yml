@@ -63,6 +63,8 @@ jobs:
           if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/apres_achat.py || echo "après achat : erreur (voir journal)"; fi
           if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/collections_profils.py || echo "collections saison/occasion : erreur (voir journal)"; fi
           if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/collections_cadeaux.py || echo "collections cadeaux : erreur (voir journal)"; fi
+          # prix au litre sur les nouveaux formats, Bons plans et testeurs compris (20/11/2026)
+          if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/seo_plus.py --prix-unitaire || echo "prix au litre : erreur (voir journal)"; fi
           # nouveautés de la liste Bons plans → Telegram d'Amine (17/11/2026) ; le journal ne montre que des nombres
           if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/nouveautes_grossiste.py || echo "nouveautés : erreur (voir journal)"; else python -u scripts/nouveautes_grossiste.py --essai || true; fi
 

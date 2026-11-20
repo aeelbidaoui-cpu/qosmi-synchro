@@ -36,7 +36,8 @@ def collections_vides(s):
 
 
 def ml(valeur):
-    m = re.fullmatch(r"\s*(\d+(?:[.,]\d+)?)\s*ml\s*", valeur or "", flags=re.I)
+    # 20/11/2026 : aussi les formats « 50 ml · Bon plan », « 100 ml — testeur · Bon plan » (prix au litre absent sinon)
+    m = re.match(r"\s*(\d+(?:[.,]\d+)?)\s*ml\b", valeur or "", flags=re.I)
     return float(m.group(1).replace(",", ".")) if m else None
 
 
