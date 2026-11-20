@@ -360,8 +360,9 @@ def construire(fichiers, marques):
     # « Complète ta commande » dans le panier (13/11/2026)
     if "qk-paiement.js" not in lay:  # 15/11/2026 : Bancontact d'abord dans le panier, autres moyens derrière un bouton
         lay = lay.replace("</head>", "    <script type=\"module\" src=\"{{ 'qk-paiement.js' | asset_url }}\"></script>\n  </head>", 1)
-    if "qk-relais-tiroir.js" not in lay:  # 19/11/2026 : carte des points relais Mondial Relay aussi dans le tiroir du panier
-        lay = lay.replace("</head>", "    <script type=\"module\" src=\"{{ 'qk-relais-tiroir.js' | asset_url }}\"></script>\n  </head>", 1)
+    # 20/11/2026 (Amine) : plus de carte Mondial Relay dans le panier (« ça ne fluidifie pas l'expérience client ») ;
+    # sans choix, le point relais le plus proche de l'adresse est pris (CGV art. 4.1)
+    lay = lay.replace("    <script type=\"module\" src=\"{{ 'qk-relais-tiroir.js' | asset_url }}\"></script>\n", "")
     if "qk-bancontact-logo" not in lay:
         lay = lay.replace("</body>", "  <template id=\"qk-bancontact-logo\">{{ 'bancontact' | payment_type_svg_tag }}</template>\n  </body>", 1)
     if "QK_SUR_COMMANDE" not in lay:  # 14/11/2026 : fiche propre au 2e grossiste → note « Bon plan » sur toute la fiche
@@ -586,7 +587,9 @@ def construire(fichiers, marques):
     if "templates/cart.json" in fichiers:
         e, d = lire(fichiers["templates/cart.json"])
         d["sections"]["qk_panier_livraison"] = {"type": "qk-panier-livraison", "settings": {}}
-        d["sections"]["qk_point_relais"] = {"type": "qk-point-relais", "settings": {}}  # 18/11/2026 : carte Mondial Relay
+        d["sections"].pop("qk_point_relais", None)  # 20/11/2026 : carte Mondial Relay retirée du panier (Amine)
+        if "order" in d:
+            d["order"] = [k for k in d["order"] if k != "qk_point_relais"]
         # panier en français et suggestions variées (demande d'Amine du 08/11/2026) : titre « Panier » ; la liste
         # « You may also like » du thème (4 premiers produits du catalogue, tous pareils) est remplacée par qk-suggestions
         for sec in d["sections"].values():
@@ -600,7 +603,7 @@ def construire(fichiers, marques):
             ("Un cadeau ?", "Offre un parfum", "La livraison en point relais est offerte dès 2 articles, partout en Belgique.", "Idées de parfums"),
             ("Een cadeau?", "Geef een parfum", "Gratis levering in een afhaalpunt vanaf 2 artikelen, in heel België.", "Parfumideeën"),
             "/collections/parfums")
-        d["order"] = ["qk_panier_livraison", "qk_point_relais"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_point_relais", "qk_suggestions", "qk_amb")] + ["qk_suggestions", "qk_amb"]
+        d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_point_relais", "qk_suggestions", "qk_amb")] + ["qk_suggestions", "qk_amb"]
         jsons["templates/cart.json"] = ecrire(e, d)
 
     e, d = lire(fichiers["sections/header-group.json"])
