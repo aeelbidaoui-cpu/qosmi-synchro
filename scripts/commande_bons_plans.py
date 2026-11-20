@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Liste de commande « Bons plans » (15/11/2026, point 8 validé par Amine).
 
-Le grossiste des Bons plans est commandé le lundi et le jeudi ; clôture le dimanche et le mercredi à minuit.
-Lancé le lundi et le jeudi matin (action « commande-bons-plans » du workflow theme) : relève les commandes payées
+Le grossiste des Bons plans est commandé une fois par semaine, le lundi matin (décision d'Amine du 20/11/2026 ; avant :
+lundi et jeudi) ; clôture le dimanche à minuit. Lancé le lundi matin (action « commande-bons-plans » du workflow theme) : relève les commandes payées
 passées avant minuit et pas encore expédiées qui contiennent un format Bon plan (références QS-B / QS-C / QS-D),
 regroupe les quantités par parfum et écrit la liste dans une page NON PUBLIÉE de l'admin Shopify
 (Boutique en ligne → Pages → « Liste interne · commande Bons plans »).
@@ -32,11 +32,11 @@ Q_COMMANDES = """query($q: String!, $apres: String) { orders(first: 100, after: 
 
 
 def clotures(maintenant):
-    """(dernière clôture, clôture précédente) : minuit à la fin du dimanche et du mercredi, heure de Bruxelles."""
+    """(dernière clôture, clôture précédente) : minuit à la fin du dimanche, heure de Bruxelles (20/11/2026)."""
     jour = maintenant.replace(hour=0, minute=0, second=0, microsecond=0)
     res = []
     while len(res) < 2:
-        if jour.weekday() in (0, 3) and jour <= maintenant:  # lundi 00:00 = fin du dimanche ; jeudi 00:00 = fin du mercredi
+        if jour.weekday() == 0 and jour <= maintenant:  # lundi 00:00 = fin du dimanche (1 commande par semaine)
             res.append(jour)
         jour -= datetime.timedelta(days=1)
     return res[0], res[1]
