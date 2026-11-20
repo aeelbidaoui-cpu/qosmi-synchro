@@ -126,11 +126,20 @@ def decider(ref, marche, cfg):
         # (5 € net, tous frais compris, jamais à perte) ; si même ainsi on ne passe pas sous le koopblok, on reste au plancher normal.
         pl_kb = plancher(ref["achat"], dict(cfg, marge_nette_eur=min(cfg["marge_nette_eur"],
                                                 cfg.get("marge_nette_koopblok_eur", cfg["marge_nette_eur"]))), fixe, pct) or pl
-        if cible + 1e-9 >= pl_kb:
+        mien = [o["prix"] for o in marche.get("offres", []) if str(o.get("retailer")) == moi and o.get("prix")]
+        if a_nous and mien:
+            # 20/11/2026 (Amine) : là où on a déjà le koopblok, on ne touche pas au prix (sauf s'il tombait sous
+            # 5 € net : jamais à perte).
+            prix, motif = max(min(mien), pl_kb), OUI_A_NOUS
+        elif cible + 1e-9 >= pl_kb:
             prix, motif = cible, OUI_GAGNABLE
         else:
-            prix, motif = pl, OUI_PLUS_CHER
+            # 20/11/2026 (Amine) : sans le koopblok, on se rapproche au maximum : prix à 5 € net (au lieu de 7 €).
+            prix, motif = pl_kb, OUI_PLUS_CHER
         d["koopblok"] = ref_prix
+    elif a_nous and [o for o in marche.get("offres", []) if o.get("prix")]:
+        # 20/11/2026 (Amine) : seul vendeur avec le koopblok : on ne touche pas au prix (jamais sous le plancher).
+        prix, motif = max(min(o["prix"] for o in marche["offres"] if o.get("prix")), pl), OUI_A_NOUS
     else:
         # personne d'autre ne vend ce produit sur bol : plancher relevé à « marge_nette_seul_vendeur_eur » (10 €,
         # décision d'Amine du 09/11/2026), sans jamais dépasser la borne 2 étoiles (sinon on garde le plancher normal).
@@ -181,6 +190,17 @@ if __name__ == "__main__":  # petits contrôles de la règle
     assert d7["decision"] == OUI_PLUS_CHER and d5["decision"] == OUI_GAGNABLE and 5 - 1e-9 <= d5["net"] < 7, (d7, d5)
     m["offres"][0]["prix"] = 52.0
     assert decider(ref, m, dict(cfg, marge_nette_koopblok_eur=5))["decision"] == OUI_PLUS_CHER
+    d = decider(ref, m, dict(cfg, marge_nette_koopblok_eur=5))
+    assert d["decision"] == OUI_PLUS_CHER and abs(d["net"] - 5) < 0.15, d  # 20/11 : sans koopblok → 5 € net
+    m2 = {"existe": True, "offres": [{"pays": "NL", "prix": 61.49, "koopblok": True, "retailer": "1"},
+                                     {"pays": "NL", "prix": 64.0, "koopblok": False, "retailer": "9"}],
+          "bornes": {5: 55, 4: 58, 3: 62, 2: 70}, "comm": (1.0, 0.15)}
+    d = decider(ref, m2, dict(cfg, marge_nette_koopblok_eur=5))
+    assert d["decision"] == OUI_A_NOUS and d["prix"] == 61.49, d  # 20/11 : koopblok à nous → prix inchangé
+    m3 = {"existe": True, "offres": [{"pays": "NL", "prix": 72.0, "koopblok": True, "retailer": "1"}],
+          "bornes": {5: 60, 4: 65, 3: 70, 2: 80}, "comm": (1.0, 0.15)}
+    d = decider(ref, m3, cfg)
+    assert d["decision"] == OUI_A_NOUS and d["prix"] == 72.0, d  # seul vendeur avec koopblok → inchangé
     assert decider(ref, {"existe": False}, cfg)["decision"] == NON_ABSENT
     assert decider(dict(ref, testeur=True), m, cfg)["decision"] == NON_TESTEUR
     for a in (5, 20, 80, 200):
