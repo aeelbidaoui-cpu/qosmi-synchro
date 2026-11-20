@@ -489,7 +489,9 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-bf__bouton { display: inline-block; background: #fff; color: #000; padding: 14px 28px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.85rem; font-weight: 600; transition: transform .2s; }
 .qk-bf__bouton:hover { transform: translateY(-2px); }
 .qk-bf__produits { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.4vw, 20px); }
-.qk-bf__carte { display: flex; flex-direction: column; gap: 3px; color: #fff; text-decoration: none; }
+.qk-bf__carte { display: flex; flex-direction: column; gap: 3px; color: #fff; text-decoration: none; transition: opacity .45s ease; }
+.qk-bf__carte--off { display: none; }
+.qk-bf__carte--fondu { opacity: 0; }
 .qk-bf__img { aspect-ratio: 3 / 4; background: #f2efea; border-radius: 999px 999px 10px 10px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 8px; }
 .qk-bf__img img { width: 82%; height: 82%; object-fit: contain; mix-blend-mode: multiply; transition: transform .5s ease; }
 .qk-bf__carte:hover .qk-bf__img img { transform: scale(1.05) translateY(-4px); }
@@ -526,7 +528,6 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
   .qk-bf__titre { font-size: 3.4rem; margin: 12px 0 8px; }
   .qk-bf__intro { margin-bottom: 14px; font-size: 0.95rem; }
   .qk-bf__produits { grid-template-columns: repeat(2, 1fr); }
-  .qk-bf__produits .qk-bf__carte:nth-child(n+3) { display: none; }
   .qk-neuf__etagere { grid-template-columns: repeat(3, 1fr); }
   .qk-neuf__etagere .qk-neuf__carte:nth-child(n+4) { display: none; }
   .qk-neuf__titre { font-size: 2.6rem; margin-bottom: 12px; }
