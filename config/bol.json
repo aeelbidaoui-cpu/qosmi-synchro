@@ -10,8 +10,8 @@
  "envoi_fournisseur_eur": 3.0,
  "emballage_eur": 0.6,
  "envoi_client_ht": {
-  "BE": 6.72,
-  "NL": 8.75
+  "BE": 6.8,
+  "NL": 6.8
  },
  "_note_envoi_client_ht": "Tarifs pro PostNL Belgique 2026 (0-500 colis/an), livraison à domicile, donnés par Amine le 08/11/2026 : BE 6,72 €, NL 8,75 € (point PostNL : 6,02 € / 8,50 €). Supposés HT (tarifs professionnels).",
  "provision_retours_eur": 1.0,
@@ -66,8 +66,8 @@
  "_note_grossiste_2": "18/11/2026 23 h 06 (Amine) : TOUS les produits Trista sur bol, même si SoleLuna a le produit ou l'a épuisé ; coût = prix Trista HT + 2 %. bol n'accepte qu'une offre par EAN : quand les deux l'ont en stock, on prend le moins cher. Seuls testeurs, échantillons et cadeaux promo sont exclus.",
  "_note_delai_livraison": "17/11/2026 (Amine) : toujours le délai le plus long possible. 1-8d est le plus long des délais fixes de bol ; plus long n'existe qu'avec « MijnLeverbelofte », réglé dans le compte vendeur.",
  "envoi_client_bol_bpost_ht": {
-  "BE": 6.9,
-  "NL": 6.9
+  "BE": 6.8,
+  "NL": 6.8
  },
  "_note_envoi_client_bol_bpost_ht": "18/11/2026 (Amine) : étiquette « pakketzegels via bol » bpost BE → NL à 6,90 € HT, déduite par bol des versements ; BE → BE compté au même prix en attendant le tarif exact. Utilisée seulement pour les articles non inflammables : bpost refuse le parfum (« ontvlambare parfums », liquides inflammables). Parfums et sprays gardent envoi_client_ht.",
  "marge_nette_koopblok_eur": 5,
@@ -91,5 +91,6 @@
  "prix_manuels": {
   "8028544102730": 142.09
  },
- "_note_prix_manuels": "20/11/2026 : prix mis à la main dans le compte vendeur, que le passage automatique ne doit pas écraser. Lorenzo Villoresi Teint de Neige 100 ml : 142,09 € (≈ 5 € net, contre Beauty by Filou)."
+ "_note_prix_manuels": "20/11/2026 : prix mis à la main dans le compte vendeur, que le passage automatique ne doit pas écraser. Lorenzo Villoresi Teint de Neige 100 ml : 142,09 € (≈ 5 € net, contre Beauty by Filou).",
+ "_note_envoi_20_11": "20/11/2026 (Amine) : envoi au client = étiquette bpost via bol à 6,80 € pour tout (Belgique et Pays-Bas, parfums compris) ; remplace PostNL 6,72/8,75 et bpost 6,90."
 }
