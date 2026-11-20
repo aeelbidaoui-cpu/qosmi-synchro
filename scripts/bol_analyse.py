@@ -301,6 +301,11 @@ def decider_tout(cfg, refs, marche, bol=None):
         d = regle.decider(ref, m and {"existe": m["existe"], "offres": m["offres"], "bornes": m["bornes"],
                                       "comm": tuple(m["comm"]) if m.get("comm") else None, "ecart": m.get("ecart", 0)}, cfg) if m else \
             dict(regle.decider(ref, {"existe": True, "offres": [], "bornes": {}}, cfg), decision="pas encore relevé", prix=None)
+        # 20/11/2026 : prix fixé à la main (config/bol.json « prix_manuels » : {ean: prix TTC}) : le robot ne l'écrase plus,
+        # tant que le produit reste vendable (jamais sous le plancher calculé par la règle)
+        pm = (cfg.get("prix_manuels") or {}).get(e) or (cfg.get("prix_manuels") or {}).get(e.lstrip("0"))
+        if pm and d.get("prix"):
+            d["prix"] = max(float(pm), float(d.get("plancher_5") or 0))
         if m and d.get("prix"):
             m["prix_vise"] = d["prix"]
         nl = [o for o in (m or {}).get("offres", []) if o["pays"] == "NL"]
