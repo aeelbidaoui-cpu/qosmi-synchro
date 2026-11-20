@@ -117,7 +117,7 @@ jobs:
           elif [ "$A" = "rituals-photos" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py --photos
           elif [ "$A" = "rituals-fiches-essai" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py --essai
           elif [ "$A" = "rituals-obligatoires" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py --obligatoires
-          elif [ "$A" = "rituals-simulation" ]; then python -u scripts/bol_simulation_rituals.py
+          elif [ "$A" = "rituals-simulation" ]; then python -u scripts/bol_simulation_rituals.py; python -u scripts/bol_simulation_deloox.py
           elif [ "$A" = "rituals-diag" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py --diag
           elif [ "$A" = "offres-test" ]; then python -u scripts/bol_contenu.py --offres-test
           elif [ "$A" = "contenu-envoyer" ]; then python -u scripts/bol_contenu.py --envoyer
