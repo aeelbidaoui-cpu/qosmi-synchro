@@ -10,13 +10,13 @@ import json, os, sys
 ICI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ICI)
 
-DELAI_FR, DELAI_NL = "5 à 10 jours ouvrables", "5 tot 10 werkdagen"
+DELAI_FR, DELAI_NL = "3 à 8 jours ouvrables", "3 tot 8 werkdagen"  # 20/11/2026
 TEXTE_FR = ("<p>Un peu plus de patience, un meilleur prix. Sur ces parfums, choisis le format marqué « Bon plan » "
             "(ou la fiche marquée « Bon plan ») : on le commande spécialement pour toi "
-            "et il part sous %s. Parfums authentiques et neufs.</p>" % DELAI_FR)
+            "et il arrive chez toi sous %s. Parfums authentiques et neufs.</p>" % DELAI_FR)
 TEXTE_NL = ("<p>Iets meer geduld, een betere prijs. Kies bij deze parfums het formaat met „Koopje” "
             "(of de fiche met „Koopje”): we bestellen het speciaal voor jou "
-            "en het vertrekt binnen %s. Originele, nieuwe parfums.</p>" % DELAI_NL)
+            "en het is bij jou binnen %s. Originele, nieuwe parfums.</p>" % DELAI_NL)
 SEO_FR = ("Bons plans parfums : des parfums originaux et neufs à prix plus doux, commandés spécialement pour toi. "
           "Livraison partout en Belgique.")
 SEO_NL = "Parfumkoopjes: originele, nieuwe parfums aan een zachtere prijs, speciaal voor jou besteld. Levering in heel België."

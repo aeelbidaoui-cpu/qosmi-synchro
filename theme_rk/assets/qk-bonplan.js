@@ -7,13 +7,13 @@
    Le thème Horizon redessine le sélecteur à chaque changement de variante : un MutationObserver refait le travail. */
 const NL = document.documentElement.lang.toLowerCase().startsWith('nl');
 const MOTS = [' · Bon plan', ' · Koopje', ' · Sur commande', ' · Op bestelling'];
-const DELAI = NL ? '5 tot 10 werkdagen' : '5 à 10 jours ouvrables';
+const DELAI = NL ? '3 tot 8 werkdagen' : '3 à 8 jours ouvrables';  // 20/11/2026 : 1 commande grossiste par semaine, réexpédié le jour même
 const TEXTE = NL
-  ? '<strong>Koopje</strong> — speciaal voor jou besteld, verzonden binnen ' + DELAI + '. Zelfde originele parfum, lagere prijs.'
-  : '<strong>Bon plan</strong> — commandé spécialement pour toi, expédié sous ' + DELAI + '. Même parfum authentique, prix plus doux.';
+  ? '<strong>Koopje</strong> — speciaal voor jou besteld, bij jou geleverd binnen ' + DELAI + '. Zelfde originele parfum, lagere prijs.'
+  : '<strong>Bon plan</strong> — commandé spécialement pour toi, livré chez toi sous ' + DELAI + '. Même parfum authentique, prix plus doux.';
 const TEXTE_FICHE = NL
-  ? '<strong>Koopje</strong> — speciaal voor jou besteld, verzonden binnen ' + DELAI + '. Origineel en nieuw parfum.'
-  : '<strong>Bon plan</strong> — commandé spécialement pour toi, expédié sous ' + DELAI + '. Parfum authentique et neuf.';
+  ? '<strong>Koopje</strong> — speciaal voor jou besteld, bij jou geleverd binnen ' + DELAI + '. Origineel en nieuw parfum.'
+  : '<strong>Bon plan</strong> — commandé spécialement pour toi, livré chez toi sous ' + DELAI + '. Parfum authentique et neuf.';
 const estBonPlan = (v) => MOTS.some((m) => (v || '').includes(m));
 
 function poserNote(apres, texte, genre) {
