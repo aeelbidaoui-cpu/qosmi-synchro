@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
-"""Code « amis » (20/11/2026, demande d'Amine) : livraison offerte dès 1 article, pour les gens qu'il connaît.
+"""Code DOUNIA (20/11/2026, demande d'Amine) : livraison offerte dès 1 article. Sa sœur Dounia en fait la promotion :
+ses abonnés ont la livraison gratuite. (Créé d'abord sous le nom AMISQOSMI, renommé le jour même.)
 Utilisable plusieurs fois, sans minimum, sur toutes les livraisons (point relais et domicile), cumulable avec BIENVENUE."""
 import os, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-CODE = "AMISQOSMI"
+CODE, ANCIEN = "DOUNIA", "AMISQOSMI"
 
 
 def main():
     from shopify_api import Shopify
     s = Shopify()
-    ex = s.gql('query($q: String!) { codeDiscountNodeByCode(code: $q) { id } }', {"q": CODE}).get("codeDiscountNodeByCode")
-    entree = {"title": "Amis — livraison offerte dès 1 article", "code": CODE, "startsAt": "2026-11-20T00:00:00Z",
+    q = 'query($q: String!) { codeDiscountNodeByCode(code: $q) { id } }'
+    ex = s.gql(q, {"q": CODE}).get("codeDiscountNodeByCode") or s.gql(q, {"q": ANCIEN}).get("codeDiscountNodeByCode")
+    entree = {"title": "DOUNIA — livraison offerte dès 1 article (abonnés de Dounia)", "code": CODE, "startsAt": "2026-11-20T00:00:00Z",
               "customerSelection": {"all": True}, "destination": {"all": True}, "appliesOncePerCustomer": False,
               "combinesWith": {"shippingDiscounts": False, "orderDiscounts": True, "productDiscounts": True}}
     if ex:
