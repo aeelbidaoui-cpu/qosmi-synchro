@@ -7,13 +7,27 @@
    Le thème Horizon redessine le sélecteur à chaque changement de variante : un MutationObserver refait le travail. */
 const NL = document.documentElement.lang.toLowerCase().startsWith('nl');
 const MOTS = [' · Bon plan', ' · Koopje', ' · Sur commande', ' · Op bestelling'];
-const DELAI = NL ? '3 tot 8 werkdagen' : '3 à 8 jours ouvrables';  // 20/11/2026 : 1 commande grossiste par semaine, réexpédié le jour même
+// 20/11/2026 (Amine) : date de livraison réelle selon le jour du visiteur. Le grossiste est commandé une fois par
+// semaine, le lundi matin (clôture dimanche minuit) ; le colis arrive le mercredi, il est réexpédié le jour même et
+// livré le jeudi (vendredi au plus tard). Heure de Bruxelles.
+function livraison() {
+  const p = {};
+  new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Brussels', year: 'numeric', month: 'numeric', day: 'numeric', weekday: 'short' })
+    .formatToParts(new Date()).forEach((x) => { p[x.type] = x.value; });
+  const wd = { Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 7 }[p.weekday] || 1;
+  const base = Date.UTC(+p.year, +p.month - 1, +p.day);
+  const lundi = base + (8 - wd) * 864e5;
+  const f = (t) => new Date(t).toLocaleDateString(NL ? 'nl-BE' : 'fr-BE', { timeZone: 'UTC', weekday: 'long', day: 'numeric', month: 'long' });
+  const j = f(lundi + 3 * 864e5), v = f(lundi + 4 * 864e5);
+  return NL ? 'bij jou geleverd tussen ' + j + ' en ' + v : 'livré chez toi entre le ' + j + ' et le ' + v;
+}
+const LIVRE = livraison();
 const TEXTE = NL
-  ? '<strong>Koopje</strong> — speciaal voor jou besteld, bij jou geleverd binnen ' + DELAI + '. Zelfde originele parfum, lagere prijs.'
-  : '<strong>Bon plan</strong> — commandé spécialement pour toi, livré chez toi sous ' + DELAI + '. Même parfum authentique, prix plus doux.';
+  ? '<strong>Koopje</strong> — speciaal voor jou besteld, ' + LIVRE + '. Zelfde originele parfum, lagere prijs.'
+  : '<strong>Bon plan</strong> — commandé spécialement pour toi, ' + LIVRE + '. Même parfum authentique, prix plus doux.';
 const TEXTE_FICHE = NL
-  ? '<strong>Koopje</strong> — speciaal voor jou besteld, bij jou geleverd binnen ' + DELAI + '. Origineel en nieuw parfum.'
-  : '<strong>Bon plan</strong> — commandé spécialement pour toi, livré chez toi sous ' + DELAI + '. Parfum authentique et neuf.';
+  ? '<strong>Koopje</strong> — speciaal voor jou besteld, ' + LIVRE + '. Origineel en nieuw parfum.'
+  : '<strong>Bon plan</strong> — commandé spécialement pour toi, ' + LIVRE + '. Parfum authentique et neuf.';
 const estBonPlan = (v) => MOTS.some((m) => (v || '').includes(m));
 
 function poserNote(apres, texte, genre) {
