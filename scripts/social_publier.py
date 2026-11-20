@@ -153,9 +153,8 @@ def corps_page(etat, lots, nl):
             nom, prix, dispo = fiche_publique(h, nl)
             if not nom:
                 continue
-            lib = ("Bekijk" if nl else "Voir") + (" · %s" % ("%.2f €" % prix).replace(".", ",") if prix else "")
-            boutons.append('<a class="qk-insta__btn" href="%s/products/%s">%s<br><small>%s</small></a>'
-                           % ("/nl" if nl else "", e(h), e(lib), e(nom)))
+            # 20/11/2026 (Amine) : pas de prix sur la page, et plus de gros bouton noir : un lien sobre au nom du parfum
+            boutons.append('<a class="qk-insta__btn" href="%s/products/%s">%s →</a>' % ("/nl" if nl else "", e(h), e(nom)))
         if not boutons:
             boutons.append('<a class="qk-insta__btn" href="%s/collections/all">%s</a>'
                            % ("/nl" if nl else "", "Ontdek onze parfums" if nl else "Découvrir nos parfums"))
@@ -165,9 +164,10 @@ def corps_page(etat, lots, nl):
     style = ("<style>.qk-insta{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px}"
              ".qk-insta__carte img{width:100%;height:auto;display:block;background:#f4f4f4}"
              ".qk-insta__titre{font-weight:500;margin:10px 0 8px}"
-             ".qk-insta__btn,.qk-insta__btn:visited,.qk-insta__btn:hover,.qk-insta__btn small{color:#fff!important}"
-             ".qk-insta__btn{display:block;text-align:center;background:#111;color:#fff;text-decoration:none;padding:10px 12px;"
-             "margin-top:6px;text-transform:uppercase;letter-spacing:.06em;font-size:13px}"
+             ".qk-insta__btn,.qk-insta__btn:visited{color:#111!important}"
+             ".qk-insta__btn{display:block;text-align:left;background:#fff;text-decoration:none;padding:9px 12px;"
+             "margin-top:6px;border:1px solid #111;font-size:14px}"
+             ".qk-insta__btn:hover{background:#111;color:#fff!important}"
              ".qk-insta__btn small{text-transform:none;letter-spacing:0;opacity:.8}</style>")
     intro = ("<p>Les parfums de nos dernières publications Instagram : touche un bouton pour arriver sur la fiche.</p>" if not nl else
              "<p>De parfums uit onze laatste Instagram-posts: tik op een knop om naar de productpagina te gaan.</p>")
