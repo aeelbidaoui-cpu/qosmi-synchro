@@ -17,7 +17,7 @@ on:
         description: "essai = montrer la publication du jour sans rien envoyer ; forcer = publier tout de suite"
         type: choice
         default: essai
-        options: [essai, comptes, publier, forcer, test, statut, relancer, rattraper]
+        options: [essai, comptes, publier, forcer, test, statut, relancer, rattraper, stories, story-maintenant]
 
 permissions:
   contents: write
@@ -50,7 +50,8 @@ jobs:
           ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
         run: |
           A="${{ inputs.action }}"; [ -z "$A" ] && A=publier
-          if [ "$A" = "essai" ]; then python -u scripts/social_publier.py --essai
+          if [ "$A" = "stories" ] || [ "$A" = "story-maintenant" ]; then echo "publications : rien (action $A)"
+          elif [ "$A" = "essai" ]; then python -u scripts/social_publier.py --essai
           elif [ "$A" = "comptes" ]; then python -u scripts/social_publier.py --comptes
           elif [ "$A" = "forcer" ]; then python -u scripts/social_publier.py --forcer
           elif [ "$A" = "test" ]; then python -u scripts/social_publier.py --test
@@ -58,11 +59,24 @@ jobs:
           elif [ "$A" = "relancer" ]; then python -u scripts/social_publier.py --relancer
           elif [ "$A" = "rattraper" ]; then python -u scripts/social_publier.py --rattraper && python -u scripts/social_publier.py
           else python -u scripts/social_publier.py; fi
+      - name: Stories Instagram (11 h et 18 h, programmées d'avance chez Zernio ; demande d'Amine du 20/11/2026)
+        if: always()
+        env:
+          SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+          ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+        run: |
+          pip install -q pillow
+          A="${{ inputs.action }}"; [ -z "$A" ] && A=publier
+          if [ "$A" = "story-maintenant" ]; then python -u scripts/social_stories.py --maintenant && python -u scripts/social_stories.py
+          elif [ "$A" = "publier" ] || [ "$A" = "rattraper" ] || [ "$A" = "stories" ]; then python -u scripts/social_stories.py
+          else echo "stories : rien pour l'action $A"; fi
       - name: Sauvegarde de l'historique
         if: always()
         run: |
-          if [ -n "$(git status --porcelain social/publie.json)" ]; then
+          if [ -n "$(git status --porcelain social/publie.json social/stories.json)" ]; then
             git config user.name "qosmi-robot"; git config user.email "robot@users.noreply.github.com"
-            git add social/publie.json && git commit -m "Réseaux sociaux : publication du $(date +%d/%m/%Y)"
+            git add social/publie.json; [ -f social/stories.json ] && git add social/stories.json; git commit -m "Réseaux sociaux : publication du $(date +%d/%m/%Y)"
             for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
           fi
