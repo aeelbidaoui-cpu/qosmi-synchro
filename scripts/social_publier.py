@@ -165,6 +165,7 @@ def corps_page(etat, lots, nl):
     style = ("<style>.qk-insta{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px}"
              ".qk-insta__carte img{width:100%;height:auto;display:block;background:#f4f4f4}"
              ".qk-insta__titre{font-weight:500;margin:10px 0 8px}"
+             ".qk-insta__btn,.qk-insta__btn:visited,.qk-insta__btn:hover,.qk-insta__btn small{color:#fff!important}"
              ".qk-insta__btn{display:block;text-align:center;background:#111;color:#fff;text-decoration:none;padding:10px 12px;"
              "margin-top:6px;text-transform:uppercase;letter-spacing:.06em;font-size:13px}"
              ".qk-insta__btn small{text-transform:none;letter-spacing:0;opacity:.8}</style>")
