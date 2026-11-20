@@ -224,7 +224,14 @@ def releve(cfg, refs, marche, maxi=None):
     debut = time.time()
     limite = debut + 60 * float(cfg.get("duree_max_minutes", 300))
     vieux = time.time() - 3600 * float(cfg.get("rescan_heures", 24))
-    a_faire = [e for e in priorite(refs) if refs[e]["stock"] > 0 and (e not in marche or marche[e]["t"] < vieux)
+    # 20/11/2026 (Amine) : les produits disputés (d'autres vendeurs, dont certains avec un robot de prix) sont relus
+    # plus souvent, pour réagir quand on perd le koopblok.
+    vieux_dispute = time.time() - 3600 * float(cfg.get("rescan_dispute_heures", 5))
+    moi = str(cfg.get("mon_retailer_id") or "")
+    def dispute(e):
+        return any(str(o.get("retailer")) != moi for o in (marche.get(e) or {}).get("offres") or [])
+    a_faire = [e for e in priorite(refs) if refs[e]["stock"] > 0
+               and (e not in marche or marche[e]["t"] < vieux or (dispute(e) and marche[e]["t"] < vieux_dispute))
                and not (refs[e]["testeur"] and not cfg.get("testeurs")) and not refs[e]["abime"]]
     a_faire.sort(key=lambda e: e in marche)  # jamais relevés d'abord
     if maxi:
@@ -277,8 +284,22 @@ def decider_tout(cfg, refs, marche, bol=None):
     decisions, lignes = {}, []
     for e, ref in refs.items():
         m = marche.get(e)
+        if m:
+            # 20/11/2026 (Amine, koopblok perdu face à un robot de prix) : bol ignore les écarts de quelques centimes et
+            # pèse aussi le délai ; quand un autre vendeur garde le koopblok, on descend par paliers (3 %, puis +2 % à
+            # chaque nouveau relevé où on ne l'a toujours pas), jamais sous 5 € net. Quand on l'a, on ne touche à rien.
+            moi = str(cfg.get("mon_retailer_id") or "")
+            gagnants = [o for o in m.get("offres") or [] if o.get("koopblok")]
+            autres = [o for o in m.get("offres") or [] if str(o.get("retailer")) != moi]
+            if gagnants and all(str(o.get("retailer")) == moi for o in gagnants):
+                m["ecart_t"] = m["t"]
+            elif autres and gagnants:
+                if m.get("ecart_t") != m["t"]:
+                    m["ecart"] = round(min(float(cfg.get("ecart_max", 0.25)), (m["ecart"] + float(cfg.get("ecart_pas", 0.02)))
+                                           if m.get("ecart") else float(cfg.get("ecart_depart", 0.03))), 3)
+                    m["ecart_t"] = m["t"]
         d = regle.decider(ref, m and {"existe": m["existe"], "offres": m["offres"], "bornes": m["bornes"],
-                                      "comm": tuple(m["comm"]) if m.get("comm") else None}, cfg) if m else \
+                                      "comm": tuple(m["comm"]) if m.get("comm") else None, "ecart": m.get("ecart", 0)}, cfg) if m else \
             dict(regle.decider(ref, {"existe": True, "offres": [], "bornes": {}}, cfg), decision="pas encore relevé", prix=None)
         if m and d.get("prix"):
             m["prix_vise"] = d["prix"]

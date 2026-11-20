@@ -132,6 +132,9 @@ def decider(ref, marche, cfg):
             # 5 € net : jamais à perte).
             prix, motif = max(min(mien), pl_kb), OUI_A_NOUS
         elif cible + 1e-9 >= pl_kb:
+            ecart = float(marche.get("ecart") or 0)
+            if ecart:  # 20/11/2026 : palier sous le koopblok (voir bol_analyse.decider_tout), jamais sous le plancher à 5 €
+                cible = max(down9(ref_prix * (1 - ecart)), pl_kb)
             prix, motif = cible, OUI_GAGNABLE
         else:
             # 20/11/2026 (Amine) : sans le koopblok, on se rapproche au maximum : prix à 5 € net (au lieu de 7 €).
@@ -201,6 +204,14 @@ if __name__ == "__main__":  # petits contrôles de la règle
           "bornes": {5: 60, 4: 65, 3: 70, 2: 80}, "comm": (1.0, 0.15)}
     d = decider(ref, m3, cfg)
     assert d["decision"] == OUI_A_NOUS and d["prix"] == 72.0, d  # seul vendeur avec koopblok → inchangé
+    m4 = {"existe": True, "offres": [{"pays": "NL", "prix": 154.66, "koopblok": True, "retailer": "9"},
+                                     {"pays": "NL", "prix": 154.59, "koopblok": False, "retailer": "1"}],
+          "bornes": {5: 150, 4: 160, 3: 170, 2: 190}, "comm": (1.15, 0.13), "ecart": 0.03}
+    d = decider(dict(ref, achat=82.81), m4, dict(cfg, marge_nette_koopblok_eur=5))
+    assert d["decision"] == OUI_GAGNABLE and d["prix"] <= 154.66 * 0.97 and d["net"] >= 5, d
+    m4["ecart"] = 0.25
+    d = decider(dict(ref, achat=82.81), m4, dict(cfg, marge_nette_koopblok_eur=5))
+    assert abs(d["net"] - 5) < 0.15, d  # palier bloqué au plancher 5 € net
     assert decider(ref, {"existe": False}, cfg)["decision"] == NON_ABSENT
     assert decider(dict(ref, testeur=True), m, cfg)["decision"] == NON_TESTEUR
     for a in (5, 20, 80, 200):

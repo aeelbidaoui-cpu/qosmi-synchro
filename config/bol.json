@@ -80,5 +80,10 @@
  "rituals_prix_promo": true,
  "_note_rituals_prix_promo": "18/11/2026 22 h 42 (Amine) : le coût Rituals suit le prix du jour (promo comprise) ; catalogue relu toutes les 5 h, nos prix bol remontent quand la promo finit. À faire : acheter chez Rituals le jour même de la commande bol, tant que la promo court.",
  "rituals_creer_sans_marche": true,
- "_note_rituals_creer_sans_marche": "19/11/2026 (Amine) : les produits Rituals où l'on serait le seul vendeur sont publiés même sans prix de marché connu (exception à la pause du 09/11)."
+ "_note_rituals_creer_sans_marche": "19/11/2026 (Amine) : les produits Rituals où l'on serait le seul vendeur sont publiés même sans prix de marché connu (exception à la pause du 09/11).",
+ "rescan_dispute_heures": 5,
+ "ecart_depart": 0.03,
+ "ecart_pas": 0.02,
+ "ecart_max": 0.25,
+ "_note_ecart": "20/11/2026 (Amine) : koopblok perdu face à un vendeur à robot de prix (Beauty by Filou). bol ignore les écarts de quelques centimes et pèse le délai : sans koopblok, on se met 3 % sous le koopblok, puis 2 % de plus à chaque nouveau relevé où on ne l'a toujours pas, jamais sous 5 € net (marge_nette_koopblok_eur). Avec le koopblok, prix inchangé. Produits disputés relus toutes les 5 h."
 }
