@@ -20,9 +20,9 @@
    "facebook",
    "instagram"
   ],
-  "programme": "2026-11-20T12:30:00+01:00",
+  "programme": "2026-11-20T11:22:32+01:00",
   "date": "2026-11-20",
-  "creneau": "12:30",
+  "creneau": "rattrapage",
   "n": 2,
   "heure": "12:30:00",
   "img": [
@@ -35,9 +35,9 @@
    "facebook",
    "instagram"
   ],
-  "programme": "2026-11-20T18:30:00+01:00",
+  "programme": "2026-11-20T11:22:32+01:00",
   "date": "2026-11-20",
-  "creneau": "18:30",
+  "creneau": "rattrapage",
   "n": 3,
   "heure": "18:30:00",
   "img": [
@@ -50,8 +50,8 @@
    "facebook",
    "instagram"
   ],
-  "programme": "2026-11-21T12:30:00+01:00",
-  "date": "2026-11-21",
+  "programme": "2026-11-20T12:30:00+01:00",
+  "date": "2026-11-20",
   "creneau": "12:30",
   "n": 4,
   "heure": "12:30:00",
@@ -65,8 +65,8 @@
    "facebook",
    "instagram"
   ],
-  "programme": "2026-11-21T18:30:00+01:00",
-  "date": "2026-11-21",
+  "programme": "2026-11-20T18:30:00+01:00",
+  "date": "2026-11-20",
   "creneau": "18:30",
   "n": 5,
   "heure": "18:30:00",
@@ -80,8 +80,8 @@
    "facebook",
    "instagram"
   ],
-  "programme": "2026-11-22T12:30:00+01:00",
-  "date": "2026-11-22",
+  "programme": "2026-11-21T12:30:00+01:00",
+  "date": "2026-11-21",
   "creneau": "12:30",
   "n": 6,
   "heure": "12:30:00",
@@ -95,13 +95,43 @@
    "facebook",
    "instagram"
   ],
-  "programme": "2026-11-22T18:30:00+01:00",
-  "date": "2026-11-22",
+  "programme": "2026-11-21T18:30:00+01:00",
+  "date": "2026-11-21",
   "creneau": "18:30",
   "n": 7,
   "heure": "18:30:00",
   "img": [
    "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-07-bio-kurkdjian-1.jpg"
+  ]
+ },
+ "08-sel-noel-elle": {
+  "zernio": "6b00206d28fbdb4a6f873721",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-22T12:30:00+01:00",
+  "date": "2026-11-22",
+  "creneau": "12:30",
+  "n": 8,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-08-sel-noel-elle-1.jpg"
+  ]
+ },
+ "09-mat-vanille": {
+  "zernio": "6b00208728fbdb4a6f87381e",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-22T18:30:00+01:00",
+  "date": "2026-11-22",
+  "creneau": "18:30",
+  "n": 9,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-09-mat-vanille-1.jpg"
   ]
  }
 }
