@@ -29,7 +29,7 @@ for ean, v in rel.items():
         n["nouveaux"] += 1
     elif abs(float(ancien[0]) - float(v[1])) > 0.004:
         n["prix changés"] += 1
-    pe[cle] = [float(v[1]), dispo, date]
+    pe[cle] = [float(v[1]), dispo, date] + ([int(v[4])] if len(v) > 4 else [])  # 20/11/2026 : 4e champ = « morgen in huis »
     n["maj"] += 1
 d["maj"] = date
 json.dump(d, open(CHEMIN, "w"), ensure_ascii=False, separators=(",", ":"))
