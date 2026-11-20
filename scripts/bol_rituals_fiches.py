@@ -285,6 +285,99 @@ def diagnostic():
             print("  refusé × %d : %s" % (n, k))
 
 
+# 20/11/2026 : le tableau de bord vendeur bol montre la vraie cause des 575 offres bloquées : 1 à 5 champs
+# « Verplicht » (niveau 1 du modèle de données) propres à la catégorie restent vides (ex. « Medisch hulpmiddel » pour
+# les soins du corps, « Doelgroep » et « Geslacht » pour les trousses, taille pour les peignoirs). On ne remplit que
+# des valeurs sûres pour des produits Rituals, et seulement si bol propose cette valeur dans sa liste ; le reste est
+# compté et affiché pour décider ensuite.
+def _genre(nom):
+    n = (nom or "").lower()
+    if re.search(r"\b(men|heren|homme|for him|mannen)\b", n):
+        return ["Mannen"]
+    if re.search(r"\b(women|dames|femme|for her|vrouwen)\b", n):
+        return ["Vrouwen"]
+    return ["Unisex"]
+
+
+def _taille(nom):
+    m = re.search(r"\b(XXS|XS|S|M|L|XL|XXL)\s*/\s*(XS|S|M|L|XL|XXL|XXXL)\b", nom or "", re.I)
+    if m:
+        return ["%s/%s" % (m.group(1).upper(), m.group(2).upper())]
+    if re.search(r"one ?size", nom or "", re.I):
+        return ["One size"]
+    return []
+
+
+REGLES = {
+    "Medical Tool": lambda nom: ["N"],
+    "Hangable": lambda nom: ["N"],
+    "Target Audience": lambda nom: ["Volwassenen"],
+    "Gender": _genre,
+    "Language Instructions": lambda nom: ["Universeel", "Nederlands"],
+    "Language Packaging": lambda nom: ["Universeel", "Nederlands"],
+    "Shelf life sealed product": lambda nom: ["Minder dan 30 maanden houdbaar; houdbaarheidsdatum is zichtbaar op verpakking"],
+    "European Norm": lambda nom: ["Niet aanwezig"],
+    "Size Clothing": _taille,
+}
+
+
+def obligatoires(cibles, bol, chunks, lovs, essai):
+    stats, restants, remplis, refus = collections.Counter(), collections.Counter(), collections.Counter(), collections.Counter()
+    exemples = {}
+    for i, e in enumerate(sorted(cibles)):
+        f = bol.appel("GET", "/retailer/content/catalog-products/%s" % e, params={"language": "nl"}) or {}
+        if not f:
+            stats["pas de fiche bol"] += 1
+            continue
+        vals = {x.get("id"): [y.get("value") for y in x.get("values") or []] for x in f.get("attributes") or []}
+        g = f.get("gpc") or {}
+        gpc = str(g.get("chunkId") or "") if isinstance(g, dict) else ""
+        ch = chunks.get(gpc)
+        if not ch:
+            stats["catégorie inconnue"] += 1
+            continue
+        nom = (vals.get("Title") or vals.get("Name") or [""])[0]
+        a_envoyer = []
+        for at in ch.get("attributes", []):
+            if at.get("enrichmentLevel", 9) > 1 or at["id"] in vals or at["id"] in ("EAN", "Internal Reference", "Name", "Product Classification"):
+                continue
+            cond = (at.get("condition") or {}).get("in")
+            if cond and not set(vals.get(cond.get("attributeId")) or []) & set(cond.get("values") or []):
+                continue
+            permis = set(lovs.get(at.get("lovId"), [])) if at.get("lovId") else None
+            choix = [x for x in (REGLES[at["id"]](nom) if at["id"] in REGLES else []) if permis is None or x in permis][:1]
+            if choix:
+                a_envoyer.append({"id": at["id"], "values": v(choix[0])})
+                remplis["%s = %s" % (at["id"], choix[0])] += 1
+            else:
+                restants["%s (%s)" % (at["id"], ch.get("name"))] += 1
+                exemples.setdefault(at["id"], e)
+        if not a_envoyer:
+            stats["rien de sûr à ajouter"] += 1
+            continue
+        if essai:
+            stats["à envoyer"] += 1
+            continue
+        try:
+            bol.appel("POST", "/retailer/content/products", corps={"language": "nl", "attributes": [{"id": "EAN", "values": v(e)}, {"id": "GPC Code", "values": v(gpc)}] + a_envoyer})
+            stats["envoyées"] += 1
+        except RuntimeError as ex:
+            refus[str(ex)[:160]] += 1
+            stats["refusées"] += 1
+        time.sleep(1)
+    print("Champs obligatoires complétés :", flush=True)
+    for k, n in remplis.most_common():
+        print("  %4d × %s" % (n, k))
+    print("Champs obligatoires encore vides (pas de valeur sûre) :", flush=True)
+    for k, n in restants.most_common(60):
+        print("  %4d × %s" % (n, k))
+    print("Exemples (EAN) :", json.dumps(exemples, ensure_ascii=False)[:1500], flush=True)
+    for k, n in sorted(stats.items(), key=lambda kv: -kv[1]):
+        print("  %-45s %5d" % (k, n))
+    for k, n in refus.most_common(10):
+        print("  refus × %d : %s" % (n, k))
+
+
 def main():
     if "--diag" in sys.argv:
         return diagnostic()
@@ -297,6 +390,13 @@ def main():
             raisons[str(e).zfill(13)].append(cle)
     cibles = {e: r for e, r in raisons.items() if e.startswith(PREFIXE) and any(x.startswith(CONTENU) for x in r)}
     nouveau = {e for e, r in cibles.items() if any("first to sell" in x for x in r)}
+    if "--obligatoires" in sys.argv:
+        from bol_api import Bol
+        modele = json.loads(lire(MODELE, timeout=300) or "{}")
+        chunks = {c["id"]: c for c in modele.get("chunks", [])}
+        lovs = {l["id"]: l.get("values") or [] for l in modele.get("lovs", [])}
+        print("Rituals bloquées : %d ; modèle bol : %d catégories" % (len(cibles), len(chunks)), flush=True)
+        return obligatoires(list(cibles), Bol(), chunks, lovs, "--essai" in sys.argv)
     print("Rituals : %d offres sans contenu suffisant chez bol (%d fiches à créer, %d à compléter)"
           % (len(cibles), len(nouveau), len(cibles) - len(nouveau)), flush=True)
     if not cibles:

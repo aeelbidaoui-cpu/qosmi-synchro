@@ -9,7 +9,7 @@ on:
         description: "Que faire ?"
         type: choice
         default: analyse
-        options: [analyse, test-connexion, recalculer, publier, essai-publication, contenu-diag, contenu-auto, contenu-envoyer, contenu-rapport, offres-test, contenu-images, controle-images, contenu-images-4004, bonnes-affaires, commandes-detail, rituals-fiches, rituals-fiches-essai, rituals-diag, rituals-photos]
+        options: [analyse, test-connexion, recalculer, publier, essai-publication, contenu-diag, contenu-auto, contenu-envoyer, contenu-rapport, offres-test, contenu-images, controle-images, contenu-images-4004, bonnes-affaires, commandes-detail, rituals-fiches, rituals-fiches-essai, rituals-diag, rituals-photos, rituals-obligatoires]
       maxi:
         description: "Nombre maximum d'EAN à relever (vide = tous, dans la limite de durée)"
         required: false
@@ -116,6 +116,7 @@ jobs:
           elif [ "$A" = "rituals-fiches" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py
           elif [ "$A" = "rituals-photos" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py --photos
           elif [ "$A" = "rituals-fiches-essai" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py --essai
+          elif [ "$A" = "rituals-obligatoires" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py --obligatoires
           elif [ "$A" = "rituals-diag" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py --diag
           elif [ "$A" = "offres-test" ]; then python -u scripts/bol_contenu.py --offres-test
           elif [ "$A" = "contenu-envoyer" ]; then python -u scripts/bol_contenu.py --envoyer
