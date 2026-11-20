@@ -5,15 +5,15 @@ Utilisable plusieurs fois, sans minimum, sur toutes les livraisons (point relais
 import os, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-CODE, ANCIEN = "DOUNIA", "AMISQOSMI"
+# code → (ancien nom éventuel, titre dans l'admin)
+CODES = {"DOUNIA": ("AMISQOSMI", "DOUNIA — livraison offerte dès 1 article (abonnés de Dounia)"),
+         "NASSIM": (None, "NASSIM — livraison offerte dès 1 article")}  # 20/11/2026 (Amine) : même avantage que DOUNIA
 
 
-def main():
-    from shopify_api import Shopify
-    s = Shopify()
+def creer(s, code, ancien, titre):
     q = 'query($q: String!) { codeDiscountNodeByCode(code: $q) { id } }'
-    ex = s.gql(q, {"q": CODE}).get("codeDiscountNodeByCode") or s.gql(q, {"q": ANCIEN}).get("codeDiscountNodeByCode")
-    entree = {"title": "DOUNIA — livraison offerte dès 1 article (abonnés de Dounia)", "code": CODE, "startsAt": "2026-11-20T00:00:00Z",
+    ex = s.gql(q, {"q": code}).get("codeDiscountNodeByCode") or (ancien and s.gql(q, {"q": ancien}).get("codeDiscountNodeByCode"))
+    entree = {"title": titre, "code": code, "startsAt": "2026-11-20T00:00:00Z",
               "customerSelection": {"all": True}, "destination": {"all": True}, "appliesOncePerCustomer": False,
               "combinesWith": {"shippingDiscounts": False, "orderDiscounts": True, "productDiscounts": True}}
     if ex:
@@ -23,8 +23,15 @@ def main():
         r = s.gql("""mutation($d: DiscountCodeFreeShippingInput!) { discountCodeFreeShippingCreate(freeShippingCodeDiscount: $d) {
                      codeDiscountNode { id } userErrors { field message } } }""", {"d": entree})["discountCodeFreeShippingCreate"]
     if r["userErrors"]:
-        sys.exit("ERREUR : %s" % r["userErrors"])
-    print("Code %s OK : livraison offerte dès 1 article, sans limite d'utilisation" % CODE)
+        sys.exit("ERREUR %s : %s" % (code, r["userErrors"]))
+    print("Code %s OK : livraison offerte dès 1 article, sans limite d'utilisation" % code)
+
+
+def main():
+    from shopify_api import Shopify
+    s = Shopify()
+    for code, (ancien, titre) in CODES.items():
+        creer(s, code, ancien, titre)
 
 
 if __name__ == "__main__":
