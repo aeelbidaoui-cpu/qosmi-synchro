@@ -382,8 +382,44 @@ def main():
     if not CFG.get("actif", True) and not essai:
         print("Robot désactivé (config/social.json « actif »).")
         return
-    # créneaux du jour (19/11/2026 : 12 h 30 et 18 h 30, heure de Bruxelles) : on prend celui qui est proche
     heures = CFG.get("heures") or [CFG.get("heure", "18:30")]
+    cle_z = os.environ.get("ZERNIO_API_KEY", "").strip()
+    if cle_z and not os.environ.get("META_TOKEN", "").strip() and not essai and not forcer:
+        # 20/11/2026 : GitHub lance les passages programmés avec des heures de retard (le 19/11 : entre 20 h et minuit),
+        # donc le « créneau proche » n'était jamais trouvé et rien n'est parti les 19 et 20/11. Désormais chaque passage
+        # programme d'avance chez Zernio les créneaux libres d'aujourd'hui et des jours suivants : Zernio publie à
+        # l'heure exacte, quel que soit le retard de GitHub.
+        etat, lot = lire_etat(), charger_lots()
+        jours = int(CFG.get("jours_avance", 2))
+        programmees = 0
+        for d in range(jours + 1):
+            jour_c = (maintenant + dt.timedelta(days=d)).date()
+            for hm in heures:
+                h, m = map(int, hm.split(":"))
+                cible = dt.datetime.combine(jour_c, dt.time(h, m), tzinfo=tz)
+                if cible < maintenant + dt.timedelta(minutes=10):
+                    continue
+                jiso = jour_c.isoformat()
+                if any(v.get("date") == jiso and v.get("creneau") == hm and not v.get("test") for v in etat.values()):
+                    continue
+                p, sautees = choisir(lot, etat, jiso, hm)
+                if not p:
+                    continue
+                urls = urls_publiques(p)
+                resultat = dict(publier_zernio(cle_z, p, urls, cible, dt.datetime.now(tz)), date=jiso, creneau=hm,
+                                n=p["n"], heure=hm + ":00", img=urls[:1])
+                etat[p["id"]] = resultat
+                ecrire_etat(etat)
+                programmees += 1
+                print("Programmée chez Zernio : %s %s → n°%s %s — %s" % (jiso, hm, p["n"], p["id"], p["titre"]), flush=True)
+        print("%d publication(s) programmée(s) d'avance." % programmees)
+        if programmees:
+            try:
+                maj_page(etat, lot)
+            except Exception as ex:
+                print("Page Instagram non mise à jour (%s)" % ex)
+        return
+    # créneaux du jour (19/11/2026 : 12 h 30 et 18 h 30, heure de Bruxelles) : on prend celui qui est proche
     def cible_de(hm):
         h, m = map(int, hm.split(":"))
         return maintenant.replace(hour=h, minute=m, second=0, microsecond=0)
