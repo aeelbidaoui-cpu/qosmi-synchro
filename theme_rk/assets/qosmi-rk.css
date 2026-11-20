@@ -966,3 +966,7 @@ body:has(.qk-profil) .qk-desc-profil { display: none; }
 .qk-prt__zone .MRW-RList { order: 1; position: static !important; width: 100% !important; height: auto !important; max-height: 220px; overflow-y: auto; display: block !important; margin-top: 8px; }
 .qk-prt__zone .MRW-ButtonCircle { display: none !important; }
 .qk-prt__zone .MRW-Search { max-width: 100%; }
+
+/* 20/11/2026 : explication du testeur, affichée seulement quand un format testeur est choisi */
+.qk-testeur-note { margin: 12px 0 4px; padding: 12px 14px; border: 1px solid #111; background: #fff; color: #111; font-size: 0.9rem; line-height: 1.45; }
+.qk-testeur-note strong { display: block; margin-bottom: 4px; }

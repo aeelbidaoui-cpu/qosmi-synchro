@@ -44,10 +44,34 @@ function poserNote(apres, texte, genre) {
   }
 }
 
+// 20/11/2026 (Amine) : les clients prennent « testeur » pour un petit format. Quand un format testeur est choisi, une case
+// explique ce que c'est (et seulement à ce moment-là).
+const TESTEUR = NL
+  ? '<strong>Wat is een tester?</strong> Dezelfde parfum, in dezelfde maat (geen staaltje): een origineel, nieuw flesje dat merken aan parfumerieën geven. Het komt zonder sierdoos (soms in een eenvoudige witte doos), soms zonder dop, en het flesje kan „Tester” of „Demonstration” vermelden. Daarom is het goedkoper.'
+  : '<strong>C\'est quoi un testeur ?</strong> Le même parfum, dans la même contenance (ce n\'est pas un échantillon) : un flacon original et neuf que les marques fournissent aux parfumeries. Il arrive sans boîte décorée (parfois dans une boîte blanche toute simple), parfois sans bouchon, et le flacon peut porter la mention « Tester » ou « Demonstration ». C\'est pour ça qu\'il est moins cher.';
+const estTesteur = (v) => /testeur|tester/i.test(v || '');
+
+function noteTesteur(picker, montrer) {
+  const parent = picker.parentElement;
+  let note = parent && parent.querySelector(':scope > .qk-testeur-note');
+  if (!montrer) { if (note) note.remove(); return; }
+  if (!note) {
+    note = document.createElement('div');
+    note.className = 'qk-testeur-note';
+    note.setAttribute('role', 'note');
+    note.innerHTML = TESTEUR;
+    (parent.querySelector(':scope > .qk-bonplan-note') || picker).after(note);
+  }
+}
+
 function traiter() {
   const fiche = window.QK_SUR_COMMANDE === true;
   const pickers = document.querySelectorAll('variant-picker, .variant-picker');
   pickers.forEach((picker) => {
+    let testeur = false;
+    picker.querySelectorAll('input[type="radio"]').forEach((i) => { if (i.checked && estTesteur(i.value)) testeur = true; });
+    picker.querySelectorAll('select option').forEach((o) => { if (o.selected && estTesteur(o.value)) testeur = true; });
+    setTimeout(() => noteTesteur(picker, testeur), 0);
     let choisi = false;
     // 14/11/2026 (Amine) : rien n'est caché ; un format épuisé, « Bon plan » compris, reste affiché barré « épuisé »
     picker.querySelectorAll('input[type="radio"]').forEach((i) => {
