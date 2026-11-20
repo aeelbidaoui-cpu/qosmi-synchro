@@ -9,7 +9,7 @@
       <ul class="qk-annonces__liste"{% if tour == 2 %} aria-hidden="true"{% endif %}>
         {%- comment -%} 17/11/2026 : Black Friday en tête du bandeau jusqu'au 30/11/2026 {%- endcomment -%}
         {%- assign qk_j = 'now' | date: '%Y%m%d' | plus: 0 -%}
-        {%- if qk_j <= 20261130 -%}<li class="qk-annonces__msg"><a href="{{ routes.root_url | append: '/collections/black-friday' | replace: '//', '/' }}" style="color:inherit">{% if request.locale.iso_code == 'nl' %}{% if qk_j < 20261127 %}Black Friday: -10 % van 27 tot 30 november{% else %}Black Friday: -10 % op een selectie, t/m maandag{% endif %}{% else %}{% if qk_j < 20261127 %}Black Friday : -10 % du 27 au 30 novembre{% else %}Black Friday : -10 % sur une sélection, jusqu'à lundi{% endif %}{% endif %}</a></li>{%- endif -%}
+        {%- comment -%} 20/11/2026 : Black Friday annulé par Amine {%- endcomment -%}{%- if qk_j <= 20261119 -%}<li class="qk-annonces__msg"><a href="{{ routes.root_url | append: '/collections/black-friday' | replace: '//', '/' }}" style="color:inherit">{% if request.locale.iso_code == 'nl' %}{% if qk_j < 20261127 %}Black Friday: -10 % van 27 tot 30 november{% else %}Black Friday: -10 % op een selectie, t/m maandag{% endif %}{% else %}{% if qk_j < 20261127 %}Black Friday : -10 % du 27 au 30 novembre{% else %}Black Friday : -10 % sur une sélection, jusqu'à lundi{% endif %}{% endif %}</a></li>{%- endif -%}
         {%- comment -%} 18/11/2026 (Amine) : message « Noël : commande avant le… » retiré du bandeau {%- endcomment -%}
         {%- for m in qk_msgs -%}
           {%- assign t = m | strip -%}

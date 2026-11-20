@@ -7,7 +7,7 @@
 {%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
 {%- assign qk_bf = collections['black-friday'] -%}
 {%- assign qk_jour = 'now' | date: '%Y%m%d' | plus: 0 -%}
-{%- if qk_bf and qk_bf.products_count > 0 and qk_jour <= 20261130 -%}
+{%- if qk_bf and qk_bf.products_count > 0 and qk_jour <= 20261119 -%}
 <div class="qk-hero qk-carrousel__slide qk-bf" role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="Black Friday">
   <span class="qk-bf__fond" aria-hidden="true">BLACK FRIDAY BLACK FRIDAY BLACK FRIDAY</span>
   <div class="qk-largeur qk-bf__cadre">

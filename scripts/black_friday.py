@@ -223,6 +223,11 @@ def retirer():
         if (n.get("automaticDiscount") or {}).get("title") == TITRE_REMISE:
             s.gql("mutation($id: ID!) { discountAutomaticDelete(id: $id) { userErrors { message } } }", {"id": n["id"]})
             print("Remise Black Friday supprimée")
+    # 20/11/2026 (Amine : Black Friday annulé) : la sélection est vidée, ce qui masque aussi la diapositive et la ligne sous le prix
+    ids = tagues(s)
+    for pid in ids:
+        s.gql("mutation($id: ID!, $t: [String!]!) { tagsRemove(id: $id, tags: $t) { userErrors { message } } }", {"id": pid, "t": [ETIQUETTE]})
+    print("Sélection Black Friday vidée : %d fiche(s)" % len(ids))
 
 
 if __name__ == "__main__":

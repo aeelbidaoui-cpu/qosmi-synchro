@@ -4,7 +4,7 @@
 const JOUR = window.QK_BF;
 const NL = document.documentElement.lang.toLowerCase().startsWith('nl');
 function texte() {
-  if (!JOUR || JOUR > 20261130) return null;
+  if (!JOUR || JOUR > 20261119) return null; // 20/11/2026 : Black Friday annulé
   if (JOUR < 20261127) {
     return NL ? '<strong>Black Friday</strong> — -10 % op dit parfum van vrijdag 27 tot maandag 30 november, automatisch in je winkelmandje.'
               : '<strong>Black Friday</strong> — -10 % sur ce parfum du vendredi 27 au lundi 30 novembre, automatiquement au panier.';
