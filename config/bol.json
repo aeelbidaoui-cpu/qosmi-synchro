@@ -85,5 +85,7 @@
  "ecart_depart": 0.03,
  "ecart_pas": 0.02,
  "ecart_max": 0.25,
- "_note_ecart": "20/11/2026 (Amine) : koopblok perdu face à un vendeur à robot de prix (Beauty by Filou). bol ignore les écarts de quelques centimes et pèse le délai : sans koopblok, on se met 3 % sous le koopblok, puis 2 % de plus à chaque nouveau relevé où on ne l'a toujours pas, jamais sous 5 € net (marge_nette_koopblok_eur). Avec le koopblok, prix inchangé. Produits disputés relus toutes les 5 h."
+ "_note_ecart": "20/11/2026 (Amine) : koopblok perdu face à un vendeur à robot de prix (Beauty by Filou). bol ignore les écarts de quelques centimes et pèse le délai : sans koopblok, on se met 3 % sous le koopblok, puis 2 % de plus à chaque nouveau relevé où on ne l'a toujours pas, jamais sous 5 € net (marge_nette_koopblok_eur). Avec le koopblok, prix inchangé. Produits disputés relus toutes les 5 h.",
+ "rituals_delai_livraison": "3-5d",
+ "_note_rituals_delai": "20/11/2026 (Amine) : Rituals acheté en magasin le lendemain de la commande (Rituals fermé le dimanche, ouvert jusqu'à 19 h), envoyé le jour même avec l'étiquette bpost via bol (BE : J+1 si déposé avant 16 h ; NL : 1-2 jours, pas de livraison dimanche/lundi). Pire cas 3 jours ouvrables → promesse 3-5 jours pour garder de la marge (2-5 n'existe pas chez bol)."
 }

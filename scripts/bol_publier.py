@@ -134,11 +134,19 @@ def operateurs(bol, essai=False):
             par_marque[m] = "DEWAY"
     return ids, par_marque, statuts, incomplets
 
+def delai_de(d, cfg):
+    """20/11/2026 (Amine) : Rituals (fournisseur 3, acheté en magasin le lendemain, envoyé le jour même) en 3-5 jours ;
+    tout le reste au délai le plus long."""
+    if (d or {}).get("fournisseur") == 3 and cfg.get("rituals_delai_livraison"):
+        return cfg["rituals_delai_livraison"]
+    return cfg.get("delai_livraison", "1-8d")
+
+
 def corps_offre(ean, d, cfg, eo=None):
     c = {"ean": ean, "condition": {"name": "NEW"}, "reference": "QOSMI", "onHoldByRetailer": False,
             "pricing": {"bundlePrices": [{"quantity": 1, "unitPrice": round(d["prix"], 2)}]},
             "stock": {"amount": int(d["stock"]), "managedByRetailer": False},
-            "fulfilment": {"method": "FBR", "deliveryCode": cfg.get("delai_livraison", "1-8d")}}
+            "fulfilment": {"method": "FBR", "deliveryCode": delai_de(d, cfg)}}
     if eo:
         c["economicOperatorId"] = eo
     return c
@@ -252,14 +260,14 @@ def main():
                         "fulfilment": {"method": "FBR", "deliveryCode": o.get("delai") or cfg.get("delai_livraison", "1-8d")}})
             journal.append(("opérateur lié", e, d or dec_court.get(ec, {}), eo))
         # 17/11/2026 (Amine) : toutes les offres au délai le plus long (celles créées plus tôt avec un autre délai aussi)
-        delai = cfg.get("delai_livraison", "1-8d")
+        delai = delai_de(d or dec_court.get(ec), cfg)
         if d and o.get("delai") and o["delai"] != delai and o.get("offerId"):
             if not essai:
                 corps = {"onHoldByRetailer": False, "fulfilment": {"method": "FBR", "deliveryCode": delai}}
                 if o.get("eo") or eo:
                     corps["economicOperatorId"] = o.get("eo") or eo
                 bol.put("/retailer/offers/%s" % o["offerId"], corps)
-            journal.append(("délai allongé", e, d, "%s → %s" % (o["delai"], delai)))
+            journal.append(("délai changé", e, d, "%s → %s" % (o["delai"], delai)))
         if d:
             if abs(o["prix"] - d["prix"]) > 0.004:
                 if not essai:
