@@ -74,7 +74,8 @@ def reglages():
         s = {}
     p = s.get("prix_provisoires") or {}
     return {"envoi_eur": float(p.get("envoi_eur", 2)), "marge_eur": float(p.get("marge_eur", 5)),
-            "emballage_eur": float(p.get("emballage_eur", 0)), "marge_sans_concurrent_eur": float(p.get("marge_sans_concurrent_eur", p.get("marge_eur", 5))),
+            "emballage_eur": float(p.get("emballage_eur", 0)), "envoi_client_eur": float(p.get("envoi_client_eur", 0)),
+            "marge_sans_concurrent_eur": float(p.get("marge_sans_concurrent_eur", p.get("marge_eur", 5))),
             "marge_max_concurrent_eur": float(p.get("marge_max_concurrent_eur", 0)),
             "marge_arabes_eur": float(p.get("marge_arabes_eur", p.get("marge_eur", 5))), "arabes": marques_arabes(),
             "concurrent": concurrent(),
@@ -143,6 +144,11 @@ def arrondi_90_haut(ttc):
     return euros + 0.90
 
 
+def cout_frais(r):
+    """Frais HT ajoutés à l'achat pour chaque article du site : part du colis fournisseur + emballage + part d'envoi client."""
+    return r["envoi_eur"] + r.get("emballage_eur", 0) + r.get("envoi_client_eur", 0)
+
+
 def prix_provisoire(achat, r, ean=""):
     """Règle d'Amine du 08/11/2026 (livraison client 2,95 € ; colis SoleLuna de 15 € pour ~5 parfums, soit envoi_eur 3 €) :
     - coût = achat + envoi + emballage ; les frais de paiement (% du TTC + fixe) sont inclus pour que le bénéfice reste entier ;
@@ -152,7 +158,8 @@ def prix_provisoire(achat, r, ean=""):
       moins cher que lui, on le reste ;
     - sinon : coût + frais + marge_sans_concurrent_eur (7 €)."""
     k = 1 / (1 + r["tva"]) - r.get("paiement_pct", 0)
-    base = achat + r["envoi_eur"] + r.get("emballage_eur", 0) + r.get("paiement_fixe", 0)
+    # 20/11/2026 (Amine) : + part d'envoi client Mondial Relay (envoi_client_eur, 1,75 € HT par article)
+    base = achat + cout_frais(r) + r.get("paiement_fixe", 0)
     plancher = arrondi_90_haut((base + r["marge_eur"]) / k)
     ref = (r.get("concurrent") or {}).get((ean or "").lstrip("0"))
     if ref:
@@ -280,7 +287,7 @@ def fiche(l, r, photos):
             "desc_nl": "<p>%s</p>" % html.escape(d_nl.strip(), quote=False),
             "marque": marque, "type_fr": cat_fr, "type_nl": cat_nl, "tags": ", ".join(tags),
             "prix": "%.2f" % prix_provisoire(achat, dict(r, marge_eur=r["marge_arabes_eur"]) if marque.lower() in r.get("arabes", ()) else r, ean), "stock": str(max(0, int(nombre(l.get("STOCK"))))),
-            "cout_ht": "%.2f" % (achat + r["envoi_eur"] + r.get("emballage_eur", 0)), "photo_source": photos.get(ean.lstrip("0"), "")}
+            "cout_ht": "%.2f" % (achat + cout_frais(r)), "photo_source": photos.get(ean.lstrip("0"), "")}
 
 
 def preparer(source=SOURCE, sortie=CATALOGUE):

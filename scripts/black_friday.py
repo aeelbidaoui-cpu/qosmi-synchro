@@ -41,7 +41,9 @@ Q = """query($a: String) { products(first: 100, after: $a, query: "status:active
 
 
 def net(prix, cout, sku):
-    emb = EMBALLAGE if (sku or "").startswith(("QS-B", "QS-C", "QS-D")) else 0
+    # 20/11/2026 : le coût par article Shopify comprend désormais l'emballage et la part d'envoi client pour TOUS les formats
+    # (Bons plans compris) ; plus d'ajout séparé ici.
+    emb = 0
     return prix / (1 + TVA) - PAIEMENT_PCT * prix - PAIEMENT_FIXE - cout - emb
 
 

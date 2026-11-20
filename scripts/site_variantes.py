@@ -263,7 +263,8 @@ def ajouter_bons_plans(produits, r):
             # Règle d'Amine du 14/11/2026 : (prix + 2 %) + 3 € d'envoi + frais Shopify Payments + 10 € de bénéfice, + 21 % TVA,
             # arrondi au ,90 supérieur. Si l'écart avec la livraison normale est alors < gain_min_eur (3 €), on descend jusqu'à
             # 3 € sous le prix normal, sans passer sous benefice_min_eur (5 € net). Pas d'alignement sur le concurrent.
-            port = rb["envoi_eur"]
+            # 20/11/2026 (Amine) : + emballage (0,60 €) + part d'envoi client Mondial Relay (1,75 €), pour garder 5 € net
+            port = rb["envoi_eur"] + r.get("emballage_eur", 0) + r.get("envoi_client_eur", 0)
             k = 1 / (1 + r["tva"]) - r.get("paiement_pct", 0)
             base = achat * (1 + rb["majoration_pct"]) + port + r.get("paiement_fixe", 0)
             normal = float(v["prix"])
@@ -491,12 +492,13 @@ def ajouter_sur_commande(produits, lignes_sl, r, photos):
         p = produit(g, r, photos)
         for v in p["variantes"]:
             achat, stock = sl.nombre(v["_achat"]), max(0, int(sl.nombre(v["stock"])))
-            base = achat * (1 + rb["majoration_pct"]) + rb["envoi_eur"] + r.get("paiement_fixe", 0)
+            frais = rb["envoi_eur"] + r.get("emballage_eur", 0) + r.get("envoi_client_eur", 0)  # 20/11/2026 : + emballage + envoi client
+            base = achat * (1 + rb["majoration_pct"]) + frais + r.get("paiement_fixe", 0)
             prix = sl.arrondi_90_haut((base + rb["benefice_eur"]) / k)
             # 14/11/2026 (Amine) : sur ses propres fiches, format normal (« 100 ml ») et la fiche dit « Bon plan » (étiquette
             # sur-commande → note du thème) ; ajouté à une fiche SoleLuna, le format porte « · Bon plan » (voir plus bas)
             v.update(sku=PREFIXE_SUR_COMMANDE + v["ean"].lstrip("0"), prix="%.2f" % prix, stock=str(stock),
-                     cout_ht="%.2f" % (achat * (1 + rb["majoration_pct"]) + rb["envoi_eur"]), bon_plan=True,
+                     cout_ht="%.2f" % (achat * (1 + rb["majoration_pct"]) + frais), bon_plan=True,
                      sur_commande=True, _net="%.2f" % (prix * k - base))
         existante = par_handle.get(p["handle"])
         fusion = False
