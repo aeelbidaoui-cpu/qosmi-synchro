@@ -230,11 +230,24 @@ def diagnostic():
             print("Exemple %s : clés de la fiche %s ; attributs %s" % (e, sorted(f.keys()), sorted(a)[:40]), flush=True)
         # 20/11 : photos publiées mais offres toujours 4004 → ce que bol montre vraiment sur la fiche et l'offre
         if ech.index(e) < 8:
-            assets = bol.appel("GET", "/retailer/content/assets/%s" % e, params={"usage": "PRIMARY"}) or {}
+            assets = bol.appel("GET", "/retailer/products/%s/assets" % e, params={"usage": "PRIMARY"}) or {}
             print("Détail %s : published=%s enrichment=%s gpc=%s photos=%s raisons=%s" % (
                 e, json.dumps(f.get("published"), ensure_ascii=False)[:300], json.dumps(f.get("enrichment"), ensure_ascii=False)[:300],
                 json.dumps(f.get("gpc"), ensure_ascii=False)[:200], json.dumps(assets, ensure_ascii=False)[:400],
                 [(x, raisons_longues.get(e)) for x in raisons[e]][:3]), flush=True)
+    # comparaison : quelques offres Rituals qui, elles, sont bien en vente
+    try:
+        bloquees = set(raisons)
+        ok = [e for e in sorted(en_ligne) if str(e).zfill(13).startswith(PREFIXE) and str(e).zfill(13) not in bloquees][:4]
+        print("Rituals en vente : %d" % len([e for e in en_ligne if str(e).zfill(13).startswith(PREFIXE) and str(e).zfill(13) not in bloquees]), flush=True)
+        for e in ok:
+            e = str(e).zfill(13)
+            f = bol.appel("GET", "/retailer/content/catalog-products/%s" % e, params={"language": "nl"}) or {}
+            assets = bol.appel("GET", "/retailer/products/%s/assets" % e, params={"usage": "PRIMARY"}) or {}
+            print("En vente %s : published=%s enrichment=%s nb attributs=%d photos=%s" % (
+                e, f.get("published"), json.dumps(f.get("enrichment")), len(f.get("attributes") or []), json.dumps(assets)[:300]), flush=True)
+    except Exception as ex:
+        print("comparaison : %s" % ex, flush=True)
     print("Échantillon %d : attributs obligatoires absents %s" % (len(ech), dict(manque.most_common(15))), flush=True)
     print("Catégories :", dict(cats.most_common(15)), flush=True)
     chemin = os.path.join(RACINE, "base", "bol_rituals_envois.json")
