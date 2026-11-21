@@ -30,7 +30,8 @@
     </nav>
   </div>
   <div class="qk-largeur qk-pied__bas">
-    <span>© {{ 'now' | date: '%Y' }} Qosmi · Deway BV · <a href="#" class="qk-pied__cookies" onclick="if(window.privacyBanner){window.privacyBanner.showPreferences();}return false;">{% if qk_nl %}Cookievoorkeuren{% else %}Préférences cookies{% endif %}</a></span>
+    {%- comment -%} 21/11/2026 (Google Merchant Center, « Misrepresentation ») : identité de l'entreprise visible sur toutes les pages {%- endcomment -%}
+    <span>© {{ 'now' | date: '%Y' }} Qosmi · Deway BV, Ijsbergstraat 73, 1701 Dilbeek{% if qk_nl %}, België · KBO{% else %}, Belgique · BCE{% endif %} 1040.851.867 · {% if qk_nl %}btw{% else %}TVA{% endif %} BE 1040.851.867 · <a href="mailto:contact@qosmi.be">contact@qosmi.be</a> · <a href="#" class="qk-pied__cookies" onclick="if(window.privacyBanner){window.privacyBanner.showPreferences();}return false;">{% if qk_nl %}Cookievoorkeuren{% else %}Préférences cookies{% endif %}</a></span>
     <span class="qk-pied__paiement">
       {%- for type in shop.enabled_payment_types -%}{%- if type == 'paypal' -%}{%- continue -%}{%- endif -%}{{ type | payment_type_svg_tag: class: 'qk-paiement' }}{%- endfor -%}
     </span>
