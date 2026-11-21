@@ -40,8 +40,14 @@ PAGES = [
 <p>3.6 La facture est envoyée par e-mail. Les produits restent notre propriété jusqu'au paiement complet.</p>
 
 <h2>4. Livraison</h2>
-<p>4.1 Nous livrons <strong>uniquement en Belgique</strong>. Deux modes de livraison sont proposés : <strong>en point relais Mondial Relay, {frais_livraison} TVA comprise par commande</strong>, offerte dès 2 articles dans la même commande ; <strong>à domicile, 6,95 € TVA comprise par commande</strong>. Le colis livré en point relais est déposé au point relais Mondial Relay le plus proche de l'adresse de livraison indiquée.</p>
-<p>4.2 Délai de livraison : <strong>{delai_total}</strong> à compter de la confirmation du paiement. Le délai de votre commande vous est confirmé dans l'e-mail de confirmation de commande. Sauf autre délai convenu, la livraison a lieu au plus tard 30 jours après la conclusion du contrat.</p>
+<p>4.1 Nous livrons en <strong>Belgique</strong>, aux <strong>Pays-Bas</strong> et en <strong>France</strong>. Frais de livraison par commande, TVA comprise :</p>
+<ul>
+<li><strong>Belgique</strong> : en point relais Mondial Relay {frais_livraison}, offerte dès 2 articles dans la même commande ; à domicile 6,95 € ;</li>
+<li><strong>Pays-Bas</strong> : en point relais Mondial Relay 3,95 €, offerte dès 2 articles dans la même commande ;</li>
+<li><strong>France</strong> : en point relais Mondial Relay 4,95 € ; à domicile 12,95 €.</li>
+</ul>
+<p>Le colis livré en point relais est déposé au point relais Mondial Relay le plus proche de l'adresse de livraison indiquée.</p>
+<p>4.2 Délai de livraison : <strong>{delai_total}</strong> en Belgique, <strong>{delai_etranger}</strong> aux Pays-Bas et en France, à compter de la confirmation du paiement. Le délai de votre commande vous est confirmé dans l'e-mail de confirmation de commande. Sauf autre délai convenu, la livraison a lieu au plus tard 30 jours après la conclusion du contrat.</p>
 <p>4.3 En cas de retard au-delà du délai convenu, vous pouvez nous demander de livrer dans un délai supplémentaire raisonnable ; à défaut, vous pouvez annuler la commande et être remboursé sans délai.</p>
 <p>4.4 Le colis est remis par un transporteur avec suivi, à l'adresse que vous indiquez. Vérifiez-la bien : un colis retourné pour adresse erronée ou non retiré peut être réexpédié contre de nouveaux frais de livraison.</p>
 <p>4.5 Le risque de perte ou d'endommagement vous est transféré quand vous, ou une personne que vous désignez autre que le transporteur, prenez physiquement possession du colis. Un colis visiblement abîmé doit si possible être refusé ou accepté avec réserves, et nous être signalé rapidement avec des photos.</p>
@@ -93,8 +99,14 @@ PAGES = [
 <p>3.6 De factuur wordt per e-mail verstuurd. De producten blijven onze eigendom tot de volledige betaling.</p>
 
 <h2>4. Levering</h2>
-<p>4.1 Wij leveren <strong>enkel in België</strong>. Er zijn twee leveringswijzen: <strong>in een Mondial Relay-afhaalpunt, {frais_livraison_nl} inclusief btw per bestelling</strong>, gratis vanaf 2 artikelen in dezelfde bestelling; <strong>aan huis, € 6,95 inclusief btw per bestelling</strong>. Een pakket voor een afhaalpunt wordt afgeleverd in het Mondial Relay-afhaalpunt het dichtst bij het opgegeven leveringsadres.</p>
-<p>4.2 Levertermijn: <strong>{delai_total_nl}</strong> na bevestiging van de betaling. De termijn van uw bestelling wordt bevestigd in de bevestigingsmail van uw bestelling. Tenzij anders overeengekomen, wordt uiterlijk 30 dagen na het sluiten van de overeenkomst geleverd.</p>
+<p>4.1 Wij leveren in <strong>België</strong>, <strong>Nederland</strong> en <strong>Frankrijk</strong>. Verzendkosten per bestelling, inclusief btw:</p>
+<ul>
+<li><strong>België</strong>: in een Mondial Relay-afhaalpunt {frais_livraison_nl}, gratis vanaf 2 artikelen in dezelfde bestelling; aan huis € 6,95;</li>
+<li><strong>Nederland</strong>: in een Mondial Relay-afhaalpunt € 3,95, gratis vanaf 2 artikelen in dezelfde bestelling;</li>
+<li><strong>Frankrijk</strong>: in een Mondial Relay-afhaalpunt € 4,95; aan huis € 12,95.</li>
+</ul>
+<p>Een pakket voor een afhaalpunt wordt afgeleverd in het Mondial Relay-afhaalpunt het dichtst bij het opgegeven leveringsadres.</p>
+<p>4.2 Levertermijn: <strong>{delai_total_nl}</strong> in België, <strong>{delai_etranger_nl}</strong> in Nederland en Frankrijk, na bevestiging van de betaling. De termijn van uw bestelling wordt bevestigd in de bevestigingsmail van uw bestelling. Tenzij anders overeengekomen, wordt uiterlijk 30 dagen na het sluiten van de overeenkomst geleverd.</p>
 <p>4.3 Bij vertraging na de overeengekomen termijn kunt u ons vragen binnen een redelijke bijkomende termijn te leveren; gebeurt dat niet, dan kunt u de bestelling annuleren en wordt u meteen terugbetaald.</p>
 <p>4.4 Het pakket wordt geleverd door een vervoerder met track-and-trace, op het adres dat u opgeeft. Controleer het goed: een pakket dat terugkomt wegens een fout adres of omdat het niet werd afgehaald, kan opnieuw worden verzonden tegen nieuwe verzendkosten.</p>
 <p>4.5 Het risico van verlies of beschadiging gaat op u over wanneer u, of een door u aangewezen persoon andere dan de vervoerder, het pakket fysiek in bezit neemt. Een zichtbaar beschadigd pakket weigert u best of aanvaardt u onder voorbehoud, en meldt u ons snel met foto's.</p>
@@ -128,9 +140,18 @@ PAGES = [
         "titre": "Livraison", "titre_nl": "Levering",
         "fr": """
 <figure class="qk-page-image"><img src="{img_livraison_colis}" alt="Colis Qosmi en carton kraft prêts à partir" width="2400" height="1018" loading="eager" style="width:100%;height:auto;border-radius:12px"></figure>
-<p><strong>Livraison partout en Belgique : en point relais Mondial Relay {frais_livraison} (offerte dès 2 articles), ou à domicile 6,95 €.</strong> En point relais, le colis est déposé au point relais le plus proche de ton adresse. Nous ne livrons pas en dehors de la Belgique pour le moment.</p>
+<p><strong>Nous livrons en Belgique, aux Pays-Bas et en France, en point relais Mondial Relay ou à domicile.</strong> En point relais, le colis est déposé au point relais le plus proche de ton adresse.</p>
+<table>
+<thead><tr><th>Pays</th><th>Point relais</th><th>À domicile</th><th>Délai</th></tr></thead>
+<tbody>
+<tr><td>Belgique</td><td>{frais_livraison}, offerte dès 2 articles</td><td>6,95 €</td><td>{delai_total}</td></tr>
+<tr><td>Pays-Bas</td><td>3,95 €, offerte dès 2 articles</td><td>–</td><td>{delai_etranger}</td></tr>
+<tr><td>France</td><td>4,95 €</td><td>12,95 €</td><td>{delai_etranger}</td></tr>
+</tbody>
+</table>
+<p>Prix TVA comprise, par commande.</p>
 <h2>Délais</h2>
-<p><strong>Livraison en {delai_total}</strong> à compter de la confirmation du paiement.</p>
+<p>Les délais se comptent en jours ouvrables à partir de la confirmation du paiement.</p>
 <p>Le délai de votre commande vous est confirmé dans l'e-mail de confirmation de commande.</p>
 <h2>Suivi</h2>
 <p>Dès l'expédition, vous recevez un e-mail avec le lien de suivi du colis.</p>
@@ -139,9 +160,18 @@ PAGES = [
 """,
         "nl": """
 <figure class="qk-page-image"><img src="{img_livraison_colis}" alt="Qosmi-pakketten in kraftkarton klaar voor verzending" width="2400" height="1018" loading="eager" style="width:100%;height:auto;border-radius:12px"></figure>
-<p><strong>Levering in heel België: in een Mondial Relay-afhaalpunt {frais_livraison_nl} (gratis vanaf 2 artikelen), of aan huis € 6,95.</strong> Bij levering in een afhaalpunt komt het pakket in het afhaalpunt het dichtst bij je adres. Wij leveren voorlopig niet buiten België.</p>
+<p><strong>Wij leveren in België, Nederland en Frankrijk, in een Mondial Relay-afhaalpunt of aan huis.</strong> Bij levering in een afhaalpunt komt het pakket in het afhaalpunt het dichtst bij je adres.</p>
+<table>
+<thead><tr><th>Land</th><th>Afhaalpunt</th><th>Aan huis</th><th>Termijn</th></tr></thead>
+<tbody>
+<tr><td>België</td><td>{frais_livraison_nl}, gratis vanaf 2 artikelen</td><td>€ 6,95</td><td>{delai_total_nl}</td></tr>
+<tr><td>Nederland</td><td>€ 3,95, gratis vanaf 2 artikelen</td><td>–</td><td>{delai_etranger_nl}</td></tr>
+<tr><td>Frankrijk</td><td>€ 4,95</td><td>€ 12,95</td><td>{delai_etranger_nl}</td></tr>
+</tbody>
+</table>
+<p>Prijzen inclusief btw, per bestelling.</p>
 <h2>Termijnen</h2>
-<p><strong>Levering binnen {delai_total_nl}</strong> na bevestiging van de betaling.</p>
+<p>De termijnen gelden in werkdagen vanaf de bevestiging van de betaling.</p>
 <p>De termijn van uw bestelling wordt bevestigd in de bevestigingsmail van uw bestelling.</p>
 <h2>Track-and-trace</h2>
 <p>Zodra uw pakket vertrekt, ontvangt u een e-mail met de trackinglink.</p>
