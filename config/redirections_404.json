@@ -23,6 +23,9 @@
   "montale-intense-cafe-eau-de-parfum-mixte"
  ],
  "autres": {
-  "/collections/testeurs": "/collections/parfums"
+  "/collections/testeurs": "/collections/parfums",
+  "/products/jo-malone-english-pear-freesia-eau-de-cologne-mixte": "/products/jo-malone-english-pear-freesia-eau-de-cologne-pour-femme",
+  "/products/jo-malone-myrrh-tonka-eau-de-cologne-mixte": "/products/jo-malone-myrrh-tonka-cologne-intense-eau-de-cologne-mixte",
+  "/products/hugo-boss-boss-ma-vie-eau-de-parfum-pour-femme": "/products/hugo-boss-boss-ma-vie-eau-de-parfum-pour-femme-2"
  }
 }

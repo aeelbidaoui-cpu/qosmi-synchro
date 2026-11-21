@@ -1,0 +1,157 @@
+{
+ "_note": "21/11/2026 (Amine : « fait 2/3/4 ») : titres Google écrits à la main pour les fiches déjà vues dans Google Search Console (positions 6-50, surtout Jo Malone en néerlandais). Prioritaires sur les titres automatiques ; appliqués par l'action theme « textes-fiches » (scripts/seo_fiches.py). Le thème ajoute « – Qosmi » à la fin : 60 caractères maximum ici.",
+ "fiches": {
+  "jo-malone-dark-amber-ginger-lily-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Dark Amber & Ginger Lily – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Dark Amber & Ginger Lily Cologne kopen in België"
+  },
+  "jo-malone-mimosa-cardamom-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Mimosa & Cardamom – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Mimosa & Cardamom Cologne kopen in België"
+  },
+  "jo-malone-absolu-gardenia-oud-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Absolu Gardenia & Oud – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Absolu Gardenia & Oud Cologne kopen in België"
+  },
+  "jo-malone-violet-amber-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Violet & Amber – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Violet & Amber Cologne kopen in België"
+  },
+  "jo-malone-peony-blush-suede-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Peony & Blush Suede – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Peony & Blush Suede Cologne kopen in België"
+  },
+  "jo-malone-blackberry-bay-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Blackberry & Bay – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Blackberry & Bay Cologne kopen in België"
+  },
+  "jo-malone-tuberose-angelica-eau-de-cologne-pour-femme": {
+   "seo_titre_fr": "Jo Malone Tuberose Angelica – Eau de Cologne femme",
+   "seo_titre_nl": "Jo Malone Tuberose Angelica Cologne kopen in België"
+  },
+  "jo-malone-red-roses-eau-de-cologne-pour-femme": {
+   "seo_titre_fr": "Jo Malone Red Roses – Eau de Cologne femme",
+   "seo_titre_nl": "Jo Malone Red Roses Cologne kopen in België"
+  },
+  "jo-malone-pomegranate-noir-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Pomegranate Noir – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Pomegranate Noir Cologne kopen in België"
+  },
+  "jo-malone-fig-lotus-flower-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Fig & Lotus Flower – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Fig & Lotus Flower Cologne kopen in België"
+  },
+  "jo-malone-wood-sage-sea-salt-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Wood Sage & Sea Salt – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Wood Sage & Sea Salt Cologne kopen in België"
+  },
+  "jo-malone-velvet-rose-oud-cologne-intense-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Velvet Rose & Oud Cologne Intense",
+   "seo_titre_nl": "Jo Malone Velvet Rose & Oud Cologne Intense kopen in België"
+  },
+  "jo-malone-scarlet-poppy-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Scarlet Poppy – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Scarlet Poppy Cologne kopen in België"
+  },
+  "jo-malone-rose-white-musk-absolu-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Rose & White Musk Absolu – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Rose & White Musk Absolu Cologne kopen in België"
+  },
+  "jo-malone-red-hibiscus-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Red Hibiscus – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Red Hibiscus Cologne kopen in België"
+  },
+  "jo-malone-poppy-barley-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Poppy & Barley – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Poppy & Barley Cologne kopen in België"
+  },
+  "jo-malone-oud-bergamot-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Oud & Bergamot – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Oud & Bergamot Cologne kopen in België"
+  },
+  "jo-malone-orange-blossom-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Orange Blossom – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Orange Blossom Cologne kopen in België"
+  },
+  "jo-malone-nectarine-blossom-honey-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Nectarine Blossom & Honey – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Nectarine Blossom & Honey Cologne kopen in België"
+  },
+  "jo-malone-myrrh-tonka-cologne-intense-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Myrrh & Tonka Cologne Intense",
+   "seo_titre_nl": "Jo Malone Myrrh & Tonka Cologne Intense kopen in België"
+  },
+  "jo-malone-lime-basil-mandarin-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Lime Basil & Mandarin – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Lime Basil & Mandarin Cologne kopen in België"
+  },
+  "jo-malone-honeysuckle-davana-eau-de-cologne-pour-femme": {
+   "seo_titre_fr": "Jo Malone Honeysuckle & Davana – Eau de Cologne femme",
+   "seo_titre_nl": "Jo Malone Honeysuckle & Davana Cologne kopen in België"
+  },
+  "jo-malone-grapefruit-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone Grapefruit – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone Grapefruit Cologne kopen in België"
+  },
+  "jo-malone-english-pear-sweet-pea-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone English Pear & Sweet Pea – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone English Pear & Sweet Pea Cologne kopen in België"
+  },
+  "jo-malone-english-pear-freesia-eau-de-cologne-pour-femme": {
+   "seo_titre_fr": "Jo Malone English Pear & Freesia – Eau de Cologne femme",
+   "seo_titre_nl": "Jo Malone English Pear & Freesia Cologne kopen in België"
+  },
+  "jo-malone-english-oak-hazelnut-eau-de-cologne-mixte": {
+   "seo_titre_fr": "Jo Malone English Oak & Hazelnut – Eau de Cologne mixte",
+   "seo_titre_nl": "Jo Malone English Oak & Hazelnut Cologne kopen in België"
+  },
+  "chanel-bleu-de-chanel-eau-de-parfum-pour-homme": {
+   "seo_titre_fr": "Bleu de Chanel Eau de Parfum pour homme",
+   "seo_titre_nl": "Bleu de Chanel Eau de Parfum kopen in België"
+  },
+  "dior-sauvage-parfum-pour-homme": {
+   "seo_titre_fr": "Dior Sauvage Parfum pour homme",
+   "seo_titre_nl": "Dior Sauvage Parfum voor heren kopen in België"
+  },
+  "calvin-klein-escape-eau-de-parfum-pour-femme": {
+   "seo_titre_fr": "Calvin Klein Escape Eau de Parfum pour femme",
+   "seo_titre_nl": "Calvin Klein Escape Eau de Parfum voor dames kopen"
+  },
+  "calvin-klein-eternity-eau-de-parfum-pour-femme": {
+   "seo_titre_fr": "Calvin Klein Eternity Eau de Parfum pour femme",
+   "seo_titre_nl": "Calvin Klein Eternity Eau de Parfum voor dames kopen"
+  },
+  "hugo-boss-femme-eau-de-parfum-pour-femme": {
+   "seo_titre_fr": "Boss Femme de Hugo Boss – Eau de Parfum",
+   "seo_titre_nl": "Hugo Boss Femme Eau de Parfum kopen in België"
+  },
+  "hugo-boss-boss-bottled-unlimited-eau-de-toilette-pour-homme": {
+   "seo_titre_fr": "Hugo Boss Bottled Unlimited Eau de Toilette homme",
+   "seo_titre_nl": "Hugo Boss Bottled Unlimited Eau de Toilette kopen"
+  },
+  "lancome-la-nuit-tresor-eau-de-parfum-pour-femme": {
+   "seo_titre_fr": "Lancôme La Nuit Trésor Eau de Parfum",
+   "seo_titre_nl": "Lancôme La Nuit Trésor Eau de Parfum kopen in België"
+  },
+  "chanel-allure-homme-sport-cologne-eau-de-cologne-pour-homme": {
+   "seo_titre_fr": "Chanel Allure Homme Sport Cologne",
+   "seo_titre_nl": "Chanel Allure Homme Sport Cologne kopen in België"
+  },
+  "afnan-modest-une-eau-de-parfum-pour-homme": {
+   "seo_titre_fr": "Afnan Modest Une (Pour Homme) – Eau de Parfum",
+   "seo_titre_nl": "Afnan Modest Une Eau de Parfum kopen in België"
+  },
+  "armaf-cloud-9-eau-de-parfum-mixte": {
+   "seo_titre_fr": "Armaf Cloud 9 Eau de Parfum mixte",
+   "seo_titre_nl": "Armaf Cloud 9 Eau de Parfum kopen in België"
+  },
+  "carolina-herrera-herrera-for-men-eau-de-toilette-pour-homme": {
+   "seo_titre_fr": "Carolina Herrera for Men Eau de Toilette",
+   "seo_titre_nl": "Carolina Herrera for Men Eau de Toilette kopen"
+  },
+  "fragrance-world-ambroise-eau-de-parfum-pour-femme": {
+   "seo_titre_fr": "Fragrance World Ambroise Eau de Parfum femme",
+   "seo_titre_nl": "Fragrance World Ambroise Eau de Parfum kopen"
+  }
+ }
+}

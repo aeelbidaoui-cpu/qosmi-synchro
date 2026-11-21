@@ -39,7 +39,19 @@ def court(nom, marque):
     return n or None
 
 
-def textes(marque, noms):
+TEXTES = os.path.join(RACINE, "config", "marques_textes.json")
+
+
+def presentation(marque):
+    """21/11/2026 : présentation vérifiée de la marque (config/marques_textes.json), FR + NL, ou None."""
+    if not os.path.exists(TEXTES):
+        return None
+    return json.load(open(TEXTES, encoding="utf-8")).get("marques", {}).get(marque)
+
+
+def textes(marque, noms, liens=None):
+    """liens : [(nom court, handle)] des fiches en ligne, ajoutés au texte de la page (liens internes suivis par Google)."""
+    import html as _h
     noms = [n for n in noms if n][:3]
 
     def titre(debut, suite):
@@ -54,15 +66,27 @@ def textes(marque, noms):
         return d if len(d) <= 155 else d[:152].rsplit(" ", 1)[0] + "…"
     liste_fr = (" : " + ", ".join(noms)) if noms else ""
     liste_nl = (": " + ", ".join(noms)) if noms else ""
+    pres = presentation(marque) or {}
+    lf = ['<a href="/products/%s">%s</a>' % (h, _h.escape(n, quote=False)) for n, h in (liens or [])[:8]]
+    ln = ['<a href="/nl/products/%s">%s</a>' % (h, _h.escape(n, quote=False)) for n, h in (liens or [])[:8]]
+    extra_fr = ("<p>%s</p>" % _h.escape(pres["fr"], quote=False) if pres.get("fr") else "") + \
+               ("<p>À découvrir chez Qosmi : %s.</p>" % joli(lf, "et") if lf else "")
+    extra_nl = ("<p>%s</p>" % _h.escape(pres["nl"], quote=False) if pres.get("nl") else "") + \
+               ("<p>Ontdek bij Qosmi: %s.</p>" % joli(ln, "en") if ln else "")
     return {
-        "titre_fr": titre("Parfums %s" % marque, " : "),
-        "titre_nl": titre("%s parfums" % marque, ": "),
+        # 21/11/2026 : « en Belgique » / « kopen in België » (recherches « jo malone belgie », « parfum jo malone »…)
+        "titre_fr": titre("Parfums %s en Belgique" % marque, " : ") if len("Parfums %s en Belgique | Qosmi" % marque) <= 60
+        else titre("Parfums %s" % marque, " : "),
+        "titre_nl": titre("%s parfums kopen in België" % marque, ": ") if len("%s parfums kopen in België | Qosmi" % marque) <= 60
+        else titre("%s parfums" % marque, ": "),
         "meta_fr": coupe("Tous les parfums %s%s. Flacons originaux et neufs, livrés partout en Belgique." % (marque, liste_fr)),
         "meta_nl": coupe("Alle parfums van %s%s. Originele, nieuwe flacons, geleverd in heel België." % (marque, liste_nl)),
-        "corps_fr": "<p>Tous les parfums %s chez Qosmi%s. Des flacons 100 %% authentiques et neufs, livrés partout en Belgique.</p>"
-                    % (marque, (", dont " + joli(noms, "et")) if noms else ""),
-        "corps_nl": "<p>Alle parfums van %s bij Qosmi%s. 100%% originele, nieuwe flacons, geleverd in heel België.</p>"
-                    % (marque, (", waaronder " + joli(noms, "en")) if noms else ""),
+        "corps_fr": "<p>Tous les parfums %s chez Qosmi%s. Des flacons 100 %% authentiques et neufs, livrés partout en Belgique,"
+                    " livraison offerte dès 2 articles.</p>" % (marque, (", dont " + joli(noms, "et")) if noms else "") +
+                    ('<div class="qk-suite">%s</div>' % extra_fr if extra_fr else ""),
+        "corps_nl": "<p>Alle parfums van %s bij Qosmi%s. 100%% originele, nieuwe flacons, geleverd in heel België,"
+                    " gratis vanaf 2 artikelen.</p>" % (marque, (", waaronder " + joli(noms, "en")) if noms else "") +
+                    ('<div class="qk-suite">%s</div>' % extra_nl if extra_nl else ""),
     }
 
 
@@ -83,7 +107,7 @@ def main(essai=False):
         h = slug(m)
         prods = []
         for nom in dict.fromkeys([m, m.replace("´", "'"), m.replace("&", " & "), m.replace(" & ", "&")]):
-            prods = s.gql("""query($q: String!) { products(first: 25, query: $q, sortKey: TITLE) { nodes { title vendor } } }""",
+            prods = s.gql("""query($q: String!) { products(first: 50, query: $q, sortKey: TITLE) { nodes { title vendor handle } } }""",
                           {"q": 'vendor:"%s" status:active published_status:published' % nom.replace('"', '')})["products"]["nodes"]
             prods = [p for p in prods if cle(p["vendor"]) == cle(m)]
             if prods:
@@ -92,15 +116,17 @@ def main(essai=False):
             sans.append(m)
             continue
         v = prods[0]["vendor"]
-        noms = []
+        noms, liens = [], []
         for p in prods:
             n = court(p["title"], v)
             if n and "|" not in n and len(n) >= 3 and n.lower() not in GENERIQUES and n not in noms and len(n) <= 28:
                 noms.append(n)
+                liens.append((p["title"].split(" — ")[0], p["handle"]))
         noms = sorted(noms, key=len)  # les noms les plus courts sont en général les parfums phares (Aventus, Sauvage…)
-        t = textes(m, noms)
+        liens = sorted(liens, key=lambda x: len(x[0]))
+        t = textes(m, noms, liens)
         if essai:
-            print("%-22s /collections/%-22s %s | %s" % (m, h, t["titre_fr"], t["meta_fr"]))
+            print("%-22s /collections/%-22s %s | %s | %s" % (m, h, t["titre_fr"], t["titre_nl"], t["corps_fr"][:400]))
             continue
         exist = s.gql("query($h: String!) { collectionByIdentifier(identifier: {handle: $h}) { id } }", {"h": h}).get("collectionByIdentifier")
         champs = {"title": m, "descriptionHtml": t["corps_fr"], "seo": {"title": t["titre_fr"], "description": t["meta_fr"]}}

@@ -328,6 +328,9 @@ main[data-template="article"] .blog-post-content h3 { font-size: 1.05rem; text-t
 .qk-entete-coll h1 { margin: 0; }
 .qk-entete-coll__desc { max-width: 34rem; }
 .qk-entete-coll__desc p { margin: 0; }
+.qk-entete-coll__plus { margin-top: .6rem; }
+.qk-entete-coll__plus summary { cursor: pointer; text-decoration: underline; text-underline-offset: 3px; font-size: .9em; }
+.qk-entete-coll__plus p { margin: .6rem 0 0; }
 .qk-entete-coll__image img { display: block; width: 100%; height: auto; }
 @media (min-width: 990px) {
   .qk-entete-coll--image { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: center; gap: clamp(24px, 4vw, 64px); padding-block: 24px; }

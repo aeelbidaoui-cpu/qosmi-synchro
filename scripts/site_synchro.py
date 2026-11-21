@@ -1091,6 +1091,8 @@ def textes():
     par_handle = {x.get("handle"): x for x in boutique.values()}
     sel = selection()
     vus = [p for p in produits if visible(p, sel) and p["handle"] in par_handle]
+    import seo_fiches  # 21/11/2026 : introduction, « Dans le même esprit », promesse de livraison, titres manuels
+    seo_fiches.enrichir(vus, ligne_journal)
     ok = err = 0
     for p in vus:
         d = s.gql(sc.M_MAJ, {"product": {"id": par_handle[p["handle"]]["id"], "descriptionHtml": p["desc_fr"],

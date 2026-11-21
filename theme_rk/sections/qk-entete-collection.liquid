@@ -32,7 +32,14 @@
     <div class="qk-entete-coll__texte">
       <div class="text-block h2"><h1>{{ qk_c.title }}</h1></div>
       {%- if qk_c.description != blank -%}
-        <div class="qk-entete-coll__desc rte">{{ qk_c.description }}</div>
+        {%- comment -%} 21/11/2026 (SEO) : la présentation de la marque et les liens vers ses parfums (bloc qk-suite)
+          restent dans la page, repliés sous « En savoir plus », pour ne pas repousser les produits vers le bas. {%- endcomment -%}
+        {%- assign qk_parts = qk_c.description | split: '<div class="qk-suite">' -%}
+        <div class="qk-entete-coll__desc rte">{{ qk_parts[0] }}
+          {%- if qk_parts.size > 1 -%}
+            <details class="qk-entete-coll__plus"><summary>{% if request.locale.iso_code == 'nl' %}Meer over {{ qk_c.title }}{% else %}En savoir plus sur {{ qk_c.title }}{% endif %}</summary><div>{{ qk_parts[1] }}</details>
+          {%- endif -%}
+        </div>
       {%- endif -%}
     </div>
     {%- if qk_img -%}

@@ -1,0 +1,89 @@
+{
+ "_note": "21/11/2026 (Amine : « on doit améliorer le référencement », « fait 2/3/4 ») : courte présentation des marques qui ont déjà des impressions dans Google Search Console, affichée en haut de leur page (/collections/<marque>) par scripts/seo_marques.py. Faits limités aux plus établis (année de création, fondateur, parfums emblématiques), vérifiés sur les sites des marques, Wikipédia ou la presse. Pas de prix, pas de comparaison, pas d'allégation de santé.",
+ "marques": {
+  "Jo Malone": {
+   "fr": "Jo Malone London est née à Londres en 1990, fondée par Jo Malone, et fait partie du groupe Estée Lauder depuis 1999. La maison est connue pour ses eaux de Cologne lumineuses et faciles à porter, pensées pour être superposées entre elles : un parfum frais sur un parfum plus boisé, par exemple. Son parfum le plus connu, Wood Sage & Sea Salt, sorti en 2014, évoque une journée au bord de la mer.",
+   "nl": "Jo Malone London werd in 1990 in Londen opgericht door Jo Malone en maakt sinds 1999 deel uit van de Estée Lauder-groep. Het huis staat bekend om lichte, gemakkelijk draagbare colognes die je met elkaar kunt combineren: een frisse geur over een houtige, bijvoorbeeld. De bekendste geur, Wood Sage & Sea Salt uit 2014, roept een dag aan zee op."
+  },
+  "Calvin Klein": {
+   "fr": "La marque américaine Calvin Klein a été fondée à New York en 1968. Côté parfums, elle a marqué les années 80 et 90 avec Obsession, Eternity, Escape puis CK One, l'un des premiers parfums mixtes à grand succès. Ses parfums sont souvent frais, propres et faciles à porter au quotidien.",
+   "nl": "Het Amerikaanse merk Calvin Klein werd in 1968 in New York opgericht. Op het gebied van parfum drukte het zijn stempel op de jaren 80 en 90 met Obsession, Eternity, Escape en daarna CK One, een van de eerste grote unisex-successen. De geuren zijn vaak fris, schoon en makkelijk om elke dag te dragen."
+  },
+  "Lancôme": {
+   "fr": "Lancôme est une maison française fondée en 1935 par Armand Petitjean. Elle signe de grands classiques féminins : Trésor, La Nuit Trésor, Hypnôse, Idôle et La Vie est Belle.",
+   "nl": "Lancôme is een Frans huis, in 1935 opgericht door Armand Petitjean. Het maakte grote klassiekers voor dames: Trésor, La Nuit Trésor, Hypnôse, Idôle en La Vie est Belle."
+  },
+  "Dior": {
+   "fr": "Les parfums Christian Dior sont nés en 1947, la même année que la première collection du couturier, avec Miss Dior. Depuis, la maison a créé des classiques comme Poison, Fahrenheit, J'adore et Sauvage.",
+   "nl": "Parfums Christian Dior ontstond in 1947, hetzelfde jaar als de eerste collectie van de couturier, met Miss Dior. Sindsdien creëerde het huis klassiekers als Poison, Fahrenheit, J'adore en Sauvage."
+  },
+  "Hugo Boss": {
+   "fr": "Hugo Boss est une maison allemande fondée en 1924 à Metzingen. Ses parfums, comme Boss Bottled, Boss Femme ou Hugo, sont appréciés pour leur style net et élégant, facile à porter au bureau comme le soir.",
+   "nl": "Hugo Boss is een Duits huis, in 1924 opgericht in Metzingen. De geuren, zoals Boss Bottled, Boss Femme of Hugo, zijn geliefd om hun strakke, elegante stijl, die zowel op kantoor als 's avonds werkt."
+  },
+  "Viktor & Rolf": {
+   "fr": "Viktor & Rolf est le duo de créateurs néerlandais Viktor Horsting et Rolf Snoeren, qui a fondé sa maison en 1993. Leurs parfums sont célèbres pour leurs flacons en forme de grenade : Flowerbomb pour elle, Spicebomb pour lui.",
+   "nl": "Viktor & Rolf is het Nederlandse ontwerpersduo Viktor Horsting en Rolf Snoeren, dat zijn huis in 1993 oprichtte. Hun parfums zijn beroemd om de flacons in de vorm van een granaat: Flowerbomb voor haar, Spicebomb voor hem."
+  },
+  "Jean Paul Gaultier": {
+   "fr": "Le couturier français Jean Paul Gaultier a lancé ses premiers parfums dans les années 90 : Classique en 1993 puis Le Male en 1995, tous deux dans leurs fameux flacons en forme de buste.",
+   "nl": "De Franse couturier Jean Paul Gaultier lanceerde zijn eerste parfums in de jaren 90: Classique in 1993 en Le Male in 1995, allebei in de beroemde flacons in de vorm van een torso."
+  },
+  "Gucci": {
+   "fr": "Gucci est une maison italienne fondée à Florence en 1921 par Guccio Gucci. Ses parfums actuels, comme Bloom, Guilty ou Flora, vont du floral lumineux au boisé plus intense.",
+   "nl": "Gucci is een Italiaans huis, in 1921 in Florence opgericht door Guccio Gucci. De huidige geuren, zoals Bloom, Guilty of Flora, gaan van stralend bloemig tot intenser houtig."
+  },
+  "Narciso Rodriguez": {
+   "fr": "Le créateur américain Narciso Rodriguez a lancé For Her en 2003, construit autour du musc. Depuis, la plupart de ses parfums gardent cette signature musquée, douce et sensuelle, déclinée en versions plus florales ou plus poudrées.",
+   "nl": "De Amerikaanse ontwerper Narciso Rodriguez lanceerde For Her in 2003, opgebouwd rond musk. Sindsdien behouden de meeste van zijn geuren die zachte, sensuele musksignatuur, in bloemiger of poederiger versies."
+  },
+  "Versace": {
+   "fr": "Versace est une maison italienne fondée à Milan en 1978 par Gianni Versace. Ses parfums les plus connus sont Eros pour homme et Bright Crystal pour femme.",
+   "nl": "Versace is een Italiaans huis, in 1978 in Milaan opgericht door Gianni Versace. De bekendste geuren zijn Eros voor heren en Bright Crystal voor dames."
+  },
+  "Bvlgari": {
+   "fr": "Bvlgari est un joaillier romain fondé en 1884. Ses parfums, d'Aqva pour Homme à la collection Le Gemme, reprennent l'univers de la haute joaillerie : matières précieuses et flacons travaillés.",
+   "nl": "Bvlgari is een Romeinse juwelier, opgericht in 1884. De geuren, van Aqva pour Homme tot de collectie Le Gemme, ademen de wereld van de haute joaillerie: kostbare grondstoffen en verfijnde flacons."
+  },
+  "Escentric Molecules": {
+   "fr": "Escentric Molecules a été créée en 2006 par le parfumeur Geza Schoen. Chaque « Molecule » met en avant une seule matière (Molecule 01 : l'Iso E Super, Molecule 02 : l'ambroxan), et chaque « Escentric » l'associe à d'autres notes. Des parfums discrets et peau, qui se mélangent à l'odeur de chacun.",
+   "nl": "Escentric Molecules werd in 2006 opgericht door parfumeur Geza Schoen. Elke „Molecule” zet één grondstof centraal (Molecule 01: Iso E Super, Molecule 02: ambroxan), en elke „Escentric” combineert die met andere noten. Subtiele huidgeuren die zich mengen met je eigen geur."
+  },
+  "Marc Jacobs": {
+   "fr": "Le créateur new-yorkais Marc Jacobs est surtout connu en parfumerie pour Daisy, sorti en 2007, reconnaissable à son flacon orné de marguerites. La gamme Daisy se décline en versions fruitées et florales, fraîches et pétillantes.",
+   "nl": "De New Yorkse ontwerper Marc Jacobs is in de parfumwereld vooral bekend van Daisy uit 2007, herkenbaar aan de flacon met madeliefjes. De Daisy-lijn bestaat uit frisse, sprankelende fruitige en bloemige versies."
+  },
+  "Tom Ford": {
+   "fr": "Tom Ford a lancé ses parfums en 2006 avec Black Orchid. La maison est aussi connue pour sa collection Private Blend, plus confidentielle, avec des parfums comme Lost Cherry, Tobacco Vanille ou Oud Wood.",
+   "nl": "Tom Ford lanceerde zijn parfums in 2006 met Black Orchid. Het huis is ook bekend om de exclusievere Private Blend-collectie, met geuren als Lost Cherry, Tobacco Vanille en Oud Wood."
+  },
+  "Hermes": {
+   "fr": "Hermès, maison parisienne fondée en 1837, crée ses parfums avec ses propres parfumeurs, de Jean-Claude Ellena à Christine Nagel. Terre d'Hermès et la collection des Jardins sont parmi ses créations les plus connues.",
+   "nl": "Hermès, een Parijs huis uit 1837, maakt zijn parfums met eigen parfumeurs, van Jean-Claude Ellena tot Christine Nagel. Terre d'Hermès en de Jardin-collectie behoren tot de bekendste creaties."
+  },
+  "Paco Rabanne": {
+   "fr": "Paco Rabanne (aujourd'hui Rabanne) est connue pour ses parfums masculins 1 Million (2008), Invictus (2013) et Phantom (2021). Côté féminin, on retrouve Lady Million et Olympéa.",
+   "nl": "Paco Rabanne (nu Rabanne) is bekend om herengeuren als 1 Million (2008), Invictus (2013) en Phantom (2021). Voor dames zijn er onder meer Lady Million en Olympéa."
+  },
+  "Carolina Herrera": {
+   "fr": "La créatrice Carolina Herrera a fondé sa maison à New York en 1981. Ses parfums les plus connus sont 212 et Good Girl, reconnaissable à son flacon en forme d'escarpin.",
+   "nl": "Ontwerpster Carolina Herrera richtte haar huis in 1981 op in New York. De bekendste geuren zijn 212 en Good Girl, herkenbaar aan de flacon in de vorm van een pump."
+  },
+  "Yves Saint Laurent": {
+   "fr": "Yves Saint Laurent a marqué la parfumerie avec Opium en 1977. Aujourd'hui, la maison est aussi connue pour Libre, Black Opium et Y pour homme.",
+   "nl": "Yves Saint Laurent schreef parfumgeschiedenis met Opium in 1977. Vandaag is het huis ook bekend om Libre, Black Opium en Y voor heren."
+  },
+  "Chanel": {
+   "fr": "Chanel a lancé N°5 en 1921, devenu un classique. La maison a depuis créé Coco Mademoiselle, Chance, Allure Homme Sport et Bleu de Chanel.",
+   "nl": "Chanel lanceerde N°5 in 1921, dat een klassieker werd. Sindsdien creëerde het huis onder meer Coco Mademoiselle, Chance, Allure Homme Sport en Bleu de Chanel."
+  },
+  "By Kilian": {
+   "fr": "Kilian Paris a été fondée en 2007 par Kilian Hennessy. La maison est connue pour ses flacons rechargeables et des parfums comme Love, don't be shy, Angels' Share ou Good Girl Gone Bad.",
+   "nl": "Kilian Paris werd in 2007 opgericht door Kilian Hennessy. Het huis staat bekend om navulbare flacons en geuren als Love, don't be shy, Angels' Share en Good Girl Gone Bad."
+  },
+  "Parfums de Marly": {
+   "fr": "Parfums de Marly est née en 2009, créée par Julien Sprecher. La maison s'inspire de la cour de Louis XV et des fêtes du château de Marly ; son blason rend hommage aux chevaux de Marly. Layton et Delina sont ses parfums les plus connus.",
+   "nl": "Parfums de Marly werd in 2009 opgericht door Julien Sprecher. Het huis laat zich inspireren door het hof van Lodewijk XV en de feesten op het kasteel van Marly; het wapen eert de paarden van Marly. Layton en Delina zijn de bekendste geuren."
+  }
+ }
+}
