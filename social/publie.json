@@ -133,5 +133,35 @@
   "img": [
    "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-09-mat-vanille-1.jpg"
   ]
+ },
+ "10-conseil-offrir": {
+  "zernio": "6b01d9104f6cf9d01c8accb0",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-23T12:30:00+01:00",
+  "date": "2026-11-23",
+  "creneau": "12:30",
+  "n": 10,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-10-conseil-offrir-1.jpg"
+  ]
+ },
+ "11-pdj-shalimar": {
+  "zernio": "6b01d91938fe0a4f81b03035",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-23T18:30:00+01:00",
+  "date": "2026-11-23",
+  "creneau": "18:30",
+  "n": 11,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-11-pdj-shalimar-1.jpg"
+  ]
  }
 }

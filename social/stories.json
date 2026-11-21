@@ -66,5 +66,29 @@
   "zernio": "6b0091dc1c3d858a50633c0d",
   "programme": "2026-11-22T18:00:00+01:00",
   "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-22-18h00.jpg"
+ },
+ "2026-11-23 11:00": {
+  "sorte": "du_jour",
+  "langue": "nl",
+  "titre": "French Avenue Royal Blend Vintage — Extrait de Parfum unisex",
+  "parfums": [
+   "french-avenue-royal-blend-vintage-extrait-de-parfum-mixte"
+  ],
+  "date": "2026-11-23",
+  "creneau": "11:00",
+  "zernio": "6b01d93338fe0a4f81b030ae",
+  "programme": "2026-11-23T11:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-23-11h00.jpg"
+ },
+ "2026-11-23 18:00": {
+  "sorte": "info",
+  "langue": "nl",
+  "titre": "Wat is een tester?",
+  "parfums": [],
+  "date": "2026-11-23",
+  "creneau": "18:00",
+  "zernio": "6b01d93c4378964cffd112e8",
+  "programme": "2026-11-23T18:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-23-18h00.jpg"
  }
 }
