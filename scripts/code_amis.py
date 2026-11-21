@@ -7,7 +7,8 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 # code → (ancien nom éventuel, titre dans l'admin)
 CODES = {"DOUNIA": ("AMISQOSMI", "DOUNIA — livraison offerte dès 1 article (abonnés de Dounia)"),
-         "NASSIM": (None, "NASSIM — livraison offerte dès 1 article")}  # 20/11/2026 (Amine) : même avantage que DOUNIA
+         "NASSIM": (None, "NASSIM — livraison offerte dès 1 article"),  # 20/11/2026 (Amine) : même avantage que DOUNIA
+         "YANIS": (None, "YANIS — livraison offerte dès 1 article")}  # 21/11/2026 (Amine) : même avantage
 
 
 def creer(s, code, ancien, titre):
