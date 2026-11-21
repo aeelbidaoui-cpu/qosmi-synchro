@@ -264,15 +264,51 @@ def texte_centre_col(d, cx, y, txt, f, couleur=NOIR, largeur=440):
     return y
 
 
-def v_famille(ps, mot, langue):
+# Photos d'ambiance Pexels choisies à la main (config/images_ambiance.json, 21/11/2026) : clé de note par famille
+AMBIANCE = json.load(open(os.path.join(RACINE, "config", "images_ambiance.json"), encoding="utf-8")).get("notes", {}) \
+    if os.path.exists(os.path.join(RACINE, "config", "images_ambiance.json")) else {}
+CLE_AMBIANCE = {"vanille": "vanille", "rose": "rose", "oud": "oud", "ambre": "ambre", "cuir": "cuir", "musc": "musc",
+                "jasmin": "jasmin", "bergamote": "agrumes", "patchouli": "patchouli", "tabac": "tabac", "iris": "iris",
+                "café": "cafe", "lavande": "lavande"}
+
+
+def fond_ambiance(cle, larg, haut):
+    """Photo d'ambiance recadrée (larg × haut), assombrie pour que le texte blanc se lise ; None si pas de photo."""
+    a = AMBIANCE.get(cle)
+    if not a:
+        return None
+    try:
+        im = Image.open(io.BytesIO(get(a["url"] + "?auto=compress&cs=tinysrgb&w=1600", binaire=True))).convert("RGB")
+    except Exception:
+        return None
+    im = ImageOps.fit(im, (larg, haut), Image.LANCZOS)
+    voile = Image.new("RGB", (larg, haut), (0, 0, 0))
+    return Image.blend(im, voile, 0.38)
+
+
+def titre_famille(mot, langue):
+    t = T[langue]["famille"] % mot
+    return t.replace("de a", "d'a").replace("de e", "d'e").replace("de i", "d'i").replace("de o", "d'o").replace("de u", "d'u") \
+        if langue == "fr" else t
+
+
+def v_famille(ps, mot, langue, cle=None):
     im, d = cadre()
-    texte_centre(d, 440, (T[langue]["famille"] % mot).upper(), police(76, "Medium"), largeur=960)
+    fond = fond_ambiance(cle, W, 860) if cle else None
+    if fond:  # photo d'ambiance en haut, titre en blanc dessus
+        im.paste(fond, (0, 0))
+        texte_centre(d, 250, "QOSMI", police(40, "Medium"), BLANC, espacement=16)
+        texte_centre(d, 600, titre_famille(mot, langue).upper(), police(80, "Medium"), BLANC, largeur=960)
+        y0 = 930
+    else:
+        texte_centre(d, 440, titre_famille(mot, langue).upper(), police(76, "Medium"), largeur=960)
+        y0 = 700
     for i, p in enumerate(ps):
         x = 40 + i * 340
-        im.paste(photo(p["photo"], 320), (x, 700))
-        texte_centre_col(d, x + 160, 1050, p["marque"].upper(), police(24, "Medium"), DOUX, largeur=310)
-        texte_centre_col(d, x + 160, 1090, nom_court(p).upper(), police(34, "Medium"), largeur=310)
-    texte_centre(d, 1420, T[langue]["famille_bas"], police(42, "Light"))
+        im.paste(photo(p["photo"], 320), (x, y0))
+        texte_centre_col(d, x + 160, y0 + 350, p["marque"].upper(), police(24, "Medium"), DOUX, largeur=310)
+        texte_centre_col(d, x + 160, y0 + 390, nom_court(p).upper(), police(34, "Medium"), largeur=310)
+    texte_centre(d, 1470 if fond else 1420, T[langue]["famille_bas"], police(42, "Light"))
     bas(d, langue)
     return im
 
@@ -331,7 +367,7 @@ def fabriquer(jour, creneau, etat):
             if len(ps) >= 3:
                 ps = rnd.sample(ps, 3)
                 lib = fr if langue == "fr" else nl
-                return v_famille(ps, lib, langue), {"sorte": sorte, "langue": langue, "titre": lib,
+                return v_famille(ps, lib, langue, CLE_AMBIANCE.get(mot)), {"sorte": sorte, "langue": langue, "titre": lib,
                                                     "parfums": [p["handle"] for p in ps]}
         sorte = "du_jour"
     p = rnd.choice(avec_notes or cat)
