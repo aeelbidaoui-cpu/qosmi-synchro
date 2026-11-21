@@ -20,6 +20,10 @@ DOMICILE = {"fr": "Livraison à domicile", "nl": "Levering aan huis", "prix": "6
             "desc_fr": "Livré à ta porte", "desc_nl": "Geleverd aan je deur"}
 REDUC = "Livraison offerte dès 2 articles"
 REDUC_NOUVEAU = "Livraison offerte en point relais dès 2 articles"
+# 22/11/2026 (Amine, option A) : Pays-Bas en point relais à 3,95 €, offert dès 2 articles comme en Belgique.
+# Plafond 4 € : couvre les deux points relais (BE 2,95 € / NL 3,95 €), jamais la livraison à domicile (6,95 €).
+PLAFOND = "4.00"
+DEST = {"destination": {"countries": {"add": ["BE", "NL"], "includeRestOfWorld": False}}}
 
 LIRE = """{ deliveryProfiles(first: 10) { nodes { id name
   profileLocationGroups { locationGroup { id } locationGroupZones(first: 50) { nodes {
@@ -92,19 +96,22 @@ def main():
                             print("Traduction NL « %s » : %s" % (mode["fr"], traduire(s, m["id"], {"name": mode["nl"], "description": mode["desc_nl"]})))
     # réduction « livraison offerte » : seulement les tarifs de 3 € maximum (le point relais)
     noeuds = s.gql("""{ discountNodes(first: 50, query: "type:free_shipping") { nodes { id discount { __typename
-        ... on DiscountAutomaticFreeShipping { title status maximumShippingPrice { amount } } } } } }""")["discountNodes"]["nodes"]
+        ... on DiscountAutomaticFreeShipping { title status maximumShippingPrice { amount }
+          destinationSelection { __typename ... on DiscountCountries { countries includeRestOfWorld } } } } } } }""")["discountNodes"]["nodes"]
     for n in noeuds:
         d = n["discount"]
         if d.get("title") not in (REDUC, REDUC_NOUVEAU):
             continue
-        print("Réduction trouvée : %s, plafond actuel : %s" % (d.get("title"), (d.get("maximumShippingPrice") or {}).get("amount")))
+        print("Réduction trouvée : %s, plafond actuel : %s, destinations : %s" % (d.get("title"), (d.get("maximumShippingPrice") or {}).get("amount"),
+                                                                             d.get("destinationSelection")))
         if ESSAI:
             continue
         r = s.gql("""mutation($id: ID!, $d: DiscountAutomaticFreeShippingInput!) {
             discountAutomaticFreeShippingUpdate(id: $id, freeShippingAutomaticDiscount: $d) {
               automaticDiscountNode { id } userErrors { field message } } }""",
-                  {"id": n["id"], "d": {"title": REDUC_NOUVEAU, "maximumShippingPrice": "3.00"}})["discountAutomaticFreeShippingUpdate"]
-        print("Réduction « %s » : %s" % (REDUC_NOUVEAU, "limitée au point relais (tarifs ≤ 3 €)" if not r["userErrors"] else r["userErrors"]))
+                  {"id": n["id"], "d": {"title": REDUC_NOUVEAU, "maximumShippingPrice": PLAFOND, **DEST}})["discountAutomaticFreeShippingUpdate"]
+        print("Réduction « %s » : %s" % (REDUC_NOUVEAU, "limitée au point relais (tarifs ≤ %s €), Belgique et Pays-Bas" % PLAFOND
+                                         if not r["userErrors"] else r["userErrors"]))
 
 
 def traduire_modes():
