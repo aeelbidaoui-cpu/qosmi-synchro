@@ -1,0 +1,28 @@
+{
+ "_source": "Google Search Console, rapport Indexation > Introuvable (404), relevé le 21/11/2026 (40 adresses). Ignorées : adresses techniques Shopify (/wpm, /cdn, /b, /challenge, /${t}), /collections/vendors?q=… (recherche par marque sans fiche), /sitemap.xml et fiches revenues en ligne.",
+ "fiches": [
+  "xerjoff-oud-stars-mamluk-parfum-mixte-2",
+  "lattafa-adeeb-eau-de-parfum-pour-femme",
+  "gucci-bamboo-eau-de-toilette-pour-femme",
+  "etat-libre-d-orange-putain-des-palaces-eau-de-parfum-mixte",
+  "loewe-7-eau-de-toilette-pour-homme",
+  "marc-jacobs-daisy-dream-eau-de-toilette-pour-femme",
+  "jo-malone-gardenia-oud-eau-de-cologne-mixte",
+  "marquisa-dubai-no-3-eau-de-parfum-pour-femme",
+  "lattafa-yara-tous-eau-de-parfum-pour-femme-2",
+  "marc-antoine-barrois-tilia-eau-de-parfum-mixte",
+  "nasomatto-silver-musk-extrait-de-parfum-pour-homme",
+  "chopard-orange-mauresque-eau-de-parfum-mixte",
+  "guess-seductive-homme-eau-de-toilette-pour-homme",
+  "tom-ford-rose-prick-eau-de-parfum-pour-femme",
+  "dior-j-adore-l-or-eau-de-parfum-pour-femme",
+  "marquisa-dubai-no-11-eau-de-parfum-pour-homme",
+  "frederic-malle-rose-tonnerre-eau-de-parfum-mixte",
+  "marquisa-dubai-no-19-eau-de-parfum-pour-femme",
+  "gucci-bamboo-eau-de-parfum-pour-femme",
+  "montale-intense-cafe-eau-de-parfum-mixte"
+ ],
+ "autres": {
+  "/collections/testeurs": "/collections/parfums"
+ }
+}
