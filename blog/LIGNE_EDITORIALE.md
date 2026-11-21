@@ -51,6 +51,8 @@ Faits :
 - [x] 004 Quel parfum offrir à Noël ? (idées de cadeaux)
 - [x] 005 Parfum d'hiver : quelles notes choisir quand il fait froid ?
 - [x] 006 Parfum de niche : c'est quoi, et pourquoi c'est plus cher ?
+- [x] 007 Jo Malone : quel parfum choisir ? (21/11, recherches Google déjà visibles sur Jo Malone)
+- [x] 008 Parfums à la vanille : lesquels choisir selon ton style ?
 
 À faire :
 - [ ] Nishane Hundred Silent Ways : notes et pour qui ?
@@ -66,6 +68,5 @@ Faits :
 - [ ] Dior Sauvage : Parfum ou Elixir ?
 - [ ] Qu'est-ce que l'oud ?
 - [ ] Le musc en parfumerie : blanc, animal, synthétique ?
-- [ ] La vanille en parfumerie
 - [ ] Parfum au bureau : discret mais présent
 - [ ] Maison Francis Kurkdjian : les incontournables
