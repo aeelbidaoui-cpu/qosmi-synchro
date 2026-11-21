@@ -23,7 +23,12 @@ REDUC_NOUVEAU = "Livraison offerte en point relais dès 2 articles"
 # 22/11/2026 (Amine, option A) : Pays-Bas en point relais à 3,95 €, offert dès 2 articles comme en Belgique.
 # Plafond 4 € : couvre les deux points relais (BE 2,95 € / NL 3,95 €), jamais la livraison à domicile (6,95 €).
 PLAFOND = "4.00"
-DEST = {"destination": {"countries": {"add": ["BE", "NL"], "includeRestOfWorld": False}}}
+# 22/11/2026 (Amine, « oui go ») : Luxembourg ajouté, même règle que les Pays-Bas (3,95 €, offert dès 2 articles).
+DEST = {"destination": {"countries": {"add": ["BE", "NL", "LU"], "includeRestOfWorld": False}}}
+# Descriptions affichées au paiement → néerlandais (22/11/2026 : les pays sans livraison offerte ont une description sans « offert »).
+DESC_NL = {"Au point relais le plus proche de ton adresse · offert dès 2 articles": "In het afhaalpunt het dichtst bij je adres · gratis vanaf 2 artikelen",
+           "Au point relais le plus proche de ton adresse": "In het afhaalpunt het dichtst bij je adres",
+           "Livré à ta porte": "Geleverd aan je deur"}
 
 LIRE = """{ deliveryProfiles(first: 10) { nodes { id name
   profileLocationGroups { locationGroup { id } locationGroupZones(first: 50) { nodes {
@@ -110,7 +115,7 @@ def main():
             discountAutomaticFreeShippingUpdate(id: $id, freeShippingAutomaticDiscount: $d) {
               automaticDiscountNode { id } userErrors { field message } } }""",
                   {"id": n["id"], "d": {"title": REDUC_NOUVEAU, "maximumShippingPrice": PLAFOND, **DEST}})["discountAutomaticFreeShippingUpdate"]
-        print("Réduction « %s » : %s" % (REDUC_NOUVEAU, "limitée au point relais (tarifs ≤ %s €), Belgique et Pays-Bas" % PLAFOND
+        print("Réduction « %s » : %s" % (REDUC_NOUVEAU, "limitée au point relais (tarifs ≤ %s €), Belgique, Pays-Bas et Luxembourg" % PLAFOND
                                          if not r["userErrors"] else r["userErrors"]))
 
 
@@ -133,8 +138,9 @@ def traduire_modes():
             if not mode or ESSAI:
                 continue
             t = [{"locale": "nl", "key": "name", "value": mode["nl"], "translatableContentDigest": c["name"]["digest"]}]
-            if c.get("description"):
-                t.append({"locale": "nl", "key": "description", "value": mode["desc_nl"], "translatableContentDigest": c["description"]["digest"]})
+            desc = (c.get("description") or {}).get("value")
+            if desc in DESC_NL:
+                t.append({"locale": "nl", "key": "description", "value": DESC_NL[desc], "translatableContentDigest": c["description"]["digest"]})
             e = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
                          userErrors { message } } }""", {"id": n["resourceId"], "t": t})["translationsRegister"]["userErrors"]
             print("    → NL « %s » : %s" % (mode["nl"], "ok" if not e else e))

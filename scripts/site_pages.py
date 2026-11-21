@@ -34,6 +34,7 @@ def remplir(html, c, nl=False):
              frais_livraison=c["frais_livraison"], frais_livraison_nl=c["frais_livraison"],
              delai_total=c["delai_livraison_fr"], delai_total_nl=c["delai_livraison_nl"],
              delai_etranger=c["delai_livraison_etranger_fr"], delai_etranger_nl=c["delai_livraison_etranger_nl"],
+             delai_lointain=c["delai_livraison_lointain_fr"], delai_lointain_nl=c["delai_livraison_lointain_nl"],
              date="%d %s %d" % (d.day, MOIS[d.month - 1], d.year), date_nl="%d %s %d" % (d.day, MAAND[d.month - 1], d.year))
     v.update(IMAGES)
     html = html.strip()

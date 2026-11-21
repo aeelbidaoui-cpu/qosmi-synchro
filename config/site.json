@@ -23,7 +23,7 @@
   "_note_statut": "Statut des nouvelles fiches créées par la mise à jour horaire : ACTIVE depuis le 04/11/2026 (Amine : « active-les » ; boutique encore protégée par mot de passe).",
   "delai_livraison_fr": "6 à 7 jours ouvrables",
   "delai_livraison_nl": "6 tot 7 werkdagen",
-  "_note_delai": "22/11/2026 (Amine, « oui fait les deux ») : 6 à 7 jours ouvrables en Belgique, 8 à 9 aux Pays-Bas et en France (pages Livraison et CGV). Avant : 3 à 6 jours ouvrables (08/11/2026).",
+  "_note_delai": "22/11/2026 (Amine, « oui fait les deux ») : 6 à 7 jours ouvrables en Belgique, 8 à 9 aux Pays-Bas et en France (pages Livraison et CGV). Avant : 3 à 6 jours ouvrables (08/11/2026). 22/11/2026 (Amine, « oui go ») : Luxembourg comme les Pays-Bas ; Espagne, Portugal, Italie, Allemagne, Pologne : 9 à 11 jours ouvrables.",
   "testeurs_en_suspens": false,
   "_note_testeurs": "18/11/2026 23 h 29 (Amine) : les marques autorisent la vente des testeurs → testeurs remis, comme une option de la fiche du parfum (« 100 ml – testeur » à côté de 50 ml, 100 ml, 100 ml Bon plan), sans rubrique ni onglet « Testeurs ». Prix : même calcul que les autres formats ; un testeur pas moins cher que le flacon normal de même contenance n'est pas proposé. (08/11 : suspendus en attendant l'avis juridique, arrêt CJUE L'Oréal c. eBay C-324/09.)",
   "bons_plans": {
@@ -48,5 +48,7 @@
   },
   "fusion_doublons": true,
   "delai_livraison_etranger_fr": "8 à 9 jours ouvrables",
-  "delai_livraison_etranger_nl": "8 tot 9 werkdagen"
+  "delai_livraison_etranger_nl": "8 tot 9 werkdagen",
+  "delai_livraison_lointain_fr": "9 à 11 jours ouvrables",
+  "delai_livraison_lointain_nl": "9 tot 11 werkdagen"
 }
