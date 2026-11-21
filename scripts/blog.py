@@ -227,7 +227,14 @@ def main():
             fiches[h] = {"titre": p["title"].replace(" — ", " "), "image": img,
                          "handle_nl": next((t["value"] for t in p["translations"] if t["key"] == "handle"), None)}
         if a["image"] not in fiches:
-            raise SystemExit("%s : la fiche de l'image principale (%s) n'est pas en ligne" % (a["_fichier"], a["image"]))
+            # 21/11/2026 : une fiche qui passe hors ligne (épuisée chez le fournisseur) ne doit plus bloquer tout le Journal
+            rempl = next((h for h in sorted(fiches) if fiches[h]["image"]), None)
+            if not rempl:
+                print("  ! %s : image principale (%s) hors ligne et aucune autre fiche en ligne — article laissé tel quel"
+                      % (a["_fichier"], a["image"]))
+                continue
+            print("  ! %s : image principale (%s) hors ligne — photo de %s à la place" % (a["_fichier"], a["image"], rempl))
+            a["image"] = rempl
         import photos_adp as pa
         for cle in sorted(notes_citees(a)):
             if cle not in NOTES_URL:
