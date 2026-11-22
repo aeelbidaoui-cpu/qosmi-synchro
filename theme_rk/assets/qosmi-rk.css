@@ -103,6 +103,7 @@ img.qk-hero__img { animation: qk-zoom 28s ease-in-out infinite alternate; transf
   padding: 0 clamp(20px, 4vw, 48px) 8px;
   scroll-padding-inline: clamp(20px, 4vw, 48px);
   scrollbar-width: thin;
+  clip-path: inset(0 clamp(20px, 4vw, 48px));  /* marges gauche et droite identiques : rien ne dépasse dans la marge */
 }
 @media (max-width: 989px) { .qk-rangee { grid-auto-columns: calc((100% - 24px) / 3); } }
 @media (max-width: 749px) { .qk-rangee { grid-auto-columns: 62%; } }
