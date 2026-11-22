@@ -29,7 +29,7 @@
   <script src="{{ 'qk-odeurs-outils.js' | asset_url }}" defer></script>
   <script>
     (function () {
-      var nl = {{ qk_nl | json }}, MAX = 3, PAGE = 12;
+      var nl = {{ qk_nl | json }}, en = {{ qk_en | json }}, MAX = 3, PAGE = 12;
       var sel = [], liste = [], pos = 0;
       function q(s) { return document.querySelector(s); }
       function demarrer() {
@@ -37,14 +37,14 @@
         var zone = q('[data-qk-od-familles]');
         O.familles.forEach(function (f) {
           var bloc = document.createElement('div'); bloc.className = 'qk-odeurs__famille';
-          var t = document.createElement('h2'); t.className = 'qk-odeurs__nom-famille'; t.textContent = nl ? f[2] : f[1];
+          var t = document.createElement('h2'); t.className = 'qk-odeurs__nom-famille'; t.textContent = nl ? f[2] : en ? (f[3] || f[1]) : f[1];
           var l = document.createElement('div'); l.className = 'qk-odeurs__puces';
           O.odeurs.forEach(function (o) {
             if (o.fam !== f[0]) return;
             var b = document.createElement('button'); b.type = 'button';
             b.className = 'qk-odeurs__puce' + (o.tout ? ' qk-odeurs__puce--tout' : '');
             b.setAttribute('data-qk-od', o.i); b.setAttribute('aria-pressed', 'false');
-            b.textContent = nl ? o.nl : o.fr;
+            b.textContent = nl ? o.nl : en ? (o.en || o.fr) : o.fr;
             l.appendChild(b);
           });
           bloc.appendChild(t); bloc.appendChild(l); zone.appendChild(bloc);
@@ -77,9 +77,9 @@
         places.forEach(function (p, k) {
           if (sel[k] !== undefined) {
             p.className = 'qk-odeurs__place is-on';
-            p.innerHTML = '<span></span><button type="button" data-qk-od-retirer="' + k + '" aria-label="' + (nl ? 'Verwijderen' : 'Retirer') + '">×</button>';
+            p.innerHTML = '<span></span><button type="button" data-qk-od-retirer="' + k + '" aria-label="' + (nl ? 'Verwijderen' : en ? "Remove" : 'Retirer') + '">×</button>';
             p.querySelector('span').textContent = (k + 1) + '. ' + O.nom(sel[k], nl);
-          } else { p.className = 'qk-odeurs__place'; p.textContent = nl ? 'Geur ' + (k + 1) : 'Odeur ' + (k + 1); }
+          } else { p.className = 'qk-odeurs__place'; p.textContent = nl ? 'Geur ' + (k + 1) : en ? 'Scent ' + (k + 1) : 'Odeur ' + (k + 1); }
         });
         q('[data-qk-od-effacer]').hidden = !sel.length;
         if (url && history.replaceState) {
@@ -97,6 +97,7 @@
         var tous = liste.filter(function (r) { return r.m === sel.length; }).length;
         q('[data-qk-od-titre]').textContent = nl
           ? (tous ? tous + ' parfums met ' + (sel.length > 1 ? 'deze ' + sel.length + ' geuren' : 'deze geur') : 'Parfums met een deel van je geuren')
+          : en ? (tous ? tous + ' fragrances with ' + (sel.length > 1 ? 'these ' + sel.length + ' scents' : 'this scent') : 'Fragrances with some of your scents')
           : (tous ? tous + ' parfums avec ' + (sel.length > 1 ? 'ces ' + sel.length + ' odeurs' : 'cette odeur') : 'Parfums avec une partie de tes odeurs');
         plus();
       }

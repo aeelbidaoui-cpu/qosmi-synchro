@@ -40,8 +40,9 @@
   <script src="{{ 'qk-odeurs-outils.js' | asset_url }}" defer></script>
   <script>
     (function () {
-      var nl = {{ qk_nl | json }}, racine = {{ qk_racine | json }};
-      function T(fr, n) { return nl ? n : fr.replace(/ ([?!:;])/g, '\u00a0$1'); }  /* espace insécable avant ? ! : ; */
+      var nl = {{ qk_nl | json }}, en = {{ qk_en | json }}, racine = {{ qk_racine | json }};
+      var QEN = {"C'est pour qui ?": "Who is it for?", "Pour elle": "For her", "Pour lui": "For him", "Peu importe": "Doesn't matter", "Parfums mixtes compris": "Unisex fragrances included", "Tu le porteras surtout…": "You'll mostly wear it…", "Tous les jours": "Every day", "Léger, facile à porter": "Light, easy to wear", "Au travail": "At work", "Propre, discret": "Clean, subtle", "Le soir, en sortie": "In the evening, going out", "Qui se remarque": "Gets noticed", "Pour les grandes occasions": "For special occasions", "Chic et intense": "Chic and intense", "Plutôt pour quelle saison ?": "Which season, mostly?", "Printemps et été": "Spring and summer", "Automne et hiver": "Autumn and winter", "Toute l'année": "All year round", "Quel univers te ressemble ?": "Which style suits you?", "Choisis-en 1 ou 2.": "Choose 1 or 2.", "Frais et propre": "Fresh and clean", "Agrumes, marin, thé": "Citrus, marine, tea", "Sucré et gourmand": "Sweet and gourmand", "Vanille, caramel, tonka": "Vanilla, caramel, tonka", "Fleuri": "Floral", "Rose, jasmin, fleurs blanches": "Rose, jasmine, white flowers", "Boisé et élégant": "Woody and elegant", "Santal, cèdre, vétiver": "Sandalwood, cedar, vetiver", "Oriental et intense": "Oriental and intense", "Oud, ambre, encens, épices": "Oud, amber, incense, spices", "Fruité": "Fruity", "Fruits rouges, pêche, pomme": "Red berries, peach, apple", "Les odeurs que tu adores ?": "Scents you love?", "Jusqu'à 3. Facultatif.": "Up to 3. Optional.", "Les odeurs que tu ne supportes pas ?": "Scents you can't stand?", "On les écartera. Facultatif.": "We'll leave them out. Optional.", "Ton budget ?": "Your budget?", "Moins de 40 €": "Under €40", "Pas de limite": "No limit", "1 minute · 7 questions": "1 minute · 7 questions", "Trouve le parfum qui te ressemble": "Find the fragrance that suits you", "Dis-nous ce que tu aimes, on choisit pour toi parmi nos parfums.": "Tell us what you like and we'll pick from our fragrances for you.", "Commencer": "Start", "Pas d'idée, on passe": "No idea, skip", "On a trouvé ton parfum": "We found your fragrance", "On cherche dans nos parfums…": "Searching our fragrances…", "Ils pourraient aussi te plaire": "You might also like", "Aucun parfum en stock ne correspond. Essaie un autre budget ou une autre odeur.": "No fragrance in stock matches. Try another budget or another scent.", "Ton parfum idéal": "Your ideal fragrance", "Découvrir ce parfum": "Discover this fragrance", "Refaire le quiz": "Retake the quiz", "Affiner par odeurs": "Refine by scent"};
+      function T(fr, n) { return nl ? n : en && QEN[fr] ? QEN[fr] : fr.replace(/ ([?!:;])/g, '\u00a0$1'); }  /* espace insécable avant ? ! : ; */
       /* odeurs : id → poids. Les « tout_… » couvrent toute une famille. */
       var Q = [
         { id: 'pour', titre: T('C\'est pour qui ?', 'Voor wie is het?'), choix: [
@@ -123,7 +124,7 @@
         var photos = !q.odeurs && q.choix.some(function (c) { return c.img || c.svg; });
         var grille = el('div', q.odeurs ? 'qk-odeurs__puces qk-quiz__puces' : 'qk-quiz__choix' + (photos ? ' qk-quiz__choix--photos' : ''));
         if (!q.odeurs) grille.style.setProperty('--qk-cols', q.choix.length > 4 ? 3 : q.choix.length);
-        var liste = q.odeurs ? POPULAIRES.map(function (id) { var o = O.parId[id]; return { id: id, t: nl ? o.nl : o.fr }; }) : q.choix;
+        var liste = q.odeurs ? POPULAIRES.map(function (id) { var o = O.parId[id]; return { id: id, t: nl ? o.nl : en ? (o.en || o.fr) : o.fr }; }) : q.choix;
         var sel = [].concat(rep[q.id] || []);
         liste.forEach(function (c) {
           var b = el('button', q.odeurs ? 'qk-odeurs__puce' : 'qk-quiz__carte');

@@ -16,7 +16,7 @@
   <script src="{{ 'qk-odeurs-outils.js' | asset_url }}" defer></script>
   <script>
     (function () {
-      var nl = {{ qk_nl | json }};
+      var nl = {{ qk_nl | json }}, en = {{ qk_en | json }};
       function demarrer() {
         var O = window.qkOdeurs, s = document.querySelector('[data-qk-proches]');
         if (!O || !s || s.getAttribute('data-ok')) return;

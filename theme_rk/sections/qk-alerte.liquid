@@ -26,7 +26,7 @@
 <script>
   (function () {
     var dispo = { {%- for v in product.variants -%}"{{ v.id }}": {{ v.available }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%} };
-    var langue = {{ qk_nl | json }} ? 'nl' : 'fr';
+    var langue = {{ qk_nl | json }} ? 'nl' : ({{ qk_en | json }} ? 'en' : 'fr');
     var bloc = document.querySelector('[data-qk-alerte]');
     if (!bloc) return;
     function jour() { var d = new Date(); return '' + d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2); }

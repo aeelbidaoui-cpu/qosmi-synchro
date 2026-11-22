@@ -37,7 +37,7 @@
 <script>
 (function () {
   var bouton = document.getElementById('qk-pr-ouvrir'), zone = document.getElementById('qk-pr-zone');
-  var nl = {{ qk_nl | json }}, charge = false;
+  var nl = {{ qk_nl | json }}, en = {{ qk_en | json }}, charge = false;
   function script(src) {
     return new Promise(function (ok, ko) { var s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = ko; document.head.appendChild(s); });
   }
@@ -50,7 +50,7 @@
         var choisi = document.getElementById('qk-pr-choisi');
         document.getElementById('qk-pr-nom').textContent = texte;
         choisi.hidden = false;
-        bouton.textContent = nl ? 'Ander afhaalpunt kiezen' : 'Changer de point relais';
+        bouton.textContent = nl ? 'Ander afhaalpunt kiezen' : en ? "Change pick-up point" : 'Changer de point relais';
         zone.hidden = true;  /* le choix est fait : on referme la carte et on montre le point retenu */
         document.getElementById('qk-pr').scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
@@ -83,6 +83,7 @@
       .catch(function () {
         bouton.disabled = false;
         zone.textContent = nl ? 'De kaart kon niet laden. Geen probleem: we kiezen het afhaalpunt het dichtst bij je adres.'
+                              : en ? "The map couldn't load. No problem: we'll use the pick-up point closest to your address."
                               : "La carte n'a pas pu se charger. Pas de souci : on prendra le point relais le plus proche de ton adresse.";
       });
   });

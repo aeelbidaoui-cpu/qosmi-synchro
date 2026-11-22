@@ -5,7 +5,7 @@
   var D = window.QK_ODEURS;
   if (!D) return;
   var racine = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
-  var odeurs = D.odeurs.map(function (o, i) { return { i: i, id: o[0], fam: o[1], fr: o[2], nl: o[3], tout: o[0].indexOf('tout_') === 0 }; });
+  var odeurs = D.odeurs.map(function (o, i) { return { i: i, id: o[0], fam: o[1], fr: o[2], nl: o[3], en: o[4], tout: o[0].indexOf('tout_') === 0 }; });
   var parId = {};
   odeurs.forEach(function (o) { parId[o.id] = o; });
   var P = {};
@@ -26,7 +26,8 @@
     if (!cache[h]) cache[h] = fetch(racine + 'products/' + h + '.js').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
     return cache[h];
   }
-  function nomOdeur(i, nl) { var o = odeurs[i]; return nl ? o.nl : o.fr; }
+  var en = (document.documentElement.lang || '').indexOf('en') === 0;
+  function nomOdeur(i, nl) { var o = odeurs[i]; return nl ? o.nl : en ? (o.en || o.fr) : o.fr; }
 
   /* Parfums qui ont le plus d'odeurs choisies (indices), notes clés d'abord. */
   function chercher(sel) {
@@ -71,9 +72,9 @@
       a.href = p.url;
       a.innerHTML = '<span class="qk-carte__img"><img loading="lazy" alt="" src="' + p.featured_image + (p.featured_image.indexOf('?') >= 0 ? '&' : '?') + 'width=600">' +
         '<button type="button" class="qk-fav qk-fav--carte" data-qk-fav="' + p.handle + '" aria-pressed="false" aria-label="' +
-        (nl ? 'Toevoegen aan favorieten' : 'Ajouter aux favoris') + '">' + COEUR + '</button></span>' +
+        (nl ? 'Toevoegen aan favorieten' : en ? "Add to favourites" : 'Ajouter aux favoris') + '">' + COEUR + '</button></span>' +
         '<span class="qk-carte__ligne"><span class="qk-carte__marque"></span><span class="qk-carte__prix">' +
-        (p.price_varies ? (nl ? 'vanaf ' : 'dès ') : '') + euros(p.price_min) + '</span></span><span class="qk-carte__nom"></span>' +
+        (p.price_varies ? (nl ? 'vanaf ' : en ? "from " : 'dès ') : '') + euros(p.price_min) + '</span></span><span class="qk-carte__nom"></span>' +
         '<span class="qk-odeurs__communes"></span>';
       a.querySelector('.qk-carte__marque').textContent = p.vendor;
       a.querySelector('.qk-carte__nom').textContent = nom;

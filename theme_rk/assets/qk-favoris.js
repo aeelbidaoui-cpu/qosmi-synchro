@@ -2,7 +2,7 @@
 (function () {
   var CLE = 'qk_favoris';
   var racine = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
-  var nl = (document.documentElement.lang || '').indexOf('nl') === 0;
+  var nl = (document.documentElement.lang || '').indexOf('nl') === 0, en = (document.documentElement.lang || '').indexOf('en') === 0;
   function lire() { try { return JSON.parse(localStorage.getItem(CLE)) || []; } catch (e) { return []; } }
   function ecrire(l) { try { localStorage.setItem(CLE, JSON.stringify(l.slice(0, 100))); } catch (e) {} }
   var COEUR = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.4 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.6 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>';
@@ -30,7 +30,7 @@
     var a = document.createElement('a');
     a.href = racine + 'pages/favoris';
     a.className = 'qk-fav-entete header-actions__action';
-    a.setAttribute('aria-label', nl ? 'Mijn favorieten' : 'Mes favoris');
+    a.setAttribute('aria-label', nl ? 'Mijn favorieten' : en ? "My favourites" : 'Mes favoris');
     a.innerHTML = COEUR + '<span class="qk-fav-compte" data-qk-fav-compte hidden></span>';
     zone.insertBefore(a, zone.firstChild);
   }

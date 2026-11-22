@@ -131,6 +131,28 @@ ODEURS = [
 COMPILES = [(o[0], o[1], [re.compile(m) for m in o[4]]) for o in ODEURS]
 
 
+# 22/11/2026 (version anglaise) : noms anglais des familles et des odeurs (ajoutés en dernière colonne de l'index).
+EN_FAMILLES = {"agrumes": "Citrus", "fleurs": "Flowers", "fruits": "Fruits", "gourmand": "Gourmand", "epices": "Spices",
+               "bois": "Woody", "ambre": "Amber & oriental", "frais": "Fresh & aromatic"}
+EN_TOUT = {"agrumes": "All citrus", "fleurs": "All flowers", "fruits": "All fruits", "gourmand": "All gourmand", "epices": "All spices",
+           "bois": "All woods", "ambre": "All amber", "frais": "All fresh"}
+EN_ODEURS = {
+    "bergamote": "Bergamot", "citron": "Lemon", "orange": "Orange & mandarin", "pamplemousse": "Grapefruit",
+    "rose": "Rose", "jasmin": "Jasmine", "fleur_oranger": "Orange blossom & neroli", "iris": "Iris", "violette": "Violet",
+    "tubereuse": "Tuberose", "ylang": "Ylang-ylang", "muguet": "Lily of the valley", "pivoine": "Peony", "fleurs_blanches": "White flowers",
+    "geranium": "Geranium", "heliotrope": "Heliotrope & powdery", "orchidee": "Orchid", "osmanthus": "Osmanthus",
+    "pomme": "Apple", "poire": "Pear", "peche": "Peach & apricot", "fruits_rouges": "Red berries", "cassis": "Blackcurrant",
+    "tropical": "Exotic fruits", "prune": "Plum & dried fruits", "figue": "Fig", "melon": "Melon & watermelon",
+    "vanille": "Vanilla", "tonka": "Tonka bean", "caramel": "Caramel & praline", "chocolat": "Chocolate & cocoa", "cafe": "Coffee",
+    "miel": "Honey", "amande": "Almond & hazelnut", "coco": "Coconut", "lait": "Milk & cream", "alcool": "Rum & cognac",
+    "cannelle": "Cinnamon", "cardamome": "Cardamom", "safran": "Saffron", "poivre": "Pepper & pink peppercorns", "gingembre": "Ginger",
+    "muscade": "Nutmeg & clove", "santal": "Sandalwood", "cedre": "Cedar", "vetiver": "Vetiver", "patchouli": "Patchouli", "oud": "Oud",
+    "bois_fumes": "Smoky woods", "mousse": "Oakmoss", "ambre": "Amber", "ambre_gris": "Ambergris", "encens": "Incense & myrrh",
+    "baumes": "Benzoin & balsams", "musc": "Musk", "cuir": "Leather", "tabac": "Tobacco", "lavande": "Lavender", "menthe": "Mint",
+    "sauge": "Sage", "herbes": "Rosemary & herbs", "marin": "Marine & salty", "vert": "Green notes", "the": "Tea", "conifere": "Pine & juniper",
+}
+
+
 def odeurs_de(note):
     n = note.lower().strip()
     return [oid for oid, _, motifs in COMPILES if any(m.search(n) for m in motifs)]
@@ -144,12 +166,12 @@ def construire_index():
     if os.path.exists(fi):
         for h, v in json.load(open(fi, encoding="utf-8"))["parfums"].items():
             D.setdefault(h, v)
-    liste = []  # odeurs affichées : [id, famille, fr, nl]
+    liste = []  # odeurs affichées : [id, famille, fr, nl, en]
     for fid, ffr, fnl in FAMILLES:
-        liste.append(["tout_" + fid, fid, TOUT[fid][0], TOUT[fid][1]])
+        liste.append(["tout_" + fid, fid, TOUT[fid][0], TOUT[fid][1], EN_TOUT.get(fid, TOUT[fid][0])])
         for oid, fam, fr, nl, _ in ODEURS:
             if fam == fid and fr:
-                liste.append([oid, fam, fr, nl])
+                liste.append([oid, fam, fr, nl, EN_ODEURS.get(oid, fr)])
     rang = {o[0]: i for i, o in enumerate(liste)}
     fam_de = {o[0]: o[1] for o in ODEURS}
     parfums, compte = {}, {o[0]: 0 for o in liste}
@@ -168,7 +190,7 @@ def construire_index():
         for x in toutes:
             compte[x] += 1
         parfums[h] = ",".join(str(rang[x]) for x in sorted(toutes, key=rang.get)) + "|" + ",".join(str(rang[x]) for x in sorted(cles, key=rang.get))
-    return {"familles": [list(f) for f in FAMILLES], "odeurs": liste, "parfums": parfums}, compte
+    return {"familles": [list(f) + [EN_FAMILLES.get(f[0], f[1])] for f in FAMILLES], "odeurs": liste, "parfums": parfums}, compte
 
 
 def fiches_en_ligne():
