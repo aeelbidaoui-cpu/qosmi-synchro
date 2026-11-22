@@ -241,7 +241,19 @@ def main():
 
 
 if __name__ == "__main__":
-    if "--test-mail" in sys.argv:  # vérifie l'envoi vers contact@deway.be, sans étiquette ni frais
+    if "--test-api" in sys.argv:  # vérifie les identifiants avec une demande volontairement incomplète : rien n'est créé
+        o = {"name": "#TEST", "email": "contact@qosmi.be", "phone": "", "shippingAddress": {
+            "firstName": "", "lastName": "", "company": "TEST", "address1": "", "address2": "", "city": "", "zip": "",
+            "countryCodeV2": "BE", "phone": ""}}
+        envoi, pdf, statuts = appeler(demande(o, "24R", "", 0))
+        print("Expédition créée : %s (attendu : aucune)" % envoi)
+        for c, niv, m in statuts:
+            print("  statut %s %s : %s" % (c, niv, m))
+        if any(c == "10001" for c, _, _ in statuts):
+            print("→ identifiants REFUSÉS par Mondial Relay")
+        else:
+            print("→ identifiants acceptés (les erreurs ci-dessus portent sur la demande de test incomplète, c'est normal)")
+    elif "--test-mail" in sys.argv:  # vérifie l'envoi vers contact@deway.be, sans étiquette ni frais
         envoyer_mail([], ["Test : si tu lis ce mail, l'envoi des étiquettes Mondial Relay fonctionne."])
         print("E-mail de test envoyé à %s" % BOITE)
     else:

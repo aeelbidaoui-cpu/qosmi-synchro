@@ -8,7 +8,7 @@ on:
       action:
         description: "essai = liste sans rien créer ; creer = crée les étiquettes (payant) ; test-mail = vérifie l'envoi vers contact@deway.be"
         type: choice
-        options: [essai, creer, test-mail]
+        options: [essai, creer, test-mail, test-api]
         default: essai
       commandes:
         description: "creer : numéros de commande séparés par des virgules (#1001,#1002) ou « toutes »"
@@ -43,7 +43,9 @@ jobs:
           MR_TELEPHONE: ${{ secrets.MR_TELEPHONE }}
           COMMANDES: ${{ inputs.commandes }}
         run: |
-          if [ "${{ inputs.action }}" = "test-mail" ]; then
+          if [ "${{ inputs.action }}" = "test-api" ]; then
+            python -u scripts/mondial_relay.py --test-api
+          elif [ "${{ inputs.action }}" = "test-mail" ]; then
             python -u scripts/mondial_relay.py --test-mail
           elif [ "${{ inputs.action }}" = "creer" ]; then
             python -u scripts/mondial_relay.py --creer "$COMMANDES"
