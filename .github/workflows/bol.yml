@@ -118,7 +118,7 @@ jobs:
           elif [ "$A" = "rituals-fiches-essai" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py --essai
           elif [ "$A" = "rituals-obligatoires" ]; then python -u scripts/bol_analyse.py --sans-releve && python -u scripts/bol_publier.py && python -u scripts/bol_rituals_fiches.py --obligatoires
           elif [ "$A" = "deloox-candidats" ] || [ "$A" = "deloox-opportunites" ]; then \
-            if [ "$A" = "deloox-candidats" ]; then python -u scripts/bol_deloox.py --candidats; F=rapports/deloox_candidats.csv; else python -u scripts/bol_deloox.py --opportunites; F=rapports/deloox_opportunites.csv; fi && \
+            if [ "$A" = "deloox-candidats" ]; then python -u scripts/bol_deloox.py --candidats; F=rapports/deloox_candidats.csv; else python -u scripts/bol_deloox.py --opportunites ${M:+--marge $M}; F=rapports/deloox_opportunites.csv; fi && \
             K=$(openssl rand -hex 32) && echo -n "$K" > /tmp/k && \
             openssl enc -aes-256-cbc -pbkdf2 -salt -in $F -out /tmp/r.enc -pass file:/tmp/k && \
             openssl pkeyutl -encrypt -pubin -inkey config/cle_rapports.pem -in /tmp/k -out /tmp/k.enc && \

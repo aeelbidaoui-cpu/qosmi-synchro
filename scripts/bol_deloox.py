@@ -53,6 +53,9 @@ def opportunites():
             print("%s : %s" % (f, ex))
     marche = ba.lire_json(ba.MARCHE, {})
     dl = json.load(open(os.path.join(ba.RACINE, "config", "deloox.json"), encoding="utf-8")).get("par_ean", {})
+    # 22/11/2026 (Amine : « et si on descend notre bénéfice à 3 € ? ») : simulation avec --marge <euros> (défaut 5)
+    marge = float(sys.argv[sys.argv.index("--marge") + 1]) if "--marge" in sys.argv else 5
+    print("Bénéfice net minimum simulé : %.2f €" % marge)
     stats, lignes = collections.Counter(), []
     for e, v in dl.items():
         prix, dispo = (float(v[0]), v[1]) if isinstance(v, list) else (float(v), "InStock")
@@ -67,8 +70,8 @@ def opportunites():
         mm = {"existe": m["existe"], "offres": m["offres"], "bornes": m["bornes"], "comm": tuple(m["comm"]) if m.get("comm") else None,
               "ecart": m.get("ecart", 0)}
         ref = {"ean": e13, "achat": round(prix / (1 + tva), 2), "stock": 3, "testeur": False, "abime": False, "nom": "",
-               "source": 4, "reglages": {"envoi_fournisseur_eur": 0.0 if prix >= 30 else 4.95, "marge_nette_koopblok_eur": 5,
-                                         "marge_nette_eur": 5}}
+               "source": 4, "reglages": {"envoi_fournisseur_eur": 0.0 if prix >= 30 else 4.95, "marge_nette_koopblok_eur": marge,
+                                         "marge_nette_eur": marge}}
         d = regle.decider(ref, mm, cfg)
         actu = refs.get(e13) or refs.get(e)
         da = regle.decider(actu, mm, cfg) if actu and actu.get("stock", 0) > 0 else {"decision": "aucune source en stock", "net": None}
