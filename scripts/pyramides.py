@@ -157,10 +157,7 @@ def etages(notes):
     return out
 
 
-def dessiner(marque, nom, typ, notes):
-    et = etages(notes)
-    if not et or not any(a for _, _, a, _ in et):
-        return None
+def entete(marque, nom, typ):
     im = Image.new("RGB", (W, W), FOND)
     d = ImageDraw.Draw(im)
     logo = Image.open(LOGO).convert("RGBA")
@@ -173,7 +170,14 @@ def dessiner(marque, nom, typ, notes):
         fo_nom = police("Medium", fo_nom.size - 4)
     centre(d, nom, 300, fo_nom)
     centre(d, typ, 412, police("Light", 42), GRIS)
+    return im, d
 
+
+def dessiner(marque, nom, typ, notes):
+    et = etages(notes)
+    if not et or not any(a for _, _, a, _ in et):
+        return None
+    im, d = entete(marque, nom, typ)
     dia, gap = 180, 64
     fo_note, fo_lab, fo_plus = police("Regular", 34), police("Medium", 29), police("Light", 31)
     hauteurs = []
@@ -211,6 +215,44 @@ def dessiner(marque, nom, typ, notes):
     return im
 
 
+# 22/11/2026 (Amine) : parfum sans notes connues → 2e image « 100 % authentique » au lieu de la pyramide
+ENGAGEMENTS = [("Parfum original de la marque", "Jamais d'imitation ni de contretype"),
+               ("Livraison suivie", "En Belgique et dans 8 autres pays d'Europe"),
+               ("Livraison offerte dès 2 articles", "En Belgique, aux Pays-Bas et au Luxembourg"),
+               ("Paiement sécurisé", "Paiement chiffré, confirmation par e-mail")]
+
+
+def coche(d, cx, cy, r, ep=5):
+    d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=NOIR, width=ep)
+    d.line([(cx - r * 0.42, cy + r * 0.02), (cx - r * 0.1, cy + r * 0.34), (cx + r * 0.45, cy - r * 0.3)],
+           fill=NOIR, width=ep + 1, joint="curve")
+
+
+def dessiner_authentique(marque, nom, typ):
+    im, d = entete(marque, nom, typ)
+    box = (170, 540, W - 170, 1860)
+    ombre(im, box, 48)
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle(box, 48, fill=BLANC)
+    # sceau
+    cx, cy = W // 2, 740
+    d.ellipse((cx - 150, cy - 150, cx + 150, cy + 150), outline=NOIR, width=4)
+    d.ellipse((cx - 130, cy - 130, cx + 130, cy + 130), outline=FILET, width=2)
+    centre(d, "100 %", cy - 58, police("Medium", 72))
+    centre(d, "AUTHENTIQUE", cy + 32, police("Medium", 22), GRIS, sp=5)
+    centre(d, "Le vrai parfum, tout simplement", 925, police("Light", 44), GRIS)
+    fo_t, fo_s = police("Medium", 44), police("Light", 34)
+    larg = max(max(d.textlength(t, font=fo_t), d.textlength(u, font=fo_s)) for t, u in ENGAGEMENTS)
+    x0 = int((W - (larg + 110)) / 2)  # bloc centré : coche + textes
+    y = 1060
+    for titre_e, sous in ENGAGEMENTS:
+        coche(d, x0 + 34, y + 38, 34)
+        d.text((x0 + 110, y), titre_e, font=fo_t, fill=NOIR)
+        d.text((x0 + 110, y + 58), sous, font=fo_s, fill=GRIS)
+        y += 180
+    return im
+
+
 def separer_titre(titre, marque):
     t = titre.strip()
     if marque and t.lower().startswith(marque.lower()):
@@ -241,7 +283,7 @@ def charger():
 # ------------------------------------------------------------------ Shopify
 Q_FICHES = """query($apres: String) { products(first: 100, after: $apres, query: "status:active") {
   pageInfo { hasNextPage endCursor }
-  nodes { id handle title vendor
+  nodes { id handle title vendor productType
     media(first: 12) { nodes { id } }
     pm: metafield(namespace: "qosmi", key: "pyramide_media") { value }
     ph: metafield(namespace: "qosmi", key: "pyramide_hash") { value } } } }"""
@@ -296,29 +338,35 @@ def poser(limite=0, seules=None):
         if not d["pageInfo"]["hasNextPage"]:
             break
         apres = d["pageInfo"]["endCursor"]
-    faits = sautes = sans_notes = err = 0
+    faits = sautes = sans_notes = err = authentiques = 0
     for p in fiches:
         if seules and p["handle"] not in seules:
             continue
         notes = notes_parfum(p["handle"], profils, descriptions)
-        if not any(notes.values()):
+        nom, typ = separer_titre(p["title"], p["vendor"])
+        im = None
+        if any(notes.values()) and any(a for _, _, a, _ in etages(notes)):
+            sorte = "pyramide"
+        elif (p.get("productType") or "").startswith("Parfums") or (p.get("productType") or "") == "Testeurs":
+            sorte, notes = "authentique", {"authentique": [t for t, _ in ENGAGEMENTS]}
+        else:
             sans_notes += 1
             continue
-        nom, typ = separer_titre(p["title"], p["vendor"])
         h = empreinte(p["vendor"], nom, typ, notes)
         ancien = (p.get("pm") or {}).get("value")
         medias = [m["id"] for m in p["media"]["nodes"]]
         if ancien in medias and (p.get("ph") or {}).get("value") == h:
             sautes += 1
             continue
-        im = dessiner(p["vendor"], nom or p["title"], typ, notes)
-        if im is None:
-            sans_notes += 1
-            continue
+        if sorte == "pyramide":
+            im = dessiner(p["vendor"], nom or p["title"], typ, notes)
+        else:
+            im = dessiner_authentique(p["vendor"], nom or p["title"], typ)
+            authentiques += 1
         tampon = io.BytesIO()
         im.save(tampon, "JPEG", quality=90, optimize=True)
         try:
-            alt = "Pyramide olfactive de %s %s" % (p["vendor"], nom)
+            alt = ("Pyramide olfactive de %s %s" if sorte == "pyramide" else "%s %s, parfum 100 %% authentique") % (p["vendor"], nom)
             fid = televerser(s, "pyramide-%s-%s.jpg" % (p["handle"][:90], h[:6]), tampon.getvalue(), alt)
             r = s.gql(M_LIER, {"f": [{"id": fid, "referencesToAdd": [p["id"]]}]})["fileUpdate"]
             if r["userErrors"]:
@@ -338,8 +386,8 @@ def poser(limite=0, seules=None):
             print("  erreur %s : %s" % (p["handle"], str(e)[:200]), flush=True)
         if limite and faits >= limite:
             break
-    print("Pyramides : %d posées, %d déjà à jour, %d sans notes, %d erreurs (sur %d fiches actives)."
-          % (faits, sautes, sans_notes, err, len(fiches)))
+    print("Pyramides : %d posées (dont %d « 100 %% authentique »), %d déjà à jour, %d hors parfums sans notes, "
+          "%d erreurs (sur %d fiches actives)." % (faits, authentiques, sautes, sans_notes, err, len(fiches)))
 
 
 def apercu(handles):
@@ -355,8 +403,7 @@ def apercu(handles):
         nom, typ = separer_titre(titre, "")
         im = dessiner(marque, nom, typ.lower().capitalize() if typ else "", notes)
         if im is None:
-            print("%s : pas de notes" % h)
-            continue
+            im = dessiner_authentique(marque, nom, typ.lower().capitalize() if typ else "")
         im.save(os.path.join(sortie, h + ".jpg"), quality=90)
         print("%s → %s" % (h, os.path.join(sortie, h + ".jpg")))
 
