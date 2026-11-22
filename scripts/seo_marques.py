@@ -66,13 +66,17 @@ def textes(marque, noms, liens=None):
         return d if len(d) <= 155 else d[:152].rsplit(" ", 1)[0] + "…"
     liste_fr = (" : " + ", ".join(noms)) if noms else ""
     liste_nl = (": " + ", ".join(noms)) if noms else ""
+    liste_en = liste_nl
     pres = presentation(marque) or {}
     lf = ['<a href="/products/%s">%s</a>' % (h, _h.escape(n, quote=False)) for n, h in (liens or [])[:8]]
     ln = ['<a href="/nl/products/%s">%s</a>' % (h, _h.escape(n, quote=False)) for n, h in (liens or [])[:8]]
+    le = ['<a href="/en/products/%s">%s</a>' % (h, _h.escape(n, quote=False)) for n, h in (liens or [])[:8]]
     extra_fr = ("<p>%s</p>" % _h.escape(pres["fr"], quote=False) if pres.get("fr") else "") + \
                ("<p>À découvrir chez Qosmi : %s.</p>" % joli(lf, "et") if lf else "")
     extra_nl = ("<p>%s</p>" % _h.escape(pres["nl"], quote=False) if pres.get("nl") else "") + \
                ("<p>Ontdek bij Qosmi: %s.</p>" % joli(ln, "en") if ln else "")
+    extra_en = ("<p>%s</p>" % _h.escape(pres["en"], quote=False) if pres.get("en") else "") + \
+               ("<p>Discover at Qosmi: %s.</p>" % joli(le, "and") if le else "")
     return {
         # 21/11/2026 : « en Belgique » / « kopen in België » (recherches « jo malone belgie », « parfum jo malone »…)
         "titre_fr": titre("Parfums %s en Belgique" % marque, " : ") if len("Parfums %s en Belgique | Qosmi" % marque) <= 60
@@ -81,11 +85,18 @@ def textes(marque, noms, liens=None):
         else titre("%s parfums" % marque, ": "),
         "meta_fr": coupe("Tous les parfums %s%s. Flacons originaux et neufs, livrés partout en Belgique." % (marque, liste_fr)),
         "meta_nl": coupe("Alle parfums van %s%s. Originele, nieuwe flacons, geleverd in heel België." % (marque, liste_nl)),
-        "corps_fr": "<p>Tous les parfums %s chez Qosmi%s. Des flacons 100 %% authentiques et neufs, livrés partout en Belgique,"
-                    " livraison offerte dès 2 articles.</p>" % (marque, (", dont " + joli(noms, "et")) if noms else "") +
+        # 22/11/2026 (Amine, version anglaise) : anglais pour les marchés hors Belgique / Pays-Bas
+        "titre_en": titre("%s perfumes" % marque, ": "),
+        "meta_en": coupe("All %s fragrances%s. Genuine, brand-new bottles, delivered in 9 European countries." % (marque, liste_en)),
+        "corps_en": "<p>All %s fragrances at Qosmi%s. 100%% genuine, brand-new bottles, delivered in 9 European countries,"
+                    " free pick-up point delivery from 2 items in Belgium, the Netherlands and Luxembourg.</p>"
+                    % (marque, (", including " + joli(noms, "and")) if noms else "") +
+                    ('<div class="qk-suite">%s</div>' % extra_en if extra_en else ""),
+        "corps_fr": "<p>Tous les parfums %s chez Qosmi%s. Des flacons 100 %% authentiques et neufs, livrés en Belgique et dans 8 autres pays d'Europe,"
+                    " livraison offerte dès 2 articles en Belgique, aux Pays-Bas et au Luxembourg.</p>" % (marque, (", dont " + joli(noms, "et")) if noms else "") +
                     ('<div class="qk-suite">%s</div>' % extra_fr if extra_fr else ""),
-        "corps_nl": "<p>Alle parfums van %s bij Qosmi%s. 100%% originele, nieuwe flacons, geleverd in heel België,"
-                    " gratis vanaf 2 artikelen.</p>" % (marque, (", waaronder " + joli(noms, "en")) if noms else "") +
+        "corps_nl": "<p>Alle parfums van %s bij Qosmi%s. 100%% originele, nieuwe flacons, geleverd in België en 8 andere Europese landen,"
+                    " gratis vanaf 2 artikelen in België, Nederland en Luxemburg.</p>" % (marque, (", waaronder " + joli(noms, "en")) if noms else "") +
                     ('<div class="qk-suite">%s</div>' % extra_nl if extra_nl else ""),
     }
 
@@ -145,6 +156,8 @@ def main(essai=False):
             s.gql("""mutation($id: ID!, $p: ID!) { publishablePublish(id: $id, input: [{publicationId: $p}]) { userErrors { message } } }""",
                   {"id": cid, "p": pub})
         tr = traduire(s, cid, {"body_html": t["corps_nl"], "meta_title": t["titre_nl"], "meta_description": t["meta_nl"]})
+        tr += " · EN %s" % traduire(s, cid, {"body_html": t["corps_en"], "meta_title": t["titre_en"],
+                                             "meta_description": t["meta_en"]}, locale="en")
         table[v] = h
         if m != v:
             table[m] = h

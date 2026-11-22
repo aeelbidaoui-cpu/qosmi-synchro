@@ -9,7 +9,7 @@ on:
         description: "Que faire ?"
         type: choice
         default: analyse
-        options: [analyse, test-connexion, recalculer, publier, essai-publication, contenu-diag, contenu-auto, contenu-envoyer, contenu-rapport, offres-test, contenu-images, controle-images, contenu-images-4004, bonnes-affaires, commandes-detail, rituals-fiches, rituals-fiches-essai, rituals-diag, rituals-photos, rituals-obligatoires, rituals-simulation, deloox-candidats, deloox-opportunites, simulation-marge]
+        options: [analyse, test-connexion, recalculer, publier, essai-publication, contenu-diag, contenu-auto, contenu-envoyer, contenu-rapport, offres-test, contenu-images, controle-images, contenu-images-4004, bonnes-affaires, commandes-detail, rituals-fiches, rituals-fiches-essai, rituals-diag, rituals-photos, rituals-obligatoires, rituals-simulation, deloox-candidats, deloox-opportunites, simulation-marge, ean-detail]
       maxi:
         description: "Nombre maximum d'EAN à relever (vide = tous, dans la limite de durée)"
         required: false
@@ -121,6 +121,11 @@ jobs:
             if [ "$A" = "deloox-candidats" ]; then python -u scripts/bol_deloox.py --candidats; F=rapports/deloox_candidats.csv; else python -u scripts/bol_deloox.py --opportunites ${M:+--marge $M}; F=rapports/deloox_opportunites.csv; fi && \
             K=$(openssl rand -hex 32) && echo -n "$K" > /tmp/k && \
             openssl enc -aes-256-cbc -pbkdf2 -salt -in $F -out /tmp/r.enc -pass file:/tmp/k && \
+            openssl pkeyutl -encrypt -pubin -inkey config/cle_rapports.pem -in /tmp/k -out /tmp/k.enc && \
+            echo "=== CLE_CHIFFREE" && base64 -w0 /tmp/k.enc && echo && echo "=== RAPPORT_CHIFFRE" && base64 -w 1000 /tmp/r.enc && echo && echo "=== FIN"
+          elif [ "$A" = "ean-detail" ]; then EANS="$M" python -u scripts/bol_ean_detail.py && \
+            K=$(openssl rand -hex 32) && echo -n "$K" > /tmp/k && \
+            openssl enc -aes-256-cbc -pbkdf2 -salt -in rapports/ean_detail.txt -out /tmp/r.enc -pass file:/tmp/k && \
             openssl pkeyutl -encrypt -pubin -inkey config/cle_rapports.pem -in /tmp/k -out /tmp/k.enc && \
             echo "=== CLE_CHIFFREE" && base64 -w0 /tmp/k.enc && echo && echo "=== RAPPORT_CHIFFRE" && base64 -w 1000 /tmp/r.enc && echo && echo "=== FIN"
           elif [ "$A" = "simulation-marge" ]; then python -u scripts/bol_simulation_marge.py ${M:+--marge $M}

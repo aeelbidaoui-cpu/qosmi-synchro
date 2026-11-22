@@ -5,6 +5,15 @@ name: Qosmi - bol simulation (lecture seule)
 on:
   workflow_dispatch:
     inputs:
+      action:
+        description: "simulation-marge ou ean-detail (lecture seule)"
+        type: choice
+        options: [simulation-marge, ean-detail]
+        default: simulation-marge
+      eans:
+        description: "ean-detail : EAN séparés par des virgules"
+        type: string
+        default: ""
       marge:
         description: "Bénéfice net minimum simulé partout (euros)"
         type: string
@@ -42,4 +51,15 @@ jobs:
           SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
           TRISTA_URL: ${{ secrets.TRISTA_URL }}
           MARGE: ${{ inputs.marge }}
-        run: python -u scripts/bol_simulation_marge.py --marge "${MARGE:-3}"
+          EANS: ${{ inputs.eans }}
+          BOL_CLIENT_ID: ${{ secrets.BOL_CLIENT_ID }}
+          BOL_CLIENT_SECRET: ${{ secrets.BOL_CLIENT_SECRET }}
+        run: |
+          if [ "${{ inputs.action }}" = "ean-detail" ]; then
+            python -u scripts/bol_ean_detail.py && K=$(openssl rand -hex 32) && echo -n "$K" > /tmp/k && \
+            openssl enc -aes-256-cbc -pbkdf2 -salt -in rapports/ean_detail.txt -out /tmp/r.enc -pass file:/tmp/k && \
+            openssl pkeyutl -encrypt -pubin -inkey config/cle_rapports.pem -in /tmp/k -out /tmp/k.enc && \
+            echo "=== CLE_CHIFFREE" && base64 -w0 /tmp/k.enc && echo && echo "=== RAPPORT_CHIFFRE" && base64 -w 1000 /tmp/r.enc && echo && echo "=== FIN"
+          else
+            python -u scripts/bol_simulation_marge.py --marge "${MARGE:-3}"
+          fi

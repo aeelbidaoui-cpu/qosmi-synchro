@@ -60,15 +60,44 @@ COLLECTIONS = {  # handle: (titre SEO, méta, texte de la page) FR puis NL
                   "<p>Een tester is dezelfde originele parfum als de versie in de doos, geleverd in een eenvoudige verpakking, soms zonder dop. Dezelfde inhoud, een zachtere prijs.</p>")),
 }
 
+# 22/11/2026 (Amine, version anglaise) : accueil et collections principales en anglais (marchés hors Belgique / Pays-Bas)
+ACCUEIL["en"] = ("Qosmi – 100% authentic designer and niche fragrances",
+                 "Belgian online perfumery: Xerjoff, Creed, Chanel, Dior, Tom Ford and over 100 houses. Genuine, brand-new fragrances, delivered in 9 European countries.")
+DANS_9 = "delivered in 9 European countries"
+COLLECTIONS_EN = {
+    "parfums": ("Designer and niche fragrances | Qosmi",
+                "All our fragrances for women, men and unisex: great houses and niche creators, 100% authentic, %s." % DANS_9,
+                "<p>All our fragrances, from the great classics to niche creators. Every bottle is genuine and brand-new, %s.</p>" % DANS_9),
+    "parfums-femme": ("Women's fragrances – Chanel, Dior, Guerlain and more | Qosmi",
+                      "100% authentic women's fragrances: Chanel, Dior, Guerlain, Yves Saint Laurent, Lancôme and niche houses, %s." % DANS_9,
+                      "<p>Our women's fragrances: the great classics from Chanel, Dior, Guerlain or Yves Saint Laurent, and more exclusive niche creations. Genuine, brand-new and %s.</p>" % DANS_9),
+    "parfums-homme": ("Men's fragrances – Creed, Dior, Tom Ford and more | Qosmi",
+                      "100% authentic men's fragrances: Creed, Dior Sauvage, Tom Ford, Parfums de Marly, Xerjoff and more, %s." % DANS_9,
+                      "<p>Our men's fragrances: Creed, Dior, Tom Ford, Parfums de Marly, Xerjoff and many more. Genuine, brand-new and %s.</p>" % DANS_9),
+    "parfums-mixtes": ("Unisex fragrances | Qosmi",
+                       "Unisex fragrances for everyone: Acqua di Parma, Le Labo, Maison Francis Kurkdjian, Xerjoff and more. 100% authentic, %s." % DANS_9,
+                       "<p>Fragrances made for everyone: fresh colognes, woody and amber scents. Acqua di Parma, Maison Francis Kurkdjian, Xerjoff and other houses, genuine and %s.</p>" % DANS_9),
+    "niche": ("Niche fragrances – Xerjoff, Nishane, Initio, Creed | Qosmi",
+              "Online niche perfumery: Xerjoff, Nishane, Initio, Parfums de Marly, Creed, Sospiro and more. Genuine bottles, %s." % DANS_9,
+              "<p>The niche creators we love: Xerjoff, Nishane, Initio, Parfums de Marly, Creed, Sospiro and other exceptional houses. Genuine, brand-new and %s.</p>" % DANS_9),
+    "parfums-arabes": ("Arabian fragrances – Lattafa, Armaf, Al Haramain, Afnan | Qosmi",
+                       "Authentic Arabian fragrances: Lattafa, Armaf, Al Haramain, Afnan, Rasasi, Ajmal and other houses from the Emirates. Oud, amber, spices.",
+                       "<p>The great houses of Arabian perfumery: Lattafa, Armaf, Al Haramain, Afnan, Rasasi, Ajmal, Amouage and many more. "
+                       "Generous trails of oud, amber, rose and spices that last a long time on the skin. "
+                       "Every bottle is genuine and brand-new, %s.</p>" % DANS_9),
+    "testeurs": ("Authentic perfume testers, for less | Qosmi",
+                 "Perfume testers: the same authentic fragrance as the boxed version, in simple packaging, for less. %s." % DANS_9.capitalize(),
+                 "<p>A tester is the same authentic fragrance as the boxed version, delivered in simple packaging, sometimes without a cap. Same contents, a gentler price.</p>"),
+}
 
 TITRES_NL = {"parfums-arabes": "Arabische parfums"}
 
 
-def traduire(s, rid, valeurs):
+def traduire(s, rid, valeurs, locale="nl"):
     tr = s.gql("query($id: ID!) { translatableResource(resourceId: $id) { translatableContent { key digest } } }",
                {"id": rid})["translatableResource"]
     dig = {x["key"]: x["digest"] for x in (tr or {}).get("translatableContent", [])}
-    t = [{"locale": "nl", "key": k, "value": v, "translatableContentDigest": dig[k]} for k, v in valeurs.items() if k in dig]
+    t = [{"locale": locale, "key": k, "value": v, "translatableContentDigest": dig[k]} for k, v in valeurs.items() if k in dig]
     if not t:
         return "rien à traduire (clés : %s)" % sorted(dig)
     e = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
@@ -90,6 +119,10 @@ def main():
         print("Accueil NL :", traduire(s, shop, {"meta_title": ACCUEIL["nl"][0], "meta_description": ACCUEIL["nl"][1]}))
     except Exception as e:
         print("Accueil NL : impossible —", str(e)[:200])
+    try:
+        print("Accueil EN :", traduire(s, shop, {"meta_title": ACCUEIL["en"][0], "meta_description": ACCUEIL["en"][1]}, locale="en"))
+    except Exception as e:
+        print("Accueil EN : impossible —", str(e)[:200])
     # --- collections
     for h, ((t_fr, m_fr, b_fr), (t_nl, m_nl, b_nl)) in COLLECTIONS.items():
         c = s.gql("query($h: String!) { collectionByIdentifier(identifier: {handle: $h}) { id } }", {"h": h}).get("collectionByIdentifier")
@@ -102,7 +135,11 @@ def main():
         if h in TITRES_NL:
             vals["title"] = TITRES_NL[h]
         nl = traduire(s, c["id"], vals)
-        print("  collection %-15s FR : %s · NL : %s" % (h, r["userErrors"] or "ok", nl))
+        en = "—"
+        if h in COLLECTIONS_EN:
+            t_en, m_en, b_en = COLLECTIONS_EN[h]
+            en = traduire(s, c["id"], {"body_html": b_en, "meta_title": t_en, "meta_description": m_en}, locale="en")
+        print("  collection %-15s FR : %s · NL : %s · EN : %s" % (h, r["userErrors"] or "ok", nl, en))
     # --- EAN des fiches actives (Google Shopping)
     q = """{ productVariants(query: "product_status:active") { edges { node { id barcode sku product { id } } } } }"""
     d = s.gql("""mutation($q: String!) { bulkOperationRunQuery(query: $q) { bulkOperation { id } userErrors { message } } }""", {"q": q})

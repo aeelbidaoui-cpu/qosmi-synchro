@@ -62,6 +62,36 @@ COLLECTIONS = [
      "Parfums voor elke dag: makkelijk en aangenaam. Originele, nieuwe flacons, geleverd in heel België."),
 ]
 
+# 22/11/2026 (Amine, version anglaise) : handle FR -> (adresse EN, titre EN, texte EN, méta EN)
+NOTE_EN = " Selection based on the season and the moments when each fragrance is most worn; for guidance only."
+D9 = "Genuine, brand-new bottles, delivered in 9 European countries."
+EN = {
+    "parfums-hiver": ("winter-fragrances", "Winter fragrances",
+                      "When it's cold, we crave enveloping scents: amber, vanilla, woody or spicy notes that last and stay close to the skin under your scarf.",
+                      "Winter fragrances: amber, vanilla, woody and spicy notes. " + D9),
+    "parfums-automne": ("autumn-fragrances", "Autumn fragrances",
+                        "For autumn, rounder scents: woods, leather, soft spices, ripe fruit and gourmand notes, between summer freshness and winter warmth.",
+                        "Autumn fragrances: woods, leather, soft spices and gourmand notes. " + D9),
+    "parfums-printemps": ("spring-fragrances", "Spring fragrances",
+                          "In spring, it's time for flowers and freshness: rose, orange blossom, green notes, citrus and light musks.",
+                          "Spring fragrances: flowers, green notes and citrus. " + D9),
+    "parfums-ete": ("summer-fragrances", "Summer fragrances",
+                    "In summer, fresh and bright scents: citrus, marine, aromatic and fruity notes, pleasant even when it's hot.",
+                    "Summer fragrances: citrus, marine and fresh notes. " + D9),
+    "parfums-bureau": ("fragrances-for-the-office", "Fragrances for the office",
+                       "Fragrances that get noticed without bothering anyone: clean, fresh or woody, with a moderate trail, perfect for a working day.",
+                       "Office fragrances: fresh, clean, moderate trail. " + D9),
+    "parfums-rendez-vous": ("fragrances-for-a-date", "Fragrances for a date",
+                            "For a date, fragrances that draw people closer: warm and sensual, often amber, vanilla or floral.",
+                            "Date fragrances: warm and sensual. " + D9),
+    "parfums-soiree": ("evening-fragrances", "Evening fragrances",
+                       "For a night out, fragrances with character: more intense, with a beautiful trail that lasts all night.",
+                       "Evening fragrances: intense, with a strong trail. " + D9),
+    "parfums-tous-les-jours": ("everyday-fragrances", "Everyday fragrances",
+                               "The fragrances you wear without thinking: easy, pleasant, they go with everything and every occasion.",
+                               "Everyday fragrances: easy and pleasant. " + D9),
+}
+
 
 def disponibles():
     """Fiches en vente (au moins un format disponible), lues sur products.json. Ensemble vide si la boutique ne répond pas."""
@@ -141,6 +171,10 @@ def main():
                   {"id": cid, "p": retrait[i:i + 250]})
         tr = traduire(s, cid, {"title": t_nl, "handle": h_nl, "body_html": "<p>%s%s</p>" % (x_nl, NOTE_NL),
                                "meta_title": "%s | Qosmi" % t_nl, "meta_description": m_nl})
+        if h in EN:
+            h_en, t_en, x_en, m_en = EN[h]
+            tr += " · EN %s" % traduire(s, cid, {"title": t_en, "handle": h_en, "body_html": "<p>%s%s</p>" % (x_en, NOTE_EN),
+                                                 "meta_title": "%s | Qosmi" % t_en, "meta_description": m_en[:155]}, locale="en")
         print("%-24s %4d fiches (+%d, -%d) · NL %s" % (h, len(cible), len(ajout), len(retrait), tr))
 
 
