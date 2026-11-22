@@ -491,7 +491,11 @@ def construire(fichiers, marques):
     e, d = lire(fichiers["templates/product.json"])
     main = d["sections"]["main"]
     if "media-gallery" in main["blocks"]:
-        main["blocks"]["media-gallery"]["settings"].update({"media_columns": "one", "large_first_image": True})
+        # 22/11/2026 (Amine) : les photos défilent en carrousel (flèches + vignettes), plus l'une sous l'autre
+        main["blocks"]["media-gallery"]["settings"].update({
+            "media_columns": "one", "large_first_image": True, "media_presentation": "carousel",
+            "icons_style": "arrow", "slideshow_controls_style": "thumbnails", "thumbnail_position": "bottom",
+            "slideshow_mobile_controls_style": "dots", "aspect_ratio": "1"})
     det = main["blocks"]["product-details"]
     grp_id = next(k for k, b in det["blocks"].items() if b["type"] == "group")
     grp = det["blocks"][grp_id]
