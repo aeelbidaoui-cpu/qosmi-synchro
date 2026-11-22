@@ -89,16 +89,22 @@ img.qk-hero__img { animation: qk-zoom 28s ease-in-out infinite alternate; transf
 .qk-onglet.is-actif { background: var(--qk-gris); color: var(--qk-noir); }
 .qk-onglet:focus-visible { outline: 2px solid var(--qk-noir); outline-offset: 2px; }
 .qk-rangee {
+  /* 23/11/2026 (Amine) : rangée centrée dans la largeur du site, 4 parfums entiers visibles (plus de débord à droite) */
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(220px, 23%);
+  grid-auto-columns: calc((100% - 36px) / 4);
   gap: 12px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 0 max(clamp(20px, 4vw, 48px), calc((100vw - 1440px) / 2 + clamp(20px, 4vw, 48px))) 8px;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding: 0 clamp(20px, 4vw, 48px) 8px;
+  scroll-padding-inline: clamp(20px, 4vw, 48px);
   scrollbar-width: thin;
-  scroll-padding-inline: max(clamp(20px, 4vw, 48px), calc((100vw - 1440px) / 2 + clamp(20px, 4vw, 48px)));  /* le 1er parfum ne colle pas au bord */
 }
+@media (max-width: 989px) { .qk-rangee { grid-auto-columns: calc((100% - 24px) / 3); } }
 @media (max-width: 749px) { .qk-rangee { grid-auto-columns: 62%; } }
 .qk-rangee__item { scroll-snap-align: start; }
 
