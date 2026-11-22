@@ -923,6 +923,13 @@ def envoyer(produits):
 
 
 TRAD_OPTIONS = [("Format", "Inhoud"), ("Teinte", "Kleur")]
+TRAD_OPTIONS_EN = [("Format", "Size"), ("Teinte", "Shade")]  # 22/11/2026 : version anglaise
+
+
+def valeur_en(v):
+    return (v.replace("Taille unique", "One size").replace(" – testeur", " – tester")
+             .replace(" – boîte abîmée", " – damaged box").replace(BON_PLAN_FR, " · Deal")
+             .replace(SUR_COMMANDE_FR, " · On order"))
 
 
 def valeur_nl(v):
@@ -931,11 +938,12 @@ def valeur_nl(v):
              .replace(SUR_COMMANDE_FR, SUR_COMMANDE_NL))
 
 
-def traduire(s, sc, produits):
-    """NL : titre, description, type de chaque fiche ; noms et valeurs des options (Format → Inhoud…)."""
+def traduire(s, sc, produits, locale="nl"):
+    """NL (ou EN, 22/11/2026) : titre, description, type de chaque fiche ; noms et valeurs des options (Format → Inhoud…)."""
     import urllib.request
     par_handle = {p["handle"]: p for p in produits}
-    sortie = os.path.join(sl.RAPPORTS, "site_variantes_traductions_envoi.jsonl")
+    sortie = os.path.join(sl.RAPPORTS, "site_variantes_traductions_envoi%s.jsonl" % ("" if locale == "nl" else "_" + locale))
+    opts, val = (TRAD_OPTIONS, valeur_nl) if locale == "nl" else (TRAD_OPTIONS_EN, valeur_en)
     n = 0
     with open(sortie, "w", encoding="utf-8") as f:
         for type_res in ("PRODUCT", "PRODUCT_OPTION", "PRODUCT_OPTION_VALUE"):
@@ -959,24 +967,25 @@ def traduire(s, sc, produits):
                     p = par_handle.get((c.get("handle") or {}).get("value"))
                     if not p:
                         continue
-                    for cle, val in (("title", p["titre_nl"]), ("body_html", p["desc_nl"]), ("product_type", p["type_nl"]),
-                                     ("meta_title", p.get("seo_titre_nl")), ("meta_description", p.get("seo_desc_nl"))):
-                        if cle in c and val:
-                            t.append({"locale": "nl", "key": cle, "value": val, "translatableContentDigest": c[cle]["digest"]})
+                    for cle, v in (("title", p.get("titre_" + locale)), ("body_html", p.get("desc_" + locale)),
+                                   ("product_type", p.get("type_" + locale)),
+                                   ("meta_title", p.get("seo_titre_" + locale)), ("meta_description", p.get("seo_desc_" + locale))):
+                        if cle in c and v:
+                            t.append({"locale": locale, "key": cle, "value": v, "translatableContentDigest": c[cle]["digest"]})
                 else:
                     nom = c.get("name")
                     if not nom:
                         continue
-                    nl = dict(TRAD_OPTIONS).get(nom["value"]) if type_res == "PRODUCT_OPTION" else valeur_nl(nom["value"])
-                    if nl and nl != nom["value"]:
-                        t.append({"locale": "nl", "key": "name", "value": nl, "translatableContentDigest": nom["digest"]})
+                    tr = dict(opts).get(nom["value"]) if type_res == "PRODUCT_OPTION" else val(nom["value"])
+                    if tr and tr != nom["value"]:
+                        t.append({"locale": locale, "key": "name", "value": tr, "translatableContentDigest": nom["digest"]})
                 if t:
                     f.write(json.dumps({"resourceId": x["resourceId"], "translations": t}, ensure_ascii=False) + "\n")
                     n += 1
-    sc.journal("Traductions NL préparées : %d éléments" % n)
+    sc.journal("Traductions %s préparées : %d éléments" % (locale.upper(), n))
     if n:
-        op = sc.lancer_mutation(s, sc.M_TRAD, sortie, "traductions-variantes")
-        sc.bilan_resultats(sc.attendre(s, op, "traductions-variantes"), "traductions-variantes")
+        op = sc.lancer_mutation(s, sc.M_TRAD, sortie, "traductions-variantes-" + locale)
+        sc.bilan_resultats(sc.attendre(s, op, "traductions-variantes-" + locale), "traductions-variantes-" + locale)
 
 
 def basculer():

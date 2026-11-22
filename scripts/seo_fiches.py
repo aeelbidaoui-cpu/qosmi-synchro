@@ -217,6 +217,7 @@ def enrichir(vus, journal=print):
                 p["desc_fr"], p["desc_nl"] = i_fr + p["desc_fr"], i_nl + p["desc_nl"]
                 n_intro += 1
         if p["handle"] in proches:
+            p["_proches"] = proches[p["handle"]]  # 22/11/2026 : repris par fiches_en (bloc anglais)
             p["desc_fr"] += bloc_similaires(p, proches[p["handle"]], False)
             p["desc_nl"] += bloc_similaires(p, proches[p["handle"]], True)
             n_proches += 1

@@ -1104,6 +1104,11 @@ def textes():
     ligne_journal("Descriptions FR mises à jour : %d fiches (%d erreurs)" % (ok, err))
     n = sv.traduire(s, sc, vus)
     ligne_journal("Traductions NL envoyées : %s" % n)
+    # 22/11/2026 (Amine, version anglaise) : mêmes fiches en anglais (langue « en », publiée seulement quand tout est prêt)
+    import fiches_en
+    fiches_en.completer(vus, ligne_journal)
+    sv.traduire(s, sc, vus, locale="en")
+    ligne_journal("Traductions EN envoyées")
 
 
 def retirer_depot():
