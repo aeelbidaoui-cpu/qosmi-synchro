@@ -282,7 +282,8 @@ def publier():
         loc = s.gql("{ shopLocales { locale primary marketWebPresences { id } } }")["shopLocales"]
         wp = [w["id"] for l in loc if l["primary"] for w in l["marketWebPresences"]]
     print("Présences web visées : %s" % wp)
-    r = s.gql('mutation($wp:[ID!]){ shopLocaleUpdate(locale:"nl", shopLocale:{ published:true, marketWebPresenceIds:$wp }){ shopLocale{ locale published marketWebPresences{ id } } userErrors{ field message } } }', {"wp": wp})
+    # 22/11/2026 : LANGUE=en publie l'anglais comme langue supplémentaire sur les mêmes présences web (le français reste par défaut)
+    r = s.gql('mutation($l:String!, $wp:[ID!]){ shopLocaleUpdate(locale:$l, shopLocale:{ published:true, marketWebPresenceIds:$wp }){ shopLocale{ locale published marketWebPresences{ id } } userErrors{ field message } } }', {"l": LANGUE, "wp": wp})
     print(json.dumps(r, ensure_ascii=False))
 
 
