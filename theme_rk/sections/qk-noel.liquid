@@ -51,8 +51,9 @@
   <section class="qk-section">
     <div class="qk-largeur">
       <h2 class="qk-titre-section">{% if qk_nl %}Voor wie?{% elsif qk_en %}For whom?{% else %}Pour qui ?{% endif %}</h2>
-      <div class="qk-tuiles__grille">
-        {%- assign liste = 'parfums-femme|parfums-homme|parfums-mixtes|parfums-enfants' | split: '|' -%}
+      <div class="qk-tuiles__grille qk-tuiles__grille--3">
+        {%- comment -%} 23/11/2026 (Amine) : plus de tuile « Pour les enfants » {%- endcomment -%}
+        {%- assign liste = 'parfums-femme|parfums-homme|parfums-mixtes' | split: '|' -%}
         {%- for h in liste -%}
           {%- assign t = collections[h] -%}
           {%- if t.products_count > 0 -%}
