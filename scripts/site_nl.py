@@ -157,6 +157,36 @@ EN = {
  "Livraison offerte dès 2 articles\nLivraison suivie partout en Belgique\nParfums 100 % authentiques et neufs\nPlus de 100 maisons, des grands classiques à la niche\nPaiement sécurisé : Bancontact, carte, Apple Pay\n14 jours pour changer d'avis":
      "Free pick-up point delivery from 2 items (Belgium, Netherlands, Luxembourg)\nTracked delivery in 9 European countries\n100% authentic, brand-new fragrances\nOver 100 houses, from great classics to niche\nSecure payment: Bancontact, card, Apple Pay\n14 days to change your mind",
 }
+
+EN.update({
+ # 22/11/2026 : textes des blocs « ambiance » du thème, titres de pages
+ "Flacon de parfum posé sur une surface couverte de gouttes": "Perfume bottle on a surface covered in droplets",
+ "Perdu ?": "Lost?", "<p>Parcours nos parfums ou nos marques.</p>": "<p>Browse our fragrances or our brands.</p>",
+ "Retrouve ton parfum": "Find your fragrance", "Pivoine blanche dans un petit flacon de verre": "White peony in a small glass bottle",
+ "Idées de parfums": "Fragrance ideas", "Un cadeau ?": "A gift?",
+ "<p>La livraison en point relais est offerte dès 2 articles, partout en Belgique.</p>": "<p>Pick-up point delivery is free from 2 items in Belgium, the Netherlands and Luxembourg.</p>",
+ "Offre un parfum": "Give a fragrance", "Flacons de parfum alignés, en lumière douce": "Perfume bottles lined up in soft light",
+ "Voir les marques": "See the brands", "Toutes nos marques": "All our brands",
+ "<p>Des grands classiques aux créateurs de niche, retrouve chaque maison sur sa page.</p>": "<p>From the great classics to niche creators, every house has its own page.</p>",
+ "Plus de 100 maisons": "Over 100 houses", "Flacons de parfum dorés dans la lumière": "Golden perfume bottles in the light",
+ "<p>Oud, ambre, vanille, rose : Lattafa, Armaf, Al Haramain, Afnan et bien d'autres maisons des Émirats.</p>": "<p>Oud, amber, vanilla, rose: Lattafa, Armaf, Al Haramain, Afnan and many more houses from the Emirates.</p>",
+ "L'Orient en flacon": "The Orient in a bottle", "Main qui vaporise un parfum": "Hand spraying a fragrance",
+ "Lire le Magazine": "Read the Magazine", "Le Magazine": "The Magazine",
+ "<p>Conseils pour bien porter ton parfum, matières premières, portraits de parfumeurs : tout ce qu'il faut savoir avant de choisir.</p>": "<p>Tips on wearing your fragrance, raw materials, perfumer portraits: everything to know before you choose.</p>",
+ "Le bon geste": "The right touch", "Coffret cadeau en carton, papier de soie et anis étoilé": "Cardboard gift box, tissue paper and star anise",
+ "Voir le guide cadeaux": "See the gift guide",
+ "<p>Des coffrets, des parfums pour tous les budgets et de l'aide pour choisir celui qui lui ressemble. Tu peux aussi ajouter un petit mot au moment de commander.</p>":
+     "<p>Gift sets, fragrances for every budget and help choosing the one that suits them. You can also add a short note when you order.</p>", "Noël": "Christmas", "Idées cadeaux parfum": "Fragrance gift ideas",
+ "Flacons de parfum sur une console en marbre, pétales séchés et branche d'olivier": "Perfume bottles on a marble console, dried petals and an olive branch",
+ "Toutes les marques": "All brands", "Flacon de parfum sur une fourrure blanche": "Perfume bottle on white fur",
+ "Nos marques": "Our brands",
+ "<p>Chaque parfum est neuf et d'origine. Livraison partout en Belgique, offerte en point relais dès 2 articles.</p>": "<p>Every fragrance is brand-new and genuine. Delivered across 9 European countries, free pick-up point delivery from 2 items in Belgium, the Netherlands and Luxembourg.</p>",
+ "100 % authentique": "100% authentic", "Reflets dorés d'un flacon de parfum": "Golden reflections of a perfume bottle",
+ "Besoin d'idées ?": "Need ideas?", "<p>Guides, conseils et parfums du jour pour t'aider à trouver le tien.</p>": "<p>Guides, tips and fragrances of the day to help you find yours.</p>",
+ "Diagnostic olfactif": "Scent profile", "Idées cadeaux de Noël": "Christmas gift ideas", "Lexique du parfum": "Fragrance glossary",
+ "Mes favoris": "My favourites", "Questions fréquentes": "FAQ", "Quiz : trouve ton parfum": "Quiz: find your fragrance",
+ "Trouve ton parfum par ses odeurs": "Find your fragrance by scent", "Vu sur Instagram": "Seen on Instagram",
+})
 MARQUES_INTRO_EN = "<p>All the houses we carry, from the great classics to niche creators.</p>"
 TYPES_TRAD = ["COLLECTION", "PAGE", "MENU", "LINK", "ONLINE_STORE_THEME_JSON_TEMPLATE", "ONLINE_STORE_THEME_SECTION_GROUP"]
 
