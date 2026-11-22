@@ -8,10 +8,25 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 def main():
     from shopify_api import Shopify
+    if "--lot" in sys.argv:  # 23/11/2026 : config/photos_fiches_lot.json {handle: adresse}, une fiche après l'autre
+        lot = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "photos_fiches_lot.json"),
+                             encoding="utf-8"))["par_fiche"]
+        s, ok = Shopify(), 0
+        for h, url in lot.items():
+            try:
+                remplacer(s, h, url)
+                ok += 1
+            except SystemExit as e:
+                print("  %s : %s" % (h, e))
+        print("Lot : %d / %d photos remplacées" % (ok, len(lot)))
+        return
     h, url = os.environ.get("PHOTOS_FICHE", ""), os.environ.get("PHOTOS_ESSAI", "")
     if not h or not url.startswith("https://"):
         sys.exit("Indiquer fiche (handle) et essai (adresse https de la photo).")
-    s = Shopify()
+    remplacer(Shopify(), h, url)
+
+
+def remplacer(s, h, url):
     p = s.gql("""query($h: String!) { productByIdentifier(identifier: {handle: $h}) { id title
         media(first: 20) { nodes { id } }
         pyramide: metafield(namespace: "qosmi", key: "pyramide_media") { value } } }""", {"h": h})["productByIdentifier"]
