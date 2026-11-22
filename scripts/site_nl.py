@@ -16,7 +16,8 @@ RAPPORTS = os.path.join(RACINE, "rapports", "theme")
 TYPES = ["COLLECTION", "PAGE", "ARTICLE", "BLOG", "MENU", "LINK", "SHOP", "SHOP_POLICY",
          "ONLINE_STORE_THEME", "ONLINE_STORE_THEME_JSON_TEMPLATE", "ONLINE_STORE_THEME_SECTION_GROUP",
          "ONLINE_STORE_THEME_SETTINGS_DATA_SECTIONS", "ONLINE_STORE_THEME_LOCALE_CONTENT", "METAOBJECT"]
-CHAMPS = "resourceId translatableContent { key value } translations(locale: \"nl\") { key outdated }"
+LANGUE = os.environ.get("LANGUE", "nl")  # 22/11/2026 : « en » pour la version anglaise (même audit)
+CHAMPS = "resourceId translatableContent { key value } translations(locale: \"%s\") { key outdated }" % LANGUE
 
 
 def bilan(noeuds, detail, nom):
@@ -69,7 +70,7 @@ def audit():
             apres = d["pageInfo"]["endCursor"]
         bilan(noeuds, detail, t)
     os.makedirs(RAPPORTS, exist_ok=True)
-    with open(os.path.join(RAPPORTS, "nl_audit.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(RAPPORTS, "%s_audit.json" % LANGUE), "w", encoding="utf-8") as f:
         json.dump(detail, f, ensure_ascii=False, indent=1)
 
 
@@ -206,8 +207,17 @@ def publier():
     print(json.dumps(r, ensure_ascii=False))
 
 
+def ajouter():
+    """Ajoute la langue LANGUE à la boutique, NON publiée (invisible pour les clients)."""
+    s = Shopify()
+    r = s.gql('mutation($l:String!){ shopLocaleEnable(locale:$l){ shopLocale{ locale published } userErrors{ field message } } }', {"l": LANGUE})
+    print(json.dumps(r, ensure_ascii=False))
+
+
 if __name__ == "__main__":
-    if "--audit" in sys.argv:
+    if "--ajouter" in sys.argv:
+        ajouter()
+    elif "--audit" in sys.argv:
         audit()
     elif "--emails-envoyer" in sys.argv:
         emails_envoyer()
