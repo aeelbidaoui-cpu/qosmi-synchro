@@ -202,7 +202,8 @@ def main():
     # à la boutique de la marque (source 3, autorisation de Rituals) quand config « rituals_creer_sans_marche » est vrai
     rit_sm = bool(cfg.get("rituals_creer_sans_marche"))
     sans_marche = lambda e: (str(voulues[e].get("decision", "")).startswith("oui : seul vendeur") and not voulues[e].get("marche_connu")
-                             and not (rit_sm and voulues[e].get("fournisseur") == 3))
+                             and not (rit_sm and voulues[e].get("fournisseur") == 3)
+                             and voulues[e].get("fournisseur") != 4)  # 22/11/2026 : les 41 du fournisseur 4, demandés par Amine
     mode_sm = cfg.get("selection", {}).get("creer_sans_marche", True)
     photos_sm = {}
     if mode_sm == "avec_photo":
@@ -345,7 +346,7 @@ def main():
     except RuntimeError as err:
         cmd, txt = [], txt + ["", "Commandes bol : lecture impossible (%s)" % str(err)[:120]]
     lc = ["Commandes bol ouvertes (%s) : %d article(s) à commander chez le fournisseur" % (dt.datetime.now().strftime("%d/%m %H:%M"), len(cmd))]
-    nomf = {1: "fournisseur 1 (catalogue)", 2: "fournisseur 2 (Bons plans)", 3: "boutique de la marque"}  # codes neutres : le journal du dépôt est public
+    nomf = {1: "fournisseur 1 (catalogue)", 2: "fournisseur 2 (Bons plans)", 3: "boutique de la marque", 4: "fournisseur 4"}  # codes neutres : le journal du dépôt est public
     lc += ["  %s  commande %s  %s × %s  %s  (%s)  → à commander chez : %s" % (c["date"], c["commande"], c["quantite"], c["ean"], c["titre"][:60], c["pays"],
            nomf.get((dec.get(c["ean"]) or {}).get("fournisseur"), "introuvable dans les listes du jour")) for c in cmd]
     with open(os.path.join(RAPPORTS, "bol_commandes.txt"), "w", encoding="utf-8") as f:

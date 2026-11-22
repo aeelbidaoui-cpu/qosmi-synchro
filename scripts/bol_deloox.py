@@ -74,6 +74,9 @@ def opportunites():
                                          "marge_nette_eur": marge}}
         d = regle.decider(ref, mm, cfg)
         actu = refs.get(e13) or refs.get(e)
+        if actu and actu.get("source") == 4:
+            stats["déjà dans la liste du fournisseur 4"] += 1  # 22/11/2026 : les 41 mis en vente
+            continue
         da = regle.decider(actu, mm, cfg) if actu and actu.get("stock", 0) > 0 else {"decision": "aucune source en stock", "net": None}
         if d["decision"] not in VENDABLES:
             stats["Deloox : " + d["decision"]] += 1

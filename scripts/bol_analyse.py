@@ -89,7 +89,33 @@ def references():
         ajouter_grossiste_2(refs)
     if lire_json(CFG, {}).get("rituals"):
         ajouter_rituals(refs)
+    if lire_json(CFG, {}).get("deloox"):
+        ajouter_deloox(refs)
     return refs
+
+
+def ajouter_deloox(refs):
+    """22/11/2026 (Amine : « vasy met les 41 opportunités, poste-les sur bol ») : fournisseur 4, uniquement les EAN de
+    config/bol.json « deloox_eans ». Coût = prix affiché TTC / 1,21 ; part d'envoi d'achat 0 dès 30 € TTC, sinon 4,95 ;
+    au moins « deloox_marge_min_eur » net (5 €). Stock 3 si en stock au dernier relevé, sinon 0."""
+    cfg = lire_json(CFG, {})
+    tva = cfg.get("tva", 0.21)
+    liste = {e.lstrip("0") for e in cfg.get("deloox_eans") or []}
+    d = lire_json(os.path.join(RACINE, "config", "deloox.json"), {}).get("par_ean") or {}
+    marge = cfg.get("deloox_marge_min_eur", 5)
+    ajoutes = 0
+    for e, v in d.items():
+        if e.lstrip("0") not in liste:
+            continue
+        prix, dispo = (float(v[0]), v[1]) if isinstance(v, list) else (float(v), "InStock")
+        e13 = e.lstrip("0").zfill(13)
+        refs[e13] = {"ean": e13, "achat": round(prix / (1 + tva), 2), "stock": 3 if dispo == "InStock" else 0,
+                     "testeur": False, "abime": False, "nom": (refs.get(e13) or {}).get("nom") or "",
+                     "marque": (refs.get(e13) or {}).get("marque") or "", "source": 4,
+                     "reglages": {"envoi_fournisseur_eur": 0.0 if prix >= 30 else 4.95,
+                                  "marge_nette_koopblok_eur": marge, "marge_nette_eur": marge}}
+        ajoutes += 1
+    print("Fournisseur 4 : %d référence(s) ajoutée(s) à l'analyse bol (liste de %d)" % (ajoutes, len(liste)), flush=True)
 
 
 def ajouter_rituals(refs):
@@ -320,7 +346,7 @@ def decider_tout(cfg, refs, marche, bol=None):
         decisions[e]["marque"] = ref.get("marque", "")
         decisions[e]["fournisseur"] = ref.get("source") or 1  # 18/11/2026 : où commander (1 = catalogue, 2 = Bons plans, 3 = boutique de la marque)
         b = (m or {}).get("bornes", {})
-        lignes.append({"source": {2: "Trista", 3: "Rituals"}.get(ref.get("source"), "SoleLuna"),
+        lignes.append({"source": {2: "Trista", 3: "Rituals", 4: "source 4"}.get(ref.get("source"), "SoleLuna"),
                        "decision": d["decision"], "ean": e, "nom": ref["nom"], "stock_fournisseur": ref["stock"],
                        "achat": ref["achat"], "cout_total_ht": round(regle.cout_ht(ref["achat"], regle.cfg_pour(ref, cfg)), 2),
                        "comm_fixe": (m or {}).get("comm", ["", ""])[0] if (m or {}).get("comm") else "",
@@ -353,8 +379,8 @@ def rapports(lignes, cfg):
         txt += ["", "À mettre en vente : %d références, gain net moyen %.2f € par vente." %
                 (len(oui), sum(l["net"] for l in oui) / len(oui))]
     # 18/11/2026 : détail par source (nombres seulement, codes neutres : le journal du dépôt est public)
-    code = {"SoleLuna": "source 1", "Trista": "source 2", "Rituals": "source 3"}
-    for src in ("SoleLuna", "Trista", "Rituals"):
+    code = {"SoleLuna": "source 1", "Trista": "source 2", "Rituals": "source 3", "source 4": "source 4"}
+    for src in ("SoleLuna", "Trista", "Rituals", "source 4"):
         ls = [l for l in lignes if l.get("source") == src]
         if not ls:
             continue
