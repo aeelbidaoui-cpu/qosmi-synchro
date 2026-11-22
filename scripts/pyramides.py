@@ -215,9 +215,12 @@ def separer_titre(titre, marque):
     t = titre.strip()
     if marque and t.lower().startswith(marque.lower()):
         t = t[len(marque):].strip(" -–")
+    if " — " in t:  # titres de la boutique : « Aventus — Eau de Parfum pour homme »
+        nom, typ = t.split(" — ", 1)
+        return nom.strip(), typ.strip()
     m = re.search(CONCENTRATIONS, t)
     if m and m.start() > 0:
-        return t[:m.start()].strip(" -–,"), t[m.start():].strip()
+        return t[:m.start()].strip(" -–—,"), t[m.start():].strip()
     return t, ""
 
 
