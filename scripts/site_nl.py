@@ -116,6 +116,48 @@ NL = {
 }
 MARQUES_INTRO = ("<p>Toutes les maisons que nous proposons, des grands classiques aux créateurs de niche.</p>",
                  "<p>Alle huizen die we aanbieden, van de grote klassiekers tot nichecreateurs.</p>")
+
+# 22/11/2026 (Amine : « fait ça », version anglaise) : mêmes textes fixes en anglais. Clé = texte FR exact.
+EN = {
+ "Page d’accueil": "Home page", "Parfums": "Fragrances", "Parfums femme": "Women's fragrances", "Parfums homme": "Men's fragrances",
+ "Parfums mixtes": "Unisex fragrances", "Parfums enfants": "Kids' fragrances", "Parfums de niche": "Niche fragrances",
+ "Parfums orientaux": "Oriental fragrances", "Testeurs": "Testers", "Coffrets": "Gift sets", "Nouveautés": "New in", "Black Friday": "Black Friday", "Soins": "Skincare",
+ "Maquillage": "Make-up", "Contact": "Contact", "Marques": "Brands", "Par odeurs": "By scent", "Trouve ton parfum": "Find your fragrance",
+ "Menu principal": "Main menu", "Menu du pied de page": "Footer menu", "Menu principal du compte client": "Customer account main menu",
+ "Rechercher": "Search", "Commandes": "Orders", "Profil": "Profile", "Femme": "Women", "Homme": "Men",
+ "Mixte": "Unisex", "Niche": "Niche", "Parfums arabes": "Arabian fragrances", "Journal": "Magazine", "Magazine": "Magazine", "Arabes": "Arabian",
+ "Conditions générales de vente": "Terms and conditions of sale", "Livraison": "Shipping",
+ "Retours et remboursements": "Returns and refunds", "Politique de confidentialité": "Privacy policy",
+ "Mentions légales": "Legal notice", "Conditions d'utilisation": "Terms of use",
+ "Politique de cookies": "Cookie policy", "Déclaration d'accessibilité": "Accessibility statement",
+ "<h1>Page not found</h1>": "<h1>Page not found</h1>",
+ "<p>The link may be incorrect, or the page has been removed. </p>": "<p>The link may be incorrect, or the page has been removed.</p>",
+ "Continue shopping": "Continue shopping", "<p>Discover something new</p>": "<p>Discover something new</p>",
+ "Panier": "Cart", "Tu aimeras aussi": "You may also like",
+ "<h3>Tu aimeras aussi</h3>": "<h3>You may also like</h3>",
+ "Ton parfum,": "Your fragrance,", "au juste prix.": "at the right price.",
+ "Parfums de marque et de niche, 100 % authentiques.": "Designer and niche fragrances, 100% authentic.",
+ "Découvrir": "Discover", "Le parfum du jour": "Fragrance of the day", "Prochain parfum dans": "Next fragrance in",
+ "Favoris": "Favourites",
+ "Idées cadeaux": "Gift ideas", "Bons plans": "Deals", "Parfums d'hiver": "Winter fragrances", "Parfums de printemps": "Spring fragrances",
+ "Parfums d'été": "Summer fragrances", "Parfums d'automne": "Autumn fragrances",
+ "Les parfums qu'on nous demande le plus. Une sélection de grandes maisons et de niche, choisie avec soin.":
+     "The fragrances we're asked for most. A carefully chosen selection of great houses and niche brands.",
+ "Les incontournables": "The essentials", "Voir la niche": "Explore niche",
+ "Parfums de Marly Layton, Maison Francis Kurkdjian Baccarat Rouge 540, Xerjoff Erba Pura, Nishane Hundred Silent Ways et Creed Aventus":
+     "Parfums de Marly Layton, Maison Francis Kurkdjian Baccarat Rouge 540, Xerjoff Erba Pura, Nishane Hundred Silent Ways and Creed Aventus",
+ "Xerjoff, Nishane, Initio, Parfums de Marly et plus": "Xerjoff, Nishane, Initio, Parfums de Marly and more",
+ "Dior, Chanel, Tom Ford et plus": "Dior, Chanel, Tom Ford and more", "À porter par tout le monde": "For everyone",
+ "Chanel, Dior, Guerlain et plus": "Chanel, Dior, Guerlain and more",
+ "Des parfums originaux et neufs, des grandes maisons aux créateurs de niche.": "Genuine, brand-new fragrances, from the great houses to niche creators.",
+ "À propos": "About us", "Qosmi": "Qosmi",
+ "<p>Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, neufs, au juste prix. On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, et on te les livre partout en Belgique.</p>":
+     "<p>Qosmi is a Belgian online perfumery, simple and honest: 100% authentic, brand-new fragrances at the right price. We pick the houses we love, from the great classics to niche creators, and deliver them across Europe.</p>",
+ "Voir tous les parfums": "View all fragrances", "<h1>Collections</h1>": "<h1>Collections</h1>", "Submit": "Submit",
+ "Livraison offerte dès 2 articles\nLivraison suivie partout en Belgique\nParfums 100 % authentiques et neufs\nPlus de 100 maisons, des grands classiques à la niche\nPaiement sécurisé : Bancontact, carte, Apple Pay\n14 jours pour changer d'avis":
+     "Free pick-up point delivery from 2 items (Belgium, Netherlands, Luxembourg)\nTracked delivery in 9 European countries\n100% authentic, brand-new fragrances\nOver 100 houses, from great classics to niche\nSecure payment: Bancontact, card, Apple Pay\n14 days to change your mind",
+}
+MARQUES_INTRO_EN = "<p>All the houses we carry, from the great classics to niche creators.</p>"
 TYPES_TRAD = ["COLLECTION", "PAGE", "MENU", "LINK", "ONLINE_STORE_THEME_JSON_TEMPLATE", "ONLINE_STORE_THEME_SECTION_GROUP"]
 
 
@@ -124,11 +166,12 @@ def traduire():
     m = """mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
            userErrors { field message } translations { key } } }"""
     ok = err = 0
+    manque = set()
     for t in TYPES_TRAD:
         apres = None
         while True:
             d = s.gql("query($a:String){ translatableResources(first:100, after:$a, resourceType:%s){ pageInfo{hasNextPage endCursor} "
-                      "nodes{ resourceId translatableContent{ key value digest } translations(locale:\"nl\"){ key value outdated } } } }" % t,
+                      "nodes{ resourceId translatableContent{ key value digest } translations(locale:\"%s\"){ key value outdated } } } }" % (t, LANGUE),
                       {"a": apres})["translatableResources"]
             for n in d["nodes"]:
                 faites = {x["key"]: x["value"] for x in n["translations"] if not x["outdated"]}
@@ -137,13 +180,16 @@ def traduire():
                     v = (c.get("value") or "")
                     if not v.strip():
                         continue
-                    nl = NL.get(v.replace("\r\n", "\n").strip()) if c["key"] != "handle" else None
+                    dico = EN if LANGUE == "en" else NL
+                    nl = dico.get(v.replace("\r\n", "\n").strip()) if c["key"] != "handle" else None
                     if c["key"] == "body_html" and v.startswith(MARQUES_INTRO[0]):
-                        nl = v.replace(MARQUES_INTRO[0], MARQUES_INTRO[1], 1)
+                        nl = v.replace(MARQUES_INTRO[0], MARQUES_INTRO_EN if LANGUE == "en" else MARQUES_INTRO[1], 1)
+                    if nl is None and c["key"] not in faites and c["key"] != "handle" and len(v) < 300 and t != "COLLECTION":
+                        manque.add((t, c["key"], v.replace("\n", " ⏎ ")[:200]))
                     if c["key"] in faites and (nl is None or faites[c["key"]] == nl):
                         continue  # déjà traduit (et identique au dictionnaire)
                     if nl is not None:
-                        lot.append({"locale": "nl", "key": c["key"], "value": nl, "translatableContentDigest": c["digest"]})
+                        lot.append({"locale": LANGUE, "key": c["key"], "value": nl, "translatableContentDigest": c["digest"]})
                 if lot:
                     r = s.gql(m, {"id": n["resourceId"], "t": lot})["translationsRegister"]
                     if r["userErrors"]:
@@ -154,7 +200,10 @@ def traduire():
             if not d["pageInfo"]["hasNextPage"]:
                 break
             apres = d["pageInfo"]["endCursor"]
-    print("Traductions NL enregistrées : %d textes (%d erreurs)" % (ok, err))
+    print("Traductions %s enregistrées : %d textes (%d erreurs)" % (LANGUE.upper(), ok, err))
+    print("Textes sans traduction %s (hors collections) : %d" % (LANGUE.upper(), len(manque)))
+    for m_ in sorted(manque):
+        print("  MANQUE %s | %s | %s" % m_)
 
 
 def emails():
