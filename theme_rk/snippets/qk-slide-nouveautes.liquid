@@ -1,14 +1,14 @@
 {%- comment -%} Diapositive « Nouveautés » (10/11/2026) : les derniers parfums arrivés (collection nouveautes, triée par date d'ajout). {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 {%- assign qk_c = collections['nouveautes'] -%}
 {%- if qk_c and qk_c.products_count > 0 -%}
-<div class="qk-hero qk-carrousel__slide qk-neuf" role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="{% if qk_nl %}Nieuw{% else %}Nouveautés{% endif %}">
+<div class="qk-hero qk-carrousel__slide qk-neuf" role="group" aria-roledescription="{% if qk_nl %}dia{% elsif qk_en %}slide{% else %}diapositive{% endif %}" aria-label="{% if qk_nl %}Nieuw{% elsif qk_en %}New in{% else %}Nouveautés{% endif %}">
   <div class="qk-largeur qk-neuf__cadre">
     <div class="qk-neuf__texte">
-      <span class="qk-neuf__sur">{% if qk_nl %}Net binnen{% else %}Tout juste arrivés{% endif %}</span>
-      <h2 class="qk-neuf__titre">{% if qk_nl %}Nieuw{% else %}Nouveautés{% endif %}</h2>
-      <a class="qk-neuf__bouton" href="{{ qk_c.url }}">{% if qk_nl %}Alles bekijken{% else %}Tout voir{% endif %}</a>
+      <span class="qk-neuf__sur">{% if qk_nl %}Net binnen{% elsif qk_en %}Just arrived{% else %}Tout juste arrivés{% endif %}</span>
+      <h2 class="qk-neuf__titre">{% if qk_nl %}Nieuw{% elsif qk_en %}New in{% else %}Nouveautés{% endif %}</h2>
+      <a class="qk-neuf__bouton" href="{{ qk_c.url }}">{% if qk_nl %}Alles bekijken{% elsif qk_en %}See all{% else %}Tout voir{% endif %}</a>
     </div>
     <div class="qk-neuf__etagere">
       {%- assign qk_n = 0 -%}

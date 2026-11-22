@@ -6,9 +6,9 @@
     {%- if q_sur == 'qosmi' -%}<p class="qk-surtitre qk-surtitre--logo">{% render 'qk-logo', hauteur: 16 %}</p>
     {%- elsif section.settings.surtitre != blank -%}<p class="qk-surtitre">{{ section.settings.surtitre }}</p>{%- endif -%}
     {%- if section.settings.mode_marque and marque != blank -%}
-      <h2 class="qk-titre-section">{% if request.locale.iso_code == 'nl' %}Ontdek {% else %}Découvre {% endif %}{{ marque }}</h2>
-      <p class="qk-intro">{% if request.locale.iso_code == 'nl' %}Alle parfums van {{ marque }} bij Qosmi, origineel en nieuw.{% else %}Tous les parfums {{ marque }} chez Qosmi, originaux et neufs.{% endif %}</p>
-      {%- assign qk_h = shop.metafields.qosmi.marques.value[marque] -%}<a class="qk-lien" href="{% if qk_h != blank %}{{ routes.collections_url }}/{{ qk_h }}{% else %}/collections/vendors?q={{ marque | url_encode }}{% endif %}">{% if request.locale.iso_code == 'nl' %}Ontdek {{ marque }}{% else %}Découvrir {{ marque }}{% endif %}</a>
+      <h2 class="qk-titre-section">{% if request.locale.iso_code == 'nl' %}Ontdek {% elsif request.locale.iso_code == 'en' %}Discover {% else %}Découvre {% endif %}{{ marque }}</h2>
+      <p class="qk-intro">{% if request.locale.iso_code == 'nl' %}Alle parfums van {{ marque }} bij Qosmi, origineel en nieuw.{% elsif request.locale.iso_code == 'en' %}All {{ marque }} fragrances at Qosmi, genuine and brand-new.{% else %}Tous les parfums {{ marque }} chez Qosmi, originaux et neufs.{% endif %}</p>
+      {%- assign qk_h = shop.metafields.qosmi.marques.value[marque] -%}<a class="qk-lien" href="{% if qk_h != blank %}{{ routes.collections_url }}/{{ qk_h }}{% else %}/collections/vendors?q={{ marque | url_encode }}{% endif %}">{% if request.locale.iso_code == 'nl' %}Ontdek {{ marque }}{% elsif request.locale.iso_code == 'en' %}Discover {{ marque }}{% else %}Découvrir {{ marque }}{% endif %}</a>
     {%- else -%}
       {%- if q_titre == 'qosmi' -%}<h2 class="qk-titre-section qk-titre-section--logo">{% render 'qk-logo', hauteur: 40 %}</h2>
       {%- elsif section.settings.titre != blank -%}<h2 class="qk-titre-section">{{ section.settings.titre }}</h2>{%- endif -%}

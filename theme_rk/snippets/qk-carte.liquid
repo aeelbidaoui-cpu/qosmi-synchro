@@ -3,7 +3,7 @@
   Paramètre : product
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 {%- assign qk_t = product.title | split: ' — ' -%}
 {%- assign qk_nom = qk_t[0] | remove_first: product.vendor | strip -%}
 {%- if qk_nom == blank -%}{%- assign qk_nom = qk_t[0] -%}{%- endif -%}
@@ -16,7 +16,7 @@
   </span>
   <span class="qk-carte__ligne">
     <span class="qk-carte__marque">{{ product.vendor }}</span>
-    <span class="qk-carte__prix">{% if product.price_varies %}{% if qk_nl %}vanaf {% else %}dès {% endif %}{% endif %}{{ product.price_min | money }}</span>
+    <span class="qk-carte__prix">{% if product.price_varies %}{% if qk_nl %}vanaf {% elsif qk_en %}from {% else %}dès {% endif %}{% endif %}{{ product.price_min | money }}</span>
   </span>
   <span class="qk-carte__nom">{{ qk_nom }}</span>
 </a>

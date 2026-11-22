@@ -3,27 +3,27 @@
   on calcule son profil (familles et notes dominantes, à partir de l'index des odeurs) et on propose 5 parfums en stock.
   Données : assets/qk-odeurs.js + qk-odeurs-outils.js (mêmes que la recherche par odeurs). Recherche des parfums : /search/suggest.json.
 {%- endcomment -%}
-{%- assign qk_nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- assign qk_nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 <section class="qk-section qk-diag" data-qk-diag>
   <div class="qk-largeur qk-diag__largeur">
     <img class="qk-faq__image" src="{{ 'qosmi-mouillettes-matieres.jpg' | file_url }}" alt="" width="2400" height="1340" loading="eager">
-    <h1 class="qk-titre-section">{% if qk_nl %}Geurdiagnose{% else %}Diagnostic olfactif{% endif %}</h1>
-    <p class="qk-faq__intro">{% if qk_nl %}Kies 1 tot 5 parfums die je graag draagt. We leiden er je geurprofiel uit af en tonen je 5 parfums die erbij passen.{% else %}Choisis de 1 à 5 parfums que tu aimes porter. Nous en tirons ton profil olfactif et te proposons 5 parfums qui te ressemblent.{% endif %}</p>
+    <h1 class="qk-titre-section">{% if qk_nl %}Geurdiagnose{% elsif qk_en %}Scent profile{% else %}Diagnostic olfactif{% endif %}</h1>
+    <p class="qk-faq__intro">{% if qk_nl %}Kies 1 tot 5 parfums die je graag draagt. We leiden er je geurprofiel uit af en tonen je 5 parfums die erbij passen.{% elsif qk_en %}Pick 1 to 5 fragrances you love to wear. We work out your scent profile and suggest 5 fragrances that suit you.{% else %}Choisis de 1 à 5 parfums que tu aimes porter. Nous en tirons ton profil olfactif et te proposons 5 parfums qui te ressemblent.{% endif %}</p>
     <div class="qk-diag__choix">
       <input class="qk-faq__recherche" type="search" autocomplete="off" data-qk-diag-champ
-        placeholder="{% if qk_nl %}Typ een parfum of een merk…{% else %}Tape un parfum ou une marque…{% endif %}"
-        aria-label="{% if qk_nl %}Zoek een parfum{% else %}Rechercher un parfum{% endif %}">
+        placeholder="{% if qk_nl %}Typ een parfum of een merk…{% elsif qk_en %}Type a fragrance or a brand…{% else %}Tape un parfum ou une marque…{% endif %}"
+        aria-label="{% if qk_nl %}Zoek een parfum{% elsif qk_en %}Search for a fragrance{% else %}Rechercher un parfum{% endif %}">
       <ul class="qk-diag__sugg" data-qk-diag-sugg hidden></ul>
     </div>
     <div class="qk-diag__elus" data-qk-diag-elus></div>
-    <button type="button" class="qk-diag__bouton" data-qk-diag-go disabled>{% if qk_nl %}Bekijk mijn diagnose{% else %}Voir mon diagnostic{% endif %}</button>
+    <button type="button" class="qk-diag__bouton" data-qk-diag-go disabled>{% if qk_nl %}Bekijk mijn diagnose{% elsif qk_en %}See my scent profile{% else %}Voir mon diagnostic{% endif %}</button>
     <div class="qk-diag__resultat" data-qk-diag-res hidden>
-      <h2 class="qk-faq__theme">{% if qk_nl %}Jouw geurprofiel{% else %}Ton profil olfactif{% endif %}</h2>
+      <h2 class="qk-faq__theme">{% if qk_nl %}Jouw geurprofiel{% elsif qk_en %}Your scent profile{% else %}Ton profil olfactif{% endif %}</h2>
       <div class="qk-diag__familles" data-qk-diag-fam></div>
       <p class="qk-diag__texte" data-qk-diag-txt></p>
-      <h2 class="qk-faq__theme">{% if qk_nl %}Jouw kenmerkende noten{% else %}Tes notes signature{% endif %}</h2>
+      <h2 class="qk-faq__theme">{% if qk_nl %}Jouw kenmerkende noten{% elsif qk_en %}Your signature notes{% else %}Tes notes signature{% endif %}</h2>
       <div class="qk-profil__puces" data-qk-diag-notes></div>
-      <h2 class="qk-faq__theme">{% if qk_nl %}5 parfums voor jou{% else %}5 parfums pour toi{% endif %}</h2>
+      <h2 class="qk-faq__theme">{% if qk_nl %}5 parfums voor jou{% elsif qk_en %}5 fragrances for you{% else %}5 parfums pour toi{% endif %}</h2>
     </div>
   </div>
   <div class="qk-largeur"><div class="qk-odeurs__grille qk-diag__grille" data-qk-diag-grille></div></div>

@@ -6,16 +6,16 @@
   Les scripts (jQuery, Leaflet, widget) ne se chargent qu'au clic, pour ne pas ralentir le panier.
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 {%- if cart.item_count > 0 -%}
 {%- assign qk_pr = cart.attributes['Point relais Mondial Relay'] -%}
 <div class="qk-largeur qk-pr" id="qk-pr">
-  <p class="qk-pr__titre">{% if qk_nl %}Levering in een afhaalpunt?{% else %}Livraison en point relais ?{% endif %}</p>
+  <p class="qk-pr__titre">{% if qk_nl %}Levering in een afhaalpunt?{% elsif qk_en %}Pick-up point delivery?{% else %}Livraison en point relais ?{% endif %}</p>
   <p class="qk-pr__choisi" id="qk-pr-choisi"{% if qk_pr == blank %} hidden{% endif %}>
-    {% if qk_nl %}✓ Gekozen afhaalpunt:{% else %}✓ Point relais choisi :{% endif %} <strong id="qk-pr-nom">{{ qk_pr | escape }}</strong>
+    {% if qk_nl %}✓ Gekozen afhaalpunt:{% elsif qk_en %}✓ Pick-up point chosen:{% else %}✓ Point relais choisi :{% endif %} <strong id="qk-pr-nom">{{ qk_pr | escape }}</strong>
   </p>
-  <p class="qk-pr__aide">{% if qk_nl %}Tik op de knop, vul je postcode in en kies je Mondial Relay-afhaalpunt in de lijst. Kies daarna bij het afrekenen « Mondial Relay-afhaalpunt ». Kies je niets, dan nemen we het afhaalpunt het dichtst bij je adres.{% else %}Clique sur le bouton, entre ton code postal et choisis ton point relais Mondial Relay dans la liste. Prends ensuite « Point relais Mondial Relay » au paiement. Sans choix, on prend le point relais le plus proche de ton adresse.{% endif %}</p>
-  <button type="button" class="qk-pr__bouton" id="qk-pr-ouvrir">{% if qk_pr == blank %}{% if qk_nl %}Kies mijn afhaalpunt{% else %}Choisir mon point relais{% endif %}{% else %}{% if qk_nl %}Ander afhaalpunt kiezen{% else %}Changer de point relais{% endif %}{% endif %}</button>
+  <p class="qk-pr__aide">{% if qk_nl %}Tik op de knop, vul je postcode in en kies je Mondial Relay-afhaalpunt in de lijst. Kies daarna bij het afrekenen « Mondial Relay-afhaalpunt ». Kies je niets, dan nemen we het afhaalpunt het dichtst bij je adres.{% elsif qk_en %}Click the button, enter your postcode and choose your Mondial Relay pick-up point from the list. Then select “Mondial Relay pick-up point” at checkout. If you don't choose, we use the pick-up point closest to your address.{% else %}Clique sur le bouton, entre ton code postal et choisis ton point relais Mondial Relay dans la liste. Prends ensuite « Point relais Mondial Relay » au paiement. Sans choix, on prend le point relais le plus proche de ton adresse.{% endif %}</p>
+  <button type="button" class="qk-pr__bouton" id="qk-pr-ouvrir">{% if qk_pr == blank %}{% if qk_nl %}Kies mijn afhaalpunt{% elsif qk_en %}Choose my pick-up point{% else %}Choisir mon point relais{% endif %}{% else %}{% if qk_nl %}Ander afhaalpunt kiezen{% elsif qk_en %}Change pick-up point{% else %}Changer de point relais{% endif %}{% endif %}</button>
   <div id="qk-pr-zone" class="qk-pr__zone" hidden></div>
   <input type="hidden" id="qk-pr-cible">
 </div>

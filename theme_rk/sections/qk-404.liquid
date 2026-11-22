@@ -3,10 +3,10 @@
   Mimi est dessinée en SVG, dans le même trait que le logo (flacon arrondi, bouchon rond), ici l'air surprise.
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 <section class="qk-section qk-404">
   <div class="qk-largeur qk-404__boite">
-    <svg class="qk-404__mimi" viewBox="0 0 64 64" role="img" aria-label="{% if qk_nl %}Mimi, de mascotte van Qosmi, kijkt verbaasd{% else %}Mimi, la mascotte Qosmi, l'air surprise{% endif %}">
+    <svg class="qk-404__mimi" viewBox="0 0 64 64" role="img" aria-label="{% if qk_nl %}Mimi, de mascotte van Qosmi, kijkt verbaasd{% elsif qk_en %}Mimi, the Qosmi mascot, looking surprised{% else %}Mimi, la mascotte Qosmi, l'air surprise{% endif %}">
       <g transform="translate(9,7)" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="20" cy="8" r="6"/>
         <rect x="15" y="14" width="10" height="5" rx="1.5"/>
@@ -19,17 +19,19 @@
       </g>
     </svg>
     <p class="qk-404__code">404</p>
-    <h1 class="qk-404__titre">{% if qk_nl %}Oeps, hier staat geen parfum.{% else %}Oups, pas de parfum ici.{% endif %}</h1>
+    <h1 class="qk-404__titre">{% if qk_nl %}Oeps, hier staat geen parfum.{% elsif qk_en %}Oops, no fragrance here.{% else %}Oups, pas de parfum ici.{% endif %}</h1>
     <p class="qk-404__texte">
       {%- if qk_nl -%}
         Mimi heeft overal gezocht, maar deze pagina is vervlogen. Gelukkig zijn onze parfums nog wel allemaal hier.
+      {%- elsif qk_en -%}
+        Mimi looked everywhere, but this page has evaporated. Luckily, all our fragrances are still here.
       {%- else -%}
         Mimi a cherché partout, mais cette page s'est évaporée. Heureusement, tous nos parfums sont encore là.
       {%- endif -%}
     </p>
     <div class="qk-404__actions">
-      <a class="qk-404__bouton" href="{{ routes.collections_url }}/parfums">{% if qk_nl %}Alle parfums bekijken{% else %}Voir tous les parfums{% endif %}</a>
-      <a class="qk-lien" href="{{ routes.search_url }}">{% if qk_nl %}Een parfum zoeken{% else %}Rechercher un parfum{% endif %}</a>
+      <a class="qk-404__bouton" href="{{ routes.collections_url }}/parfums">{% if qk_nl %}Alle parfums bekijken{% elsif qk_en %}View all fragrances{% else %}Voir tous les parfums{% endif %}</a>
+      <a class="qk-lien" href="{{ routes.search_url }}">{% if qk_nl %}Een parfum zoeken{% elsif qk_en %}Search for a fragrance{% else %}Rechercher un parfum{% endif %}</a>
     </div>
   </div>
 </section>

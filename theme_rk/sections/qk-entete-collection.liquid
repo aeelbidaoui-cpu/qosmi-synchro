@@ -37,7 +37,7 @@
         {%- assign qk_parts = qk_c.description | split: '<div class="qk-suite">' -%}
         <div class="qk-entete-coll__desc rte">{{ qk_parts[0] }}
           {%- if qk_parts.size > 1 -%}
-            <details class="qk-entete-coll__plus"><summary>{% if request.locale.iso_code == 'nl' %}Meer over {{ qk_c.title }}{% else %}En savoir plus sur {{ qk_c.title }}{% endif %}</summary><div>{{ qk_parts[1] }}</details>
+            <details class="qk-entete-coll__plus"><summary>{% if request.locale.iso_code == 'nl' %}Meer over {{ qk_c.title }}{% elsif request.locale.iso_code == 'en' %}More about {{ qk_c.title }}{% else %}En savoir plus sur {{ qk_c.title }}{% endif %}</summary><div>{{ qk_parts[1] }}</details>
           {%- endif -%}
         </div>
       {%- endif -%}

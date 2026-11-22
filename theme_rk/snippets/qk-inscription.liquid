@@ -7,29 +7,29 @@
 {%- assign qk_marketing = false -%}
 {%- if customer and customer.accepts_marketing -%}{%- assign qk_marketing = true -%}{%- endif -%}
 {%- unless qk_marketing or template.name == 'cart' or template.directory == 'customers' or template.name == 'password' -%}
-{%- assign qk_nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- assign qk_nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 {%- assign qk_j = 'now' | date: '%Y%m%d' | plus: 0 -%}
 <div class="qk-pop" data-qk-pop hidden>
   <div class="qk-pop__fond" data-qk-pop-fermer></div>
   <div class="qk-pop__boite" role="dialog" aria-modal="true" aria-labelledby="qk-pop-titre">
-    <button type="button" class="qk-pop__x" data-qk-pop-fermer aria-label="{% if qk_nl %}Sluiten{% else %}Fermer{% endif %}">&times;</button>
+    <button type="button" class="qk-pop__x" data-qk-pop-fermer aria-label="{% if qk_nl %}Sluiten{% elsif qk_en %}Close{% else %}Fermer{% endif %}">&times;</button>
     <div class="qk-pop__logo">{% render 'qk-logo', hauteur: 22 %}</div>
-    {%- if qk_j <= 20261119 -%}<p class="qk-pop__sur">{% if qk_nl %}Black Friday · 27 tot 30 november{% else %}Black Friday · du 27 au 30 novembre{% endif %}</p>{%- endif -%}
-    <h2 id="qk-pop-titre" class="qk-pop__titre">{% if qk_nl %}Een klein cadeau bij je eerste bestelling{% else %}Un petit cadeau sur ta première commande{% endif %}</h2>
+    {%- if qk_j <= 20261119 -%}<p class="qk-pop__sur">{% if qk_nl %}Black Friday · 27 tot 30 november{% elsif qk_en %}Black Friday · 27 to 30 November{% else %}Black Friday · du 27 au 30 novembre{% endif %}</p>{%- endif -%}
+    <h2 id="qk-pop-titre" class="qk-pop__titre">{% if qk_nl %}Een klein cadeau bij je eerste bestelling{% elsif qk_en %}A little gift on your first order{% else %}Un petit cadeau sur ta première commande{% endif %}</h2>
     <p class="qk-pop__texte">{% if qk_nl %}Schrijf je in en ontvang je welkomstcadeau per e-mail{% if qk_j <= 20261119 %}, plus een seintje zodra de Black Friday-korting van -10 % start{% else %}, plus onze nieuwe parfums en Koopjes{% endif %}.{% else %}Inscris-toi et reçois ton cadeau de bienvenue par e-mail{% if qk_j <= 20261119 %}, et un rappel dès que le -10 % du Black Friday commence{% else %}, et nos nouveautés et Bons plans{% endif %}.{% endif %}</p>
     {%- form 'customer', id: 'qk-pop-form', class: 'qk-pop__form' -%}
       <input type="hidden" name="contact[tags]" value="newsletter,popup">
       {%- if form.posted_successfully? -%}
-        <p class="qk-pop__ok" role="status" data-qk-pop-ok>{% if qk_nl %}Bedankt! Je welkomstcadeau komt eraan per e-mail.{% else %}Merci ! Ton cadeau de bienvenue arrive par e-mail.{% endif %}</p>
+        <p class="qk-pop__ok" role="status" data-qk-pop-ok>{% if qk_nl %}Bedankt! Je welkomstcadeau komt eraan per e-mail.{% elsif qk_en %}Thank you! Your welcome gift is on its way by email.{% else %}Merci ! Ton cadeau de bienvenue arrive par e-mail.{% endif %}</p>
       {%- else -%}
         <label class="visually-hidden" for="qk-pop-email">E-mail</label>
-        <input id="qk-pop-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% else %}Ton e-mail{% endif %}">
-        <button type="submit">{% if qk_nl %}Ik schrijf me in{% else %}Je m'inscris{% endif %}</button>
+        <input id="qk-pop-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% elsif qk_en %}Your email{% else %}Ton e-mail{% endif %}">
+        <button type="submit">{% if qk_nl %}Ik schrijf me in{% elsif qk_en %}Sign me up{% else %}Je m'inscris{% endif %}</button>
         {%- if form.errors -%}<p class="qk-pop__erreur" role="alert" data-qk-pop-err>{{ form.errors | default_errors }}</p>{%- endif -%}
       {%- endif -%}
     {%- endform -%}
-    <p class="qk-pop__legal">{% if qk_nl %}Geen spam, uitschrijven met één klik. Zie ons <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">privacybeleid</a>.{% else %}Pas de spam, désinscription en un clic. Voir notre <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">politique de confidentialité</a>.{% endif %}</p>
-    <button type="button" class="qk-pop__non" data-qk-pop-fermer>{% if qk_nl %}Nee, bedankt{% else %}Non merci{% endif %}</button>
+    <p class="qk-pop__legal">{% if qk_nl %}Geen spam, uitschrijven met één klik. Zie ons <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">privacybeleid</a>.{% elsif qk_en %}No spam, unsubscribe in one click. See our <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">privacy policy</a>.{% else %}Pas de spam, désinscription en un clic. Voir notre <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">politique de confidentialité</a>.{% endif %}</p>
+    <button type="button" class="qk-pop__non" data-qk-pop-fermer>{% if qk_nl %}Nee, bedankt{% elsif qk_en %}No thanks{% else %}Non merci{% endif %}</button>
   </div>
 </div>
 <script>

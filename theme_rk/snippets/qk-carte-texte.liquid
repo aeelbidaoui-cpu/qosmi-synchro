@@ -9,7 +9,7 @@
 <a class="qk-carte-texte" href="{{ product.url }}">
   <span class="qk-carte__ligne">
     <span class="qk-carte__marque">{{ product.vendor }}</span>
-    <span class="qk-carte__prix">{% if product.price_varies %}{% if request.locale.iso_code == 'nl' %}vanaf {% else %}dès {% endif %}{% endif %}{{ product.price_min | money }}</span>
+    <span class="qk-carte__prix">{% if product.price_varies %}{% if request.locale.iso_code == 'nl' %}vanaf {% elsif request.locale.iso_code == 'en' %}from {% else %}dès {% endif %}{% endif %}{{ product.price_min | money }}</span>
   </span>
   <span class="qk-carte__nom">{{ qk_nom }}</span>
 </a>

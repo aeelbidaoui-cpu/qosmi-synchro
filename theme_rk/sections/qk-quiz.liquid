@@ -3,12 +3,12 @@
   Le score s'appuie sur les odeurs de chaque parfum (assets/qk-odeurs.js), le prix et la disponibilité sont lus en direct.
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 {%- assign qk_racine = routes.root_url | append: '/' | replace: '//', '/' -%}
 <section class="qk-section qk-quiz" data-qk-quiz>
   <div class="qk-largeur qk-quiz__cadre">
     <div class="qk-quiz__entete" data-qk-q-entete hidden>
-      <p class="qk-surtitre">{% if qk_nl %}Parfumquiz{% else %}Quiz parfum{% endif %}</p>
+      <p class="qk-surtitre">{% if qk_nl %}Parfumquiz{% elsif qk_en %}Fragrance quiz{% else %}Quiz parfum{% endif %}</p>
       <div class="qk-quiz__progres" aria-hidden="true"><span data-qk-q-barre></span></div>
     </div>
     <div data-qk-q-ecran aria-live="polite"></div>
@@ -16,24 +16,24 @@
       et quiz:<AAAAMMJJHHMM>:<rang>:<fiche> ; Shopify Flow lui envoie l'e-mail (config/mails/quiz_selection_*.liquid). {%- endcomment -%}
     <div class="qk-alerte qk-quiz__mail" data-qk-q-mail hidden>
       <div class="qk-alerte__ok" data-qk-q-mail-ok hidden>
-        <strong>{% if qk_nl %}Verstuurd!{% else %}C'est envoyé !{% endif %}</strong>
-        {% if qk_nl %}Je selectie komt binnen enkele minuten in je mailbox.{% else %}Ta sélection arrive dans ta boîte mail d'ici quelques minutes.{% endif %}
+        <strong>{% if qk_nl %}Verstuurd!{% elsif qk_en %}Sent!{% else %}C'est envoyé !{% endif %}</strong>
+        {% if qk_nl %}Je selectie komt binnen enkele minuten in je mailbox.{% elsif qk_en %}Your selection will land in your inbox in a few minutes.{% else %}Ta sélection arrive dans ta boîte mail d'ici quelques minutes.{% endif %}
       </div>
       {%- form 'customer', class: 'qk-alerte__form', data-qk-q-mail-form: '' -%}
-        <p class="qk-alerte__titre">{% if qk_nl %}Ontvang je selectie per e-mail{% else %}Reçois ta sélection par e-mail{% endif %}</p>
+        <p class="qk-alerte__titre">{% if qk_nl %}Ontvang je selectie per e-mail{% elsif qk_en %}Get your selection by email{% else %}Reçois ta sélection par e-mail{% endif %}</p>
         <input type="hidden" name="contact[tags]" value="" data-qk-q-mail-tags>
         <input type="hidden" name="return_to" value="{{ request.path }}?quiz=ok">
         <div class="qk-alerte__ligne">
-          <label class="visually-hidden" for="qk-quiz-email">{% if qk_nl %}E-mailadres{% else %}Adresse e-mail{% endif %}</label>
-          <input id="qk-quiz-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% else %}Ton e-mail{% endif %}">
-          <button type="submit" class="qk-alerte__bouton">{% if qk_nl %}Versturen{% else %}Envoyer{% endif %}</button>
+          <label class="visually-hidden" for="qk-quiz-email">{% if qk_nl %}E-mailadres{% elsif qk_en %}Email address{% else %}Adresse e-mail{% endif %}</label>
+          <input id="qk-quiz-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% elsif qk_en %}Your email{% else %}Ton e-mail{% endif %}">
+          <button type="submit" class="qk-alerte__bouton">{% if qk_nl %}Versturen{% elsif qk_en %}Send{% else %}Envoyer{% endif %}</button>
         </div>
-        <p class="qk-alerte__note">{% if qk_nl %}Je ontvangt ook onze maandelijkse nieuwsbrief (uitschrijven met één klik).{% else %}Tu recevras aussi notre e-mail mensuel (désinscription en un clic).{% endif %}</p>
+        <p class="qk-alerte__note">{% if qk_nl %}Je ontvangt ook onze maandelijkse nieuwsbrief (uitschrijven met één klik).{% elsif qk_en %}You'll also get our monthly email (unsubscribe in one click).{% else %}Tu recevras aussi notre e-mail mensuel (désinscription en un clic).{% endif %}</p>
       {%- endform -%}
     </div>
     <div class="qk-quiz__bas">
-      <button type="button" class="qk-quiz__retour" data-qk-q-retour hidden>{% if qk_nl %}← Terug{% else %}← Retour{% endif %}</button>
-      <button type="button" class="qk-acheter qk-quiz__suivant" data-qk-q-suivant hidden>{% if qk_nl %}Volgende{% else %}Suivant{% endif %}</button>
+      <button type="button" class="qk-quiz__retour" data-qk-q-retour hidden>{% if qk_nl %}← Terug{% elsif qk_en %}← Back{% else %}← Retour{% endif %}</button>
+      <button type="button" class="qk-acheter qk-quiz__suivant" data-qk-q-suivant hidden>{% if qk_nl %}Volgende{% elsif qk_en %}Next{% else %}Suivant{% endif %}</button>
     </div>
   </div>
   <script src="{{ 'qk-odeurs.js' | asset_url }}" defer></script>

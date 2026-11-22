@@ -3,17 +3,17 @@
   la page classe les parfums en stock qui les contiennent (assets/qk-odeurs-outils.js + qk-odeurs.js).
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 <section class="qk-section qk-odeurs">
   <div class="qk-largeur">
-    <p class="qk-surtitre">{% if qk_nl %}Geurzoeker{% else %}Recherche par odeurs{% endif %}</p>
-    <h1 class="qk-titre-section">{% if qk_nl %}Vind je parfum op geur{% else %}Trouve ton parfum par ses odeurs{% endif %}</h1>
-    <p class="qk-intro">{% if qk_nl %}Kies tot 3 geuren die je lekker vindt. We tonen de parfums die ze bevatten, beginnend met die met alle drie.{% else %}Choisis jusqu'à 3 odeurs que tu aimes. On te montre les parfums qui les contiennent, en commençant par ceux qui ont les trois.{% endif %}
-      <a class="qk-lien" href="{{ routes.root_url | append: '/pages/quiz' | replace: '//', '/' }}">{% if qk_nl %}Geen idee? Doe de quiz{% else %}Pas d'idée ? Fais le quiz{% endif %}</a></p>
+    <p class="qk-surtitre">{% if qk_nl %}Geurzoeker{% elsif qk_en %}Search by scent{% else %}Recherche par odeurs{% endif %}</p>
+    <h1 class="qk-titre-section">{% if qk_nl %}Vind je parfum op geur{% elsif qk_en %}Find your fragrance by scent{% else %}Trouve ton parfum par ses odeurs{% endif %}</h1>
+    <p class="qk-intro">{% if qk_nl %}Kies tot 3 geuren die je lekker vindt. We tonen de parfums die ze bevatten, beginnend met die met alle drie.{% elsif qk_en %}Choose up to 3 scents you love. We show you the fragrances that contain them, starting with those that have all three.{% else %}Choisis jusqu'à 3 odeurs que tu aimes. On te montre les parfums qui les contiennent, en commençant par ceux qui ont les trois.{% endif %}
+      <a class="qk-lien" href="{{ routes.root_url | append: '/pages/quiz' | replace: '//', '/' }}">{% if qk_nl %}Geen idee? Doe de quiz{% elsif qk_en %}No idea? Take the quiz{% else %}Pas d'idée ? Fais le quiz{% endif %}</a></p>
 
     <div class="qk-odeurs__choix" data-qk-od-choix aria-live="polite">
       <span class="qk-odeurs__place" data-qk-od-place>1</span><span class="qk-odeurs__place" data-qk-od-place>2</span><span class="qk-odeurs__place" data-qk-od-place>3</span>
-      <button type="button" class="qk-odeurs__effacer" data-qk-od-effacer hidden>{% if qk_nl %}Wissen{% else %}Effacer{% endif %}</button>
+      <button type="button" class="qk-odeurs__effacer" data-qk-od-effacer hidden>{% if qk_nl %}Wissen{% elsif qk_en %}Clear{% else %}Effacer{% endif %}</button>
     </div>
 
     <div class="qk-odeurs__familles" data-qk-od-familles></div>
@@ -21,8 +21,8 @@
     <div class="qk-odeurs__resultats" data-qk-od-resultats hidden>
       <h2 class="qk-odeurs__titre-res" data-qk-od-titre></h2>
       <div class="qk-odeurs__grille" data-qk-od-grille></div>
-      <p class="qk-odeurs__vide" data-qk-od-vide hidden>{% if qk_nl %}Geen parfum op voorraad met deze geuren. Probeer een andere combinatie.{% else %}Aucun parfum en stock avec ces odeurs. Essaie une autre combinaison.{% endif %}</p>
-      <button type="button" class="qk-acheter qk-odeurs__plus" data-qk-od-plus hidden>{% if qk_nl %}Meer parfums tonen{% else %}Voir plus de parfums{% endif %}</button>
+      <p class="qk-odeurs__vide" data-qk-od-vide hidden>{% if qk_nl %}Geen parfum op voorraad met deze geuren. Probeer een andere combinatie.{% elsif qk_en %}No fragrance in stock with these scents. Try another combination.{% else %}Aucun parfum en stock avec ces odeurs. Essaie une autre combinaison.{% endif %}</p>
+      <button type="button" class="qk-acheter qk-odeurs__plus" data-qk-od-plus hidden>{% if qk_nl %}Meer parfums tonen{% elsif qk_en %}See more fragrances{% else %}Voir plus de parfums{% endif %}</button>
     </div>
   </div>
   <script src="{{ 'qk-odeurs.js' | asset_url }}" defer></script>

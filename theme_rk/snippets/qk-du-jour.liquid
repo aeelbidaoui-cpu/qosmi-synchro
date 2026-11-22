@@ -9,7 +9,7 @@
   Paramètres : produits (liste de produits), titre, compte_texte, uid
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 {%- assign qk_total = produits.size -%}
 {%- assign qk_n = 0 -%}
 {%- assign qk_premier = -1 -%}
@@ -27,7 +27,7 @@
 {%- endif -%}
 {%- if qk_n > 0 -%}
 <div class="qk-hero qk-hero--uni qk-carrousel__slide qk-dujour" id="qk-dujour-{{ uid }}" data-qk-total="{{ qk_total }}"
-     role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="{% if qk_nl %}Parfum van de dag{% else %}{{ titre }}{% endif %}">
+     role="group" aria-roledescription="{% if qk_nl %}dia{% elsif qk_en %}slide{% else %}diapositive{% endif %}" aria-label="{% if qk_nl %}Parfum van de dag{% elsif qk_en %}{{ titre }}{% else %}{{ titre }}{% endif %}">
   <div class="qk-largeur qk-dujour__cadre">
     {%- for p in produits -%}
       {%- if p.available and p.featured_image and p.metafields.qosmi.du_jour != blank -%}
@@ -47,23 +47,23 @@
             {{ p.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: p.title, widths: '400, 600, 900', sizes: '(min-width: 750px) 40vw, 80vw', crossorigin: 'anonymous' }}
           </span>
           <span class="qk-dujour__texte">
-            <span class="qk-dujour__titre">{% if qk_nl %}Parfum van de dag{% else %}{{ titre }}{% endif %}</span>
+            <span class="qk-dujour__titre">{% if qk_nl %}Parfum van de dag{% elsif qk_en %}{{ titre }}{% else %}{{ titre }}{% endif %}</span>
             <span class="qk-dujour__marque">{{ p.vendor }}</span>
             <span class="qk-dujour__ligne">{{ qk_nom }}</span>
             {%- if qk_type != blank -%}<span class="qk-dujour__ligne qk-dujour__ligne--doux">{{ qk_type }}{% unless v.title == 'Default Title' %} · {{ v.title }}{% endunless %}</span>{%- endif -%}
             {%- render 'qk-du-jour-notes', h: p.handle, nl: qk_nl -%}
             <span class="qk-dujour__prix" aria-label="{{ v.price | money }}">{{ qk_prix[0] }}{% if qk_prix[1] %},<sup>{{ qk_prix[1] }}</sup>{% endif %}<small> €</small></span>
-            <span class="qk-lien qk-lien--clair qk-dujour__voir">{% if qk_nl %}Bekijken{% else %}Voir le parfum{% endif %}</span>
+            <span class="qk-lien qk-lien--clair qk-dujour__voir">{% if qk_nl %}Bekijken{% elsif qk_en %}See the fragrance{% else %}Voir le parfum{% endif %}</span>
           </span>
         </a>
       {%- endif -%}
     {%- endfor -%}
     <div class="qk-dujour__compte">
-      <span class="qk-dujour__compte-titre">{% if qk_nl %}Volgende parfum over{% else %}{{ compte_texte }}{% endif %}</span>
+      <span class="qk-dujour__compte-titre">{% if qk_nl %}Volgende parfum over{% elsif qk_en %}{{ compte_texte }}{% else %}{{ compte_texte }}{% endif %}</span>
       <span class="qk-dujour__cases">
-        <span class="qk-dujour__case"><b data-qk-h>--</b><span>{% if qk_nl %}uur{% else %}heures{% endif %}</span></span>
-        <span class="qk-dujour__case"><b data-qk-m>--</b><span>{% if qk_nl %}minuten{% else %}minutes{% endif %}</span></span>
-        <span class="qk-dujour__case"><b data-qk-s>--</b><span>{% if qk_nl %}seconden{% else %}secondes{% endif %}</span></span>
+        <span class="qk-dujour__case"><b data-qk-h>--</b><span>{% if qk_nl %}uur{% elsif qk_en %}hours{% else %}heures{% endif %}</span></span>
+        <span class="qk-dujour__case"><b data-qk-m>--</b><span>{% if qk_nl %}minuten{% elsif qk_en %}minutes{% else %}minutes{% endif %}</span></span>
+        <span class="qk-dujour__case"><b data-qk-s>--</b><span>{% if qk_nl %}seconden{% elsif qk_en %}seconds{% else %}secondes{% endif %}</span></span>
       </span>
     </div>
   </div>

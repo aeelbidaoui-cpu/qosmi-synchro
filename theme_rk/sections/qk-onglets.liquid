@@ -5,7 +5,7 @@
 {%- assign qk_vedettes = section.settings.vedettes | newline_to_br | split: '<br />' -%}
 {%- capture qk_vset -%}|{%- for m in qk_vedettes -%}{{ m | strip }}|{%- endfor -%}{%- endcapture -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 <section class="qk-section qk-onglets" id="qk-onglets-{{ section.id }}">
   <div class="qk-largeur">
     <h2 class="qk-titre-section">{{ section.settings.titre }}</h2>
@@ -17,7 +17,7 @@
         {%- endfor -%}
       </div>
       {%- for block in section.blocks -%}
-        <a class="qk-lien qk-onglets__tout{% unless forloop.first %} is-cache{% endunless %}" data-pour="qk-p-{{ block.id }}" href="{{ block.settings.collection.url }}">{% if qk_nl %}Alles bekijken{% else %}Tout voir{% endif %}</a>
+        <a class="qk-lien qk-onglets__tout{% unless forloop.first %} is-cache{% endunless %}" data-pour="qk-p-{{ block.id }}" href="{{ block.settings.collection.url }}">{% if qk_nl %}Alles bekijken{% elsif qk_en %}See all{% else %}Tout voir{% endif %}</a>
       {%- endfor -%}
     </div>
   </div>

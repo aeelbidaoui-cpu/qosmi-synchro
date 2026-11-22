@@ -14,7 +14,7 @@
   {%- assign t_texte = section.settings.texte -%}{%- assign t_lien = section.settings.lien_texte -%}
 {%- endif -%}
 {%- assign lien = section.settings.lien | default: routes.all_products_collection_url -%}
-{%- if qk_nl and lien contains '/' and lien.size > 1 -%}{%- unless lien contains '/nl/' -%}{%- assign lien = '/nl' | append: lien -%}{%- endunless -%}{%- endif -%}
+{%- if qk_nl and lien contains '/' and lien.size > 1 -%}{%- unless lien contains '/nl/' -%}{%- assign lien = '/nl' | append: lien -%}{%- endunless -%}{%- endif -%}{%- if qk_en and lien contains '/' and lien.size > 1 -%}{%- unless lien contains '/en/' -%}{%- assign lien = '/en' | append: lien -%}{%- endunless -%}{%- endif -%}
 <section class="qk-section qk-ambiance qk-ambiance--{{ section.settings.cote }}">
   <div class="qk-largeur qk-ambiance__grille">
     <div class="qk-ambiance__photo">

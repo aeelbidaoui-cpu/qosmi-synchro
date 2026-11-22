@@ -5,7 +5,7 @@
   le point de départ change chaque jour pour varier.
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 {%- capture qk_panier -%}|{%- for item in cart.items -%}{{ item.product.handle }}|{%- endfor -%}{%- endcapture -%}
 {%- assign qk_total = section.settings.produits.size -%}
 {%- if qk_total > 0 -%}
@@ -13,8 +13,8 @@
 <section class="qk-section qk-onglets qk-suggestions">
   <div class="qk-largeur">
     <div class="qk-onglets__barre">
-      <h2 class="qk-titre-section">{% if qk_nl %}Misschien vind je dit ook mooi{% else %}{{ section.settings.titre }}{% endif %}</h2>
-      <a class="qk-lien qk-onglets__tout" href="{{ routes.collections_url }}/parfums">{% if qk_nl %}Alle parfums{% else %}Voir tous les parfums{% endif %}</a>
+      <h2 class="qk-titre-section">{% if qk_nl %}Misschien vind je dit ook mooi{% elsif qk_en %}{{ section.settings.titre }}{% else %}{{ section.settings.titre }}{% endif %}</h2>
+      <a class="qk-lien qk-onglets__tout" href="{{ routes.collections_url }}/parfums">{% if qk_nl %}Alle parfums{% elsif qk_en %}View all fragrances{% else %}Voir tous les parfums{% endif %}</a>
     </div>
   </div>
   <div class="qk-rangee">

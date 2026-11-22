@@ -5,22 +5,22 @@
   et Shopify Flow lui envoie l'e-mail.
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 <div class="qk-alerte" data-qk-alerte hidden>
   <div class="qk-alerte__ok" data-qk-alerte-ok hidden>
-    <strong>{% if qk_nl %}Genoteerd!{% else %}C'est noté !{% endif %}</strong>
-    {% if qk_nl %}Je krijgt een e-mail zodra hij terug is, met 5 % korting voor je geduld.{% else %}Tu recevras un e-mail dès son retour, avec 5 % de réduction pour ton attente.{% endif %}
+    <strong>{% if qk_nl %}Genoteerd!{% elsif qk_en %}Noted!{% else %}C'est noté !{% endif %}</strong>
+    {% if qk_nl %}Je krijgt een e-mail zodra hij terug is, met 5 % korting voor je geduld.{% elsif qk_en %}You'll get an email as soon as it's back, with 5% off for waiting.{% else %}Tu recevras un e-mail dès son retour, avec 5 % de réduction pour ton attente.{% endif %}
   </div>
   {%- form 'customer', class: 'qk-alerte__form', data-qk-alerte-form: '' -%}
-    <p class="qk-alerte__titre">{% if qk_nl %}Laat me weten wanneer hij terug is{% else %}Préviens-moi quand il revient{% endif %}</p>
+    <p class="qk-alerte__titre">{% if qk_nl %}Laat me weten wanneer hij terug is{% elsif qk_en %}Notify me when it's back{% else %}Préviens-moi quand il revient{% endif %}</p>
     <input type="hidden" name="contact[tags]" value="alerte-stock" data-qk-alerte-tags>
     <input type="hidden" name="return_to" value="{{ product.url }}?alerte=ok" data-qk-alerte-retour>
     <div class="qk-alerte__ligne">
-      <label class="visually-hidden" for="qk-alerte-email">{% if qk_nl %}E-mailadres{% else %}Adresse e-mail{% endif %}</label>
-      <input id="qk-alerte-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% else %}Ton e-mail{% endif %}">
-      <button type="submit" class="qk-alerte__bouton">{% if qk_nl %}Verwittig me{% else %}M'avertir{% endif %}</button>
+      <label class="visually-hidden" for="qk-alerte-email">{% if qk_nl %}E-mailadres{% elsif qk_en %}Email address{% else %}Adresse e-mail{% endif %}</label>
+      <input id="qk-alerte-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% elsif qk_en %}Your email{% else %}Ton e-mail{% endif %}">
+      <button type="submit" class="qk-alerte__bouton">{% if qk_nl %}Verwittig me{% elsif qk_en %}Notify me{% else %}M'avertir{% endif %}</button>
     </div>
-    <p class="qk-alerte__note">{% if qk_nl %}Je krijgt een e-mail zodra hij terug op voorraad is, met <strong>5 % korting</strong> voor je geduld. Je ontvangt ook onze maandelijkse nieuwsbrief (uitschrijven met één klik).{% else %}Tu recevras un e-mail dès son retour en stock, avec <strong>5 % de réduction</strong> pour ton attente. Tu recevras aussi notre e-mail mensuel (désinscription en un clic).{% endif %}</p>
+    <p class="qk-alerte__note">{% if qk_nl %}Je krijgt een e-mail zodra hij terug op voorraad is, met <strong>5 % korting</strong> voor je geduld. Je ontvangt ook onze maandelijkse nieuwsbrief (uitschrijven met één klik).{% elsif qk_en %}You'll get an email as soon as it's back in stock, with <strong>5% off</strong> for waiting. You'll also get our monthly email (unsubscribe in one click).{% else %}Tu recevras un e-mail dès son retour en stock, avec <strong>5 % de réduction</strong> pour ton attente. Tu recevras aussi notre e-mail mensuel (désinscription en un clic).{% endif %}</p>
   {%- endform -%}
 </div>
 <script>

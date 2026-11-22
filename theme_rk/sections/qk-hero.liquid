@@ -6,13 +6,13 @@
   on peut aussi glisser du doigt, cliquer sur les flèches ou les points.
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
-<section class="qk-carrousel" id="qk-carrousel-{{ section.id }}" aria-roledescription="carrousel" aria-label="{% if qk_nl %}Uitgelicht{% else %}À la une{% endif %}"
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
+<section class="qk-carrousel" id="qk-carrousel-{{ section.id }}" aria-roledescription="carrousel" aria-label="{% if qk_nl %}Uitgelicht{% elsif qk_en %}Featured{% else %}À la une{% endif %}"
          style="--qk-hero-h: {{ section.settings.hauteur }}vh;" data-qk-duree="{{ section.settings.duree }}">
   <div class="qk-carrousel__piste">
     {%- render 'qk-slide-bf' -%}
     <div class="qk-hero qk-carrousel__slide{% if section.settings.image == blank and section.settings.video == blank %} qk-hero--uni{% endif %}"
-         role="group" aria-roledescription="{% if qk_nl %}dia{% else %}diapositive{% endif %}" aria-label="Qosmi">
+         role="group" aria-roledescription="{% if qk_nl %}dia{% elsif qk_en %}slide{% else %}diapositive{% endif %}" aria-label="Qosmi">
       {%- if section.settings.video != blank -%}
         {%- comment -%} vidéo d'ambiance : muette, en boucle, lancée seule (aussi sur iPhone grâce à playsinline) {%- endcomment -%}
         {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', class: 'qk-hero__img qk-hero__video', image_size: '1920x' }}
@@ -33,10 +33,10 @@
     {%- render 'qk-slide-nouveautes' -%}
     {%- render 'qk-slide-magazine' -%}
   </div>
-  <button type="button" class="qk-carrousel__fleche qk-carrousel__fleche--prec" aria-label="{% if qk_nl %}Vorige{% else %}Précédent{% endif %}" hidden>
+  <button type="button" class="qk-carrousel__fleche qk-carrousel__fleche--prec" aria-label="{% if qk_nl %}Vorige{% elsif qk_en %}Previous{% else %}Précédent{% endif %}" hidden>
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
   </button>
-  <button type="button" class="qk-carrousel__fleche qk-carrousel__fleche--suiv" aria-label="{% if qk_nl %}Volgende{% else %}Suivant{% endif %}" hidden>
+  <button type="button" class="qk-carrousel__fleche qk-carrousel__fleche--suiv" aria-label="{% if qk_nl %}Volgende{% elsif qk_en %}Next{% else %}Suivant{% endif %}" hidden>
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
   </button>
   <div class="qk-carrousel__points" hidden></div>

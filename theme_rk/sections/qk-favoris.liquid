@@ -1,28 +1,28 @@
 {%- comment -%} Page « Mes favoris » (08/11/2026) : affiche les parfums gardés dans le navigateur (assets/qk-favoris.js). {%- endcomment -%}
 {%- assign qk_nl = false -%}
-{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 <section class="qk-section qk-favoris">
   <div class="qk-largeur">
-    <h1 class="qk-titre-section">{% if qk_nl %}Mijn favorieten{% else %}Mes favoris{% endif %}</h1>
-    <p class="qk-intro" data-qk-fav-vide hidden>{% if qk_nl %}Je hebt nog geen favorieten. Tik op het hartje bij een parfum om het hier te bewaren.{% else %}Tu n'as pas encore de favoris. Touche le cœur d'un parfum pour le garder ici.{% endif %}
-      <br><a class="qk-lien" href="{{ routes.collections_url }}/parfums">{% if qk_nl %}Parfums bekijken{% else %}Voir les parfums{% endif %}</a></p>
+    <h1 class="qk-titre-section">{% if qk_nl %}Mijn favorieten{% elsif qk_en %}My favourites{% else %}Mes favoris{% endif %}</h1>
+    <p class="qk-intro" data-qk-fav-vide hidden>{% if qk_nl %}Je hebt nog geen favorieten. Tik op het hartje bij een parfum om het hier te bewaren.{% elsif qk_en %}You don't have any favourites yet. Tap the heart on a fragrance to keep it here.{% else %}Tu n'as pas encore de favoris. Touche le cœur d'un parfum pour le garder ici.{% endif %}
+      <br><a class="qk-lien" href="{{ routes.collections_url }}/parfums">{% if qk_nl %}Parfums bekijken{% elsif qk_en %}See the fragrances{% else %}Voir les parfums{% endif %}</a></p>
     <div class="qk-favoris__grille" data-qk-fav-grille></div>
     {%- comment -%} 13/11/2026 : alerte baisse de prix (scripts/alertes_prix.py + Shopify Flow) {%- endcomment -%}
     <div class="qk-alerte qk-favoris__prix" data-qk-fav-prix hidden>
       <div class="qk-alerte__ok" data-qk-fav-prix-ok hidden>
-        <strong>{% if qk_nl %}Genoteerd!{% else %}C'est noté !{% endif %}</strong>
-        {% if qk_nl %}We sturen je een e-mail als de prijs van een van je favorieten daalt.{% else %}Nous t'écrirons si le prix d'un de tes favoris baisse.{% endif %}
+        <strong>{% if qk_nl %}Genoteerd!{% elsif qk_en %}Noted!{% else %}C'est noté !{% endif %}</strong>
+        {% if qk_nl %}We sturen je een e-mail als de prijs van een van je favorieten daalt.{% elsif qk_en %}We'll write to you if the price of one of your favourites drops.{% else %}Nous t'écrirons si le prix d'un de tes favoris baisse.{% endif %}
       </div>
       {%- form 'customer', class: 'qk-alerte__form', data-qk-fav-prix-form: '' -%}
-        <p class="qk-alerte__titre">{% if qk_nl %}Verwittig me als een favoriet in prijs daalt{% else %}Préviens-moi si un de mes favoris baisse de prix{% endif %}</p>
+        <p class="qk-alerte__titre">{% if qk_nl %}Verwittig me als een favoriet in prijs daalt{% elsif qk_en %}Let me know if one of my favourites drops in price{% else %}Préviens-moi si un de mes favoris baisse de prix{% endif %}</p>
         <input type="hidden" name="contact[tags]" value="" data-qk-fav-prix-tags>
         <input type="hidden" name="return_to" value="{{ request.path }}?prix=ok">
         <div class="qk-alerte__ligne">
-          <label class="visually-hidden" for="qk-fav-email">{% if qk_nl %}E-mailadres{% else %}Adresse e-mail{% endif %}</label>
-          <input id="qk-fav-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% else %}Ton e-mail{% endif %}">
-          <button type="submit" class="qk-alerte__bouton">{% if qk_nl %}Verwittig me{% else %}M'avertir{% endif %}</button>
+          <label class="visually-hidden" for="qk-fav-email">{% if qk_nl %}E-mailadres{% elsif qk_en %}Email address{% else %}Adresse e-mail{% endif %}</label>
+          <input id="qk-fav-email" type="email" name="contact[email]" required autocomplete="email" placeholder="{% if qk_nl %}Je e-mailadres{% elsif qk_en %}Your email{% else %}Ton e-mail{% endif %}">
+          <button type="submit" class="qk-alerte__bouton">{% if qk_nl %}Verwittig me{% elsif qk_en %}Notify me{% else %}M'avertir{% endif %}</button>
         </div>
-        <p class="qk-alerte__note">{% if qk_nl %}Geldt voor de favorieten die je nu bewaard hebt. Je ontvangt ook onze maandelijkse nieuwsbrief (uitschrijven met één klik).{% else %}Valable pour les favoris enregistrés maintenant. Tu recevras aussi notre e-mail mensuel (désinscription en un clic).{% endif %}</p>
+        <p class="qk-alerte__note">{% if qk_nl %}Geldt voor de favorieten die je nu bewaard hebt. Je ontvangt ook onze maandelijkse nieuwsbrief (uitschrijven met één klik).{% elsif qk_en %}Applies to the favourites saved now. You'll also get our monthly email (unsubscribe in one click).{% else %}Valable pour les favoris enregistrés maintenant. Tu recevras aussi notre e-mail mensuel (désinscription en un clic).{% endif %}</p>
       {%- endform -%}
     </div>
   </div>
