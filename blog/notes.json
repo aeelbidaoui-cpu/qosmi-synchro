@@ -4,42 +4,49 @@
   "fr": "Orange",
   "nl": "Sinaasappel",
   "fichier": "qosmi-note-orange.jpg",
-  "source": "https://unsplash.com/photos/1591206369811-4eeb2f03bc95"
+  "source": "https://unsplash.com/photos/1591206369811-4eeb2f03bc95",
+  "en": "Orange"
  },
  "citron": {
   "fr": "Citron",
   "nl": "Citroen",
   "fichier": "qosmi-note-citron.jpg",
-  "source": "https://unsplash.com/photos/1771231590819-e9f94dfa8d64"
+  "source": "https://unsplash.com/photos/1771231590819-e9f94dfa8d64",
+  "en": "Lemon"
  },
  "bergamote": {
   "fr": "Bergamote",
   "nl": "Bergamot",
   "fichier": "qosmi-note-bergamote.jpg",
-  "source": "https://unsplash.com/photos/1528632735386-3bb3ead106f3"
+  "source": "https://unsplash.com/photos/1528632735386-3bb3ead106f3",
+  "en": "Bergamot"
  },
  "fruits": {
   "fr": "Fruits",
   "nl": "Fruit",
   "fichier": "qosmi-note-fruits.jpg",
-  "source": "https://unsplash.com/photos/1639588473831-dd9d014646ae"
+  "source": "https://unsplash.com/photos/1639588473831-dd9d014646ae",
+  "en": "Fruits"
  },
  "musc-blanc": {
   "fr": "Musc blanc",
   "nl": "Witte muskus",
   "fichier": "qosmi-note-musc-blanc.jpg",
-  "source": "https://unsplash.com/photos/1705147293352-3e81c1b8ab5b"
+  "source": "https://unsplash.com/photos/1705147293352-3e81c1b8ab5b",
+  "en": "White musk"
  },
  "vanille": {
   "fr": "Vanille",
   "nl": "Vanille",
   "fichier": "qosmi-note-vanille.jpg",
-  "source": "https://unsplash.com/photos/1682482198446-4cbf92f85a4b"
+  "source": "https://unsplash.com/photos/1682482198446-4cbf92f85a4b",
+  "en": "Vanilla"
  },
  "ambre": {
   "fr": "Ambre",
   "nl": "Amber",
   "fichier": "qosmi-note-ambre.jpg",
-  "source": "https://unsplash.com/photos/1686043626878-9e391a70632d"
+  "source": "https://unsplash.com/photos/1686043626878-9e391a70632d",
+  "en": "Amber"
  }
 }

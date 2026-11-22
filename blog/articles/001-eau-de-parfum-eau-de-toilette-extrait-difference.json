@@ -65,5 +65,34 @@
         "r": "Een eau de toilette of een lichte eau de parfum, eerder fris (citrus, aquatische of groene noten), zodat de geur niet te zwaar wordt als het warm is."
       }
     ]
+  },
+  "en": {
+    "titre": "Eau de parfum, eau de toilette, extrait: what's the difference?",
+    "resume": "The difference mostly comes down to how much perfume concentrate is in the bottle. Guide figures, the effect on longevity and tips for choosing.",
+    "seo_titre": "Eau de parfum vs eau de toilette vs extrait | Qosmi",
+    "seo_desc": "EDT, EDP, extrait, cologne: which concentrations, how long they last and which to choose? Qosmi's simple guide, with examples.",
+    "corps": "<p><strong>In short:</strong> eau de toilette, eau de parfum and extrait mainly describe how much perfume concentrate is dissolved in the alcohol. The higher it is, the longer and richer the fragrance tends to be. But it is not an absolute rule: the composition matters as much as the concentration, and no law sets these percentages.</p>\n<h2>Concentration guide figures</h2>\n<p>A fragrance is a blend of scented materials (the \"concentrate\" or \"juice\") diluted in alcohol and a little water. The names on the bottle give an idea of the dose of concentrate. The ranges below are industry customs: each house sets its own dosages, and the ranges overlap.</p>\n<table><thead><tr><th>Name on the bottle</th><th>Concentrate (guide)</th><th>What to expect</th></tr></thead><tbody><tr><td>Eau de Cologne</td><td>about 2 to 5%</td><td>Fresh and light, a few hours</td></tr><tr><td>Eau de Toilette (EDT)</td><td>about 5 to 15%</td><td>Bright, ideal for the day</td></tr><tr><td>Eau de Parfum (EDP)</td><td>about 10 to 20%</td><td>Rounder, often the best-selling version</td></tr><tr><td>Parfum, Extrait de Parfum, Elixir</td><td>about 15 to 30%, sometimes more</td><td>Dense, close to the skin, very long-lasting</td></tr></tbody></table>\n[[concentrations]]\n<p>Because these terms are not regulated by law, two \"eau de parfum\" bottles from two different brands can have quite different concentrations.</p>\n<h2>Does more concentrated mean stronger?</h2>\n<p>Often, but not always. Longevity also depends on the materials used: citrus (bergamot, lemon) evaporates quickly, while woods, amber, vanilla and musks last for hours. A very woody eau de toilette can therefore last longer than a very citrusy eau de parfum.</p>\n<p>An extrait is not necessarily \"louder\" either. It often projects less but stays longer on the skin: it is a more \"intimate\" fragrance.</p>\n[[photo:nishane-hundred-silent-ways-extrait-de-parfum-mixte]]\n<h2>Same name, different fragrance</h2>\n<p>When a brand releases a fragrance in several concentrations, it often reworks the formula. The eau de parfum is not simply a \"stronger\" eau de toilette: the notes, the balance and the trail change. That is the case with Chanel's [[produit:chanel-coco-mademoiselle-eau-de-parfum-pour-femme|Coco Mademoiselle]], available as an eau de toilette, an eau de parfum and an [[produit:chanel-coco-mademoiselle-intense-eau-de-parfum-pour-femme|Intense]] version, or with Dior's Sauvage, whose [[produit:dior-sauvage-parfum-pour-homme|Parfum]] and [[produit:dior-sauvage-elixir-parfum-pour-homme|Elixir]] are compositions in their own right.</p>\n[[photos:chanel-coco-mademoiselle-eau-de-parfum-pour-femme,chanel-coco-mademoiselle-intense-eau-de-parfum-pour-femme,dior-sauvage-elixir-parfum-pour-homme]]\n<p>If you love a fragrance in one version, try to smell the other before switching: you might not find exactly what you loved.</p>\n<h2>Which one to choose?</h2>\n<ul><li><strong>For the day, the office or summer:</strong> an eau de toilette or a light eau de parfum that doesn't take up all the space.</li><li><strong>For the evening or winter:</strong> an eau de parfum or an extrait, richer and longer-lasting in the cold.</li><li><strong>For a fragrance you wear every day:</strong> the eau de parfum is often the right balance between longevity and lightness.</li><li><strong>If your skin \"drinks\" fragrance:</strong> a higher concentration and well-moisturised skin often help.</li></ul>\n<h2>A few tips to make any concentration last</h2>\n<ul><li>Spray on clean, moisturised skin: an unscented cream helps the fragrance cling.</li><li>Aim for warm areas: neck, wrists, inside the elbows.</li><li>Don't rub your wrists together: you crush the top notes.</li><li>Keep the bottle away from light and heat (avoid the bathroom).</li></ul>\n<p>You can browse all our fragrances by family and by brand on [[collection:parfums|the Fragrances page]].</p>",
+    "faq": [
+      {
+        "q": "What is the difference between an eau de parfum and an eau de toilette?",
+        "r": "An eau de parfum usually contains more perfume concentrate (about 10 to 20%) than an eau de toilette (about 5 to 15%). It is often rounder and longer-lasting, and its formula is sometimes reworked."
+      },
+      {
+        "q": "Does an eau de parfum always last longer than an eau de toilette?",
+        "r": "Not always. Longevity also depends on the materials: citrus evaporates quickly, while woods, amber and musks last a long time. A woody eau de toilette can last longer than a very fresh eau de parfum."
+      },
+      {
+        "q": "What does \"Parfum\" or \"Extrait\" mean on a bottle?",
+        "r": "It is the most concentrated form, often between 15 and 30% concentrate. It usually projects less but stays a long time on the skin."
+      },
+      {
+        "q": "Are concentration percentages set by law?",
+        "r": "No. They are industry customs: each house chooses its dosages, and two eaux de parfum from different brands can have different concentrations."
+      },
+      {
+        "q": "Which concentration should I choose for summer?",
+        "r": "An eau de toilette or a light eau de parfum, preferably fresh (citrus, aquatic or green notes), so it isn't overwhelming when it's hot."
+      }
+    ]
   }
 }
