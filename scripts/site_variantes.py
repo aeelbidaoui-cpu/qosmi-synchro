@@ -698,13 +698,14 @@ def photos_officielles(produits):
     import photos_marques as pm
     dossier = os.path.dirname(sl.SITE)
     sources = []  # (qualité, par_ean, par_nom, marques limitées ou None)
-    for nom, qualite in (("photos_corrections.json", 9), ("photos_fi.json", 6), ("photos_hd.json", 5), ("photos_coffrets.json", 5), ("photos_aos.json", 3.5), ("photos_nose.json", 4), ("photos_elo.json", 4), ("photos_creed.json", 4), ("photos_ch.json", 4), ("photos_puig.json", 3.5), ("photos_notino.json", 3), ("photos_dg.json", 4), ("photos_jm.json", 3.5), ("photos_mm.json", 3.5), ("photos_tfi.json", 3.5), ("photos_ck.json", 3.5), ("photos_tt.json", 3.5), ("photos_lvmh.json", 3.5), ("photos_m2.json", 3.5), ("photos_m3.json", 3.5), ("photos_rosendo.json", 3.5), ("photos_retirees.json", 3.5), ("photos_manque.json", 3.5), ("photos_trouvees.json", 3.5), ("photos_fragrantica.json", 3), ("photos_ici.json", 2.5), ("photos_bijenkorf.json", 2.5), ("photos_acquadiparma.json", 4), ("photos_parfuma.json", 1.5), ("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_trista.json", 2), ("photos_marques.json", None)):
+    for nom, qualite in (("photos_corrections.json", 9), ("photos_deparfumeur.json", 7), ("photos_fi.json", 6), ("photos_hd.json", 5), ("photos_coffrets.json", 5), ("photos_aos.json", 3.5), ("photos_nose.json", 4), ("photos_elo.json", 4), ("photos_creed.json", 4), ("photos_ch.json", 4), ("photos_puig.json", 3.5), ("photos_notino.json", 3), ("photos_dg.json", 4), ("photos_jm.json", 3.5), ("photos_mm.json", 3.5), ("photos_tfi.json", 3.5), ("photos_ck.json", 3.5), ("photos_tt.json", 3.5), ("photos_lvmh.json", 3.5), ("photos_m2.json", 3.5), ("photos_m3.json", 3.5), ("photos_rosendo.json", 3.5), ("photos_retirees.json", 3.5), ("photos_manque.json", 3.5), ("photos_trouvees.json", 3.5), ("photos_fragrantica.json", 3), ("photos_ici.json", 2.5), ("photos_bijenkorf.json", 2.5), ("photos_acquadiparma.json", 4), ("photos_parfuma.json", 1.5), ("photos_parfumerie.json", 3), ("photos_riklis.json", 3), ("photos_skins.json", 2), ("photos_trista.json", 2), ("photos_marques.json", None)):
         chemin = os.path.join(dossier, nom)
         if not os.path.exists(chemin):
             continue
         ph = json.load(open(chemin, encoding="utf-8"))
         marques = {m.lower() for m in ph["marques"]} if "marques" in ph else None
-        sources.append((qualite, ph.get("par_ean", {}), ph.get("par_nom", {}), marques, ph.get("par_fiche", {})))
+        sources.append((qualite, ph.get("par_ean", {}), ph.get("par_nom", {}), marques, ph.get("par_fiche", {}),
+                        bool(ph.get("par_fiche_prioritaire"))))
     if not sources:
         return 0
     # photos recadrées (même taille de flacon sur toutes les cartes, 07/11/2026) : config/photos_cadrees.json
@@ -717,13 +718,16 @@ def photos_officielles(produits):
         cle = pm.cle_nom(p["marque"], titre)
         for v in p["variantes"]:
             choix = []
-            for qualite, par_ean, par_nom, marques, par_fiche in sources:
+            for qualite, par_ean, par_nom, marques, par_fiche, fiche_prio in sources:
                 if marques is not None and m not in marques:
                     continue
                 q = qualite if qualite is not None else (1 if m == "xerjoff" else 2)  # photos du site Xerjoff : 590 px
                 u = par_ean.get(v["ean"].lstrip("0"))
                 if u:
                     choix.append((2, q, u))
+                # 22/11/2026 : « par_fiche_prioritaire » (photos vérifiées à l'œil fiche par fiche) compte comme une correspondance EAN
+                if fiche_prio and par_fiche.get(p["handle"]) and p.get("type_fr") != "Coffrets":
+                    choix.append((2, q, par_fiche[p["handle"]]))
                 u = par_nom.get(cle) or par_fiche.get(p["handle"])  # par_fiche : même parfum vérifié nom + type
                 if p.get("type_fr") == "Coffrets":  # 10/11/2026 : un coffret seulement avec SA photo (par EAN), jamais celle du flacon seul
                     u = None
