@@ -108,11 +108,11 @@ NL = {
  "Chanel, Dior, Guerlain et plus": "Chanel, Dior, Guerlain en meer",
  "Des parfums originaux et neufs, des grandes maisons aux créateurs de niche.": "Originele, nieuwe parfums, van de grote huizen tot nichecreateurs.",
  "À propos": "Over ons", "Qosmi": "Qosmi",
- "<p>Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, neufs, au juste prix. On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, et on te les livre partout en Belgique.</p>":
-     "<p>Qosmi is een Belgische onlineparfumerie, eenvoudig en eerlijk: 100 % authentieke, nieuwe parfums aan de juiste prijs. We kiezen de huizen die we graag hebben, van de grote klassiekers tot nichecreateurs, en leveren ze in heel België.</p>",
+ "<p>Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, neufs, au juste prix. On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, et on te les livre en Belgique et dans 8 autres pays d'Europe.</p>":
+     "<p>Qosmi is een Belgische onlineparfumerie, eenvoudig en eerlijk: 100 % authentieke, nieuwe parfums aan de juiste prijs. We kiezen de huizen die we graag hebben, van de grote klassiekers tot nichecreateurs, en leveren ze in België en 8 andere Europese landen.</p>",
  "Voir tous les parfums": "Alle parfums bekijken", "<h1>Collections</h1>": "<h1>Collecties</h1>", "Submit": "Verzenden",
- "Livraison offerte dès 2 articles\nLivraison suivie partout en Belgique\nParfums 100 % authentiques et neufs\nPlus de 100 maisons, des grands classiques à la niche\nPaiement sécurisé : Bancontact, carte, Apple Pay\n14 jours pour changer d'avis":
-     "Gratis levering vanaf 2 artikelen\nLevering in heel België\n100 % authentieke en nieuwe parfums\nMeer dan 100 huizen, van grote klassiekers tot niche\nVeilig betalen: Bancontact, kaart, Apple Pay\n14 dagen bedenktijd",
+ "Livraison offerte dès 2 articles (BE · NL · LU)\nLivraison suivie dans 9 pays d'Europe\nParfums 100 % authentiques et neufs\nPlus de 100 maisons, des grands classiques à la niche\nPaiement sécurisé : Bancontact, carte, Apple Pay\n14 jours pour changer d'avis":
+     "Gratis levering vanaf 2 artikelen (BE · NL · LU)\nGevolgde levering in 9 Europese landen\n100 % authentieke en nieuwe parfums\nMeer dan 100 huizen, van grote klassiekers tot niche\nVeilig betalen: Bancontact, kaart, Apple Pay\n14 dagen bedenktijd",
 }
 MARQUES_INTRO = ("<p>Toutes les maisons que nous proposons, des grands classiques aux créateurs de niche.</p>",
                  "<p>Alle huizen die we aanbieden, van de grote klassiekers tot nichecreateurs.</p>")
@@ -151,10 +151,10 @@ EN = {
  "Chanel, Dior, Guerlain et plus": "Chanel, Dior, Guerlain and more",
  "Des parfums originaux et neufs, des grandes maisons aux créateurs de niche.": "Genuine, brand-new fragrances, from the great houses to niche creators.",
  "À propos": "About us", "Qosmi": "Qosmi",
- "<p>Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, neufs, au juste prix. On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, et on te les livre partout en Belgique.</p>":
+ "<p>Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, neufs, au juste prix. On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, et on te les livre en Belgique et dans 8 autres pays d'Europe.</p>":
      "<p>Qosmi is a Belgian online perfumery, simple and honest: 100% authentic, brand-new fragrances at the right price. We pick the houses we love, from the great classics to niche creators, and deliver them across Europe.</p>",
  "Voir tous les parfums": "View all fragrances", "<h1>Collections</h1>": "<h1>Collections</h1>", "Submit": "Submit",
- "Livraison offerte dès 2 articles\nLivraison suivie partout en Belgique\nParfums 100 % authentiques et neufs\nPlus de 100 maisons, des grands classiques à la niche\nPaiement sécurisé : Bancontact, carte, Apple Pay\n14 jours pour changer d'avis":
+ "Livraison offerte dès 2 articles (BE · NL · LU)\nLivraison suivie dans 9 pays d'Europe\nParfums 100 % authentiques et neufs\nPlus de 100 maisons, des grands classiques à la niche\nPaiement sécurisé : Bancontact, carte, Apple Pay\n14 jours pour changer d'avis":
      "Free pick-up point delivery from 2 items (Belgium, Netherlands, Luxembourg)\nTracked delivery in 9 European countries\n100% authentic, brand-new fragrances\nOver 100 houses, from great classics to niche\nSecure payment: Bancontact, card, Apple Pay\n14 days to change your mind",
 }
 
@@ -164,7 +164,7 @@ EN.update({
  "Perdu ?": "Lost?", "<p>Parcours nos parfums ou nos marques.</p>": "<p>Browse our fragrances or our brands.</p>",
  "Retrouve ton parfum": "Find your fragrance", "Pivoine blanche dans un petit flacon de verre": "White peony in a small glass bottle",
  "Idées de parfums": "Fragrance ideas", "Un cadeau ?": "A gift?",
- "<p>La livraison en point relais est offerte dès 2 articles, partout en Belgique.</p>": "<p>Pick-up point delivery is free from 2 items in Belgium, the Netherlands and Luxembourg.</p>",
+ "<p>La livraison en point relais est offerte dès 2 articles en Belgique, aux Pays-Bas et au Luxembourg.</p>": "<p>Pick-up point delivery is free from 2 items in Belgium, the Netherlands and Luxembourg.</p>",
  "Offre un parfum": "Give a fragrance", "Flacons de parfum alignés, en lumière douce": "Perfume bottles lined up in soft light",
  "Voir les marques": "See the brands", "Toutes nos marques": "All our brands",
  "<p>Des grands classiques aux créateurs de niche, retrouve chaque maison sur sa page.</p>": "<p>From the great classics to niche creators, every house has its own page.</p>",
@@ -180,7 +180,7 @@ EN.update({
  "Flacons de parfum sur une console en marbre, pétales séchés et branche d'olivier": "Perfume bottles on a marble console, dried petals and an olive branch",
  "Toutes les marques": "All brands", "Flacon de parfum sur une fourrure blanche": "Perfume bottle on white fur",
  "Nos marques": "Our brands",
- "<p>Chaque parfum est neuf et d'origine. Livraison partout en Belgique, offerte en point relais dès 2 articles.</p>": "<p>Every fragrance is brand-new and genuine. Delivered across 9 European countries, free pick-up point delivery from 2 items in Belgium, the Netherlands and Luxembourg.</p>",
+ "<p>Chaque parfum est neuf et d'origine. Livraison dans 9 pays d'Europe, offerte en point relais dès 2 articles en Belgique, aux Pays-Bas et au Luxembourg.</p>": "<p>Every fragrance is brand-new and genuine. Delivered across 9 European countries, free pick-up point delivery from 2 items in Belgium, the Netherlands and Luxembourg.</p>",
  "100 % authentique": "100% authentic", "Reflets dorés d'un flacon de parfum": "Golden reflections of a perfume bottle",
  "Besoin d'idées ?": "Need ideas?", "<p>Guides, conseils et parfums du jour pour t'aider à trouver le tien.</p>": "<p>Guides, tips and fragrances of the day to help you find yours.</p>",
  "Diagnostic olfactif": "Scent profile", "Idées cadeaux de Noël": "Christmas gift ideas", "Lexique du parfum": "Fragrance glossary",

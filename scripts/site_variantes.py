@@ -146,8 +146,8 @@ def produit(lignes, r, photos, normaux_attente_auto=True):
         if abimes:
             d_fr += " Format « boîte abîmée » : boîte d'origine abîmée, le produit lui-même est neuf et intact."
             d_nl += " Formaat „beschadigde doos”: originele doos beschadigd, het product zelf is nieuw en onbeschadigd."
-        d_fr += " Produit authentique, neuf. Livraison partout en Belgique."
-        d_nl += " Origineel en nieuw product. Levering in heel België."
+        d_fr += " Produit authentique, neuf. Livraison en Belgique et dans 8 autres pays d'Europe."
+        d_nl += " Origineel en nieuw product. Levering in België en 8 andere Europese landen."
         d_fr = "<p>%s</p>" % html.escape(d_fr.strip(), quote=False)
         d_nl = "<p>%s</p>" % html.escape(d_nl.strip(), quote=False)
     t_fr, t_nl = re.sub(r"\s+", " ", t_fr).strip(), re.sub(r"\s+", " ", t_nl).strip()

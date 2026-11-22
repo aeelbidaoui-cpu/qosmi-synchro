@@ -121,8 +121,8 @@ ARABES_VEDETTES = [  # 08/11/2026 : grands succès arabes réellement en ligne (
     "armaf-club-de-nuit-untold-eau-de-parfum-mixte", "hamidi-the-lost-paradise-sublime-cherry-eau-de-parfum-mixte",
     "amouage-existence-eau-de-parfum-mixte", "lattafa-khamrah-eau-de-parfum-mixte", "lattafa-yara-eau-de-parfum-pour-femme",
     "rasasi-hawas-eau-de-parfum-pour-homme", "afnan-9pm-eau-de-parfum-pour-homme", "lattafa-asad-eau-de-parfum-pour-homme"]
-ANNONCES = ["Livraison offerte dès 2 articles",
-            "Livraison suivie partout en Belgique",
+ANNONCES = ["Livraison offerte dès 2 articles (BE · NL · LU)",
+            "Livraison suivie dans 9 pays d'Europe",
             "Parfums 100 % authentiques et neufs",
             "Plus de 100 maisons, des grands classiques à la niche",
             "Paiement sécurisé : Bancontact, carte, Apple Pay",
@@ -473,15 +473,15 @@ def construire(fichiers, marques):
         # 13/11/2026 : photo d'Amine (Gemini) « flacons sur une console en marbre », vidéo de l'accueil gardée
         "qk_apropos": ambiance("qosmi-accueil-flacons.jpg", "Flacons de parfum sur une console en marbre, pétales séchés et branche d'olivier", "droite",
             ("À propos", "Qosmi", "Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, neufs, au juste prix. "
-             "On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, et on te les livre partout en Belgique.", "Voir tous les parfums"),
+             "On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, et on te les livre en Belgique et dans 8 autres pays d'Europe.", "Voir tous les parfums"),
             ("Over ons", "Qosmi", "Qosmi is een Belgische online parfumerie, eenvoudig en eerlijk: 100% originele, nieuwe parfums tegen de juiste prijs. "
-             "We kiezen de huizen die we graag hebben, van grote klassiekers tot nichecreateurs, en leveren ze in heel België.", "Alle parfums"),
+             "We kiezen de huizen die we graag hebben, van grote klassiekers tot nichecreateurs, en leveren ze in België en 8 andere Europese landen.", "Alle parfums"),
             "/collections/parfums"),
         "qk_apropos_ancien": {"type": "qk-texte", "disabled": True, "settings": {
             "surtitre": "À propos", "titre": "Qosmi",
             "texte": "<p>Qosmi, c'est une parfumerie en ligne belge, simple et honnête : des parfums 100 % authentiques, "
                      "neufs, au juste prix. On choisit les maisons qu'on aime, des grands classiques aux créateurs de niche, "
-                     "et on te les livre partout en Belgique.</p>",
+                     "et on te les livre en Belgique et dans 8 autres pays d'Europe.</p>",
             "lien_texte": "Voir tous les parfums", "lien": "shopify://collections/parfums", "alignement": "centre"}},
     }
     d["order"] = ["qk_hero", "qk_favoris", "qk_amb_noel", "qk_amb_journal", "qk_banniere", "qk_tuiles", "qk_amb_arabes", "qk_marques", "qk_apropos", "qk_apropos_ancien"]
@@ -535,8 +535,8 @@ def construire(fichiers, marques):
                     b["settings"]["text"] = "<h3>Tu aimeras aussi</h3>"
     cartes(d)
     d["sections"]["qk_amb"] = ambiance(6, "Flacon de parfum sur une fourrure blanche", "gauche",
-        ("Qosmi", "100 % authentique", "Chaque parfum est neuf et d'origine. Livraison partout en Belgique, offerte en point relais dès 2 articles.", "Nos marques"),
-        ("Qosmi", "100% origineel", "Elk parfum is nieuw en origineel. Levering in heel België, gratis in een afhaalpunt vanaf 2 artikelen.", "Onze merken"),
+        ("Qosmi", "100 % authentique", "Chaque parfum est neuf et d'origine. Livraison dans 9 pays d'Europe, offerte en point relais dès 2 articles en Belgique, aux Pays-Bas et au Luxembourg.", "Nos marques"),
+        ("Qosmi", "100% origineel", "Elk parfum is nieuw en origineel. Levering in 9 Europese landen, gratis in een afhaalpunt vanaf 2 artikelen in België, Nederland en Luxemburg.", "Onze merken"),
         "/pages/marques")
     d["order"] = [k for k in d["order"] if k != "qk_amb"] + ["qk_amb"]
     # « Préviens-moi quand il revient » (12/11/2026) : la section se place d'elle-même sous le bouton d'achat
@@ -600,8 +600,8 @@ def construire(fichiers, marques):
             del d["sections"][k]
         d["sections"]["qk_suggestions"] = {"type": "qk-suggestions", "settings": {"titre": "Tu aimeras aussi", "produits": DU_JOUR, "nombre": 8}}
         d["sections"]["qk_amb"] = ambiance(5, "Pivoine blanche dans un petit flacon de verre", "droite",
-            ("Un cadeau ?", "Offre un parfum", "La livraison en point relais est offerte dès 2 articles, partout en Belgique.", "Idées de parfums"),
-            ("Een cadeau?", "Geef een parfum", "Gratis levering in een afhaalpunt vanaf 2 artikelen, in heel België.", "Parfumideeën"),
+            ("Un cadeau ?", "Offre un parfum", "La livraison en point relais est offerte dès 2 articles en Belgique, aux Pays-Bas et au Luxembourg.", "Idées de parfums"),
+            ("Een cadeau?", "Geef een parfum", "Gratis levering in een afhaalpunt vanaf 2 artikelen in België, Nederland en Luxemburg.", "Parfumideeën"),
             "/collections/parfums")
         d["order"] = ["qk_panier_livraison"] + [k for k in d["order"] if k in d["sections"] and k not in ("qk_panier_livraison", "qk_point_relais", "qk_suggestions", "qk_amb")] + ["qk_suggestions", "qk_amb"]
         jsons["templates/cart.json"] = ecrire(e, d)

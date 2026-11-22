@@ -275,8 +275,8 @@ def fiche(l, r, photos):
     if abime:
         d_fr += "Boîte d'origine abîmée : le produit lui-même est neuf et intact. "
         d_nl += "Originele doos beschadigd: het product zelf is nieuw en onbeschadigd. "
-    d_fr += "Produit authentique, neuf. Livraison partout en Belgique."
-    d_nl += "Origineel en nieuw product. Levering in heel België."
+    d_fr += "Produit authentique, neuf. Livraison en Belgique et dans 8 autres pays d'Europe."
+    d_nl += "Origineel en nieuw product. Levering in België en 8 andere Europese landen."
     t_fr, t_nl = re.sub(r"\s+", " ", t_fr).replace(" ,", ","), re.sub(r"\s+", " ", t_nl)
     achat = nombre(l.get("PRICE"))
     ean = re.sub(r"\D", "", l.get("EAN") or "")
