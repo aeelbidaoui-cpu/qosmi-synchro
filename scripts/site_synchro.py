@@ -40,6 +40,7 @@ M_STOCK = """mutation($input: InventorySetQuantitiesInput!, $cle: String!) {
     inventoryAdjustmentGroup { id } userErrors { code field message } } }"""
 Q_ETAT = """{ products(query: "status:active OR status:draft") { edges { node { id handle title status tags featuredMedia { id status }
   dujour: metafield(namespace: "qosmi", key: "du_jour") { value }
+  pyramide: metafield(namespace: "qosmi", key: "pyramide_media") { value }
   variants { edges { node { id sku price inventoryQuantity selectedOptions { name value }
     inventoryItem { id unitCost { amount } } } } } } } } }"""
 
@@ -121,6 +122,10 @@ def entree_complete(p, existante, lieu_id, statut):
                 o["values"].append({"name": val})
             valeurs.append({"optionName": o["name"], "name": val})
         inp["variants"].append({"id": v["id"], "optionValues": valeurs, "price": v["price"], "sku": sku})
+    # 22/11/2026 : la 2e image (pyramide olfactive, scripts/pyramides.py) est gardée : productSet retire les médias absents
+    pyr = (existante.get("pyramide") or {}).get("value")
+    if pyr:
+        inp.setdefault("files", []).append({"id": pyr})
     return e
 
 

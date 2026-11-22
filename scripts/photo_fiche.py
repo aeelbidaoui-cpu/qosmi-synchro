@@ -13,10 +13,12 @@ def main():
         sys.exit("Indiquer fiche (handle) et essai (adresse https de la photo).")
     s = Shopify()
     p = s.gql("""query($h: String!) { productByIdentifier(identifier: {handle: $h}) { id title
-        media(first: 20) { nodes { id } } } }""", {"h": h})["productByIdentifier"]
+        media(first: 20) { nodes { id } }
+        pyramide: metafield(namespace: "qosmi", key: "pyramide_media") { value } } }""", {"h": h})["productByIdentifier"]
     if not p:
         sys.exit("Fiche introuvable : %s" % h)
-    anciens = [m["id"] for m in p["media"]["nodes"]]
+    pyr = (p.get("pyramide") or {}).get("value")  # 22/11/2026 : la 2e image (pyramide olfactive) reste
+    anciens = [m["id"] for m in p["media"]["nodes"] if m["id"] != pyr]
     r = s.gql("""mutation($id: ID!, $m: [CreateMediaInput!]!) { productCreateMedia(productId: $id, media: $m) {
         media { id status } mediaUserErrors { field message } } }""",
               {"id": p["id"], "m": [{"originalSource": url, "mediaContentType": "IMAGE", "alt": p["title"]}]})["productCreateMedia"]
@@ -30,6 +32,8 @@ def main():
             break
     if st["status"] != "READY":
         sys.exit("Photo non traitée : %s" % st)
+    s.gql("""mutation($id: ID!, $m: [MoveInput!]!) { productReorderMedia(id: $id, moves: $m) { job { id } } }""",
+          {"id": p["id"], "m": [{"id": nouveau, "newPosition": "0"}]})  # la nouvelle photo en tête, devant la pyramide
     if anciens:
         s.gql("mutation($id: ID!, $m: [ID!]!) { productDeleteMedia(productId: $id, mediaIds: $m) { mediaUserErrors { message } } }",
               {"id": p["id"], "m": anciens})
