@@ -981,3 +981,13 @@ body:has(.qk-profil) .qk-desc-profil { display: none; }
 /* 20/11/2026 : explication du testeur, affichée seulement quand un format testeur est choisi */
 .qk-testeur-note { margin: 12px 0 4px; padding: 12px 14px; border: 1px solid #111; background: #fff; color: #111; font-size: 0.9rem; line-height: 1.45; }
 .qk-testeur-note strong { display: block; margin-bottom: 4px; }
+
+/* 23/11/2026 (Amine) : photos de la fiche produit dans un cadre, moins grandes */
+.product-information__media media-gallery slideshow-container {
+  border: 1px solid #e6e6e6; border-radius: 18px; padding: 14px; background: #fff; box-sizing: border-box; overflow: hidden;
+}
+.product-information__media media-gallery .product-media-container { border-radius: 10px; overflow: hidden; }
+@media (min-width: 750px) {
+  .product-information__media media-gallery { max-width: 580px; margin-left: auto; margin-right: auto; width: 100%; }
+  .product-information__media media-gallery slideshow-container { padding: 28px; }
+}
