@@ -613,6 +613,13 @@ def synchro(essai=False):
             ligne_journal("  traductions NL : %d éléments" % n)
         except Exception as ex:
             ligne_journal("  traductions NL non faites (%s)" % str(ex)[:150])
+        try:  # 22/11/2026 : version anglaise des nouvelles fiches aussi
+            import fiches_en
+            ps = [p_ for _, _, p_ in a_traduire]
+            fiches_en.completer(ps, lambda *x: None)
+            sv.traduire(s, sc, ps, locale="en")
+        except Exception as ex:
+            ligne_journal("  traductions EN non faites (%s)" % str(ex)[:150])
     if nouveaux and statut_nouv == "ACTIVE":  # nouvelles fiches visibles sur la boutique en ligne
         try:
             ids = []
@@ -1111,8 +1118,11 @@ def textes():
     ligne_journal("Traductions NL envoyées : %s" % n)
     # 22/11/2026 (Amine, version anglaise) : mêmes fiches en anglais (langue « en », publiée seulement quand tout est prêt)
     import fiches_en
-    fiches_en.completer(vus, ligne_journal)
-    sv.traduire(s, sc, vus, locale="en")
+    # toutes les fiches en ligne, y compris celles hors sélection gardées « épuisé » (sinon ~370 fiches sans anglais)
+    en_ligne = vus + [p for p in produits if p["handle"] in par_handle and p not in vus
+                      and par_handle[p["handle"]].get("status") == "ACTIVE"]
+    fiches_en.completer(en_ligne, ligne_journal)
+    sv.traduire(s, sc, en_ligne, locale="en")
     ligne_journal("Traductions EN envoyées")
 
 
