@@ -5,7 +5,8 @@ Pour chaque commande payée et pas encore expédiée, livrée en point relais Mo
   1. cherche le point relais Mondial Relay le plus proche de l'adresse du client (recherche publique du widget Mondial Relay) ;
   2. crée l'expédition et l'étiquette avec l'API Connect de Mondial Relay (identifiants du compte d'Amine, secrets GitHub
      MR_LOGIN, MR_PASSWORD, MR_CUSTOMER_ID, saisis par Amine lui-même) ;
-  3. envoie l'étiquette PDF à Amine sur Telegram (jamais dans le dépôt ni dans les journaux : données personnelles) ;
+  3. envoie les étiquettes PDF par e-mail à contact@deway.be (Gmail de Deway, mot de passe d'application dans le secret
+     GitHub GMAIL_APP_PASSWORD, saisi par Amine) ; jamais dans le dépôt ni dans les journaux : données personnelles ;
   4. marque la commande expédiée dans Shopify avec le numéro de suivi : le client reçoit l'e-mail d'expédition.
 
 Chaque étiquette est facturée par Mondial Relay : rien n'est créé sans que l'action soit lancée exprès.
@@ -15,7 +16,8 @@ Chaque étiquette est facturée par Mondial Relay : rien n'est créé sans que l
 
 Dans les journaux : numéro de commande, pays, nombre d'articles, poids et point relais seulement (pas de nom ni d'adresse).
 """
-import json, os, re, sys, time, unicodedata, urllib.parse, urllib.request, uuid
+import json, os, re, smtplib, sys, time, unicodedata, urllib.parse, urllib.request
+from email.message import EmailMessage
 import xml.etree.ElementTree as ET
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -32,6 +34,7 @@ CARTON = (25, 20, 10)      # cm
 EXPEDITEUR = {"AddressAdd1": "QOSMI", "Streetname": "Ijsbergstraat", "HouseNo": "73", "CountryCode": "BE",
               "PostCode": "1701", "City": "Dilbeek", "Email": "contact@qosmi.be"}
 MF = ("qosmi_prive", "mondial_relay")
+BOITE = "contact@deway.be"  # 22/11/2026 (Amine) : étiquettes envoyées sur le mail de Deway
 
 COMMANDES = """query($q: String, $a: String) { orders(first: 50, after: $a, query: $q, sortKey: CREATED_AT) {
   pageInfo { hasNextPage endCursor }
@@ -146,19 +149,19 @@ def appeler(corps):
     return envoi, pdf, statuts
 
 
-def telegram_pdf(chat, contenu, nom, legende):
-    brut = re.sub(r"\s+", "", os.environ.get("TELEGRAM_TOKEN", ""))
-    m = re.search(r"\d{6,}:[A-Za-z0-9_-]{30,}", brut)
-    jeton = m.group(0) if m else brut
-    b = uuid.uuid4().hex
-    corps = ("--%s\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n%s\r\n" % (b, chat)
-             + "--%s\r\nContent-Disposition: form-data; name=\"caption\"\r\n\r\n%s\r\n" % (b, legende)
-             + "--%s\r\nContent-Disposition: form-data; name=\"document\"; filename=\"%s\"\r\nContent-Type: application/pdf\r\n\r\n" % (b, nom)
-             ).encode() + contenu + ("\r\n--%s--\r\n" % b).encode()
-    req = urllib.request.Request("https://api.telegram.org/bot%s/sendDocument" % jeton, data=corps,
-                                 headers={"Content-Type": "multipart/form-data; boundary=%s" % b})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.load(r).get("ok")
+def envoyer_mail(etiquettes, bilan):
+    """Un seul e-mail par passage, toutes les étiquettes en pièces jointes (Gmail de Deway, SMTP)."""
+    msg = EmailMessage()
+    msg["From"], msg["To"] = "Qosmi <%s>" % BOITE, BOITE
+    msg["Subject"] = "Étiquettes Mondial Relay : %s" % ", ".join(n for n, _ in etiquettes)
+    msg.set_content("Étiquettes Mondial Relay créées pour les commandes Qosmi (format 10x15) :\n\n" + "\n".join(bilan)
+                    + "\n\nLes commandes sont marquées expédiées dans Shopify et les clients ont reçu le lien de suivi.")
+    for nom, contenu in etiquettes:
+        msg.add_attachment(contenu, maintype="application", subtype="pdf", filename="etiquette-%s.pdf" % nom.lstrip("#"))
+    with smtplib.SMTP("smtp.gmail.com", 587, timeout=60) as smtp:
+        smtp.starttls()
+        smtp.login(BOITE, re.sub(r"\s+", "", os.environ["GMAIL_APP_PASSWORD"]))
+        smtp.send_message(msg)
 
 
 def expedier_shopify(s, o, num, cp):
@@ -194,13 +197,9 @@ def main():
     manquants = [k for k in ("MR_LOGIN", "MR_PASSWORD", "MR_CUSTOMER_ID") if not os.environ.get(k, "").strip()]
     if not essai and manquants:
         sys.exit("Secrets GitHub manquants : %s (à ajouter par Amine dans Settings → Secrets and variables → Actions)." % ", ".join(manquants))
-    chat = None
-    if not essai:
-        from nouveautes_grossiste import conversation
-        chat, _ = conversation(s)
-        if not chat:
-            sys.exit("Conversation Telegram inconnue : écrire /start au robot Qosmi, puis relancer.")
-    bilan = []
+    if not essai and not os.environ.get("GMAIL_APP_PASSWORD", "").strip():
+        sys.exit("Secret GitHub GMAIL_APP_PASSWORD manquant (mot de passe d'application Google de contact@deway.be) : aucune étiquette créée.")
+    bilan, etiquettes = [], []
     for o in liste:
         adr = o["shippingAddress"]
         pays = adr["countryCodeV2"]
@@ -226,21 +225,24 @@ def main():
         # le numéro est gardé tout de suite sur la commande : jamais deux étiquettes pour la même commande
         s.gql("""mutation($m: [MetafieldsSetInput!]!) { metafieldsSet(metafields: $m) { userErrors { message } } }""",
               {"m": [{"ownerId": o["id"], "namespace": MF[0], "key": MF[1], "type": "single_line_text_field", "value": envoi}]})
-        envoye = False
         if pdf:
             with urllib.request.urlopen(pdf, timeout=60) as r:
-                contenu = r.read()
-            envoye = telegram_pdf(chat, contenu, "etiquette-%s.pdf" % o["name"].lstrip("#"),
-                                  "Étiquette %s · %s · %s" % (o["name"], pays, nom_pr if mode == "24R" else "domicile"))
+                etiquettes.append((o["name"], r.read()))
         err = expedier_shopify(s, o, envoi, adr.get("zip") or "")
-        print("  %s → expédition %s · étiquette Telegram : %s · Shopify : %s" % (o["name"], envoi, "envoyée" if envoye else "NON",
-                                                                                 "expédiée" if not err else err))
-        bilan.append("✅ %s : expédition %s%s" % (o["name"], envoi, "" if not err else " (Shopify : %s)" % err[0]["message"]))
+        print("  %s → expédition %s · étiquette : %s · Shopify : %s" % (o["name"], envoi, "OK" if pdf else "PAS DE PDF",
+                                                                        "expédiée" if not err else err))
+        bilan.append("%s %s : expédition %s · %s · %s%s" % ("OK" if pdf else "SANS PDF", o["name"], envoi, pays,
+                                                            nom_pr if mode == "24R" else "domicile",
+                                                            "" if not err else " (Shopify : %s)" % err[0]["message"]))
         time.sleep(1)
-    if chat and bilan:
-        from nouveautes_grossiste import envoyer
-        envoyer(chat, ["<b>Étiquettes Mondial Relay</b>"] + bilan)
+    if bilan:
+        envoyer_mail(etiquettes, bilan)
+        print("E-mail envoyé à %s : %d étiquette(s)" % (BOITE, len(etiquettes)))
 
 
 if __name__ == "__main__":
-    main()
+    if "--test-mail" in sys.argv:  # vérifie l'envoi vers contact@deway.be, sans étiquette ni frais
+        envoyer_mail([], ["Test : si tu lis ce mail, l'envoi des étiquettes Mondial Relay fonctionne."])
+        print("E-mail de test envoyé à %s" % BOITE)
+    else:
+        main()

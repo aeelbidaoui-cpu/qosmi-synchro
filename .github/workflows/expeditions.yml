@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: "essai = liste sans rien créer ; creer = crée les étiquettes (payant)"
+        description: "essai = liste sans rien créer ; creer = crée les étiquettes (payant) ; test-mail = vérifie l'envoi vers contact@deway.be"
         type: choice
-        options: [essai, creer]
+        options: [essai, creer, test-mail]
         default: essai
       commandes:
         description: "creer : numéros de commande séparés par des virgules (#1001,#1002) ou « toutes »"
@@ -36,14 +36,16 @@ jobs:
           SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
           SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
           SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           MR_LOGIN: ${{ secrets.MR_LOGIN }}
           MR_PASSWORD: ${{ secrets.MR_PASSWORD }}
           MR_CUSTOMER_ID: ${{ secrets.MR_CUSTOMER_ID }}
           MR_TELEPHONE: ${{ secrets.MR_TELEPHONE }}
           COMMANDES: ${{ inputs.commandes }}
         run: |
-          if [ "${{ inputs.action }}" = "creer" ]; then
+          if [ "${{ inputs.action }}" = "test-mail" ]; then
+            python -u scripts/mondial_relay.py --test-mail
+          elif [ "${{ inputs.action }}" = "creer" ]; then
             python -u scripts/mondial_relay.py --creer "$COMMANDES"
           else
             python -u scripts/mondial_relay.py --essai
