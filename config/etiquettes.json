@@ -1,0 +1,18 @@
+{
+ "_note": "23/11/2026 (Amine) : étiquettes sur les photos des parfums. « Nouveau » : automatique, 3 jours après l'arrivée de la fiche (date de création Shopify). « Tendance » : parfums viraux sur TikTok (sources : listes PerfumeTok de novembre 2026). « Best-seller » : grands classiques les plus connus. Nom exact du parfum (pas les déclinaisons), coffrets exclus. Une seule étiquette par parfum : Nouveau > Tendance > Best-seller.",
+ "tendance": [
+  ["Lattafa", "Khamrah"], ["Lattafa", "Khamrah Qahwa"], ["Lattafa", "Yara"], ["Lattafa", "Yara Candy"], ["Lattafa", "Eclaire"],
+  ["Lattafa", "Asad"], ["Lattafa", "Musamam"], ["Lattafa", "Fakhar Lattafa Black"], ["Armaf", "Club de Nuit Intense Man"],
+  ["Afnan", "9pm"], ["Rasasi", "Hawas"], ["Maison Francis Kurkdjian", "Baccarat Rouge 540"], ["Kayali", "Yum Pistachio Gelato | 33"],
+  ["Giardini Di Toscana", "Bianco Latte"], ["Diptyque", "L'Eau Papier"], ["Parfums de Marly", "Delina"], ["Yves Saint Laurent", "Black Opium"]
+ ],
+ "best-seller": [
+  ["Dior", "Sauvage"], ["Chanel", "Bleu de Chanel"], ["Creed", "Aventus"], ["Chanel", "Coco Mademoiselle"], ["Lancôme", "La Vie Est Belle"],
+  ["Yves Saint Laurent", "Libre"], ["Yves Saint Laurent", "Y"], ["Carolina Herrera", "Good Girl"], ["Paco Rabanne", "1 Million"],
+  ["Paco Rabanne", "Invictus"], ["Jean Paul Gaultier", "Le Male"], ["Jean Paul Gaultier", "Le Male Elixir"], ["Jean Paul Gaultier", "Scandal"],
+  ["Giorgio Armani", "Acqua di Giò Pour Homme"], ["Giorgio Armani", "Acqua di Giò Profondo"], ["Giorgio Armani", "My Way"],
+  ["Dior", "J'adore"], ["Dior", "Fahrenheit"], ["Versace", "Eros"], ["Viktor & Rolf", "Flowerbomb"], ["Viktor & Rolf", "Spicebomb"],
+  ["Guerlain", "L'Homme Ideal"], ["Parfums de Marly", "Layton"], ["Xerjoff", "Erba Pura"], ["Hermes", "Terre d'Hermès"],
+  ["Gucci", "Bloom"], ["Narciso Rodriguez", "For Her"], ["Chanel", "Chance"], ["Nishane", "Hacivat"], ["Hugo Boss", "Boss Bottled"]
+ ]
+}

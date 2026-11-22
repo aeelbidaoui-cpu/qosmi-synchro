@@ -505,6 +505,7 @@ def construire(fichiers, marques):
         "{%- assign t = closest.product.title | split: ' — ' -%}{%- assign n = t[0] | remove_first: closest.product.vendor | strip -%}"
         "{%- if n == blank -%}{%- assign n = t[0] -%}{%- endif -%}"
         # 10/11/2026 (SEO) : la marque fait partie du titre principal (H1 « Creed Aventus »), même rendu qu'avant
+        "{% render 'qk-etiquette', product: closest.product, classe: 'qk-etiquette--fiche' %}"
         "<div class=\"qk-titre-ligne\"><h1 class=\"qk-titre-produit\"><span class=\"qk-marque-produit\">{{ closest.product.vendor }}</span> {{ n }}</h1>"
         "{% render 'qk-favori', product: closest.product, classe: 'qk-fav--fiche' %}</div>"
         "{%- if t[1] -%}<p class=\"qk-type-produit\">{{ t[1] }}</p>{%- endif -%}")

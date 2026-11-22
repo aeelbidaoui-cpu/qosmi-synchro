@@ -991,3 +991,12 @@ body:has(.qk-profil) .qk-desc-profil { display: none; }
   .product-information__media media-gallery { max-width: 580px; margin-left: auto; margin-right: auto; width: 100%; }
   .product-information__media media-gallery slideshow-container { padding: 28px; }
 }
+
+/* 23/11/2026 : étiquettes Nouveau / Tendance / Best-seller en haut à gauche de la photo */
+.qk-etiquette { display: inline-block; font-size: 11px; line-height: 1; letter-spacing: .12em; text-transform: uppercase; font-weight: 500;
+  padding: 7px 10px 6px; border-radius: 999px; background: #fff; color: #111; box-shadow: 0 1px 3px rgba(0,0,0,.08); pointer-events: none; }
+.qk-etiquette--nouveau { background: #111; color: #fff; }
+.qk-etiquette--tendance { background: #fff; color: #111; }
+.qk-etiquette--best-seller { background: #f1e9dc; color: #111; }
+.qk-etiquette--carte, .qk-etiquette--grille { position: absolute; top: 12px; left: 12px; z-index: 2; }
+.qk-etiquette--fiche { margin-bottom: 10px; }

@@ -1,0 +1,28 @@
+{%- comment -%}
+  Étiquette sur la photo d'un parfum (23/11/2026, demande d'Amine) — une seule, et pas sur toutes les fiches :
+  « Nouveau » pendant 3 jours après l'arrivée de la fiche, sinon « Tendance » (viral sur TikTok) ou « Best-seller »
+  (métachamp qosmi.etiquette, posé par scripts/etiquettes.py). Paramètres : product, classe
+{%- endcomment -%}
+{%- liquid
+  assign qk_lang = request.locale.iso_code
+  assign qk_maint = 'now' | date: '%s' | plus: 0
+  assign qk_cree = product.created_at | date: '%s' | plus: 0
+  assign qk_age = qk_maint | minus: qk_cree
+  assign qk_etq = ''
+  if qk_age < 259200
+    assign qk_etq = 'nouveau'
+  elsif product.metafields.qosmi.etiquette.value == 'tendance'
+    assign qk_etq = 'tendance'
+  elsif product.metafields.qosmi.etiquette.value == 'best-seller'
+    assign qk_etq = 'best-seller'
+  endif
+-%}
+{%- if qk_etq != '' -%}
+<span class="qk-etiquette qk-etiquette--{{ qk_etq }} {{ classe }}">
+  {%- case qk_etq -%}
+    {%- when 'nouveau' -%}{% if qk_lang == 'nl' %}Nieuw{% elsif qk_lang == 'en' %}New{% else %}Nouveau{% endif %}
+    {%- when 'tendance' -%}{% if qk_lang == 'nl' %}Trending{% elsif qk_lang == 'en' %}Trending{% else %}Tendance{% endif %}
+    {%- else -%}Best-seller
+  {%- endcase -%}
+</span>
+{%- endif -%}

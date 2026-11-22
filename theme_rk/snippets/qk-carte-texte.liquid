@@ -6,6 +6,7 @@
 {%- assign qk_nom = qk_t[0] | remove_first: product.vendor | strip -%}
 {%- if qk_nom == blank -%}{%- assign qk_nom = qk_t[0] -%}{%- endif -%}
 {% render 'qk-favori', product: product, classe: 'qk-fav--grille' %}
+{% render 'qk-etiquette', product: product, classe: 'qk-etiquette--grille' %}
 <a class="qk-carte-texte" href="{{ product.url }}">
   <span class="qk-carte__ligne">
     <span class="qk-carte__marque">{{ product.vendor }}</span>

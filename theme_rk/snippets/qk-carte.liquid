@@ -13,6 +13,7 @@
       {{ product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title, widths: '300, 450, 700', sizes: '(min-width: 990px) 25vw, 50vw' }}
     {%- endif -%}
     {% render 'qk-favori', product: product, classe: 'qk-fav--carte' %}
+    {% render 'qk-etiquette', product: product, classe: 'qk-etiquette--carte' %}
   </span>
   <span class="qk-carte__ligne">
     <span class="qk-carte__marque">{{ product.vendor }}</span>
