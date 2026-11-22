@@ -14,6 +14,8 @@ import bol_analyse as ba  # noqa: E402
 import bol_publier as bp  # noqa: E402
 
 CLES = ("marge_nette_eur", "marge_nette_koopblok_eur", "marge_nette_seul_vendeur_eur")
+if "--koopblok" in sys.argv:  # 22/11/2026 : seulement le plancher du koopblok
+    CLES = ("marge_nette_koopblok_eur",)
 
 
 def main():
@@ -22,7 +24,9 @@ def main():
     refs = ba.references()
     marche = ba.lire_json(ba.MARCHE, {})
     dec_a, _ = ba.decider_tout(cfg, refs, copy.deepcopy(marche))
-    cfg_b = dict(cfg, **{k: marge for k in CLES}, rituals_marge_min_eur=marge, deloox_marge_min_eur=marge)
+    cfg_b = dict(cfg, **{k: marge for k in CLES})
+    if len(CLES) == 3:
+        cfg_b.update(rituals_marge_min_eur=marge, deloox_marge_min_eur=marge)
     refs_b = copy.deepcopy(refs)
     for r in refs_b.values():
         if r.get("reglages"):

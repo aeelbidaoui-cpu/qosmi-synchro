@@ -113,7 +113,8 @@ def ajouter_deloox(refs):
                      "testeur": False, "abime": False, "nom": (refs.get(e13) or {}).get("nom") or "",
                      "marque": (refs.get(e13) or {}).get("marque") or "", "source": 4,
                      "reglages": {"envoi_fournisseur_eur": 0.0 if prix >= 30 else 4.95,
-                                  "marge_nette_koopblok_eur": marge, "marge_nette_eur": marge}}
+                                  "marge_nette_koopblok_eur": min(marge, cfg.get("marge_nette_koopblok_eur", marge)),
+                                  "marge_nette_eur": marge}}  # 22/11/2026 : koopblok jusqu'à 3 € (toutes sources)
         ajoutes += 1
     print("Fournisseur 4 : %d référence(s) ajoutée(s) à l'analyse bol (liste de %d)" % (ajoutes, len(liste)), flush=True)
 
@@ -147,7 +148,9 @@ def ajouter_rituals(refs):
                           "nom": "Rituals " + nom if not nom.lower().startswith("rituals") else nom, "marque": "Rituals",
                           "nature": nom + " | " + (p.get("cat") or ""), "source": 3,
                           "reglages": {"envoi_fournisseur_eur": envoi_f,
-                                       "marge_nette_koopblok_eur": cfg.get("rituals_marge_min_eur", 7)}}
+                                       # 22/11/2026 (Amine) : koopblok jusqu'à 3 € toutes sources, Rituals compris
+                                       "marge_nette_koopblok_eur": min(cfg.get("rituals_marge_min_eur", 7),
+                                                                       cfg.get("marge_nette_koopblok_eur", 7))}}
         ajoutes += 1
     print("Rituals : %d référence(s) ajoutée(s) à l'analyse bol" % ajoutes, flush=True)
 

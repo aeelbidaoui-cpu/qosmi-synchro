@@ -70,8 +70,8 @@
   "NL": 6.8
  },
  "_note_envoi_client_bol_bpost_ht": "18/11/2026 (Amine) : étiquette « pakketzegels via bol » bpost BE → NL à 6,90 € HT, déduite par bol des versements ; BE → BE compté au même prix en attendant le tarif exact. Utilisée seulement pour les articles non inflammables : bpost refuse le parfum (« ontvlambare parfums », liquides inflammables). Parfums et sprays gardent envoi_client_ht.",
- "marge_nette_koopblok_eur": 5,
- "_note_marge_nette_koopblok_eur": "18/11/2026 (Amine) : pour gagner le koopblok on peut descendre jusqu'à 5 € net tous frais compris (achat, envois, emballage, commission, retours, TVA), jamais à perte. Hors koopblok, le plancher reste marge_nette_eur (7 €).",
+ "marge_nette_koopblok_eur": 3,
+ "_note_marge_nette_koopblok_eur": "18/11/2026 (Amine) : pour gagner le koopblok on peut descendre jusqu'à 5 € net tous frais compris. 22/11/2026 07 h 02 (Amine : « oui descends à 3 € pour aller chercher le koopblok ») : 3 € net, toutes sources (Rituals et fournisseur 4 compris), uniquement pour prendre ou garder le koopblok (et contre les robots de prix). Hors koopblok rien ne change : 7 € en général, 10 € quand on est seul vendeur. Jamais à perte.",
  "rituals": true,
  "rituals_franco_ttc": 35,
  "rituals_envoi_ttc": 0,
