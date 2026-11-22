@@ -163,5 +163,35 @@
   "img": [
    "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-11-pdj-shalimar-1.jpg"
   ]
+ },
+ "12-sel-noel-lui": {
+  "zernio": "6b032e2705ee730079b714f7",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-24T12:30:00+01:00",
+  "date": "2026-11-24",
+  "creneau": "12:30",
+  "n": 12,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-12-sel-noel-lui-1.jpg"
+  ]
+ },
+ "13-anniv-terre": {
+  "zernio": "6b032e31610670df1dd919a0",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-24T18:30:00+01:00",
+  "date": "2026-11-24",
+  "creneau": "18:30",
+  "n": 13,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-13-anniv-terre-1.jpg"
+  ]
  }
 }

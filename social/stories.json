@@ -90,5 +90,33 @@
   "zernio": "6b01d93c4378964cffd112e8",
   "programme": "2026-11-23T18:00:00+01:00",
   "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-23-18h00.jpg"
+ },
+ "2026-11-24 11:00": {
+  "sorte": "nouveau",
+  "langue": "fr",
+  "titre": "Frederic Malle Rose And Cuir — Eau de Parfum mixte",
+  "parfums": [
+   "frederic-malle-rose-and-cuir-eau-de-parfum-mixte"
+  ],
+  "date": "2026-11-24",
+  "creneau": "11:00",
+  "zernio": "6b032e4a9bb84e30c1849c30",
+  "programme": "2026-11-24T11:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-24-11h00.jpg"
+ },
+ "2026-11-24 18:00": {
+  "sorte": "famille",
+  "langue": "fr",
+  "titre": "iris",
+  "parfums": [
+   "givenchy-very-irresistible-eau-de-parfum-pour-femme",
+   "givenchy-gentleman-intense-eau-de-toilette-pour-homme",
+   "tiziana-terenzi-luna-collection-libra-extrait-de-parfum-mixte"
+  ],
+  "date": "2026-11-24",
+  "creneau": "18:00",
+  "zernio": "6b032e55b90d5d67cfb4d017",
+  "programme": "2026-11-24T18:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-24-18h00.jpg"
  }
 }
