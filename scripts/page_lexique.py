@@ -183,50 +183,114 @@ LEX = [
 ]
 
 
+# 22/11/2026 (version anglaise) : catégories et entrées en anglais, clé = terme FR.
+CAT_EN = {"agrumes": "Citrus", "fleurs": "Flowers", "epices": "Spices", "bois": "Woods", "gourmand": "Gourmand",
+          "ambre": "Amber, resins and musks", "frais": "Fresh and aromatic", "metier": "Fragrance words"}
+LEX_EN = {
+    "Bergamote": ("Bergamot", "A citrus fruit grown mainly in Calabria, in southern Italy. Its peel is pressed to obtain a fresh, slightly bitter and floral oil. It opens a large share of fragrances, from colognes to woody scents."),
+    "Citron": ("Lemon", "A lively, sparkling zest that gives an instant clean effect. Very common in fresh scents and summer fragrances, it evaporates quickly and is mainly a top note."),
+    "Mandarine": ("Mandarin", "Softer and sweeter than orange, mandarin brings a round, juicy freshness. It appears in men's fragrances as well as fruity florals."),
+    "Pamplemousse": ("Grapefruit", "A tangy, slightly bitter and very invigorating note. It gives a boost to fresh and sporty fragrances."),
+    "Néroli": ("Neroli", "An oil taken from the blossoms of the bitter orange tree. Fresh, green and bright, it is at the heart of classic eaux de Cologne."),
+    "Rose": ("Rose", "The most widely used flower in perfumery. Damask rose or centifolia, it can be fresh and powdery, fruity, or dark and spicy depending on what surrounds it. Paired with oud, it forms an accord much loved in the Middle East."),
+    "Jasmin": ("Jasmine", "A rich, radiant white flower, both soft and slightly animalic. Jasmine grandiflorum and jasmine sambac give body and sensuality to many women's fragrances."),
+    "Fleur d'oranger": ("Orange blossom", "A bright, honeyed and comforting white flower. Softer and more floral than neroli, which comes from the same tree."),
+    "Iris": ("Iris", "Perfumers use the iris root, dried for several years. It gives a powdery, elegant scent reminiscent of make-up and fresh earth. It is one of the most expensive materials."),
+    "Tubéreuse": ("Tuberose", "An opulent, creamy and heady white flower. It defines great intense florals and is noticed from afar."),
+    "Ylang-ylang": ("Ylang-ylang", "A yellow flower from the Comoros and Madagascar, radiant and creamy with a slightly fruity side. It rounds off and warms floral bouquets."),
+    "Muguet": ("Lily of the valley", "A fresh, green spring flower. It can't be extracted, so perfumers recreate its scent from other materials."),
+    "Violette": ("Violet", "A soft, powdery note, sometimes sweet. Violet leaf, on the other hand, brings a green, slightly watery freshness."),
+    "Safran": ("Saffron", "A precious spice with a leathery, honeyed and slightly metallic scent. Very common in oriental fragrances and in accords with oud."),
+    "Cardamome": ("Cardamom", "A fresh, aromatic spice, almost minty. It brightens woody and amber fragrances without weighing them down."),
+    "Cannelle": ("Cinnamon", "A warm, sweet spice that evokes pastries and the festive season. It appears in many winter fragrances."),
+    "Poivre": ("Pepper", "Black pepper, pink pepper or pink peppercorns: a sharp, sparkling note that adds relief right from the opening."),
+    "Gingembre": ("Ginger", "A spicy, fresh and slightly lemony note. It brings energy to fresh fragrances as well as woody ones."),
+    "Oud": ("Oud", "Also called agarwood. A resin that forms in the heart of the aquilaria tree when it is infected. Its scent is deep, woody, leathery and sometimes animalic. Very precious, it is often partly recreated in perfumery."),
+    "Santal": ("Sandalwood", "A creamy, soft and milky wood from India or Australia. It gives a warm, enveloping base."),
+    "Cèdre": ("Cedar", "A dry, clean wood that evokes a sharpened pencil. It structures the base of many men's and unisex fragrances."),
+    "Vétiver": ("Vetiver", "The root of a tropical grass, grown mainly in Haiti and Java. Its scent is woody, earthy and sometimes smoky. It brings a dry elegance."),
+    "Patchouli": ("Patchouli", "Leaves of an Asian plant, dried and then distilled. A woody, earthy and slightly camphorous note, essential to chypres and many modern fragrances."),
+    "Mousse de chêne": ("Oakmoss", "A lichen that grows on oak trees. A damp, woody and slightly salty scent: the signature of chypre fragrances. Its use is now regulated, so perfumers adapt or recreate it."),
+    "Vanille": ("Vanilla", "The pod of an orchid, mainly from Madagascar. Soft, warm and comforting, vanilla rounds off fragrances and makes them more sensual."),
+    "Fève tonka": ("Tonka bean", "A South American seed with notes of almond, hay and caramel. It gives a warm, slightly gourmand base."),
+    "Praline": ("Praline", "A gourmand accord of caramelised hazelnuts or almonds. It gives fragrances a sweet, addictive side."),
+    "Café": ("Coffee", "A roasted, slightly bitter note that lifts vanilla and woody accords. Widely used in evening fragrances."),
+    "Ambre": ("Amber", "In perfumery, amber isn't the stone: it's a warm, soft and resinous accord, often made with vanilla, benzoin and labdanum. It is the base of so-called oriental or amber fragrances."),
+    "Ambre gris et ambroxan": ("Ambergris and ambroxan", "Ambergris is a rare material of marine origin, with a salty, mineral and soft scent. Today, molecules that reproduce it are mainly used, such as ambroxan, which gives that woody, bright and very long-lasting effect."),
+    "Encens": ("Incense", "Olibanum resin, burned since ancient times. Its scent is smoky, lemony and a little mystical."),
+    "Benjoin et labdanum": ("Benzoin and labdanum", "Two warm resins. Benzoin is soft and vanilla-like; labdanum, taken from rockrose, is darker, leathery and ambery."),
+    "Musc": ("Musk", "Always synthetic today, musk gives a clean, soft and enveloping skin effect. It fixes the fragrance and makes it last longer."),
+    "Cuir": ("Leather", "An accord that evokes tanned leather, often created with birch, saffron or smoky notes. It adds character."),
+    "Tabac": ("Tobacco", "Dried tobacco leaves with a honeyed, woody and slightly smoky scent. A warm note, very common in winter fragrances."),
+    "Lavande": ("Lavender", "A plant from Provence, fresh, aromatic and soft all at once. It is the base of fougères, the family of classic men's fragrances."),
+    "Menthe": ("Mint", "A fresh, lively note that gives a cooling sensation. It livens up summer fragrances."),
+    "Notes marines": ("Marine notes", "Accords that evoke sea air, salt and water. They are also called aquatic notes. They shaped fresh fragrances from the 1990s onwards."),
+    "Thé": ("Tea", "Green tea, black tea or matcha: a transparent, slightly bitter note that brings calm and freshness."),
+    "Notes de tête, de cœur et de fond": ("Top, heart and base notes", "The three stages of a fragrance. Top notes are smelled right away and fade within minutes. Heart notes form the fragrance's character. Base notes, heavier, stay on the skin for hours."),
+    "Pyramide olfactive": ("Olfactory pyramid", "The way of presenting a fragrance's notes in three levels: top, heart and base."),
+    "Accord": ("Accord", "A blend of several materials that creates a new scent, like a musical chord. For example, the amber accord or the leather accord."),
+    "Famille olfactive": ("Olfactory family", "A way of classifying fragrances by their dominant scent: citrus, floral, fougère, chypre, woody, amber (oriental), leather, gourmand…"),
+    "Chypré": ("Chypre", "A family built on the contrast between bergamot at the top and oakmoss, patchouli and labdanum at the base."),
+    "Fougère": ("Fougère", "A family born at the end of the 19th century: lavender, geranium, oakmoss and coumarin (the scent of tonka bean). It is the great classic of men's fragrances."),
+    "Gourmand": ("Gourmand", "A fragrance with edible notes: vanilla, caramel, chocolate, coffee, praline… A very popular family since the 1990s."),
+    "Eau de toilette, eau de parfum, extrait": ("Eau de toilette, eau de parfum, extrait", "The concentration of fragrance oils. Generally, an eau de toilette is lighter, an eau de parfum more concentrated, and a parfum or extrait even more so. Longevity also depends on the composition and the skin."),
+    "Tenue": ("Longevity", "How long you can smell the fragrance on your skin after spraying it."),
+    "Sillage": ("Sillage", "The scent trail a fragrance leaves around you as you move. A strong sillage is noticed from afar; a subtle one stays close to the skin."),
+    "Flanker": ("Flanker", "A variation of an existing fragrance that keeps its name while adapting it: Intense, Parfum, Eau Fraîche, summer edition…"),
+    "Parfum de niche": ("Niche fragrance", "A fragrance created by a specialised, often independent house that focuses on creation and materials rather than mass distribution."),
+    "Nez": ("Nose", "The nickname for the perfumer who creates a fragrance's formula."),
+    "Macération": ("Maceration", "The resting time after the fragrance is blended and before it is bottled, so the materials can blend together."),
+    "Mouillette": ("Blotter", "A thin strip of blotting paper onto which a fragrance is sprayed to smell it without wearing it."),
+}
+
+
 def section():
     import html as H
-    def bloc(nl):
+    def bloc(nl, en=False):
         out = []
         ordre = list(CAT)
         for c in ordre:
-            items = sorted([x for x in LEX if x[0] == c], key=lambda x: x[2 if nl else 1].lower())
-            out.append('<h2 class="qk-lex__cat" id="%s">%s</h2>' % (c, CAT[c][1 if nl else 0]))
+            items = sorted([x for x in LEX if x[0] == c], key=lambda x: (x[2] if nl else LEX_EN[x[1]][0] if en else x[1]).lower())
+            out.append('<h2 class="qk-lex__cat" id="%s">%s</h2>' % (c, CAT[c][1] if nl else CAT_EN[c] if en else CAT[c][0]))
             for _, t_fr, t_nl, x_fr, x_nl, odeur in items:
-                t, x = (t_nl, x_nl) if nl else (t_fr, x_fr)
+                t, x = (t_nl, x_nl) if nl else LEX_EN[t_fr] if en else (t_fr, x_fr)
                 lien = ""
                 if odeur:
                     lien = '<a class="qk-lex__lien" href="{{ routes.root_url | append: \'/pages/odeurs?o=%s\' | replace: \'//\', \'/\' }}">%s</a>' % (
-                        odeur, "Parfums met deze noot" if nl else "Parfums qui en contiennent")
+                        odeur, "Parfums met deze noot" if nl else "Fragrances that contain it" if en else "Parfums qui en contiennent")
                 out.append('<div class="qk-lex__item"><h3>%s</h3><p>%s</p>%s</div>' % (H.escape(t), H.escape(x), lien))
         return "\n".join(out)
 
-    def nav(nl):
-        return "".join('<a href="#%s">%s</a>' % (c, CAT[c][1 if nl else 0]) for c in CAT)
+    def nav(nl, en=False):
+        return "".join('<a href="#%s">%s</a>' % (c, CAT[c][1] if nl else CAT_EN[c] if en else CAT[c][0]) for c in CAT)
 
-    def ld(nl):
+    def ld(nl, en=False):
         return json.dumps({"@context": "https://schema.org", "@type": "DefinedTermSet",
-                           "name": "Geurwoordenboek Qosmi" if nl else "Lexique du parfum Qosmi",
-                           "hasDefinedTerm": [{"@type": "DefinedTerm", "name": x[2 if nl else 1], "description": x[4 if nl else 3]} for x in LEX]},
+                           "name": "Geurwoordenboek Qosmi" if nl else "Qosmi fragrance glossary" if en else "Lexique du parfum Qosmi",
+                           "hasDefinedTerm": [{"@type": "DefinedTerm", "name": x[2] if nl else LEX_EN[x[1]][0] if en else x[1],
+                                               "description": x[4] if nl else LEX_EN[x[1]][1] if en else x[3]} for x in LEX]},
                           ensure_ascii=False)
 
     liq = """{%- comment -%} Généré par scripts/page_lexique.py : ne pas modifier à la main. Lexique Qosmi (13/11/2026). {%- endcomment -%}
-{%- assign qk_nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}
+{%- assign qk_nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
 <section class="qk-section qk-lex">
   <div class="qk-largeur qk-lex__largeur">
     <img class="qk-faq__image" src="{{ 'qosmi-matieres-premieres.jpg' | file_url }}" alt="" width="2400" height="1340" loading="eager">
-    <h1 class="qk-titre-section">{% if qk_nl %}Geurwoordenboek{% else %}Lexique du parfum{% endif %}</h1>
-    <p class="qk-faq__intro">{% if qk_nl %}De belangrijkste grondstoffen en woorden uit de parfumwereld, kort uitgelegd. Klik op ‘Parfums met deze noot’ om ze in onze collectie te vinden.{% else %}Les grandes matières premières et les mots du parfum, expliqués simplement. Clique sur « Parfums qui en contiennent » pour les retrouver dans notre catalogue.{% endif %}</p>
-    <nav class="qk-lex__nav">{% if qk_nl %}NAV_NL{% else %}NAV_FR{% endif %}</nav>
-    <input class="qk-faq__recherche" type="search" data-qk-lex-recherche placeholder="{% if qk_nl %}Zoek een woord…{% else %}Rechercher un mot…{% endif %}" aria-label="{% if qk_nl %}Zoek een woord{% else %}Rechercher un mot{% endif %}">
+    <h1 class="qk-titre-section">{% if qk_nl %}Geurwoordenboek{% elsif qk_en %}Fragrance glossary{% else %}Lexique du parfum{% endif %}</h1>
+    <p class="qk-faq__intro">{% if qk_nl %}De belangrijkste grondstoffen en woorden uit de parfumwereld, kort uitgelegd. Klik op ‘Parfums met deze noot’ om ze in onze collectie te vinden.{% elsif qk_en %}The key raw materials and fragrance words, explained simply. Click “Fragrances that contain it” to find them in our catalogue.{% else %}Les grandes matières premières et les mots du parfum, expliqués simplement. Clique sur « Parfums qui en contiennent » pour les retrouver dans notre catalogue.{% endif %}</p>
+    <nav class="qk-lex__nav">{% if qk_nl %}NAV_NL{% elsif qk_en %}NAV_EN{% else %}NAV_FR{% endif %}</nav>
+    <input class="qk-faq__recherche" type="search" data-qk-lex-recherche placeholder="{% if qk_nl %}Zoek een woord…{% elsif qk_en %}Search for a word…{% else %}Rechercher un mot…{% endif %}" aria-label="{% if qk_nl %}Zoek een woord{% elsif qk_en %}Search for a word{% else %}Rechercher un mot{% endif %}">
     <div class="qk-lex__liste">
       {%- if qk_nl -%}
 BLOC_NL
+      {%- elsif qk_en -%}
+BLOC_EN
       {%- else -%}
 BLOC_FR
       {%- endif -%}
     </div>
   </div>
-  {%- if qk_nl -%}<script type="application/ld+json">LD_NL</script>{%- else -%}<script type="application/ld+json">LD_FR</script>{%- endif -%}
+  {%- if qk_nl -%}<script type="application/ld+json">LD_NL</script>{%- elsif qk_en -%}<script type="application/ld+json">LD_EN</script>{%- else -%}<script type="application/ld+json">LD_FR</script>{%- endif -%}
   <script>
     (function () {
       var c = document.querySelector('[data-qk-lex-recherche]');
@@ -248,8 +312,9 @@ BLOC_FR
 { "name": "Qosmi · Lexique", "tag": "div", "settings": [] }
 {% endschema %}
 """
-    liq = (liq.replace("BLOC_NL", bloc(True)).replace("BLOC_FR", bloc(False)).replace("NAV_NL", nav(True)).replace("NAV_FR", nav(False))
-              .replace("LD_NL", ld(True)).replace("LD_FR", ld(False)))
+    liq = (liq.replace("BLOC_NL", bloc(True)).replace("BLOC_EN", bloc(False, True)).replace("BLOC_FR", bloc(False))
+              .replace("NAV_NL", nav(True)).replace("NAV_EN", nav(False, True)).replace("NAV_FR", nav(False))
+              .replace("LD_NL", ld(True)).replace("LD_EN", ld(False, True)).replace("LD_FR", ld(False)))
     for m in ("soleluna", "marge", "margin", "toxi"):
         if m in liq.lower():
             raise SystemExit("Contrôle : « %s » dans le lexique" % m)
