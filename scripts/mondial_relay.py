@@ -185,6 +185,12 @@ def main():
         voulues = {("#" + x.strip().lstrip("#")) for x in choix.split(",") if x.strip()}
         liste = [o for o in liste if o["name"] in voulues]
     print("Commandes à expédier par Mondial Relay : %d" % len(liste))
+    if essai:  # contrôle de l'accès aux adresses clients sur la dernière commande (oui/non seulement)
+        try:
+            d = s.gql("{ orders(first: 1, reverse: true) { nodes { name shippingAddress { zip countryCodeV2 } } } }")["orders"]["nodes"]
+            print("Accès aux adresses de livraison : %s" % ("oui" if d and (d[0]["shippingAddress"] or {}).get("zip") else "non ou aucune commande"))
+        except Exception as e:
+            print("Accès aux adresses de livraison : refusé (%s)" % str(e)[:200])
     manquants = [k for k in ("MR_LOGIN", "MR_PASSWORD", "MR_CUSTOMER_ID") if not os.environ.get(k, "").strip()]
     if not essai and manquants:
         sys.exit("Secrets GitHub manquants : %s (à ajouter par Amine dans Settings → Secrets and variables → Actions)." % ", ".join(manquants))
