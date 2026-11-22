@@ -122,7 +122,7 @@ jobs:
             K=$(openssl rand -hex 32) && echo -n "$K" > /tmp/k && \
             openssl enc -aes-256-cbc -pbkdf2 -salt -in $F -out /tmp/r.enc -pass file:/tmp/k && \
             openssl pkeyutl -encrypt -pubin -inkey config/cle_rapports.pem -in /tmp/k -out /tmp/k.enc && \
-            echo "=== CLE_CHIFFREE" && base64 -w0 /tmp/k.enc && echo && echo "=== RAPPORT_CHIFFRE" && base64 -w0 /tmp/r.enc && echo && echo "=== FIN"
+            echo "=== CLE_CHIFFREE" && base64 -w0 /tmp/k.enc && echo && echo "=== RAPPORT_CHIFFRE" && base64 -w 1000 /tmp/r.enc && echo && echo "=== FIN"
           elif [ "$A" = "rituals-simulation" ]; then python -u scripts/bol_simulation_rituals.py; python -u scripts/bol_simulation_deloox.py; \
             python -u scripts/bol_deloox.py --candidats && K=$(openssl rand -hex 32) && echo -n "$K" > /tmp/k && \
             openssl enc -aes-256-cbc -pbkdf2 -salt -in rapports/deloox_candidats.csv -out /tmp/r.enc -pass file:/tmp/k && \
