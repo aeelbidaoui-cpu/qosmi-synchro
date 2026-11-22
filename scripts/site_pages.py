@@ -199,6 +199,9 @@ def politiques():
         print("  %-20s ok (%s), NL : %s" % (typ, r["shopPolicy"]["url"], "ok" if not err else err))
 
 
+EN_AUSSI = True  # 22/11/2026 (Amine, version anglaise) : politiques Shopify aussi en anglais
+
+
 def politiques_nl():
     """Traduction NL des politiques Shopify (remplies en FR dans l'admin le 08/11/2026)."""
     from shopify_api import Shopify
@@ -227,6 +230,17 @@ def politiques_nl():
                          userErrors { field message } } }""",
                     {"id": r["resourceId"], "t": [{"locale": "nl", "key": "body", "value": nl[typ], "translatableContentDigest": body["digest"]}]})
         print("  %-20s NL : %s" % (typ, err["translationsRegister"]["userErrors"] or "ok"))
+        if "--en" in sys.argv or EN_AUSSI:
+            from site_pages_en import PAGES_EN, ADRESSE_EN
+            if typ == "CONTACT_INFORMATION":
+                v_en = ("<p><strong>%s</strong><br>%s<br>Email: <a href=\"mailto:%s\">%s</a><br>Company number (BCE): %s<br>VAT: %s</p>"
+                        % (e["raison"], ADRESSE_EN, c["email_service_client"], c["email_service_client"], e["bce"], e["tva"]))
+            else:
+                v_en = remplir(PAGES_EN[POLITIQUES[typ]]["en"], c, en=True)
+            err = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
+                             userErrors { field message } } }""",
+                        {"id": r["resourceId"], "t": [{"locale": "en", "key": "body", "value": v_en, "translatableContentDigest": body["digest"]}]})
+            print("  %-20s EN : %s" % (typ, err["translationsRegister"]["userErrors"] or "ok"))
 
 
 def _meme(a, b):
