@@ -1,0 +1,50 @@
+name: Qosmi - etiquettes Mondial Relay
+
+# 22/11/2026 (Amine : « vasy fait ca ») : étiquettes Mondial Relay créées à partir des commandes Shopify.
+# Lancé à la main seulement (chaque étiquette est facturée). Pas de planification.
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "essai = liste sans rien créer ; creer = crée les étiquettes (payant)"
+        type: choice
+        options: [essai, creer]
+        default: essai
+      commandes:
+        description: "creer : numéros de commande séparés par des virgules (#1001,#1002) ou « toutes »"
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: etiquettes-mondial-relay
+  cancel-in-progress: false
+
+jobs:
+  etiquettes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Étiquettes
+        env:
+          SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          MR_LOGIN: ${{ secrets.MR_LOGIN }}
+          MR_PASSWORD: ${{ secrets.MR_PASSWORD }}
+          MR_CUSTOMER_ID: ${{ secrets.MR_CUSTOMER_ID }}
+          MR_TELEPHONE: ${{ secrets.MR_TELEPHONE }}
+          COMMANDES: ${{ inputs.commandes }}
+        run: |
+          if [ "${{ inputs.action }}" = "creer" ]; then
+            python -u scripts/mondial_relay.py --creer "$COMMANDES"
+          else
+            python -u scripts/mondial_relay.py --essai
+          fi
