@@ -1,0 +1,45 @@
+name: Qosmi - bol simulation (lecture seule)
+
+# 22/11/2026 (Amine : « si on descendait notre bénéfice à 3 €… ») : simulations bol qui ne publient rien et ne touchent
+# pas aux relevés (caches seulement relus), lancées à la main, sans attendre la file du passage bol. Pas de planification.
+on:
+  workflow_dispatch:
+    inputs:
+      marge:
+        description: "Bénéfice net minimum simulé partout (euros)"
+        type: string
+        default: "3"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qosmi-bol-simulation
+  cancel-in-progress: false
+
+jobs:
+  simulation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/cache/restore@v4
+        with:
+          path: base/bol_marche.json
+          key: bol-${{ github.run_id }}
+          restore-keys: bol-
+      - uses: actions/cache/restore@v4
+        with:
+          path: base/rituals_catalogue.json
+          key: rituals-${{ github.run_id }}
+          restore-keys: rituals-
+      - name: Simulation
+        env:
+          SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
+          SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
+          TRISTA_URL: ${{ secrets.TRISTA_URL }}
+          MARGE: ${{ inputs.marge }}
+        run: python -u scripts/bol_simulation_marge.py --marge "${MARGE:-3}"
