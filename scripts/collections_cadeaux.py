@@ -39,6 +39,23 @@ COLLECTIONS = [
      "Damesparfums om cadeau te doen, van grote klassiekers tot nichecreaties."),
 ]
 
+# 22/11/2026 (Amine, version anglaise) : handle FR -> (adresse EN, titre EN, texte EN)
+LIVRE_EN = " Genuine, brand-new fragrances, in stock, delivered in 9 European countries."
+EN = {
+    "cadeaux-moins-30": ("fragrance-gifts-under-30", "Fragrance gifts under €30",
+                         "Fragrance gift ideas under €30: small sizes, eaux de toilette and lovely discoveries."),
+    "cadeaux-30-50": ("fragrance-gifts-30-50", "Fragrance gifts from €30 to €50",
+                      "Fragrances to give between €30 and €50, to delight someone without breaking the bank."),
+    "cadeaux-50-80": ("fragrance-gifts-50-80", "Fragrance gifts from €50 to €80",
+                      "Designer and niche fragrances to give between €50 and €80."),
+    "cadeaux-plus-80": ("fragrance-gifts-over-80", "Fragrance gifts over €80",
+                        "For a big gift: prestige and niche fragrances over €80."),
+    "cadeaux-pour-lui": ("fragrance-gifts-for-him", "Fragrance gifts for him",
+                         "Men's fragrances to give, from the great classics to niche creations."),
+    "cadeaux-pour-elle": ("fragrance-gifts-for-her", "Fragrance gifts for her",
+                          "Women's fragrances to give, from the great classics to niche creations."),
+}
+
 
 def catalogue():
     """{handle: (type, [prix des formats disponibles])} lu sur products.json (vide si la boutique ne répond pas)."""
@@ -122,6 +139,11 @@ def main():
                   {"id": cid, "p": retrait[i:i + 250]})
         tr = traduire(s, cid, {"title": t_nl, "handle": h_nl, "body_html": "<p>%s%s</p>" % (x_nl, LIVRE_NL),
                                "meta_title": "%s | Qosmi" % t_nl, "meta_description": (x_nl + LIVRE_NL)[:155]})
+        if h in EN:
+            h_en, t_en, x_en = EN[h]
+            tr += " · EN %s" % traduire(s, cid, {"title": t_en, "handle": h_en, "body_html": "<p>%s%s</p>" % (x_en, LIVRE_EN),
+                                                 "meta_title": "%s | Qosmi" % t_en, "meta_description": (x_en + LIVRE_EN)[:155]},
+                                        locale="en")
         print("%-20s %4d parfums (+%d, -%d) · NL %s" % (h, len(cible), len(ajout), len(retrait), tr))
 
 

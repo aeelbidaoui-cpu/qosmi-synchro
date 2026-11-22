@@ -21,6 +21,12 @@ SEO_FR = ("Bons plans parfums : des parfums originaux et neufs à prix plus doux
           "Livraison partout en Belgique.")
 SEO_NL = "Parfumkoopjes: originele, nieuwe parfums aan een zachtere prijs, speciaal voor jou besteld. Levering in heel België."
 
+# 22/11/2026 (Amine, version anglaise)
+TEXTE_EN = ("<p>A little more patience, a better price. On these fragrances, choose the size marked “Deal” "
+            "(or the product marked “Deal”): we order it specially for you, so it takes a few days longer than our "
+            "usual delivery times. Genuine, brand-new fragrances.</p>")
+SEO_EN = "Fragrance deals: genuine, brand-new fragrances at a gentler price, ordered specially for you."
+
 
 def main():
     from shopify_api import Shopify
@@ -46,6 +52,8 @@ def main():
               {"id": cid, "p": pub})
     tr = traduire(s, cid, {"title": "Koopjes", "handle": "koopjes", "body_html": TEXTE_NL,
                            "meta_title": "Parfumkoopjes | Qosmi", "meta_description": SEO_NL})
+    tr += " · EN %s" % traduire(s, cid, {"title": "Deals", "handle": "deals", "body_html": TEXTE_EN,
+                                         "meta_title": "Fragrance deals | Qosmi", "meta_description": SEO_EN}, locale="en")
     n = s.gql("query($id: ID!) { collection(id: $id) { productsCount { count } } }", {"id": cid})["collection"]["productsCount"]["count"]
     print("Collection bons-plans OK : %d fiches · NL %s" % (n, tr))
 
