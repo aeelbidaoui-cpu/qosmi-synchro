@@ -114,7 +114,7 @@
   "Un petit cadeau sur ta première commande": "A little gift on your first order",
   "Merci ! Ton cadeau de bienvenue arrive par e-mail.": "Thank you! Your welcome gift is on its way by email.",
   "Je m'inscris": "Sign me up",
-  "Pas de spam, désinscription en un clic. Voir notre <a href=\"{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}\">politique de confidentialité</a>.": "No spam, unsubscribe in one click. See our <a href=\"{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}\">privacy policy</a>.",
+  "Pas de spam, désinscription en un clic. Voir notre <a href=\"{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}\">politique de confidentialité</a>.": "No spam, unsubscribe in one click. See our <a href=\"{{ routes.root_url | append: '/pages/privacy-policy' | replace: '//', '/' }}\">privacy policy</a>.",
   "Non merci": "No thanks",
   "Saison": "Season",
   "Printemps": "Spring",

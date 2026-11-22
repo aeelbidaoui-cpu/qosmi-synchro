@@ -171,7 +171,8 @@ def section():
             for q_fr, r_fr, q_nl, r_nl in qs:
                 q, r = (q_nl, r_nl) if nl else FAQ_EN[q_fr] if en else (q_fr, r_fr)
                 if en:
-                    r = r.replace('href="/pages/', 'href="/en/pages/')
+                    r = (r.replace('href="/pages/', 'href="/en/pages/').replace("/en/pages/livraison", "/en/pages/shipping")
+                          .replace("/en/pages/retours", "/en/pages/returns"))
                 if nl:
                     r = r.replace('href="/pages/', 'href="/nl/pages/').replace("/nl/pages/retours", "/nl/pages/retourneren").replace("/nl/pages/lexique", "/nl/pages/geurwoordenboek")
                 out.append('<details class="qk-faq__q"><summary>%s</summary><div class="qk-faq__r"><p>%s</p></div></details>' % (q, r))

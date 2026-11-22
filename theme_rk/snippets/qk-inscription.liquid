@@ -28,7 +28,7 @@
         {%- if form.errors -%}<p class="qk-pop__erreur" role="alert" data-qk-pop-err>{{ form.errors | default_errors }}</p>{%- endif -%}
       {%- endif -%}
     {%- endform -%}
-    <p class="qk-pop__legal">{% if qk_nl %}Geen spam, uitschrijven met één klik. Zie ons <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">privacybeleid</a>.{% elsif qk_en %}No spam, unsubscribe in one click. See our <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">privacy policy</a>.{% else %}Pas de spam, désinscription en un clic. Voir notre <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">politique de confidentialité</a>.{% endif %}</p>
+    <p class="qk-pop__legal">{% if qk_nl %}Geen spam, uitschrijven met één klik. Zie ons <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">privacybeleid</a>.{% elsif qk_en %}No spam, unsubscribe in one click. See our <a href="{{ routes.root_url | append: '/pages/privacy-policy' | replace: '//', '/' }}">privacy policy</a>.{% else %}Pas de spam, désinscription en un clic. Voir notre <a href="{{ routes.root_url | append: '/pages/confidentialite' | replace: '//', '/' }}">politique de confidentialité</a>.{% endif %}</p>
     <button type="button" class="qk-pop__non" data-qk-pop-fermer>{% if qk_nl %}Nee, bedankt{% elsif qk_en %}No thanks{% else %}Non merci{% endif %}</button>
   </div>
 </div>

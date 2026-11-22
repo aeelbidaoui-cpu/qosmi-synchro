@@ -28,14 +28,24 @@ def cfg():
 IMAGES = {}  # {img_<nom>: adresse CDN} des images de assets/site (scripts/images_site.py), remplies par envoyer()
 
 
-def remplir(html, c, nl=False):
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+
+def remplir(html, c, nl=False, en=False):
+    """en=True : version anglaise (22/11/2026), liens internes vers /en/pages/<handle anglais>."""
+    from site_pages_en import PAGES_EN, ADRESSE_EN
     d = dt.date.today()
     v = dict(ENTREPRISE, email=c["email_service_client"],
              frais_livraison=c["frais_livraison"], frais_livraison_nl=c["frais_livraison"],
              delai_total=c["delai_livraison_fr"], delai_total_nl=c["delai_livraison_nl"],
              delai_etranger=c["delai_livraison_etranger_fr"], delai_etranger_nl=c["delai_livraison_etranger_nl"],
              delai_lointain=c["delai_livraison_lointain_fr"], delai_lointain_nl=c["delai_livraison_lointain_nl"],
-             date="%d %s %d" % (d.day, MOIS[d.month - 1], d.year), date_nl="%d %s %d" % (d.day, MAAND[d.month - 1], d.year))
+             date="%d %s %d" % (d.day, MOIS[d.month - 1], d.year), date_nl="%d %s %d" % (d.day, MAAND[d.month - 1], d.year),
+             date_en="%d %s %d" % (d.day, MONTHS[d.month - 1], d.year), adresse_en=ADRESSE_EN,
+             frais_livraison_en="€" + c["frais_livraison"].replace(" €", "").replace(",", "."),
+             delai_total_en=c.get("delai_livraison_en", c["delai_livraison_fr"]),
+             delai_etranger_en=c.get("delai_livraison_etranger_en", c["delai_livraison_etranger_fr"]),
+             delai_lointain_en=c.get("delai_livraison_lointain_en", c["delai_livraison_lointain_fr"]))
     v.update(IMAGES)
     html = html.strip()
     for k, val in v.items():
@@ -43,6 +53,9 @@ def remplir(html, c, nl=False):
     if nl:  # liens internes vers la version néerlandaise
         for p in PAGES:
             html = html.replace('href="/pages/%s"' % p["handle"], 'href="/nl/pages/%s"' % p["handle_nl"])
+    if en:  # liens internes vers la version anglaise
+        for h, p in PAGES_EN.items():
+            html = html.replace('href="/pages/%s"' % h, 'href="/en/pages/%s"' % p["handle_en"])
     html = re.sub(r'<figure class="qk-page-image">\s*<img src="\{img_[a-z_]+\}"[^>]*>\s*</figure>', "", html)  # image pas encore envoyée
     reste = re.findall(r"\{[a-z_]+\}", html)
     if reste:
@@ -103,9 +116,15 @@ def envoyer():
         dig = {x["key"]: x["digest"] for x in tr["translatableContent"]}
         t = [{"locale": "nl", "key": k, "value": v, "translatableContentDigest": dig[k]}
              for k, v in (("title", p["titre_nl"]), ("body_html", corps_nl), ("handle", p["handle_nl"])) if k in dig]
+        from site_pages_en import PAGES_EN
+        pen = PAGES_EN.get(p["handle"])
+        if pen:  # 22/11/2026 : version anglaise (langue non publiée tant que le site anglais n'est pas prêt)
+            corps_en = remplir(pen["en"], c, en=True)
+            t += [{"locale": "en", "key": k, "value": v, "translatableContentDigest": dig[k]}
+                  for k, v in (("title", pen["titre_en"]), ("body_html", corps_en), ("handle", pen["handle_en"])) if k in dig]
         e = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) {
                        userErrors { field message } } }""", {"id": pid, "t": t})["translationsRegister"]["userErrors"]
-        print("  %-32s %s, NL : %s" % (p["titre"], action, "ok" if not e else e))
+        print("  %-32s %s, NL%s : %s" % (p["titre"], action, " + EN" if pen else "", "ok" if not e else e))
     # menu du bas de page
     menus = s.gql("{ menus(first: 20) { nodes { id handle title items { id title type resourceId url } } } }")["menus"]["nodes"]
     pied = next((m for m in menus if m["handle"] == "footer"), None)

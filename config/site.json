@@ -50,5 +50,8 @@
   "delai_livraison_etranger_fr": "8 à 9 jours ouvrables",
   "delai_livraison_etranger_nl": "8 tot 9 werkdagen",
   "delai_livraison_lointain_fr": "9 à 11 jours ouvrables",
-  "delai_livraison_lointain_nl": "9 tot 11 werkdagen"
+  "delai_livraison_lointain_nl": "9 tot 11 werkdagen",
+  "delai_livraison_en": "6 to 7 working days",
+  "delai_livraison_etranger_en": "8 to 9 working days",
+  "delai_livraison_lointain_en": "9 to 11 working days"
 }
