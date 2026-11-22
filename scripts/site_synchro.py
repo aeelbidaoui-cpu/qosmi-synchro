@@ -38,7 +38,7 @@ M_PRIX = """mutation call($productId: ID!, $variants: [ProductVariantsBulkInput!
 M_STOCK = """mutation($input: InventorySetQuantitiesInput!, $cle: String!) {
   inventorySetQuantities(input: $input) @idempotent(key: $cle) {
     inventoryAdjustmentGroup { id } userErrors { code field message } } }"""
-Q_ETAT = """{ products(query: "status:active OR status:draft") { edges { node { id handle title status tags featuredMedia { id status }
+Q_ETAT = """{ products(query: "status:active OR status:draft") { edges { node { id handle title vendor productType status tags featuredMedia { id status }
   dujour: metafield(namespace: "qosmi", key: "du_jour") { value }
   pyramide: metafield(namespace: "qosmi", key: "pyramide_media") { value }
   variants { edges { node { id sku price inventoryQuantity selectedOptions { name value }
@@ -1121,6 +1121,16 @@ def textes():
     # toutes les fiches en ligne, y compris celles hors sélection gardées « épuisé » (sinon ~370 fiches sans anglais)
     en_ligne = vus + [p for p in produits if p["handle"] in par_handle and p not in vus
                       and par_handle[p["handle"]].get("status") == "ACTIVE"]
+    # 23/11/2026 : fiches en ligne absentes des listes des grossistes (gardées, jamais supprimées) → anglais depuis Shopify
+    connus = {p["handle"] for p in produits}
+    for x in par_handle.values():
+        if x.get("status") != "ACTIVE" or x.get("handle") in connus or not x.get("title"):
+            continue
+        noms_opt = {o["name"] for v in x["variantes"] for o in v.get("selectedOptions") or []}
+        en_ligne.append({"handle": x["handle"], "titre_fr": x["title"], "marque": x.get("vendor") or "",
+                         "type_fr": x.get("productType") or "", "teintes": "Teinte" in noms_opt,
+                         "variantes": [{"format_fr": {o["name"]: o["value"] for o in v.get("selectedOptions") or []}.get("Format", ""),
+                                        "sku": v.get("sku") or ""} for v in x["variantes"]]})
     fiches_en.completer(en_ligne, ligne_journal)
     sv.traduire(s, sc, en_ligne, locale="en")
     ligne_journal("Traductions EN envoyées")
