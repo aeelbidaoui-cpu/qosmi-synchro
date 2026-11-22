@@ -76,7 +76,24 @@ def joli_liste(xs, et):
     return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " " + et + " " + xs[-1]
 
 
-def produit(lignes, r, photos):
+def ajouter_normaux_attente(variantes):
+    """22/11/2026 (Amine) : à côté d'un testeur sans flacon normal de même contenance, ajoute ce flacon normal « épuisé »
+    (stock 0, prix indicatif = prix du testeur + 15 %, arrondi au ,90). Code : QS-N + code du testeur."""
+    normaux_vus = {(v["format_fr"], v["teinte"]) for v in variantes if " – " not in v["format_fr"]}
+    for v in list(variantes):
+        if not v["format_fr"].endswith(" – testeur"):
+            continue
+        f_fr, f_nl = v["format_fr"][:-len(" – testeur")], v["format_nl"].rsplit(" – ", 1)[0]
+        if (f_fr, v["teinte"]) in normaux_vus:
+            continue
+        n = dict(v)
+        n.update({"format_fr": f_fr, "format_nl": f_nl, "sku": PREFIXE_ATTENTE + v["sku"][3:], "ean": "",
+                  "stock": "0", "prix": "%.2f" % sl.arrondi_90_haut(float(v.get("prix") or 0) * 1.15), "attente": True})
+        variantes.insert(variantes.index(v), n)
+        normaux_vus.add((f_fr, v["teinte"]))
+
+
+def produit(lignes, r, photos, normaux_attente_auto=True):
     """Une fiche Qosmi (titre, description, catégorie…) + ses variantes, à partir des lignes SoleLuna d'un groupe."""
     base = sl.fiche(lignes[0], r, photos)  # catégorie, marque… (fiche d'un format, réutilisée)
     l0 = lignes[0]
@@ -166,6 +183,12 @@ def produit(lignes, r, photos):
             ref = normaux.get((v["format_fr"][:-len(" – testeur")], v["teinte"]))
             if ref and float(v.get("prix") or 0) >= ref and len(variantes) > 1:
                 variantes.remove(v)
+    # 22/11/2026 (Amine) : jamais une fiche avec le testeur seul : la version normale (en boîte) est toujours parmi les options.
+    # Si le grossiste ne la propose pas, on l'ajoute « épuisée » (stock 0) avec un prix indicatif (prix du testeur + 15 %,
+    # arrondi au ,90). Le jour où le grossiste la propose, la vraie variante (son propre code) prend sa place automatiquement
+    # au passage horaire (même format → l'ancienne est remplacée, voir entree_complete) avec le vrai prix et le stock.
+    if normaux_attente_auto:
+        ajouter_normaux_attente(variantes)
     if testeurs and any(" – testeur" not in v["format_fr"] for v in variantes):
         tags = [x for x in tags if x != "Testeurs"]  # pas de rubrique ni de badge « testeur » quand la fiche a aussi des flacons normaux
     seo = seo_textes(t_fr, t_nl, r, vols)
@@ -300,6 +323,7 @@ def ajouter_bons_plans(produits, r):
 # (pas de coffrets, miniatures, recharges, soins ; testeurs acceptés depuis le 18/11/2026, en option « – testeur »).
 SUR_COMMANDE_FR, SUR_COMMANDE_NL = " · Sur commande", " · Op bestelling"
 PREFIXE_SUR_COMMANDE = "QS-C"
+PREFIXE_ATTENTE = "QS-N"  # 22/11/2026 : version normale ajoutée « épuisée » à côté d'un testeur seul (voir produit())
 PREFIXE_SUR_COMMANDE_FUSION = "QS-D"  # format du 2e grossiste ajouté à une fiche SoleLuna du même parfum (genre différent)
 ALIAS_MARQUES = {"jpg": "Jean Paul Gaultier", "ysl": "Yves Saint Laurent", "d&g": "Dolce&Gabbana", "ck": "Calvin Klein",
                  "armani": "Giorgio Armani", "lancome": "Lancôme", "etat libre d orange": "Etat Libre d´Orange",
@@ -489,7 +513,7 @@ def ajouter_sur_commande(produits, lignes_sl, r, photos):
     k = 1 / (1 + r["tva"]) - r.get("paiement_pct", 0)
     bilan = {"fiches": 0, "formats": 0, "completees": 0}
     for g in groupes.values():
-        p = produit(g, r, photos)
+        p = produit(g, r, photos, normaux_attente_auto=False)  # prix du 2e grossiste calculés d'abord, flacon « épuisé » ensuite
         for v in p["variantes"]:
             achat, stock = sl.nombre(v["_achat"]), max(0, int(sl.nombre(v["stock"])))
             frais = rb["envoi_eur"] + r.get("emballage_eur", 0) + r.get("envoi_client_eur", 0)  # 20/11/2026 : + emballage + envoi client
@@ -528,6 +552,7 @@ def ajouter_sur_commande(produits, lignes_sl, r, photos):
             continue
         if existante:
             continue
+        ajouter_normaux_attente(p["variantes"])  # 22/11/2026 : jamais une fiche « testeur seul »
         p["tags"] = ", ".join([x for x in p["tags"].split(", ") if x] + ["bon-plan", "sur-commande"])
         p["sur_commande"] = True
         produits.append(p)
