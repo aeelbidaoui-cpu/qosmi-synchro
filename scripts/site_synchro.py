@@ -1110,8 +1110,11 @@ def textes():
     seo_fiches.enrichir(vus, ligne_journal)
     ok = err = 0
     for p in vus:
-        d = s.gql(sc.M_MAJ, {"product": {"id": par_handle[p["handle"]]["id"], "descriptionHtml": p["desc_fr"],
-                                         "seo": {"title": p["seo_titre_fr"], "description": p["seo_desc_fr"]}}})["productUpdate"]
+        champs = {"id": par_handle[p["handle"]]["id"], "descriptionHtml": p["desc_fr"],
+                  "seo": {"title": p["seo_titre_fr"], "description": p["seo_desc_fr"]}}
+        if p.get("type_fr") in TOUTES_MARQUES:  # 23/11/2026 : rayon skincare, types traduits en français dans le titre
+            champs["title"] = p["titre_fr"]
+        d = s.gql(sc.M_MAJ, {"product": champs})["productUpdate"]
         if d["userErrors"]:
             err += 1
         else:
