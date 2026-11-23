@@ -93,6 +93,113 @@ EN = {
 }
 
 
+# 23/11/2026 (Amine, plan SEO) : pages par note, pour les recherches « parfum vanille », « parfum oud »…
+# (handle FR, accords (codes des profils, 5 premiers), mots des notes FR, titre FR, handle NL, titre NL, texte FR, texte NL,
+#  handle EN, titre EN, texte EN)
+NOTES = [
+    ("parfums-vanille", {"vanille"}, ("vanille",), "Parfums à la vanille", "vanille-parfums", "Vanilleparfums",
+     "La vanille apporte de la douceur et de la chaleur : gourmande avec le caramel ou la fève tonka, plus sombre avec le tabac ou les bois.",
+     "Vanille geeft zachtheid en warmte: zoet met karamel of tonkaboon, donkerder met tabak of hout.",
+     "vanilla-fragrances", "Vanilla fragrances",
+     "Vanilla brings softness and warmth: gourmand with caramel or tonka bean, darker with tobacco or woods."),
+    ("parfums-oud", {"oud"}, ("oud", "agarwood", "bois d'agar"), "Parfums à l'oud", "oud-parfums", "Oudparfums",
+     "L'oud, ou bois d'agar, donne des parfums profonds, boisés et parfois fumés, souvent associés à la rose, au safran ou à l'ambre.",
+     "Oud of agarhout geeft diepe, houtige en soms rokerige geuren, vaak samen met roos, saffraan of amber.",
+     "oud-fragrances", "Oud fragrances",
+     "Oud, or agarwood, gives deep, woody and sometimes smoky fragrances, often paired with rose, saffron or amber."),
+    ("parfums-cuir", {"cuir"}, ("cuir", "daim"), "Parfums au cuir", "leer-parfums", "Leerparfums",
+     "Les notes de cuir et de daim donnent du caractère : doux et poudrés, ou plus fumés et bruts.",
+     "Leer- en suèdenoten geven karakter: zacht en poederig, of rokeriger en ruwer.",
+     "leather-fragrances", "Leather fragrances",
+     "Leather and suede notes add character: soft and powdery, or smokier and rawer."),
+    ("parfums-rose", {"rose"}, ("rose",), "Parfums à la rose", "rozenparfums", "Rozenparfums",
+     "La rose se porte de mille façons : fraîche et fruitée, poudrée, ou profonde avec l'oud et les épices.",
+     "Roos draag je op duizend manieren: fris en fruitig, poederig, of diep met oud en kruiden.",
+     "rose-fragrances", "Rose fragrances",
+     "Rose can be worn in a thousand ways: fresh and fruity, powdery, or deep with oud and spices."),
+    ("parfums-ambres", {"ambre"}, ("ambre", "ambre gris"), "Parfums ambrés", "amberparfums", "Amberparfums",
+     "Les parfums ambrés sont chauds et enveloppants : résines, vanille, épices douces et bois.",
+     "Amberparfums zijn warm en omhullend: harsen, vanille, zachte kruiden en hout.",
+     "amber-fragrances", "Amber fragrances",
+     "Amber fragrances are warm and enveloping: resins, vanilla, soft spices and woods."),
+    ("parfums-boises", {"boise"}, ("santal", "cèdre", "vétiver"), "Parfums boisés", "houtige-parfums", "Houtige parfums",
+     "Santal crémeux, cèdre sec, vétiver terreux : les parfums boisés sont élégants et faciles à porter toute l'année.",
+     "Romig sandelhout, droge ceder, aardse vetiver: houtige parfums zijn elegant en het hele jaar draagbaar.",
+     "woody-fragrances", "Woody fragrances",
+     "Creamy sandalwood, dry cedar, earthy vetiver: woody fragrances are elegant and easy to wear all year round."),
+    ("parfums-gourmands", {"gourmand", "caramel", "chocolat", "cafe", "miel", "noisette", "amande"}, ("caramel", "praliné", "chocolat", "café", "miel"),
+     "Parfums gourmands", "zoete-parfums", "Zoete parfums",
+     "Caramel, praliné, café, chocolat ou miel : des parfums qui rappellent la pâtisserie, chaleureux et réconfortants.",
+     "Karamel, praliné, koffie, chocolade of honing: geuren die aan gebak doen denken, warm en troostend.",
+     "gourmand-fragrances", "Gourmand fragrances",
+     "Caramel, praline, coffee, chocolate or honey: fragrances that recall patisserie, warm and comforting."),
+    ("parfums-agrumes", {"agrumes"}, ("bergamote", "citron", "mandarine", "pamplemousse"), "Parfums aux agrumes", "citrusparfums", "Citrusparfums",
+     "Bergamote, citron, mandarine, pamplemousse : des parfums frais et lumineux, parfaits quand il fait beau.",
+     "Bergamot, citroen, mandarijn, pompelmoes: frisse en heldere geuren, perfect als het mooi weer is.",
+     "citrus-fragrances", "Citrus fragrances",
+     "Bergamot, lemon, mandarin, grapefruit: fresh and bright fragrances, perfect in sunny weather."),
+    ("parfums-musques", {"musque"}, ("musc", "musc blanc"), "Parfums musqués", "muskusparfums", "Muskusparfums",
+     "Le musc donne un effet « peau propre », doux et proche du corps, ou plus sensuel selon les accords.",
+     "Muskus geeft een effect van 'schone huid', zacht en dicht bij het lichaam, of sensueler naargelang de akkoorden.",
+     "musky-fragrances", "Musky fragrances",
+     "Musk gives a 'clean skin' effect, soft and close to the body, or more sensual depending on the accords."),
+    ("parfums-epices", {"epice_chaud", "cannelle"}, ("cannelle", "cardamome", "safran", "poivre"), "Parfums épicés", "kruidige-parfums", "Kruidige parfums",
+     "Cannelle, cardamome, safran ou poivre : des parfums épicés qui réchauffent et donnent du relief.",
+     "Kaneel, kardemom, saffraan of peper: kruidige geuren die verwarmen en reliëf geven.",
+     "spicy-fragrances", "Spicy fragrances",
+     "Cinnamon, cardamom, saffron or pepper: spicy fragrances that warm up and add depth."),
+    ("parfums-fleurs-blanches", {"fleurs_blanches", "tubereuse", "jasmin"}, ("jasmin", "tubéreuse", "fleur d'oranger", "gardénia"),
+     "Parfums aux fleurs blanches", "witte-bloemen-parfums", "Parfums met witte bloemen",
+     "Jasmin, tubéreuse, fleur d'oranger, gardénia : des fleurs blanches lumineuses, crémeuses ou solaires.",
+     "Jasmijn, tuberoos, oranjebloesem, gardenia: stralende witte bloemen, romig of zonnig.",
+     "white-floral-fragrances", "White floral fragrances",
+     "Jasmine, tuberose, orange blossom, gardenia: radiant white flowers, creamy or sunny."),
+    ("parfums-tabac", {"tabac"}, ("tabac", "feuille de tabac"), "Parfums au tabac", "tabaksparfums", "Tabaksparfums",
+     "Le tabac donne des parfums chauds et miellés, souvent avec la vanille, le cuir ou les fruits secs.",
+     "Tabak geeft warme, honingachtige geuren, vaak met vanille, leer of gedroogd fruit.",
+     "tobacco-fragrances", "Tobacco fragrances",
+     "Tobacco gives warm, honeyed fragrances, often with vanilla, leather or dried fruit."),
+    ("parfums-iris", {"iris", "poudre"}, ("iris",), "Parfums à l'iris", "irisparfums", "Irisparfums",
+     "L'iris donne des parfums poudrés, élégants et un peu froids, entre fleur et cosmétique.",
+     "Iris geeft poederige, elegante en wat koele geuren, tussen bloem en cosmetica.",
+     "iris-fragrances", "Iris fragrances",
+     "Iris gives powdery, elegant and slightly cool fragrances, between flower and cosmetics."),
+    ("parfums-frais-marins", {"aquatique", "ozonique", "frais"}, ("notes marines", "sel marin", "notes aquatiques"),
+     "Parfums frais et marins", "frisse-zeeparfums", "Frisse en zilte parfums",
+     "Notes marines, sel, air frais : des parfums légers qui rappellent la mer, faciles à porter en journée.",
+     "Zeenoten, zout, frisse lucht: lichte geuren die aan de zee doen denken, makkelijk overdag te dragen.",
+     "fresh-marine-fragrances", "Fresh and marine fragrances",
+     "Marine notes, salt, fresh air: light fragrances that recall the sea, easy to wear during the day."),
+]
+NOTE_NOTES_FR = " Sélection faite d'après les accords et les notes de chaque parfum ; à prendre comme une indication."
+NOTE_NOTES_NL = " Selectie op basis van de akkoorden en noten van elk parfum; louter indicatief."
+NOTE_NOTES_EN = " Selection based on each fragrance's accords and notes; for guidance only."
+
+
+def mots_suffisent(mots):
+    return bool(set(mots) & {"oud", "agarwood", "bois d'agar", "cuir", "daim", "tabac", "feuille de tabac", "notes marines", "sel marin", "notes aquatiques"})
+
+
+def membres_notes(P, accords, mots):
+    out = []
+    for h, v in P.items():
+        if "testeur" in h or "tester" in h:
+            continue
+        ac = set((v.get("ac") or [])[:3])  # les 3 accords dominants
+        notes = [n.lower() for k in ("t", "c", "f", "n") for n in ((v.get("nf") or {}).get(k) or [])]
+        # la note seule suffit pour les matières marquantes (oud, cuir, tabac, notes marines) ; sinon accord dominant
+        if ac & accords or (mots_suffisent(mots) and any(any(m == n or n.startswith(m + " ") for m in mots) for n in notes)):
+            out.append(h)
+    return sorted(out)
+
+
+for _h, _ac, _mots, _tfr, _hnl, _tnl, _xfr, _xnl, _hen, _ten, _xen in NOTES:
+    COLLECTIONS.append((_h, "NOTES", (_ac, _mots), _tfr, _hnl, _tnl, _xfr, _xnl,
+                        "%s : une sélection de parfums originaux et neufs, livrés partout en Belgique." % _tfr,
+                        "%s: een selectie van originele, nieuwe parfums, geleverd in heel België." % _tnl))
+    EN[_h] = (_hen, _ten, _xen, "%s: a selection of genuine, brand-new fragrances, delivered in 9 European countries." % _ten)
+
+
 def disponibles():
     """Fiches en vente (au moins un format disponible), lues sur products.json. Ensemble vide si la boutique ne répond pas."""
     import urllib.request
@@ -112,7 +219,8 @@ def disponibles():
 
 def main():
     P = json.load(open(os.path.join(RACINE, "config", "profils_parfums.json"), encoding="utf-8"))["parfums"]
-    voulus = {c[0]: sorted(h for h, v in P.items() if c[2] in v.get(c[1], []) and "testeur" not in h and "tester" not in h)
+    voulus = {c[0]: (membres_notes(P, *c[2]) if c[1] == "NOTES" else
+                     sorted(h for h, v in P.items() if c[2] in v.get(c[1], []) and "testeur" not in h and "tester" not in h))
               for c in COLLECTIONS}
     for c in COLLECTIONS:
         print("%-24s %4d fiches dans les profils" % (c[0], len(voulus[c[0]])))
@@ -134,7 +242,8 @@ def main():
     dispo = disponibles()
     print("parfums disponibles sur la boutique : %d" % len(dispo))
     for h, cle, val, t_fr, h_nl, t_nl, x_fr, x_nl, m_fr, m_nl in COLLECTIONS:
-        champs = {"title": t_fr, "descriptionHtml": "<p>%s%s</p>" % (x_fr, NOTE_FR), "sortOrder": "BEST_SELLING",
+        nf, nn, ne = (NOTE_NOTES_FR, NOTE_NOTES_NL, NOTE_NOTES_EN) if cle == "NOTES" else (NOTE_FR, NOTE_NL, NOTE_EN)
+        champs = {"title": t_fr, "descriptionHtml": "<p>%s%s</p>" % (x_fr, nf), "sortOrder": "BEST_SELLING",
                   "seo": {"title": "%s | Qosmi" % t_fr, "description": m_fr}}
         ex = s.gql("query($h: String!) { collectionByIdentifier(identifier: {handle: $h}) { id } }", {"h": h}).get("collectionByIdentifier")
         if ex:
@@ -169,11 +278,11 @@ def main():
         for i in range(0, len(retrait), 250):
             s.gql("mutation($id: ID!, $p: [ID!]!) { collectionRemoveProducts(id: $id, productIds: $p) { userErrors { message } } }",
                   {"id": cid, "p": retrait[i:i + 250]})
-        tr = traduire(s, cid, {"title": t_nl, "handle": h_nl, "body_html": "<p>%s%s</p>" % (x_nl, NOTE_NL),
+        tr = traduire(s, cid, {"title": t_nl, "handle": h_nl, "body_html": "<p>%s%s</p>" % (x_nl, nn),
                                "meta_title": "%s | Qosmi" % t_nl, "meta_description": m_nl})
         if h in EN:
             h_en, t_en, x_en, m_en = EN[h]
-            tr += " · EN %s" % traduire(s, cid, {"title": t_en, "handle": h_en, "body_html": "<p>%s%s</p>" % (x_en, NOTE_EN),
+            tr += " · EN %s" % traduire(s, cid, {"title": t_en, "handle": h_en, "body_html": "<p>%s%s</p>" % (x_en, ne),
                                                  "meta_title": "%s | Qosmi" % t_en, "meta_description": m_en[:155]}, locale="en")
         print("%-24s %4d fiches (+%d, -%d) · NL %s" % (h, len(cible), len(ajout), len(retrait), tr))
 
