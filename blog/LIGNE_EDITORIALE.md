@@ -55,6 +55,11 @@ Faits :
 - [x] 008 Parfums à la vanille : lesquels choisir selon ton style ?
 
 À faire :
+- [ ] Parfums arabes : comment les choisir (Lattafa, Armaf, Al Haramain, Afnan) ? (23/11, plan SEO : forte demande en Belgique)
+- [ ] Lattafa : les parfums incontournables (Khamrah, Yara, Asad…) et pour qui ?
+- [ ] Comment reconnaître un parfum authentique et acheter en ligne en confiance ? (sans citer de concurrent)
+- [ ] Baccarat Rouge 540 : notes, versions (Eau de Parfum, Extrait) et pour qui ? (jamais « dupe » ni « clone »)
+- [ ] Idées cadeaux parfum : petits formats, grands classiques ou niche ? (sans prix)
 - [ ] Nishane Hundred Silent Ways : notes et pour qui ?
 - [ ] Comment choisir un parfum en ligne sans le sentir ?
 - [ ] Les familles olfactives expliquées (hespéridé, floral, boisé, ambré, fougère, chypre, cuir)
