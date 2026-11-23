@@ -135,7 +135,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "politiques-nl" ]; then python -u scripts/site_pages.py --politiques-nl
           elif [ "${{ inputs.action }}" = "politiques" ]; then python -u scripts/site_pages.py --politiques
           elif [ "${{ inputs.action }}" = "skincare-apercu" ]; then python -u scripts/skincare.py --apercu
-          elif [ "${{ inputs.action }}" = "politique-livraison" ]; then python -u scripts/site_pages.py --politiques --seulement livraison && python -u scripts/site_pages.py --politiques-nl --seulement livraison
+          elif [ "${{ inputs.action }}" = "politique-livraison" ]; then python -u scripts/site_pages.py --politiques-nl --seulement livraison
           elif [ "${{ inputs.action }}" = "pages-legales" ]; then python -u scripts/site_pages.py
           elif [ "${{ inputs.action }}" = "photos-adp" ]; then python -u scripts/photos_adp.py
           elif [ "${{ inputs.action }}" = "photos-cadre" ]; then pip install -q pillow numpy && python -u scripts/photos_cadre.py
