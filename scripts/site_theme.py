@@ -81,6 +81,11 @@ COLLECTIONS = [  # (handle, titre, colonne, valeurs)
     ("black-friday", "Black Friday", "TAG", ["black-friday-remise"]),  # 17/11/2026 : -10 % (scripts/black_friday.py)
     ("nouveautes", "Nouveautés", "TYPE", PARFUMS),  # 10/11/2026 : triée par date d'ajout (voir TRI)  # 10/11/2026 : parfums vraiment moins chers que le concurrent de référence ("soins", "Soins", "TYPE", SOINS),
     ("maquillage", "Maquillage", "TYPE", ["Maquillage"]),
+    # 23/11/2026 : rayon skincare (demande d'Amine : « une page skincare avec tout ce qu'on peut avoir chez nos fournisseurs »)
+    ("skincare", "Skincare", "TYPE", ["Soins du visage", "Soins du corps", "Solaires et autobronzants"]),
+    ("soins-visage", "Soins du visage", "TYPE", ["Soins du visage"]),
+    ("soins-corps", "Soins du corps", "TYPE", ["Soins du corps"]),
+    ("solaires", "Solaires et autobronzants", "TYPE", ["Solaires et autobronzants"]),
 ]
 MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-homme"), ("Mixte", "parfums-mixtes"),
                                # 13/11/2026 : collections par saison (scripts/collections_profils.py), demande d'Amine
@@ -90,7 +95,8 @@ MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-h
         ("Niche", "niche", []),  # Testeurs retiré le 08/11/2026 (en suspens, question juridique)
         ("Parfums arabes", "parfums-arabes", []),  # 08/11/2026 : activé (174 parfums arabes en ligne)
         ("Coffrets", "coffrets", []),  # 10/11/2026 : coffrets pour les fêtes (demande d'Amine)
-        ("Bons plans", "bons-plans", []),  # 14/11/2026 : option « Bon plan » (scripts/bons_plans.py), demande d'Amine
+        ("Bons plans", "bons-plans", []),
+        ("Skincare", "skincare", [("Visage", "soins-visage"), ("Corps", "soins-corps"), ("Solaires", "solaires")]),  # 23/11/2026  # 14/11/2026 : option « Bon plan » (scripts/bons_plans.py), demande d'Amine
         ("Idées cadeaux", "page:idees-cadeaux-noel", []),  # 13/11/2026 : guide de Noël, en haut jusqu'à fin décembre (demande d'Amine)
         ("Trouve ton parfum", "page:quiz", []),  # 12/11/2026 : quiz parfum ; la recherche par odeurs est liée depuis le quiz et les fiches
         ("Marques", "page:marques", []),  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)

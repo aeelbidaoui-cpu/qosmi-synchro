@@ -96,6 +96,7 @@ NL = {
  "Parfums de marque et de niche, 100 % authentiques.": "Merkparfums en nicheparfums, 100 % authentiek.",
  "Découvrir": "Ontdekken", "Le parfum du jour": "Parfum van de dag", "Prochain parfum dans": "Volgende parfum over",
  "Favoris": "Favorieten",
+ "Skincare": "Skincare", "Soins du visage": "Gezichtsverzorging", "Soins du corps": "Lichaamsverzorging", "Solaires et autobronzants": "Zon en zelfbruiners", "Visage": "Gezicht", "Corps": "Lichaam", "Solaires": "Zon",
  "Idées cadeaux": "Cadeau-ideeën", "Bons plans": "Koopjes", "Parfums d'hiver": "Winterparfums", "Parfums de printemps": "Lenteparfums",
  "Parfums d'été": "Zomerparfums", "Parfums d'automne": "Herfstparfums",
  "Les parfums qu'on nous demande le plus. Une sélection de grandes maisons et de niche, choisie avec soin.":
@@ -139,6 +140,7 @@ EN = {
  "Parfums de marque et de niche, 100 % authentiques.": "Designer and niche fragrances, 100% authentic.",
  "Découvrir": "Discover", "Le parfum du jour": "Fragrance of the day", "Prochain parfum dans": "Next fragrance in",
  "Favoris": "Favourites",
+ "Skincare": "Skincare", "Soins du visage": "Face care", "Soins du corps": "Body care", "Solaires et autobronzants": "Sun care and self-tanners", "Visage": "Face", "Corps": "Body", "Solaires": "Sun care",
  "Idées cadeaux": "Gift ideas", "Bons plans": "Deals", "Parfums d'hiver": "Winter fragrances", "Parfums de printemps": "Spring fragrances",
  "Parfums d'été": "Summer fragrances", "Parfums d'automne": "Autumn fragrances",
  "Les parfums qu'on nous demande le plus. Une sélection de grandes maisons et de niche, choisie avec soin.":

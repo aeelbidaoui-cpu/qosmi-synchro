@@ -250,9 +250,12 @@ def selection():
     d = json.load(open(chemin, encoding="utf-8"))
     global INTERDITS
     INTERDITS = {e.lstrip("0") for e in d.get("ean_interdits", {})}
+    global TOUTES_MARQUES  # 23/11/2026 : rayon skincare, toutes les marques des grossistes (demande d'Amine)
+    TOUTES_MARQUES = set(d.get("categories_toutes_marques", []))
     return {m.lower() for m in d.get("marques", [])}, set(d.get("categories", []))
 
 
+TOUTES_MARQUES = set()
 INTERDITS = set()  # 09/11/2026 : EAN aux ingrédients interdits dans l'UE (Lilial, D5) : jamais affichés
 
 
@@ -268,7 +271,7 @@ def visible(p, sel):
         return False
     if any(str(v.get("ean", "")).lstrip("0") in INTERDITS for v in p.get("variantes", [])):
         return False
-    if not (sel is None or (p["marque"].lower() in sel[0] and p["type_fr"] in sel[1])):
+    if not (sel is None or p["type_fr"] in TOUTES_MARQUES or (p["marque"].lower() in sel[0] and p["type_fr"] in sel[1])):
         return False
     if ARABES is None:
         ARABES, CONC = sl.marques_arabes(), sl.concurrent()
