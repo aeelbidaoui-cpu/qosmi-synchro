@@ -100,5 +100,27 @@ def main():
     print("OK photos Notino trouvées : %d (dont %d d'au moins 700 px de haut)" % (len(trouve), hautes))
 
 
+def lot():
+    """Photos Notino déjà trouvées pour les fiches de photos_a_ameliorer.json → rapports/theme/notino_par_fiche.json {handle: url}."""
+    import site_synchro as ss
+    import site_variantes as sv
+    if os.environ.get("SOLELUNA_EMAIL"):
+        ss.listes_serveur()
+    produits = sv.preparer(exemples=False)
+    cibles = set(json.load(open(os.path.join(RACINE, "config", "photos_a_ameliorer.json"), encoding="utf-8"))["handles"])
+    hd = json.load(open(os.path.join(RACINE, "config", "photos_notino_hd.json"), encoding="utf-8"))["par_ean"]
+    out = {}
+    for p in produits:
+        if p["handle"] in cibles:
+            for v in p["variantes"]:
+                u = hd.get(str(v.get("ean") or "").lstrip("0"))
+                if u and "testeur" not in (v.get("format_fr") or ""):
+                    out[p["handle"]] = u
+                    break
+    os.makedirs(os.path.join(RACINE, "rapports", "theme"), exist_ok=True)
+    json.dump(out, open(os.path.join(RACINE, "rapports", "theme", "notino_par_fiche.json"), "w"), ensure_ascii=False)
+    print("OK fiches à photo trop petite avec une photo Notino : %d / %d" % (len(out), len(cibles)))
+
+
 if __name__ == "__main__":
-    main()
+    lot() if "--lot" in sys.argv else main()
