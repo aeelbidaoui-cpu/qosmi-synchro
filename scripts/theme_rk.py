@@ -56,7 +56,7 @@ def marques_bande(marques):
 
 
 ACHETER = """{%- if closest.product.available -%}
-<button type="button" class="qk-acheter" data-qk-acheter>{% if request.locale.iso_code == 'nl' %}Nu kopen{% else %}Acheter maintenant{% endif %}</button>
+<button type="button" class="qk-acheter" data-qk-acheter>{% if request.locale.iso_code == 'nl' %}Nu kopen{% elsif request.locale.iso_code == 'en' %}Buy now{% else %}Acheter maintenant{% endif %}</button>
 <script>
 document.querySelectorAll('[data-qk-acheter]').forEach(function (b) {
   if (b.dataset.pret) return; b.dataset.pret = '1';
@@ -218,6 +218,10 @@ def snippet_gpsr():
     assign t_titre = 'Productveiligheid'
     assign t_fab = 'Fabrikant / verantwoordelijke persoon'
     assign t_avert = 'Ontvlambaar. Buiten bereik van kinderen houden. Niet in de ogen of op geïrriteerde huid sprayen. Uitsluitend voor uitwendig gebruik. Bewaren op een koele plaats, uit de buurt van warmte, vlammen en zonlicht. Lees de ingrediëntenlijst op de verpakking als u allergisch bent.'
+  elsif request.locale.iso_code == 'en'
+    assign t_titre = 'Product safety'
+    assign t_fab = 'Manufacturer / responsible person'
+    assign t_avert = 'Flammable. Keep out of reach of children. Do not spray into the eyes or onto irritated skin. For external use only. Store in a cool place, away from heat, flames and sunlight. If you have allergies, check the ingredient list on the packaging.'
   else
     assign t_titre = 'Sécurité du produit'
     assign t_fab = 'Fabricant / personne responsable'
@@ -251,7 +255,7 @@ def snippet_recherche():
   {% if load_empty_state %}
     <div class="predictive-search-results__inner">
       <div id="predictive-search-products" class="predictive-search-results__products"{% if products_test_id %} data-testid="{{ products_test_id }}"{% endif %}>
-        <h4 class="predictive-search-results__title">{% if request.locale.iso_code == 'nl' %}Populair{% else %}Les incontournables{% endif %}</h4>
+        <h4 class="predictive-search-results__title">{% if request.locale.iso_code == 'nl' %}Populair{% elsif request.locale.iso_code == 'en' %}Must-haves{% else %}Les incontournables{% endif %}</h4>
         <ul class="predictive-search-results__list predictive-search-results__wrapper-products list-unstyled">
           {%- assign qk_liste = '""" + liste + """' | split: ',' -%}
           {%- assign qk_jour = 'now' | date: '%j' | times: 1 -%}
@@ -514,11 +518,14 @@ def construire(fichiers, marques):
         det["blocks"].pop(k, None)
     det["blocks"]["qk_livraison"] = liquide(
         "<p class=\"qk-livraison\">{% if request.locale.iso_code == 'nl' %}Afhaalpunt € 2,95 · gratis vanaf 2 artikelen · aan huis € 6,95"
+        "{% elsif request.locale.iso_code == 'en' %}Pickup point €2.95 · free from 2 items · home delivery €6.95"
         "{% else %}" + LIVRAISON + "{% endif %}</p>")
     det["blocks"]["qk_rassurance"] = liquide(
         "<div class=\"qk-rassurance\">{% if request.locale.iso_code == 'nl' %}"
         "<span>Originele parfum, nieuw, met aankoopfactuur</span><span>14 dagen om van gedacht te veranderen (ongeopende fles)</span>"
-        "<span>Betalen met Bancontact, kaart of Apple Pay</span>{% else %}"
+        "<span>Betalen met Bancontact, kaart of Apple Pay</span>{% elsif request.locale.iso_code == 'en' %}"
+        "<span>Original fragrance, new, with purchase invoice</span><span>14 days to change your mind (unopened bottle)</span>"
+        "<span>Pay with Bancontact, card or Apple Pay</span>{% else %}"
         "<span>Parfum original, neuf, avec facture d'achat</span><span>14 jours pour changer d'avis (flacon non ouvert)</span>"
         "<span>Paiement Bancontact, carte ou Apple Pay</span>{% endif %}</div>")
     det["blocks"]["qk_gpsr"] = liquide("{% render 'qk-gpsr', product: closest.product %}")

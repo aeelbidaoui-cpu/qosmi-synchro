@@ -56,7 +56,7 @@
   {%- if section.settings.tout_lien != blank -%}
     {%- assign qk_tout = section.settings.tout_lien -%}
     {%- if request.locale.iso_code == 'nl' -%}{%- assign qk_tout = '/nl' | append: qk_tout -%}{%- endif -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_tout = '/en' | append: qk_tout -%}{%- endif -%}
-    <div class="qk-largeur qk-marques__tout"><a class="qk-lien" href="{{ qk_tout }}">{% if request.locale.iso_code == 'nl' and section.settings.tout_texte_nl != blank %}{{ section.settings.tout_texte_nl }}{% else %}{{ section.settings.tout_texte }}{% endif %}</a></div>
+    <div class="qk-largeur qk-marques__tout"><a class="qk-lien" href="{{ qk_tout }}">{% if request.locale.iso_code == 'nl' and section.settings.tout_texte_nl != blank %}{{ section.settings.tout_texte_nl }}{% elsif request.locale.iso_code == 'en' %}All brands{% else %}{{ section.settings.tout_texte }}{% endif %}</a></div>
   {%- endif -%}
 </section>
 

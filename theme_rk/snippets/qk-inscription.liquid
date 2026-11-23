@@ -16,7 +16,7 @@
     <div class="qk-pop__logo">{% render 'qk-logo', hauteur: 22 %}</div>
     {%- if qk_j <= 20261119 -%}<p class="qk-pop__sur">{% if qk_nl %}Black Friday · 27 tot 30 november{% elsif qk_en %}Black Friday · 27 to 30 November{% else %}Black Friday · du 27 au 30 novembre{% endif %}</p>{%- endif -%}
     <h2 id="qk-pop-titre" class="qk-pop__titre">{% if qk_nl %}Een klein cadeau bij je eerste bestelling{% elsif qk_en %}A little gift on your first order{% else %}Un petit cadeau sur ta première commande{% endif %}</h2>
-    <p class="qk-pop__texte">{% if qk_nl %}Schrijf je in en ontvang je welkomstcadeau per e-mail{% if qk_j <= 20261119 %}, plus een seintje zodra de Black Friday-korting van -10 % start{% else %}, plus onze nieuwe parfums en Koopjes{% endif %}.{% else %}Inscris-toi et reçois ton cadeau de bienvenue par e-mail{% if qk_j <= 20261119 %}, et un rappel dès que le -10 % du Black Friday commence{% else %}, et nos nouveautés et Bons plans{% endif %}.{% endif %}</p>
+    <p class="qk-pop__texte">{% if qk_nl %}Schrijf je in en ontvang je welkomstcadeau per e-mail{% if qk_j <= 20261119 %}, plus een seintje zodra de Black Friday-korting van -10 % start{% else %}, plus onze nieuwe parfums en Koopjes{% endif %}.{% elsif qk_en %}Sign up and get your welcome gift by email, plus our new fragrances and Deals.{% else %}Inscris-toi et reçois ton cadeau de bienvenue par e-mail{% if qk_j <= 20261119 %}, et un rappel dès que le -10 % du Black Friday commence{% else %}, et nos nouveautés et Bons plans{% endif %}.{% endif %}</p>
     {%- form 'customer', id: 'qk-pop-form', class: 'qk-pop__form' -%}
       <input type="hidden" name="contact[tags]" value="newsletter,popup">
       {%- if form.posted_successfully? -%}
