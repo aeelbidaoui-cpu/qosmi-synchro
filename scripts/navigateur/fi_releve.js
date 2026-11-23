@@ -29,6 +29,7 @@ window.fiExtraire = async (slug) => {
   const blocs = {}; let cur = null;
   if (n0 >= 0) for (let i = n0 + 1; i < (n1 > n0 ? n1 : L.length); i++) {
     const s = L[i];
+    if (/^(Olfactory neighbou?rs|Liked this\?|BY NOTES|Similar scents|What people say|Add your rating|Overall rating|Scent match)/i.test(s)) break;  // 23/11/2026 : nouvelle page FI
     if (/^(TOP NOTES|TOP|HEART NOTES|HEART|MIDDLE NOTES|BASE NOTES|BASE|NOTES)$/.test(s)) { cur = s.split(' ')[0]; blocs[cur] = []; continue; }
     if (cur) blocs[cur].push(s);
   }
