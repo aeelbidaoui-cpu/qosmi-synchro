@@ -42,6 +42,20 @@ sl.SOINS.update({
     "for definition and hair styling": ("Coiffant", "Styling"), "hair gel": ("Gel coiffant", "Haargel"),
     "antiperspirant": ("Anti-transpirant", "Anti-transpirant"), "hair volume": ("Soin volume", "Volumeverzorging"),
     "aftershave water": ("Après-rasage", "Aftershave"), "aftershave balm": ("Baume après-rasage", "Aftershave balsem"),
+    # 23/11/2026 : rayon skincare, types restés en anglais
+    "body oil": ("Huile pour le corps", "Lichaamsolie"), "cleansing mousse": ("Mousse nettoyante", "Reinigingsmousse"),
+    "body peeling": ("Gommage corps", "Lichaamsscrub"), "cleansing water": ("Eau micellaire", "Micellair water"),
+    "after sun care": ("Après-soleil", "Aftersun"), "cleansing cream": ("Crème nettoyante", "Reinigingscrème"),
+    "self tanning product": ("Autobronzant", "Zelfbruiner"), "face cleansers": ("Nettoyant visage", "Gezichtsreiniger"),
+    "shower cream": ("Crème de douche", "Douchecrème"), "cleansing oil": ("Huile démaquillante", "Reinigingsolie"),
+    "liquid soap": ("Savon liquide", "Vloeibare zeep"), "face essence": ("Essence visage", "Gezichtsessence"),
+    "body gel": ("Gel corps", "Lichaamsgel"), "body water": ("Eau pour le corps", "Body water"),
+    "facial oil": ("Huile visage", "Gezichtsolie"), "shower oil": ("Huile de douche", "Doucheolie"),
+    "cleansing soap": ("Savon nettoyant", "Reinigingszeep"), "cleansing wipes": ("Lingettes nettoyantes", "Reinigingsdoekjes"),
+    "bronzer": ("Poudre bronzante", "Bronzer"), "cleansing milk": ("Lait démaquillant", "Reinigingsmelk"),
+    "shower foam": ("Mousse de douche", "Douche-schuim"), "cleansing emulsion": ("Émulsion nettoyante", "Reinigingsemulsie"),
+    "bar soap": ("Savon", "Zeep"), "hand balm": ("Baume pour les mains", "Handbalsem"), "bath oil": ("Huile de bain", "Badolie"),
+    "perfumed oil": ("Huile parfumée", "Geurolie"),
 })
 
 GROUPE_RE = re.compile(r"[^a-z0-9]+")

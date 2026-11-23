@@ -54,6 +54,7 @@ SOINS = {  # TYPE SoleLuna → (FR, NL) ; les types inconnus restent tels quels
     "mascara": ("Mascara", "Mascara"), "candle": ("Bougie parfumée", "Geurkaars"),
 }
 CATEGORIES = [  # (mots dans le TYPE, FR, NL) — le premier qui correspond l'emporte
+    (r"perfumed oil|perfume oil|parfum oil|attar", "Huiles parfumées", "Geurolies"),  # 23/11/2026 : pas du skincare
     (r"hair|shampoo|conditioner", "Cheveux", "Haarverzorging"),
     (r"deodorant|deo\b", "Déodorants", "Deodorants"),
     (r"after ?shave|shaving|beard", "Homme", "Heren"),
