@@ -55,7 +55,7 @@
         {%- when 'detente' -%}{% if nl %}Ontspannen{% elsif en %}Relaxing{% else %}Détente{% endif %}
       {%- endcase -%}</span>{%- endfor -%}</span></div>
   {%- endif -%}
-  {%- if nl -%}{%- assign ac = p.acn -%}{%- assign vb = p.vn -%}{%- else -%}{%- assign ac = p.acf -%}{%- assign vb = p.vf -%}{%- endif -%}
+  {%- if nl -%}{%- assign ac = p.acn -%}{%- assign vb = p.vn -%}{%- elsif en and p.ace -%}{%- assign ac = p.ace -%}{%- assign vb = p.ve -%}{%- else -%}{%- assign ac = p.acf -%}{%- assign vb = p.vf -%}{%- endif -%}
   {%- if ac.size > 0 -%}
   <div class="qk-profil__ligne"><span class="qk-profil__k">{% if nl %}Geurfamilie{% elsif en %}Family{% else %}Famille{% endif %}</span><span class="qk-profil__v">{{ ac | join: ' · ' | capitalize | escape }}</span></div>
   {%- endif -%}
@@ -63,10 +63,10 @@
   <div class="qk-profil__ligne"><span class="qk-profil__k">{% if nl %}Sfeer{% elsif en %}Mood{% else %}Ambiance{% endif %}</span><span class="qk-profil__v">{{ vb | join: ' · ' | capitalize | escape }}</span></div>
   {%- endif -%}
   {%- if p.a or p.pf.size > 0 -%}
-  <div class="qk-profil__ligne"><span class="qk-profil__k">{% if p.pf.size > 0 %}{% if p.pf.size > 1 %}Parfumeurs{% else %}Parfumeur{% endif %}{% else %}{% if nl %}Uitgebracht{% elsif en %}Released{% else %}Sortie{% endif %}{% endif %}</span><span class="qk-profil__v">
+  <div class="qk-profil__ligne"><span class="qk-profil__k">{% if p.pf.size > 0 %}{% if p.pf.size > 1 %}{% if nl %}Parfumeurs{% elsif en %}Perfumers{% else %}Parfumeurs{% endif %}{% else %}{% if en %}Perfumer{% else %}Parfumeur{% endif %}{% endif %}{% else %}{% if nl %}Uitgebracht{% elsif en %}Released{% else %}Sortie{% endif %}{% endif %}</span><span class="qk-profil__v">
     {%- if p.pf.size > 0 -%}{{ p.pf | join: ', ' | escape }}{%- if p.a %} · {{ p.a }}{% endif -%}{%- else -%}{{ p.a }}{%- endif -%}</span></div>
   {%- endif -%}
-  {%- if nl -%}{%- assign n = p.nn -%}{%- else -%}{%- assign n = p.nf -%}{%- endif -%}
+  {%- if nl -%}{%- assign n = p.nn -%}{%- elsif en and p.ne -%}{%- assign n = p.ne -%}{%- else -%}{%- assign n = p.nf -%}{%- endif -%}
   {%- if n and n.t.size > 0 or n.c.size > 0 or n.f.size > 0 or n.n.size > 0 -%}
   <div class="qk-profil__notes">
     {%- if n.t.size > 0 -%}<p><span class="qk-profil__k">{% if nl %}Topnoten{% elsif en %}Top{% else %}Tête{% endif %}</span>{{ n.t | join: ', ' | escape }}</p>{%- endif -%}

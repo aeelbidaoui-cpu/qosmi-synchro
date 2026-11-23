@@ -69,6 +69,13 @@ def libelles(v):
         if v.get(cle):
             v[f] = [LIB[cle][c][0] for c in v[cle] if c in LIB[cle]]
             v[n] = [LIB[cle][c][1] for c in v[cle] if c in LIB[cle]]
+    # 23/11/2026 : version anglaise du bloc (familles, ambiances, notes)
+    import fiches_en
+    for cle, e in (("ac", "ace"), ("v", "ve")):
+        if v.get(cle):
+            v[e] = [fiches_en.LIB_EN[cle][c] for c in v[cle] if c in fiches_en.LIB_EN[cle]]
+    if v.get("nf"):
+        v["ne"] = {k: fiches_en.notes(xs) for k, xs in v["nf"].items()}
     return v
 
 
