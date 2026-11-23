@@ -35,7 +35,7 @@ def slug(m):
 def slugs(m):
     s = slug(m)
     out = [s]
-    for v in (s.replace("-", ""), re.sub(r"-(paris|parfums?|cosmetics|beauty|laboratoires?)$", "", s)):
+    for v in (s.replace("-", "_"), s.replace("-", ""), re.sub(r"-(paris|parfums?|cosmetics|beauty|laboratoires?)$", "", s)):
         if v and v not in out:
             out.append(v)
     return out
@@ -74,7 +74,11 @@ def main():
         a_ameliorer = set(json.load(open(os.path.join(RACINE, "config", "photos_a_ameliorer.json"), encoding="utf-8"))["handles"])
     except FileNotFoundError:
         a_ameliorer = set()
-    deja = json.load(open(os.path.join(RACINE, "config", "photos_notino.json"), encoding="utf-8"))["par_ean"]
+    deja = dict(json.load(open(os.path.join(RACINE, "config", "photos_notino.json"), encoding="utf-8"))["par_ean"])
+    try:  # 23/11/2026 : déjà trouvées au premier passage
+        deja.update(json.load(open(os.path.join(RACINE, "config", "photos_notino_hd.json"), encoding="utf-8"))["par_ean"])
+    except FileNotFoundError:
+        pass
     cibles = {}
     for p in produits:
         if p.get("type_fr") in RUBRIQUES or p["handle"] in a_ameliorer:
