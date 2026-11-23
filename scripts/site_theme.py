@@ -96,7 +96,7 @@ MENU = [("Parfums", "parfums", [("Femme", "parfums-femme"), ("Homme", "parfums-h
         ("Parfums arabes", "parfums-arabes", []),  # 08/11/2026 : activé (174 parfums arabes en ligne)
         ("Coffrets", "coffrets", []),  # 10/11/2026 : coffrets pour les fêtes (demande d'Amine)
         ("Bons plans", "bons-plans", []),
-        ("Skincare", "skincare", [("Visage", "soins-visage"), ("Corps", "soins-corps"), ("Solaires", "solaires")]),  # 23/11/2026  # 14/11/2026 : option « Bon plan » (scripts/bons_plans.py), demande d'Amine
+        # ("Skincare", "skincare", [("Visage", "soins-visage"), ("Corps", "soins-corps"), ("Solaires", "solaires")]),  # 23/11/2026, en pause (Amine, 16 h 22)  # 14/11/2026 : option « Bon plan » (scripts/bons_plans.py), demande d'Amine
         ("Idées cadeaux", "page:idees-cadeaux-noel", []),  # 13/11/2026 : guide de Noël, en haut jusqu'à fin décembre (demande d'Amine)
         ("Trouve ton parfum", "page:quiz", []),  # 12/11/2026 : quiz parfum ; la recherche par odeurs est liée depuis le quiz et les fiches
         ("Marques", "page:marques", []),  # 08/11/2026 : Femme, Homme et Marques ajoutés (demande d'Amine)
