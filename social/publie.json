@@ -193,5 +193,35 @@
   "img": [
    "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-13-anniv-terre-1.jpg"
   ]
+ },
+ "14-bio-bisch": {
+  "zernio": "6b04baaf00b99d23227632b2",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-25T12:30:00+01:00",
+  "date": "2026-11-25",
+  "creneau": "12:30",
+  "n": 14,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-14-bio-bisch-1.jpg"
+  ]
+ },
+ "15-conseil-concentrations": {
+  "zernio": "6b04bae51bf6629226a7adcf",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-25T18:30:00+01:00",
+  "date": "2026-11-25",
+  "creneau": "18:30",
+  "n": 15,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-15-conseil-concentrations-1.jpg"
+  ]
  }
 }

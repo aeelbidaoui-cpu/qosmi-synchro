@@ -118,5 +118,29 @@
   "zernio": "6b032e55b90d5d67cfb4d017",
   "programme": "2026-11-24T18:00:00+01:00",
   "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-24-18h00.jpg"
+ },
+ "2026-11-25 11:00": {
+  "sorte": "du_jour",
+  "langue": "nl",
+  "titre": "Jean Paul Gaultier Le Male In Blue — Eau de Parfum voor heren",
+  "parfums": [
+   "jean-paul-gaultier-le-male-in-blue-eau-de-parfum-pour-homme"
+  ],
+  "date": "2026-11-25",
+  "creneau": "11:00",
+  "zernio": "6b04baff93c764eb962185d4",
+  "programme": "2026-11-25T11:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-25-11h00.jpg"
+ },
+ "2026-11-25 18:00": {
+  "sorte": "info",
+  "langue": "nl",
+  "titre": "100 % authentiek",
+  "parfums": [],
+  "date": "2026-11-25",
+  "creneau": "18:00",
+  "zernio": "6b04bb0893c764eb96218604",
+  "programme": "2026-11-25T18:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-25-18h00.jpg"
  }
 }
