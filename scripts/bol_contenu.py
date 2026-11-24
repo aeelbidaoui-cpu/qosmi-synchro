@@ -222,6 +222,9 @@ def auto(essai=False):
             a_envoyer[ean] = envoi
     print("Fiches à compléter automatiquement : %d · marques sans fabricant connu : %d (%d produits) · listes INCI à chercher : %d"
           % (len(a_envoyer), len(sans_fabricant), sum(len(x) for x in sans_fabricant.values()), len(inci_a_chercher)))
+    # 25/11/2026 : liste publique (marques et nombre de produits, aucun prix) pour compléter config/bol_fabricants.json
+    print("MARQUES_SANS_FABRICANT " + json.dumps(sorted(((m, len(x)) for m, x in sans_fabricant.items()), key=lambda t: -t[1]), ensure_ascii=False))
+    print("INCI_A_CHERCHER " + json.dumps([[e, n] for e, n, _ in inci_a_chercher], ensure_ascii=False))
     envois = {}
     if not essai and a_envoyer:
         from bol_api import Bol
