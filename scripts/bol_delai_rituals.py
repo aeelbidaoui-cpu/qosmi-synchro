@@ -35,17 +35,32 @@ def main():
     print("Offres en ligne : %d · Rituals : %d · déjà en %s : %d · à changer : %d"
           % (len(en_ligne), len(rit), delai, len(rit) - len(a_changer), len(a_changer)))
     ok = ko = 0
+    pids = []
     for e, o in a_changer.items():
         corps = {"onHoldByRetailer": False, "fulfilment": {"method": "FBR", "deliveryCode": delai}}
         if o.get("eo"):
             corps["economicOperatorId"] = o["eo"]
         try:
-            bol.put("/retailer/offers/%s" % o["offerId"], corps)
+            r = bol.put("/retailer/offers/%s" % o["offerId"], corps) or {}
+            pids.append((e, r.get("processStatusId")))
             ok += 1
         except Exception as ex:
             ko += 1
             print("  refus %s : %s" % (e, str(ex)[:150]))
-    print("OK délai Rituals : %d offres passées en %s, %d refus" % (ok, delai, ko))
+    # 24/11/2026 : bol traite la modification en différé : on vérifie le résultat réel
+    import collections
+    res = collections.Counter()
+    for e, pid in pids:
+        if not pid:
+            res["sans suivi"] += 1
+            continue
+        st = bol.statut(pid, tours=40)
+        res[st.get("status") or "?"] += 1
+        if st.get("status") != "SUCCESS" and res["_affiches"] < 5:
+            res["_affiches"] += 1
+            print("  %s : %s %s" % (e, st.get("status"), (st.get("errorMessage") or "")[:200]))
+    res.pop("_affiches", None)
+    print("OK délai Rituals : %d demandes envoyées (%s), %d refus à l'envoi" % (ok, dict(res), ko))
 
 
 if __name__ == "__main__":
