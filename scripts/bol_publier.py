@@ -345,6 +345,11 @@ def main():
     txt += ["", "Opérateurs économiques : %d sur bol (%s)%s" % (len(eo_ids), ", ".join("%s %s" % (k[:25], v) for k, v in eo_statuts.items() if v != "VALID") or "tous VALID",
             ("" if not eo_incomplets else " ; sans e-mail ou téléphone, remplacés par DEWAY : " + ", ".join(eo_incomplets)))]
     if invisibles:
+        # 24/11/2026 (Amine : « analyse sur bol les produits en vente… ») : nombre d'offres réellement visibles (une offre peut avoir
+        # plusieurs raisons ; on compte chaque offre une fois, sous sa première raison)
+        inv_uniques = {ec for v in invisibles.values() for ec in v}
+        total = len(en_ligne) + sum(1 for a, *_ in journal if a == "créée")
+        txt += ["", "Offres en ligne : %d · visibles sur bol : %d · invisibles : %d" % (total, max(total - len(inv_uniques), 0), len(inv_uniques))]
         txt += ["", "Offres en ligne mais NON visibles sur bol (raison donnée par bol) :"] + \
                ["  %3d × %s" % (len(v), k) for k, v in sorted(invisibles.items(), key=lambda kv: -len(kv[1]))]
         ecrire(os.path.join(RAPPORTS, "bol_invisibles.json"), invisibles)
