@@ -71,11 +71,19 @@ def textes(marque, noms, liens=None):
     lf = ['<a href="/products/%s">%s</a>' % (h, _h.escape(n, quote=False)) for n, h in (liens or [])[:8]]
     ln = ['<a href="/nl/products/%s">%s</a>' % (h, _h.escape(n, quote=False)) for n, h in (liens or [])[:8]]
     le = ['<a href="/en/products/%s">%s</a>' % (h, _h.escape(n, quote=False)) for n, h in (liens or [])[:8]]
-    extra_fr = ("<p>%s</p>" % _h.escape(pres["fr"], quote=False) if pres.get("fr") else "") + \
+    # 24/11/2026 : texte long en 3 parties titrées (config/marques_textes.json « long ») à la place de la courte présentation
+    def long_html(lg):
+        return "".join("<h2>%s</h2><p>%s</p>" % (_h.escape(t, quote=False), _h.escape(p, quote=False))
+                       for t, p in (pres.get("long") or {}).get(lg, []))
+    for lg in ("fr", "nl", "en"):
+        if long_html(lg):
+            pres = dict(pres)
+            pres[lg + "_html"] = long_html(lg)
+    extra_fr = (pres["fr_html"] if pres.get("fr_html") else "<p>%s</p>" % _h.escape(pres["fr"], quote=False) if pres.get("fr") else "") + \
                ("<p>À découvrir chez Qosmi : %s.</p>" % joli(lf, "et") if lf else "")
-    extra_nl = ("<p>%s</p>" % _h.escape(pres["nl"], quote=False) if pres.get("nl") else "") + \
+    extra_nl = (pres["nl_html"] if pres.get("nl_html") else "<p>%s</p>" % _h.escape(pres["nl"], quote=False) if pres.get("nl") else "") + \
                ("<p>Ontdek bij Qosmi: %s.</p>" % joli(ln, "en") if ln else "")
-    extra_en = ("<p>%s</p>" % _h.escape(pres["en"], quote=False) if pres.get("en") else "") + \
+    extra_en = (pres["en_html"] if pres.get("en_html") else "<p>%s</p>" % _h.escape(pres["en"], quote=False) if pres.get("en") else "") + \
                ("<p>Discover at Qosmi: %s.</p>" % joli(le, "and") if le else "")
     return {
         # 21/11/2026 : « en Belgique » / « kopen in België » (recherches « jo malone belgie », « parfum jo malone »…)
