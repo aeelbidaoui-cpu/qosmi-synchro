@@ -14,10 +14,10 @@
 
   {%- comment -%}24/11/2026 (Search Console) : liens venant de la recherche du site (?_pos=…&_sid=…&_ss=r) — mêmes fiches que
   l'URL propre, Google y perdait son temps. Jamais ?variant= (utilisé par Google Shopping).{%- endcomment -%}
-  {%- if group.user_agent.value == '*' %}
-Disallow: /*?*_pos=*
-Disallow: /*?*_sid=*
-Disallow: /*?*_ss=*
+  {%- capture qk_nl %}
+{% endcapture -%}
+  {%- if group.user_agent.value == '*' -%}
+    {{ 'Disallow: /*?*_pos=*' | append: qk_nl }}{{ 'Disallow: /*?*_sid=*' | append: qk_nl }}{{ 'Disallow: /*?*_ss=*' | append: qk_nl }}
   {%- endif -%}
 
   {%- if group.sitemap != blank -%}
