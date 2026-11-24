@@ -1001,3 +1001,7 @@ body:has(.qk-profil) .qk-desc-profil { display: none; }
 .qk-etiquette--best-seller { background: #f1e9dc; color: #111; }
 .qk-etiquette--carte, .qk-etiquette--grille { position: absolute; top: 12px; left: 12px; z-index: 2; }
 .qk-etiquette--fiche { margin-bottom: 10px; }
+
+/* 24/11/2026 : liens vers les collections par note sur la fiche */
+.qk-profil__collections { margin: .6rem 0 0; }
+.qk-profil__collections a { text-decoration: underline; text-underline-offset: 3px; }

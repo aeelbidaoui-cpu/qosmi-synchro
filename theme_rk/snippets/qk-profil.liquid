@@ -75,6 +75,12 @@
     {%- if n.f.size > 0 -%}<p><span class="qk-profil__k">{% if nl %}Basisnoten{% elsif en %}Base{% else %}Fond{% endif %}</span>{{ n.f | join: ', ' | escape }}</p>{%- endif -%}
   </div>
   {%- endif -%}
+  {%- comment -%}24/11/2026 (SEO, liens internes) : collections par note dont le parfum fait partie (FR / NL / EN){%- endcomment -%}
+  {%- assign qk_nc = 'parfums-vanille,vanille-parfums,vanilla-fragrances,parfums-oud,oud-parfums,oud-fragrances,parfums-cuir,leer-parfums,leather-fragrances,parfums-rose,rozenparfums,rose-fragrances,parfums-ambres,amberparfums,amber-fragrances,parfums-boises,houtige-parfums,woody-fragrances,parfums-gourmands,zoete-parfums,gourmand-fragrances,parfums-agrumes,citrusparfums,citrus-fragrances,parfums-musques,muskusparfums,musky-fragrances,parfums-epices,kruidige-parfums,spicy-fragrances,parfums-fleurs-blanches,witte-bloemen-parfums,white-floral-fragrances,parfums-tabac,tabaksparfums,tobacco-fragrances,parfums-iris,irisparfums,iris-fragrances,parfums-frais-marins,frisse-zeeparfums,fresh-marine-fragrances' | split: ',' -%}
+  {%- capture qk_liens -%}{%- for c in product.collections -%}{%- if qk_nc contains c.handle -%}<a href="{{ c.url }}">{{ c.title | escape }}</a>{%- endif -%}{%- endfor -%}{%- endcapture -%}
+  {%- if qk_liens != blank -%}
+  <p class="qk-profil__collections"><span class="qk-profil__k">{% if nl %}Ontdek ook{% elsif en %}Explore{% else %}À explorer{% endif %}</span>{{ qk_liens | replace: '</a><a', '</a> · <a' }}</p>
+  {%- endif -%}
   <p class="qk-profil__info">{% if nl %}Indicatief: houdbaarheid en sillage hangen af van je huid en het weer.{% elsif en %}For guidance only: longevity and sillage vary with your skin and the weather.{% else %}À titre indicatif : la tenue et le sillage varient selon la peau et la météo.{% endif %}</p>
 </div>
 {%- endif -%}
