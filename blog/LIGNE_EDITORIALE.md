@@ -53,9 +53,9 @@ Faits :
 - [x] 006 Parfum de niche : c'est quoi, et pourquoi c'est plus cher ?
 - [x] 007 Jo Malone : quel parfum choisir ? (21/11, recherches Google déjà visibles sur Jo Malone)
 - [x] 008 Parfums à la vanille : lesquels choisir selon ton style ?
+- [x] 009 Parfums arabes : comment les choisir (Lattafa, Armaf, Al Haramain, Afnan) ? (24/11)
 
 À faire :
-- [ ] Parfums arabes : comment les choisir (Lattafa, Armaf, Al Haramain, Afnan) ? (23/11, plan SEO : forte demande en Belgique)
 - [ ] Lattafa : les parfums incontournables (Khamrah, Yara, Asad…) et pour qui ?
 - [ ] Comment reconnaître un parfum authentique et acheter en ligne en confiance ? (sans citer de concurrent)
 - [ ] Baccarat Rouge 540 : notes, versions (Eau de Parfum, Extrait) et pour qui ? (jamais « dupe » ni « clone »)
