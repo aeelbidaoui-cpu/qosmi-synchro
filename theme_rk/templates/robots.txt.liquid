@@ -1,6 +1,7 @@
 {%- comment -%}
   robots.txt de Qosmi (12/11/2026, demande d'Amine) : règles Shopify par défaut, puis
   - robots d'entraînement d'IA et outils d'espionnage SEO : bloqués partout ;
+  - 24/11/2026 : liens de la recherche interne (_pos, _sid, _ss) bloqués pour tous ;
   - moteurs de recherche, aperçus des réseaux sociaux et robots de RECHERCHE des IA (ChatGPT, Perplexity, Claude) : autorisés.
   Seuls les robots qui respectent robots.txt en tiennent compte.
 {%- endcomment -%}
@@ -10,6 +11,14 @@
   {%- for rule in group.rules -%}
     {{ rule }}
   {%- endfor -%}
+
+  {%- comment -%}24/11/2026 (Search Console) : liens venant de la recherche du site (?_pos=…&_sid=…&_ss=r) — mêmes fiches que
+  l'URL propre, Google y perdait son temps. Jamais ?variant= (utilisé par Google Shopping).{%- endcomment -%}
+  {%- if group.user_agent.value == '*' %}
+Disallow: /*?*_pos=*
+Disallow: /*?*_sid=*
+Disallow: /*?*_ss=*
+  {%- endif -%}
 
   {%- if group.sitemap != blank -%}
     {{ group.sitemap }}
