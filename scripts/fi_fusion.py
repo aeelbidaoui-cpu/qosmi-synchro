@@ -13,7 +13,30 @@ import datetime, json, os, shutil, subprocess, sys, tempfile
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+def doublons(handles):
+    """24/11/2026 : une fiche en double (handle « …-2 ») reprend le profil, les notes et la description de la fiche
+    d'origine quand elle en a un (même parfum, même concentration). Renvoie les handles ainsi complétés."""
+    import re
+    faits = set()
+    for nom in ("profils_parfums.json", "notes_fi.json", "descriptions_parfums.json"):
+        vrai = os.path.join(RACINE, "config", nom)
+        d = json.load(open(vrai, encoding="utf-8"))
+        n = 0
+        for h in handles:
+            base = re.sub(r"-\d+$", "", h)
+            if base != h and base in d["parfums"] and h not in d["parfums"]:
+                d["parfums"][h] = d["parfums"][base]
+                faits.add(h)
+                n += 1
+        if n:
+            json.dump(d, open(vrai, "w", encoding="utf-8"), ensure_ascii=False, **({"indent": 1} if nom == "descriptions_parfums.json" else {}))
+        print("%s : %d fiches en double reprises de la fiche d'origine" % (nom, n))
+    return faits
+
+
 def main(fichiers):
+    hs = [r["h"][0] for f in fichiers for r in json.load(open(f, encoding="utf-8"))]
+    faits = doublons(hs)
     tmp = tempfile.mkdtemp()
     try:
         shutil.copytree(os.path.join(RACINE, "scripts"), os.path.join(tmp, "scripts"))
@@ -23,6 +46,7 @@ def main(fichiers):
         vides = []
         for i, f in enumerate(fichiers):
             R = json.load(open(f, encoding="utf-8"))
+            R = [r for r in R if r["h"][0] not in faits]
             vides += [r["h"][0] for r in R if not r.get("d") or r.get("ok") not in (1, 2)]
             json.dump([r for r in R if r.get("d")], open(os.path.join(rel, "qosmi-fi-%04d.json" % i), "w", encoding="utf-8"),
                       ensure_ascii=False)
