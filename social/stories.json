@@ -142,5 +142,31 @@
   "zernio": "6b04bb0893c764eb96218604",
   "programme": "2026-11-25T18:00:00+01:00",
   "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-25-18h00.jpg"
+ },
+ "2026-11-26 11:00": {
+  "sorte": "bon_plan",
+  "langue": "fr",
+  "titre": "Cartier Baiser Volé — Parfum pour femme",
+  "parfums": [
+   "cartier-baiser-vole-parfum-pour-femme-3"
+  ],
+  "date": "2026-11-26",
+  "creneau": "11:00",
+  "zernio": "6b04f87df187cbf25e9bba87",
+  "programme": "2026-11-26T11:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-26-11h00.jpg"
+ },
+ "2026-11-26 18:00": {
+  "sorte": "soir",
+  "langue": "fr",
+  "titre": "Zimaya Anhaar Dune — Eau de Parfum mixte",
+  "parfums": [
+   "zimaya-anhaar-dune-eau-de-parfum-mixte"
+  ],
+  "date": "2026-11-26",
+  "creneau": "18:00",
+  "zernio": "6b04f887f187cbf25e9bbaaa",
+  "programme": "2026-11-26T18:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-26-18h00.jpg"
  }
 }

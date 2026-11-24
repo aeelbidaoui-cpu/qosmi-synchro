@@ -223,5 +223,35 @@
   "img": [
    "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-15-conseil-concentrations-1.jpg"
   ]
+ },
+ "16-pdj-9pm": {
+  "zernio": "6b04f846f187cbf25e9bb958",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-26T12:30:00+01:00",
+  "date": "2026-11-26",
+  "creneau": "12:30",
+  "n": 16,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-16-pdj-9pm-1.jpg"
+  ]
+ },
+ "17-mat-rose": {
+  "zernio": "6b04f85ff187cbf25e9bba05",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-26T18:30:00+01:00",
+  "date": "2026-11-26",
+  "creneau": "18:30",
+  "n": 17,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-17-mat-rose-1.jpg"
+  ]
  }
 }
