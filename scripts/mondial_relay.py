@@ -121,7 +121,7 @@ def demande(o, mode, lieu, grammes):
     for k, v in zip(("Length", "Width", "Depth"), CARTON):
         ET.SubElement(p, k, {"Value": str(v), "Unit": "cm"})
     ET.SubElement(p, "Weight", {"Value": str(grammes), "Unit": "gr"})
-    exp = dict(EXPEDITEUR, MobileNo=telephone(os.environ.get("MR_TELEPHONE", ""), "BE"))
+    exp = dict(EXPEDITEUR, MobileNo=telephone(os.environ.get("MR_TELEPHONE") or "+32465436329", "BE"))
     adresse_xml(ET.SubElement(sh, "Sender"), exp)
     dest = {"Firstname": propre(adr.get("firstName"), 30), "Lastname": propre(adr.get("lastName"), 30),
             "Streetname": propre(adr.get("address1"), 40), "CountryCode": pays,

@@ -116,6 +116,18 @@ def operateurs(bol, essai=False):
         ref = ("QOSMI-" + re.sub(r"[^A-Za-z0-9]+", "-", cle))[:100]
         if ref in existants:
             ids[cle], statuts[cle] = existants[ref]["id"], existants[ref].get("status")
+            # 24/11/2026 (Amine : numéro de Deway +32 465 43 63 29) : contact mis à jour chez bol s'il a changé dans la config
+            ci = existants[ref].get("contactInformation") or {}
+            if not essai and (ci or cle == "DEWAY") and o.get("phoneNumber") and o.get("emailAddress") and \
+                    (ci.get("phoneNumber"), ci.get("emailAddress")) != (o["phoneNumber"], o["emailAddress"]):
+                try:
+                    bol.appel("PUT", "/retailer/economic-operators/%s" % existants[ref]["id"], corps={
+                        "externalReference": ref, "name": o["name"][:100],
+                        "address": {k: o[k] for k in ("street", "houseNumber", "postalCode", "city", "country")},
+                        "contactInformation": {"emailAddress": o["emailAddress"], "phoneNumber": o["phoneNumber"]}}, accept=EO)
+                    print("  opérateur %s : contact mis à jour chez bol" % cle)
+                except Exception as e:
+                    print("  opérateur %s : mise à jour du contact refusée (%s)" % (cle, str(e)[:200]))
             continue
         if not (o.get("emailAddress") and o.get("phoneNumber")):
             incomplets.append(cle)
