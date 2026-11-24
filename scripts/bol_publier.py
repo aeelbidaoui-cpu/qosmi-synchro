@@ -200,7 +200,8 @@ def main():
     en_ligne = offres_en_ligne(bol)
     eo_ids, eo_marque, eo_statuts, eo_incomplets = operateurs(bol, essai)
     eo_de = lambda d: eo_ids.get(eo_marque.get((d or {}).get("marque") or "", "DEWAY")) or eo_ids.get("DEWAY")
-    refus = {e: r for e, r in lire(REFUS, {}).items() if e.startswith("_") or "Duplicate Offer" not in r.get("raison", "")}
+    refus = {e: r for e, r in lire(REFUS, {}).items() if e.startswith("_") or
+             ("Duplicate Offer" not in r.get("raison", "") and r.get("raison") not in ("PENDING", "TIMEOUT", "pas de suivi"))}
     maintenant = time.time()
     maxi = int(cfg.get("publication_max_creations", 300))
     journal, a_suivre = [], []
@@ -248,6 +249,11 @@ def main():
             if m:  # l'offre existe déjà (l'export bol a quelques minutes de retard) : ce n'est pas un refus
                 journal.append(("déjà en ligne", e, voulues[e], m.group(1)))
                 refus.pop(e, None)
+                continue
+            if raison in ("PENDING", "TIMEOUT", "pas de suivi"):
+                # 24/11/2026 : bol n'a pas fini de traiter la création (ce n'est pas un refus) : on ne bloque pas 7 jours,
+                # on réessaie au prochain passage (Nishane Tero 100 ml restait hors vente pour cette raison)
+                journal.append(("en attente chez bol", e, voulues[e], raison))
                 continue
             refus[e] = {"t": maintenant, "raison": raison[:300]}
             journal.append(("refusée par bol", e, voulues[e], raison[:200]))
