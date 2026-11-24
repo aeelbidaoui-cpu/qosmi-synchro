@@ -38,6 +38,12 @@ jobs:
           path: base/rituals_catalogue.json
           key: rituals-${{ github.run_id }}
           restore-keys: rituals-
+      - name: Reprendre l'état de la publication (refus bol)
+        uses: actions/cache/restore@v4
+        with:
+          path: base/bol_refus.json
+          key: bolpub-${{ github.run_id }}
+          restore-keys: bolpub-
       - name: Raison
         env:
           BOL_CLIENT_ID: ${{ secrets.BOL_CLIENT_ID }}

@@ -40,6 +40,13 @@ def main():
             else:
                 print("  pas encore relevé sur bol")
         o = en_ligne.get(e)
+        refus = ba.lire_json(os.path.join(ba.BASE, "bol_refus.json"), {})
+        r = refus.get(e.zfill(13)) or refus.get(e)
+        if r:
+            import time
+            print("  création refusée par bol il y a %.1f jours : %s" % ((time.time() - r.get("t", 0)) / 86400, r.get("raison", "")[:300]))
+        if e in set((refus.get("_prix_trop_haut") or {}).get("eans", [])) or e.zfill(13) in set((refus.get("_prix_trop_haut") or {}).get("eans", [])):
+            print("  retiré : bol a jugé le prix trop haut (règle : on retire, on ne baisse pas)")
         if not o:
             print("  offre Qosmi sur bol : aucune")
         else:
