@@ -31,7 +31,18 @@ def main():
     bol = Bol()
     en_ligne = offres_en_ligne(bol)
     rit = {e: o for e, o in en_ligne.items() if e.startswith("8719134") or e in cat}
-    a_changer = {e: o for e, o in rit.items() if o.get("delai") != delai and o.get("offerId")}
+    # 24/11/2026 : l'export peut annoncer le nouveau délai alors que l'offre ne l'a pas : on relit chaque offre une à une
+    a_changer = {}
+    vus = {}
+    for e, o in rit.items():
+        if not o.get("offerId"):
+            continue
+        det = bol.get("/retailer/offers/%s" % o["offerId"]) or {}
+        dc = (det.get("fulfilment") or {}).get("deliveryCode") or ""
+        vus[dc] = vus.get(dc, 0) + 1
+        if dc != delai:
+            a_changer[e] = dict(o, eo=o.get("eo") or det.get("economicOperatorId") or "")
+    print("Délais relus offre par offre : %s" % vus)
     print("Offres en ligne : %d · Rituals : %d · déjà en %s : %d · à changer : %d"
           % (len(en_ligne), len(rit), delai, len(rit) - len(a_changer), len(a_changer)))
     ok = ko = 0
