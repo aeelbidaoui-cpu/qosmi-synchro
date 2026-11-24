@@ -1,0 +1,37 @@
+name: Qosmi - bol délai Rituals
+
+# 24/11/2026 (Amine, urgent) : passe toutes les offres Rituals en ligne au délai 3-5 jours, sans attendre la mise à jour
+# bol complète (groupe séparé : ne bloque pas et n'est pas bloqué par la mise à jour bol).
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: qosmi-bol-delai
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  delai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reprendre le catalogue Rituals
+        uses: actions/cache/restore@v4
+        with:
+          path: base/rituals_catalogue.json
+          key: rituals-${{ github.run_id }}
+          restore-keys: rituals-
+      - name: Délai Rituals
+        env:
+          BOL_CLIENT_ID: ${{ secrets.BOL_CLIENT_ID }}
+          BOL_CLIENT_SECRET: ${{ secrets.BOL_CLIENT_SECRET }}
+        run: |
+          mkdir -p base rapports
+          python -u scripts/bol_delai_rituals.py
