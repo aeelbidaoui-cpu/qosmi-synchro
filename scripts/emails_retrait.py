@@ -48,7 +48,8 @@ def bloc(t):
 
 def pret(corps, t):
     """Remplace le titre + les instructions de retrait par nos textes ; « Pickup location » traduit."""
-    motif = re.compile(r"<h2>\s*\{\{\s*email_title\s*\}\}\s*</h2>\s*\{%\s*if pickup_instructions != blank\s*%\}.*?\{%\s*endif\s*%\}", re.S)
+    motif = re.compile(r"<h2>\s*\{\{\s*email_title\s*\}\}\s*</h2>\s*\{%\s*if pickup_instructions != blank\s*%\}.*?"
+                       r"\{%\s*else\s*%\}\s*<p>\{\{\s*email_body\s*\}\}</p>\s*\{%\s*endif\s*%\}", re.S)
     if "qk-retrait" in corps:
         corps = re.sub(r"<!-- qk-retrait -->.*?<!-- /qk-retrait -->", lambda m: "<!-- qk-retrait -->" + bloc(t) + "<!-- /qk-retrait -->", corps, flags=re.S)
     else:

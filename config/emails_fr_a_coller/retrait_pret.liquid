@@ -86,10 +86,7 @@
           <tr>
             <td>
               
-            <!-- qk-retrait --><h2>Ta commande est prête !</h2> <p>Bonne nouvelle{% if customer.first_name != blank %} {{ customer.first_name }}{% endif %} : ta commande {{ order_name }} t’attend à Dilbeek.</p> <p>Choisis maintenant le jour et l’heure de ton retrait : en semaine de 18h à 22h, le samedi et le dimanche de 10h à 20h.</p> <table class="row actions"> <tr> <td class="actions__cell"> <table class="button main-action-cell"> <tr> <td class="button__cell"><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ21kcmFYYgXhbyXJIUgW1X5hR-oQdIQ9notaniY_2yuXGN2UXqKXB96cYWhRj3kX8Zgt85bmgkF" class="button__text">Choisir mon créneau</a></td> </tr> </table> </td> </tr> </table> <p style="margin-top: 16px;">Au retrait, montre simplement ton numéro de commande ({{ order_name }}). Un empêchement ? Écris-nous sur <a href="https://wa.me/32465436329">WhatsApp</a> au +32 465 43 63 29.</p><!-- /qk-retrait -->{{ pickup_instructions }}{% if buyer_email_rtl == true %}</span>&lrm;&rlm;{% endif %}</p>
-            {% else %}
-              <p>{{ email_body }}</p>
-            {% endif %}
+            <!-- qk-retrait --><h2>Ta commande est prête !</h2> <p>Bonne nouvelle{% if customer.first_name != blank %} {{ customer.first_name }}{% endif %} : ta commande {{ order_name }} t’attend à Dilbeek.</p> <p>Choisis maintenant le jour et l’heure de ton retrait : en semaine de 18h à 22h, le samedi et le dimanche de 10h à 20h.</p> <table class="row actions"> <tr> <td class="actions__cell"> <table class="button main-action-cell"> <tr> <td class="button__cell"><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ21kcmFYYgXhbyXJIUgW1X5hR-oQdIQ9notaniY_2yuXGN2UXqKXB96cYWhRj3kX8Zgt85bmgkF" class="button__text">Choisir mon créneau</a></td> </tr> </table> </td> </tr> </table> <p style="margin-top: 16px;">Au retrait, montre simplement ton numéro de commande ({{ order_name }}). Un empêchement ? Écris-nous sur <a href="https://wa.me/32465436329">WhatsApp</a> au +32 465 43 63 29.</p><!-- /qk-retrait -->
 
             <table class="section--margin">
   <tr>
