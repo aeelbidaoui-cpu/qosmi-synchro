@@ -544,9 +544,20 @@ def construire(fichiers, marques):
     # « Acheter maintenant » (demande d'Amine du 08/11/2026) : remplace « Acheter avec Shop », qui demandait de se connecter.
     # Ajoute le format choisi au panier et ouvre la page panier. Le bouton Shop Pay est masqué en CSS (.shopify-payment-button).
     det["blocks"]["qk_acheter"] = liquide(ACHETER)
+    # 25/11/2026 (Amine : trop de défilement sur ordinateur) : sur grand écran, la pyramide, la description et la sécurité
+    # du produit passent sous la photo (colonne de gauche) ; sur mobile rien ne bouge.
+    det["blocks"]["qk_sous_photo"] = liquide(
+        "<script>(function(){function go(){if(!window.matchMedia('(min-width: 990px)').matches)return;"
+        "var m=document.querySelector('.product-information__media');var d=document.querySelector('.product-details');"
+        "if(!m||!d||m.querySelector('.qk-sous-photo'))return;var box=document.createElement('div');box.className='qk-sous-photo';"
+        "var items=[];var p=d.querySelector('.qk-profil');if(p)items.push(p.parentElement||p);"
+        "d.querySelectorAll('rte-formatter.text-block').forEach(function(t){if(t.querySelector('.qk-desc-profil')||t.textContent.length>160)items.push(t);});"
+        "var g=d.querySelector('.qk-gpsr');if(g)items.push(g.parentElement||g);"
+        "items.forEach(function(x){if(x&&!box.contains(x))box.appendChild(x);});if(box.children.length)m.appendChild(box);}"
+        "if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);})();</script>")
     ordre = [k for k in det["block_order"] if k in det["blocks"] and not k.startswith("qk_")]
     i = ordre.index(next(k for k in ordre if det["blocks"][k]["type"] == "buy-buttons")) + 1
-    det["block_order"] = ordre[:i] + ["qk_acheter", "qk_livraison", "qk_rassurance", "qk_profil", "qk_gpsr"] + ordre[i:]
+    det["block_order"] = ordre[:i] + ["qk_acheter", "qk_livraison", "qk_rassurance", "qk_profil", "qk_gpsr"] + ordre[i:] + ["qk_sous_photo"]
     d["sections"]["qk_marque"] = {"type": "qk-texte", "settings": {"mode_marque": True, "alignement": "centre"}}
     d["order"] = [k for k in d["order"] if k != "qk_marque"]
     d["order"].insert(1, "qk_marque")
