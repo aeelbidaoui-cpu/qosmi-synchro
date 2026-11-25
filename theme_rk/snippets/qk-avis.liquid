@@ -12,7 +12,7 @@
   {%- if p.s.size >= 4 -%}{% if nl %}het hele jaar{% elsif en %}all year round{% else %}toute l'année{% endif %}
   {%- else -%}
     {%- for x in p.s -%}
-      {%- unless forloop.first -%}{%- if forloop.last -%}{{ et }}{%- else -%}, {% endif -%}{%- endunless -%}
+      {%- unless forloop.first -%}|{%- endunless -%}
       {%- case x -%}
         {%- when 'printemps' -%}{% if nl %}in de lente{% elsif en %}in spring{% else %}au printemps{% endif %}
         {%- when 'ete' -%}{% if nl %}in de zomer{% elsif en %}in summer{% else %}en été{% endif %}
@@ -25,7 +25,7 @@
 {%- assign qk_occ_list = p.o | slice: 0, 3 -%}
 {%- capture qk_occ -%}
   {%- for x in qk_occ_list -%}
-    {%- unless forloop.first -%}{%- if forloop.last -%}{% if nl %} of {% elsif en %} or {% else %} ou {% endif %}{%- else -%}, {% endif -%}{%- endunless -%}
+    {%- unless forloop.first -%}|{%- endunless -%}
     {%- case x -%}
       {%- when 'quotidien' -%}{% if nl %}elke dag{% elsif en %}every day{% else %}au quotidien{% endif %}
       {%- when 'bureau' -%}{% if nl %}op kantoor{% elsif en %}at the office{% else %}au bureau{% endif %}
@@ -40,7 +40,11 @@
     {%- endcase -%}
   {%- endfor -%}
 {%- endcapture -%}
-{%- assign qk_sais = qk_sais | strip | replace: ' ,', ',' -%}{%- assign qk_occ = qk_occ | strip | replace: ' ,', ',' -%}
+{%- if nl -%}{%- assign ou = ' of ' -%}{%- elsif en -%}{%- assign ou = ' or ' -%}{%- else -%}{%- assign ou = ' ou ' -%}{%- endif -%}
+{%- assign qk_l = qk_sais | strip | split: '|' -%}{%- assign qk_sais = '' -%}
+{%- for x in qk_l -%}{%- assign y = x | strip -%}{%- if forloop.first -%}{%- assign qk_sais = y -%}{%- elsif forloop.last -%}{%- assign qk_sais = qk_sais | append: et | append: y -%}{%- else -%}{%- assign qk_sais = qk_sais | append: ', ' | append: y -%}{%- endif -%}{%- endfor -%}
+{%- assign qk_l = qk_occ | strip | split: '|' -%}{%- assign qk_occ = '' -%}
+{%- for x in qk_l -%}{%- assign y = x | strip -%}{%- if forloop.first -%}{%- assign qk_occ = y -%}{%- elsif forloop.last -%}{%- assign qk_occ = qk_occ | append: ou | append: y -%}{%- else -%}{%- assign qk_occ = qk_occ | append: ', ' | append: y -%}{%- endif -%}{%- endfor -%}
 
 {%- comment -%} 2. tenue + sillage {%- endcomment -%}
 {%- capture qk_ten -%}
