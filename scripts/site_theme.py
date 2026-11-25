@@ -269,7 +269,7 @@ def chat_icone():
     for b in d["current"].get("blocks", {}).values():
         if "apps/inbox/blocks/chat" in b.get("type", ""):
             print("  avant :", b["settings"].get("launcher_style"))
-            b["settings"]["launcher_style"] = "icon"
+            b["settings"]["launcher_style"] = os.environ.get("CHAT_STYLE", "button")  # « icon » n'existe pas (26/11) : Bouton ou Barre de message
             n += 1
     if not n:
         raise SystemExit("bloc Inbox introuvable")
