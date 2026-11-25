@@ -283,5 +283,35 @@
   "img": [
    "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-19-pdj-hypnotic-1.jpg"
   ]
+ },
+ "20-bio-polge": {
+  "zernio": "6b077408b9021efcc65b0d1f",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-28T12:30:00+01:00",
+  "date": "2026-11-28",
+  "creneau": "12:30",
+  "n": 20,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-20-bio-polge-1.jpg"
+  ]
+ },
+ "22-sel-arabes": {
+  "zernio": "6b0774310dbcb8a6c600e3a4",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-28T18:30:00+01:00",
+  "date": "2026-11-28",
+  "creneau": "18:30",
+  "n": 22,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-22-sel-arabes-1.jpg"
+  ]
  }
 }
