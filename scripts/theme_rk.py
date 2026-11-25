@@ -11,7 +11,32 @@ DOSSIER = os.path.join(os.path.dirname(ICI), "theme_rk")
 FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.json", "templates/collection.json",
             "templates/search.json", "sections/header-group.json", "sections/footer-group.json", "templates/cart.json",
             "sections/main-collection.liquid", "sections/search-results.liquid", "snippets/predictive-search-products-list.liquid"]
-OPTIONNELS = ["snippets/meta-tags.liquid"]  # 09/11/2026 : titre Google de l'accueil FR (lu s'il existe)
+OPTIONNELS = ["snippets/meta-tags.liquid",  # 09/11/2026 : titre Google de l'accueil FR (lu s'il existe)
+              "sections/header.liquid", "sections/product-information.liquid"]  # 26/11/2026 : audit SEO (H1, données structurées)
+
+# 26/11/2026 (audit SEO) : données produit de Shopify corrigées à l'affichage : https au lieu de http, @id absolus, état neuf et
+# vendeur sur chaque offre, tailles (variesBy), et sans le paragraphe « Dans le même esprit » (liens vers d'autres parfums)
+QK_PRODUIT_LD = ("{%- comment -%}qk-produit-ld{%- endcomment -%}"
+    "{%- capture qk_sd -%}{{ closest.product | structured_data }}{%- endcapture -%}"
+    "{%- capture qk_id -%}\"@id\":\"{{ request.origin | replace: '/', '\\/' }}\\/{%- endcapture -%}"
+    "{%- assign qk_sd = qk_sd | replace: 'http:\\/\\/schema.org\\/', 'https:\\/\\/schema.org\\/' | replace: '\"@id\":\"\\/', qk_id"
+    " | replace: '\"@type\":\"Offer\",', '\"@type\":\"Offer\",\"itemCondition\":\"https:\\/\\/schema.org\\/NewCondition\",\"seller\":{\"@id\":\"https:\\/\\/qosmi.be\\/#org\"},\"hasMerchantReturnPolicy\":{\"@id\":\"https:\\/\\/qosmi.be\\/#retours\"},'"
+    " | replace: '\"@type\":\"ProductGroup\",', '\"@type\":\"ProductGroup\",\"variesBy\":[\"https:\\/\\/schema.org\\/size\"],' -%}"
+    "{%- assign qk_ms = 'Dans le même esprit|In dezelfde sfeer|In the same spirit' | split: '|' -%}{%- for qk_m in qk_ms -%}"
+    "{%- assign qk_p = qk_sd | split: qk_m -%}{%- if qk_p.size > 1 -%}{%- assign qk_r = qk_p[1] | split: '\",\"hasVariant\"' -%}"
+    "{%- if qk_r.size == 2 -%}{%- assign qk_t = qk_p[0] | split: '\\n' | join: ' ' | strip -%}"
+    "{%- assign qk_sd = qk_t | append: '\",\"hasVariant\"' | append: qk_r[1] -%}{%- endif -%}{%- endif -%}{%- endfor -%}"
+    "{{ qk_sd }}")
+
+# 26/11/2026 (audit SEO) : qosmi.nl (marché Pays-Bas) : les titres et descriptions traduits pour la Belgique disent « in België »
+QK_META_MARCHE = ("{%- comment -%}qk-meta-marche{%- endcomment -%}"
+    "{%- if request.host contains 'qosmi.nl' -%}"
+    "{%- assign page_title = page_title | replace: 'in België', 'in Nederland' -%}"
+    "{%- assign page_description = page_description | replace: 'heel België', 'heel Nederland' | replace: 'in België', 'in Nederland' -%}"
+    "{%- endif -%}"
+    "{%- assign page_title = page_title | replace: 'Parfums Parfums ', 'Parfums ' -%}"
+    "{%- comment -%}/qk-meta-marche{%- endcomment -%}")
+
 
 def ambiance(n, alt, cote, fr, nl, lien):
     """Bloc photo + texte (photos d'ambiance Unsplash validées par Amine le 09/11/2026, qosmi-ambiance-<n>.jpg ;
@@ -29,7 +54,7 @@ ACCUEIL_FR = ("{%- if request.page_type == 'index' and request.locale.iso_code =
               "Parfums 100 % authentiques et neufs, livrés partout en Belgique.' -%}"
               "{%- endif -%}\n")
 # 09/11/2026 (SEO) : la boutique en données structurées, avec sa politique de retour (Google la lit au niveau de la boutique).
-ORG_LD = """    {%- comment -%}qk-org-ld{%- endcomment -%}<script type="application/ld+json" id="qk-org-ld">{"@context":"https://schema.org","@type":"OnlineStore","@id":"https://qosmi.be/#org","name":"Qosmi","alternateName":["qosmi.be","qosmi.nl","Qosmi parfums"],"url":"https://qosmi.be/","logo":"https:{{ 'qosmi-logo.png' | file_url }}","description":"Qosmi est une parfumerie en ligne belge (Deway BV) : parfums de marque, de niche et arabes 100 % authentiques et neufs, plus de 100 maisons, livraison dans 9 pays d'Europe et retrait gratuit à Dilbeek.","slogan":"Fragrance & Beauty","sameAs":["https://www.instagram.com/qosmi.be","https://qosmi.nl/"],"email":"contact@qosmi.be","telephone":"+32465436329","vatID":"BE1040851867","taxID":"1040.851.867","legalName":"Deway BV","contactPoint":[{"@type":"ContactPoint","contactType":"customer service","email":"contact@qosmi.be","telephone":"+32465436329","availableLanguage":["French","Dutch","English"],"areaServed":["BE","NL","LU","FR","ES","PT","IT","DE","PL"]}],"location":{"@type":"Place","name":"Qosmi Dilbeek (retrait des commandes)","address":{"@type":"PostalAddress","streetAddress":"Alfons Gossetlaan 34","postalCode":"1702","addressLocality":"Dilbeek","addressCountry":"BE"}},"areaServed":["BE","NL","LU","FR","ES","PT","IT","DE","PL"],"currenciesAccepted":"EUR","paymentAccepted":["Bancontact","Visa","Mastercard","Apple Pay"],"knowsAbout":["parfum","parfumerie de niche","parfums arabes","eau de parfum","notes olfactives"],"hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","applicableCountry":"BE","returnPolicyCountry":"BE","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":14,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/ReturnShippingFees","merchantReturnLink":"https://qosmi.be/pages/retours"},"subjectOf":{"@type":"AboutPage","url":"https://qosmi.be/pages/a-propos"}}</script>{%- if request.page_type == 'index' -%}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://qosmi.be/#site","name":"Qosmi","alternateName":["qosmi.be","Qosmi parfums"],"url":"https://qosmi.be/","inLanguage":["fr-BE","nl-BE","en"],"publisher":{"@id":"https://qosmi.be/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://qosmi.be/search?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>{%- endif -%}{%- comment -%}/qk-org-ld{%- endcomment -%}
+ORG_LD = """    {%- comment -%}qk-org-ld{%- endcomment -%}<script type="application/ld+json" id="qk-org-ld">{"@context":"https://schema.org","@type":"OnlineStore","@id":"https://qosmi.be/#org","name":"Qosmi","alternateName":["qosmi.be","qosmi.nl","Qosmi parfums"],"url":"https://qosmi.be/","logo":"https:{{ 'qosmi-logo.png' | file_url }}","description":"Qosmi est une parfumerie en ligne belge (Deway BV) : parfums de marque, de niche et arabes 100 % authentiques et neufs, plus de 100 maisons, livraison dans 9 pays d'Europe et retrait gratuit à Dilbeek.","slogan":"Fragrance & Beauty","sameAs":["https://www.instagram.com/qosmi.be","https://qosmi.nl/"],"email":"contact@qosmi.be","telephone":"+32465436329","vatID":"BE1040851867","taxID":"1040.851.867","legalName":"Deway BV","contactPoint":[{"@type":"ContactPoint","contactType":"customer service","email":"contact@qosmi.be","telephone":"+32465436329","availableLanguage":["French","Dutch","English"],"areaServed":["BE","NL","LU","FR","ES","PT","IT","DE","PL"]}],"location":{"@type":"Place","name":"Qosmi Dilbeek (retrait des commandes)","address":{"@type":"PostalAddress","streetAddress":"Alfons Gossetlaan 34","postalCode":"1702","addressLocality":"Dilbeek","addressCountry":"BE"}},"areaServed":["BE","NL","LU","FR","ES","PT","IT","DE","PL"],"currenciesAccepted":"EUR","paymentAccepted":["Bancontact","Visa","Mastercard","Apple Pay"],"knowsAbout":["parfum","parfumerie de niche","parfums arabes","eau de parfum","notes olfactives"],"hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","@id":"https://qosmi.be/#retours","applicableCountry":["BE","NL","LU","FR","ES","PT","IT","DE","PL"],"returnPolicyCountry":"BE","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":14,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/ReturnShippingFees","merchantReturnLink":"https://qosmi.be/pages/retours"},"subjectOf":{"@type":"AboutPage","url":"https://qosmi.be/pages/a-propos"}}</script>{%- if request.page_type == 'index' -%}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"{{ request.origin }}/#site","name":"Qosmi","alternateName":["qosmi.be","qosmi.nl","Qosmi parfums"],"url":"{{ request.origin }}/","inLanguage":["fr-BE","nl-BE","en"],"publisher":{"@id":"https://qosmi.be/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{ request.origin }}/search?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>{%- endif -%}{%- comment -%}/qk-org-ld{%- endcomment -%}
 """
 
 # 23/11/2026 (plan SEO) : conditions de livraison des 9 pays en données structurées, sur la page Livraison (Google ShippingService)
@@ -423,7 +448,46 @@ def construire(fichiers, marques):
             lay = ACCUEIL_FR + lay
         else:
             print("  (titre de l'accueil : balise <title> introuvable, rien changé)")
+    # 26/11/2026 (audit SEO) : frais de livraison des 9 pays aussi sur les fiches produit (même @id que la boutique)
+    lay = _re0.sub(r"    \{%- comment -%\}qk-livraison-produit-ld\{%- endcomment -%\}.*?\{%- endif -%\}\n", "", lay, flags=_re0.S)
+    _ship = _re0.search(r"<script type=\"application/ld\+json\">.*?</script>", LIVRAISON_LD, _re0.S).group(0)
+    lay = lay.replace("</head>", "    {%- comment -%}qk-livraison-produit-ld{%- endcomment -%}{%- if request.page_type == 'product' -%}" + _ship + "{%- endif -%}\n  </head>", 1)
     liquides["layout/theme.liquid"] = lay
+    # titres et descriptions : qosmi.nl dit « Nederland », plus de « Parfums Parfums de Marly »
+    meta = liquides.get("snippets/meta-tags.liquid", fichiers.get("snippets/meta-tags.liquid"))
+    if meta and "<title" in meta:
+        meta = _re0.sub(r"\{%- comment -%\}qk-meta-marche\{%- endcomment -%\}.*?\{%- comment -%\}/qk-meta-marche\{%- endcomment -%\}", "", meta, flags=_re0.S)
+        if meta.startswith(ACCUEIL_FR):
+            meta = ACCUEIL_FR + QK_META_MARCHE + meta[len(ACCUEIL_FR):]
+        else:
+            meta = QK_META_MARCHE + meta
+        liquides["snippets/meta-tags.liquid"] = meta
+    else:
+        print("  (meta-tags.liquid introuvable : titres qosmi.nl non corrigés)")
+    # en-tête : un seul H1 (celui du bandeau d'accueil) et plus de 2e bloc « Organization » (doublon de qk-org-ld)
+    hdr = fichiers.get("sections/header.liquid")
+    if hdr:
+        n0 = len(hdr)
+        hdr = hdr.replace('<h1 class="visually-hidden">{{ shop.name }}</h1>', '<p class="visually-hidden">{{ shop.name }}</p>')
+        k = hdr.find('"@type": "Organization"')
+        if k > 0:
+            a = hdr.rfind('<script type="application/ld+json">', 0, k)
+            b = hdr.find("</script>", k)
+            if a > 0 and b > k and k - a < 300:
+                hdr = hdr[:a] + "{%- comment -%}qk : bloc Organization retiré (doublon, audit SEO 26/11/2026){%- endcomment -%}" + hdr[b + 9:]
+        print("  en-tête : H1 caché -> p, Organization retiré (%d -> %d caractères)" % (n0, len(hdr)))
+        liquides["sections/header.liquid"] = hdr
+    pinfo = fichiers.get("sections/product-information.liquid")
+    if pinfo:
+        if "{{ closest.product | structured_data }}" in pinfo:
+            pinfo = pinfo.replace("{{ closest.product | structured_data }}", QK_PRODUIT_LD)
+            liquides["sections/product-information.liquid"] = pinfo
+            print("  fiche produit : données structurées corrigées")
+        elif "qk-produit-ld" in pinfo:
+            a = pinfo.index("{%- comment -%}qk-produit-ld{%- endcomment -%}")
+            b = pinfo.index("{{ qk_sd }}", a) + len("{{ qk_sd }}")
+            liquides["sections/product-information.liquid"] = pinfo[:a] + QK_PRODUIT_LD + pinfo[b:]
+            print("  fiche produit : données structurées mises à jour")
 
     # ---------- accueil ----------
     e, d = lire(fichiers["templates/index.json"])

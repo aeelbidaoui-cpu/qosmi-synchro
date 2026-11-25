@@ -1037,3 +1037,11 @@ body:has(.qk-profil) .qk-desc-profil { display: none; }
    (media-fit-cover du thème) → on montre toujours le flacon en entier sur la fiche, fond blanc autour. */
 .product-information .product-media-container.media-fit-cover .product-media__image,
 .product-information .product-media-container .product-media__image { object-fit: contain !important; background: #fff; }
+
+/* 26/11/2026 (audit SEO, mobile) : sur téléphone, les 2 bandeaux du haut repoussaient « Ajouter au panier » sous l'écran.
+   Barre « No Black Friday » plus fine partout, et masquée sur les fiches produit (le message reste dans le bandeau qui défile). */
+@media (max-width: 749px) {
+  .qk-nbf-barre { padding: 6px 12px !important; font-size: 12px !important; }
+  body:has(.qk-titre-produit) .qk-nbf-barre { display: none !important; }
+  .qk-annonces__msg { padding: 8px 0; }
+}

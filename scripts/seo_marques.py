@@ -85,10 +85,12 @@ def textes(marque, noms, liens=None):
                ("<p>Ontdek bij Qosmi: %s.</p>" % joli(ln, "en") if ln else "")
     extra_en = (pres["en_html"] if pres.get("en_html") else "<p>%s</p>" % _h.escape(pres["en"], quote=False) if pres.get("en") else "") + \
                ("<p>Discover at Qosmi: %s.</p>" % joli(le, "and") if le else "")
+    pf = marque if marque.lower().startswith("parfums ") else "Parfums %s" % marque
     return {
         # 21/11/2026 : « en Belgique » / « kopen in België » (recherches « jo malone belgie », « parfum jo malone »…)
-        "titre_fr": titre("Parfums %s en Belgique" % marque, " : ") if len("Parfums %s en Belgique | Qosmi" % marque) <= 60
-        else titre("Parfums %s" % marque, " : "),
+        # 26/11/2026 (audit SEO) : pas de « Parfums Parfums de Marly »
+        "titre_fr": titre("%s en Belgique" % pf, " : ") if len("%s en Belgique | Qosmi" % pf) <= 60
+        else titre(pf, " : "),
         "titre_nl": titre("%s parfums kopen in België" % marque, ": ") if len("%s parfums kopen in België | Qosmi" % marque) <= 60
         else titre("%s parfums" % marque, ": "),
         "meta_fr": coupe("Tous les parfums %s%s. Flacons originaux et neufs, livrés partout en Belgique." % (marque, liste_fr)),

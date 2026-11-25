@@ -1,7 +1,7 @@
 {%- comment -%}
-  « Notre avis » (25/11/2026, demande d'Amine, option 3) : court texte de conseil rédigé par Qosmi à partir du profil du
-  parfum (saisons, occasions, tenue, sillage, accords, ambiance, notes). Présenté comme NOTRE texte, jamais comme un avis
-  client. Aucun avis repris d'un autre site. Rendu dans qk-profil (FR / NL / EN). Paramètre : p = métachamp qosmi.profil.
+  « Profil olfactif en bref » (25/11/2026, demande d'Amine, option 3 ; renommé le 26/11 après l'audit SEO : ce n'est pas un
+  avis porté, c'est un résumé du profil du parfum : saisons, occasions, tenue, sillage, accords, ambiance, notes). Jamais
+  présenté comme un avis client. Aucun avis repris d'un autre site. Rendu dans qk-profil (FR / NL / EN). Paramètre : p = métachamp qosmi.profil.
 {%- endcomment -%}
 {%- assign nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign nl = true -%}{%- endif -%}
 {%- assign en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign en = true -%}{%- endif -%}
@@ -79,7 +79,7 @@
 
 {%- if qk_sais != blank or qk_occ != blank or qk_ten != blank or qk_ac != blank -%}
 <div class="qk-avis" style="margin:0 0 18px;padding:14px 16px;border-left:3px solid #B0517A;background:#faf6f8;border-radius:4px;line-height:1.55">
-  <p style="margin:0 0 4px;font-weight:600">{% if nl %}Ons advies{% elsif en %}Our take{% else %}Notre avis{% endif %}</p>
+  <p style="margin:0 0 4px;font-weight:600">{% if nl %}Geurprofiel in het kort{% elsif en %}Scent profile at a glance{% else %}Profil olfactif en bref{% endif %}</p>
   <p style="margin:0">
     {%- if qk_sais != blank or qk_occ != blank -%}
       {%- if nl -%}Draag hem vooral{% if qk_sais != blank %} {{ qk_sais }}{% endif %}{% if qk_occ != blank %}, {{ qk_occ }}{% endif %}.
@@ -89,9 +89,9 @@
     {%- endif -%}
     {%- if qk_ten != blank %} {{ qk_ten }}{% if qk_sil != blank %}{% if nl %}, met {{ qk_sil }}{% elsif en %}, with {{ qk_sil }}{% else %}, avec {{ qk_sil }}{% endif %}{% endif %}.{%- endif -%}
     {%- if qk_ac != blank -%}
-      {%- if nl %} De belangrijkste akkoorden ({{ qk_ac }}){% if qk_vb != blank %} geven hem een {{ qk_vb }} karakter.{% else %} bepalen zijn stijl.{% endif %}
-      {%- elsif en %} Its main accords ({{ qk_ac }}){% if qk_vb != blank %} give it a {{ qk_vb }} character.{% else %} define its style.{% endif %}
-      {%- else %} Ses accords dominants ({{ qk_ac }}){% if qk_vb != blank %} lui donnent un caractère {{ qk_vb }}.{% else %} font tout son style.{% endif %}
+      {%- if nl %} Belangrijkste akkoorden: {{ qk_ac }}.
+      {%- elsif en %} Main accords: {{ qk_ac }}.
+      {%- else %} Accords dominants : {{ qk_ac }}.
       {%- endif -%}
     {%- endif -%}
     {%- if nt.size > 0 and nfo.size > 0 -%}
