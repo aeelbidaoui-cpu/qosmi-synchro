@@ -454,6 +454,9 @@ def construire(fichiers, marques):
     lay = _re0.sub(r"    \{%- comment -%\}qk-livraison-produit-ld\{%- endcomment -%\}.*?\{%- endif -%\}\n", "", lay, flags=_re0.S)
     _ship = _re0.search(r"<script type=\"application/ld\+json\">.*?</script>", LIVRAISON_LD, _re0.S).group(0)
     lay = lay.replace("</head>", "    {%- comment -%}qk-livraison-produit-ld{%- endcomment -%}{%- if request.page_type == 'product' -%}" + _ship + "{%- endif -%}\n  </head>", 1)
+    # 26/11/2026 : vérification Bing Webmaster Tools (qosmi.nl ; qosmi.be est vérifié par l'import Search Console)
+    if "msvalidate.01" not in lay:
+        lay = lay.replace("</head>", "    {%- if request.page_type == 'index' -%}<meta name=\"msvalidate.01\" content=\"A252B7BA294BAC727EBE6AE61402D2A5\" />{%- endif -%}\n  </head>", 1)
     liquides["layout/theme.liquid"] = lay
     # titres et descriptions : qosmi.nl dit « Nederland », plus de « Parfums Parfums de Marly »
     meta = liquides.get("snippets/meta-tags.liquid", fichiers.get("snippets/meta-tags.liquid"))
