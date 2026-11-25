@@ -1032,3 +1032,8 @@ body:has(.qk-profil) .qk-desc-profil { display: none; }
 .qk-fil__boite [aria-current] { text-transform: uppercase; color: #666; }
 .qk-fil__sep { color: #aaa; }
 @media (min-width: 990px) { .qk-fil { margin-bottom: 44px; } .qk-fil__boite { padding: 16px 40px; } }
+
+/* 25/11/2026 (Amine : « il est mal affiché », Dior Homme) : les photos produit en portrait étaient rognées au carré
+   (media-fit-cover du thème) → on montre toujours le flacon en entier sur la fiche, fond blanc autour. */
+.product-information .product-media-container.media-fit-cover .product-media__image,
+.product-information .product-media-container .product-media__image { object-fit: contain !important; background: #fff; }
