@@ -1022,3 +1022,13 @@ body:has(.qk-profil) .qk-desc-profil { display: none; }
   .qk-sous-photo > * + * { margin-top: 18px; }
   .qk-sous-photo .qk-gpsr { margin-top: 18px; }
 }
+
+/* 25/11/2026 : bandeau fil d'Ariane sous l'en-tête de la fiche produit, pour aérer entre le logo et la photo */
+.qk-fil { background: #f5f5f5; border-top: 1px solid #ececec; border-bottom: 1px solid #ececec; margin: 0 0 28px; }
+.qk-fil__boite { max-width: var(--page-width, 1400px); margin: 0 auto; padding: 14px 20px; font-size: 13px; letter-spacing: .04em; color: #666;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px; justify-content: center; }
+.qk-fil__boite a { color: #111; text-decoration: none; text-transform: uppercase; }
+.qk-fil__boite a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.qk-fil__boite [aria-current] { text-transform: uppercase; color: #666; }
+.qk-fil__sep { color: #aaa; }
+@media (min-width: 990px) { .qk-fil { margin-bottom: 44px; } .qk-fil__boite { padding: 16px 40px; } }

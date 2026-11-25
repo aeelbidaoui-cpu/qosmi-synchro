@@ -558,9 +558,12 @@ def construire(fichiers, marques):
     ordre = [k for k in det["block_order"] if k in det["blocks"] and not k.startswith("qk_")]
     i = ordre.index(next(k for k in ordre if det["blocks"][k]["type"] == "buy-buttons")) + 1
     det["block_order"] = ordre[:i] + ["qk_acheter", "qk_livraison", "qk_rassurance", "qk_profil", "qk_gpsr"] + ordre[i:] + ["qk_sous_photo"]
+    # 25/11/2026 (Amine) : bandeau fil d'Ariane tout en haut de la fiche, pour espacer l'en-tête et la photo
+    d["sections"]["qk_fil"] = {"type": "qk-fil", "settings": {}}
+    d["order"] = ["qk_fil"] + [k for k in d["order"] if k != "qk_fil"]
     d["sections"]["qk_marque"] = {"type": "qk-texte", "settings": {"mode_marque": True, "alignement": "centre"}}
     d["order"] = [k for k in d["order"] if k != "qk_marque"]
-    d["order"].insert(1, "qk_marque")
+    d["order"].insert(d["order"].index("main") + 1 if "main" in d["order"] else 1, "qk_marque")
     for s in d["sections"].values():
         if s["type"] == "product-recommendations":
             for b in s["blocks"].values():

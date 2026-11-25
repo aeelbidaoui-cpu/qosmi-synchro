@@ -1,0 +1,25 @@
+{%- comment -%} 25/11/2026 (Amine : « sous le logo et la photo il faut espacer, mets une bannière ») : bandeau fil d'Ariane
+  en haut de la fiche produit (Accueil › Marque › Parfum), fond gris clair, + données BreadcrumbList pour Google. {%- endcomment -%}
+{%- if product -%}
+{%- assign qk_l = request.locale.iso_code -%}
+{%- assign qk_h = shop.metafields.qosmi.marques.value[product.vendor] -%}
+{%- assign qk_t = product.title | split: ' — ' | first | remove_first: product.vendor | strip -%}
+{%- if qk_t == blank -%}{%- assign qk_t = product.title | split: ' — ' | first -%}{%- endif -%}
+{%- capture qk_marque_url -%}{% if qk_h != blank %}{{ routes.collections_url }}/{{ qk_h }}{% else %}{{ routes.collections_url }}/vendors?q={{ product.vendor | url_encode }}{% endif %}{%- endcapture -%}
+<nav class="qk-fil" aria-label="{% if qk_l == 'nl' %}Kruimelpad{% elsif qk_l == 'en' %}Breadcrumb{% else %}Fil d'Ariane{% endif %}">
+  <div class="qk-fil__boite">
+    <a href="{{ routes.root_url }}">{% if qk_l == 'nl' or qk_l == 'en' %}Home{% else %}Accueil{% endif %}</a>
+    <span class="qk-fil__sep" aria-hidden="true">›</span>
+    <a href="{{ qk_marque_url }}">{{ product.vendor }}</a>
+    <span class="qk-fil__sep" aria-hidden="true">›</span>
+    <span aria-current="page">{{ qk_t }}</span>
+  </div>
+</nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":{{ shop.name | json }},"item":{{ shop.url | append: routes.root_url | json }}},
+{"@type":"ListItem","position":2,"name":{{ product.vendor | json }},"item":{{ shop.url | append: qk_marque_url | json }}},
+{"@type":"ListItem","position":3,"name":{{ qk_t | json }},"item":{{ shop.url | append: product.url | json }}}]}</script>
+{%- endif -%}
+{% schema %}
+{"name": "Qosmi fil d'Ariane", "settings": []}
+{% endschema %}
