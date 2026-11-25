@@ -253,5 +253,35 @@
   "img": [
    "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-17-mat-rose-1.jpg"
   ]
+ },
+ "18-sel-mixtes": {
+  "zernio": "6b06274c1de6792bfe3b7d07",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-27T12:30:00+01:00",
+  "date": "2026-11-27",
+  "creneau": "12:30",
+  "n": 18,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-18-sel-mixtes-1.jpg"
+  ]
+ },
+ "19-pdj-hypnotic": {
+  "zernio": "6b0627561de6792bfe3b7d29",
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-27T18:30:00+01:00",
+  "date": "2026-11-27",
+  "creneau": "18:30",
+  "n": 19,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-19-pdj-hypnotic-1.jpg"
+  ]
  }
 }

@@ -168,5 +168,34 @@
   "zernio": "6b04f887f187cbf25e9bbaaa",
   "programme": "2026-11-26T18:00:00+01:00",
   "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-26-18h00.jpg"
+ },
+ "2026-11-27 11:00": {
+  "sorte": "duel",
+  "langue": "nl",
+  "titre": "Ajmal Aurum Winter — Eau de Parfum unisex / Jean Paul Gaultier Scandal Elixir — Parfum voor heren",
+  "parfums": [
+   "ajmal-aurum-winter-eau-de-parfum-mixte",
+   "jean-paul-gaultier-scandal-elixir-parfum-pour-homme"
+  ],
+  "date": "2026-11-27",
+  "creneau": "11:00",
+  "zernio": "6b062772082c3ef51c6b85c5",
+  "programme": "2026-11-27T11:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-27-11h00.jpg"
+ },
+ "2026-11-27 18:00": {
+  "sorte": "famille",
+  "langue": "nl",
+  "titre": "tabak",
+  "parfums": [
+   "dolce-gabbana-pour-homme-intenso-eau-de-parfum-pour-homme",
+   "xerjoff-casamorati-quattro-pizzi-eau-de-parfum-mixte",
+   "lattafa-pride-taureau-de-combat-eau-de-parfum-mixte"
+  ],
+  "date": "2026-11-27",
+  "creneau": "18:00",
+  "zernio": "6b06277d6a45e6fe701f5dc9",
+  "programme": "2026-11-27T18:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-27-18h00.jpg"
  }
 }
