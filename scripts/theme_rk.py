@@ -12,7 +12,7 @@ FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.js
             "templates/search.json", "sections/header-group.json", "sections/footer-group.json", "templates/cart.json",
             "sections/main-collection.liquid", "sections/search-results.liquid", "snippets/predictive-search-products-list.liquid"]
 OPTIONNELS = ["snippets/meta-tags.liquid",  # 09/11/2026 : titre Google de l'accueil FR (lu s'il existe)
-              "sections/header.liquid", "sections/product-information.liquid"]  # 26/11/2026 : audit SEO (H1, données structurées)
+              "sections/header.liquid", "sections/product-information.liquid", "sections/main-blog-post.liquid"]  # 26/11/2026 : audit SEO (H1, données structurées)
 
 # 26/11/2026 (audit SEO) : données produit de Shopify corrigées à l'affichage : https au lieu de http, @id absolus, état neuf et
 # vendeur sur chaque offre, tailles (variesBy), et sans le paragraphe « Dans le même esprit » (liens vers d'autres parfums)
@@ -27,6 +27,23 @@ QK_PRODUIT_LD = ("{%- comment -%}qk-produit-ld{%- endcomment -%}"
     "{%- if qk_r.size == 2 -%}{%- assign qk_t = qk_p[0] | split: '\\n' | join: ' ' | strip -%}"
     "{%- assign qk_sd = qk_t | append: '\",\"hasVariant\"' | append: qk_r[1] -%}{%- endif -%}{%- endif -%}{%- endfor -%}"
     "{{ qk_sd }}")
+
+# 26/11/2026 (audit SEO) : données des articles du Magazine : auteur = l'organisation Qosmi (pas une « personne »), éditeur relié
+# à la fiche entreprise (#org, avec logo), https, @id absolu, et date de modification jamais antérieure à la publication
+QK_ARTICLE_LD = ("{%- comment -%}qk-article-ld{%- endcomment -%}"
+    "{%- capture qk_ad -%}{{ article | structured_data }}{%- endcapture -%}"
+    "{%- capture qk_id -%}\"@id\":\"{{ request.origin | replace: '/', '\\/' }}\\/{%- endcapture -%}"
+    "{%- assign qk_ad = qk_ad | replace: 'http:\\/\\/schema.org\\/', 'https:\\/\\/schema.org\\/' | replace: '\"@id\":\"\\/', qk_id -%}"
+    "{%- assign qk_p = qk_ad | split: '\"author\":{' -%}{%- if qk_p.size == 2 -%}{%- assign qk_r = qk_p[1] | split: '}' -%}"
+    "{%- assign qk_reste = qk_p[1] | remove_first: qk_r[0] | remove_first: '}' -%}"
+    "{%- assign qk_ad = qk_p[0] | append: '\"author\":{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/qosmi.be\\/#org\",\"name\":\"Qosmi\",\"url\":\"https:\\/\\/qosmi.be\\/\"}' | append: qk_reste -%}{%- endif -%}"
+    "{%- assign qk_ad = qk_ad | replace: '\"publisher\":{\"@type\":\"Organization\",\"name\":\"Qosmi\"}', '\"publisher\":{\"@id\":\"https:\\/\\/qosmi.be\\/#org\"}' -%}"
+    "{%- assign qk_pub = qk_ad | split: '\"datePublished\":\"' -%}{%- assign qk_mod = qk_ad | split: '\"dateModified\":\"' -%}"
+    "{%- if qk_pub.size == 2 and qk_mod.size == 2 -%}{%- assign qk_dp = qk_pub[1] | split: '\"' | first -%}{%- assign qk_dm = qk_mod[1] | split: '\"' | first -%}"
+    "{%- if qk_dm < qk_dp -%}{%- capture qk_a -%}\"dateModified\":\"{{ qk_dm }}\"{%- endcapture -%}{%- capture qk_b -%}\"dateModified\":\"{{ qk_dp }}\"{%- endcapture -%}"
+    "{%- assign qk_ad = qk_ad | replace: qk_a, qk_b -%}{%- endif -%}{%- endif -%}"
+    "{{ qk_ad }}")
+
 
 # 26/11/2026 (audit SEO) : qosmi.nl (marché Pays-Bas) : les titres et descriptions traduits pour la Belgique disent « in België »
 QK_META_MARCHE = ("{%- comment -%}qk-meta-marche{%- endcomment -%}"
@@ -482,6 +499,16 @@ def construire(fichiers, marques):
                 hdr = hdr[:a] + "{%- comment -%}qk : bloc Organization retiré (doublon, audit SEO 26/11/2026){%- endcomment -%}" + hdr[b + 9:]
         print("  en-tête : H1 caché -> p, Organization retiré (%d -> %d caractères)" % (n0, len(hdr)))
         liquides["sections/header.liquid"] = hdr
+    blog = fichiers.get("sections/main-blog-post.liquid")
+    if blog:
+        if "{{ article | structured_data }}" in blog:
+            liquides["sections/main-blog-post.liquid"] = blog.replace("{{ article | structured_data }}", QK_ARTICLE_LD)
+            print("  articles : données structurées corrigées")
+        elif "qk-article-ld" in blog:
+            a = blog.index("{%- comment -%}qk-article-ld{%- endcomment -%}")
+            b = blog.index("{{ qk_ad }}", a) + len("{{ qk_ad }}")
+            liquides["sections/main-blog-post.liquid"] = blog[:a] + QK_ARTICLE_LD + blog[b:]
+            print("  articles : données structurées mises à jour")
     pinfo = fichiers.get("sections/product-information.liquid")
     if pinfo:
         if "{{ closest.product | structured_data }}" in pinfo:
