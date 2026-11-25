@@ -254,6 +254,32 @@ def lire_theme(motifs):
                         print("%5d: %s" % (j, ligne[:400]))
 
 
+def chat_icone():
+    """26/11/2026 (audit SEO, mobile) : le bouton « Chat » de Shopify Inbox recouvrait le titre des fiches sur téléphone ->
+    bouton rond avec seulement l'icône (réglage launcher_style du bloc d'appli, dans config/settings_data.json)."""
+    import re as _re
+    from shopify_api import Shopify
+    s = Shopify()
+    themes = s.gql(Q_THEMES)["themes"]["nodes"]
+    main = next(t for t in themes if t["role"] == "MAIN")
+    brut = fichiers_theme(s, main["id"], ["config/settings_data.json"])["config/settings_data.json"]
+    entete = _re.match(r"\s*/\*.*?\*/\s*", brut, _re.S)
+    d = json.loads(brut[entete.end():] if entete else brut)
+    n = 0
+    for b in d["current"].get("blocks", {}).values():
+        if "apps/inbox/blocks/chat" in b.get("type", ""):
+            print("  avant :", b["settings"].get("launcher_style"))
+            b["settings"]["launcher_style"] = "icon"
+            n += 1
+    if not n:
+        raise SystemExit("bloc Inbox introuvable")
+    corps = (entete.group(0) if entete else "") + json.dumps(d, ensure_ascii=False, indent=2)
+    r = s.gql("""mutation($id: ID!, $f: [OnlineStoreThemeFilesUpsertFileInput!]!) { themeFilesUpsert(themeId: $id, files: $f) {
+                 upsertedThemeFiles { filename } userErrors { filename code message } } }""",
+              {"id": main["id"], "f": [{"filename": "config/settings_data.json", "body": {"type": "TEXT", "value": corps}}]})["themeFilesUpsert"]
+    print("  bouton Chat en icône seule :", r["userErrors"] or "ok")
+
+
 def appliquer():
     from shopify_api import Shopify
     import theme_a
@@ -360,6 +386,8 @@ if __name__ == "__main__":
         menu_seul()
     elif "--theme-rk" in sys.argv:
         appliquer_rk()
+    elif "--chat-icone" in sys.argv:
+        chat_icone()
     elif "--lire" in sys.argv:
         lire_theme([m for m in os.environ.get("MOTIFS", "").split("|") if m])
     elif "--exporter-apercu" in sys.argv:
