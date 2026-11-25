@@ -1011,13 +1011,14 @@ body:has(.qk-profil) .qk-desc-profil { display: none; }
    la description et la sécurité du produit (déplacées par le script de la fiche, voir theme_rk.py « qk_sous_photo »). */
 @media (min-width: 990px) {
   .product-information.section--page-width .product-information__grid:not(.product-information--media-none).product-information--media-left {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); max-width: 1080px; width: 100%; margin-inline: auto; justify-self: center;
+    /* 25/11/2026 (Amine : « utilise la largeur du site ») : toute la largeur de la page, deux colonnes égales */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); width: 100%;
   }
-  .product-information__media media-gallery { max-width: 440px; }
+  .product-information__media media-gallery { max-width: 480px; }
   .product-information__media media-gallery slideshow-container { padding: 20px; }
   .product-information__media .sticky-content { position: static; }
-  .product-information .product-details > .group-block { max-width: 460px; margin-inline: auto; }
-  .qk-sous-photo { max-width: 440px; margin: 26px auto 0; }
+  .product-information .product-details > .group-block { max-width: 640px; margin-inline: auto; }
+  .qk-sous-photo { max-width: 640px; margin: 26px auto 0; }
   .qk-sous-photo > * + * { margin-top: 18px; }
   .qk-sous-photo .qk-gpsr { margin-top: 18px; }
 }
