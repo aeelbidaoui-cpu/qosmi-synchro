@@ -40,7 +40,7 @@
     {%- endcase -%}
   {%- endfor -%}
 {%- endcapture -%}
-{%- assign qk_sais = qk_sais | strip -%}{%- assign qk_occ = qk_occ | strip -%}
+{%- assign qk_sais = qk_sais | strip | replace: ' ,', ',' -%}{%- assign qk_occ = qk_occ | strip | replace: ' ,', ',' -%}
 
 {%- comment -%} 2. tenue + sillage {%- endcomment -%}
 {%- capture qk_ten -%}
@@ -66,6 +66,7 @@
 {%- if nl -%}{%- assign ac = p.acn -%}{%- assign vb = p.vn -%}{%- elsif en and p.ace -%}{%- assign ac = p.ace -%}{%- assign vb = p.ve -%}{%- else -%}{%- assign ac = p.acf -%}{%- assign vb = p.vf -%}{%- endif -%}
 {%- assign ac3 = ac | slice: 0, 3 -%}{%- assign vb2 = vb | slice: 0, 2 -%}
 {%- capture qk_ac -%}{%- for x in ac3 -%}{%- unless forloop.first -%}{%- if forloop.last -%}{{ et }}{%- else -%}, {% endif -%}{%- endunless -%}{{ x }}{%- endfor -%}{%- endcapture -%}
+{%- assign qk_ac = qk_ac | replace: ' ,', ',' -%}
 {%- capture qk_vb -%}{%- for x in vb2 -%}{%- unless forloop.first -%}{{ et }}{%- endunless -%}{{ x }}{%- endfor -%}{%- endcapture -%}
 
 {%- comment -%} 4. notes phares {%- endcomment -%}
