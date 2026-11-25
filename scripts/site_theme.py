@@ -229,6 +229,31 @@ def fichiers_theme(s, tid, noms):
     return {f["filename"]: f["body"]["content"] for f in d if (f.get("body") or {}).get("content") is not None}
 
 
+def lire_theme(motifs):
+    """26/11/2026 (audit SEO) : affiche, en lecture seule, les fichiers du thème publié qui contiennent un des motifs."""
+    from shopify_api import Shopify
+    s = Shopify()
+    themes = s.gql(Q_THEMES)["themes"]["nodes"]
+    main = next(t for t in themes if t["role"] == "MAIN")
+    noms, apres = [], None
+    while True:
+        d = s.gql(Q_FICHIERS, {"id": main["id"], "apres": apres})["theme"]["files"]
+        noms += [f["filename"] for f in d["nodes"]]
+        if not d["pageInfo"]["hasNextPage"]:
+            break
+        apres = d["pageInfo"]["endCursor"]
+    liq = [n for n in noms if n.endswith(".liquid")]
+    print("Thème", main["name"], ":", len(noms), "fichiers,", len(liq), "liquid")
+    for i in range(0, len(liq), 40):
+        for f in s.gql(Q_CONTENU, {"id": main["id"], "noms": liq[i:i + 40]})["theme"]["files"]["nodes"]:
+            c = (f.get("body") or {}).get("content") or ""
+            if any(m in c for m in motifs):
+                print("\n===== %s (%d lignes) =====" % (f["filename"], c.count("\n") + 1))
+                for j, ligne in enumerate(c.split("\n"), 1):
+                    if any(m in ligne for m in motifs):
+                        print("%5d: %s" % (j, ligne[:400]))
+
+
 def appliquer():
     from shopify_api import Shopify
     import theme_a
@@ -335,6 +360,8 @@ if __name__ == "__main__":
         menu_seul()
     elif "--theme-rk" in sys.argv:
         appliquer_rk()
+    elif "--lire" in sys.argv:
+        lire_theme([m for m in os.environ.get("MOTIFS", "").split("|") if m])
     elif "--exporter-apercu" in sys.argv:
         exporter(apercu=True)
     elif "--exporter" in sys.argv:
