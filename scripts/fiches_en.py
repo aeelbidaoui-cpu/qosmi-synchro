@@ -246,7 +246,7 @@ def completer(vus, journal=print):
         if p.get("teintes"):
             b += " Several shades available."
         if testeur:
-            b += " “Tester” size: the same product as the one sold in shops, in simple packaging, often without a cap."
+            b += " “Tester” size: the same product as the one sold in shops, with its cap, only the packaging is simpler."
         if abime:
             b += " “Damaged box” size: the original box is damaged, the product itself is brand-new and intact."
         b += " Genuine, brand-new product. Delivered in Belgium and 8 other European countries."

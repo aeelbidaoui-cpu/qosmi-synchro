@@ -154,9 +154,9 @@ def produit(lignes, r, photos, normaux_attente_auto=True):
             d_fr += " Plusieurs teintes au choix."
             d_nl += " Verschillende kleuren beschikbaar."
         if testeurs:
-            d_fr += (" Format « testeur » : le même produit que la version vendue en boutique, dans un emballage simple,"
-                     " souvent sans bouchon.")
-            d_nl += " Formaat „tester”: hetzelfde product als in de winkel, in een eenvoudige verpakking, vaak zonder dop."
+            d_fr += (" Format « testeur » : le même produit que la version vendue en boutique, avec son bouchon,"
+                     " seul l'emballage est plus simple.")
+            d_nl += " Formaat „tester”: hetzelfde product als in de winkel, met dop, alleen de verpakking is eenvoudiger."
         if abimes:
             d_fr += " Format « boîte abîmée » : boîte d'origine abîmée, le produit lui-même est neuf et intact."
             d_nl += " Formaat „beschadigde doos”: originele doos beschadigd, het product zelf is nieuw en onbeschadigd."

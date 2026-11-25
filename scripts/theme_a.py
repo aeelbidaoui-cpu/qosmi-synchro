@@ -121,8 +121,8 @@ def construire(fichiers, police="jost"):
         "qosmi_edito_sur": texte_bloc(modele_texte, "<p>Bon à savoir</p>", "rte", GRIS),
         "qosmi_edito_titre": texte_bloc(modele_texte, "<h2>Un testeur, c'est le même parfum. Juste sans la boîte.</h2>", "h3", NOIR),
         "qosmi_edito_texte": texte_bloc(modele_texte, "<p>Les marques fabriquent des flacons pour les parfumeries, à faire "
-                                        "sentir en magasin. Le parfum est identique ; l'emballage est simple, parfois sans "
-                                        "bouchon. Résultat : le même parfum, moins cher.</p>", "rte", GRIS),
+                                        "sentir en magasin. Le parfum est identique, avec son "
+                                        "bouchon ; seul l'emballage est plus simple. Résultat : le même parfum, moins cher.</p>", "rte", GRIS),
     }, "block_order": ["qosmi_edito_sur", "qosmi_edito_titre", "qosmi_edito_texte"], "settings": {}}
     edito["blocks"]["qosmi_edito_sur"]["settings"]["case"] = "uppercase"
     for k in ("qosmi_edito_titre", "qosmi_edito_texte"):

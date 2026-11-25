@@ -54,10 +54,10 @@ COLLECTIONS = {  # handle: (titre SEO, méta, texte de la page) FR puis NL
                         "Elke fles is origineel en nieuw, geleverd in heel België.</p>")),
     "testeurs": (("Testeurs de parfum authentiques moins chers | Qosmi",
                   "Testeurs de parfum : le même parfum authentique que la version en boîte, dans un emballage simple, moins cher. Livraison partout en Belgique, offerte dès 2 articles.",
-                  "<p>Un testeur, c'est le même parfum authentique que la version vendue en boîte, livré dans un emballage simple, parfois sans bouchon. Le contenu est identique, le prix plus doux.</p>"),
+                  "<p>Un testeur, c'est le même parfum authentique que la version vendue en boîte, avec son bouchon, livré dans un emballage simple. Le contenu est identique, le prix plus doux.</p>"),
                  ("Originele parfumtesters, voordeliger | Qosmi",
                   "Parfumtesters: dezelfde originele parfum als in de doos, in een eenvoudige verpakking en voordeliger. Levering in heel België, gratis vanaf 2 artikelen.",
-                  "<p>Een tester is dezelfde originele parfum als de versie in de doos, geleverd in een eenvoudige verpakking, soms zonder dop. Dezelfde inhoud, een zachtere prijs.</p>")),
+                  "<p>Een tester is dezelfde originele parfum als de versie in de doos, met dop, geleverd in een eenvoudige verpakking. Dezelfde inhoud, een zachtere prijs.</p>")),
 }
 
 # 22/11/2026 (Amine, version anglaise) : accueil et collections principales en anglais (marchés hors Belgique / Pays-Bas)
@@ -87,7 +87,7 @@ COLLECTIONS_EN = {
                        "Every bottle is genuine and brand-new, %s.</p>" % DANS_9),
     "testeurs": ("Authentic perfume testers, for less | Qosmi",
                  "Perfume testers: the same authentic fragrance as the boxed version, in simple packaging, for less. %s." % DANS_9.capitalize(),
-                 "<p>A tester is the same authentic fragrance as the boxed version, delivered in simple packaging, sometimes without a cap. Same contents, a gentler price.</p>"),
+                 "<p>A tester is the same authentic fragrance as the boxed version, with its cap, delivered in simple packaging. Same contents, a gentler price.</p>"),
 }
 
 TITRES_NL = {"parfums-arabes": "Arabische parfums"}

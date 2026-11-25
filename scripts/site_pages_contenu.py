@@ -25,7 +25,7 @@ PAGES = [
 
 <h2>2. Nos produits</h2>
 <p>2.1 Tous nos produits sont des produits de marque <strong>authentiques et neufs</strong>, achetés auprès de distributeurs et de grossistes établis dans l'Union européenne. Qosmi n'est pas un revendeur agréé des marques, sauf mention contraire, et n'est lié à aucune d'entre elles.</p>
-<p>2.2 <strong>Testeurs.</strong> Les produits dont le nom contient « testeur » sont des produits authentiques et neufs, au contenu identique à la version vendue en boîte, mais livrés dans un emballage simple, parfois sans bouchon. Leur prix tient compte de cette présentation.</p>
+<p>2.2 <strong>Testeurs.</strong> Les produits dont le nom contient « testeur » sont des produits authentiques et neufs, au contenu identique à la version vendue en boîte, mais livrés avec leur bouchon dans un emballage simple. Leur prix tient compte de cette présentation.</p>
 <p>2.3 Les photos et descriptions sont données à titre indicatif. L'emballage peut varier selon les séries de fabrication de la marque, sans que le contenu change.</p>
 <p>2.4 Les produits sont proposés dans la limite des stocks disponibles. Ils sont expédiés depuis l'entrepôt de notre partenaire logistique dans l'Union européenne.</p>
 <p>2.5 Si un produit commandé se révèle indisponible, nous vous prévenons sans délai. Vous pouvez attendre, choisir un autre produit ou annuler ; en cas d'annulation, vous êtes remboursé au plus tard dans les 14 jours.</p>
@@ -89,7 +89,7 @@ PAGES = [
 
 <h2>2. Onze producten</h2>
 <p>2.1 Al onze producten zijn <strong>originele en nieuwe</strong> merkproducten, aangekocht bij distributeurs en groothandels gevestigd in de Europese Unie. Qosmi is geen erkende verdeler van de merken, tenzij anders vermeld, en is met geen enkel merk verbonden.</p>
-<p>2.2 <strong>Testers.</strong> Producten met „tester” in de naam zijn originele, nieuwe producten met dezelfde inhoud als de versie in doos, maar geleverd in een eenvoudige verpakking, soms zonder dop. Hun prijs houdt rekening met deze presentatie.</p>
+<p>2.2 <strong>Testers.</strong> Producten met „tester” in de naam zijn originele, nieuwe producten met dezelfde inhoud als de versie in doos, maar geleverd met dop in een eenvoudige verpakking. Hun prijs houdt rekening met deze presentatie.</p>
 <p>2.3 Foto's en beschrijvingen zijn indicatief. De verpakking kan verschillen naargelang de productiereeks van het merk, zonder dat de inhoud verandert.</p>
 <p>2.4 Producten worden aangeboden zolang de voorraad strekt. Ze worden verzonden vanuit het magazijn van onze logistieke partner in de Europese Unie.</p>
 <p>2.5 Blijkt een besteld product niet beschikbaar, dan laten wij u dat meteen weten. U kunt wachten, een ander product kiezen of annuleren; bij annulering wordt u uiterlijk binnen 14 dagen terugbetaald.</p>

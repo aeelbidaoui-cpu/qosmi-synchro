@@ -19,7 +19,7 @@ PAGES_EN = {
 
 <h2>2. Our products</h2>
 <p>2.1 All our products are <strong>genuine, brand-new</strong> branded products, bought from distributors and trade suppliers established in the European Union. Unless stated otherwise, Qosmi is not an authorised retailer of the brands and is not affiliated with any of them.</p>
-<p>2.2 <strong>Testers.</strong> Products whose name contains “tester” are genuine, brand-new products with the same contents as the boxed version, but delivered in plain packaging, sometimes without a cap. Their price reflects this presentation.</p>
+<p>2.2 <strong>Testers.</strong> Products whose name contains “tester” are genuine, brand-new products with the same contents as the boxed version, but delivered with their cap in plain packaging. Their price reflects this presentation.</p>
 <p>2.3 Photos and descriptions are for guidance only. Packaging may vary between the brand's production batches, without the contents changing.</p>
 <p>2.4 Products are offered while stocks last. They are shipped from our logistics partner's warehouse in the European Union.</p>
 <p>2.5 If an ordered product turns out to be unavailable, we will inform you without delay. You can wait, choose another product or cancel; if you cancel, you will be refunded within 14 days at the latest.</p>

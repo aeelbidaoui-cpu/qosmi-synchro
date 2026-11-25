@@ -271,8 +271,8 @@ def fiche(l, r, photos):
         d_fr += "Teinte : %s. " % teinte
         d_nl += "Kleur: %s. " % teinte
     if testeur:
-        d_fr += "Testeur : le même produit que la version vendue en boutique, dans un emballage simple, souvent sans bouchon. "
-        d_nl += "Tester: hetzelfde product als in de winkel, in een eenvoudige verpakking, vaak zonder dop. "
+        d_fr += "Testeur : le même produit que la version vendue en boutique, avec son bouchon, seul l'emballage est plus simple. "
+        d_nl += "Tester: hetzelfde product als in de winkel, met dop, alleen de verpakking is eenvoudiger. "
     if abime:
         d_fr += "Boîte d'origine abîmée : le produit lui-même est neuf et intact. "
         d_nl += "Originele doos beschadigd: het product zelf is nieuw en onbeschadigd. "
