@@ -9,6 +9,8 @@
 {%- if p -%}
 {%- assign nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign nl = true -%}{%- endif -%}{%- assign en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign en = true -%}{%- endif -%}
 <div class="qk-profil">
+  {%- comment -%}25/11/2026 : « Notre avis » (texte de conseil Qosmi, jamais un avis client){%- endcomment -%}
+  {%- render 'qk-avis', p: p -%}
   {%- if p.s.size > 0 -%}
   <div class="qk-profil__ligne"><span class="qk-profil__k">{% if nl %}Seizoen{% elsif en %}Season{% else %}Saison{% endif %}</span><span class="qk-profil__v">
     {%- for x in p.s -%}{%- unless forloop.first %} · {% endunless -%}

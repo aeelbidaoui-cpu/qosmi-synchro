@@ -1,0 +1,100 @@
+{%- comment -%}
+  « Notre avis » (25/11/2026, demande d'Amine, option 3) : court texte de conseil rédigé par Qosmi à partir du profil du
+  parfum (saisons, occasions, tenue, sillage, accords, ambiance, notes). Présenté comme NOTRE texte, jamais comme un avis
+  client. Aucun avis repris d'un autre site. Rendu dans qk-profil (FR / NL / EN). Paramètre : p = métachamp qosmi.profil.
+{%- endcomment -%}
+{%- assign nl = false -%}{%- if request.locale.iso_code == 'nl' -%}{%- assign nl = true -%}{%- endif -%}
+{%- assign en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign en = true -%}{%- endif -%}
+{%- if nl -%}{%- assign et = ' en ' -%}{%- elsif en -%}{%- assign et = ' and ' -%}{%- else -%}{%- assign et = ' et ' -%}{%- endif -%}
+
+{%- comment -%} 1. saisons + occasions {%- endcomment -%}
+{%- capture qk_sais -%}
+  {%- if p.s.size >= 4 -%}{% if nl %}het hele jaar{% elsif en %}all year round{% else %}toute l'année{% endif %}
+  {%- else -%}
+    {%- for x in p.s -%}
+      {%- unless forloop.first -%}{%- if forloop.last -%}{{ et }}{%- else -%}, {% endif -%}{%- endunless -%}
+      {%- case x -%}
+        {%- when 'printemps' -%}{% if nl %}in de lente{% elsif en %}in spring{% else %}au printemps{% endif %}
+        {%- when 'ete' -%}{% if nl %}in de zomer{% elsif en %}in summer{% else %}en été{% endif %}
+        {%- when 'automne' -%}{% if nl %}in de herfst{% elsif en %}in autumn{% else %}en automne{% endif %}
+        {%- when 'hiver' -%}{% if nl %}in de winter{% elsif en %}in winter{% else %}en hiver{% endif %}
+      {%- endcase -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+{%- assign qk_occ_list = p.o | slice: 0, 3 -%}
+{%- capture qk_occ -%}
+  {%- for x in qk_occ_list -%}
+    {%- unless forloop.first -%}{%- if forloop.last -%}{% if nl %} of {% elsif en %} or {% else %} ou {% endif %}{%- else -%}, {% endif -%}{%- endunless -%}
+    {%- case x -%}
+      {%- when 'quotidien' -%}{% if nl %}elke dag{% elsif en %}every day{% else %}au quotidien{% endif %}
+      {%- when 'bureau' -%}{% if nl %}op kantoor{% elsif en %}at the office{% else %}au bureau{% endif %}
+      {%- when 'rdv' -%}{% if nl %}voor een date{% elsif en %}on a date{% else %}pour un rendez-vous{% endif %}
+      {%- when 'diner' -%}{% if nl %}voor een etentje{% elsif en %}for dinner{% else %}pour un dîner{% endif %}
+      {%- when 'soiree' -%}{% if nl %}om uit te gaan{% elsif en %}on a night out{% else %}en soirée{% endif %}
+      {%- when 'mariage' -%}{% if nl %}op een bruiloft{% elsif en %}at a wedding{% else %}pour un mariage{% endif %}
+      {%- when 'sport' -%}{% if nl %}bij het sporten{% elsif en %}for sport{% else %}pour le sport{% endif %}
+      {%- when 'vacances' -%}{% if nl %}op vakantie{% elsif en %}on holiday{% else %}en vacances{% endif %}
+      {%- when 'chic' -%}{% if nl %}voor een chique gelegenheid{% elsif en %}for a smart occasion{% else %}pour un événement chic{% endif %}
+      {%- when 'detente' -%}{% if nl %}om te ontspannen{% elsif en %}to relax{% else %}pour un moment de détente{% endif %}
+    {%- endcase -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign qk_sais = qk_sais | strip -%}{%- assign qk_occ = qk_occ | strip -%}
+
+{%- comment -%} 2. tenue + sillage {%- endcomment -%}
+{%- capture qk_ten -%}
+  {%- case p.t -%}
+    {%- when 'legere' -%}{% if nl %}Hij blijft niet heel lang hangen{% elsif en %}It wears lightly{% else %}Sa tenue est légère{% endif %}
+    {%- when 'moyenne' -%}{% if nl %}Hij houdt gemiddeld lang{% elsif en %}It lasts a fair few hours{% else %}Il tient quelques heures{% endif %}
+    {%- when 'longue' -%}{% if nl %}Hij blijft lang hangen{% elsif en %}It lasts a long time{% else %}Il tient longtemps{% endif %}
+    {%- when 'journee' -%}{% if nl %}Hij blijft de hele dag{% elsif en %}It lasts all day{% else %}Il tient toute la journée{% endif %}
+    {%- when 'lendemain' -%}{% if nl %}Hij blijft tot de volgende dag{% elsif en %}It lasts until the next day{% else %}Il tient jusqu'au lendemain{% endif %}
+  {%- endcase -%}
+{%- endcapture -%}
+{%- capture qk_sil -%}
+  {%- case p.si -%}
+    {%- when 'discret' -%}{% if nl %}een subtiele sillage{% elsif en %}a subtle sillage{% else %}un sillage discret{% endif %}
+    {%- when 'modere' -%}{% if nl %}een gemiddelde sillage{% elsif en %}a moderate sillage{% else %}un sillage modéré{% endif %}
+    {%- when 'fort' -%}{% if nl %}een sterke sillage{% elsif en %}a strong sillage{% else %}un sillage prononcé{% endif %}
+    {%- when 'tres_fort' -%}{% if nl %}een zeer sterke sillage{% elsif en %}a very strong sillage{% else %}un sillage très prononcé{% endif %}
+  {%- endcase -%}
+{%- endcapture -%}
+{%- assign qk_ten = qk_ten | strip -%}{%- assign qk_sil = qk_sil | strip -%}
+
+{%- comment -%} 3. accords + ambiance {%- endcomment -%}
+{%- if nl -%}{%- assign ac = p.acn -%}{%- assign vb = p.vn -%}{%- elsif en and p.ace -%}{%- assign ac = p.ace -%}{%- assign vb = p.ve -%}{%- else -%}{%- assign ac = p.acf -%}{%- assign vb = p.vf -%}{%- endif -%}
+{%- assign ac3 = ac | slice: 0, 3 -%}{%- assign vb2 = vb | slice: 0, 2 -%}
+{%- capture qk_ac -%}{%- for x in ac3 -%}{%- unless forloop.first -%}{%- if forloop.last -%}{{ et }}{%- else -%}, {% endif -%}{%- endunless -%}{{ x }}{%- endfor -%}{%- endcapture -%}
+{%- capture qk_vb -%}{%- for x in vb2 -%}{%- unless forloop.first -%}{{ et }}{%- endunless -%}{{ x }}{%- endfor -%}{%- endcapture -%}
+
+{%- comment -%} 4. notes phares {%- endcomment -%}
+{%- if nl -%}{%- assign n = p.nn -%}{%- elsif en and p.ne -%}{%- assign n = p.ne -%}{%- else -%}{%- assign n = p.nf -%}{%- endif -%}
+{%- assign nt = n.t | slice: 0, 2 -%}{%- assign nfo = n.f | slice: 0, 2 -%}
+
+{%- if qk_sais != blank or qk_occ != blank or qk_ten != blank or qk_ac != blank -%}
+<div class="qk-avis" style="margin:0 0 18px;padding:14px 16px;border-left:3px solid #B0517A;background:#faf6f8;border-radius:4px;line-height:1.55">
+  <p style="margin:0 0 4px;font-weight:600">{% if nl %}Ons advies{% elsif en %}Our take{% else %}Notre avis{% endif %}</p>
+  <p style="margin:0">
+    {%- if qk_sais != blank or qk_occ != blank -%}
+      {%- if nl -%}Draag hem vooral{% if qk_sais != blank %} {{ qk_sais }}{% endif %}{% if qk_occ != blank %}, {{ qk_occ }}{% endif %}.
+      {%- elsif en -%}Best worn{% if qk_sais != blank %} {{ qk_sais }}{% endif %}{% if qk_occ != blank %}, {{ qk_occ }}{% endif %}.
+      {%- else -%}À porter surtout{% if qk_sais != blank %} {{ qk_sais }}{% endif %}{% if qk_occ != blank %}, {{ qk_occ }}{% endif %}.
+      {%- endif -%}
+    {%- endif -%}
+    {%- if qk_ten != blank %} {{ qk_ten }}{% if qk_sil != blank %}{% if nl %}, met {{ qk_sil }}{% elsif en %}, with {{ qk_sil }}{% else %}, avec {{ qk_sil }}{% endif %}{% endif %}.{%- endif -%}
+    {%- if qk_ac != blank -%}
+      {%- if nl %} De belangrijkste akkoorden ({{ qk_ac }}){% if qk_vb != blank %} geven hem een {{ qk_vb }} karakter.{% else %} bepalen zijn stijl.{% endif %}
+      {%- elsif en %} Its main accords ({{ qk_ac }}){% if qk_vb != blank %} give it a {{ qk_vb }} character.{% else %} define its style.{% endif %}
+      {%- else %} Ses accords dominants ({{ qk_ac }}){% if qk_vb != blank %} lui donnent un caractère {{ qk_vb }}.{% else %} font tout son style.{% endif %}
+      {%- endif -%}
+    {%- endif -%}
+    {%- if nt.size > 0 and nfo.size > 0 -%}
+      {%- if nl %} Opvallende noten: {{ nt | join: et }} in de top, {{ nfo | join: et }} in de basis.
+      {%- elsif en %} Signature notes: {{ nt | join: et }} at the top, {{ nfo | join: et }} at the base.
+      {%- else %} Notes phares : {{ nt | join: et }} en tête, {{ nfo | join: et }} en fond.
+      {%- endif -%}
+    {%- endif -%}
+  </p>
+</div>
+{%- endif -%}
