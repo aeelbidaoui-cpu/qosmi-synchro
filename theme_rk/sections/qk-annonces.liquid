@@ -3,6 +3,11 @@
   Les messages sont dans le réglage « messages », un par ligne (scripts/theme_rk.py, liste ANNONCES).
 {%- endcomment -%}
 {%- assign qk_msgs = section.settings.messages | newline_to_br | split: '<br />' -%}
+{%- comment -%} 25/11/2026 (Amine, exemple my-origines.com) : barre fixe « No Black Friday » au-dessus du bandeau, jusqu'au 06/12/2026 {%- endcomment -%}
+{%- assign qk_jb = 'now' | date: '%Y%m%d' | plus: 0 -%}{%- assign qk_nbf0 = collections['no-black-friday'] -%}
+{%- if qk_jb <= 20261206 and qk_nbf0 and qk_nbf0.products_count > 0 -%}
+<a class="qk-nbf-barre" href="{{ qk_nbf0.url }}" style="display:block;background:#B0517A;color:#fff;text-align:center;padding:9px 16px;font-size:14px;letter-spacing:.02em;text-decoration:none;line-height:1.35"><strong>NO BLACK FRIDAY</strong> – {% if request.locale.iso_code == 'nl' %}Eerlijke prijzen, het hele jaar door{% elsif request.locale.iso_code == 'en' %}Fair prices all year round{% else %}Des prix justes toute l'année{% endif %}</a>
+{%- endif -%}
 <div class="qk-annonces" role="region" aria-label="{{ 'Informations' }}">
   <div class="qk-annonces__piste" style="--qk-duree: {{ section.settings.duree }}s;">
     {%- for tour in (1..2) -%}
