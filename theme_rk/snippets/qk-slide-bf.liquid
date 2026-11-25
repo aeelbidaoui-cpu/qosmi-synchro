@@ -1,21 +1,21 @@
 {%- comment -%}
-  Diapositive « Black Friday » (demande d'Amine du 10/11/2026, remise du 17/11/2026) : -10 % automatique au panier du 27 au
-  30/11/2026 sur la collection black-friday (scripts/black_friday.py : fiches qui gardent au moins 5 € net). Annonce avant le
-  27/11, « jusqu'à lundi » pendant. Visible jusqu'au 30/11/2026 inclus, puis disparaît toute seule.
+  Diapositive « No Black Friday » (25/11/2026, Amine : « je veux faire comme eux », exemple my-origines.com) : pas de remise,
+  le message est « des prix justes toute l'année ». Collection no-black-friday (étiquette meilleur-prix, mise à jour chaque
+  heure), visible jusqu'au 06/12/2026 inclus. Ancienne diapositive Black Friday annulée le 20/11/2026.
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
 {%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
-{%- assign qk_bf = collections['black-friday'] -%}
+{%- assign qk_bf = collections['no-black-friday'] -%}
 {%- assign qk_jour = 'now' | date: '%Y%m%d' | plus: 0 -%}
-{%- if qk_bf and qk_bf.products_count > 0 and qk_jour <= 20261119 -%}
-<div class="qk-hero qk-carrousel__slide qk-bf" role="group" aria-roledescription="{% if qk_nl %}dia{% elsif qk_en %}slide{% else %}diapositive{% endif %}" aria-label="Black Friday">
-  <span class="qk-bf__fond" aria-hidden="true">BLACK FRIDAY BLACK FRIDAY BLACK FRIDAY</span>
+{%- if qk_bf and qk_bf.products_count > 0 and qk_jour <= 20261206 -%}
+<div class="qk-hero qk-carrousel__slide qk-bf" role="group" aria-roledescription="{% if qk_nl %}dia{% elsif qk_en %}slide{% else %}diapositive{% endif %}" aria-label="No Black Friday">
+  <span class="qk-bf__fond" aria-hidden="true">NO BLACK FRIDAY · NO BLACK FRIDAY · NO BLACK FRIDAY</span>
   <div class="qk-largeur qk-bf__cadre">
     <div class="qk-bf__texte">
-      <span class="qk-bf__sur">{% if qk_jour < 20261127 %}{% if qk_nl %}Van vrijdag 27 tot maandag 30 november{% elsif qk_en %}From Friday 27 to Monday 30 November{% else %}Du vendredi 27 au lundi 30 novembre{% endif %}{% else %}{% if qk_nl %}Tot en met maandag 30 november{% elsif qk_en %}Until Monday 30 November{% else %}Jusqu'au lundi 30 novembre{% endif %}{% endif %}</span>
-      <h2 class="qk-bf__titre">Black<br>Friday</h2>
-      <p class="qk-bf__intro">{% if qk_nl %}-10 % op {{ qk_bf.products_count }} parfums, automatisch in je winkelmandje. Zonder code, 100 % origineel.{% elsif qk_en %}-10% on {{ qk_bf.products_count }} fragrances, applied automatically in your cart. No code needed, 100% authentic.{% else %}-10 % sur {{ qk_bf.products_count }} parfums, automatiquement au panier. Sans code, 100 % authentiques.{% endif %}</p>
-      <a class="qk-bf__bouton" href="{{ qk_bf.url }}">{% if qk_nl %}Ontdek de selectie{% elsif qk_en %}See the selection{% else %}Voir la sélection{% endif %}</a>
+      <span class="qk-bf__sur">{% if qk_nl %}Black Friday? Niet bij ons.{% elsif qk_en %}Black Friday? Not here.{% else %}Black Friday ? Pas chez nous.{% endif %}</span>
+      <h2 class="qk-bf__titre">No Black<br>Friday</h2>
+      <p class="qk-bf__intro">{% if qk_nl %}Geen nepkortingen: onze prijzen zijn het hele jaar eerlijk. Ontdek {{ qk_bf.products_count }} parfums aan een bijzonder zachte prijs, 100 % echt.{% elsif qk_en %}No fake discounts: our prices are fair all year round. Discover {{ qk_bf.products_count }} fragrances at a particularly gentle price, 100% authentic.{% else %}Pas de faux rabais : nos prix sont justes toute l'année. Découvre {{ qk_bf.products_count }} parfums à prix particulièrement doux, 100 % authentiques.{% endif %}</p>
+      <a class="qk-bf__bouton" href="{{ qk_bf.url }}">{% if qk_nl %}Bekijk de eerlijke prijzen{% elsif qk_en %}See the fair prices{% else %}Voir les prix justes{% endif %}</a>
     </div>
     {%- comment -%} 20/11/2026 (Amine) : les parfums affichés tournent (qk-bf.js) : jusqu'à 24 fiches, 4 visibles à la fois (2 sur téléphone), tirées au hasard à chaque visite puis renouvelées toutes les 6 s. {%- endcomment -%}
     <div class="qk-bf__produits" data-qk-bf-rotation>
@@ -31,7 +31,7 @@
             <span class="qk-bf__img">{{ p.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: p.title, widths: '250, 400, 500', sizes: '(min-width: 750px) 14vw, 40vw' }}</span>
             <span class="qk-bf__marque">{{ p.vendor }}</span>
             <span class="qk-bf__nom">{{ qk_t[0] | remove_first: p.vendor | strip }}</span>
-            <span class="qk-bf__prix">{% if p.price_varies %}{% if qk_nl %}vanaf{% elsif qk_en %}from{% else %}dès{% endif %} {% endif %}{{ p.price_min | money }} · -10 %</span>
+            <span class="qk-bf__prix">{% if p.price_varies %}{% if qk_nl %}vanaf{% elsif qk_en %}from{% else %}dès{% endif %} {% endif %}{{ p.price_min | money }}</span>
           </a>
         {%- endunless -%}{%- endif -%}
       {%- endfor -%}
