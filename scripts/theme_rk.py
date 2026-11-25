@@ -35,6 +35,8 @@ QK_META_MARCHE = ("{%- comment -%}qk-meta-marche{%- endcomment -%}"
     "{%- assign page_description = page_description | replace: 'heel België', 'heel Nederland' | replace: 'in België', 'in Nederland' -%}"
     "{%- endif -%}"
     "{%- assign page_title = page_title | replace: 'Parfums Parfums ', 'Parfums ' -%}"
+    # collections vides (testeurs, soins, maquillage…) : pas indexées tant qu'elles n'ont aucun produit
+    "{%- if request.page_type == 'collection' and collection.products_count == 0 -%}<meta name=\"robots\" content=\"noindex, follow\">{%- endif -%}"
     "{%- comment -%}/qk-meta-marche{%- endcomment -%}")
 
 
