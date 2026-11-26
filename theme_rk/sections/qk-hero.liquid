@@ -17,11 +17,11 @@
         {%- comment -%} vidéo d'ambiance : muette, en boucle, lancée seule (aussi sur iPhone grâce à playsinline) {%- endcomment -%}
         {%- comment -%} 26/11/2026 (vitesse) : sur téléphone, la version mp4 la plus haute sans dépasser 720p (au lieu de 1080p, ~7 Mo) {%- endcomment -%}
         {%- assign qk_vm = '' -%}{%- assign qk_vh = 0 -%}
-        {%- for so in section.settings.video.sources -%}{%- if so.mime_type == 'video/mp4' and so.height <= 720 and so.height > qk_vh -%}{%- assign qk_vm = so.url -%}{%- assign qk_vh = so.height -%}{%- endif -%}{%- endfor -%}
+        {%- for so in section.settings.video.sources -%}{%- if so.mime_type == 'video/mp4' and so.height > qk_vh and so.width <= 1280 and so.height <= 1280 -%}{%- assign qk_vm = so.url -%}{%- assign qk_vh = so.height -%}{%- endif -%}{%- endfor -%}
         {{ section.settings.video | video_tag: loop: true, muted: true, playsinline: true, controls: false, preload: 'none', class: 'qk-hero__img qk-hero__video', image_size: '1920x', data-qk-differe: '1', data-qk-mobile: qk_vm }}
         {%- if section.settings.video_mobile != blank -%}
           {%- assign qk_vmm = '' -%}{%- assign qk_vmh = 0 -%}
-          {%- for so in section.settings.video_mobile.sources -%}{%- if so.mime_type == 'video/mp4' and so.height <= 720 and so.height > qk_vmh -%}{%- assign qk_vmm = so.url -%}{%- assign qk_vmh = so.height -%}{%- endif -%}{%- endfor -%}
+          {%- for so in section.settings.video_mobile.sources -%}{%- if so.mime_type == 'video/mp4' and so.height > qk_vmh and so.width <= 1280 and so.height <= 1280 -%}{%- assign qk_vmm = so.url -%}{%- assign qk_vmh = so.height -%}{%- endif -%}{%- endfor -%}
           {{ section.settings.video_mobile | video_tag: loop: true, muted: true, playsinline: true, controls: false, preload: 'none', class: 'qk-hero__img qk-hero__video qk-hero__video--mobile', image_size: '1080x', data-qk-differe: '1', data-qk-mobile: qk_vmm }}
         {%- endif -%}
       {%- elsif section.settings.image != blank -%}
