@@ -117,26 +117,10 @@ def intro_profil(p, prof, nom, typ, genre, marque):
     if prof.get("pf"):
         s += (" and created by " if prof.get("a") else ", created by ") + joli(prof["pf"])
     ph.append(s + ".")
-    ac = [LIB_EN["ac"][c] for c in (prof.get("ac") or [])[:3] if c in LIB_EN["ac"]]
-    if ac:
-        ph.append("Main accords: %s." % joli(ac))
+    # 26/11/2026 : accords, notes, saisons déjà visibles dans le bloc profil de la fiche (pas de répétition)
     v = [LIB_EN["v"][c] for c in (prof.get("v") or [])[:2] if c in LIB_EN["v"]]
     if v:
         ph.append("A fragrance with a %s character." % joli(v))
-    n = prof.get("nf") or {}
-    t, c, f, plat = notes(n.get("t"))[:3], notes(n.get("c"))[:3], notes(n.get("f"))[:3], notes(n.get("n"))[:3]
-    if t or c or f:
-        b = (["it opens with %s" % joli(t)] if t else []) + (["the heart blends %s" % joli(c)] if c else []) + \
-            (["the base rests on %s" % joli(f)] if f else [])
-        x = joli(b)
-        ph.append(x[:1].upper() + x[1:] + ".")
-    elif plat:
-        ph.append("Main notes: %s." % joli(plat))
-    sais = [LIB_EN["s"][x] for x in ("printemps", "ete", "automne", "hiver") if x in (prof.get("s") or [])]
-    occ = [LIB_EN["o"][c] for c in (prof.get("o") or [])[:3] if c in LIB_EN["o"]]
-    if sais or occ:
-        s = ("Best worn in %s" % joli(sais) if sais and len(sais) < 4 else "Wearable all year round" if sais else "Ideal")
-        ph.append(s + ((", for " if sais else " for ") + joli(occ) if occ else "") + ".")
     return "<p>%s</p>" % e(" ".join(ph))
 
 

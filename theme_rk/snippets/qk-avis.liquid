@@ -77,7 +77,7 @@
 {%- if nl -%}{%- assign n = p.nn -%}{%- elsif en and p.ne -%}{%- assign n = p.ne -%}{%- else -%}{%- assign n = p.nf -%}{%- endif -%}
 {%- assign nt = n.t | slice: 0, 2 -%}{%- assign nfo = n.f | slice: 0, 2 -%}
 
-{%- if qk_sais != blank or qk_occ != blank or qk_ten != blank or qk_ac != blank -%}
+{%- if qk_sais != blank or qk_occ != blank or qk_ten != blank or nt.size > 0 -%}
 <div class="qk-avis" style="margin:0 0 18px;padding:14px 16px;border-left:3px solid #B0517A;background:#faf6f8;border-radius:4px;line-height:1.55">
   <p style="margin:0 0 4px;font-weight:600">{% if nl %}Geurprofiel in het kort{% elsif en %}Scent profile at a glance{% else %}Profil olfactif en bref{% endif %}</p>
   <p style="margin:0">
@@ -88,12 +88,7 @@
       {%- endif -%}
     {%- endif -%}
     {%- if qk_ten != blank %} {{ qk_ten }}{% if qk_sil != blank %}{% if nl %}, met {{ qk_sil }}{% elsif en %}, with {{ qk_sil }}{% else %}, avec {{ qk_sil }}{% endif %}{% endif %}.{%- endif -%}
-    {%- if qk_ac != blank -%}
-      {%- if nl %} Belangrijkste akkoorden: {{ qk_ac }}.
-      {%- elsif en %} Main accords: {{ qk_ac }}.
-      {%- else %} Accords dominants : {{ qk_ac }}.
-      {%- endif -%}
-    {%- endif -%}
+    {%- comment -%} 26/11/2026 : accords retirés (la ligne « Famille » juste en dessous les donne déjà) {%- endcomment -%}
     {%- if nt.size > 0 and nfo.size > 0 -%}
       {%- if nl %} Opvallende noten: {{ nt | join: et }} in de top, {{ nfo | join: et }} in de basis.
       {%- elsif en %} Signature notes: {{ nt | join: et }} at the top, {{ nfo | join: et }} at the base.

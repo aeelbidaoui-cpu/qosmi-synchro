@@ -139,10 +139,10 @@ def produit(lignes, r, photos, normaux_attente_auto=True):
         d_fr, d_nl = base["desc_fr"], base["desc_nl"]
     else:
         if parfum:
-            d_fr = "%s %s de %s, %s." % (type_fr, titre, marque, "un parfum mixte" if g_cle == "mixte" else g_fr)
+            d_fr = "%s %s %s, %s." % (type_fr, titre, sl.de(marque), "un parfum mixte" if g_cle == "mixte" else g_fr)
             d_nl = "%s %s van %s, %s." % (type_nl, titre, marque, "een unisex geur" if g_cle == "mixte" else g_nl)
         else:
-            d_fr = "%s %s de %s." % (type_fr, titre, marque)
+            d_fr = "%s %s %s." % (type_fr, titre, sl.de(marque))
             d_nl = "%s %s van %s." % (type_nl, titre, marque)
         if len(set(vols)) > 1:
             d_fr += " Disponible en %s." % joli_liste(vols, "et")

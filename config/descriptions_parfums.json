@@ -1,6 +1,6 @@
 {
  "actif": true,
- "_note": "10/11/2026 : descriptions vérifiées (sites des marques, Olfastory, Parfumo, Basenotes) des 50 parfums phares, FR + NL, à la demande d'Amine. À activer en décembre (minutes GitHub rechargées) : mettre « actif » à true puis lancer l'action theme « textes-fiches ». Le champ « doute » signale les points où les sources divergent (souvent la pyramide) ; à relire pour Tom Ford Café Rose, Creed Aventus For Her et Light Blue (nouvelle formule 2025). — ACTIVÉ le 10/11/2026 à la demande d'Amine (dépôt public, minutes GitHub illimitées). — 10/11/2026 : Fragrantica aussi autorisé comme source (accord obtenu par Amine).",
+ "_note": "10/11/2026 : descriptions vérifiées (sites des marques, Olfastory, Parfumo, Basenotes) des 50 parfums phares, FR + NL, à la demande d'Amine. À activer en décembre (minutes GitHub rechargées) : mettre « actif » à true puis lancer l'action theme « textes-fiches ». Le champ « doute » signale les points où les sources divergent (souvent la pyramide) ; à relire pour Tom Ford Café Rose, Creed Aventus For Her et Light Blue (nouvelle formule 2025). — ACTIVÉ le 10/11/2026 à la demande d'Amine (dépôt public, minutes GitHub illimitées). — 10/11/2026 : Fragrantica aussi autorisé comme source (accord obtenu par Amine). — 26/11/2026 : 51 textes ajoutés (fiches les plus vues sans texte rédigé, ordre « meilleures ventes » de la collection Parfums), à la demande d'Amine (audit SEO).",
  "parfums": {
   "creed-aventus-eau-de-parfum-pour-homme": {
    "annee": 2010,
@@ -44892,6 +44892,2696 @@
     "https://www.fragrantica.com/perfume/Xerjoff/XXY-11706.html"
    ],
    "doute": "Données de Fragrantica (autorisé par Fragrantica, 10/11/2026), fiche choisie par le nom sur la page de la marque."
+  },
+  "arabiyat-sugar-cookie-dough-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Ambré gourmand",
+   "famille_nl": "Gourmand amber",
+   "notes_fr": {
+    "tete": [
+     "cacao",
+     "lait de coco"
+    ],
+    "coeur": [
+     "orchidée"
+    ],
+    "fond": [
+     "vanille",
+     "santal",
+     "musc"
+    ],
+    "cle": [
+     "cacao",
+     "lait de coco",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "cacao",
+     "kokosmelk"
+    ],
+    "coeur": [
+     "orchidee"
+    ],
+    "fond": [
+     "vanille",
+     "sandelhout",
+     "muskus"
+    ],
+    "cle": [
+     "cacao",
+     "kokosmelk",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Sugar Cookie Dough démarre comme une cuisine un jour de pâtisserie : du <strong>cacao</strong> et un <strong>lait de coco</strong> crémeux, ronds et doux dès la première vaporisation. Au cœur, une touche d'<strong>orchidée</strong> apporte un côté floral discret qui allège l'ensemble et évite l'effet trop sucré.</p><p>Le fond s'installe ensuite sur la <strong>vanille</strong>, un santal lacté et un musc propre : la trace devient chaude, enveloppante et confortable, comme une pâte à biscuit encore tiède. C'est un parfum gourmand et joyeux, pensé pour celles qui aiment les senteurs de desserts sans aller vers le lourd.</p><p>Il se porte surtout quand il fait frais, en automne et en hiver, au quotidien comme pour une soirée détendue entre amis. Une vaporisation sur un pull ou une écharpe suffit pour le garder près de soi toute la journée.</p>",
+   "nl": "<p>Sugar Cookie Dough begint als een keuken op bakdag: <strong>cacao</strong> en romige <strong>kokosmelk</strong>, rond en zacht vanaf de eerste verstuiving. In het hart zorgt een vleugje <strong>orchidee</strong> voor een subtiel bloemig accent dat het geheel lichter maakt en voorkomt dat het te zoet wordt.</p><p>Daarna komt de basis met <strong>vanille</strong>, melkachtig sandelhout en schone muskus: het spoor wordt warm, omhullend en comfortabel, als koekjesdeeg dat nog lauw is. Een vrolijke gourmandgeur voor wie van dessertgeuren houdt zonder dat het zwaar wordt.</p><p>Hij komt het best tot zijn recht als het fris is, in de herfst en de winter, elke dag of voor een ontspannen avond met vrienden. Eén verstuiving op een trui of sjaal is genoeg om hem de hele dag dicht bij je te houden.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-dark-purple-eau-de-parfum-pour-femme": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral fruité",
+   "famille_nl": "Fruitig bloemig",
+   "notes_fr": {
+    "tete": [
+     "prune",
+     "orange"
+    ],
+    "coeur": [
+     "rose",
+     "géranium",
+     "patchouli",
+     "fruits rouges"
+    ],
+    "fond": [
+     "ambre gris",
+     "bois de teck",
+     "musc blanc"
+    ],
+    "cle": [
+     "prune",
+     "rose",
+     "patchouli"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "pruim",
+     "sinaasappel"
+    ],
+    "coeur": [
+     "roos",
+     "geranium",
+     "patchoeli",
+     "rood fruit"
+    ],
+    "fond": [
+     "ambergris",
+     "teakhout",
+     "witte muskus"
+    ],
+    "cle": [
+     "pruim",
+     "roos",
+     "patchoeli"
+    ]
+   },
+   "fr": "<p>Dark Purple s'ouvre sur une <strong>prune</strong> juteuse et presque confite, réveillée par un zeste d'<strong>orange</strong>. Très vite, une <strong>rose</strong> profonde prend place, accompagnée de géranium et de fruits rouges, pendant que le <strong>patchouli</strong> donne au cœur un relief plus terreux et plus sombre.</p><p>Le fond repose sur l'ambre gris, un bois de teck sec et un musc blanc qui arrondit le tout. Le résultat est un floral fruité intense, à la fois gourmand et mystérieux, avec la signature généreuse des parfums Montale : une tenue longue et un sillage qui se remarque.</p><p>C'est un parfum pour les soirées, les sorties et les saisons fraîches, quand on a envie d'une senteur affirmée et sensuelle. Une ou deux vaporisations suffisent : il se diffuse longtemps sur la peau comme sur les vêtements.</p>",
+   "nl": "<p>Dark Purple opent met een sappige, bijna gekonfijte <strong>pruim</strong>, opgefrist met een vleugje <strong>sinaasappel</strong>. Al snel verschijnt een diepe <strong>roos</strong>, samen met geranium en rood fruit, terwijl <strong>patchoeli</strong> het hart een aardser en donkerder karakter geeft.</p><p>De basis bestaat uit ambergris, droog teakhout en witte muskus die alles afrondt. Het resultaat is een intense fruitig-bloemige geur, tegelijk gourmand en mysterieus, met de royale signatuur van Montale: hij houdt lang en laat een duidelijk spoor na.</p><p>Een parfum voor avonden, uitjes en koelere seizoenen, wanneer je zin hebt in een uitgesproken, sensuele geur. Eén of twee verstuivingen volstaan: hij blijft lang hangen op de huid en op kleding.</p>",
+   "sources": [
+    "https://montaleparfums.com/en/fruity/41-dark-purple-prune.html"
+   ],
+   "doute": ""
+  },
+  "montale-chocolate-greedy-eau-de-parfum-mixte": {
+   "annee": 2007,
+   "parfumeurs": [],
+   "famille_fr": "Ambré gourmand",
+   "famille_nl": "Gourmand amber",
+   "notes_fr": {
+    "tete": [
+     "orange amère confite"
+    ],
+    "coeur": [
+     "cacao",
+     "vanille"
+    ],
+    "fond": [
+     "fève tonka torréfiée",
+     "grain de café"
+    ],
+    "cle": [
+     "cacao",
+     "vanille",
+     "café"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "gekonfijte bittere sinaasappel"
+    ],
+    "coeur": [
+     "cacao",
+     "vanille"
+    ],
+    "fond": [
+     "geroosterde tonkaboon",
+     "koffieboon"
+    ],
+    "cle": [
+     "cacao",
+     "vanille",
+     "koffie"
+    ]
+   },
+   "fr": "<p>Chocolate Greedy porte bien son nom. Il commence sur une <strong>orange amère confite</strong>, qui apporte une pointe d'acidité et de lumière, avant de plonger dans un cœur de <strong>cacao</strong> poudré et de <strong>vanille</strong> crémeuse.</p><p>Le fond est plus torréfié : une <strong>fève tonka</strong> grillée et un grain de <strong>café</strong> donnent de la profondeur et retiennent le côté sucré. On pense à une tablette de chocolat noir à l'orange dégustée avec un expresso, plutôt qu'à une confiserie.</p><p>Lancé en 2007 par Montale, ce parfum gourmand se porte aussi bien par les femmes que par les hommes. Il est idéal en automne et en hiver, pour les journées fraîches, les fêtes de fin d'année ou une soirée au coin du feu. Comme souvent chez la maison, il tient longtemps : une vaporisation légère suffit.</p>",
+   "nl": "<p>Chocolate Greedy draagt zijn naam met recht. Hij begint met <strong>gekonfijte bittere sinaasappel</strong>, die wat zuur en licht brengt, en duikt daarna in een hart van poederige <strong>cacao</strong> en romige <strong>vanille</strong>.</p><p>De basis is meer geroosterd: gegrilde <strong>tonkaboon</strong> en een <strong>koffieboon</strong> geven diepte en houden het zoete in toom. Denk aan een reep pure chocolade met sinaasappel bij een espresso, eerder dan aan snoepgoed.</p><p>Montale bracht deze gourmandgeur uit in 2007; hij is geschikt voor vrouwen en mannen. Ideaal in de herfst en de winter, op frisse dagen, tijdens de feestdagen of voor een avond bij de open haard. Zoals vaak bij dit huis blijft hij lang hangen: één lichte verstuiving is genoeg.</p>",
+   "sources": [
+    "https://www.parfumo.com/Perfumes/Montale/Chocolate_Greedy"
+   ],
+   "doute": ""
+  },
+  "armaf-odyssey-tyrant-special-edition-eau-de-parfum-pour-homme": {
+   "annee": 2023,
+   "parfumeurs": [],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "pamplemousse",
+     "agrumes",
+     "poivre"
+    ],
+    "coeur": [
+     "épices",
+     "notes aromatiques",
+     "notes boisées"
+    ],
+    "fond": [
+     "cèdre",
+     "musc",
+     "ambre"
+    ],
+    "cle": [
+     "pamplemousse",
+     "poivre",
+     "cèdre"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "grapefruit",
+     "citrus",
+     "peper"
+    ],
+    "coeur": [
+     "specerijen",
+     "aromatische noten",
+     "houtige noten"
+    ],
+    "fond": [
+     "ceder",
+     "muskus",
+     "amber"
+    ],
+    "cle": [
+     "grapefruit",
+     "peper",
+     "ceder"
+    ]
+   },
+   "fr": "<p>Odyssey Tyrant Special Edition attaque fort : un <strong>pamplemousse</strong> vif et des agrumes pétillants, relevés tout de suite par un <strong>poivre</strong> sec. L'ouverture est franche, énergique, très masculine.</p><p>Au cœur, des <strong>épices</strong> chaudes et des notes aromatiques s'enroulent autour d'un bois clair, puis le parfum glisse vers un fond de <strong>cèdre</strong>, de musc et d'ambre qui le rend plus rond et plus confortable au fil des heures. Le contraste entre la fraîcheur du départ et la chaleur du fond fait tout son caractère.</p><p>Sortie en 2023 dans la ligne Odyssey de la maison Armaf, cette édition spéciale se porte facilement au bureau comme en soirée. Elle convient à toutes les saisons, avec un petit avantage au printemps et à l'automne. Le flacon au design affirmé en fait aussi une bonne idée de cadeau.</p>",
+   "nl": "<p>Odyssey Tyrant Special Edition opent stevig: levendige <strong>grapefruit</strong> en sprankelende citrus, meteen gekruid met droge <strong>peper</strong>. Een directe, energieke en uitgesproken mannelijke start.</p><p>In het hart draaien warme <strong>specerijen</strong> en aromatische noten rond licht hout, waarna de geur overgaat naar een basis van <strong>ceder</strong>, muskus en amber die hem in de loop van de uren ronder en comfortabeler maakt. Het contrast tussen de frisse start en de warme basis bepaalt zijn karakter.</p><p>Deze speciale editie uit de Odyssey-lijn van Armaf verscheen in 2023 en past zowel op kantoor als 's avonds. Hij is geschikt voor elk seizoen, met een licht voordeel in de lente en de herfst. Dankzij de opvallende flacon is hij ook een goed cadeau-idee.</p>",
+   "sources": [
+    "https://www.myperfumeshop.co.uk/products/armaf-odyssey-tyrant-special-edition-edp"
+   ],
+   "doute": "Pyramide reprise d'un revendeur (la marque ne publie pas de pyramide détaillée) ; année 2023 selon le même revendeur."
+  },
+  "xerjoff-oud-stars-fars-parfum-mixte": {
+   "annee": 2012,
+   "parfumeurs": [],
+   "famille_fr": "Boisé aromatique",
+   "famille_nl": "Aromatisch houtig",
+   "notes_fr": {
+    "tete": [
+     "lavande",
+     "genièvre",
+     "bergamote"
+    ],
+    "coeur": [
+     "géranium",
+     "jasmin",
+     "cèdre"
+    ],
+    "fond": [
+     "ambre gris",
+     "patchouli",
+     "cypriol",
+     "santal",
+     "vétiver"
+    ],
+    "cle": [
+     "lavande",
+     "géranium",
+     "ambre gris"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "lavendel",
+     "jeneverbes",
+     "bergamot"
+    ],
+    "coeur": [
+     "geranium",
+     "jasmijn",
+     "ceder"
+    ],
+    "fond": [
+     "ambergris",
+     "patchoeli",
+     "cypriol",
+     "sandelhout",
+     "vetiver"
+    ],
+    "cle": [
+     "lavendel",
+     "geranium",
+     "ambergris"
+    ]
+   },
+   "fr": "<p>Fars fait partie de la collection Oud Stars de Xerjoff. Il s'ouvre sur une <strong>lavande</strong> aromatique, du <strong>genièvre</strong> et de la bergamote : un départ frais, presque herbacé, qui surprend dans une collection aussi riche.</p><p>Le cœur devient plus floral et plus boisé, avec le <strong>géranium</strong>, le jasmin et le cèdre. Le fond, lui, est profond et persistant : <strong>ambre gris</strong>, patchouli, cypriol, santal et vétiver construisent une trace sèche, élégante et légèrement fumée.</p><p>Sorti en 2012, Fars est un parfum de caractère, mixte, qui se porte avec assurance. Il trouve sa place en automne et en hiver, pour une soirée, un dîner ou une occasion où l'on veut une signature raffinée. Sa concentration parfum lui donne une très bonne tenue : une ou deux vaporisations suffisent.</p>",
+   "nl": "<p>Fars hoort bij de Oud Stars-collectie van Xerjoff. Hij opent met aromatische <strong>lavendel</strong>, <strong>jeneverbes</strong> en bergamot: een frisse, bijna kruidige start die verrast in zo'n rijke collectie.</p><p>Het hart wordt bloemiger en houtiger, met <strong>geranium</strong>, jasmijn en ceder. De basis is diep en blijvend: <strong>ambergris</strong>, patchoeli, cypriol, sandelhout en vetiver vormen een droog, elegant en licht rokerig spoor.</p><p>Fars kwam uit in 2012 en is een unisex geur met karakter, die je met zelfvertrouwen draagt. Hij past in de herfst en de winter, voor een avond, een diner of een gelegenheid waarbij je een verfijnde signatuur wilt. Door de parfumconcentratie houdt hij heel goed: één of twee verstuivingen volstaan.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "xerjoff-alexandria-ii-anniversary-parfum-mixte": {
+   "annee": 2024,
+   "parfumeurs": [],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "rose de Bulgarie",
+     "cardamome",
+     "cumin",
+     "lavande"
+    ],
+    "coeur": [
+     "ambre",
+     "civette",
+     "sauge sclarée",
+     "cypriol",
+     "menthe",
+     "iris",
+     "oud",
+     "absinthe"
+    ],
+    "fond": [
+     "santal d'Australie",
+     "musc",
+     "vanille"
+    ],
+    "cle": [
+     "rose de Bulgarie",
+     "oud",
+     "santal d'Australie"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "Bulgaarse roos",
+     "kardemom",
+     "komijn",
+     "lavendel"
+    ],
+    "coeur": [
+     "amber",
+     "civet",
+     "scharlei",
+     "cypriol",
+     "munt",
+     "iris",
+     "oud",
+     "alsem"
+    ],
+    "fond": [
+     "australisch sandelhout",
+     "muskus",
+     "vanille"
+    ],
+    "cle": [
+     "Bulgaarse roos",
+     "oud",
+     "Australisch sandelhout"
+    ]
+   },
+   "fr": "<p>Alexandria II Anniversary revisite l'un des parfums les plus connus de Xerjoff dans une version anniversaire sortie en 2024. Le départ associe la <strong>rose de Bulgarie</strong> à la <strong>cardamome</strong>, au cumin et à la lavande : un mélange épicé, aromatique et lumineux.</p><p>Le cœur est très riche. L'ambre, la sauge sclarée, l'iris et l'absinthe entourent un <strong>oud</strong> boisé, avec une touche de civette qui apporte un côté animal et chaleureux, et un souffle de menthe qui garde de l'air. Le fond se pose sur le <strong>santal d'Australie</strong>, le musc et la vanille, pour une trace crémeuse et enveloppante.</p><p>C'est un parfum mixte, élégant et sensuel, qui tient toute la journée avec un sillage marqué. Il est idéal en automne, pour une soirée, un mariage ou un rendez-vous important. À doser avec légèreté : il se suffit à lui-même.</p>",
+   "nl": "<p>Alexandria II Anniversary is een jubileumversie uit 2024 van een van de bekendste parfums van Xerjoff. De opening combineert <strong>Bulgaarse roos</strong> met <strong>kardemom</strong>, komijn en lavendel: een kruidige, aromatische en heldere mix.</p><p>Het hart is heel rijk. Amber, scharlei, iris en alsem omringen een houtige <strong>oud</strong>, met een vleugje civet dat iets dierlijks en warms geeft en een zweem munt die voor lucht zorgt. De basis rust op <strong>Australisch sandelhout</strong>, muskus en vanille, voor een romig en omhullend spoor.</p><p>Een elegante, sensuele unisex geur die de hele dag blijft, met een duidelijke sillage. Ideaal in de herfst, voor een avond uit, een bruiloft of een belangrijke date. Spaarzaam doseren: hij spreekt voor zich.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "jo-malone-rose-white-musk-eau-de-cologne-mixte": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Floral musqué",
+   "famille_nl": "Musky bloemig",
+   "notes_fr": {
+    "tete": [
+     "pétales de rose"
+    ],
+    "coeur": [
+     "oud",
+     "ambre"
+    ],
+    "fond": [
+     "musc blanc"
+    ],
+    "cle": [
+     "rose",
+     "musc blanc",
+     "ambre"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "rozenblaadjes"
+    ],
+    "coeur": [
+     "oud",
+     "amber"
+    ],
+    "fond": [
+     "witte muskus"
+    ],
+    "cle": [
+     "roos",
+     "witte muskus",
+     "amber"
+    ]
+   },
+   "fr": "<p>Rose &amp; White Musk réunit deux matières que Jo Malone London aime travailler avec simplicité. Le parfum s'ouvre sur des <strong>pétales de rose</strong> frais et veloutés, une rose claire et naturelle, sans rien de poudré ni de daté.</p><p>Au cœur, une touche d'<strong>oud</strong> et d'<strong>ambre</strong> réchauffe doucement la fleur et lui donne un peu de profondeur. Le fond de <strong>musc blanc</strong> enveloppe ensuite l'ensemble d'une sensation de peau propre et douce, comme un linge fraîchement lavé.</p><p>Fidèle au style de la maison, c'est une cologne légère et facile à porter, que femmes et hommes peuvent s'approprier. Elle convient au quotidien, au bureau ou à un déjeuner de printemps. Jo Malone London propose aussi de superposer ses parfums : Rose &amp; White Musk se marie bien avec une senteur plus boisée ou plus fruitée pour créer sa propre signature.</p>",
+   "nl": "<p>Rose &amp; White Musk brengt twee grondstoffen samen die Jo Malone London graag eenvoudig houdt. De geur opent met frisse, fluweelzachte <strong>rozenblaadjes</strong>: een heldere, natuurlijke roos, zonder iets poederigs of ouderwets.</p><p>In het hart verwarmt een vleugje <strong>oud</strong> en <strong>amber</strong> de bloem zachtjes en geeft haar wat diepte. De basis van <strong>witte muskus</strong> omhult daarna alles met een gevoel van schone, zachte huid, als pas gewassen linnen.</p><p>Trouw aan de stijl van het huis is dit een lichte, makkelijk draagbare cologne voor vrouwen en mannen. Hij past bij elke dag, op kantoor of bij een lentelunch. Jo Malone London raadt ook aan om geuren te combineren: Rose &amp; White Musk gaat goed samen met een houtiger of fruitiger geur voor een eigen signatuur.</p>",
+   "sources": [
+    "https://www.harrods.com/en-gb/p/jo-malone-london-rose-and-white-musk-cologne-100ml-000000000006174816"
+   ],
+   "doute": ""
+  },
+  "versace-the-dreamer-eau-de-toilette-pour-homme": {
+   "annee": 1996,
+   "parfumeurs": [],
+   "famille_fr": "Aromatique vert",
+   "famille_nl": "Groen aromatisch",
+   "notes_fr": {
+    "tete": [
+     "armoise",
+     "genièvre",
+     "estragon"
+    ],
+    "coeur": [
+     "iris",
+     "lys"
+    ],
+    "fond": [
+     "ambre",
+     "fleur de tabac"
+    ],
+    "cle": [
+     "armoise",
+     "iris",
+     "fleur de tabac"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "alsem",
+     "jeneverbes",
+     "dragon"
+    ],
+    "coeur": [
+     "iris",
+     "lelie"
+    ],
+    "fond": [
+     "amber",
+     "tabaksbloesem"
+    ],
+    "cle": [
+     "alsem",
+     "iris",
+     "tabaksbloesem"
+    ]
+   },
+   "fr": "<p>The Dreamer occupe une place à part chez Versace : un parfum masculin rêveur et délicat, loin des senteurs démonstratives. Il s'ouvre sur l'<strong>armoise</strong>, le <strong>genièvre</strong> et l'estragon, un départ vert et aromatique, légèrement anisé.</p><p>Le cœur surprend par sa douceur florale, avec l'<strong>iris</strong> et le lys, rares dans un parfum pour homme. Le fond associe l'ambre à la <strong>fleur de tabac</strong>, qui apporte une chaleur douce et un peu miellée, sans jamais devenir lourde.</p><p>Lancé en 1996, ce parfum reste apprécié pour son élégance tranquille. Sa tenue est légère et son sillage discret : c'est un parfum de proximité, idéal au printemps, au bureau, au quotidien ou pour un moment de détente. On peut le revaporiser dans la journée sans craindre d'en faire trop.</p>",
+   "nl": "<p>The Dreamer neemt een aparte plaats in bij Versace: een dromerig en verfijnd herenparfum, ver weg van opvallende geuren. Hij opent met <strong>alsem</strong>, <strong>jeneverbes</strong> en dragon, een groene, aromatische en licht anijsachtige start.</p><p>Het hart verrast met zijn bloemige zachtheid, met <strong>iris</strong> en lelie, zeldzaam in een herengeur. De basis combineert amber met <strong>tabaksbloesem</strong>, die zachte, licht honingachtige warmte geeft zonder ooit zwaar te worden.</p><p>The Dreamer kwam uit in 1996 en blijft geliefd om zijn rustige elegantie. Hij houdt licht en heeft een subtiele sillage: een geur voor dichtbij, ideaal in de lente, op kantoor, elke dag of om te ontspannen. Je kunt hem overdag gerust opnieuw verstuiven zonder te overdrijven.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": "Le profil Fragrance Index indique 2010 (probablement une réédition) ; The Dreamer est sorti en 1996 selon Versace et les bases (Parfumo, Fragrantica)."
+  },
+  "nishane-b-612-extrait-de-parfum-mixte": {
+   "annee": 2018,
+   "parfumeurs": [],
+   "famille_fr": "Boisé aromatique",
+   "famille_nl": "Aromatisch houtig",
+   "notes_fr": {
+    "tete": [
+     "cyprès",
+     "géranium",
+     "lavande"
+    ],
+    "coeur": [
+     "cashmeran",
+     "cèdre",
+     "patchouli",
+     "santal"
+    ],
+    "fond": [
+     "musc",
+     "mousse de chêne",
+     "fève tonka"
+    ],
+    "cle": [
+     "cyprès",
+     "cashmeran",
+     "fève tonka"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "cipres",
+     "geranium",
+     "lavendel"
+    ],
+    "coeur": [
+     "cashmeran",
+     "ceder",
+     "patchoeli",
+     "sandelhout"
+    ],
+    "fond": [
+     "muskus",
+     "eikenmos",
+     "tonkaboon"
+    ],
+    "cle": [
+     "cipres",
+     "cashmeran",
+     "tonkaboon"
+    ]
+   },
+   "fr": "<p>B-612 porte le nom de l'astéroïde du Petit Prince. Cet extrait de Nishane, sorti en 2018, s'ouvre sur le <strong>cyprès</strong>, le géranium et la <strong>lavande</strong> : un départ aromatique, net et légèrement résineux.</p><p>Le cœur se réchauffe avec le <strong>cashmeran</strong>, un bois doux et velouté, accompagné de cèdre, de patchouli et de santal. Le fond associe le musc, la mousse de chêne et la <strong>fève tonka</strong>, qui laissent une trace boisée, légèrement sucrée et très élégante.</p><p>Cette concentration extrait lui donne une tenue remarquable, jusqu'au lendemain sur les vêtements, avec un sillage affirmé. C'est un parfum mixte, cosy et raffiné, à porter surtout en automne, pour un rendez-vous, une soirée ou un mariage. Une seule vaporisation suffit souvent.</p>",
+   "nl": "<p>B-612 draagt de naam van de asteroïde van De Kleine Prins. Dit extrait van Nishane uit 2018 opent met <strong>cipres</strong>, geranium en <strong>lavendel</strong>: een aromatische, heldere en licht harsige start.</p><p>Het hart wordt warmer met <strong>cashmeran</strong>, een zacht en fluwelig hout, samen met ceder, patchoeli en sandelhout. De basis combineert muskus, eikenmos en <strong>tonkaboon</strong>, voor een houtig, licht zoet en zeer elegant spoor.</p><p>Dankzij de extrait-concentratie houdt hij opmerkelijk lang, op kleding tot de volgende dag, met een uitgesproken sillage. Een warme, verfijnde unisex geur, vooral voor de herfst, een date, een avond uit of een bruiloft. Eén verstuiving is vaak genoeg.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "tom-ford-ombre-leather-eau-de-toilette-mixte": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Cuir épicé",
+   "famille_nl": "Kruidig leer",
+   "notes_fr": {
+    "tete": [
+     "gingembre",
+     "coriandre",
+     "cardamome"
+    ],
+    "coeur": [
+     "accord cuir"
+    ],
+    "fond": [
+     "Ambrofix",
+     "teinture de vanille"
+    ],
+    "cle": [
+     "cuir",
+     "gingembre",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "gember",
+     "koriander",
+     "kardemom"
+    ],
+    "coeur": [
+     "leerakkoord"
+    ],
+    "fond": [
+     "Ambrofix",
+     "vanilletinctuur"
+    ],
+    "cle": [
+     "leer",
+     "gember",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Cette eau de toilette donne une version plus fraîche et plus lumineuse d'Ombré Leather, l'un des cuirs les plus connus de Tom Ford. Elle s'ouvre sur un trio d'épices vives : <strong>gingembre</strong> frais, <strong>coriandre</strong> et <strong>cardamome</strong>.</p><p>Le cœur révèle un <strong>accord cuir</strong> lumineux, souple et moins sombre que dans l'eau de parfum. Le fond associe l'Ambrofix, une note ambrée moderne, à une teinture de <strong>vanille</strong> qui adoucit le cuir et lui donne une chaleur discrète.</p><p>Le résultat est un parfum mixte élégant, plus facile à porter de jour que la version d'origine, tout en gardant son caractère. Il convient au bureau, aux sorties en ville et aux mi-saisons, et se porte aussi bien en été qu'en hiver grâce à sa fraîcheur épicée. Une bonne porte d'entrée dans l'univers cuir de Tom Ford.</p>",
+   "nl": "<p>Deze eau de toilette is een frissere en lichtere versie van Ombré Leather, een van de bekendste leergeuren van Tom Ford. Hij opent met drie levendige specerijen: frisse <strong>gember</strong>, <strong>koriander</strong> en <strong>kardemom</strong>.</p><p>Het hart onthult een helder, soepel <strong>leerakkoord</strong> dat minder donker is dan in de eau de parfum. De basis combineert Ambrofix, een moderne ambernoot, met een tinctuur van <strong>vanille</strong> die het leer verzacht en een discrete warmte geeft.</p><p>Het resultaat is een elegante unisex geur die overdag makkelijker te dragen is dan het origineel, zonder zijn karakter te verliezen. Hij past op kantoor, bij een uitje in de stad en in het tussenseizoen, en dankzij de kruidige frisheid zowel in de zomer als in de winter. Een goede kennismaking met de leerwereld van Tom Ford.</p>",
+   "sources": [
+    "https://www.sephora.co.uk/p/tom-ford-eau-d-ombre-leather-eau-de-toilette"
+   ],
+   "doute": "Version eau de toilette d'Ombré Leather (« Eau d'Ombré Leather » chez Tom Ford) ; année non indiquée par la marque, laissée vide."
+  },
+  "giardini-di-toscana-christos-eau-de-parfum-mixte": {
+   "annee": 2023,
+   "parfumeurs": [],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Houtig amber",
+   "notes_fr": {
+    "tete": [
+     "ambre boisé",
+     "bergamote",
+     "encens"
+    ],
+    "coeur": [
+     "labdanum",
+     "patchouli",
+     "rose"
+    ],
+    "fond": [
+     "ambre",
+     "benjoin",
+     "encens",
+     "baies roses",
+     "santal",
+     "vanille"
+    ],
+    "cle": [
+     "encens",
+     "labdanum",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "houtige amber",
+     "bergamot",
+     "wierook"
+    ],
+    "coeur": [
+     "labdanum",
+     "patchoeli",
+     "roos"
+    ],
+    "fond": [
+     "amber",
+     "benzoë",
+     "wierook",
+     "roze peper",
+     "sandelhout",
+     "vanille"
+    ],
+    "cle": [
+     "wierook",
+     "labdanum",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Christos est un parfum de Giardini di Toscana, maison italienne connue pour ses compositions riches et généreuses. Il s'ouvre sur un <strong>ambre boisé</strong>, une bergamote lumineuse et un premier souffle d'<strong>encens</strong>, qui donnent tout de suite le ton : chaleureux et un peu mystique.</p><p>Le cœur mêle le <strong>labdanum</strong> résineux, le patchouli et une rose sombre. Le fond reprend l'encens et l'ambre, enrichis de benjoin, de baies roses, de santal et de <strong>vanille</strong>, pour une trace balsamique, légèrement fumée et très enveloppante.</p><p>Sorti en 2023, ce parfum mixte tient toute la journée avec un sillage marqué. C'est une senteur d'hiver par excellence, idéale pour un rendez-vous, une soirée ou une fête. Il plaira à celles et ceux qui aiment les ambres résineux et les encens doux, plus chaleureux qu'austères.</p>",
+   "nl": "<p>Christos is een parfum van Giardini di Toscana, een Italiaans huis dat bekendstaat om rijke, royale composities. Hij opent met <strong>houtige amber</strong>, heldere bergamot en een eerste vleug <strong>wierook</strong>, die meteen de toon zetten: warm en een tikje mystiek.</p><p>Het hart mengt harsig <strong>labdanum</strong>, patchoeli en een donkere roos. De basis neemt wierook en amber weer op, verrijkt met benzoë, roze peper, sandelhout en <strong>vanille</strong>, voor een balsemachtig, licht rokerig en zeer omhullend spoor.</p><p>Deze unisex geur uit 2023 houdt de hele dag met een duidelijke sillage. Een echte wintergeur, ideaal voor een date, een avond uit of een feest. Voor wie houdt van harsige amber en zachte wierook, eerder warm dan streng.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "stephane-humbert-lucas-777-taklamakan-eau-de-parfum-mixte": {
+   "annee": 2016,
+   "parfumeurs": [],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Houtig amber",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "rose",
+     "iris",
+     "benjoin"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "roos",
+     "iris",
+     "benzoë"
+    ]
+   },
+   "fr": "<p>Taklamakan porte le nom d'un désert d'Asie centrale, traversé autrefois par la route de la soie. Le parfumeur Stéphane Humbert Lucas en a fait, en 2016, une composition chaude et veloutée, dans sa collection 777.</p><p>La <strong>rose</strong> et l'<strong>iris</strong> y forment un duo poudré et élégant, éclairé par un peu de bergamote. Autour d'eux s'installent des matières douces et balsamiques : <strong>benjoin</strong>, labdanum, bois de gaïac légèrement fumé, patchouli et santal. La vanille et le musc arrondissent le tout et laissent sur la peau une trace sucrée sans excès, comme un sable tiède au coucher du soleil.</p><p>C'est un parfum mixte raffiné, plus intime que démonstratif, avec un sillage modéré qui tient toute la journée. Il se porte surtout en automne, au bureau comme pour un rendez-vous ou une soirée.</p>",
+   "nl": "<p>Taklamakan is vernoemd naar een woestijn in Centraal-Azië, waar vroeger de zijderoute doorheen liep. Parfumeur Stéphane Humbert Lucas maakte er in 2016 een warme, fluwelige compositie van, in zijn 777-collectie.</p><p><strong>Roos</strong> en <strong>iris</strong> vormen er een poederig, elegant duo, opgelicht met wat bergamot. Daaromheen komen zachte, balsemachtige grondstoffen: <strong>benzoë</strong>, labdanum, licht rokerig guajakhout, patchoeli en sandelhout. Vanille en muskus ronden alles af en laten een zoet maar niet overdreven spoor na, als lauw zand bij zonsondergang.</p><p>Een verfijnde unisex geur, eerder intiem dan opvallend, met een gemiddelde sillage die de hele dag blijft. Vooral voor de herfst, op kantoor, voor een date of een avond uit.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "carner-barcelona-latin-lover-eau-de-parfum-mixte": {
+   "annee": 2017,
+   "parfumeurs": [],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "magnolia",
+     "ylang-ylang"
+    ],
+    "coeur": [
+     "narcisse de France",
+     "jasmin sambac",
+     "muguet",
+     "violette"
+    ],
+    "fond": [
+     "benjoin",
+     "feuille de patchouli d'Indonésie",
+     "musc blanc"
+    ],
+    "cle": [
+     "magnolia",
+     "narcisse",
+     "jasmin sambac"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "magnolia",
+     "ylang-ylang"
+    ],
+    "coeur": [
+     "Franse narcis",
+     "jasmijn sambac",
+     "lelietje-van-dalen",
+     "viooltje"
+    ],
+    "fond": [
+     "benzoë",
+     "Indonesische patchoeliblad",
+     "witte muskus"
+    ],
+    "cle": [
+     "magnolia",
+     "narcis",
+     "jasmijn sambac"
+    ]
+   },
+   "fr": "<p>Latin Lover est l'un des parfums les plus floraux de Carner Barcelona, maison née à Barcelone. Il s'ouvre sur la bergamote, le <strong>magnolia</strong> et l'ylang-ylang, pour un départ lumineux et crémeux.</p><p>Le cœur est un vrai bouquet : <strong>narcisse</strong> de France, <strong>jasmin sambac</strong>, muguet et violette, à la fois frais, solaire et un peu poudré. Le fond devient plus sensuel avec le benjoin, une feuille de patchouli d'Indonésie et un musc blanc qui laisse une trace douce sur la peau.</p><p>Sorti en 2017, ce parfum mixte tient longtemps avec un sillage généreux. Il est idéal au printemps, pour un mariage, un rendez-vous ou un dîner en terrasse. Romantique sans être sage, il convient à celles et ceux qui aiment les fleurs blanches portées avec un peu d'audace.</p>",
+   "nl": "<p>Latin Lover is een van de meest bloemige parfums van Carner Barcelona, een huis uit Barcelona. Hij opent met bergamot, <strong>magnolia</strong> en ylang-ylang, voor een heldere en romige start.</p><p>Het hart is een echt boeket: Franse <strong>narcis</strong>, <strong>jasmijn sambac</strong>, lelietje-van-dalen en viooltje, tegelijk fris, zonnig en licht poederig. De basis wordt sensueler met benzoë, Indonesisch patchoeliblad en witte muskus die een zacht spoor op de huid nalaat.</p><p>Deze unisex geur uit 2017 houdt lang en heeft een royale sillage. Ideaal in de lente, voor een bruiloft, een date of een diner op een terras. Romantisch maar niet braaf, voor wie witte bloemen met wat durf draagt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "rosendo-mateu-1970-eau-de-parfum-mixte": {
+   "annee": 2023,
+   "parfumeurs": [],
+   "famille_fr": "Ambré gourmand",
+   "famille_nl": "Gourmand amber",
+   "notes_fr": {
+    "tete": [
+     "agrumes",
+     "notes fruitées"
+    ],
+    "coeur": [
+     "chocolat",
+     "notes terreuses",
+     "épices",
+     "notes boisées"
+    ],
+    "fond": [
+     "ambre",
+     "musc",
+     "fève tonka",
+     "vanille"
+    ],
+    "cle": [
+     "chocolat",
+     "fève tonka",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "citrus",
+     "fruitige noten"
+    ],
+    "coeur": [
+     "chocolade",
+     "Aardse noten",
+     "specerijen",
+     "houtige noten"
+    ],
+    "fond": [
+     "amber",
+     "muskus",
+     "tonkaboon",
+     "vanille"
+    ],
+    "cle": [
+     "chocolade",
+     "tonkaboon",
+     "vanille"
+    ]
+   },
+   "fr": "<p>1970 est signé Rosendo Mateu, parfumeur espagnol qui a donné son nom à sa propre maison. Sorti en 2023, ce parfum s'ouvre sur des agrumes et des notes fruitées qui apportent de l'éclat avant que la composition ne devienne plus profonde.</p><p>Le cœur est le plus surprenant : un <strong>chocolat</strong> sombre entouré de notes terreuses, d'épices et de bois, plus proche d'une cave à cacao que d'une confiserie. Le fond s'adoucit ensuite avec l'ambre, le musc, la <strong>fève tonka</strong> et la <strong>vanille</strong>, pour une trace chaude et réconfortante.</p><p>C'est un gourmand mixte avec du relief, qui tient toute la journée et laisse un sillage marqué. Il est idéal en hiver, pour une soirée ou un rendez-vous, quand on veut une senteur chaleureuse et un peu espiègle, sans tomber dans le trop sucré.</p>",
+   "nl": "<p>1970 is van Rosendo Mateu, een Spaanse parfumeur die zijn eigen huis naar zichzelf noemde. Deze geur uit 2023 opent met citrus en fruitige noten die glans geven, voordat de compositie dieper wordt.</p><p>Het hart is het meest verrassend: donkere <strong>chocolade</strong> omringd door aardse noten, specerijen en hout, eerder een cacaokelder dan een snoepwinkel. De basis wordt daarna zachter met amber, muskus, <strong>tonkaboon</strong> en <strong>vanille</strong>, voor een warm en geruststellend spoor.</p><p>Een unisex gourmandgeur met reliëf, die de hele dag blijft en een duidelijke sillage heeft. Ideaal in de winter, voor een avond uit of een date, wanneer je een warme, een tikje speelse geur wilt zonder dat het te zoet wordt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-intense-cafe-eau-de-parfum-mixte": {
+   "annee": 2013,
+   "parfumeurs": [],
+   "famille_fr": "Floral gourmand",
+   "famille_nl": "Gourmand bloemig",
+   "notes_fr": {
+    "tete": [
+     "notes florales"
+    ],
+    "coeur": [
+     "café",
+     "rose"
+    ],
+    "fond": [
+     "ambre",
+     "vanille",
+     "musc blanc"
+    ],
+    "cle": [
+     "café",
+     "rose",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bloemige noten"
+    ],
+    "coeur": [
+     "koffie",
+     "roos"
+    ],
+    "fond": [
+     "amber",
+     "vanille",
+     "witte muskus"
+    ],
+    "cle": [
+     "koffie",
+     "roos",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Intense Café est l'un des parfums les plus connus de Montale. Il associe deux matières qu'on n'attend pas ensemble : le <strong>café</strong> torréfié et la <strong>rose</strong>. Après une ouverture florale, le café prend place, chaud et légèrement amer, tandis que la rose lui donne de la douceur et de l'élégance.</p><p>Le fond repose sur l'ambre, la <strong>vanille</strong> et un musc blanc crémeux, qui transforment peu à peu la composition en un café latté parfumé, rond et réconfortant. Le côté gourmand reste maîtrisé grâce à la fleur, qui garde de la fraîcheur jusqu'au bout.</p><p>Sorti en 2013, ce parfum mixte tient toute la journée avec un sillage généreux, signature de la maison. Il est idéal en hiver, pour les journées froides, les fêtes ou un mariage. Une vaporisation suffit pour en profiter des heures.</p>",
+   "nl": "<p>Intense Café is een van de bekendste parfums van Montale. Hij combineert twee grondstoffen die je niet samen verwacht: geroosterde <strong>koffie</strong> en <strong>roos</strong>. Na een bloemige opening neemt de koffie het over, warm en licht bitter, terwijl de roos zachtheid en elegantie toevoegt.</p><p>De basis rust op amber, <strong>vanille</strong> en romige witte muskus, die de compositie langzaam veranderen in een geparfumeerde latte, rond en geruststellend. Het gourmandkarakter blijft beheerst dankzij de bloem, die tot het einde frisheid geeft.</p><p>Deze unisex geur uit 2013 houdt de hele dag met een royale sillage, typisch voor het huis. Ideaal in de winter, op koude dagen, tijdens feesten of voor een bruiloft. Eén verstuiving is genoeg om er uren van te genieten.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "xerjoff-join-the-club-comandante-eau-de-parfum-mixte": {
+   "annee": 2012,
+   "parfumeurs": [],
+   "famille_fr": "Ambré épicé",
+   "famille_nl": "Kruidig amber",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [
+     "notes florales",
+     "notes fruitées",
+     "notes épicées"
+    ],
+    "fond": [
+     "cèdre",
+     "miel",
+     "labdanum",
+     "cuir",
+     "patchouli",
+     "tabac",
+     "vanille"
+    ],
+    "cle": [
+     "tabac",
+     "miel",
+     "cuir"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [
+     "bloemige noten",
+     "fruitige noten",
+     "kruidige noten"
+    ],
+    "fond": [
+     "ceder",
+     "honing",
+     "labdanum",
+     "leer",
+     "patchoeli",
+     "tabak",
+     "vanille"
+    ],
+    "cle": [
+     "tabak",
+     "honing",
+     "leer"
+    ]
+   },
+   "fr": "<p>Comandante! fait partie de la collection Join the Club de Xerjoff. Il s'ouvre sur un mélange de notes florales, fruitées et épicées qui réveille la peau avec chaleur.</p><p>Très vite, le cœur du parfum se dévoile : <strong>tabac</strong> blond, <strong>miel</strong>, <strong>cuir</strong> souple, labdanum et patchouli, posés sur un cèdre sec. La <strong>vanille</strong> arrondit l'ensemble et donne une douceur presque liquoreuse, comme un fauteuil en cuir dans un salon où l'on savoure un cigare.</p><p>C'est un parfum mixte riche et sensuel, à la tenue exceptionnelle : il reste perceptible jusqu'au lendemain sur les vêtements, avec un sillage affirmé. Il est fait pour l'hiver, les soirées, les rendez-vous et les grandes occasions. À vaporiser avec modération. Sur une écharpe en laine, il se sent encore le lendemain.</p>",
+   "nl": "<p>Comandante! hoort bij de Join the Club-collectie van Xerjoff. Hij opent met een mix van bloemige, fruitige en kruidige noten die de huid warm wakker maakt.</p><p>Al snel toont het hart zich: blonde <strong>tabak</strong>, <strong>honing</strong>, soepel <strong>leer</strong>, labdanum en patchoeli, op droge ceder. <strong>Vanille</strong> rondt alles af en geeft een bijna likeurachtige zachtheid, als een leren fauteuil in een salon waar een sigaar wordt gerookt.</p><p>Een rijke, sensuele unisex geur die uitzonderlijk lang houdt: op kleding ruik je hem nog de volgende dag, met een uitgesproken sillage. Gemaakt voor de winter, avonden uit, dates en grote gelegenheden. Met mate verstuiven. Op een wollen sjaal ruik je hem de volgende dag nog.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "versace-eros-eau-de-parfum-pour-homme": {
+   "annee": 2020,
+   "parfumeurs": [],
+   "famille_fr": "Ambré fougère",
+   "famille_nl": "Fougère amber",
+   "notes_fr": {
+    "tete": [
+     "menthe",
+     "pomme d'amour",
+     "citron",
+     "mandarine"
+    ],
+    "coeur": [
+     "Ambroxan",
+     "géranium",
+     "sauge sclarée"
+    ],
+    "fond": [
+     "vanille",
+     "cèdre",
+     "santal",
+     "orange amère",
+     "patchouli",
+     "cuir"
+    ],
+    "cle": [
+     "menthe",
+     "pomme",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "munt",
+     "suikerappel",
+     "citroen",
+     "mandarijn"
+    ],
+    "coeur": [
+     "Ambroxan",
+     "geranium",
+     "scharlei"
+    ],
+    "fond": [
+     "vanille",
+     "ceder",
+     "sandelhout",
+     "bittere sinaasappel",
+     "patchoeli",
+     "leer"
+    ],
+    "cle": [
+     "munt",
+     "appel",
+     "vanille"
+    ]
+   },
+   "fr": "<p>L'eau de parfum Eros, lancée en 2020, prolonge l'univers de l'Eros d'origine de Versace avec plus de profondeur. Elle s'ouvre sur une <strong>menthe</strong> fraîche, une <strong>pomme d'amour</strong> croquante, du citron et de la mandarine : un départ vif et légèrement sucré.</p><p>Le cœur associe l'ambroxan au géranium et à la sauge sclarée, pour un côté aromatique et moderne. Le fond est plus chaud et plus riche que dans l'eau de toilette : <strong>vanille</strong>, cèdre, santal, orange amère, patchouli et une touche de cuir lui donnent du corps.</p><p>C'est un parfum masculin, séducteur et assumé, qui tient longtemps et se remarque. Il convient surtout aux soirées, aux sorties et aux saisons fraîches, mais reste assez frais pour un usage quotidien avec une vaporisation légère.</p>",
+   "nl": "<p>De eau de parfum van Eros uit 2020 zet de wereld van de originele Eros van Versace voort, met meer diepte. Hij opent met frisse <strong>munt</strong>, knapperige <strong>suikerappel</strong>, citroen en mandarijn: een levendige, licht zoete start.</p><p>Het hart combineert ambroxan met geranium en scharlei, voor een aromatisch en modern karakter. De basis is warmer en rijker dan in de eau de toilette: <strong>vanille</strong>, ceder, sandelhout, bittere sinaasappel, patchoeli en een vleugje leer geven hem body.</p><p>Een verleidelijk, uitgesproken herenparfum dat lang houdt en opvalt. Vooral voor avonden, uitjes en koelere seizoenen, maar met een lichte verstuiving fris genoeg voor elke dag.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "calvin-klein-ck-in2u-men-eau-de-toilette-pour-homme": {
+   "annee": 2007,
+   "parfumeurs": [],
+   "famille_fr": "Boisé aromatique",
+   "famille_nl": "Aromatisch houtig",
+   "notes_fr": {
+    "tete": [
+     "citron",
+     "feuille de tomate"
+    ],
+    "coeur": [
+     "cabosse de cacao"
+    ],
+    "fond": [
+     "cèdre",
+     "musc blanc",
+     "vétiver"
+    ],
+    "cle": [
+     "feuille de tomate",
+     "cacao",
+     "cèdre"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "citroen",
+     "tomatenblad"
+    ],
+    "coeur": [
+     "cacaopeul"
+    ],
+    "fond": [
+     "ceder",
+     "witte muskus",
+     "vetiver"
+    ],
+    "cle": [
+     "tomatenblad",
+     "cacao",
+     "ceder"
+    ]
+   },
+   "fr": "<p>CK IN2U Men a été lancé en 2007 par Calvin Klein avec une idée simple : un parfum frais, décontracté et un peu différent. Il s'ouvre sur un <strong>citron</strong> vif et une <strong>feuille de tomate</strong> verte et croquante, note rare qui lui donne son originalité.</p><p>Le cœur surprend avec une <strong>cabosse de cacao</strong>, plus sèche que gourmande, qui apporte une douceur discrète. Le fond associe le <strong>cèdre</strong>, le vétiver et un musc blanc propre, pour une trace boisée, nette et légère.</p><p>C'est une eau de toilette facile à porter, idéale pour le quotidien, le bureau ou le sport, surtout au printemps et en été. Son caractère frais et sans prise de tête en fait aussi une bonne idée de cadeau.</p>",
+   "nl": "<p>CK IN2U Men werd in 2007 door Calvin Klein gelanceerd met een eenvoudig idee: een frisse, relaxte en net iets andere geur. Hij opent met levendige <strong>citroen</strong> en een groen, knapperig <strong>tomatenblad</strong>, een zeldzame noot die hem origineel maakt.</p><p>Het hart verrast met een <strong>cacaopeul</strong>, eerder droog dan zoet, die een discrete zachtheid geeft. De basis combineert <strong>ceder</strong>, vetiver en schone witte muskus, voor een houtig, helder en licht spoor.</p><p>Een makkelijk draagbare eau de toilette, ideaal voor elke dag, kantoor of sport, vooral in de lente en de zomer. Door zijn frisse, ongecompliceerde karakter ook een goed cadeau-idee.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "hermes-twilly-d-hermes-eau-de-parfum-pour-femme": {
+   "annee": 2017,
+   "parfumeurs": [
+    "Christine Nagel"
+   ],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "orange amère",
+     "gingembre"
+    ],
+    "coeur": [
+     "jasmin",
+     "fleur d'oranger",
+     "tubéreuse"
+    ],
+    "fond": [
+     "santal",
+     "vanille"
+    ],
+    "cle": [
+     "gingembre",
+     "tubéreuse",
+     "santal"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "bittere sinaasappel",
+     "gember"
+    ],
+    "coeur": [
+     "jasmijn",
+     "oranjebloesem",
+     "tuberoos"
+    ],
+    "fond": [
+     "sandelhout",
+     "vanille"
+    ],
+    "cle": [
+     "gember",
+     "tuberoos",
+     "sandelhout"
+    ]
+   },
+   "fr": "<p>Twilly d'Hermès porte le nom des petits foulards en soie de la maison, que l'on noue au cou, au poignet ou à l'anse d'un sac. Il a été créé en 2017 par Christine Nagel, parfumeuse de la maison.</p><p>Le départ est pétillant : <strong>gingembre</strong>, bergamote et orange amère donnent un coup d'éclat épicé. Le cœur est un bouquet de fleurs blanches, avec la <strong>tubéreuse</strong>, le jasmin et la fleur d'oranger, sensuel mais jamais lourd. Le fond de <strong>santal</strong> et de vanille ajoute une chaleur crémeuse et douce.</p><p>Ce parfum tient toute la journée avec un sillage remarqué. Il est idéal au printemps, pour un mariage, une sortie ou un rendez-vous, et accompagne aussi très bien le quotidien de celles qui aiment les fleurs blanches avec du piquant.</p>",
+   "nl": "<p>Twilly d'Hermès is vernoemd naar de kleine zijden sjaaltjes van het huis, die je om de hals, de pols of het hengsel van een tas knoopt. Christine Nagel, huisparfumeur van Hermès, creëerde hem in 2017.</p><p>De start is sprankelend: <strong>gember</strong>, bergamot en bittere sinaasappel geven een kruidige glans. Het hart is een boeket witte bloemen, met <strong>tuberoos</strong>, jasmijn en oranjebloesem, sensueel maar nooit zwaar. De basis van <strong>sandelhout</strong> en vanille voegt een romige, zachte warmte toe.</p><p>Deze geur houdt de hele dag met een opvallende sillage. Ideaal in de lente, voor een bruiloft, een uitje of een date, en ook heel geschikt voor elke dag voor wie van witte bloemen met pit houdt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "jo-malone-english-oak-hazelnut-eau-de-cologne-mixte": {
+   "annee": 2017,
+   "parfumeurs": [
+    "Yann Vasnier"
+   ],
+   "famille_fr": "Boisé",
+   "famille_nl": "Houtig",
+   "notes_fr": {
+    "tete": [
+     "noisette"
+    ],
+    "coeur": [
+     "cèdre"
+    ],
+    "fond": [
+     "chêne"
+    ],
+    "cle": [
+     "noisette",
+     "cèdre",
+     "chêne"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "hazelnoot"
+    ],
+    "coeur": [
+     "ceder"
+    ],
+    "fond": [
+     "eik"
+    ],
+    "cle": [
+     "hazelnoot",
+     "ceder",
+     "eik"
+    ]
+   },
+   "fr": "<p>English Oak &amp; Hazelnut a été créé en 2017 par Yann Vasnier pour Jo Malone London. Il évoque une promenade en sous-bois à l'automne, quand les feuilles craquent sous les pas.</p><p>La <strong>noisette</strong> verte ouvre le parfum avec une note fraîche et légèrement lactée, loin des senteurs pralinées. Le <strong>cèdre</strong> lui succède, sec et clair, puis le <strong>chêne</strong> donne au fond un côté boisé, presque torréfié, qui reste lumineux.</p><p>Comme toutes les colognes de la maison, il est léger, avec un sillage modéré : un parfum de proximité, cosy et élégant, que femmes et hommes peuvent porter. Il convient surtout à l'automne, au quotidien ou le week-end. Il se superpose aussi facilement à une autre senteur Jo Malone London, plus fruitée ou plus florale.</p>",
+   "nl": "<p>English Oak &amp; Hazelnut werd in 2017 door Yann Vasnier gecreëerd voor Jo Malone London. Hij roept een herfstwandeling in het bos op, met knisperende bladeren onder je voeten.</p><p>Groene <strong>hazelnoot</strong> opent de geur met een frisse, licht melkachtige noot, ver weg van pralinégeuren. Daarna volgt <strong>ceder</strong>, droog en helder, waarna <strong>eik</strong> de basis een houtig, bijna geroosterd karakter geeft dat toch licht blijft.</p><p>Zoals alle colognes van het huis is hij licht, met een gemiddelde sillage: een geur voor dichtbij, warm en elegant, voor vrouwen en mannen. Vooral voor de herfst, elke dag of in het weekend. Hij laat zich ook makkelijk combineren met een fruitigere of bloemigere geur van Jo Malone London.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "versace-man-eau-fraiche-eau-fraiche-extreme-eau-de-parfum-pour-homme": {
+   "annee": 2025,
+   "parfumeurs": [],
+   "famille_fr": "Aromatique",
+   "famille_nl": "Aromatisch",
+   "notes_fr": {
+    "tete": [
+     "citron",
+     "fleur d'oranger",
+     "baies roses"
+    ],
+    "coeur": [
+     "géranium Bourbon",
+     "sauge sclarée",
+     "lavande"
+    ],
+    "fond": [
+     "Ambroxan",
+     "musc",
+     "cèdre de Virginie"
+    ],
+    "cle": [
+     "citron",
+     "lavande",
+     "ambroxan"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "citroen",
+     "oranjebloesem",
+     "roze peper"
+    ],
+    "coeur": [
+     "bourbongeranium",
+     "scharlei",
+     "lavendel"
+    ],
+    "fond": [
+     "Ambroxan",
+     "muskus",
+     "virginiaceder"
+    ],
+    "cle": [
+     "citroen",
+     "lavendel",
+     "ambroxan"
+    ]
+   },
+   "fr": "<p>Eau Fraîche Extrême est la version eau de parfum de Versace Man Eau Fraîche, sortie en 2025. Elle garde l'esprit lumineux de l'original, avec plus de corps et une meilleure tenue. Le départ réunit le <strong>citron</strong>, la fleur d'oranger et les <strong>baies roses</strong>, pour une ouverture vive et légèrement poivrée.</p><p>Le cœur est aromatique et net : géranium Bourbon, sauge sclarée et <strong>lavande</strong>. Le fond associe l'<strong>ambroxan</strong>, un musc propre et le cèdre de Virginie, qui laissent une trace boisée, claire et moderne.</p><p>C'est un parfum masculin frais mais affirmé, qui tient longtemps avec un sillage modéré. Il convient parfaitement au printemps et à l'été, au bureau comme au quotidien, et reste assez élégant pour une soirée. Une valeur sûre pour qui cherche un parfum propre et facile à porter.</p>",
+   "nl": "<p>Eau Fraîche Extrême is de eau de parfum-versie van Versace Man Eau Fraîche, uitgebracht in 2025. Hij behoudt de heldere geest van het origineel, met meer body en een betere houdbaarheid. De start brengt <strong>citroen</strong>, oranjebloesem en <strong>roze peper</strong> samen, voor een levendige, licht peperige opening.</p><p>Het hart is aromatisch en helder: Bourbongeranium, scharlei en <strong>lavendel</strong>. De basis combineert <strong>ambroxan</strong>, schone muskus en Virginiaceder, die een houtig, helder en modern spoor nalaten.</p><p>Een fris maar uitgesproken herenparfum dat lang houdt met een gemiddelde sillage. Perfect voor de lente en de zomer, op kantoor en voor elke dag, en elegant genoeg voor een avond uit. Een veilige keuze voor wie een schone, makkelijk draagbare geur zoekt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "mancera-aoud-orchid-eau-de-parfum-mixte": {
+   "annee": 2016,
+   "parfumeurs": [],
+   "famille_fr": "Floral fruité gourmand",
+   "famille_nl": "Gourmand fruitig bloemig",
+   "notes_fr": {
+    "tete": [
+     "noix de coco",
+     "mandarine",
+     "pêche"
+    ],
+    "coeur": [
+     "orchidée",
+     "patchouli"
+    ],
+    "fond": [
+     "ambre",
+     "vanille",
+     "musc blanc",
+     "notes boisées"
+    ],
+    "cle": [
+     "noix de coco",
+     "orchidée",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "kokos",
+     "mandarijn",
+     "perzik"
+    ],
+    "coeur": [
+     "orchidee",
+     "patchoeli"
+    ],
+    "fond": [
+     "amber",
+     "vanille",
+     "witte muskus",
+     "houtige noten"
+    ],
+    "cle": [
+     "kokos",
+     "orchidee",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Aoud Orchid est un parfum de Mancera, maison parisienne réputée pour ses senteurs intenses et généreuses. Sorti en 2016, il s'ouvre sur un trio fruité et ensoleillé : <strong>noix de coco</strong>, mandarine et <strong>pêche</strong>.</p><p>Le cœur associe l'<strong>orchidée</strong>, douce et crémeuse, au patchouli qui lui donne du relief. Le fond réunit l'ambre, la <strong>vanille</strong>, un musc blanc et des bois chauds, pour une trace sucrée, ronde et enveloppante. Malgré son nom, le parfum met davantage en avant la douceur des fruits et des fleurs que le côté boisé.</p><p>C'est un parfum mixte gourmand et joyeux, qui tient toute la journée avec un sillage marqué. Il convient surtout à l'automne, pour un mariage, un rendez-vous ou une soirée. Une ou deux vaporisations suffisent pour en profiter longtemps.</p>",
+   "nl": "<p>Aoud Orchid is een parfum van Mancera, een Parijs huis dat bekendstaat om intense, royale geuren. Hij kwam uit in 2016 en opent met een fruitig, zonnig trio: <strong>kokos</strong>, mandarijn en <strong>perzik</strong>.</p><p>Het hart combineert zachte, romige <strong>orchidee</strong> met patchoeli die reliëf geeft. De basis brengt amber, <strong>vanille</strong>, witte muskus en warm hout samen, voor een zoet, rond en omhullend spoor. Ondanks de naam staan de zachtheid van fruit en bloemen meer centraal dan het houtige.</p><p>Een vrolijke, gourmand unisex geur die de hele dag blijft met een duidelijke sillage. Vooral voor de herfst, een bruiloft, een date of een avond uit. Eén of twee verstuivingen volstaan om er lang van te genieten.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "nishane-ani-extrait-de-parfum-mixte": {
+   "annee": 2019,
+   "parfumeurs": [
+    "Cécile Zarokian"
+   ],
+   "famille_fr": "Ambré vanillé",
+   "famille_nl": "Vanille amber",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "gingembre",
+     "notes vertes",
+     "baies roses"
+    ],
+    "coeur": [
+     "cassis",
+     "cardamome",
+     "rose de Turquie"
+    ],
+    "fond": [
+     "ambre gris",
+     "benjoin",
+     "cèdre",
+     "musc",
+     "patchouli",
+     "santal",
+     "vanille"
+    ],
+    "cle": [
+     "gingembre",
+     "cardamome",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "gember",
+     "groene noten",
+     "roze peper"
+    ],
+    "coeur": [
+     "zwarte bes",
+     "kardemom",
+     "Turkse roos"
+    ],
+    "fond": [
+     "ambergris",
+     "benzoë",
+     "ceder",
+     "muskus",
+     "patchoeli",
+     "sandelhout",
+     "vanille"
+    ],
+    "cle": [
+     "gember",
+     "kardemom",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Ani a été créé en 2019 par Cécile Zarokian pour Nishane, maison d'Istanbul connue pour ses extraits intenses. Il s'ouvre sur un départ frais et épicé : <strong>gingembre</strong>, bergamote, notes vertes et baies roses.</p><p>Le cœur se réchauffe avec le cassis, la <strong>cardamome</strong> et une rose de Turquie. Le fond est le plus généreux : <strong>vanille</strong>, benjoin, ambre gris, cèdre, musc, patchouli et santal forment une trace crémeuse, épicée et très enveloppante, à la fois gourmande et élégante.</p><p>Grâce à sa concentration extrait, Ani tient jusqu'au lendemain sur les vêtements, avec un sillage affirmé. C'est un parfum mixte d'hiver, idéal pour une soirée, un rendez-vous ou un mariage. Il suffit d'une vaporisation pour le sentir toute la journée.</p>",
+   "nl": "<p>Ani werd in 2019 gecreëerd door Cécile Zarokian voor Nishane, een huis uit Istanboel dat bekendstaat om intense extraits. Hij opent fris en kruidig: <strong>gember</strong>, bergamot, groene noten en roze peper.</p><p>Het hart wordt warmer met zwarte bes, <strong>kardemom</strong> en Turkse roos. De basis is het royaalst: <strong>vanille</strong>, benzoë, ambergris, ceder, muskus, patchoeli en sandelhout vormen een romig, kruidig en zeer omhullend spoor, tegelijk gourmand en elegant.</p><p>Dankzij de extrait-concentratie blijft Ani op kleding tot de volgende dag, met een uitgesproken sillage. Een unisex wintergeur, ideaal voor een avond uit, een date of een bruiloft. Eén verstuiving is genoeg om hem de hele dag te ruiken.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "parfums-de-marly-palatine-eau-de-parfum-pour-femme": {
+   "annee": 2024,
+   "parfumeurs": [],
+   "famille_fr": "Floral fruité",
+   "famille_nl": "Fruitig bloemig",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "mandarine",
+     "pêche",
+     "poire"
+    ],
+    "coeur": [
+     "bouquet floral",
+     "lavande",
+     "violette"
+    ],
+    "fond": [
+     "musc",
+     "patchouli",
+     "santal",
+     "vanille"
+    ],
+    "cle": [
+     "poire",
+     "violette",
+     "santal"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "mandarijn",
+     "perzik",
+     "peer"
+    ],
+    "coeur": [
+     "bloemenboeket",
+     "lavendel",
+     "viooltje"
+    ],
+    "fond": [
+     "muskus",
+     "patchoeli",
+     "sandelhout",
+     "vanille"
+    ],
+    "cle": [
+     "peer",
+     "viooltje",
+     "sandelhout"
+    ]
+   },
+   "fr": "<p>Palatine est l'un des parfums féminins de Parfums de Marly, maison inspirée du faste de la cour de Louis XV. Sorti en 2024, il s'ouvre sur un mélange de fruits juteux : <strong>poire</strong>, pêche, mandarine et bergamote.</p><p>Le cœur est un bouquet floral délicat, traversé par la <strong>violette</strong> et une touche de lavande qui lui donne un côté poudré et raffiné. Le fond associe le musc, le patchouli, le <strong>santal</strong> et la vanille, pour une trace douce, boisée et rassurante.</p><p>C'est un parfum élégant et lumineux, qui tient longtemps avec un sillage modéré. Il se porte surtout au printemps, au bureau, en soirée ou pour un mariage, et plaira à celles qui aiment les fruités chics sans excès de sucre.</p>",
+   "nl": "<p>Palatine is een van de damesparfums van Parfums de Marly, een huis geïnspireerd op de pracht van het hof van Lodewijk XV. Hij kwam uit in 2024 en opent met sappig fruit: <strong>peer</strong>, perzik, mandarijn en bergamot.</p><p>Het hart is een verfijnd bloemenboeket, met <strong>viooltje</strong> en een vleugje lavendel dat een poederig, elegant karakter geeft. De basis combineert muskus, patchoeli, <strong>sandelhout</strong> en vanille, voor een zacht, houtig en geruststellend spoor.</p><p>Een elegante, heldere geur die lang houdt met een gemiddelde sillage. Vooral voor de lente, op kantoor, 's avonds of voor een bruiloft, voor wie houdt van chique fruitige geuren zonder te veel suiker.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "liquides-imaginaires-buveur-de-vent-eau-de-parfum-mixte": {
+   "annee": null,
+   "parfumeurs": [],
+   "famille_fr": "Cuir boisé",
+   "famille_nl": "Houtig leer",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "cuir",
+     "cyprès",
+     "mousse de chêne"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "leer",
+     "cipres",
+     "eikenmos"
+    ]
+   },
+   "fr": "<p>Buveur de Vent est un parfum de Liquides Imaginaires, maison parisienne qui aime raconter des histoires à travers ses créations. Celui-ci évoque le grand air et les paysages sauvages, avec une composition aromatique et boisée.</p><p>Le départ est vif : bergamote, petitgrain, <strong>genièvre</strong> et estragon apportent une fraîcheur herbacée. Le <strong>cyprès</strong> et la sauge sclarée prolongent cette impression de nature, avant qu'un <strong>cuir</strong> souple ne s'installe. Le fond réunit la <strong>mousse de chêne</strong>, le labdanum, le cèdre et le santal, pour une trace sèche, légèrement résineuse et élégante.</p><p>C'est un parfum mixte de caractère, qui plaira à celles et ceux qui aiment les cuirs aromatiques plutôt que les cuirs sucrés. Il se porte en toute saison, avec un petit avantage à l'automne et au printemps, au quotidien comme pour une sortie.</p>",
+   "nl": "<p>Buveur de Vent is een parfum van Liquides Imaginaires, een Parijs huis dat graag verhalen vertelt met zijn creaties. Deze geur roept de buitenlucht en wilde landschappen op, met een aromatische en houtige compositie.</p><p>De start is levendig: bergamot, petitgrain, <strong>jeneverbes</strong> en dragon geven een kruidige frisheid. <strong>Cipres</strong> en scharlei verlengen dat natuurgevoel, waarna soepel <strong>leer</strong> verschijnt. De basis brengt <strong>eikenmos</strong>, labdanum, ceder en sandelhout samen, voor een droog, licht harsig en elegant spoor.</p><p>Een unisex geur met karakter, voor wie aromatisch leer verkiest boven zoet leer. Hij past in elk seizoen, met een licht voordeel in de herfst en de lente, elke dag of voor een uitje.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "cartier-pasha-noir-absolu-eau-de-parfum-pour-homme": {
+   "annee": 2023,
+   "parfumeurs": [],
+   "famille_fr": "Ambré gourmand boisé",
+   "famille_nl": "Houtig gourmand amber",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "caramel",
+     "violette",
+     "fève tonka"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "karamel",
+     "viooltje",
+     "tonkaboon"
+    ]
+   },
+   "fr": "<p>Pasha Noir Absolu, lancé en 2023, est une version intense et gourmande de la ligne Pasha de Cartier. Il joue un contraste séduisant entre douceur et fumée.</p><p>Un éclat de <strong>citron</strong> ouvre le parfum, puis arrivent les notes gourmandes : <strong>caramel</strong>, barbe à papa et <strong>fève tonka</strong>, adoucies par une violette poudrée. Des épices chaudes, des bois et une note de <strong>fumée</strong> viennent ensuite durcir l'ensemble, pour éviter tout effet trop sucré et lui donner une allure élégante et masculine.</p><p>Ce parfum tient toute la journée avec un sillage affirmé. Il est fait pour l'hiver, les soirées, les rendez-vous et les grandes occasions. C'est un choix parfait pour ceux qui aiment les gourmands sophistiqués, avec la signature raffinée de la joaillerie Cartier.</p>",
+   "nl": "<p>Pasha Noir Absolu, gelanceerd in 2023, is een intense, gourmand versie van de Pasha-lijn van Cartier. Hij speelt met een verleidelijk contrast tussen zoetheid en rook.</p><p>Een vleug <strong>citroen</strong> opent de geur, waarna de gourmandnoten volgen: <strong>karamel</strong>, suikerspin en <strong>tonkaboon</strong>, verzacht door poederig viooltje. Warme specerijen, hout en een <strong>rook</strong>noot maken het geheel daarna steviger, zodat het niet te zoet wordt en een elegante, mannelijke uitstraling krijgt.</p><p>Deze geur houdt de hele dag met een uitgesproken sillage. Gemaakt voor de winter, avonden uit, dates en grote gelegenheden. Een perfecte keuze voor wie van verfijnde gourmandgeuren houdt, met de elegante signatuur van juwelier Cartier.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "by-kilian-the-cellars-back-to-black-eau-de-parfum-mixte": {
+   "annee": 2009,
+   "parfumeurs": [],
+   "famille_fr": "Ambré épicé",
+   "famille_nl": "Kruidig amber",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "camomille"
+    ],
+    "coeur": [
+     "cardamome",
+     "cerise",
+     "coriandre",
+     "géranium",
+     "muscade",
+     "framboise",
+     "safran"
+    ],
+    "fond": [
+     "amande",
+     "ambre",
+     "benjoin",
+     "encens",
+     "labdanum de France",
+     "chêne",
+     "patchouli",
+     "tabac",
+     "fève tonka",
+     "vanille",
+     "cèdre de Virginie",
+     "miel blanc"
+    ],
+    "cle": [
+     "miel",
+     "tabac",
+     "cerise"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "kamille"
+    ],
+    "coeur": [
+     "kardemom",
+     "kers",
+     "koriander",
+     "geranium",
+     "nootmuskaat",
+     "framboos",
+     "saffraan"
+    ],
+    "fond": [
+     "amandel",
+     "amber",
+     "benzoë",
+     "wierook",
+     "Franse labdanum",
+     "eik",
+     "patchoeli",
+     "tabak",
+     "tonkaboon",
+     "vanille",
+     "virginiaceder",
+     "witte honing"
+    ],
+    "cle": [
+     "honing",
+     "tabak",
+     "kers"
+    ]
+   },
+   "fr": "<p>Back to Black est l'un des parfums emblématiques de Kilian Paris, lancé en 2009 et aujourd'hui rangé dans la collection The Cellars. Il s'ouvre sur la bergamote et une camomille légèrement miellée.</p><p>Le cœur est riche et chaleureux : <strong>cerise</strong> et framboise, cardamome, muscade, coriandre, safran et géranium s'enroulent les uns autour des autres. Le fond est le plus célèbre : <strong>tabac</strong>, <strong>miel</strong> blanc, vanille, fève tonka, amande, encens, benjoin et bois forment une trace dense, ambrée et gourmande, comme des feuilles de tabac séchées et sucrées.</p><p>C'est un parfum mixte intense, qui tient toute la journée avec un sillage marqué. Il est idéal en hiver, pour une soirée, un mariage ou un rendez-vous. Son flacon rechargeable en fait aussi un très beau cadeau.</p>",
+   "nl": "<p>Back to Black is een van de iconische parfums van Kilian Paris, gelanceerd in 2009 en vandaag onderdeel van de collectie The Cellars. Hij opent met bergamot en licht honingachtige kamille.</p><p>Het hart is rijk en warm: <strong>kers</strong> en framboos, kardemom, nootmuskaat, koriander, saffraan en geranium draaien om elkaar heen. De basis is het bekendst: <strong>tabak</strong>, witte <strong>honing</strong>, vanille, tonkaboon, amandel, wierook, benzoë en hout vormen een dicht, amberachtig en gourmand spoor, als gedroogde, gezoete tabaksbladeren.</p><p>Een intense unisex geur die de hele dag blijft met een duidelijke sillage. Ideaal in de winter, voor een avond uit, een bruiloft of een date. De navulbare flacon maakt hem ook een heel mooi cadeau.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "boadicea-the-victorious-hanuman-parfum-mixte": {
+   "annee": 2016,
+   "parfumeurs": [],
+   "famille_fr": "Floral",
+   "famille_nl": "Bloemig",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "cassis",
+     "citron",
+     "fleur d'oranger"
+    ],
+    "coeur": [
+     "cyclamen",
+     "magnolia",
+     "néroli",
+     "osmanthus"
+    ],
+    "fond": [
+     "ambre",
+     "cèdre",
+     "musc",
+     "santal",
+     "vétiver"
+    ],
+    "cle": [
+     "osmanthus",
+     "magnolia",
+     "néroli"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "zwarte bes",
+     "citroen",
+     "oranjebloesem"
+    ],
+    "coeur": [
+     "cyclaam",
+     "magnolia",
+     "neroli",
+     "osmanthus"
+    ],
+    "fond": [
+     "amber",
+     "ceder",
+     "muskus",
+     "sandelhout",
+     "vetiver"
+    ],
+    "cle": [
+     "osmanthus",
+     "magnolia",
+     "neroli"
+    ]
+   },
+   "fr": "<p>Hanuman est un parfum de Boadicea the Victorious, maison britannique reconnue pour ses flacons ornés et ses compositions riches. Sorti en 2016, il s'ouvre sur une explosion d'agrumes : bergamote, citron, <strong>cassis</strong> et fleur d'oranger.</p><p>Le cœur est un bouquet lumineux de fleurs blanches et jaunes : <strong>osmanthus</strong> abricoté, <strong>magnolia</strong>, néroli et cyclamen. Le fond réunit l'ambre, le cèdre, le musc, le santal et le vétiver, qui apportent de la profondeur et une belle tenue.</p><p>C'est un parfum mixte solaire et énergique, romantique et sensuel à la fois. Il tient toute la journée avec un sillage affirmé et se porte surtout au printemps, pour un mariage, un rendez-vous ou une belle journée en ville.</p>",
+   "nl": "<p>Hanuman is een parfum van Boadicea the Victorious, een Brits huis dat bekendstaat om zijn rijk versierde flacons en rijke composities. Hij kwam uit in 2016 en opent met een explosie van citrus: bergamot, citroen, <strong>zwarte bes</strong> en oranjebloesem.</p><p>Het hart is een stralend boeket witte en gele bloemen: abrikoosachtige <strong>osmanthus</strong>, <strong>magnolia</strong>, neroli en cyclaam. De basis brengt amber, ceder, muskus, sandelhout en vetiver samen, voor diepte en een mooie houdbaarheid.</p><p>Een zonnige, energieke unisex geur, romantisch en sensueel tegelijk. Hij blijft de hele dag met een uitgesproken sillage en past vooral in de lente, bij een bruiloft, een date of een mooie dag in de stad.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "hugo-boss-boss-ma-vie-eau-de-parfum-pour-femme": {
+   "annee": 2014,
+   "parfumeurs": [],
+   "famille_fr": "Floral boisé",
+   "famille_nl": "Houtig bloemig",
+   "notes_fr": {
+    "tete": [
+     "fleur de cactus"
+    ],
+    "coeur": [
+     "jasmin",
+     "freesia rose",
+     "rose"
+    ],
+    "fond": [
+     "cèdre",
+     "notes boisées"
+    ],
+    "cle": [
+     "fleur de cactus",
+     "freesia rose",
+     "cèdre"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "cactusbloem"
+    ],
+    "coeur": [
+     "jasmijn",
+     "roze fresia",
+     "roos"
+    ],
+    "fond": [
+     "ceder",
+     "houtige noten"
+    ],
+    "cle": [
+     "cactusbloem",
+     "roze fresia",
+     "ceder"
+    ]
+   },
+   "fr": "<p>Boss Ma Vie, lancé en 2014 par Hugo Boss, célèbre une femme moderne qui trouve l'équilibre entre sa carrière et sa vie personnelle. Le parfum s'ouvre sur une note originale de <strong>fleur de cactus</strong>, fraîche et légèrement verte.</p><p>Le cœur est un bouquet tendre et lumineux : jasmin, <strong>freesia rose</strong> et rose, féminins sans être sucrés. Le fond de <strong>cèdre</strong> et de bois clairs apporte une élégance sobre et une trace propre, qui reste proche de la peau tout en tenant la journée.</p><p>C'est un parfum floral boisé facile à porter, idéal au printemps et en été, au bureau comme au quotidien. C'est aussi une jolie idée de cadeau pour une amie, une sœur ou une maman.</p>",
+   "nl": "<p>Boss Ma Vie, in 2014 gelanceerd door Hugo Boss, viert een moderne vrouw die evenwicht vindt tussen haar carrière en haar privéleven. De geur opent met een originele noot van <strong>cactusbloem</strong>, fris en licht groen.</p><p>Het hart is een teder, stralend boeket: jasmijn, <strong>roze fresia</strong> en roos, vrouwelijk zonder zoet te zijn. De basis van <strong>ceder</strong> en licht hout geeft een sobere elegantie en een schoon spoor dat dicht bij de huid blijft en toch de hele dag houdt.</p><p>Een makkelijk draagbare houtig-bloemige geur, ideaal in de lente en de zomer, op kantoor en voor elke dag. Ook een mooi cadeau-idee voor een vriendin, zus of mama.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "sospiro-erba-leather-eau-de-parfum-mixte": {
+   "annee": 2022,
+   "parfumeurs": [],
+   "famille_fr": "Cuir fruité",
+   "famille_nl": "Fruitig leer",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "citron",
+     "fruit de la passion"
+    ],
+    "coeur": [
+     "jasmin",
+     "cuir",
+     "santal"
+    ],
+    "fond": [
+     "ambre",
+     "cuir",
+     "vétiver"
+    ],
+    "cle": [
+     "fruit de la passion",
+     "cuir",
+     "vétiver"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "citroen",
+     "passievrucht"
+    ],
+    "coeur": [
+     "jasmijn",
+     "leer",
+     "sandelhout"
+    ],
+    "fond": [
+     "amber",
+     "leer",
+     "vetiver"
+    ],
+    "cle": [
+     "passievrucht",
+     "leer",
+     "vetiver"
+    ]
+   },
+   "fr": "<p>Erba Leather est un parfum de Sospiro, maison italienne aux créations élégantes et généreuses. Sorti en 2022, il s'ouvre sur un départ fruité et pétillant : <strong>fruit de la passion</strong>, citron et bergamote.</p><p>Le cœur associe le jasmin à un <strong>cuir</strong> souple et au santal, qui donnent de la rondeur et un côté sensuel. Le fond reprend le cuir, enrichi d'ambre et de <strong>vétiver</strong>, pour une trace boisée, chaude et raffinée. Le contraste entre les fruits exotiques et le cuir donne à ce parfum un caractère à la fois énergique et chaleureux.</p><p>C'est un parfum mixte qui tient toute la journée avec un sillage affirmé. Il se porte surtout en automne, pour un mariage, un rendez-vous ou une soirée, et plaira à ceux qui aiment les cuirs modernes, lumineux et peu fumés.</p>",
+   "nl": "<p>Erba Leather is een parfum van Sospiro, een Italiaans huis met elegante, royale creaties. Hij kwam uit in 2022 en opent fruitig en sprankelend: <strong>passievrucht</strong>, citroen en bergamot.</p><p>Het hart combineert jasmijn met soepel <strong>leer</strong> en sandelhout, die rondheid en sensualiteit geven. De basis neemt het leer weer op, verrijkt met amber en <strong>vetiver</strong>, voor een houtig, warm en verfijnd spoor. Het contrast tussen exotisch fruit en leer geeft deze geur een energiek en warm karakter.</p><p>Een unisex geur die de hele dag blijft met een uitgesproken sillage. Vooral voor de herfst, een bruiloft, een date of een avond uit, voor wie van modern, helder en weinig rokerig leer houdt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "boadicea-the-victorious-defender-eau-de-parfum-mixte": {
+   "annee": 2024,
+   "parfumeurs": [],
+   "famille_fr": "Ambré épicé",
+   "famille_nl": "Kruidig amber",
+   "notes_fr": {
+    "tete": [
+     "cognac",
+     "gingembre",
+     "pamplemousse",
+     "miel",
+     "réglisse",
+     "fruits rouges"
+    ],
+    "coeur": [
+     "foin",
+     "myrrhe",
+     "jasmin de nuit",
+     "fleur d'oranger"
+    ],
+    "fond": [
+     "benjoin",
+     "labdanum",
+     "cuir",
+     "musc",
+     "baume du Pérou",
+     "fève tonka"
+    ],
+    "cle": [
+     "cognac",
+     "miel",
+     "baume du Pérou"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "cognac",
+     "gember",
+     "grapefruit",
+     "honing",
+     "zoethout",
+     "rood fruit"
+    ],
+    "coeur": [
+     "hooi",
+     "mirre",
+     "nachtjasmijn",
+     "oranjebloesem"
+    ],
+    "fond": [
+     "benzoë",
+     "labdanum",
+     "leer",
+     "muskus",
+     "perubalsem",
+     "tonkaboon"
+    ],
+    "cle": [
+     "cognac",
+     "honing",
+     "perubalsem"
+    ]
+   },
+   "fr": "<p>Defender est un parfum de Boadicea the Victorious, maison britannique aux compositions riches et chaleureuses. Sorti en 2024, il s'ouvre sur un départ gourmand et pétillant : <strong>cognac</strong>, <strong>miel</strong>, gingembre, pamplemousse, réglisse et fruits rouges.</p><p>Le cœur est plus inattendu : un <strong>foin</strong> doré et la myrrhe résineuse se mêlent au jasmin de nuit et à la fleur d'oranger. Le fond réunit benjoin, labdanum, cuir, musc, fève tonka et <strong>baume du Pérou</strong>, pour une trace ambrée, balsamique et très enveloppante, comme un vieux cognac dégusté près de la cheminée.</p><p>C'est un parfum mixte d'hiver, sensuel et réconfortant, qui tient toute la journée avec un sillage marqué. Il est idéal pour une soirée ou un rendez-vous, quand on recherche une senteur chaleureuse avec du caractère.</p>",
+   "nl": "<p>Defender is een parfum van Boadicea the Victorious, een Brits huis met rijke, warme composities. Hij kwam uit in 2024 en opent gourmand en sprankelend: <strong>cognac</strong>, <strong>honing</strong>, gember, grapefruit, zoethout en rood fruit.</p><p>Het hart is verrassender: goudkleurig <strong>hooi</strong> en harsige mirre mengen zich met nachtjasmijn en oranjebloesem. De basis brengt benzoë, labdanum, leer, muskus, tonkaboon en <strong>perubalsem</strong> samen, voor een amberachtig, balsemachtig en zeer omhullend spoor, als een oude cognac bij de open haard.</p><p>Een sensuele, geruststellende unisex wintergeur die de hele dag blijft met een duidelijke sillage. Ideaal voor een avond uit of een date, wanneer je een warme geur met karakter zoekt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "diptyque-l-eau-des-hesperides-eau-de-toilette-mixte": {
+   "annee": 2008,
+   "parfumeurs": [],
+   "famille_fr": "Hespéridé aromatique",
+   "famille_nl": "Aromatisch citrus",
+   "notes_fr": {
+    "tete": [
+     "orange amère",
+     "carvi",
+     "herbe",
+     "citron",
+     "mandarine",
+     "poivre",
+     "petitgrain",
+     "romarin"
+    ],
+    "coeur": [
+     "notes florales",
+     "menthe"
+    ],
+    "fond": [
+     "cèdre",
+     "immortelle",
+     "musc"
+    ],
+    "cle": [
+     "orange amère",
+     "romarin",
+     "immortelle"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bittere sinaasappel",
+     "karwij",
+     "gras",
+     "citroen",
+     "mandarijn",
+     "peper",
+     "petitgrain",
+     "rozemarijn"
+    ],
+    "coeur": [
+     "bloemige noten",
+     "munt"
+    ],
+    "fond": [
+     "ceder",
+     "strobloem",
+     "muskus"
+    ],
+    "cle": [
+     "bittere sinaasappel",
+     "rozemarijn",
+     "strobloem"
+    ]
+   },
+   "fr": "<p>L'Eau des Hespérides tire son nom du jardin mythologique des Hespérides, où poussaient des pommes d'or. Sortie en 2008 chez Diptyque, elle célèbre les agrumes avec une fraîcheur lumineuse.</p><p>Le départ est un panier d'agrumes et d'herbes : <strong>orange amère</strong>, citron, mandarine et petitgrain, relevés de poivre, de carvi et de <strong>romarin</strong>. Le cœur ajoute une menthe fraîche et des notes florales légères. Le fond, plus doux, associe le cèdre, un musc propre et l'<strong>immortelle</strong>, qui laisse une pointe miellée et ensoleillée.</p><p>C'est une eau de toilette mixte, légère et discrète, faite pour l'été. Elle accompagne parfaitement le bureau, le sport ou les vacances, et se revaporise volontiers dans la journée pour retrouver son effet rafraîchissant.</p>",
+   "nl": "<p>L'Eau des Hespérides is vernoemd naar de mythologische tuin van de Hesperiden, waar gouden appels groeiden. Diptyque bracht hem uit in 2008 als een stralende ode aan citrus.</p><p>De start is een mand vol citrus en kruiden: <strong>bittere sinaasappel</strong>, citroen, mandarijn en petitgrain, gekruid met peper, karwij en <strong>rozemarijn</strong>. Het hart voegt frisse munt en lichte bloemige noten toe. De zachtere basis combineert ceder, schone muskus en <strong>strobloem</strong>, die een honingachtig, zonnig accent nalaat.</p><p>Een lichte, discrete unisex eau de toilette, gemaakt voor de zomer. Perfect op kantoor, bij het sporten of op vakantie, en makkelijk opnieuw te verstuiven overdag voor een frisse boost.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "boadicea-the-victorious-energizer-eau-de-parfum-mixte": {
+   "annee": 2008,
+   "parfumeurs": [],
+   "famille_fr": "Hespéridé musqué",
+   "famille_nl": "Musky citrus",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "agrumes",
+     "pamplemousse",
+     "citron vert",
+     "petitgrain"
+    ],
+    "coeur": [
+     "citron",
+     "musc",
+     "orange"
+    ],
+    "fond": [
+     "vétiver"
+    ],
+    "cle": [
+     "pamplemousse",
+     "citron vert",
+     "vétiver"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "citrus",
+     "grapefruit",
+     "limoen",
+     "petitgrain"
+    ],
+    "coeur": [
+     "citroen",
+     "muskus",
+     "sinaasappel"
+    ],
+    "fond": [
+     "vetiver"
+    ],
+    "cle": [
+     "grapefruit",
+     "limoen",
+     "vetiver"
+    ]
+   },
+   "fr": "<p>Energizer porte bien son nom. Sorti en 2008 chez Boadicea the Victorious, ce parfum mixte mise sur une fraîcheur éclatante et vitaminée, idéale pour bien commencer la journée.</p><p>Le départ réunit tous les agrumes : <strong>pamplemousse</strong>, bergamote, <strong>citron vert</strong> et petitgrain. Le cœur prolonge cette sensation avec le citron, l'orange et un musc propre qui rend la composition plus douce et plus ronde. Le fond de <strong>vétiver</strong> ajoute une touche boisée et légèrement terreuse, qui ancre l'ensemble.</p><p>Discret mais tenace, il reste longtemps sur la peau sans jamais envahir l'espace. C'est un parfum parfait pour l'été, le bureau, le sport ou les journées où l'on cherche une senteur fraîche, nette et dynamique. Il se revaporise volontiers après le sport ou en fin de journée pour retrouver son éclat.</p>",
+   "nl": "<p>Energizer draagt zijn naam met recht. Boadicea the Victorious bracht deze unisex geur uit in 2008, met een stralende, vitaminerijke frisheid, ideaal om de dag goed te beginnen.</p><p>De start brengt alle citrus samen: <strong>grapefruit</strong>, bergamot, <strong>limoen</strong> en petitgrain. Het hart verlengt dat gevoel met citroen, sinaasappel en schone muskus die de compositie zachter en ronder maakt. De basis van <strong>vetiver</strong> voegt een houtig, licht aards accent toe dat alles verankert.</p><p>Discreet maar hardnekkig: hij blijft lang op de huid zonder de ruimte te overheersen. Een perfecte geur voor de zomer, op kantoor, bij het sporten of op dagen waarop je een frisse, heldere en dynamische geur zoekt. Na het sporten of aan het eind van de dag kun je hem gerust opnieuw verstuiven.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "boucheron-la-collection-rose-d-isparta-eau-de-parfum-mixte": {
+   "annee": 2020,
+   "parfumeurs": [
+    "Sonia Constant"
+   ],
+   "famille_fr": "Ambré floral",
+   "famille_nl": "Bloemig amber",
+   "notes_fr": {
+    "tete": [
+     "encens",
+     "gingembre",
+     "ambrette"
+    ],
+    "coeur": [
+     "rose de Turquie",
+     "safran",
+     "cannelle",
+     "aubépine",
+     "freesia"
+    ],
+    "fond": [
+     "vanille",
+     "ambre",
+     "fève tonka",
+     "santal",
+     "musc"
+    ],
+    "cle": [
+     "rose de Turquie",
+     "safran",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "wierook",
+     "gember",
+     "muskuszaad"
+    ],
+    "coeur": [
+     "Turkse roos",
+     "saffraan",
+     "kaneel",
+     "meidoorn",
+     "fresia"
+    ],
+    "fond": [
+     "vanille",
+     "amber",
+     "tonkaboon",
+     "sandelhout",
+     "muskus"
+    ],
+    "cle": [
+     "Turkse roos",
+     "saffraan",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Rose d'Isparta fait partie de La Collection de Boucheron, une série de parfums consacrés chacun à une matière précieuse. Créé en 2020 par Sonia Constant, il rend hommage à la ville turque d'Isparta, célèbre pour ses champs de roses.</p><p>Le départ associe l'<strong>encens</strong>, le gingembre et l'ambrette, pour une ouverture lumineuse et légèrement musquée. Le cœur met en scène la <strong>rose de Turquie</strong>, entourée de <strong>safran</strong>, de cannelle, d'aubépine et de freesia. Le fond réunit la vanille, l'ambre, la fève tonka, le santal et le musc, qui donnent à la rose une chaleur douce et enveloppante.</p><p>C'est un parfum mixte élégant et épicé, qui se porte surtout en automne et en hiver, pour une soirée ou un moment chic. Une belle découverte pour qui aime les roses orientales.</p>",
+   "nl": "<p>Rose d'Isparta hoort bij La Collection van Boucheron, een reeks parfums die elk aan een kostbare grondstof gewijd zijn. Sonia Constant creëerde hem in 2020 als eerbetoon aan de Turkse stad Isparta, beroemd om zijn rozenvelden.</p><p>De opening combineert <strong>wierook</strong>, gember en muskuszaad, voor een heldere, licht muskusachtige start. Het hart zet <strong>Turkse roos</strong> in de kijker, omringd door <strong>saffraan</strong>, kaneel, meidoorn en fresia. De basis brengt vanille, amber, tonkaboon, sandelhout en muskus samen, die de roos een zachte, omhullende warmte geven.</p><p>Een elegante, kruidige unisex geur, vooral voor de herfst en de winter, voor een avond uit of een chic moment. Een mooie ontdekking voor wie van oosterse rozen houdt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-vanille-absolu-eau-de-parfum-pour-femme": {
+   "annee": 2008,
+   "parfumeurs": [],
+   "famille_fr": "Ambré vanillé",
+   "famille_nl": "Vanille amber",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "vanille",
+     "cannelle",
+     "clou de girofle"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "vanille",
+     "kaneel",
+     "kruidnagel"
+    ]
+   },
+   "fr": "<p>Vanille Absolu est l'une des vanilles les plus épicées de Montale. Sorti en 2008, il ne cherche pas la douceur sage : la <strong>vanille</strong> y est entourée de <strong>cannelle</strong> et de <strong>clou de girofle</strong>, qui lui donnent un relief chaud, presque piquant.</p><p>Au fil des heures, des notes boisées s'installent et rendent la composition plus sèche et plus profonde, comme une gousse de vanille posée sur un bois chaud. Le résultat est une vanille affirmée et sensuelle, loin des senteurs de dessert.</p><p>Avec la tenue et le sillage généreux propres à la maison, ce parfum se remarque toute la journée. Il est fait pour l'hiver, les soirées et les grandes occasions, et plaira à celles qui aiment les vanilles audacieuses. Une seule vaporisation suffit.</p>",
+   "nl": "<p>Vanille Absolu is een van de kruidigste vanillegeuren van Montale. Hij kwam uit in 2008 en zoekt geen brave zoetheid: de <strong>vanille</strong> is omringd door <strong>kaneel</strong> en <strong>kruidnagel</strong>, die haar een warm, bijna pittig reliëf geven.</p><p>In de loop van de uren verschijnen houtige noten die de compositie droger en dieper maken, als een vanillestokje op warm hout. Het resultaat is een uitgesproken, sensuele vanille, ver weg van dessertgeuren.</p><p>Met de royale houdbaarheid en sillage die typisch zijn voor het huis, valt deze geur de hele dag op. Gemaakt voor de winter, avonden uit en grote gelegenheden, voor wie van gedurfde vanille houdt. Eén verstuiving is genoeg.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "etat-libre-d-orange-une-amourette-eau-de-parfum-mixte": {
+   "annee": 2017,
+   "parfumeurs": [],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Houtig amber",
+   "notes_fr": {
+    "tete": [
+     "cardamome",
+     "néroli",
+     "baies roses"
+    ],
+    "coeur": [
+     "iris",
+     "patchouli",
+     "pêche"
+    ],
+    "fond": [
+     "akigalawood",
+     "opoponax",
+     "absolu de vanille"
+    ],
+    "cle": [
+     "iris",
+     "pêche",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "kardemom",
+     "neroli",
+     "roze peper"
+    ],
+    "coeur": [
+     "iris",
+     "patchoeli",
+     "perzik"
+    ],
+    "fond": [
+     "akigalawood",
+     "opoponax",
+     "vanilleabsolue"
+    ],
+    "cle": [
+     "iris",
+     "perzik",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Une Amourette est né en 2017 d'une collaboration entre Etat Libre d'Orange et le créateur de mode Roland Mouret. Il s'ouvre sur la <strong>cardamome</strong>, le néroli et les baies roses, pour un départ frais, épicé et lumineux.</p><p>Le cœur est doux et poudré : l'<strong>iris</strong> et une <strong>pêche</strong> veloutée se mêlent au patchouli. Le fond associe l'akigalawood, un bois épicé et moderne, à l'opoponax et à un absolu de <strong>vanille</strong>, qui laissent une trace chaude, sensuelle et élégante.</p><p>C'est un parfum mixte raffiné, qui tient toute la journée avec un sillage affirmé. Il se porte surtout en automne, pour une soirée, un mariage ou un rendez-vous. Comme son nom l'indique, il a tout d'un petit flirt : charmeur, tendre et un brin mystérieux.</p>",
+   "nl": "<p>Une Amourette ontstond in 2017 uit een samenwerking tussen Etat Libre d'Orange en modeontwerper Roland Mouret. Hij opent met <strong>kardemom</strong>, neroli en roze peper, voor een frisse, kruidige en heldere start.</p><p>Het hart is zacht en poederig: <strong>iris</strong> en een fluwelige <strong>perzik</strong> mengen zich met patchoeli. De basis combineert akigalawood, een kruidig en modern hout, met opoponax en <strong>vanille</strong>-absolue, die een warm, sensueel en elegant spoor nalaten.</p><p>Een verfijnde unisex geur die de hele dag blijft met een uitgesproken sillage. Vooral voor de herfst, een avond uit, een bruiloft of een date. Zoals de naam zegt ('een kleine flirt'): charmant, teder en een tikje mysterieus.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-vanilla-cake-eau-de-parfum-mixte": {
+   "annee": 2018,
+   "parfumeurs": [],
+   "famille_fr": "Ambré gourmand",
+   "famille_nl": "Gourmand amber",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "vanille de Madagascar",
+     "meringue",
+     "amande"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "Madagaskarvanille",
+     "meringue",
+     "amandel"
+    ]
+   },
+   "fr": "<p>Vanilla Cake est l'un des parfums les plus gourmands de Montale. Sorti en 2018, il évoque une pâtisserie tout juste sortie du four, avec une composition simple et très lisible.</p><p>On y sent l'<strong>amande</strong> grillée, un <strong>caramel</strong> doré et une <strong>meringue</strong> légère, réunis autour d'une <strong>vanille de Madagascar</strong> riche et crémeuse. Une note de lait arrondit le tout et lui donne une douceur presque réconfortante, comme une crème vanillée.</p><p>Comme souvent chez Montale, la tenue et le sillage sont généreux : une vaporisation suffit pour en profiter toute la journée. C'est un parfum mixte d'hiver, cosy et joyeux, idéal pour les journées froides, les fêtes de fin d'année ou les moments cocooning. Il plaira à tous les amateurs de senteurs sucrées.</p>",
+   "nl": "<p>Vanilla Cake is een van de meest gourmand parfums van Montale. Hij kwam uit in 2018 en roept gebak op dat net uit de oven komt, met een eenvoudige en heel herkenbare compositie.</p><p>Je ruikt geroosterde <strong>amandel</strong>, goudkleurige <strong>karamel</strong> en luchtige <strong>meringue</strong>, rond een rijke, romige <strong>Madagaskarvanille</strong>. Een melknoot rondt alles af en geeft een bijna geruststellende zachtheid, als vanillepudding.</p><p>Zoals vaak bij Montale zijn houdbaarheid en sillage royaal: één verstuiving is genoeg voor de hele dag. Een gezellige, vrolijke unisex wintergeur, ideaal voor koude dagen, de feestdagen of momenten om lekker binnen te blijven. Voor alle liefhebbers van zoete geuren.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-pure-love-eau-de-parfum-pour-femme": {
+   "annee": 2019,
+   "parfumeurs": [],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Houtig amber",
+   "notes_fr": {
+    "tete": [
+     "rose"
+    ],
+    "coeur": [
+     "santal",
+     "vétiver"
+    ],
+    "fond": [
+     "ambre gris",
+     "cuir",
+     "vanille"
+    ],
+    "cle": [
+     "rose",
+     "santal",
+     "cuir"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "roos"
+    ],
+    "coeur": [
+     "sandelhout",
+     "vetiver"
+    ],
+    "fond": [
+     "ambergris",
+     "leer",
+     "vanille"
+    ],
+    "cle": [
+     "roos",
+     "sandelhout",
+     "leer"
+    ]
+   },
+   "fr": "<p>Pure Love est un parfum de Montale sorti en 2019, qui réunit la douceur d'une fleur et la profondeur des bois. Il s'ouvre sur une <strong>rose</strong> fraîche et délicate, qui laisse rapidement la place à un cœur boisé de <strong>santal</strong> crémeux et de vétiver.</p><p>Le fond est plus sensuel : l'ambre gris, un <strong>cuir</strong> doux et la <strong>vanille</strong> se fondent pour créer une trace chaude, légèrement animale et très enveloppante, qui reste sur la peau pendant des heures.</p><p>Fidèle à la réputation de la maison, ce parfum tient jusqu'au lendemain sur les vêtements, avec un sillage affirmé. Il se porte surtout en automne, pour un rendez-vous, un mariage ou une soirée. Une seule vaporisation suffit pour l'apprécier toute la journée.</p>",
+   "nl": "<p>Pure Love is een parfum van Montale uit 2019 dat de zachtheid van een bloem combineert met de diepte van hout. Hij opent met een frisse, delicate <strong>roos</strong>, die snel plaatsmaakt voor een houtig hart van romig <strong>sandelhout</strong> en vetiver.</p><p>De basis is sensueler: ambergris, zacht <strong>leer</strong> en <strong>vanille</strong> smelten samen tot een warm, licht dierlijk en zeer omhullend spoor dat urenlang op de huid blijft.</p><p>Trouw aan de reputatie van het huis blijft deze geur op kleding tot de volgende dag, met een uitgesproken sillage. Vooral voor de herfst, een date, een bruiloft of een avond uit. Eén verstuiving is genoeg om er de hele dag van te genieten.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-roses-musk-eau-de-parfum-pour-femme": {
+   "annee": 2009,
+   "parfumeurs": [],
+   "famille_fr": "Floral musqué",
+   "famille_nl": "Musky bloemig",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "rose",
+     "jasmin",
+     "musc"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "roos",
+     "jasmijn",
+     "muskus"
+    ]
+   },
+   "fr": "<p>Roses Musk est l'un des grands classiques de Montale. Sorti en 2009, il repose sur une idée simple et réussie : réunir une <strong>rose</strong> fraîche et lumineuse à un <strong>musc</strong> doux et poudré.</p><p>Le <strong>jasmin</strong> accompagne la rose et lui donne un côté plus solaire et plus sensuel. Au fil des heures, le musc prend le dessus et laisse une trace de peau propre et soyeuse, très féminine et romantique, qui évoque un bouquet de roses posé sur un linge propre.</p><p>Comme tous les parfums de la maison, il tient toute la journée avec un sillage marqué. Il est idéal au printemps, pour un mariage ou une occasion élégante, et reste assez doux pour être porté au quotidien. Une valeur sûre pour les amatrices de roses.</p>",
+   "nl": "<p>Roses Musk is een van de grote klassiekers van Montale. Hij kwam uit in 2009 en draait om een eenvoudig en geslaagd idee: een frisse, heldere <strong>roos</strong> samen met zachte, poederige <strong>muskus</strong>.</p><p><strong>Jasmijn</strong> begeleidt de roos en geeft haar een zonniger, sensueler karakter. In de loop van de uren neemt de muskus het over en laat hij een schoon, zijdezacht huidspoor na, heel vrouwelijk en romantisch, als een boeket rozen op fris linnen.</p><p>Zoals alle parfums van het huis blijft hij de hele dag met een duidelijke sillage. Ideaal in de lente, voor een bruiloft of een elegante gelegenheid, en zacht genoeg om elke dag te dragen. Een veilige keuze voor liefhebbers van rozen.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-oud-dream-eau-de-parfum-mixte": {
+   "annee": 2019,
+   "parfumeurs": [],
+   "famille_fr": "Boisé",
+   "famille_nl": "Houtig",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "oud",
+     "rose",
+     "patchouli"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "oud",
+     "roos",
+     "patchoeli"
+    ]
+   },
+   "fr": "<p>Oud Dream est un parfum de Montale sorti en 2019, construit autour d'un trio classique et élégant : l'<strong>oud</strong>, la <strong>rose</strong> et le <strong>patchouli</strong>. Montale a fait de l'oud l'une de ses signatures depuis sa création, et ce parfum en propose une version lumineuse et accessible.</p><p>La rose adoucit l'oud et lui donne un côté floral et velouté, tandis que le patchouli apporte de la profondeur et une touche terreuse. Une nuance légèrement cuirée apparaît au fil des heures et rend la composition plus mystérieuse et plus sensuelle.</p><p>Ce parfum mixte tient toute la journée avec un sillage marqué. Il se porte surtout en automne et en hiver, pour un mariage, une soirée ou une occasion où l'on veut une senteur raffinée. Une bonne porte d'entrée pour découvrir l'oud.</p>",
+   "nl": "<p>Oud Dream is een parfum van Montale uit 2019, opgebouwd rond een klassiek en elegant trio: <strong>oud</strong>, <strong>roos</strong> en <strong>patchoeli</strong>. Oud is sinds het begin een van de signaturen van Montale, en deze geur brengt er een heldere, toegankelijke versie van.</p><p>De roos verzacht de oud en geeft hem een bloemig, fluwelig karakter, terwijl patchoeli diepte en een aards accent toevoegt. In de loop van de uren verschijnt een licht leerachtige nuance die de compositie mysterieuzer en sensueler maakt.</p><p>Deze unisex geur houdt de hele dag met een duidelijke sillage. Vooral voor de herfst en de winter, voor een bruiloft, een avond uit of een gelegenheid waarbij je een verfijnde geur wilt. Een goede kennismaking met oud.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-vanilla-extasy-eau-de-parfum-pour-femme": {
+   "annee": 2008,
+   "parfumeurs": [],
+   "famille_fr": "Ambré vanillé",
+   "famille_nl": "Vanille amber",
+   "notes_fr": {
+    "tete": [
+     "abricot",
+     "fleur d'abricotier"
+    ],
+    "coeur": [
+     "jasmin",
+     "vanille",
+     "ylang-ylang"
+    ],
+    "fond": [
+     "benjoin",
+     "acajou",
+     "résine",
+     "santal"
+    ],
+    "cle": [
+     "abricot",
+     "vanille",
+     "benjoin"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "abrikoos",
+     "abrikozenbloesem"
+    ],
+    "coeur": [
+     "jasmijn",
+     "vanille",
+     "ylang-ylang"
+    ],
+    "fond": [
+     "benzoë",
+     "mahonie",
+     "hars",
+     "sandelhout"
+    ],
+    "cle": [
+     "abrikoos",
+     "vanille",
+     "benzoë"
+    ]
+   },
+   "fr": "<p>Vanilla Extasy est l'une des vanilles fruitées de Montale. Sorti en 2008, il s'ouvre sur un <strong>abricot</strong> juteux et la fleur d'abricotier, pour un départ doux, ensoleillé et légèrement poudré.</p><p>Le cœur associe la <strong>vanille</strong> au jasmin et à l'ylang-ylang, ce qui lui donne un côté floral et crémeux, plus lumineux que les vanilles classiques. Le fond réunit le <strong>benjoin</strong>, l'acajou, des résines et le santal, qui laissent une trace balsamique, chaude et boisée.</p><p>Avec la tenue généreuse propre à la maison, ce parfum se sent toute la journée et laisse un sillage marqué. Il est idéal en hiver, pour un rendez-vous ou un mariage, et plaira à celles qui aiment les vanilles gourmandes rehaussées de fleurs et de fruits.</p>",
+   "nl": "<p>Vanilla Extasy is een van de fruitige vanillegeuren van Montale. Hij kwam uit in 2008 en opent met sappige <strong>abrikoos</strong> en abrikozenbloesem, voor een zachte, zonnige en licht poederige start.</p><p>Het hart combineert <strong>vanille</strong> met jasmijn en ylang-ylang, wat een bloemig en romig karakter geeft, helderder dan klassieke vanillegeuren. De basis brengt <strong>benzoë</strong>, mahonie, harsen en sandelhout samen, die een balsemachtig, warm en houtig spoor nalaten.</p><p>Met de royale houdbaarheid die typisch is voor het huis, ruik je deze geur de hele dag, met een duidelijke sillage. Ideaal in de winter, voor een date of een bruiloft, voor wie van gourmand vanille met bloemen en fruit houdt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-oud-tobacco-eau-de-parfum-mixte": {
+   "annee": 2020,
+   "parfumeurs": [],
+   "famille_fr": "Boisé épicé",
+   "famille_nl": "Kruidig houtig",
+   "notes_fr": {
+    "tete": [
+     "agrumes",
+     "cumin"
+    ],
+    "coeur": [
+     "encens",
+     "fleur d'oranger",
+     "oud"
+    ],
+    "fond": [
+     "oud",
+     "tabac",
+     "fève tonka"
+    ],
+    "cle": [
+     "oud",
+     "tabac",
+     "encens"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "citrus",
+     "komijn"
+    ],
+    "coeur": [
+     "wierook",
+     "oranjebloesem",
+     "oud"
+    ],
+    "fond": [
+     "oud",
+     "tabak",
+     "tonkaboon"
+    ],
+    "cle": [
+     "oud",
+     "tabak",
+     "wierook"
+    ]
+   },
+   "fr": "<p>Oud Tobacco, sorti en 2020, réunit deux matières que Montale maîtrise depuis longtemps : l'<strong>oud</strong> et le <strong>tabac</strong>. Il s'ouvre sur des agrumes et une pointe de <strong>cumin</strong>, qui donnent un départ épicé et un peu inattendu.</p><p>Le cœur associe l'<strong>encens</strong> à la fleur d'oranger et à l'oud, pour un contraste entre lumière florale et profondeur boisée. Le fond reprend l'oud, enrichi de tabac et de fève tonka, qui laissent une trace fumée, légèrement cuirée et très sensuelle.</p><p>C'est un parfum mixte audacieux et mystérieux, qui tient toute la journée avec un sillage affirmé. Il se porte surtout en hiver, pour un rendez-vous ou un mariage, et plaira à ceux qui aiment les bois fumés et les ambiances orientales.</p>",
+   "nl": "<p>Oud Tobacco uit 2020 combineert twee grondstoffen die Montale al lang beheerst: <strong>oud</strong> en <strong>tabak</strong>. Hij opent met citrus en een vleugje <strong>komijn</strong>, voor een kruidige en wat onverwachte start.</p><p>Het hart combineert <strong>wierook</strong> met oranjebloesem en oud, voor een contrast tussen bloemig licht en houtige diepte. De basis neemt de oud weer op, verrijkt met tabak en tonkaboon, die een rokerig, licht leerachtig en zeer sensueel spoor nalaten.</p><p>Een gedurfde, mysterieuze unisex geur die de hele dag blijft met een uitgesproken sillage. Vooral voor de winter, een date of een bruiloft, voor wie van rokerig hout en oosterse sferen houdt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "xerjoff-elle-parfum-pour-femme": {
+   "annee": 2007,
+   "parfumeurs": [],
+   "famille_fr": "Ambré boisé",
+   "famille_nl": "Houtig amber",
+   "notes_fr": {
+    "tete": [
+     "fleur d'oranger d'Afrique",
+     "agrumes",
+     "galbanum"
+    ],
+    "coeur": [
+     "bouleau",
+     "iris",
+     "patchouli",
+     "notes boisées"
+    ],
+    "fond": [
+     "ambre",
+     "benjoin",
+     "musc",
+     "opoponax"
+    ],
+    "cle": [
+     "fleur d'oranger",
+     "iris",
+     "opoponax"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "Afrikaanse oranjebloesem",
+     "citrus",
+     "galbanum"
+    ],
+    "coeur": [
+     "berk",
+     "iris",
+     "patchoeli",
+     "houtige noten"
+    ],
+    "fond": [
+     "amber",
+     "benzoë",
+     "muskus",
+     "opoponax"
+    ],
+    "cle": [
+     "oranjebloesem",
+     "iris",
+     "opoponax"
+    ]
+   },
+   "fr": "<p>Elle est un parfum féminin de Xerjoff, sorti en 2007. Il s'ouvre sur la <strong>fleur d'oranger</strong> d'Afrique, des agrumes et le galbanum, pour un départ frais, vert et lumineux.</p><p>Le cœur est plus intense : l'<strong>iris</strong> poudré s'entoure de bouleau, de patchouli et de bois, qui donnent à la composition un caractère sophistiqué. Le fond réunit l'ambre, le benjoin, le musc et l'<strong>opoponax</strong>, une résine douce et chaude qui laisse une trace balsamique, élégante et enveloppante.</p><p>Grâce à sa concentration parfum, Elle tient jusqu'au lendemain sur les vêtements, avec un sillage affirmé. C'est un parfum d'automne, idéal pour un rendez-vous ou un mariage, et pour les femmes qui aiment les compositions raffinées et chaleureuses, loin des floraux légers.</p>",
+   "nl": "<p>Elle is een damesparfum van Xerjoff, uitgebracht in 2007. Hij opent met Afrikaanse <strong>oranjebloesem</strong>, citrus en galbanum, voor een frisse, groene en heldere start.</p><p>Het hart is intenser: poederige <strong>iris</strong> wordt omringd door berk, patchoeli en hout, die de compositie een verfijnd karakter geven. De basis brengt amber, benzoë, muskus en <strong>opoponax</strong> samen, een zachte, warme hars die een balsemachtig, elegant en omhullend spoor nalaat.</p><p>Dankzij de parfumconcentratie blijft Elle op kleding tot de volgende dag, met een uitgesproken sillage. Een herfstgeur, ideaal voor een date of een bruiloft, voor vrouwen die houden van verfijnde, warme composities, ver weg van lichte bloemengeuren.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-mukhallat-eau-de-parfum-mixte": {
+   "annee": 2008,
+   "parfumeurs": [],
+   "famille_fr": "Ambré fruité",
+   "famille_nl": "Fruitig amber",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "fraise",
+     "amande",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "aardbei",
+     "amandel",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Mukhallat est un parfum de Montale sorti en 2008, dont le nom désigne en arabe un mélange de matières précieuses. Il propose une composition gourmande et chaleureuse, construite autour de quelques notes généreuses.</p><p>La <strong>fraise</strong> apporte une touche fruitée et joyeuse, vite rejointe par une <strong>amande</strong> douce. Le <strong>baume du Pérou</strong>, résineux et légèrement épicé, et la <strong>vanille</strong> réchauffent l'ensemble, tandis qu'un musc doux prolonge la trace sur la peau.</p><p>Fidèle au style de la maison, ce parfum mixte tient toute la journée avec un sillage marqué. Il est fait pour l'hiver, les journées froides et les fêtes, et plaira à celles et ceux qui aiment les senteurs fruitées et sucrées, avec une pointe de mystère. Une seule vaporisation suffit, sur la peau ou sur un vêtement.</p>",
+   "nl": "<p>Mukhallat is een parfum van Montale uit 2008; de naam betekent in het Arabisch een mengsel van kostbare grondstoffen. Het is een gourmand, warme compositie, opgebouwd rond enkele royale noten.</p><p><strong>Aardbei</strong> zorgt voor een fruitig, vrolijk accent, al snel gevolgd door zachte <strong>amandel</strong>. Harsige, licht kruidige <strong>perubalsem</strong> en <strong>vanille</strong> verwarmen het geheel, terwijl zachte muskus het spoor op de huid verlengt.</p><p>Trouw aan de stijl van het huis houdt deze unisex geur de hele dag met een duidelijke sillage. Gemaakt voor de winter, koude dagen en feesten, voor wie van fruitige, zoete geuren met een vleugje mysterie houdt. Eén verstuiving volstaat, op de huid of op kleding.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "montale-sensual-instinct-eau-de-parfum-mixte": {
+   "annee": 2019,
+   "parfumeurs": [],
+   "famille_fr": "Ambré gourmand",
+   "famille_nl": "Gourmand amber",
+   "notes_fr": {
+    "tete": [
+     "café"
+    ],
+    "coeur": [
+     "praliné",
+     "rose"
+    ],
+    "fond": [
+     "ambre",
+     "cèdre",
+     "mousse de chêne"
+    ],
+    "cle": [
+     "café",
+     "praliné",
+     "rose"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "koffie"
+    ],
+    "coeur": [
+     "praliné",
+     "roos"
+    ],
+    "fond": [
+     "amber",
+     "ceder",
+     "eikenmos"
+    ],
+    "cle": [
+     "koffie",
+     "praliné",
+     "roos"
+    ]
+   },
+   "fr": "<p>Sensual Instinct, sorti en 2019, s'inscrit dans la lignée des parfums gourmands de Montale. Il s'ouvre sur un <strong>café</strong> torréfié, chaud et légèrement amer, qui donne tout de suite du caractère.</p><p>Le cœur adoucit la composition avec un <strong>praliné</strong> gourmand et une <strong>rose</strong> élégante, qui évitent l'effet trop sucré. Le fond réunit l'ambre, le cèdre et la mousse de chêne, pour une trace boisée et chaleureuse, plus sophistiquée qu'un simple dessert.</p><p>C'est un parfum mixte qui tient toute la journée avec un sillage affirmé. Il est idéal en hiver, pour un rendez-vous, une soirée ou un mariage. Il plaira à ceux qui aiment les notes de café et les gourmands avec une touche florale. Une ou deux vaporisations suffisent pour en profiter jusqu'au soir.</p>",
+   "nl": "<p>Sensual Instinct uit 2019 sluit aan bij de gourmandparfums van Montale. Hij opent met geroosterde <strong>koffie</strong>, warm en licht bitter, die meteen karakter geeft.</p><p>Het hart verzacht de compositie met gourmand <strong>praliné</strong> en een elegante <strong>roos</strong>, die voorkomen dat het te zoet wordt. De basis brengt amber, ceder en eikenmos samen, voor een houtig en warm spoor dat verfijnder is dan een eenvoudig dessert.</p><p>Een unisex geur die de hele dag blijft met een uitgesproken sillage. Ideaal in de winter, voor een date, een avond uit of een bruiloft, voor wie houdt van koffienoten en gourmandgeuren met een bloemig accent. Eén of twee verstuivingen zijn genoeg om er tot 's avonds van te genieten.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "xerjoff-elle-anniversary-parfum-mixte": {
+   "annee": 2023,
+   "parfumeurs": [],
+   "famille_fr": "Floral fruité",
+   "famille_nl": "Fruitig bloemig",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "pomme verte",
+     "litchi",
+     "fruits rouges"
+    ],
+    "coeur": [
+     "bois de cachemire",
+     "jasmin",
+     "réglisse",
+     "pivoine"
+    ],
+    "fond": [
+     "ambre",
+     "musc",
+     "patchouli",
+     "santal"
+    ],
+    "cle": [
+     "litchi",
+     "pivoine",
+     "bois de cachemire"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "groene appel",
+     "lychee",
+     "rood fruit"
+    ],
+    "coeur": [
+     "kasjmierhout",
+     "jasmijn",
+     "zoethout",
+     "pioenroos"
+    ],
+    "fond": [
+     "amber",
+     "muskus",
+     "patchoeli",
+     "sandelhout"
+    ],
+    "cle": [
+     "lychee",
+     "pioenroos",
+     "kasjmierhout"
+    ]
+   },
+   "fr": "<p>Elle Anniversary, sorti en 2023, revisite le parfum Elle de Xerjoff dans une version plus fruitée et plus moderne. Il s'ouvre sur un départ croquant : <strong>pomme verte</strong>, <strong>litchi</strong>, fruits rouges et bergamote.</p><p>Le cœur est floral et doux, avec la <strong>pivoine</strong> et le jasmin, rehaussés d'une touche de réglisse et d'un bois de cachemire velouté. Le fond associe l'ambre, le musc, le patchouli et le santal, pour une trace chaude, élégante et légèrement sucrée.</p><p>Ce parfum mixte tient toute la journée avec un sillage affirmé. Il se porte surtout en automne, pour un mariage, une soirée ou un rendez-vous. Il plaira à celles et ceux qui aiment les fruités sophistiqués, avec la richesse propre aux parfums Xerjoff.</p>",
+   "nl": "<p>Elle Anniversary uit 2023 herinterpreteert Elle van Xerjoff in een fruitigere, modernere versie. Hij opent knapperig: <strong>groene appel</strong>, <strong>lychee</strong>, rood fruit en bergamot.</p><p>Het hart is bloemig en zacht, met <strong>pioenroos</strong> en jasmijn, opgewaardeerd met een vleugje zoethout en fluwelig kasjmierhout. De basis combineert amber, muskus, patchoeli en sandelhout, voor een warm, elegant en licht zoet spoor.</p><p>Deze unisex geur blijft de hele dag met een uitgesproken sillage. Vooral voor de herfst, een bruiloft, een avond uit of een date, voor wie van verfijnde fruitige geuren houdt met de rijkdom die typisch is voor Xerjoff.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "xerjoff-homme-anniversary-parfum-pour-homme": {
+   "annee": 2024,
+   "parfumeurs": [],
+   "famille_fr": "Ambré vanillé",
+   "famille_nl": "Vanille amber",
+   "notes_fr": {
+    "tete": [
+     "bergamote",
+     "citron",
+     "estragon"
+    ],
+    "coeur": [
+     "clou de girofle",
+     "cuir",
+     "fleur d'oranger",
+     "fève tonka"
+    ],
+    "fond": [
+     "fruits confits",
+     "mousse",
+     "styrax",
+     "vanille"
+    ],
+    "cle": [
+     "cuir",
+     "fruits confits",
+     "vanille"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "bergamot",
+     "citroen",
+     "dragon"
+    ],
+    "coeur": [
+     "kruidnagel",
+     "leer",
+     "oranjebloesem",
+     "tonkaboon"
+    ],
+    "fond": [
+     "gekonfijt fruit",
+     "mos",
+     "styrax",
+     "vanille"
+    ],
+    "cle": [
+     "leer",
+     "gekonfijt fruit",
+     "vanille"
+    ]
+   },
+   "fr": "<p>Homme Anniversary, sorti en 2024, est une édition anniversaire du parfum masculin de Xerjoff. Il s'ouvre sur un départ frais et aromatique : bergamote, citron et <strong>estragon</strong>.</p><p>Le cœur se réchauffe avec le clou de girofle, un <strong>cuir</strong> souple, la fleur d'oranger et la fève tonka, pour un mélange à la fois épicé et doux. Le fond est riche et gourmand : <strong>fruits confits</strong>, mousse, styrax et <strong>vanille</strong> laissent une trace ambrée, légèrement résineuse et très confortable.</p><p>C'est un parfum masculin élégant, qui tient toute la journée avec un sillage affirmé. Il est fait pour l'hiver, les soirées, les rendez-vous et les grandes occasions, et plaira à ceux qui aiment les cuirs adoucis par la vanille. Une vaporisation dans le cou suffit.</p>",
+   "nl": "<p>Homme Anniversary uit 2024 is een jubileumeditie van de herengeur van Xerjoff. Hij opent fris en aromatisch: bergamot, citroen en <strong>dragon</strong>.</p><p>Het hart wordt warmer met kruidnagel, soepel <strong>leer</strong>, oranjebloesem en tonkaboon, voor een kruidige en zachte mix. De basis is rijk en gourmand: <strong>gekonfijt fruit</strong>, mos, styrax en <strong>vanille</strong> laten een amberachtig, licht harsig en zeer comfortabel spoor na.</p><p>Een elegant herenparfum dat de hele dag blijft met een uitgesproken sillage. Gemaakt voor de winter, avonden uit, dates en grote gelegenheden, voor wie houdt van leer verzacht door vanille. Eén verstuiving in de hals is genoeg.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "etat-libre-d-orange-la-fin-du-monde-eau-de-parfum-mixte": {
+   "annee": 2013,
+   "parfumeurs": [],
+   "famille_fr": "Floral épicé",
+   "famille_nl": "Bloemig kruidig",
+   "notes_fr": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "pop-corn",
+     "iris",
+     "poivre noir"
+    ]
+   },
+   "notes_nl": {
+    "tete": [],
+    "coeur": [],
+    "fond": [],
+    "cle": [
+     "popcorn",
+     "iris",
+     "zwarte peper"
+    ]
+   },
+   "fr": "<p>La Fin du Monde est l'un des parfums les plus singuliers d'Etat Libre d'Orange, maison parisienne connue pour son audace. Sorti en 2013, il joue avec une idée originale : une note de <strong>pop-corn</strong> chaud, comme devant un film catastrophe.</p><p>Autour de ce pop-corn, la composition associe le sésame, la carotte et le <strong>poivre noir</strong>, puis une note de poudre à canon et de cumin qui ajoute du piquant. L'<strong>iris</strong>, le freesia et l'ambrette apportent de la douceur et un côté poudré. Le fond de santal, de styrax et de vétiver laisse une trace boisée et légèrement sucrée.</p><p>C'est un parfum mixte original, cosy et sensuel, avec un sillage modéré. Il se porte surtout en hiver, pour un rendez-vous, une soirée ou un dîner, et plaira à ceux qui aiment les parfums qui sortent des sentiers battus.</p>",
+   "nl": "<p>La Fin du Monde is een van de meest eigenzinnige parfums van Etat Libre d'Orange, een Parijs huis dat bekendstaat om zijn durf. Hij kwam uit in 2013 en speelt met een origineel idee: een noot van warme <strong>popcorn</strong>, zoals bij een rampenfilm.</p><p>Rond die popcorn combineert de compositie sesam, wortel en <strong>zwarte peper</strong>, gevolgd door een noot van buskruit en komijn die pit geeft. <strong>Iris</strong>, fresia en muskuszaad brengen zachtheid en een poederig karakter. De basis van sandelhout, styrax en vetiver laat een houtig en licht zoet spoor na.</p><p>Een originele, warme en sensuele unisex geur met een gemiddelde sillage. Vooral voor de winter, een date, een avond uit of een diner, voor wie van geuren buiten de gebaande paden houdt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "xerjoff-sketchbook-p-33-eau-de-parfum-mixte": {
+   "annee": 2022,
+   "parfumeurs": [],
+   "famille_fr": "Boisé aromatique",
+   "famille_nl": "Aromatisch houtig",
+   "notes_fr": {
+    "tete": [
+     "pomme",
+     "pamplemousse",
+     "bergamote",
+     "baies roses"
+    ],
+    "coeur": [
+     "iris",
+     "cyprès",
+     "cannelle"
+    ],
+    "fond": [
+     "musc",
+     "cèdre",
+     "ambre"
+    ],
+    "cle": [
+     "pomme",
+     "iris",
+     "cyprès"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "appel",
+     "grapefruit",
+     "bergamot",
+     "roze peper"
+    ],
+    "coeur": [
+     "iris",
+     "cipres",
+     "kaneel"
+    ],
+    "fond": [
+     "muskus",
+     "ceder",
+     "amber"
+    ],
+    "cle": [
+     "appel",
+     "iris",
+     "cipres"
+    ]
+   },
+   "fr": "<p>P-33 fait partie de la collection Sketchbook de Xerjoff, sortie en 2022, Il s'ouvre sur un départ frais et pétillant : <strong>pomme</strong>, pamplemousse, bergamote et baies roses.</p><p>Le cœur associe l'<strong>iris</strong> poudré au <strong>cyprès</strong> aromatique et à une pointe de cannelle, pour un mélange élégant et légèrement épicé. Le fond réunit le musc, le cèdre et l'ambre, qui laissent une trace boisée, propre et douce.</p><p>C'est un parfum mixte moderne et facile à porter, qui convient aussi bien au bureau qu'à une sortie. Il se porte toute l'année, avec un petit avantage au printemps et à l'automne, et plaira à ceux qui aiment les boisés frais rehaussés d'iris. Sa fraîcheur boisée en fait aussi une bonne idée de cadeau, pour elle comme pour lui.</p>",
+   "nl": "<p>P-33 hoort bij de Sketchbook-collectie van Xerjoff uit 2022, Hij opent fris en sprankelend: <strong>appel</strong>, grapefruit, bergamot en roze peper.</p><p>Het hart combineert poederige <strong>iris</strong> met aromatische <strong>cipres</strong> en een vleugje kaneel, voor een elegante, licht kruidige mix. De basis brengt muskus, ceder en amber samen, die een houtig, schoon en zacht spoor nalaten.</p><p>Een moderne, makkelijk draagbare unisex geur, die zowel op kantoor als bij een uitje past. Hij is het hele jaar draagbaar, met een licht voordeel in de lente en de herfst, voor wie van frisse houtgeuren met iris houdt. Door zijn houtige frisheid is hij ook een goed cadeau-idee, voor haar en voor hem.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "mancera-roses-vanille-eau-de-parfum-pour-femme": {
+   "annee": 2011,
+   "parfumeurs": [],
+   "famille_fr": "Floral gourmand",
+   "famille_nl": "Gourmand bloemig",
+   "notes_fr": {
+    "tete": [
+     "citron d'Italie"
+    ],
+    "coeur": [
+     "rose de Turquie"
+    ],
+    "fond": [
+     "cèdre",
+     "vanille",
+     "musc blanc"
+    ],
+    "cle": [
+     "rose de Turquie",
+     "vanille",
+     "citron"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "Italiaanse citroen"
+    ],
+    "coeur": [
+     "Turkse roos"
+    ],
+    "fond": [
+     "ceder",
+     "vanille",
+     "witte muskus"
+    ],
+    "cle": [
+     "Turkse roos",
+     "vanille",
+     "citroen"
+    ]
+   },
+   "fr": "<p>Roses Vanille est l'un des parfums les plus appréciés de Mancera, maison parisienne aux senteurs généreuses. Sorti en 2011, il repose sur un accord simple et réussi entre la rose et la vanille.</p><p>Un <strong>citron</strong> d'Italie pétillant ouvre le parfum et lui donne de la fraîcheur. La <strong>rose de Turquie</strong> s'épanouit ensuite au cœur, veloutée et lumineuse. Le fond associe la <strong>vanille</strong>, le cèdre et un musc blanc, qui adoucissent la fleur et laissent une trace sucrée, propre et romantique.</p><p>C'est un parfum féminin doux et joyeux, avec un sillage modéré et une bonne tenue. Il se porte surtout au printemps, pour un mariage, un rendez-vous ou une soirée, et reste assez léger pour un usage quotidien. C'est aussi une jolie idée de cadeau pour celles qui aiment les roses gourmandes.</p>",
+   "nl": "<p>Roses Vanille is een van de geliefdste parfums van Mancera, een Parijs huis met royale geuren. Hij kwam uit in 2011 en draait om een eenvoudig, geslaagd akkoord tussen roos en vanille.</p><p>Sprankelende Italiaanse <strong>citroen</strong> opent de geur en geeft frisheid. Daarna ontluikt <strong>Turkse roos</strong> in het hart, fluwelig en stralend. De basis combineert <strong>vanille</strong>, ceder en witte muskus, die de bloem verzachten en een zoet, schoon en romantisch spoor nalaten.</p><p>Een zachte, vrolijke damesgeur met een gemiddelde sillage en een goede houdbaarheid. Vooral voor de lente, een bruiloft, een date of een avond uit, en licht genoeg om elke dag te dragen. Ook een mooi cadeau-idee voor wie van zoete rozen houdt.</p>",
+   "sources": [
+    "Profil du site (Fragrance Index / Fragrantica, accords obtenus par Amine)"
+   ],
+   "doute": ""
+  },
+  "escentric-molecules-escentric-01-eau-de-toilette-mixte": {
+   "annee": 2006,
+   "parfumeurs": [
+    "Geza Schoen"
+   ],
+   "famille_fr": "Boisé musqué",
+   "famille_nl": "Musky houtig",
+   "notes_fr": {
+    "tete": [
+     "citron vert",
+     "baies roses",
+     "aldéhydes"
+    ],
+    "coeur": [
+     "iris",
+     "hédione"
+    ],
+    "fond": [
+     "Iso E Super",
+     "encens",
+     "mastic",
+     "muscone"
+    ],
+    "cle": [
+     "Iso E Super",
+     "baies roses",
+     "iris"
+    ]
+   },
+   "notes_nl": {
+    "tete": [
+     "limoen",
+     "roze peper",
+     "aldehyden"
+    ],
+    "coeur": [
+     "iris",
+     "hedione"
+    ],
+    "fond": [
+     "Iso E Super",
+     "wierook",
+     "mastiek",
+     "muscone"
+    ],
+    "cle": [
+     "Iso E Super",
+     "roze peper",
+     "iris"
+    ]
+   },
+   "fr": "<p>Escentric 01 est le parfum qui accompagne Molecule 01 chez Escentric Molecules. Créé en 2006 par Geza Schoen, il met en valeur l'<strong>Iso E Super</strong>, une molécule boisée et veloutée, en l'entourant d'autres matières qui la rendent plus lumineuse.</p><p>Le départ est frais et pétillant, avec le <strong>citron vert</strong>, les <strong>baies roses</strong> et une touche d'aldéhydes. Le cœur associe un <strong>iris</strong> poudré à l'hédione, qui évoque un jasmin frais et transparent. Le fond reprend l'Iso E Super, enrichi d'encens, de mastic et d'un musc doux.</p><p>Le résultat est un parfum mixte discret, propre et chaleureux, qui se fond dans la peau et se perçoit par vagues tout au long de la journée. Il se porte en toute saison, au bureau comme au quotidien, et plaira à celles et ceux qui aiment les parfums subtils et modernes.</p>",
+   "nl": "<p>Escentric 01 is de geur die Molecule 01 vergezelt bij Escentric Molecules. Geza Schoen creëerde hem in 2006 rond <strong>Iso E Super</strong>, een houtige, fluwelige molecule, omringd door andere grondstoffen die haar helderder maken.</p><p>De start is fris en sprankelend, met <strong>limoen</strong>, <strong>roze peper</strong> en een vleugje aldehyden. Het hart combineert poederige <strong>iris</strong> met hedione, die aan frisse, transparante jasmijn doet denken. De basis neemt Iso E Super weer op, verrijkt met wierook, mastiek en zachte muskus.</p><p>Het resultaat is een discrete, schone en warme unisex geur die opgaat in de huid en de hele dag in golven waarneembaar is. Draagbaar in elk seizoen, op kantoor en elke dag, voor wie van subtiele, moderne geuren houdt.</p>",
+   "sources": [
+    "https://www.escentric.com/products/escentric-01-100ml"
+   ],
+   "doute": "26/11/2026 : notes reprises de la fiche officielle escentric.com (citron vert, et non citron d'Amalfi comme dans l'ancien profil)."
   }
  }
 }

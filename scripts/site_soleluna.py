@@ -112,6 +112,12 @@ def nom_marque(b):
     return re.sub(r"(^|[\s\-&'.])(\w)", lambda x: x.group(1) + x.group(2).upper(), m.lower())
 
 
+def de(marque):
+    """« de » ou « d' » devant la marque (26/11/2026 : « d'Escentric Molecules », « d'Hermès », « de Dior »)."""
+    m = (marque or "").strip()
+    return ("d'" if re.match(r"[aeiouyàâéèêëîïôöûüAEIOUYÀÂÉÈÊËÎÏÔÖÛÜ]", m) or re.match(r"herm[eè]s", m, re.I) else "de ") + m
+
+
 def slug(s):
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
@@ -257,15 +263,15 @@ def fiche(l, r, photos):
                               ("Soins et beauté", "Verzorging"))
     # descriptions (rédigées par Qosmi, aucun texte du fournisseur)
     if coffret:
-        d_fr = "Coffret %s de %s. Contenu : %s. " % (titre, marque, contenu)
+        d_fr = "Coffret %s %s. Contenu : %s. " % (titre, de(marque), contenu)
         d_nl = "Geschenkset %s van %s. Inhoud: %s. " % (titre, marque, contenu)
     elif parfum:
-        d_fr = "%s %s de %s, %s%s. " % (type_fr, titre, marque, "un parfum mixte" if g_cle == "mixte" else g_fr,
+        d_fr = "%s %s %s, %s%s. " % (type_fr, titre, de(marque), "un parfum mixte" if g_cle == "mixte" else g_fr,
                                         (", flacon de " + cont) if cont else "")
         d_nl = "%s %s van %s, %s%s. " % (type_nl, titre, marque, "een unisex geur" if g_cle == "mixte" else g_nl,
                                          (", flacon van " + cont) if cont else "")
     else:
-        d_fr = "%s %s de %s%s. " % (type_fr, titre, marque, (", " + cont) if cont else "")
+        d_fr = "%s %s %s%s. " % (type_fr, titre, de(marque), (", " + cont) if cont else "")
         d_nl = "%s %s van %s%s. " % (type_nl, titre, marque, (", " + cont) if cont else "")
     if teinte:
         d_fr += "Teinte : %s. " % teinte

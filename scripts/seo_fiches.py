@@ -78,45 +78,18 @@ def intro(p, prof, nl):
         phrases.append(s + ".")
     else:
         g = {"homme": " pour homme", "femme": " pour femme", "mixte": " mixte"}.get(genre, "")
-        s = "%s est %s%s %s%s" % (nom, typ[1], g, "d'" if re.match(r"[aeiouyhAEIOUYÉÈH]", marque) and not marque.startswith(("H", "h")) else "de ", marque)
+        import site_soleluna as sl
+        s = "%s est %s%s %s" % (nom, typ[1], g, sl.de(marque))
         if a:
             s += ", %s en %d" % ("sortie" if typ[3] else "sorti", a)
         if pf:
             s += (" et %s par " % ("signée" if typ[3] else "signé") if a else ", %s par " % ("signée" if typ[3] else "signé")) + joli(pf, "et")
         phrases.append(s + ".")
-    ac, v = lib("ac", (prof.get("ac") or [])[:3]), lib("v", (prof.get("v") or [])[:2])
-    if ac:  # certains accords sont des noms (rose, cuir, oud…) : liste, pas adjectif
-        phrases.append(("Belangrijkste akkoorden: %s." if nl else "Accords dominants : %s.") % joli(ac, "en" if nl else "et"))
+    # 26/11/2026 (Amine : notes répétées 3 fois) : accords, notes, saisons et occasions sont déjà visibles dans le bloc
+    # « Profil olfactif » de la fiche ; l'introduction garde l'identité du parfum et son ambiance, sans les répéter.
+    v = lib("v", (prof.get("v") or [])[:2])
     if v:
         phrases.append(("Een geur met een %s karakter." if nl else "Un parfum au caractère %s.") % joli(v, "en" if nl else "et"))
-    n = prof.get("nn" if nl else "nf") or {}
-    # minuscule au début des notes, sauf sigles et, en néerlandais, adjectifs de lieu (« Bulgaarse roos », « Calabrische bergamot »)
-    low = lambda xs: [x if x[:2].isupper() or (nl and re.match(r"[A-Z]\w+(s|sch|isch)e\b", x)) else x[:1].lower() + x[1:]  # noqa: E731
-                      for x in (xs or [])][:3]
-    t, c, f, plat = low(n.get("t")), low(n.get("c")), low(n.get("f")), low(n.get("n"))
-    if t or c or f:
-        if nl:
-            bouts = (["het opent met %s" % joli(t, "en")] if t else []) + (["het hart bevat %s" % joli(c, "en")] if c else []) + \
-                    (["de basis is %s" % joli(f, "en")] if f else [])
-            phrases.append(joli(bouts, "en")[:1].upper() + joli(bouts, "en")[1:] + ".")
-        else:
-            bouts = (["il s'ouvre sur %s" % joli(t, "et")] if t else []) + (["son cœur mêle %s" % joli(c, "et")] if c else []) + \
-                    (["le fond repose sur %s" % joli(f, "et")] if f else [])
-            phrases.append(joli(bouts, "et")[:1].upper() + joli(bouts, "et")[1:] + ".")
-    elif plat:
-        phrases.append(("Belangrijkste noten: %s." if nl else "Notes principales : %s.") % joli(plat, "en" if nl else "et"))
-    sais = [x for x in ("printemps", "ete", "automne", "hiver") if x in (prof.get("s") or [])]
-    occ = lib("o", (prof.get("o") or [])[:3])
-    if sais or occ:
-        if nl:
-            s = "Ideaal %s" % joli(["in de " + LIB["s"][x][1] for x in sais], "en") if sais and len(sais) < 4 else \
-                "Draagbaar het hele jaar" if sais else "Ideaal"
-            phrases.append(s + ((", voor " if sais else " voor ") + joli(occ, "en") if occ else "") + ".")
-        else:
-            pre = {"printemps": "au printemps", "ete": "en été", "automne": "en automne", "hiver": "en hiver"}
-            s = "À porter surtout %s" % joli([pre[x] for x in sais], "et") if sais and len(sais) < 4 else \
-                "À porter toute l'année" if sais else "Idéal"
-            phrases.append(s + ((", pour " if sais else " pour ") + joli(occ, "et") if occ else "") + ".")
     return "<p>%s</p>" % e(" ".join(phrases))
 
 
@@ -197,6 +170,10 @@ def nouvelle_meta(d, fins):
     return d
 
 
+def sans_redite(d):
+    return re.sub(r"^<p>[^<]*? (?:de |d'|van )[^<]*?, [^<.]*?\.\s*", "<p>", d, count=1)
+
+
 def enrichir(vus, journal=print):
     from site_variantes import profil_fi, descriptions_riches
     import site_soleluna as sl
@@ -214,7 +191,8 @@ def enrichir(vus, journal=print):
         if prof and sl.slug(p["titre_fr"])[:200] not in riches:
             i_fr, i_nl = intro(p, prof, False), intro(p, prof, True)
             if i_fr:
-                p["desc_fr"], p["desc_nl"] = i_fr + p["desc_fr"], i_nl + p["desc_nl"]
+                # la 1re phrase du texte de base (« Eau de Toilette X de Marque, mixte. ») redit l'introduction : retirée
+                p["desc_fr"], p["desc_nl"] = i_fr + sans_redite(p["desc_fr"]), i_nl + sans_redite(p["desc_nl"])
                 n_intro += 1
         if p["handle"] in proches:
             p["_proches"] = proches[p["handle"]]  # 22/11/2026 : repris par fiches_en (bloc anglais)
