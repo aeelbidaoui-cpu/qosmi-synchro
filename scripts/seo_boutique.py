@@ -124,7 +124,10 @@ def main():
     except Exception as e:
         print("Accueil EN : impossible —", str(e)[:200])
     # --- collections
+    from collections_textes import suite_niche
     for h, ((t_fr, m_fr, b_fr), (t_nl, m_nl, b_nl)) in COLLECTIONS.items():
+        if h == "niche":  # 26/11/2026 : texte long (qk-suite), FR / NL / EN
+            b_fr, b_nl = b_fr + suite_niche("fr"), b_nl + suite_niche("nl")
         c = s.gql("query($h: String!) { collectionByIdentifier(identifier: {handle: $h}) { id } }", {"h": h}).get("collectionByIdentifier")
         if not c:
             print("  collection %s introuvable" % h)
@@ -138,6 +141,8 @@ def main():
         en = "—"
         if h in COLLECTIONS_EN:
             t_en, m_en, b_en = COLLECTIONS_EN[h]
+            if h == "niche":
+                b_en += suite_niche("en")
             en = traduire(s, c["id"], {"body_html": b_en, "meta_title": t_en, "meta_description": m_en}, locale="en")
         print("  collection %-15s FR : %s · NL : %s · EN : %s" % (h, r["userErrors"] or "ok", nl, en))
     # --- EAN des fiches actives (Google Shopping)
