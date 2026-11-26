@@ -21,6 +21,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write  # 26/11/2026 : jeton OIDC pour déposer dans la file Meta (fonction Supabase qosmi-social)
 
 concurrency:
   group: social

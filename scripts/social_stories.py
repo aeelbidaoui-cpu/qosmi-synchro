@@ -3,7 +3,8 @@
 pas que le parfum du jour »).
 
 Chaque jour, deux stories (11 h et 18 h, heure de Bruxelles) sont fabriquées puis programmées d'avance chez Zernio
-(même compte que les publications, secret ZERNIO_API_KEY), sur Instagram uniquement. Un jour en français, le lendemain en
+(même compte que les publications, secret ZERNIO_API_KEY), sur Instagram uniquement. 26/11/2026 : avec « moteur »: "meta"
+(config/social.json), elles partent directement chez Meta, sur Instagram ET Facebook (file Supabase qosmi-social). Un jour en français, le lendemain en
 néerlandais (comme les publications). Jamais de prix de parfum sur une story (choix d'Amine).
 
 Sortes de stories (elles tournent) :
@@ -392,8 +393,13 @@ def envoyer_image(im, nom):
     return u
 
 
-def programmer(cle, url, cible, maintenant):
+def programmer(cle, url, cible, maintenant, cle_e=None):
     import social_publier as sp
+    if sp.moteur_meta():  # 26/11/2026 : publiée directement chez Meta (Instagram + Facebook), voir social_publier.py
+        quand = max(cible or maintenant, maintenant).isoformat(timespec="seconds")
+        fid = sp.ajouter_file({"cle": "story:" + (cle_e or quand), "type": "story", "publier_a": quand,
+                               "images": [url], "plateformes": ["instagram", "facebook"]})
+        return "meta-%s" % fid, quand if cible and cible > maintenant + dt.timedelta(minutes=2) else "maintenant"
     comptes = sp.comptes_zernio(cle)
     if "instagram" not in comptes:
         raise SystemExit("Aucun compte Instagram relié dans Zernio.")
@@ -431,8 +437,9 @@ def main():
                 faits += 1
             jour += dt.timedelta(days=1)
         return
+    import social_publier as sp
     cle = os.environ.get("ZERNIO_API_KEY", "").strip()
-    if not cle:
+    if not cle and not sp.moteur_meta():
         print("ZERNIO_API_KEY absent : aucune story.")
         return
     if "--maintenant" in sys.argv:
@@ -440,7 +447,7 @@ def main():
         cle_e = "%s rattrapage-%s" % (jour, maintenant.strftime("%H%M"))
         im, meta = fabriquer(jour, "11:00", etat)  # un parfum (plus parlant qu'une info pour la toute première)
         url = envoyer_image(im, "qosmi-story-%s-%s.jpg" % (jour.isoformat(), maintenant.strftime("%H%M")))
-        pid, quand = programmer(cle, url, None, maintenant)
+        pid, quand = programmer(cle, url, None, maintenant, cle_e)
         etat[cle_e] = dict(meta, date=jour.isoformat(), creneau="maintenant", zernio=pid, programme=quand, img=url)
         ecrire_etat(etat)
         print("Story publiée maintenant : %s (%s) — %s" % (meta["sorte"], meta["langue"], meta["titre"]))
@@ -456,7 +463,7 @@ def main():
                 continue
             im, meta = fabriquer(jour, hm, etat)
             url = envoyer_image(im, "qosmi-story-%s-%s.jpg" % (jour.isoformat(), hm.replace(":", "h")))
-            pid, quand = programmer(cle, url, cible, maintenant)
+            pid, quand = programmer(cle, url, cible, maintenant, cle_e)
             etat[cle_e] = dict(meta, date=jour.isoformat(), creneau=hm, zernio=pid, programme=quand, img=url)
             ecrire_etat(etat)
             n += 1

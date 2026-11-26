@@ -294,6 +294,49 @@ def publier_facebook(page, jeton_page, photos, legende):
     return graph("POST", "/%s/feed" % page, jeton_page, message=legende, **pieces)["id"]
 
 
+# ---------------------------------------------------------------- Meta direct (26/11/2026, demande d'Amine)
+# « je veux tout automatiser via Meta ce qui est possible gratuitement » : avec « moteur »: "meta" dans config/social.json,
+# les publications et stories sont déposées dans la file Supabase (fonction qosmi-social), qui les publie chez Meta à
+# l'heure exacte (passage toutes les 5 minutes). Authentification par le jeton OIDC de GitHub Actions : aucun secret
+# dans le dépôt. Zernio reste pour TikTok.
+FILE_URL = "https://kvmphxitsaaphkewnyxo.supabase.co/functions/v1/qosmi-social?action=ajouter"
+
+
+def moteur_meta():
+    return CFG.get("moteur") == "meta"
+
+
+def jeton_github():
+    url, tok = os.environ.get("ACTIONS_ID_TOKEN_REQUEST_URL"), os.environ.get("ACTIONS_ID_TOKEN_REQUEST_TOKEN")
+    if not url or not tok:
+        raise RuntimeError("jeton OIDC GitHub indisponible (le workflow doit avoir « id-token: write »)")
+    req = urllib.request.Request(url + "&audience=qosmi-social", headers={"Authorization": "bearer " + tok})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.loads(r.read())["value"]
+
+
+def ajouter_file(item):
+    """Dépose une publication ou une story dans la file Meta ; renvoie son numéro dans la file."""
+    req = urllib.request.Request(FILE_URL, data=json.dumps({"items": [item]}).encode(), method="POST",
+                                 headers={"Authorization": "Bearer " + jeton_github(), "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            res = json.loads(r.read())["items"][0]
+    except urllib.error.HTTPError as ex:
+        raise RuntimeError("file Meta : %s %s" % (ex.code, ex.read()[:300].decode("utf-8", "replace")))
+    if res.get("erreur"):
+        raise RuntimeError("file Meta : %s" % res["erreur"])
+    return res.get("id")
+
+
+def publier_meta(p, urls, cible, maintenant):
+    quand = max(cible, maintenant)
+    fid = ajouter_file({"cle": "post:" + p["id"], "type": "post", "publier_a": quand.isoformat(timespec="seconds"),
+                        "legende_ig": legende_plateforme(p, "instagram"), "legende_fb": legende_plateforme(p, "facebook"),
+                        "images": urls, "plateformes": ["instagram", "facebook"]})
+    return {"meta": fid, "plateformes": ["facebook", "instagram"], "programme": quand.isoformat(timespec="seconds")}
+
+
 # ---------------------------------------------------------------- Zernio (18/11/2026, décision d'Amine : Meta bloque toujours)
 ZAPI = "https://zernio.com/api/v1"
 
@@ -427,7 +470,8 @@ def main():
         return
     heures = CFG.get("heures") or [CFG.get("heure", "18:30")]
     cle_z = os.environ.get("ZERNIO_API_KEY", "").strip()
-    if cle_z and not os.environ.get("META_TOKEN", "").strip() and not essai and not forcer:
+    meta = moteur_meta()
+    if (meta or (cle_z and not os.environ.get("META_TOKEN", "").strip())) and not essai and not forcer:
         # 20/11/2026 : GitHub lance les passages programmés avec des heures de retard (le 19/11 : entre 20 h et minuit),
         # donc le « créneau proche » n'était jamais trouvé et rien n'est parti les 19 et 20/11. Désormais chaque passage
         # programme d'avance chez Zernio les créneaux libres d'aujourd'hui et des jours suivants : Zernio publie à
@@ -449,12 +493,13 @@ def main():
                 if not p:
                     continue
                 urls = urls_publiques(p)
-                resultat = dict(publier_zernio(cle_z, p, urls, cible, dt.datetime.now(tz)), date=jiso, creneau=hm,
+                envoi = publier_meta if meta else (lambda *a: publier_zernio(cle_z, *a))
+                resultat = dict(envoi(p, urls, cible, dt.datetime.now(tz)), date=jiso, creneau=hm,
                                 n=p["n"], heure=hm + ":00", img=urls[:1])
                 etat[p["id"]] = resultat
                 ecrire_etat(etat)
                 programmees += 1
-                print("Programmée chez Zernio : %s %s → n°%s %s — %s" % (jiso, hm, p["n"], p["id"], p["titre"]), flush=True)
+                print("Programmée " + ("chez Meta" if meta else "chez Zernio") + " : %s %s → n°%s %s — %s" % (jiso, hm, p["n"], p["id"], p["titre"]), flush=True)
         print("%d publication(s) programmée(s) d'avance." % programmees)
         try:  # à chaque passage : la page « lien en bio » ne montre que ce qui est déjà paru
             maj_page(etat, lot)
@@ -494,6 +539,14 @@ def main():
         return
     cle = os.environ.get("ZERNIO_API_KEY", "").strip()
     jeton = os.environ.get("META_TOKEN", "").strip()
+    if moteur_meta():
+        urls = urls_publiques(p)
+        resultat = dict(publier_meta(p, urls, maintenant if forcer else cible, dt.datetime.now(tz)),
+                        date=jour, creneau=heure, n=p["n"], heure=dt.datetime.now(tz).strftime("%H:%M:%S"), img=urls[:1])
+        etat[p["id"]] = resultat
+        ecrire_etat(etat)
+        print("Résultat : %s" % json.dumps(resultat, ensure_ascii=False))
+        return
     if cle and not jeton:
         urls = urls_publiques(p)
         resultat = dict(publier_zernio(cle, p, urls, cible if not forcer else maintenant, dt.datetime.now(tz)),
