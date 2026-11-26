@@ -12,7 +12,8 @@ FICHIERS = ["layout/theme.liquid", "templates/index.json", "templates/product.js
             "templates/search.json", "sections/header-group.json", "sections/footer-group.json", "templates/cart.json",
             "sections/main-collection.liquid", "sections/search-results.liquid", "snippets/predictive-search-products-list.liquid"]
 OPTIONNELS = ["snippets/meta-tags.liquid",  # 09/11/2026 : titre Google de l'accueil FR (lu s'il existe)
-              "sections/header.liquid", "sections/product-information.liquid", "sections/main-blog-post.liquid"]  # 26/11/2026 : audit SEO (H1, données structurées)
+              "sections/header.liquid", "sections/product-information.liquid", "sections/main-blog-post.liquid",  # 26/11/2026 : audit SEO (H1, données structurées)
+              "snippets/product-media.liquid"]  # 26/11/2026 : vitesse (photo de fiche plus petite sur téléphone)
 
 # 26/11/2026 (audit SEO) : données produit de Shopify corrigées à l'affichage : https au lieu de http, @id absolus, état neuf et
 # vendeur sur chaque offre, tailles (variesBy), et sans le paragraphe « Dans le même esprit » (liens vers d'autres parfums)
@@ -551,6 +552,14 @@ def construire(fichiers, marques):
         elif "{{ closest.product | structured_data }}" in pinfo:
             liquides["sections/product-information.liquid"] = pinfo.replace("{{ closest.product | structured_data }}", QK_PRODUIT_LD, 1)
             print("  fiche produit : données structurées corrigées")
+    pm = fichiers.get("snippets/product-media.liquid")
+    if pm and "qk-taille-mobile" not in pm:
+        # 26/11/2026 : sur téléphone la photo de fiche n'occupe que 64 % de la largeur (qosmi-rk.css) ; Horizon annonçait
+        # 100vw, donc le téléphone chargeait une image 1200 px pour 250 px affichés
+        liquides["snippets/product-media.liquid"] = ("{%- comment -%}qk-taille-mobile{%- endcomment -%}"
+            "{%- if sizes contains 'calc(100vw - ' -%}{%- assign qk_t = sizes | split: ', ' -%}"
+            "{%- if qk_t.last == '100vw' -%}{%- assign sizes = sizes | remove_last: '100vw' | append: '64vw' -%}{%- endif -%}{%- endif -%}\n" + pm)
+        print("  fiche produit : taille de photo annoncée 64vw sur téléphone")
 
     # ---------- accueil ----------
     e, d = lire(fichiers["templates/index.json"])

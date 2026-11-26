@@ -15,7 +15,10 @@
          role="group" aria-roledescription="{% if qk_nl %}dia{% elsif qk_en %}slide{% else %}diapositive{% endif %}" aria-label="Qosmi">
       {%- if section.settings.video != blank -%}
         {%- comment -%} vidéo d'ambiance : muette, en boucle, lancée seule (aussi sur iPhone grâce à playsinline) {%- endcomment -%}
-        {{ section.settings.video | video_tag: loop: true, muted: true, playsinline: true, controls: false, preload: 'none', class: 'qk-hero__img qk-hero__video', image_size: '1920x', data-qk-differe: '1' }}
+        {%- comment -%} 26/11/2026 (vitesse) : sur téléphone, la version mp4 la plus haute sans dépasser 720p (au lieu de 1080p, ~7 Mo) {%- endcomment -%}
+        {%- assign qk_vm = '' -%}{%- assign qk_vh = 0 -%}
+        {%- for so in section.settings.video.sources -%}{%- if so.mime_type == 'video/mp4' and so.height <= 720 and so.height > qk_vh -%}{%- assign qk_vm = so.url -%}{%- assign qk_vh = so.height -%}{%- endif -%}{%- endfor -%}
+        {{ section.settings.video | video_tag: loop: true, muted: true, playsinline: true, controls: false, preload: 'none', class: 'qk-hero__img qk-hero__video', image_size: '1920x', data-qk-differe: '1', data-qk-mobile: qk_vm }}
         {%- if section.settings.video_mobile != blank -%}
           {{ section.settings.video_mobile | video_tag: loop: true, muted: true, playsinline: true, controls: false, preload: 'none', class: 'qk-hero__img qk-hero__video qk-hero__video--mobile', image_size: '1080x', data-qk-differe: '1' }}
         {%- endif -%}
@@ -34,7 +37,7 @@
     {%- render 'qk-slide-magazine' -%}
   </div>
   {%- comment -%} 26/11/2026 (audit SEO, vitesse) : la vidéo (7 Mo) ne se charge plus avec la page ; l'image d'aperçu s'affiche d'abord et la vidéo démarre 1,5 s après le chargement complet (jamais si l'appareil économise les données) {%- endcomment -%}
-  <script>(function(){function go(){if(navigator.connection&&navigator.connection.saveData)return;document.querySelectorAll('#qk-carrousel-{{ section.id }} video[data-qk-differe]').forEach(function(v){if(v.offsetParent===null&&getComputedStyle(v).display==='none')return;v.preload='auto';v.muted=true;v.autoplay=true;var p=v.play();if(p&&p.catch)p.catch(function(){});});}function plusTard(){setTimeout(go,1500);}if(document.readyState==='complete')plusTard();else window.addEventListener('load',plusTard);})();</script>
+  <script>(function(){function go(){if(navigator.connection&&navigator.connection.saveData)return;document.querySelectorAll('#qk-carrousel-{{ section.id }} video[data-qk-differe]').forEach(function(v){if(v.offsetParent===null&&getComputedStyle(v).display==='none')return;if(v.dataset.qkMobile&&window.matchMedia('(max-width: 749px)').matches&&!v.dataset.qkMobileOk){v.dataset.qkMobileOk='1';v.src=v.dataset.qkMobile;}v.preload='auto';v.muted=true;v.autoplay=true;var p=v.play();if(p&&p.catch)p.catch(function(){});});}function plusTard(){setTimeout(go,1500);}if(document.readyState==='complete')plusTard();else window.addEventListener('load',plusTard);})();</script>
   <button type="button" class="qk-carrousel__fleche qk-carrousel__fleche--prec" aria-label="{% if qk_nl %}Vorige{% elsif qk_en %}Previous{% else %}Précédent{% endif %}" hidden>
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
   </button>
