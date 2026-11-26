@@ -515,7 +515,7 @@ def construire(fichiers, marques):
         else:
             meta = QK_META_MARCHE + meta
         # 26/11/2026 (audit) : pas de retour à la ligne dans <title>, og:image en https, og:price:amount avec un point
-        meta = meta.replace("{{ page_title }}\n", "{{ page_title | strip }}\n", 1)
+        meta = _re0.sub(r"(<title>\s*)\{\{\s*page_title\s*\}\}", r"\1{{- page_title | strip -}}", meta)
         meta = _re0.sub(r'(property="og:image(?::secure_url)?"\s*content=")http:', r"\1https:", meta)
         meta = _re0.sub(r'(property="og:price:amount"\s*content=")\{\{\s*([\w.]+?)\.price\s*\|[^}]*money[^}]*\}\}',
                         r"\1{{ \2.price | divided_by: 100.0 | round: 2 }}", meta)
