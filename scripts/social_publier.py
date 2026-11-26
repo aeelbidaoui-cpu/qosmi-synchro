@@ -106,6 +106,8 @@ def legende_plateforme(p, plateforme):
     nl = p.get("langue") == "nl"
     if plateforme == "facebook":
         prefixe = "https://qosmi.be/nl/products/" if nl else "https://qosmi.be/products/"
+        # 26/11/2026 : jamais de lien vers une fiche hors ligne (archivée ou en brouillon → page introuvable)
+        p = dict(p, produits=[h for h in p.get("produits") or [] if fiche_en_ligne(h)])
         if nl:  # 26/11/2026 (Amine) : en néerlandais, le lien belge et le lien qosmi.nl pour les Pays-Bas
             liens = ["🇧🇪 %s%s\n🇳🇱 https://qosmi.nl/products/%s" % (prefixe, h, h) for h in p.get("produits") or []] \
                 or ["🇧🇪 https://qosmi.be/nl\n🇳🇱 https://qosmi.nl"]
@@ -118,6 +120,25 @@ def legende_plateforme(p, plateforme):
     if tags and texte.endswith(tags):  # avant les hashtags
         return texte[: -len(tags)].rstrip() + "\n\n" + ajout + "\n\n" + tags
     return texte + "\n\n" + ajout
+
+
+_EN_LIGNE = {}
+
+
+def fiche_en_ligne(handle):
+    """Vrai si qosmi.be/products/<handle> existe (fiche active et en ligne). En cas de doute (réseau), on garde le lien."""
+    if handle not in _EN_LIGNE:
+        try:
+            urllib.request.urlopen(urllib.request.Request("https://qosmi.be/products/%s.js" % handle,
+                                                          headers={"User-Agent": "Mozilla/5.0 (qosmi-robot)"}), timeout=30)
+            _EN_LIGNE[handle] = True
+        except urllib.error.HTTPError as ex:
+            _EN_LIGNE[handle] = ex.code != 404
+            if ex.code == 404:
+                print("  lien retiré : %s n'est pas en ligne sur qosmi.be" % handle)
+        except Exception:
+            _EN_LIGNE[handle] = True
+    return _EN_LIGNE[handle]
 
 
 # ---------------------------------------------------------------- page « Vu sur Instagram » (lien de la bio)
