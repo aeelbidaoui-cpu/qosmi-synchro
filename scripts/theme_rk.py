@@ -26,6 +26,10 @@ QK_PRODUIT_LD = ("{%- comment -%}qk-produit-ld{%- endcomment -%}"
     "{%- assign qk_p = qk_sd | split: qk_m -%}{%- if qk_p.size > 1 -%}{%- assign qk_r = qk_p[1] | split: '\",\"hasVariant\"' -%}"
     "{%- if qk_r.size == 2 -%}{%- assign qk_t = qk_p[0] | split: '\\n' | join: ' ' | strip -%}"
     "{%- assign qk_sd = qk_t | append: '\",\"hasVariant\"' | append: qk_r[1] -%}{%- endif -%}{%- endif -%}{%- endfor -%}"
+    # taille de chaque format (« 100 ml ») sur sa variante : c'est ce qui les distingue (variesBy size)
+    "{%- for qk_v in closest.product.variants -%}{%- assign qk_t = qk_v.option1 | split: ' ·' | first | split: ' —' | first | strip -%}"
+    "{%- if qk_t contains 'ml' -%}{%- capture qk_a -%}?variant={{ qk_v.id }}#variant\",\"@type\":\"Product\",{%- endcapture -%}"
+    "{%- capture qk_b -%}{{ qk_a }}\"size\":{{ qk_t | json }},{%- endcapture -%}{%- assign qk_sd = qk_sd | replace: qk_a, qk_b -%}{%- endif -%}{%- endfor -%}"
     "{{ qk_sd }}")
 
 # 26/11/2026 (audit SEO) : données des articles du Magazine : auteur = l'organisation Qosmi (pas une « personne »), éditeur relié
@@ -501,25 +505,28 @@ def construire(fichiers, marques):
         liquides["sections/header.liquid"] = hdr
     blog = fichiers.get("sections/main-blog-post.liquid")
     if blog:
-        if "{{ article | structured_data }}" in blog:
-            liquides["sections/main-blog-post.liquid"] = blog.replace("{{ article | structured_data }}", QK_ARTICLE_LD)
-            print("  articles : données structurées corrigées")
-        elif "qk-article-ld" in blog:
+        # 26/11/2026 : le bloc contient lui-même « {{ article | structured_data }} » -> on teste d'abord le repère, et on remplace
+        # tout le bloc (du 1er repère au DERNIER {{ qk_ad }}), ce qui répare aussi un bloc imbriqué par un passage précédent
+        if "qk-article-ld" in blog:
             a = blog.index("{%- comment -%}qk-article-ld{%- endcomment -%}")
-            b = blog.index("{{ qk_ad }}", a) + len("{{ qk_ad }}")
+            b = blog.rindex("{{ qk_ad }}") + len("{{ qk_ad }}")
             liquides["sections/main-blog-post.liquid"] = blog[:a] + QK_ARTICLE_LD + blog[b:]
             print("  articles : données structurées mises à jour")
+        elif "{{ article | structured_data }}" in blog:
+            liquides["sections/main-blog-post.liquid"] = blog.replace("{{ article | structured_data }}", QK_ARTICLE_LD, 1)
+            print("  articles : données structurées corrigées")
     pinfo = fichiers.get("sections/product-information.liquid")
     if pinfo:
-        if "{{ closest.product | structured_data }}" in pinfo:
-            pinfo = pinfo.replace("{{ closest.product | structured_data }}", QK_PRODUIT_LD)
-            liquides["sections/product-information.liquid"] = pinfo
-            print("  fiche produit : données structurées corrigées")
-        elif "qk-produit-ld" in pinfo:
+        # 26/11/2026 : même piège que pour les articles (bloc imbriqué à chaque passage -> champs répétés) : repère d'abord
+        if "qk-produit-ld" in pinfo:
             a = pinfo.index("{%- comment -%}qk-produit-ld{%- endcomment -%}")
-            b = pinfo.index("{{ qk_sd }}", a) + len("{{ qk_sd }}")
+            b = pinfo.rindex("{{ qk_sd }}") + len("{{ qk_sd }}")
+            n = pinfo.count("qk-produit-ld")
             liquides["sections/product-information.liquid"] = pinfo[:a] + QK_PRODUIT_LD + pinfo[b:]
-            print("  fiche produit : données structurées mises à jour")
+            print("  fiche produit : données structurées mises à jour (%d bloc(s) imbriqué(s) ramené(s) à 1)" % n)
+        elif "{{ closest.product | structured_data }}" in pinfo:
+            liquides["sections/product-information.liquid"] = pinfo.replace("{{ closest.product | structured_data }}", QK_PRODUIT_LD, 1)
+            print("  fiche produit : données structurées corrigées")
 
     # ---------- accueil ----------
     e, d = lire(fichiers["templates/index.json"])
