@@ -31,7 +31,7 @@
   </div>
   <div class="qk-largeur qk-pied__bas">
     {%- comment -%} 21/11/2026 (Google Merchant Center, « Misrepresentation ») : identité de l'entreprise visible sur toutes les pages {%- endcomment -%}
-    <span>© {{ 'now' | date: '%Y' }} Qosmi · <a href="mailto:contact@qosmi.be">contact@qosmi.be</a> · <a href="#" class="qk-pied__cookies" onclick="if(window.privacyBanner){window.privacyBanner.showPreferences();}return false;">{% if qk_nl %}Cookievoorkeuren{% elsif qk_en %}Cookie preferences{% else %}Préférences cookies{% endif %}</a></span>
+    <span>© {{ 'now' | date: '%Y' }} Qosmi · <a href="mailto:contact@qosmi.be">contact@qosmi.be</a> · <a href="#" class="qk-pied__cookies" onclick="if(window.privacyBanner){window.privacyBanner.showPreferences();}return false;">{% if qk_nl %}Cookievoorkeuren{% elsif qk_en %}Cookie preferences{% else %}Préférences cookies{% endif %}</a> · <a href="https://www.linkedin.com/company/qosmi/" target="_blank" rel="me noopener">LinkedIn</a> · <a href="https://www.instagram.com/qosmi.be" target="_blank" rel="me noopener">Instagram</a></span>
     <span class="qk-pied__paiement">
       {%- for type in shop.enabled_payment_types -%}{%- if type == 'paypal' -%}{%- continue -%}{%- endif -%}{{ type | payment_type_svg_tag: class: 'qk-paiement' }}{%- endfor -%}
     </span>
