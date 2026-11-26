@@ -7,7 +7,7 @@
 {%- comment -%} 26/11/2026 : si la fiche a son métachamp qosmi.proches (écrit par l'action « textes-fiches »), les parfums
   proches sont rendus côté serveur (visibles par Google) ; sinon, calcul dans le navigateur comme avant. {%- endcomment -%}
 {%- assign qk_srv = product.metafields.qosmi.proches.value -%}
-{%- assign qk_srv_n = 0 -%}<!-- qkp {{ product.metafields.qosmi.proches.type }}|{{ qk_srv.size }}|{{ product.metafields.qosmi.proches | json | slice: 0, 120 }} -->
+{%- assign qk_srv_n = 0 -%}
 {%- if qk_srv != blank -%}{%- for p in qk_srv -%}{%- if p.available and p.featured_image -%}{%- assign qk_srv_n = qk_srv_n | plus: 1 -%}{%- endif -%}{%- endfor -%}{%- endif -%}
 <section class="qk-section qk-onglets qk-proches" data-qk-proches="{{ product.handle }}"{% if qk_srv_n >= 2 %} data-ok="1"{% else %} hidden{% endif %}>
   <div class="qk-largeur">
