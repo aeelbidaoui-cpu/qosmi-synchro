@@ -139,7 +139,7 @@ document.querySelectorAll('[data-qk-acheter]').forEach(function (b) {
     var pied = document.querySelector('footer');
     function maj() {
       var r = bloc.getBoundingClientRect();
-      var visible = r.bottom > 0 && r.top < window.innerHeight;
+      var visible = r.bottom > 48 && r.top < window.innerHeight - 48;  // bouton vraiment à l'écran (pas juste un bord)
       var basAtteint = pied && pied.getBoundingClientRect().top < window.innerHeight;
       var montrer = !visible && !basAtteint && hote.dataset.variantAvailable !== 'false';
       barre.dataset.stuck = montrer ? 'true' : 'false';
