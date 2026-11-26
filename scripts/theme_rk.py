@@ -503,6 +503,8 @@ def construire(fichiers, marques):
     # 26/11/2026 : vérification Bing Webmaster Tools (qosmi.nl ; qosmi.be est vérifié par l'import Search Console)
     if "msvalidate.01" not in lay:
         lay = lay.replace("</head>", "    {%- if request.page_type == 'index' -%}<meta name=\"msvalidate.01\" content=\"A252B7BA294BAC727EBE6AE61402D2A5\" />{%- endif -%}\n  </head>", 1)
+    if "qk-collection-ld" not in lay:  # 26/11/2026 : fil d'Ariane + liste de produits des collections (données structurées)
+        lay = lay.replace("</head>", "    {%- if request.page_type == 'collection' -%}{% render 'qk-collection-ld', collection: collection %}{%- endif -%}\n  </head>", 1)
     liquides["layout/theme.liquid"] = lay
     # titres et descriptions : qosmi.nl dit « Nederland », plus de « Parfums Parfums de Marly »
     meta = liquides.get("snippets/meta-tags.liquid", fichiers.get("snippets/meta-tags.liquid"))
@@ -512,6 +514,11 @@ def construire(fichiers, marques):
             meta = ACCUEIL_FR + QK_META_MARCHE + meta[len(ACCUEIL_FR):]
         else:
             meta = QK_META_MARCHE + meta
+        # 26/11/2026 (audit) : pas de retour à la ligne dans <title>, og:image en https, og:price:amount avec un point
+        meta = meta.replace("{{ page_title }}\n", "{{ page_title | strip }}\n", 1)
+        meta = _re0.sub(r'(property="og:image(?::secure_url)?"\s*content=")http:', r"\1https:", meta)
+        meta = _re0.sub(r'(property="og:price:amount"\s*content=")\{\{\s*([\w.]+?)\.price\s*\|[^}]*money[^}]*\}\}',
+                        r"\1{{ \2.price | divided_by: 100.0 | round: 2 }}", meta)
         liquides["snippets/meta-tags.liquid"] = meta
     else:
         print("  (meta-tags.liquid introuvable : titres qosmi.nl non corrigés)")

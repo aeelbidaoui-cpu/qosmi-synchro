@@ -1,0 +1,18 @@
+{%- comment -%}
+  26/11/2026 (audit SEO) : données structurées des pages collection — fil d'Ariane (BreadcrumbList) et liste des
+  produits affichés (ItemList). Rendu dans le <head> par layout/theme.liquid (scripts/theme_rk.py).
+{%- endcomment -%}
+{%- if collection and collection.handle != blank -%}
+{%- assign qk_racine = routes.root_url | remove_last: '/' -%}
+{%- assign qk_base = request.origin | append: qk_racine -%}
+{%- case request.locale.iso_code -%}{%- when 'nl' -%}{%- assign qk_acc = 'Home' -%}{%- when 'en' -%}{%- assign qk_acc = 'Home' -%}{%- else -%}{%- assign qk_acc = 'Accueil' -%}{%- endcase -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":{{ qk_acc | json }},"item":{{ qk_base | append: '/' | json }}},
+{"@type":"ListItem","position":2,"name":{{ collection.title | json }},"item":{{ qk_base | append: '/collections/' | append: collection.handle | json }}}]},
+{"@type":"ItemList","name":{{ collection.title | json }},"numberOfItems":{{ collection.products_count }},"itemListElement":[
+{%- assign qk_i = 0 -%}
+{%- for p in collection.products limit: 24 -%}{%- assign qk_i = qk_i | plus: 1 -%}{%- unless forloop.first -%},{%- endunless -%}
+{"@type":"ListItem","position":{{ qk_i }},"url":{{ qk_base | append: '/products/' | append: p.handle | json }},"name":{{ p.title | json }}}
+{%- endfor -%}]}]}</script>
+{%- endif -%}
