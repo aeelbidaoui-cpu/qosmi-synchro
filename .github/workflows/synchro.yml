@@ -42,6 +42,16 @@ jobs:
           key: etat-${{ github.run_id }}
           restore-keys: etat-
 
+      - name: Messages de suivi de commande
+        # 26/11/2026 (Amine) : e-mail « en préparation » (étiquette preparation) et relevé des colis livrés ; ne bloque jamais la synchro
+        if: ${{ inputs.essai != true }}
+        env:
+          SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python -u scripts/suivi_commandes.py || echo "suivi des commandes : erreur (voir journal)"
+
       - name: Mise à jour du site
         env:
           SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
