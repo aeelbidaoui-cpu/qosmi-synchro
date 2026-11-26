@@ -636,11 +636,11 @@ def construire(fichiers, marques):
         "{% else %}" + LIVRAISON + "{% endif %}</p>")
     det["blocks"]["qk_rassurance"] = liquide(
         "<div class=\"qk-rassurance\">{% if request.locale.iso_code == 'nl' %}"
-        "<span>Originele parfum, nieuw, met aankoopfactuur</span><span>14 dagen om van gedacht te veranderen (ongeopende fles)</span>"
+        "<span><a href=\"{{ pages['authenticite'].url | default: '/nl/pages/echtheid' }}\">Origineel parfum, nieuw, met aankoopfactuur</a></span><span>14 dagen om van gedachten te veranderen (ongeopende fles)</span>"
         "<span>Betalen met Bancontact, kaart of Apple Pay</span>{% elsif request.locale.iso_code == 'en' %}"
-        "<span>Original fragrance, new, with purchase invoice</span><span>14 days to change your mind (unopened bottle)</span>"
+        "<span><a href=\"{{ pages['authenticite'].url | default: '/en/pages/authenticity' }}\">Original fragrance, new, with purchase invoice</a></span><span>14 days to change your mind (unopened bottle)</span>"
         "<span>Pay with Bancontact, card or Apple Pay</span>{% else %}"
-        "<span>Parfum original, neuf, avec facture d'achat</span><span>14 jours pour changer d'avis (flacon non ouvert)</span>"
+        "<span><a href=\"{{ pages['authenticite'].url | default: '/pages/authenticite' }}\">Parfum original, neuf, avec facture d'achat</a></span><span>14 jours pour changer d'avis (flacon non ouvert)</span>"
         "<span>Paiement Bancontact, carte ou Apple Pay</span>{% endif %}</div>")
     det["blocks"]["qk_gpsr"] = liquide("{% render 'qk-gpsr', product: closest.product %}")
     # Profil du parfum (13/11/2026) : saison, tenue, sillage, occasions, pyramide (métachamp qosmi.profil)
