@@ -4,14 +4,23 @@
 {%- endcomment -%}
 {%- assign qk_nl = false -%}
 {%- if request.locale.iso_code == 'nl' -%}{%- assign qk_nl = true -%}{%- endif -%}{%- assign qk_en = false -%}{%- if request.locale.iso_code == 'en' -%}{%- assign qk_en = true -%}{%- endif -%}
-<section class="qk-section qk-onglets qk-proches" data-qk-proches="{{ product.handle }}" hidden>
+{%- comment -%} 26/11/2026 : si la fiche a son métachamp qosmi.proches (écrit par l'action « textes-fiches »), les parfums
+  proches sont rendus côté serveur (visibles par Google) ; sinon, calcul dans le navigateur comme avant. {%- endcomment -%}
+{%- assign qk_srv = product.metafields.qosmi.proches.value -%}
+{%- assign qk_srv_n = 0 -%}
+{%- if qk_srv != blank -%}{%- for p in qk_srv -%}{%- if p.available and p.featured_image -%}{%- assign qk_srv_n = qk_srv_n | plus: 1 -%}{%- endif -%}{%- endfor -%}{%- endif -%}
+<section class="qk-section qk-onglets qk-proches" data-qk-proches="{{ product.handle }}"{% if qk_srv_n >= 2 %} data-ok="1"{% else %} hidden{% endif %}>
   <div class="qk-largeur">
     <div class="qk-onglets__barre">
       <h2 class="qk-titre-section">{% if qk_nl %}Parfums met gelijkaardige noten{% elsif qk_en %}Fragrances with similar notes{% else %}Parfums aux notes proches{% endif %}</h2>
       <a class="qk-lien qk-onglets__tout" href="{{ routes.root_url | append: '/pages/odeurs' | replace: '//', '/' }}">{% if qk_nl %}Zoek op geur{% elsif qk_en %}Search by scent{% else %}Chercher par odeurs{% endif %}</a>
     </div>
   </div>
-  <div class="qk-rangee" data-qk-proches-rangee></div>
+  <div class="qk-rangee" data-qk-proches-rangee>
+    {%- if qk_srv_n >= 2 -%}{%- for p in qk_srv -%}{%- if p.available and p.featured_image -%}
+      <div class="qk-rangee__item">{% render 'qk-carte', product: p %}</div>
+    {%- endif -%}{%- endfor -%}{%- endif -%}
+  </div>
   <script src="{{ 'qk-odeurs.js' | asset_url }}" defer></script>
   <script src="{{ 'qk-odeurs-outils.js' | asset_url }}" defer></script>
   <script>

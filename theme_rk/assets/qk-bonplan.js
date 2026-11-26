@@ -60,7 +60,9 @@ function noteTesteur(picker, montrer) {
     note.className = 'qk-testeur-note';
     note.setAttribute('role', 'note');
     note.innerHTML = TESTEUR;
-    (parent.querySelector(':scope > .qk-bonplan-note') || picker).after(note);
+    // 26/11/2026 : sur mobile, l'explication passe sous le bouton d'achat (le bouton reste visible sans défiler)
+    const achat = window.matchMedia('(max-width: 749px)').matches && parent.querySelector(':scope > .buy-buttons-block');
+    (achat || parent.querySelector(':scope > .qk-bonplan-note') || picker).after(note);
   }
 }
 

@@ -127,6 +127,30 @@ document.querySelectorAll('[data-qk-acheter]').forEach(function (b) {
       .catch(function () { b.disabled = false; });
   });
 });
+/* qk-barre-achat (26/11/2026) : sur mobile, barre d'achat du thème affichée tant que le bouton d'achat n'est pas à l'écran */
+(function () {
+  if (window.qkBarreAchat || !window.matchMedia('(max-width: 749px)').matches) return;
+  window.qkBarreAchat = true;
+  function init() {
+    var hote = document.querySelector('sticky-add-to-cart');
+    var barre = hote && hote.querySelector('[ref="stickyBar"]');
+    var bloc = document.querySelector('.product-information .buy-buttons-block') || document.querySelector('.buy-buttons-block');
+    if (!barre || !bloc) return;
+    var pied = document.querySelector('footer');
+    function maj() {
+      var r = bloc.getBoundingClientRect();
+      var visible = r.bottom > 0 && r.top < window.innerHeight;
+      var basAtteint = pied && pied.getBoundingClientRect().top < window.innerHeight;
+      var montrer = !visible && !basAtteint && hote.dataset.variantAvailable !== 'false';
+      barre.dataset.stuck = montrer ? 'true' : 'false';
+      document.body.classList.toggle('qk-barre-achat', montrer);
+    }
+    window.addEventListener('scroll', maj, { passive: true });
+    window.addEventListener('resize', maj);
+    setTimeout(maj, 400);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
 </script>
 {%- endif -%}"""
 CARTE_TEXTE = "{% render 'qk-carte-texte', product: closest.product %}"

@@ -1114,6 +1114,11 @@ def textes():
                   "seo": {"title": p["seo_titre_fr"], "description": p["seo_desc_fr"]}}
         if p.get("type_fr") in TOUTES_MARQUES:  # 23/11/2026 : rayon skincare, types traduits en français dans le titre
             champs["title"] = p["titre_fr"]
+        # 26/11/2026 : parfums proches aussi en métachamp (qosmi.proches) : la fiche les affiche côté serveur (lisibles par Google)
+        ids_proches = [par_handle[x["handle"]]["id"] for x in p.get("_proches") or [] if x.get("handle") in par_handle]
+        if ids_proches:
+            champs["metafields"] = [{"namespace": "qosmi", "key": "proches", "type": "list.product_reference",
+                                     "value": json.dumps(ids_proches)}]
         d = s.gql(sc.M_MAJ, {"product": champs})["productUpdate"]
         if d["userErrors"]:
             err += 1

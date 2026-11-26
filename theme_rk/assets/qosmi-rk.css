@@ -1051,3 +1051,16 @@ body:has(.qk-profil) .qk-desc-profil { display: none; }
 
 /* 26/11/2026 : lien discret vers la page Authenticité depuis la réassurance des fiches */
 .qk-rassurance a { color: inherit; text-decoration: underline; text-decoration-color: rgba(0,0,0,.25); text-underline-offset: 3px; }
+
+/* 26/11/2026 (Amine : photo plus petite sur mobile, bouton d'achat visible) : photo réduite, espaces resserrés,
+   et barre d'achat collée en bas de l'écran tant que le bouton « Ajouter au panier » n'est pas visible
+   (barre « sticky-add-to-cart » du thème, rendue active par le script qk-barre-achat de theme_rk.py, car le thème
+   la désactive quand le chat Shopify Inbox est présent). */
+@media (max-width: 749px) {
+  .product-information__media media-gallery { max-width: 64%; margin-left: auto; margin-right: auto; }
+  .product-information__media media-gallery slideshow-container { padding: 8px; border-radius: 14px; }
+  .qk-fil { margin-bottom: 12px; }
+  .qk-fil__boite { padding: 7px 16px; }
+  .product-information .product-details .group-block-content.layout-panel-flex--column { gap: 14px; }
+  body.qk-barre-achat .sticky-add-to-cart__bar { padding-right: 112px; }
+}
