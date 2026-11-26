@@ -22,7 +22,7 @@
         {%- if section.settings.video_mobile != blank -%}
           {%- assign qk_vmm = '' -%}{%- assign qk_vmh = 0 -%}
           {%- for so in section.settings.video_mobile.sources -%}{%- if so.mime_type == 'video/mp4' and so.height > qk_vmh and so.width <= 1280 and so.height <= 1280 -%}{%- assign qk_vmm = so.url -%}{%- assign qk_vmh = so.height -%}{%- endif -%}{%- endfor -%}
-          {%- if qk_vmm == '' -%}{%- assign qk_vmm = section.settings.video_mobile_leger -%}{%- endif -%}
+          {%- if section.settings.video_mobile_leger != blank -%}{%- assign qk_vmm = section.settings.video_mobile_leger -%}{%- endif -%}
           {{ section.settings.video_mobile | video_tag: loop: true, muted: true, playsinline: true, controls: false, preload: 'none', class: 'qk-hero__img qk-hero__video qk-hero__video--mobile', image_size: '1080x', data-qk-differe: '1', data-qk-mobile: qk_vmm }}
         {%- endif -%}
       {%- elsif section.settings.image != blank -%}
