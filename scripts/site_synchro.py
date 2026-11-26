@@ -281,6 +281,9 @@ def visible(p, sel):
 
 
 SUFFIXE_HANDLE = re.compile(r"-\d+$")
+# 26/11/2026 (Amine : « désarchive et mets en épuisé au lieu d'archiver ») : une fiche avec cette étiquette n'est jamais
+# masquée ni archivée par la synchro ; sans stock, elle reste en ligne en « épuisé » (voir scripts/fiches_epuisees.py).
+GARDER = "garder-en-ligne"
 
 
 def fusionner_doublons(produits, boutique, vs_qs):
@@ -451,7 +454,7 @@ def synchro(essai=False):
         photo = existante.get("featuredMedia") or {}
         if voulu == "ACTIVE" and photo.get("status") != "READY":  # photo absente, en échec ou pas encore traitée
             voulu = "DRAFT" if existante["status"] == "ACTIVE" and photo.get("status") in (None, "FAILED") else existante["status"]
-        if voulu != existante["status"]:
+        if voulu != existante["status"] and not (voulu != "ACTIVE" and GARDER in (existante.get("tags") or [])):
             statuts.append((pid, voulu))
         skus_fiche = {v["sku"] for v in existante["variantes"]}
         for v in p["variantes"]:
@@ -532,7 +535,7 @@ def synchro(essai=False):
         vus |= {sku for sku in vs_qs if sku.startswith((sv.PREFIXE_BON_PLAN, sv.PREFIXE_SUR_COMMANDE, sv.PREFIXE_SUR_COMMANDE_FUSION))}
     if bp_lu:  # 15/11/2026 : fiche du 2e grossiste devenue un doublon (même parfum regroupé ailleurs) : masquée, pas supprimée
         for pid, ex in boutique.items():
-            if ("sur-commande" in (ex.get("tags") or []) and ex["status"] == "ACTIVE"
+            if ("sur-commande" in (ex.get("tags") or []) and ex["status"] == "ACTIVE" and GARDER not in (ex.get("tags") or [])
                     and not any((v.get("sku") or "") in vus for v in ex["variantes"])):
                 statuts.append((pid, "DRAFT"))
                 ligne_journal("  doublon masqué : %s" % ex.get("handle"))
@@ -559,6 +562,7 @@ def synchro(essai=False):
     if len(archives) > 200:
         ligne_journal("fusion des doublons : %d fiches, nombre anormal → rien d'archivé ce passage" % len(archives))
         archives = {}
+    archives = {pid: c for pid, c in archives.items() if GARDER not in ((boutique.get(pid) or {}).get("tags") or [])}
     for pid, cible in archives.items():
         statuts.append((pid, "ARCHIVED"))
     disparus = [(v["inventoryItem"]["id"], 0) for sku, v in vs_qs.items()
