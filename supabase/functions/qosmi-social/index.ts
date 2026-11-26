@@ -64,10 +64,13 @@ async function graph(methode: "GET" | "POST", chemin: string, tok: string, param
 type Comptes = { page: string; jetonPage: string; ig: string | null; nom: string; igNom?: string };
 
 async function comptes(tok: string): Promise<Comptes> {
-  const d = await graph("GET", "/me/accounts", tok, { fields: "id,name,access_token,instagram_business_account{id,username}" });
+  const d = await graph("GET", "/me/accounts", tok, { fields: "id,name,access_token,instagram_business_account{id,username},connected_instagram_account{id,username}" });
   const p = (d.data || []).find((x: any) => String(x.name).trim().toLowerCase() === "qosmi") || (d.data || [])[0];
   if (!p) throw new Error("Aucune page Facebook pour ce jeton (page Qosmi à affecter à l'utilisateur système qosmi-bot)");
-  return { page: p.id, jetonPage: p.access_token, ig: p.instagram_business_account?.id || null, nom: p.name, igNom: p.instagram_business_account?.username };
+  // 26/11/2026 : le compte qosmi.be n'est pas relié à la page, mais il est affecté à qosmi-bot dans le portefeuille :
+  // son identifiant est gardé dans le réglage ig_id
+  const ig = p.instagram_business_account || p.connected_instagram_account || { id: await reglage("ig_id"), username: "qosmi.be" };
+  return { page: p.id, jetonPage: p.access_token, ig: ig?.id || null, nom: p.name, igNom: ig?.username };
 }
 
 async function attendreConteneur(id: string, tok: string) {
@@ -236,6 +239,10 @@ Deno.serve(async (req) => {
     if (!(await cleOk(req))) return json({ erreur: "clé refusée" }, 401);
     if (action === "publier") return json({ ok: true, publie: await publier() });
     if (action === "etat") return await etat();
+    if (action === "lire") { // lecture seule de l'API Meta, pour le diagnostic
+      const u = new URL(req.url);
+      return json(await graph("GET", u.searchParams.get("chemin") || "/me", jeton(), { fields: u.searchParams.get("fields") || "" }).catch((e) => ({ erreur: (e as Error).message })));
+    }
     return json({ erreur: "action inconnue" }, 400);
   } catch (e) {
     return json({ erreur: (e as Error).message }, 500);
