@@ -24,7 +24,7 @@ T = {
 <li>Le parfum est neuf : jamais ouvert ni utilisé avant de vous être envoyé.</li>
 </ul>
 <h2>Et les testeurs ?</h2>
-<p>Un testeur est un parfum authentique, de la même composition, que la marque destine aux démonstrations en magasin. Il est livré dans un emballage plus simple (boîte blanche ou brune), parfois sans bouchon décoratif. Sur le site, les testeurs sont toujours indiqués comme tels.</p>
+<p>Un testeur, c'est le même parfum authentique, dans la même contenance : un flacon original et neuf que les marques fournissent aux parfumeries. Il arrive sans boîte décorée (parfois dans une boîte blanche toute simple), avec son bouchon : seul l'emballage change. Sur le site, les testeurs sont toujours indiqués comme tels.</p>
 <h2>Pourquoi nos prix sont-ils plus doux ?</h2>
 <p>Qosmi vend uniquement en ligne, sans magasin ni vitrine à financer, et compare ses prix chaque semaine. C'est ce qui permet des prix justes, toute l'année, sans fausses promotions.</p>
 <h2>Si vous avez un doute</h2>
@@ -46,7 +46,7 @@ T = {
 <li>Het parfum is nieuw: nooit geopend of gebruikt voor het naar jou vertrekt.</li>
 </ul>
 <h2>En testers?</h2>
-<p>Een tester is een echt parfum, met dezelfde samenstelling, dat het merk bedoelt voor demonstraties in de winkel. Het komt in een eenvoudigere verpakking (witte of bruine doos), soms zonder sierdop. Op de site staan testers altijd als tester vermeld.</p>
+<p>Een tester is hetzelfde echte parfum, in dezelfde inhoud: een origineel, nieuw flesje dat merken aan parfumerieën geven. Het komt zonder sierdoos (soms in een eenvoudige witte doos), met zijn dop: alleen de verpakking verschilt. Op de site staan testers altijd als tester vermeld.</p>
 <h2>Waarom zijn onze prijzen lager?</h2>
 <p>Qosmi verkoopt alleen online, zonder winkel of etalage, en vergelijkt zijn prijzen elke week. Zo houden we eerlijke prijzen, het hele jaar door, zonder nepkortingen.</p>
 <h2>Twijfel je?</h2>
@@ -68,7 +68,7 @@ T = {
 <li>The fragrance is new: never opened or used before it is sent to you.</li>
 </ul>
 <h2>What about testers?</h2>
-<p>A tester is an authentic fragrance, with the same formula, that the brand makes for in-store demonstrations. It comes in simpler packaging (white or brown box), sometimes without a decorative cap. On the site, testers are always labelled as such.</p>
+<p>A tester is the same authentic fragrance, in the same size: an original, brand-new bottle that brands supply to perfumeries. It comes without a decorated box (sometimes in a plain white box), with its cap: only the packaging changes. On the site, testers are always labelled as such.</p>
 <h2>Why are our prices lower?</h2>
 <p>Qosmi sells online only, with no shop or window display to pay for, and compares its prices every week. That is how we keep fair prices all year round, with no fake discounts.</p>
 <h2>If you have a doubt</h2>
