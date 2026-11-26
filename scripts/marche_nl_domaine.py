@@ -1,12 +1,20 @@
 #!/usr/bin/env python3
 """qosmi.nl = domaine du marché Pays-Bas, en néerlandais (25/11/2026, Amine : option 2, même boutique).
---etat : lecture seule (marchés, présences web, domaines). --appliquer : crée la présence web qosmi.nl
-(langue par défaut nl, + fr et en) et la rattache au marché Pays-Bas."""
+26/11/2026 (Amine : « qosmi.fr […] je veux que quelqu'un qui cherche qosmi.fr voie aussi le catalogue comme les
+hollandais ») : même chose pour qosmi.fr → marché France, en français. Variable DOMAINE=qosmi.fr (par défaut qosmi.nl).
+--etat : lecture seule (marchés, présences web, domaines). --appliquer : crée la présence web du domaine
+(langue par défaut du pays, + les autres langues) et la rattache au marché du pays."""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from shopify_api import Shopify
 
 s = Shopify()
+PAYS = {
+    "qosmi.nl": {"marches": ("Pays-Bas", "Netherlands", "Nederland"), "langue": "nl", "autres": ["fr", "en"]},
+    "qosmi.fr": {"marches": ("France",), "langue": "fr", "autres": ["nl", "en"]},
+}
+DOMAINE = os.environ.get("DOMAINE") or "qosmi.nl"
+CONF = PAYS[DOMAINE]
 Q = """{ shop { primaryDomain { id host } }
   domains: webPresences(first:20){ nodes{ id domain{ id host } subfolderSuffix defaultLocale{ locale } alternateLocales{ locale }
     markets(first:10){ nodes{ name } } } }
@@ -23,13 +31,13 @@ def etat():
     return d
 
 
-def domaine_nl():
+def domaine_nl():  # (nom gardé) : identifiant Shopify du domaine DOMAINE
     # Domaines de la boutique : on passe par la recherche de domaine connu
     for q in ['{ shop { domains { id host sslEnabled } } }']:
         try:
             for dm in s.gql(q)["shop"]["domains"]:
                 print("domaine", dm)
-                if dm["host"] == "qosmi.nl":
+                if dm["host"] == DOMAINE:
                     return dm["id"]
         except Exception as e:
             print("domains :", e)
@@ -38,18 +46,18 @@ def domaine_nl():
 
 def appliquer():
     d = etat()
-    nl = [m for m in d["markets"]["nodes"] if m["name"] in ("Pays-Bas", "Netherlands", "Nederland")]
+    nl = [m for m in d["markets"]["nodes"] if m["name"] in CONF["marches"]]
     if not nl:
-        sys.exit("Marché Pays-Bas introuvable")
+        sys.exit("Marché %s introuvable" % CONF["marches"][0])
     nl = nl[0]
     for w in nl["webPresences"]["nodes"]:
-        if (w.get("domain") or {}).get("host") == "qosmi.nl":
+        if (w.get("domain") or {}).get("host") == DOMAINE:
             print("Déjà en place : %s" % w["id"]); return
     dom = domaine_nl()
     if not dom:
-        sys.exit("Domaine qosmi.nl introuvable dans la boutique")
+        sys.exit("Domaine %s introuvable dans la boutique (à connecter d'abord dans Paramètres → Domaines)" % DOMAINE)
     r = s.gql("""mutation($i: WebPresenceCreateInput!){ webPresenceCreate(input:$i){ webPresence{ id domain{ host } defaultLocale{ locale } }
-              userErrors{ field message } } }""", {"i": {"domainId": dom, "defaultLocale": "nl", "alternateLocales": ["fr", "en"]}})
+              userErrors{ field message } } }""", {"i": {"domainId": dom, "defaultLocale": CONF["langue"], "alternateLocales": CONF["autres"]}})
     print(json.dumps(r, ensure_ascii=False))
     wp = (r["webPresenceCreate"]["webPresence"] or {}).get("id")
     if not wp:
