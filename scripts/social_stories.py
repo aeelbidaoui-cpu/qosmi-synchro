@@ -94,9 +94,16 @@ def ecrire_etat(e):
 
 
 def get(url, binaire=False):
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
-        d = r.read()
-    return d if binaire else json.loads(d)
+    import time, urllib.error
+    for essai in range(6):  # 26/11/2026 : qosmi.be répond parfois 429 (trop de requêtes) : on attend et on réessaie
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
+                d = r.read()
+            return d if binaire else json.loads(d)
+        except urllib.error.HTTPError as ex:
+            if ex.code not in (429, 500, 502, 503, 504) or essai == 5:
+                raise
+            time.sleep(int(ex.headers.get("Retry-After") or 0) or 10 * (essai + 1))
 
 
 _CATALOGUE = {}
