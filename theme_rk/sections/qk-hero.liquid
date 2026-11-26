@@ -20,7 +20,9 @@
         {%- for so in section.settings.video.sources -%}{%- if so.mime_type == 'video/mp4' and so.height <= 720 and so.height > qk_vh -%}{%- assign qk_vm = so.url -%}{%- assign qk_vh = so.height -%}{%- endif -%}{%- endfor -%}
         {{ section.settings.video | video_tag: loop: true, muted: true, playsinline: true, controls: false, preload: 'none', class: 'qk-hero__img qk-hero__video', image_size: '1920x', data-qk-differe: '1', data-qk-mobile: qk_vm }}
         {%- if section.settings.video_mobile != blank -%}
-          {{ section.settings.video_mobile | video_tag: loop: true, muted: true, playsinline: true, controls: false, preload: 'none', class: 'qk-hero__img qk-hero__video qk-hero__video--mobile', image_size: '1080x', data-qk-differe: '1' }}
+          {%- assign qk_vmm = '' -%}{%- assign qk_vmh = 0 -%}
+          {%- for so in section.settings.video_mobile.sources -%}{%- if so.mime_type == 'video/mp4' and so.height <= 720 and so.height > qk_vmh -%}{%- assign qk_vmm = so.url -%}{%- assign qk_vmh = so.height -%}{%- endif -%}{%- endfor -%}
+          {{ section.settings.video_mobile | video_tag: loop: true, muted: true, playsinline: true, controls: false, preload: 'none', class: 'qk-hero__img qk-hero__video qk-hero__video--mobile', image_size: '1080x', data-qk-differe: '1', data-qk-mobile: qk_vmm }}
         {%- endif -%}
       {%- elsif section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'qk-hero__img', loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800, 1200, 1600, 2400', alt: section.settings.image.alt }}

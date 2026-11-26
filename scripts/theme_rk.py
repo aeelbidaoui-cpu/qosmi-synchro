@@ -570,6 +570,7 @@ def construire(fichiers, marques):
             "lien": "shopify://collections/parfums", "hauteur": 85,
             "image": "shopify://shop_images/qosmi-hero-ingredients.jpg",
             "video": "shopify://files/videos/qosmi-hero-ingredients-4k.mp4",
+            "video_mobile": "shopify://files/videos/qosmi-hero-mobile.mp4",  # 26/11/2026 : portrait 720p ~1,6 Mo au lieu de 7 Mo
             # carrousel : 2e image = « Le parfum du jour » (08/11/2026)
             "dujour_titre": "Le parfum du jour", "dujour_compte": "Prochain parfum dans", "produits": DU_JOUR, "duree": 7}},
         "qk_favoris": {"type": "qk-onglets", "settings": {
