@@ -83,7 +83,7 @@ def main():
     print("Champs traduisibles :", sorted(dig))
     for loc in ("nl", "en"):
         hh, tt, bb = T[loc]
-        vals = {"title": tt, "handle": hh, "body_html": bb.strip(), "meta_description": SEO[loc]}
+        vals = {"title": tt, "body_html": bb.strip(), "meta_description": SEO[loc]}  # même adresse « wholesale » dans les 3 langues
         lst = [{"locale": loc, "key": k, "value": v, "translatableContentDigest": dig[k]} for k, v in vals.items() if k in dig]
         e = s.gql("""mutation($id: ID!, $t: [TranslationInput!]!) { translationsRegister(resourceId: $id, translations: $t) { userErrors { message } } }""",
                   {"id": pid, "t": lst})["translationsRegister"]["userErrors"]
