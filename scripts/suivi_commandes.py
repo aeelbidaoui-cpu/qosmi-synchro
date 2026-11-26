@@ -21,7 +21,10 @@ from email.message import EmailMessage
 from email.utils import formataddr
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-ESSAI = "--essai" in sys.argv
+# 26/11/2026 : en attente de la confirmation d'Amine que le Gmail envoie bien au nom de contact@qosmi.be (sinon l'adresse
+# de Deway apparaîtrait chez le client) ; tant que ACTIF est faux, rien n'est envoyé.
+ACTIF = False
+ESSAI = "--essai" in sys.argv or not ACTIF
 BOITE = "contact@deway.be"
 EXPEDITEUR = formataddr(("Qosmi", "contact@qosmi.be"))
 LOGO = "https://qosmi.be/cdn/shop/files/qosmi-logo.png?height=90"
