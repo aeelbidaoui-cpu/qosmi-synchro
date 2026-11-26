@@ -465,7 +465,11 @@ def main():
         cle = os.environ.get("ZERNIO_API_KEY", "").strip()
         if not cle:
             raise SystemExit("ZERNIO_API_KEY absent")
-        print("Comptes reliés dans Zernio : %s" % (", ".join(sorted(comptes_zernio(cle))) or "aucun"))
+        print("Comptes reliés dans Zernio (Instagram/Facebook) : %s" % (", ".join(sorted(comptes_zernio(cle))) or "aucun"))
+        d = zernio("GET", "/accounts", cle)  # 26/11/2026 : tous les réseaux (TikTok compris)
+        for a in (d if isinstance(d, list) else (d.get("accounts") or d.get("data") or [])):
+            print("  - %s : %s (%s)%s" % (a.get("platform"), a.get("username") or a.get("displayName") or a.get("name"),
+                                         a.get("_id") or a.get("id"), "" if a.get("isActive", True) is not False else " inactif"))
         return
     tz = ZoneInfo(CFG.get("fuseau", "Europe/Brussels"))
     maintenant = dt.datetime.now(tz)
