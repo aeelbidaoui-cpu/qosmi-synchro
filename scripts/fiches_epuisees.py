@@ -18,6 +18,13 @@ sys.path.insert(0, ICI)
 from shopify_api import Shopify  # noqa: E402
 
 ETIQUETTE = "garder-en-ligne"
+GARDER_STOCK = os.environ.get("GARDER_STOCK") == "1"
+RACINE = os.path.dirname(ICI)
+try:  # EAN aux ingrédients interdits dans l'UE (Lilial, D5) : jamais remis en ligne
+    import json as _json
+    INTERDITS = {e.lstrip("0") for e in _json.load(open(os.path.join(RACINE, "config", "selection.json"), encoding="utf-8")).get("ean_interdits", {})}
+except Exception:
+    INTERDITS = set()
 FICHES = [
     "chanel-chance-eau-de-parfum-pour-femme",
     "giorgio-armani-my-way-eau-de-parfum-pour-femme",
@@ -30,7 +37,7 @@ FICHES = [
 Q = """query($q: String!) { products(first: 3, query: $q) { nodes {
   id handle title status tags onlineStoreUrl totalInventory
   media(first: 1) { nodes { status } }
-  variants(first: 30) { nodes { id sku title inventoryPolicy inventoryQuantity
+  variants(first: 30) { nodes { id sku barcode title inventoryPolicy inventoryQuantity
     inventoryItem { id tracked inventoryLevels(first: 5) { nodes { location { id } } } } } } } } }"""
 
 
@@ -59,6 +66,8 @@ def appliquer(s, p, lieu, pub):
         r = s.gql("""mutation($p: ID!, $v: [ProductVariantsBulkInput!]!) { productVariantsBulkUpdate(productId: $p, variants: $v) {
                      userErrors { message } } }""", {"p": p["id"], "v": pol})["productVariantsBulkUpdate"]
         msgs.append("vente sans stock coupée " + (erreurs(r) or "ok"))
+    if GARDER_STOCK:  # 26/11/2026 : fiche en brouillon avec du vrai stock : remise en ligne telle quelle, stock gardé
+        return " · ".join(msgs + ["stock gardé"])
     for v in variantes:
         it = v["inventoryItem"]
         if not it["tracked"]:
@@ -98,6 +107,12 @@ def main():
         print("%s — %s · %s · %s · photo %s · stock %s · formats %d · étiquettes %s · autres fiches du même nom : %s"
               % (h, p["title"], p["status"], "en ligne" if p["onlineStoreUrl"] else "pas en ligne", photo, p["totalInventory"],
                  len(p["variants"]["nodes"]), ",".join(p["tags"])[:120], ", ".join(autres) or "aucune"))
+        interdits = [v["barcode"] for v in p["variants"]["nodes"] if (v.get("barcode") or "").lstrip("0") in INTERDITS]
+        print("  EAN : %s%s" % (", ".join(v.get("barcode") or "-" for v in p["variants"]["nodes"]),
+                                 " · INTERDIT DANS L'UE : %s" % ", ".join(interdits) if interdits else ""))
+        if ok and interdits:
+            print("  → pas remise en ligne : ingrédient interdit dans l'UE")
+            continue
         if ok:
             print("  → " + appliquer(s, p, lieu, pub))
             p2 = fiche(s, h)
