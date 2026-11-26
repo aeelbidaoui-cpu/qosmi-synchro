@@ -106,7 +106,11 @@ def legende_plateforme(p, plateforme):
     nl = p.get("langue") == "nl"
     if plateforme == "facebook":
         prefixe = "https://qosmi.be/nl/products/" if nl else "https://qosmi.be/products/"
-        liens = ["👉 " + prefixe + h for h in p.get("produits") or []] or ["👉 https://qosmi.be" + ("/nl" if nl else "")]
+        if nl:  # 26/11/2026 (Amine) : en néerlandais, le lien belge et le lien qosmi.nl pour les Pays-Bas
+            liens = ["🇧🇪 %s%s\n🇳🇱 https://qosmi.nl/products/%s" % (prefixe, h, h) for h in p.get("produits") or []] \
+                or ["🇧🇪 https://qosmi.be/nl\n🇳🇱 https://qosmi.nl"]
+        else:
+            liens = ["👉 " + prefixe + h for h in p.get("produits") or []] or ["👉 https://qosmi.be"]
         ajout = "\n".join(liens)
     else:
         ajout = "🔗 Link in bio om te bestellen" if nl else "🔗 Lien en bio pour le commander"
