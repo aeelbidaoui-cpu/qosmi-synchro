@@ -6,6 +6,13 @@ name: Qosmi - bol gain des commandes
 
 on:
   workflow_dispatch:
+    inputs:
+      jours:
+        description: "Nombre de jours en arrière (3 par défaut)"
+        default: "3"
+      cle:
+        description: "Clé publique RSA (PEM, \\n) ; vide = config/cle_rapports.pem"
+        default: ""
 
 concurrency:
   group: qosmi-bol-commandes
@@ -46,10 +53,14 @@ jobs:
           SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
           SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
           TRISTA_URL: ${{ secrets.TRISTA_URL }}
+          JOURS: ${{ inputs.jours }}
+          CLE_PUBLIQUE: ${{ inputs.cle }}
         run: |
+          PUB=config/cle_rapports.pem
+          if [ -n "$CLE_PUBLIQUE" ]; then printf '%b' "$CLE_PUBLIQUE" > /tmp/pub.pem; PUB=/tmp/pub.pem; fi
           mkdir -p base rapports
           python -u scripts/bol_commandes_detail.py
           K=$(openssl rand -hex 32) && echo -n "$K" > /tmp/k
           openssl enc -aes-256-cbc -pbkdf2 -salt -in rapports/commandes_detail.csv -out /tmp/r.enc -pass file:/tmp/k
-          openssl pkeyutl -encrypt -pubin -inkey config/cle_rapports.pem -in /tmp/k -out /tmp/k.enc
+          openssl pkeyutl -encrypt -pubin -inkey "$PUB" -in /tmp/k -out /tmp/k.enc
           echo "=== CLE_CHIFFREE" && base64 -w0 /tmp/k.enc && echo && echo "=== RAPPORT_CHIFFRE" && base64 -w0 /tmp/r.enc && echo && echo "=== FIN"

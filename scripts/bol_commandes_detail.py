@@ -28,10 +28,14 @@ def main():
     refs = ba.references()
     marche = ba.lire_json(ba.MARCHE, {})
     bol = Bol()
-    depuis = (dt.datetime.utcnow() - dt.timedelta(days=3)).strftime("%Y-%m-%d")
+    jours = int(os.environ.get("JOURS") or 3)  # 27/11/2026 : « on a fait combien de bénéf depuis qu'on a commencé bol ? »
+    depuis = (dt.datetime.utcnow() - dt.timedelta(days=jours)).strftime("%Y-%m-%d")
     lignes = []
     for statut in ("OPEN", "SHIPPED"):
-        d = bol.get("/retailer/orders", {"status": statut, "fulfilment-method": "FBR", "page": 1}) or {}
+      for page in range(1, 41):
+        d = bol.get("/retailer/orders", {"status": statut, "fulfilment-method": "FBR", "page": page}) or {}
+        if not d.get("orders"):
+            break
         for c in d.get("orders") or []:
             if (c.get("orderPlacedDateTime") or "")[:10] < depuis:
                 continue
@@ -44,6 +48,7 @@ def main():
                 ligne = {"commande": c["orderId"], "statut": statut, "date": (c.get("orderPlacedDateTime") or "")[:16],
                          "ean": ean, "titre": (it.get("product") or {}).get("title", ""), "quantite": q,
                          "prix_client_ttc": prix, "commission_bol_annoncee": it.get("commission", ""),
+                         "annulation": "oui" if it.get("cancellationRequest") else "",
                          "source": SOURCE.get(ref.get("source") or 1, "?") if ref else "introuvable"}
                 if ref:
                     c2 = regle.cfg_pour(ref, cfg)
@@ -54,13 +59,13 @@ def main():
                     ligne["net_total"] = round(ligne["net_par_piece"] * q, 2)
                 lignes.append(ligne)
     os.makedirs(os.path.dirname(SORTIE), exist_ok=True)
-    champs = ["commande", "statut", "date", "ean", "titre", "quantite", "source", "prix_client_ttc", "achat_ht",
+    champs = ["commande", "statut", "date", "annulation", "ean", "titre", "quantite", "source", "prix_client_ttc", "achat_ht",
               "commission_calculee", "commission_bol_annoncee", "frais_ht", "net_par_piece", "net_total"]
     with open(SORTIE, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=champs, delimiter=";", extrasaction="ignore")
         w.writeheader()
         w.writerows(lignes)
-    print("Commandes des 3 derniers jours : %d article(s) (détail chiffré)." % len(lignes))
+    print("Commandes des %d derniers jours : %d article(s) (détail chiffré)." % (jours, len(lignes)))
 
 
 if __name__ == "__main__":
