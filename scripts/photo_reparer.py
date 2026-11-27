@@ -7,7 +7,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from shopify_api import Shopify  # noqa: E402
 
-Q_P = """query($q: String!) { products(first: 3, query: $q) { nodes { id handle title
+Q_P = """query($q: String!) { products(first: 3, query: $q) { nodes { id handle title status
   media(first: 20) { nodes { id ... on MediaImage { image { url } } } } variants(first: 20) { nodes { barcode } } } } }"""
 Q_V = """query($q: String!) { productVariants(first: 20, query: $q) { nodes { product { id handle title status
   media(first: 10) { nodes { ... on MediaImage { image { url } } } } } } } }"""
@@ -30,7 +30,9 @@ def main():
             continue
         imgs = [m["image"]["url"] for m in p["media"]["nodes"] if m.get("image")]
         print("%s : %d image(s), dont vraies %d" % (h, len(imgs), sum(1 for u in imgs if vraie(u))))
-        if any(vraie(u) for u in imgs):
+        remplacer = "--remplacer" in sys.argv and os.environ.get("PHOTO")  # 27/11/2026 : photo Flaconi (accord d'Amine) en HD
+        anciennes = [m["id"] for m in p["media"]["nodes"] if m.get("image") and vraie(m["image"]["url"])] if remplacer else []
+        if any(vraie(u) for u in imgs) and not remplacer:
             continue
         donneur = None
         if os.environ.get("PHOTO"):  # 27/11/2026 : photo fournie (URL), pour une fiche sans autre fiche de même EAN
@@ -60,6 +62,10 @@ def main():
         mid = r["media"][0]["id"]
         e = s.gql(M_ORD, {"id": p["id"], "m": [{"id": mid, "newPosition": "0"}]})["productReorderMedia"]["userErrors"]
         print("  → photo ajoutée en 1re position %s" % (e or "ok"))
+        if anciennes:
+            e = s.gql("mutation($id: ID!, $m: [ID!]!) { productDeleteMedia(productId: $id, mediaIds: $m) { mediaUserErrors { message } } }",
+                      {"id": p["id"], "m": anciennes})["productDeleteMedia"]["mediaUserErrors"]
+            print("  → %d ancienne(s) photo(s) du flacon retirée(s) %s" % (len(anciennes), e or "ok"))
 
 
 if __name__ == "__main__":
