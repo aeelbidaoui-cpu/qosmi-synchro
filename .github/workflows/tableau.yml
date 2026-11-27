@@ -1,0 +1,37 @@
+name: Qosmi - tableau de bord (à la demande)
+
+# 27/11/2026 : rafraîchit le tableau de bord d'admin.deway.be sans attendre le passage horaire (synchro.yml le fait déjà
+# chaque heure). Lancement manuel seulement : aucune programmation.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: qosmi-tableau
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  actions: read
+  id-token: write
+
+jobs:
+  tableau:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Tableau de bord
+        env:
+          SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+          SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
+          SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
+          TRISTA_URL: ${{ secrets.TRISTA_URL }}
+          BOL_CLIENT_ID: ${{ secrets.BOL_CLIENT_ID }}
+          BOL_CLIENT_SECRET: ${{ secrets.BOL_CLIENT_SECRET }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -u scripts/tableau.py

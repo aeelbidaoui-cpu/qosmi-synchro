@@ -16,6 +16,8 @@ concurrency:
 
 permissions:
   contents: read
+  actions: read      # tableau de bord : état des autres robots
+  id-token: write    # tableau de bord : dépôt dans Supabase par jeton OIDC (aucun secret)
 
 jobs:
   synchro:
@@ -77,6 +79,22 @@ jobs:
           if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/seo_plus.py --prix-unitaire || echo "prix au litre : erreur (voir journal)"; fi
           # nouveautés de la liste Bons plans → Telegram d'Amine (17/11/2026) ; le journal ne montre que des nombres
           if [ "${{ inputs.essai }}" != "true" ]; then python -u scripts/nouveautes_grossiste.py || echo "nouveautés : erreur (voir journal)"; else python -u scripts/nouveautes_grossiste.py --essai || true; fi
+
+      - name: Tableau de bord Qosmi (admin.deway.be)
+        # 27/11/2026 (Amine : « vasy ») : commandes à traiter, ventes, état des robots, alertes → Supabase. Ne bloque jamais.
+        if: ${{ always() && inputs.essai != true }}
+        continue-on-error: true
+        env:
+          SHOPIFY_BOUTIQUE: ${{ secrets.SHOPIFY_BOUTIQUE }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+          SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
+          SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
+          TRISTA_URL: ${{ secrets.TRISTA_URL }}
+          BOL_CLIENT_ID: ${{ secrets.BOL_CLIENT_ID }}
+          BOL_CLIENT_SECRET: ${{ secrets.BOL_CLIENT_SECRET }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -u scripts/tableau.py
 
       - name: Garder l'état pour le prochain passage
         if: always()
