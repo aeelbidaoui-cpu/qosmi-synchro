@@ -155,8 +155,12 @@ def commandes_bol():
                     lim = ful.get("latestDeliveryDate") or ful.get("exactDeliveryDate") or ful.get("expiryDate")
                     if lim and (not limite or lim < limite):
                         limite = lim
-                    ligne = {"titre": (it.get("product") or {}).get("title", ""), "ean": ean, "quantite": q,
-                             "prix_ttc": prix, "fournisseur": {1: "SoleLuna", 2: "Trista", 3: "Rituals", 4: "Fournisseur 4"}.get(ref.get("source") or 1, "?") if ref else "inconnu",
+                    titre = (it.get("product") or {}).get("title", "")
+                    if ref:
+                        four = {1: "SoleLuna", 2: "Trista", 3: "Rituals (magasin)", 4: "Fournisseur 4"}.get(ref.get("source") or 1, "?")
+                    else:
+                        four = "Rituals (magasin)" if "rituals" in titre.lower() else "à chercher"
+                    ligne = {"titre": titre, "ean": ean, "quantite": q, "prix_ttc": prix, "fournisseur": four,
                              "cout_ht": ref.get("achat") if ref else None, "annule": bool(it.get("cancellationRequest"))}
                     if ref:
                         c2 = regle.cfg_pour(ref, cfg)
