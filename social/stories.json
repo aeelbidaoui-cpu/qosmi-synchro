@@ -221,5 +221,33 @@
   "zernio": "meta-2",
   "programme": "2026-11-28T18:00:00+01:00",
   "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-28-18h00.jpg"
+ },
+ "2026-11-29 11:00": {
+  "sorte": "nouveau",
+  "langue": "nl",
+  "titre": "Versace Man Eau Fraiche Extreme — Eau de Parfum voor heren",
+  "parfums": [
+   "versace-man-eau-fraiche-eau-fraiche-extreme-eau-de-parfum-pour-homme"
+  ],
+  "date": "2026-11-29",
+  "creneau": "11:00",
+  "zernio": "meta-5",
+  "programme": "2026-11-29T11:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-29-11h00.jpg"
+ },
+ "2026-11-29 18:00": {
+  "sorte": "famille",
+  "langue": "nl",
+  "titre": "jasmijn",
+  "parfums": [
+   "calvin-klein-ck-all-eau-de-toilette-mixte",
+   "tiziana-terenzi-anniversary-collection-casanova-extrait-de-parfum-mixte",
+   "la-fede-celebrity-crush-eau-de-parfum-pour-homme"
+  ],
+  "date": "2026-11-29",
+  "creneau": "18:00",
+  "zernio": "meta-6",
+  "programme": "2026-11-29T18:00:00+01:00",
+  "img": "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-story-2026-11-29-18h00.jpg"
  }
 }

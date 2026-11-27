@@ -313,5 +313,35 @@
   "img": [
    "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-22-sel-arabes-1.jpg"
   ]
+ },
+ "24-pdj-hacivat": {
+  "meta": 3,
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-29T12:30:00+01:00",
+  "date": "2026-11-29",
+  "creneau": "12:30",
+  "n": 24,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-24-pdj-hacivat-1.jpg"
+  ]
+ },
+ "25-anniv-goodgirl": {
+  "meta": 4,
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-29T18:30:00+01:00",
+  "date": "2026-11-29",
+  "creneau": "18:30",
+  "n": 25,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-25-anniv-goodgirl-1.jpg"
+  ]
  }
 }
