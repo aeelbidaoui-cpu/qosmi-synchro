@@ -37,6 +37,15 @@ if url:
     except Exception as ex:
         notes.append("WF : %s" % ex)
 
+# 27/11/2026 : catalogue Rituals en cache (prix public belge TTC, relu par bol.yml)
+rc = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "base", "rituals_catalogue.json")
+if os.path.exists(rc):
+    for k, v in (json.load(open(rc, encoding="utf-8")).get("produits") or {}).items():
+        if k.lstrip("0") in res:
+            res[k.lstrip("0")].append({"source": "Rituals (prix public TTC)", "ligne": json.dumps(v, ensure_ascii=False)[:600]})
+else:
+    notes.append("catalogue Rituals absent du cache")
+
 d = tempfile.mkdtemp()
 pub, cle, data = (os.path.join(d, x) for x in ("pub.pem", "cle.bin", "data.bin"))
 open(pub, "w").write(os.environ["CLE_PUBLIQUE"].replace("\\n", "\n"))
