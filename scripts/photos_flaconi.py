@@ -15,8 +15,11 @@ RACINE = os.path.dirname(ICI)
 AGENT = "Mozilla/5.0 (compatible; QosmiPhotos/1.0)"
 
 
-def url(e):
-    return "https://cdn.flaconi.net/media/catalog/product/%s/%s/%s_c_live.jpg" % (e[0], e[1], e)
+SUFFIXES = ("_c_live", "-1_c_live", "-1_live", "_live")  # « _c » : flacon détouré ; sinon 1re vue produit
+
+
+def url(e, suf="_c_live"):
+    return "https://cdn.flaconi.net/media/catalog/product/%s/%s/%s%s.jpg" % (e[0], e[1], e, suf)
 
 
 def existe(u):
@@ -46,8 +49,9 @@ def main():
 
     def un(e):
         for c in dict.fromkeys([e, e.lstrip("0"), e.zfill(13)]):
-            if len(c) >= 8 and existe(url(c)):
-                return e, url(c) + "?w=1600&q=90"
+            for suf in SUFFIXES:
+                if len(c) >= 8 and existe(url(c, suf)):
+                    return e, url(c, suf) + "?w=1600&q=90"
         return e, None
 
     with cf.ThreadPoolExecutor(8) as ex:
