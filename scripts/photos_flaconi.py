@@ -37,11 +37,22 @@ def existe(u):
     return False
 
 
+def titres(produits):
+    """Contrôle : EAN | fiche | format des photos trouvées (config/photos_flaconi.json), pour une vérification à l'œil."""
+    ph = json.load(open(os.path.join(RACINE, "config", "photos_flaconi.json"), encoding="utf-8"))["par_ean"]
+    for p in produits:
+        for v in p["variantes"]:
+            if v.get("ean", "").lstrip("0") in ph:
+                print("TITRE %s|%s|%s|%s" % (v["ean"].lstrip("0"), p["titre_fr"], v.get("format") or v.get("contenance") or "", p["handle"]))
+
+
 def main():
     import site_synchro as ss
     if os.environ.get("SOLELUNA_EMAIL"):
         ss.listes_serveur()
     produits = ss.sv.preparer(exemples=False)
+    if "--titres" in sys.argv:
+        return titres(produits)
     sel = ss.selection()
     eans = sorted({v["ean"] for p in produits if ss.visible(p, sel) for v in p["variantes"] if v.get("ean")})
     print("Formats affichés sur le site : %d EAN" % len(eans), flush=True)
