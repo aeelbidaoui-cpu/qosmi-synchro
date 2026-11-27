@@ -343,5 +343,35 @@
   "img": [
    "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-25-anniv-goodgirl-1.jpg"
   ]
+ },
+ "26-bio-morillas": {
+  "meta": 8,
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-30T12:30:00+01:00",
+  "date": "2026-11-30",
+  "creneau": "12:30",
+  "n": 26,
+  "heure": "12:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-26-bio-morillas-1.jpg"
+  ]
+ },
+ "27-conseil-peau": {
+  "meta": 9,
+  "plateformes": [
+   "facebook",
+   "instagram"
+  ],
+  "programme": "2026-11-30T18:30:00+01:00",
+  "date": "2026-11-30",
+  "creneau": "18:30",
+  "n": 27,
+  "heure": "18:30:00",
+  "img": [
+   "https://cdn.shopify.com/s/files/1/0989/9140/7428/files/qosmi-social-27-conseil-peau-1.jpg"
+  ]
  }
 }
