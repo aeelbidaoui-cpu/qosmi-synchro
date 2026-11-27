@@ -33,7 +33,9 @@ def main():
         if any(vraie(u) for u in imgs):
             continue
         donneur = None
-        for ean in {v["barcode"] for v in p["variants"]["nodes"] if v["barcode"]}:
+        if os.environ.get("PHOTO"):  # 27/11/2026 : photo fournie (URL), pour une fiche sans autre fiche de même EAN
+            donneur = ({"handle": "photo fournie", "status": "-"}, os.environ["PHOTO"])
+        for ean in [] if donneur else {v["barcode"] for v in p["variants"]["nodes"] if v["barcode"]}:
             for v in s.gql(Q_V, {"q": "barcode:%s" % ean})["productVariants"]["nodes"]:
                 q = v["product"]
                 if q["id"] == p["id"]:
