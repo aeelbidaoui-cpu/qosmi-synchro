@@ -88,7 +88,7 @@ jobs:
           elif [ "${{ inputs.action }}" = "test-expediteur" ]; then python -u scripts/test_expediteur.py
           elif [ "${{ inputs.action }}" = "page-wholesale" ]; then python -u scripts/page_wholesale.py
           elif [ "${{ inputs.action }}" = "chercher-ean" ]; then python -u scripts/chercher_ean.py
-          elif [ "${{ inputs.action }}" = "prix-ean-chiffre" ]; then CLE_PUBLIQUE="${{ inputs.fiche }}" EANS="$(cat config/eans_niche.txt)" python -u scripts/prix_ean_chiffre.py
+          elif [ "${{ inputs.action }}" = "prix-ean-chiffre" ]; then CLE_PUBLIQUE="${{ inputs.fiche }}" EANS="$(cat config/eans_demande.txt 2>/dev/null || cat config/eans_niche.txt)" python -u scripts/prix_ean_chiffre.py
           elif [ "${{ inputs.action }}" = "chercher-titre" ]; then TITRES="${{ inputs.fiche }}" python -u scripts/chercher_titre.py
           elif [ "${{ inputs.action }}" = "page-contact" ]; then python -u scripts/page_contact.py
           elif [ "${{ inputs.action }}" = "image-noel" ]; then python -u scripts/remplacer_image.py qosmi-decor-coffret-noel.jpg
