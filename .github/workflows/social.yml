@@ -18,6 +18,10 @@ on:
         type: choice
         default: essai
         options: [essai, comptes, publier, forcer, test, statut, relancer, rattraper, stories, story-maintenant]
+      post:
+        description: "statut / relancer : identifiant Zernio d'une publication précise (sinon la dernière)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -49,6 +53,7 @@ jobs:
           SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
           META_TOKEN: ${{ secrets.META_TOKEN }}
           ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+          ZERNIO_POST: ${{ inputs.post }}
         run: |
           A="${{ inputs.action }}"; [ -z "$A" ] && A=publier
           if [ "$A" = "stories" ] || [ "$A" = "story-maintenant" ]; then echo "publications : rien (action $A)"

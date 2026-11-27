@@ -420,7 +420,7 @@ def main():
         cle = os.environ.get("ZERNIO_API_KEY", "").strip()
         etat = lire_etat()
         dern = sorted(((v.get("date", ""), v.get("heure", ""), k, v) for k, v in etat.items() if v.get("zernio")))[-1]
-        pid = dern[3]["zernio"]
+        pid = os.environ.get("ZERNIO_POST", "").strip() or dern[3]["zernio"]  # 27/11/2026 : une publication précise
         r = zernio("POST", "/posts/%s/retry" % pid, cle) if "--relancer" in sys.argv else zernio("GET", "/posts/%s" % pid, cle)
         post = r.get("post", r) if isinstance(r, dict) else {}
         print("Publication %s (%s) : %s %s" % (dern[2], pid, post.get("status"), r.get("message") or r.get("error") or ""))
