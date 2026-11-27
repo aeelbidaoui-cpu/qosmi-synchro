@@ -1,0 +1,34 @@
+name: Qosmi - prix grossistes (chiffré)
+
+# 27/11/2026 : prix et stock d'EAN chez les grossistes branchés. Sortie chiffrée (dépôt public).
+on:
+  workflow_dispatch:
+    inputs:
+      eans:
+        description: "EAN séparés par des espaces"
+        required: true
+      cle:
+        description: "clé publique RSA (PEM, retours à la ligne en \\n)"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  prix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Recherche
+        env:
+          SOLELUNA_EMAIL: ${{ secrets.SOLELUNA_EMAIL }}
+          SOLELUNA_PASSWORD: ${{ secrets.SOLELUNA_PASSWORD }}
+          WF_URL: ${{ secrets.WF_URL }}
+          TRISTA_URL: ${{ secrets.TRISTA_URL }}
+          EANS: ${{ inputs.eans }}
+          CLE_PUBLIQUE: ${{ inputs.cle }}
+        run: python -u scripts/fournisseurs_ean.py
